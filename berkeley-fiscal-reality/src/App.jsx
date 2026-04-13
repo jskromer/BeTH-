@@ -35,6 +35,28 @@ function Bar({ label, value, max, color = "#c41e1e", funded, suffix = " unfunded
   );
 }
 
+// Bar where width = % funded; right label = unfunded % + $ amount
+function FundingBar({ label, funded, unfundedDollars, color = "#d4860b" }) {
+  const unfundedPct = (100 - funded).toFixed(1);
+  const labelColor = funded < 20 ? "#c41e1e" : funded < 50 ? "#d4860b" : "#555";
+  return (
+    <div style={{ marginBottom: 12 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontWeight: 600, marginBottom: 4, flexWrap: "wrap", gap: 4 }}>
+        <span>{label}</span>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "#666" }}>
+          <span style={{ color: labelColor, fontWeight: 700 }}>{unfundedPct}% unfunded</span>
+          {unfundedDollars !== undefined && (
+            <span style={{ marginLeft: 6 }}>(${unfundedDollars}M gap)</span>
+          )}
+        </span>
+      </div>
+      <div style={{ height: 8, background: "#e8e4df", borderRadius: 2, overflow: "hidden" }}>
+        <div style={{ height: "100%", width: `${funded}%`, background: color, borderRadius: 2, transition: "width 0.8s cubic-bezier(.22,1,.36,1)" }} />
+      </div>
+    </div>
+  );
+}
+
 function SolutionRow({ title, savings, detail, urgency }) {
   const colors = { high: "#c41e1e", medium: "#d4860b", low: "#2a7d4f" };
   const labels = { high: "IMMEDIATE", medium: "NEAR-TERM", low: "STRUCTURAL" };
@@ -108,16 +130,16 @@ function ProblemSection() {
         ))}
       </div>
 
-      <SubHead>CalPERS Pension — Unfunded Liability by Plan</SubHead>
-      <Bar label="Miscellaneous Employees" value={234.9} max={280} funded={80.1} />
-      <Bar label="Police Safety" value={151.3} max={280} funded={68.7} color="#8b2020" />
-      <Bar label="Fire Safety" value={58.6} max={280} funded={80.9} color="#d4860b" />
+      <SubHead>CalPERS Pension — % of Commitment Funded</SubHead>
+      <FundingBar label="Miscellaneous Employees" funded={80.1} unfundedDollars={234.9} color="#d4860b" />
+      <FundingBar label="Police Safety" funded={68.7} unfundedDollars={151.3} color="#8b2020" />
+      <FundingBar label="Fire Safety" funded={80.9} unfundedDollars={58.6} color="#d4860b" />
 
-      <SubHead>Retiree Healthcare (OPEB) — The Red Zone</SubHead>
-      <Bar label="Police Retiree Income (closed)" value={60.2} max={80} funded={7.1} color="#8b0000" />
-      <Bar label="Police Health Premium (new)" value={34.7} max={80} funded={6.9} color="#8b0000" />
-      <Bar label="Fire Retiree Health" value={20.1} max={80} funded={38.6} color="#d4860b" />
-      <Bar label="Non-Safety Retiree Health" value={30.0} max={80} funded={51.2} color="#d4860b" />
+      <SubHead>Retiree Healthcare (OPEB) — % of Commitment Funded</SubHead>
+      <FundingBar label="Police Retiree Income (closed)" funded={7.1} unfundedDollars={60.2} color="#8b0000" />
+      <FundingBar label="Police Health Premium (new)" funded={6.9} unfundedDollars={34.7} color="#8b0000" />
+      <FundingBar label="Fire Retiree Health" funded={38.6} unfundedDollars={20.1} color="#d4860b" />
+      <FundingBar label="Non-Safety Retiree Health" funded={51.2} unfundedDollars={30.0} color="#d4860b" />
 
       <Callout type="danger">
         <strong style={{ color: "#8b0000" }}>Critical:</strong> Police retiree plans are less than 7% funded — 
@@ -189,9 +211,9 @@ function CostsSection() {
       />
 
       <Callout type="warning">
-        <strong>Key insight:</strong> The deficit is not a revenue problem — General Fund revenue has grown steadily. 
-        It is a <em>cost structure problem</em> driven by pension obligations, retiree healthcare, 
-        and negotiated benefits that outpace revenue growth every single year.
+        <strong>Key insight:</strong> The deficit is not a revenue problem — General Fund revenue has been essentially flat,
+        and actually declined from $273M in FY23 to $262M in FY24. It is a <em>cost structure problem</em> driven by pension
+        obligations, retiree healthcare, and negotiated benefits that outpace revenue every single year.
       </Callout>
 
       <SubHead>Revenue vs. Expenditure Projection</SubHead>
