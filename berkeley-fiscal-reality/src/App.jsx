@@ -170,7 +170,7 @@ function ShellGameSection() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", border: "2px solid #1a1a1a", borderRadius: 8, overflow: "hidden", marginBottom: 28 }}>
         {[
           { value: "~$20M", label: "FY26 Fund Raids", sub: "Used to fake a 'balanced' budget", color: "#c41e1e" },
-          { value: "$316M", label: "Carryovers Rolled", sub: "Unspent appropriations FY24–26", color: "#c41e1e" },
+          { value: "$316M", label: "Carryovers Rolled", sub: "All funds FY24–26 ($32M GF portion)", color: "#c41e1e" },
           { value: "$33M", label: "Stated Deficit", sub: "What voters are being told", color: "#1a1a1a" },
           { value: "0 of 5", label: "Audit Recs Resolved", sub: "Four years, no action", color: "#8b0000" },
         ].map((s, i, arr) => (
@@ -191,6 +191,48 @@ function ShellGameSection() {
             <p style={{ fontSize: 12, lineHeight: 1.65, color: "#555", margin: 0 }}>{step.body}</p>
           </div>
         ))}
+      </div>
+
+      {/* ── Household Analogy Sidebar ── */}
+      <div style={{
+        background: "#fffbf0", border: "1px solid #e8d6a8", borderLeft: "4px solid #d4860b",
+        borderRadius: "0 8px 8px 0", padding: "18px 20px", marginBottom: 28
+      }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#d4860b", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
+          📋 HOW TO FOLLOW THE MONEY — A HOUSEHOLD ANALOGY
+        </div>
+        <p style={{ fontSize: 13, fontWeight: 700, margin: "0 0 12px", color: "#1a1a1a" }}>
+          Imagine your household earns $10,000/month and budgets $10,000 in expenses.
+          You actually only spend $8,500. Here's what Berkeley does with that $1,500:
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: 10, marginBottom: 14 }}>
+          {[
+            { step: "What a normal household does", desc: "Note the $1,500 surplus. Put it in savings or reduce next month's budget.", color: "#2a7d4f" },
+            { step: "What Berkeley does", desc: "Quietly roll that $1,500 into next month as extra spending authority — on top of the new $10,000 budget. Don't mention it.", color: "#c41e1e" },
+          ].map((item, i) => (
+            <div key={i} style={{ background: i === 0 ? "#edf7f0" : "#fdf0f0", borderRadius: 6, padding: "12px 14px", border: `1px solid ${i === 0 ? "#b8dcc4" : "#e8c4c4"}` }}>
+              <div style={{ fontSize: 10, fontWeight: 800, color: item.color, letterSpacing: "1px", marginBottom: 6, fontFamily: "'JetBrains Mono', monospace" }}>{item.step.toUpperCase()}</div>
+              <div style={{ fontSize: 12, lineHeight: 1.65, color: "#333" }}>{item.desc}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: 12, lineHeight: 1.75, color: "#555", margin: "0 0 10px" }}>
+          Do that for three years and you've built a hidden pool of carry-forward money — tens of thousands of dollars
+          that doesn't show up in your stated monthly budget. Then one month you tell your spouse:
+          <em> "We have a $1,500 monthly deficit. We need you to get a second job."</em>
+          But you never mentioned the hidden pool. <strong style={{ color: "#c41e1e" }}>That's the AAO.</strong>
+        </p>
+        <div style={{ background: "#fff8e8", borderRadius: 6, padding: "10px 14px", border: "1px solid #e8d6a8" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#8b6914", marginBottom: 5 }}>On the numbers: All Funds vs. General Fund</div>
+          <p style={{ fontSize: 12, lineHeight: 1.7, margin: 0, color: "#555" }}>
+            The $316M carryover figure covers <strong>all city funds</strong> — including capital projects, enterprise funds,
+            and grants that legitimately span multiple years (think: a road project that takes 3 years to finish).
+            The <strong>General Fund</strong> portion — the operating budget that pays for day-to-day city services — is
+            about <strong>$32M</strong> in carryovers over three years. Both numbers matter:
+            the $32M shows the operating pattern; the $316M shows the scale of a system
+            that moves hundreds of millions with minimal public scrutiny.
+          </p>
+        </div>
       </div>
 
       <SubHead>FY 2026: How "Balanced" Was Actually Achieved</SubHead>
@@ -216,11 +258,13 @@ function ShellGameSection() {
         ))}
       </div>
 
-      <SubHead>Three Years of Rolling Unspent Money</SubHead>
+      <SubHead>Three Years of Rolling Unspent Money (All Funds)</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        Each November, AAO#1 carries unspent prior-year appropriations into the new fiscal year.
-        The <strong style={{ color: "#c41e1e" }}>red bars</strong> are the true unspent carryovers — money
-        that was appropriated, never spent, and quietly rolled forward. Use the <strong>AAO TRACKER</strong> tab to drill into every line item.
+        Each November, AAO#1 carries unspent prior-year appropriations into the new fiscal year across <em>all</em> city funds.
+        The <strong style={{ color: "#c41e1e" }}>red bars</strong> are true unspent carryovers.
+        The <strong style={{ color: "#d4860b" }}>amber bars</strong> are encumbrances — money contracted but not yet paid.
+        The gray bars are new mid-cycle adjustments. General Fund carryovers specifically: $13.5M (FY24), $13.2M (FY25), $5.4M (FY26).
+        Use the <strong>AAO TRACKER</strong> tab to drill into every line item.
       </p>
       {[
         { fy: "FY2024", carryover: 85.0, encumbered: 111.2, adjustments: 53.7 },
