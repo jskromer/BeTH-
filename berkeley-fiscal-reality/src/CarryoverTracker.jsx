@@ -184,64 +184,44 @@ export default function CarryoverTracker() {
   const maxDeptTotal = deptTotals.length > 0 ? deptTotals[0][1].total : 1;
 
   return (
-    <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 840, margin: "0 auto", background: "#fffdf9", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 840, margin: "0 auto", background: "#fffdf9" }}>
       {/* HEADER */}
       <div style={{ background: "#1a1a1a", color: "#fffdf9", padding: "22px 28px 18px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(196,30,30,0.04) 12px, rgba(196,30,30,0.04) 24px)" }} />
         <div style={{ position: "relative" }}>
           <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#c41e1e", marginBottom: 4 }}>BERKELEY TRANSPARENCY HUB — ACCOUNTABILITY TOOL</div>
           <h1 style={{ fontSize: "26px", fontWeight: 900, lineHeight: 1.1, margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>Carryover Tracker</h1>
-          <div style={{ fontSize: "12px", color: "#999", marginTop: 5, maxWidth: 560, lineHeight: 1.5 }}>Three years of mid-cycle budget amendments. Tracking the money that was budgeted, never spent, and carried forward through the AAO process.</div>
+          <div style={{ fontSize: "12px", color: "#999", marginTop: 5, maxWidth: 560, lineHeight: 1.5 }}>Three years of mid-cycle budget amendments. Tracking the money that was budgeted, never spent, and quietly carried forward.</div>
         </div>
       </div>
 
-      {/* TREND BARS */}
-      <div style={{ padding: "16px 28px", background: "#f5f3ee", borderBottom: "1px solid #e0dbd2" }}>
-        <div style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", color: "#888", marginBottom: 10 }}>AAO#1 Amendment Size — All Funds (3-Year Trend)</div>
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          {AAO_SUMMARIES.map(s => (
-            <div key={s.fy} style={{ flex: 1, minWidth: 200 }}>
-              <div style={{ fontSize: "13px", fontWeight: 800, marginBottom: 4 }}>{s.fy} <span style={{ fontSize: "10px", fontWeight: 400, color: "#999" }}>{s.date}</span></div>
-              <div style={{ display: "flex", height: 18, borderRadius: 2, overflow: "hidden", marginBottom: 6 }}>
-                <div style={{ width: (s.encumbered / s.total * 100) + "%", background: "#888", height: "100%" }} title="Encumbrances" />
-                <div style={{ width: (s.carryover / s.total * 100) + "%", background: "#c41e1e", height: "100%" }} title="Carryovers" />
-                <div style={{ width: (s.adjustments / s.total * 100) + "%", background: "#2a7d4f", height: "100%" }} title="Adjustments" />
-              </div>
-              <div style={{ fontSize: "10px", color: "#666", lineHeight: 1.6 }}>
-                <div><strong>Total:</strong> {fmt(s.total)}</div>
-                <div>GF: {fmt(s.gf_total)} <span style={{ color: "#c41e1e" }}>(carry: {fmt(s.gf_carryover)})</span></div>
-              </div>
-              {s.note && <div style={{ fontSize: "9px", color: "#b08020", marginTop: 3, fontStyle: "italic" }}>{s.note}</div>}
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", gap: 16, fontSize: "9px", color: "#999", marginTop: 8, justifyContent: "center" }}>
-          <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#888", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Encumbered</span>
-          <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#c41e1e", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Carryover</span>
-          <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#2a7d4f", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Adjustments</span>
-        </div>
+      {/* VIEW TABS — prominent, directly below header */}
+      <div style={{ display: "flex", borderBottom: "2px solid #1a1a1a", background: "#f5f1eb" }}>
+        {[
+          { key: "trend", label: "📊 Overview" },
+          { key: "list",  label: "📋 Line Items" },
+          { key: "dept",  label: "🏢 By Dept" },
+        ].map(t => (
+          <button
+            key={t.key}
+            onClick={() => setView(t.key)}
+            style={{
+              flex: 1, padding: "11px 8px", border: "none", cursor: "pointer",
+              fontSize: "11px", fontWeight: 800, letterSpacing: "1px",
+              background: view === t.key ? "#1a1a1a" : "transparent",
+              color: view === t.key ? "#fffdf9" : "#1a1a1a",
+              transition: "all 0.15s",
+              fontFamily: "'JetBrains Mono', monospace",
+              borderRight: t.key !== "dept" ? "1px solid #ddd" : "none",
+            }}
+          >
+            {t.label}
+          </button>
+        ))}
       </div>
 
-      {/* ZOMBIE CALLOUT */}
-      <div style={{ margin: "16px 28px", padding: "14px 18px", background: "#1a1a1a", color: "#fffdf9", borderRadius: 4, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
-        <div>
-          <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "2px", color: "#c41e1e", marginBottom: 2 }}>ZOMBIE APPROPRIATIONS</div>
-          <div style={{ fontSize: "12px", lineHeight: 1.5, maxWidth: 460 }}>Items appearing in multiple consecutive AAOs — budgeted, never fully spent, carried forward year after year.</div>
-        </div>
-        <div style={{ display: "flex", gap: 16, marginLeft: "auto" }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{zombieCount}</div>
-            <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Identified</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{fmt(zombieTotal)}</div>
-            <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Cumulative $</div>
-          </div>
-        </div>
-      </div>
-
-      {/* FILTERS */}
-      <div style={{ padding: "8px 28px" }}>
+      {/* FILTERS — always visible, affect List and Dept views */}
+      <div style={{ padding: "10px 20px", background: "#faf8f5", borderBottom: "1px solid #e0dbd2" }}>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 8 }}>
           <div>
             <div style={{ fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", color: "#999", marginBottom: 4 }}>Fiscal Year</div>
@@ -252,20 +232,55 @@ export default function CarryoverTracker() {
             <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>{CATEGORIES.map(c => <Pill key={c} label={c} active={filterCat === c} onClick={() => setFilterCat(c)} />)}</div>
           </div>
         </div>
-        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-          <Pill label={"Zombies Only (" + zombieCount + ")"} active={zombieOnly} onClick={() => setZombieOnly(!zombieOnly)} color="#c41e1e" />
-          <div style={{ marginLeft: "auto", display: "flex", gap: 3 }}>
-            <Pill label="Trend" active={view === "trend"} onClick={() => setView("trend")} />
-            <Pill label="List" active={view === "list"} onClick={() => setView("list")} />
-            <Pill label="Depts" active={view === "dept"} onClick={() => setView("dept")} />
-          </div>
-        </div>
+        <Pill label={"🧟 Zombies Only (" + zombieCount + ")"} active={zombieOnly} onClick={() => setZombieOnly(!zombieOnly)} color="#c41e1e" />
       </div>
 
-      {/* CONTENT */}
-      <div style={{ padding: "8px 28px 32px" }}>
+      {/* CONTENT — each view owns all its content */}
+      <div style={{ padding: "16px 20px 32px" }}>
         {view === "trend" && (
           <div>
+            {/* Summary bars */}
+            <div style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", color: "#888", marginBottom: 10 }}>AAO#1 Amendment Size — All Funds (3-Year Trend)</div>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 16 }}>
+              {AAO_SUMMARIES.map(s => (
+                <div key={s.fy} style={{ flex: 1, minWidth: 200 }}>
+                  <div style={{ fontSize: "13px", fontWeight: 800, marginBottom: 4 }}>{s.fy} <span style={{ fontSize: "10px", fontWeight: 400, color: "#999" }}>{s.date}</span></div>
+                  <div style={{ display: "flex", height: 18, borderRadius: 2, overflow: "hidden", marginBottom: 6 }}>
+                    <div style={{ width: (s.encumbered / s.total * 100) + "%", background: "#888", height: "100%" }} title="Encumbrances" />
+                    <div style={{ width: (s.carryover / s.total * 100) + "%", background: "#c41e1e", height: "100%" }} title="Carryovers" />
+                    <div style={{ width: (s.adjustments / s.total * 100) + "%", background: "#2a7d4f", height: "100%" }} title="Adjustments" />
+                  </div>
+                  <div style={{ fontSize: "10px", color: "#666", lineHeight: 1.6 }}>
+                    <div><strong>Total:</strong> {fmt(s.total)}</div>
+                    <div>GF: {fmt(s.gf_total)} <span style={{ color: "#c41e1e" }}>(carry: {fmt(s.gf_carryover)})</span></div>
+                  </div>
+                  {s.note && <div style={{ fontSize: "9px", color: "#b08020", marginTop: 3, fontStyle: "italic" }}>{s.note}</div>}
+                </div>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: 16, fontSize: "9px", color: "#999", marginBottom: 20, justifyContent: "center" }}>
+              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#888", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Encumbered</span>
+              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#c41e1e", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Carryover</span>
+              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#2a7d4f", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Adjustments</span>
+            </div>
+            {/* Zombie stats */}
+            <div style={{ marginBottom: 20, padding: "14px 18px", background: "#1a1a1a", color: "#fffdf9", borderRadius: 4, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
+              <div>
+                <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "2px", color: "#c41e1e", marginBottom: 2 }}>ZOMBIE APPROPRIATIONS</div>
+                <div style={{ fontSize: "12px", lineHeight: 1.5, maxWidth: 460 }}>Items appearing in multiple consecutive AAOs — budgeted, never fully spent, carried forward year after year.</div>
+              </div>
+              <div style={{ display: "flex", gap: 16, marginLeft: "auto" }}>
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{zombieCount}</div>
+                  <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Identified</div>
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{fmt(zombieTotal)}</div>
+                  <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Cumulative $</div>
+                </div>
+              </div>
+            </div>
+            {/* GF table */}
             <div style={{ fontSize: "11px", fontWeight: 700, marginBottom: 12 }}>General Fund AAO#1 — Year-over-Year</div>
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
