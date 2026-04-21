@@ -88,7 +88,7 @@ function Callout({ children, type = "danger" }) {
     danger: { bg: "#fdf0f0", border: "#e8c4c4", accent: "#8b0000" },
     warning: { bg: "#fdf6e8", border: "#e8d6a8", accent: "#8b6914" },
     success: { bg: "#edf7f0", border: "#b8dcc4", accent: "#2a7d4f" },
-    dark: { bg: "#1a1a1a", border: "#333", accent: "#6fc97f" },
+    dark: { bg: "#1a2a4a", border: "#2a3a5a", accent: "#93b8e8" },
   };
   const s = styles[type];
   return (
@@ -105,7 +105,7 @@ function Callout({ children, type = "danger" }) {
 
 /* ──────────────────── SECTIONS ──────────────────── */
 const TABS = [
-  { key: "shellgame", label: "THE SHELL GAME" },
+  { key: "shellgame", label: "HOW IT WORKS" },
   { key: "numbers",   label: "THE NUMBERS" },
   { key: "record",    label: "AUDIT RECORD" },
   { key: "aao",       label: "AAO TRACKER" },
@@ -115,64 +115,65 @@ const TABS = [
 
 function ShellGameSection() {
   const cycle = [
-    { n: "1", title: "Overappropriate", body: "Council adopts a budget with more spending authority than departments can realistically execute. Every program gets funded on paper — politically convenient, fiscally misleading." },
-    { n: "2", title: "Underspend", body: "Departments spend 80–90% of their appropriations. The remaining 10–20% sits unencumbered at year-end — money that was never going to be spent." },
-    { n: "3", title: "Roll It Forward", body: "Every November, AAO #1 quietly carries unspent amounts into the new fiscal year as 'carryovers' and 'encumbrances.' No public hearing. Typically passed on the consent calendar." },
-    { n: "4", title: "Build the Shadow Reserve", body: "Over three years, $316M in unspent carryovers and $367M in encumbrances have rolled forward — a massive pool of appropriated money outside normal General Fund accounting." },
-    { n: "5", title: "Raid When Needed", body: "When the structural deficit appears, the City taps these pools — plus dedicated funds like the pension trust, Workers' Comp, and IT reserves — to declare the budget 'balanced.'" },
-    { n: "6", title: "Ask Voters for More", body: "With the budget technically balanced, the City tells voters there's a $33M crisis requiring a new sales tax. The shadow reserves, the fund raids, the ignored audit recommendations — none of it disclosed in plain language." },
+    { n: "1", title: "Appropriate", body: "Council adopts a budget with more spending authority than departments typically use. This gives programs the resources to execute — but actual spending usually comes in 10–20% below the appropriated amount." },
+    { n: "2", title: "Underspend", body: "Departments spend 80–90% of their appropriations. The remaining balance is unencumbered at year-end — funds that were authorized but not needed." },
+    { n: "3", title: "Carry Forward", body: "Each November, AAO #1 brings unspent prior-year amounts into the new fiscal year as 'carryovers' and 'encumbrances.' This is passed on the consent calendar, typically without a standalone public hearing." },
+    { n: "4", title: "Accumulate Balances", body: "Over three years, $316M in carryovers (all funds) and $367M in encumbrances have moved through the AAO process — significant appropriation activity that happens outside the main budget cycle." },
+    { n: "5", title: "Draw on Available Funds", body: "When the structural deficit appears, the City draws on internal fund balances — including the pension pre-funding trust, Workers' Comp reserves, and IT fund surpluses — to reach a balanced budget." },
+    { n: "6", title: "Ask Voters for More Revenue", body: "With the budget balanced, the City presents voters with a $33M structural challenge and proposes a sales tax to address it. The question worth asking: has every internal option been fully explored first?" },
   ];
 
   const patches = [
-    { source: "Section 115 Pension Trust", amount: 6.0, note: "Established to pre-fund pension obligations — not for operations" },
-    { source: "IT Cost Allocation Fund", amount: 6.2, note: "Internal service fund. One-time transfer to plug GF gap" },
-    { source: "Workers' Compensation Fund", amount: 5.2, note: "Reserve for employee injury claims — not a budget tool" },
-    { source: "Measure U1 Funds", amount: 2.5, note: "Voter-approved for specific purposes" },
-    { source: "44.4 Vacant Positions Left Unfunded", amount: null, note: "~$8–10M est. Deferred hiring, not structural savings" },
-    { source: "11.8 GF Positions Moved to Other Funds", amount: null, note: "~$2–3M est. Cost-shifting, not cost-cutting" },
+    { source: "Section 115 Pension Trust", amount: 6.0, note: "Pre-funding trust — intended for pension obligations, not operations" },
+    { source: "IT Cost Allocation Fund", amount: 6.2, note: "Internal service fund — one-time transfer to General Fund" },
+    { source: "Workers' Compensation Fund", amount: 5.2, note: "Claims reserve — drew down above-target balance" },
+    { source: "Measure U1 Funds", amount: 2.5, note: "Voter-approved special revenue — applied to operating budget" },
+    { source: "44.4 Vacant Positions Left Unfunded", amount: null, note: "~$8–10M est. — positions deferred rather than eliminated" },
+    { source: "11.8 GF Positions Moved to Other Funds", amount: null, note: "~$2–3M est. — cost shifted to non-GF accounts" },
   ];
 
-  const legalPoints = [
+  const policyPoints = [
     {
-      label: "City Fiscal Policy #5 — VIOLATED",
+      label: "City Fiscal Policy #5 — TENSION",
       quote: "\"Primarily allocating one-time revenue for one-time expenditures\"",
-      detail: "The Section 115 Trust and Workers' Comp fund are being used for recurring operating gaps. That is precisely the definition of one-time money for ongoing costs.",
-      color: "#c41e1e",
+      detail: "The City's own fiscal policy calls for one-time funds to cover one-time costs. Using the Section 115 Trust and Workers' Comp reserve for recurring operating gaps raises the question of whether this principle is being followed.",
+      color: "#8b6914",
     },
     {
-      label: "City Fiscal Policy #6 — UNRESOLVED (2 AUDITS)",
+      label: "City Fiscal Policy #6 — FLAGGED IN TWO AUDITS",
       quote: "\"Enterprise and grant funds to balance and new programs to pay for themselves\"",
-      detail: "Both the 2022 and 2026 City Auditor reports flag enterprise fund shortfalls as unresolved. The City simply repeated the recommendation. Nothing changed.",
-      color: "#c41e1e",
+      detail: "Both the 2022 and 2026 City Auditor reports flag enterprise fund shortfalls as unresolved. The recommendation has been carried forward without resolution, suggesting this policy goal has not yet been achieved.",
+      color: "#8b6914",
     },
     {
-      label: "Section 115 Trust Instrument — LEGAL QUESTION",
+      label: "Section 115 Trust — QUESTION OF INTENT",
       quote: "Council Resolution establishing trust for pension pre-funding",
-      detail: "Withdrawing $3M (FY25) and $6M (FY26) for operating expenses may violate the trust's stated purpose. The 2022 audit specifically warned against this. A formal legal opinion is warranted.",
-      color: "#d4860b",
+      detail: "The trust was established specifically to pre-fund pension obligations. Withdrawals of $3M (FY25) and $6M (FY26) for operating purposes raise a reasonable question about whether this is consistent with the trust's stated purpose.",
+      color: "#8b6914",
     },
     {
-      label: "Prop 218 (CA Constitution) — ETHICAL QUESTION",
+      label: "Prop 218 (CA Constitution) — VOTER INFORMATION",
       quote: "Voter approval required; voters must be accurately informed",
-      detail: "Asking voters for a new sales tax while concealing that the 'balanced' budget required raiding the pension fund may misrepresent the true fiscal picture to voters whose approval is constitutionally required.",
-      color: "#d4860b",
+      detail: "California's Prop 218 requires voter approval for new taxes. Residents casting that vote would benefit from a clear, plain-language accounting of how the current budget was balanced — including all internal fund transfers.",
+      color: "#8b6914",
     },
   ];
 
   return (
     <>
-      <SectionTitle color="#c41e1e">THE SHELL GAME</SectionTitle>
+      <SectionTitle color="#1a4a8b">HOW OUR BUDGET WORKS</SectionTitle>
       <p style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24, color: "#333", fontWeight: 600 }}>
-        Berkeley has a $33M structural deficit. The City wants a new 0.5% sales tax (~$10M/yr) and a $300M bond (~$20M/yr debt service).
-        Before voters decide, they should understand how the City has been "balancing" its budget for the past three years.
+        Berkeley faces a $33M structural deficit and is considering a 0.5% sales tax and a $300M bond for November 2026.
+        As residents, we think it's worth understanding how the City's budget is built, balanced, and amended each year —
+        and what questions that process raises before we're asked to vote on new revenue.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", border: "2px solid #1a1a1a", borderRadius: 8, overflow: "hidden", marginBottom: 28 }}>
         {[
-          { value: "~$20M", label: "FY26 Fund Raids", sub: "Used to fake a 'balanced' budget", color: "#c41e1e" },
-          { value: "$316M", label: "Carryovers Rolled", sub: "All funds FY24–26 ($32M GF portion)", color: "#c41e1e" },
-          { value: "$33M", label: "Stated Deficit", sub: "What voters are being told", color: "#1a1a1a" },
-          { value: "0 of 5", label: "Audit Recs Resolved", sub: "Four years, no action", color: "#8b0000" },
+          { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Used to balance this year's budget", color: "#1a4a8b" },
+          { value: "$316M", label: "AAO Carryovers (3 yrs)", sub: "All funds FY24–26 ($32M GF portion)", color: "#1a4a8b" },
+          { value: "$33M", label: "Structural Deficit", sub: "Projected recurring FY27–28 gap", color: "#c41e1e" },
+          { value: "0 of 5", label: "Audit Recs Resolved", sub: "2022 recommendations, still open", color: "#8b6914" },
         ].map((s, i, arr) => (
           <div key={i} style={{ padding: "16px 12px", background: "#faf8f5", borderRight: i < arr.length - 1 ? "1px solid #e0dcd6" : "none", textAlign: "center" }}>
             <StatBlock {...s} />
@@ -180,7 +181,7 @@ function ShellGameSection() {
         ))}
       </div>
 
-      <SubHead>How the Cycle Works — Six Steps</SubHead>
+      <SubHead>The Annual Budget Cycle — Six Steps</SubHead>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px,1fr))", gap: 10, marginBottom: 28 }}>
         {cycle.map((step) => (
           <div key={step.n} style={{ padding: "14px 16px", background: "#faf8f5", borderLeft: "3px solid #c41e1e", borderRadius: "0 6px 6px 0" }}>
@@ -235,15 +236,15 @@ function ShellGameSection() {
         </div>
       </div>
 
-      <SubHead>FY 2026: How "Balanced" Was Actually Achieved</SubHead>
+      <SubHead>FY 2026: How the Budget Was Balanced</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 12, lineHeight: 1.6 }}>
-        The City's own ACFR (Annual Comprehensive Financial Report, FY2025, pp. v–xix) openly admits the FY26 budget
-        is balanced only through one-time measures. Here is what that means in plain language:
+        The City's Annual Comprehensive Financial Report (FY2025, pp. v–xix) notes that the FY26 budget
+        relied on one-time measures to close the gap. Here's what those measures were, in plain language:
       </p>
-      <div style={{ border: "2px solid #e8c4c4", borderRadius: 6, overflow: "hidden", marginBottom: 20 }}>
-        <div style={{ background: "#8b0000", color: "#fff", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>THE FY26 PATCH KIT</span>
-          <span style={{ fontSize: 10, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>~$20M IN ONE-TIME FIXES</span>
+      <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 20 }}>
+        <div style={{ background: "#1a2a4a", color: "#fff", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>FY26 ONE-TIME BALANCING MEASURES</span>
+          <span style={{ fontSize: 10, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>~$20M TOTAL</span>
         </div>
         {patches.map((item, i) => (
           <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8, padding: "10px 14px", borderBottom: i < patches.length - 1 ? "1px solid #e8e4df" : "none", background: i % 2 === 0 ? "#fdf8f8" : "#fff" }}>
@@ -298,8 +299,8 @@ function ShellGameSection() {
         );
       })}
 
-      <SubHead>The Legal and Ethical Questions</SubHead>
-      {legalPoints.map((v, i) => (
+      <SubHead>Policy Questions Worth Asking</SubHead>
+      {policyPoints.map((v, i) => (
         <div key={i} style={{ marginBottom: 10, padding: "13px 15px", background: "#faf8f5", border: `1px solid ${v.color}44`, borderLeft: `4px solid ${v.color}`, borderRadius: "0 6px 6px 0" }}>
           <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "1px", color: v.color, fontFamily: "'JetBrains Mono', monospace", marginBottom: 5 }}>{v.label}</div>
           <div style={{ fontSize: 12, fontStyle: "italic", color: "#555", marginBottom: 6 }}>{v.quote}</div>
@@ -307,13 +308,13 @@ function ShellGameSection() {
         </div>
       ))}
 
-      <Callout type="dark">
-        <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 8, color: "#c41e1e" }}>What Isn't Being Disclosed</div>
-        AAO amendments go to Council on the consent calendar — no public hearing, no plain-language summary of cumulative
-        carryover patterns. Fund raids are mentioned in ACFR footnotes. No budget document tells Berkeley residents that their
-        city's "balanced" FY26 budget required raiding the pension savings account, the workers' injury fund, and voter-restricted Measure U1 money.
-        <div style={{ marginTop: 10, fontWeight: 700, fontSize: 13, color: "#6fc97f" }}>
-          Before asking for a new tax, voters deserve a clear answer: where did the money go?
+      <Callout type="warning">
+        <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 8 }}>What Would Help Residents Understand Their Budget</div>
+        AAO amendments move through the consent calendar each November without a standalone public hearing or a
+        plain-language summary of cumulative carryover patterns. The one-time balancing measures are disclosed in
+        the ACFR — but that's a technical document most residents never see.
+        <div style={{ marginTop: 10, fontWeight: 700, fontSize: 13, color: "#8b6914" }}>
+          A simple, annual plain-language budget summary — showing what carried forward, what was transferred, and what the real structural gap is — would go a long way toward the informed electorate Berkeley says it values.
         </div>
       </Callout>
     </>
@@ -323,52 +324,52 @@ function ShellGameSection() {
 function NumbersSection() {
   return (
     <>
-      <SectionTitle color="#c41e1e">THE NUMBERS</SectionTitle>
+      <SectionTitle color="#1a4a8b">THE NUMBERS</SectionTitle>
       <p style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24, color: "#333", fontWeight: 600 }}>
-        The City of Berkeley is not broke. It manages over <strong>$700M/year</strong> in total revenues and sits on
-        hundreds of millions in fund balances. The problem is not a lack of money —
-        it's how the money is allocated, hidden, and misrepresented.
+        Berkeley is a well-funded city — managing over <strong>$700M/year</strong> in total revenues.
+        Understanding where that money goes, and how the budget is balanced each year,
+        gives residents the context they need before any vote on new taxes.
       </p>
 
       {/* ── Excess Equity Explainer ── */}
-      <div style={{ background: "#1a1a1a", color: "#fffdf9", padding: "18px 20px", borderRadius: 8, marginBottom: 24 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#c41e1e", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
+      <div style={{ background: "#1a2a4a", color: "#fffdf9", padding: "18px 20px", borderRadius: 8, marginBottom: 24 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
           KEY CONCEPT: EXCESS EQUITY
         </div>
-        <p style={{ fontSize: 13, lineHeight: 1.75, margin: 0, color: "#e8e4df" }}>
-          <strong style={{ color: "#fff" }}>Excess equity</strong> is what happens when internal service funds and enterprise funds accumulate
-          balances far beyond what they actually need as reserves. Berkeley's IT Cost Allocation Fund, Workers' Compensation Fund,
-          and other internal accounts had built up surpluses — money sitting idle, far exceeding their stated reserve targets.
-          When the General Fund deficit appeared, the City quietly tapped these pools. <strong style={{ color: "#6fc97f" }}>This is not fiscal management.
-          It is a one-time fix that destroys the cushion those funds were built to provide.</strong> And it is precisely how
-          a city can claim a deficit while actually sitting on a hidden pile of cash.
+        <p style={{ fontSize: 13, lineHeight: 1.75, margin: 0, color: "#e8f0fa" }}>
+          <strong style={{ color: "#fff" }}>Excess equity</strong> is the balance that accumulates in internal service funds
+          and enterprise funds above their stated reserve targets. Berkeley's IT Cost Allocation Fund, Workers' Compensation Fund,
+          and other internal accounts had built up surpluses beyond what they needed as reserves.
+          When the General Fund faced a structural gap, the City transferred funds from these pools to balance the budget.
+          <strong style={{ color: "#93b8e8" }}> This is a one-time measure — it resolves the current year's gap
+          but reduces the cushion those funds were built to maintain going forward.</strong>
         </p>
         <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: 10 }}>
           {[
-            { label: "IT Fund Equity Tapped", value: "$6.2M", note: "Excess balance swept to GF" },
-            { label: "Workers' Comp Equity Tapped", value: "$5.2M", note: "Reserve above target, raided" },
-            { label: "Pension Trust Equity Tapped", value: "$6.0M", note: "Violated its own stated purpose" },
-            { label: "Measure U1 Equity Used", value: "$2.5M", note: "Voter-restricted funds repurposed" },
+            { label: "IT Fund Transfer", value: "$6.2M", note: "Excess balance moved to General Fund" },
+            { label: "Workers' Comp Transfer", value: "$5.2M", note: "Above-target reserve drawn down" },
+            { label: "Pension Trust Transfer", value: "$6.0M", note: "Pre-funding trust — used for operations" },
+            { label: "Measure U1 Applied", value: "$2.5M", note: "Special revenue applied to operating budget" },
           ].map((item, i) => (
-            <div key={i} style={{ background: "#2a2a2a", borderRadius: 6, padding: "10px 12px" }}>
-              <div style={{ fontSize: 20, fontWeight: 900, color: "#c41e1e", fontFamily: "'JetBrains Mono', monospace" }}>{item.value}</div>
+            <div key={i} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "10px 12px", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div style={{ fontSize: 20, fontWeight: 900, color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace" }}>{item.value}</div>
               <div style={{ fontSize: 10, fontWeight: 700, color: "#fff", marginTop: 3 }}>{item.label}</div>
-              <div style={{ fontSize: 10, color: "#888", marginTop: 2 }}>{item.note}</div>
+              <div style={{ fontSize: 10, color: "#93b8e8", marginTop: 2 }}>{item.note}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── ACFR Key Numbers ── */}
-      <SubHead>What the Audited Books Actually Show (FY2025 ACFR)</SubHead>
+      <SubHead>What the Audited Books Show (FY2025 ACFR)</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The City's own Annual Comprehensive Financial Report — audited, not estimated — tells the real story.
-        Liabilities are enormous, but so are revenues. The mismatch is mismanagement, not underfunding.
+        The Annual Comprehensive Financial Report is the City's audited financial statement — the most reliable source
+        of numbers we have. Here's what it shows for FY2025:
       </p>
       <DataTable
         headers={["Metric", "FY 2025 (Audited)", "FY 2024", "Direction"]}
         rows={[
-          ["Total Government Revenue", "$703M+", "—", { v: "Berkeley is not poor", c: "#2a7d4f" }],
+          ["Total Government Revenue", "$703M+", "—", { v: "Strong revenue base", c: "#2a7d4f" }],
           ["Property Tax Revenue", "$148.4M", "$135.7M", { v: "▲ +9% YoY", c: "#2a7d4f" }],
           ["General Fund Revenue", "$268M", "$262M", { v: "Essentially flat 3 yrs", c: "#d4860b" }],
           ["General Fund Expenditure", "$295M", "$274M", { v: "▲ +7.7% YoY", c: "#c41e1e" }],
@@ -385,10 +386,10 @@ function NumbersSection() {
       </div>
 
       {/* ── Revenue vs Expenditure ── */}
-      <SubHead>Revenue vs. Expenditure — It's a Spending Problem</SubHead>
+      <SubHead>Revenue vs. Expenditure Trends</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        General Fund revenue has been <strong>essentially flat for three years</strong> — it actually declined from $273M in FY23 to $262M in FY24.
-        The deficit is not a revenue shortfall. It is a cost structure that grows automatically regardless of what comes in.
+        General Fund revenue has been <strong>essentially flat for three years</strong> — it declined from $273M in FY23 to $262M in FY24 before recovering slightly.
+        Meanwhile, expenditures have grown each year. The gap reflects benefit cost growth that consistently outpaces revenue.
       </p>
       <DataTable
         headers={["", "FY23", "FY24", "FY25", "FY26", "FY27"]}
@@ -418,20 +419,19 @@ function NumbersSection() {
         ]}
       />
 
-      <Callout type="dark">
-        <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 10, color: "#6fc97f" }}>
-          Berkeley Has the Money. It Doesn't Manage It Well.
+      <Callout type="warning">
+        <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 10 }}>
+          Putting It in Context
         </div>
-        <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.7, color: "#e8e4df" }}>
+        <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.7 }}>
           Property tax revenue grew 9% in one year. Total city revenues exceed $700M. The General Fund collects $268M annually.
-          Meanwhile, $316M in unspent appropriations rolled forward through the AAO process over three years.
-          Internal service funds accumulated excess equity and were raided when the deficit appeared.
+          At the same time, $316M in appropriations moved through the AAO process across all funds over three years,
+          and internal fund balances were drawn down to close the FY26 gap.
         </p>
-        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7, color: "#e8e4df" }}>
-          <strong style={{ color: "#c41e1e" }}>The deficit is real — but it is self-inflicted.</strong> It results from a cost
-          structure that was never disciplined, benefit promises that were never funded, and an appropriation process
-          that was never transparent. Asking voters for a new tax before fixing any of that is not fiscal management.
-          It is the same shell game, one more time.
+        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7 }}>
+          The structural deficit is real — and it is driven primarily by benefit cost growth that outpaces revenue.
+          The reforms needed are known, the savings are calculable, and comparable cities have implemented them.
+          That is the conversation we'd like to see happen before new taxes are placed on the ballot.
         </p>
       </Callout>
     </>
@@ -642,12 +642,12 @@ function AuditSection() {
   };
 
   const patchItems = [
-    { source: "Section 115 Pension Trust", amount: "$6.0M", note: "Raided the pension savings account" },
-    { source: "IT Cost Allocation Fund balance", amount: "$6.2M", note: "One-time transfer to GF" },
-    { source: "Workers' Compensation Fund", amount: "$5.2M", note: "Internal service fund raid" },
-    { source: "Measure U1 funds", amount: "$2.5M", note: "Using restricted revenue for operations" },
-    { source: "44.4 vacant positions left unfunded", amount: "~$8–10M", note: "Deferred hiring, not structural savings" },
-    { source: "11.8 GF positions moved to other funds", amount: "~$2–3M", note: "Cost-shifting, not cost-cutting" },
+    { source: "Section 115 Pension Trust", amount: "$6.0M", note: "Transfer from pre-funding trust to General Fund" },
+    { source: "IT Cost Allocation Fund balance", amount: "$6.2M", note: "Above-target balance transferred to GF" },
+    { source: "Workers' Compensation Fund", amount: "$5.2M", note: "Above-target reserve drawn down" },
+    { source: "Measure U1 funds", amount: "$2.5M", note: "Special revenue applied to operating budget" },
+    { source: "44.4 vacant positions left unfunded", amount: "~$8–10M", note: "Positions deferred rather than eliminated" },
+    { source: "11.8 GF positions moved to other funds", amount: "~$2–3M", note: "Costs shifted to non-GF accounts" },
   ];
 
   const auditDelta = [
@@ -668,11 +668,12 @@ function AuditSection() {
 
   return (
     <>
-      <SectionTitle color="#c41e1e">THE AUDIT TRAIL</SectionTitle>
+      <SectionTitle color="#1a4a8b">THE AUDIT RECORD</SectionTitle>
       <p style={{ fontSize: 13, color: "#555", marginBottom: 24, lineHeight: 1.6 }}>
         Berkeley's City Auditor has issued two comprehensive financial condition reports using the same ICMA methodology —
-        in 2022 (covering FY 2012–2021) and 2026 (covering FY 2016–2025). The verdict: nearly every metric got worse.
-        And of the five recommendations from 2022, not one was fully implemented.
+        in 2022 (covering FY 2012–2021) and 2026 (covering FY 2016–2025). Comparing them side by side shows
+        where conditions have improved, held steady, or worsened — and how the City has responded to
+        the five specific recommendations made in 2022.
       </p>
 
       {/* ── Audit Comparison ── */}
@@ -709,9 +710,9 @@ function AuditSection() {
       </Callout>
 
       {/* ── Recommendations Scorecard ── */}
-      <SubHead>What the City Was Told to Do — And Didn't</SubHead>
+      <SubHead>2022 Audit Recommendations: Where Things Stand</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The 2022 audit made five specific recommendations. Four years later, zero are fully resolved.
+        The 2022 audit made five specific recommendations. The 2026 audit assessed where each one stands today.
       </p>
       {recs.map((r) => {
         const s = statusStyle[r.status];
@@ -738,14 +739,14 @@ function AuditSection() {
       })}
 
       {/* ── Budget Patch Kit ── */}
-      <SubHead>The FY 2026 "Balanced" Budget Patch Kit</SubHead>
+      <SubHead>How the FY 2026 Budget Was Balanced</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The City's own ACFR admits the FY26 budget is balanced only through one-time measures.
-        The structural deficit wasn't solved — it was papered over with ~$20M in fund raids and accounting shifts.
+        The ACFR notes that the FY26 budget used one-time measures to close the structural gap.
+        These measures addressed the current year but don't resolve the underlying cost trends.
       </p>
-      <div style={{ border: "2px solid #e8c4c4", borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
-        <div style={{ background: "#8b0000", color: "#fff", padding: "8px 14px", fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>
-          ONE-TIME PATCHES USED TO CLOSE THE FY26 GAP
+      <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
+        <div style={{ background: "#1a2a4a", color: "#fff", padding: "8px 14px", fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>
+          FY26 ONE-TIME BALANCING MEASURES (~$20M)
         </div>
         {patchItems.map((item, i) => (
           <div key={i} style={{
@@ -764,10 +765,11 @@ function AuditSection() {
       </div>
 
       <Callout type="warning">
-        <strong>The Section 115 Trust raid is the most telling detail.</strong> The 2022 audit specifically
-        warned that Berkeley was missing its pension trust contribution targets. Four years later, the city
-        not only didn't fix the problem — it took $3M <em>out</em> of the trust to plug the operating budget.
-        This is the definition of kicking the can.
+        <strong>The Section 115 Trust withdrawal stands out.</strong> The 2022 audit specifically
+        flagged that Berkeley was missing its pension trust contribution targets and recommended
+        consistent annual contributions. Four years later, the City drew $3M from the trust to help
+        balance the operating budget — the opposite direction from what the audit advised.
+        The 2026 audit notes this as an ongoing concern.
       </Callout>
 
       {/* ── ACFR FY25 Key Numbers ── */}
@@ -796,7 +798,7 @@ function AuditSection() {
 function CompareSection() {
   return (
     <>
-      <SectionTitle color="#c41e1e">HOW BERKELEY COMPARES</SectionTitle>
+      <SectionTitle color="#1a4a8b">HOW BERKELEY COMPARES</SectionTitle>
 
       <SubHead>Employee Pension Contributions: Berkeley vs. Everyone</SubHead>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
@@ -829,10 +831,11 @@ function CompareSection() {
         </table>
       </div>
 
-      <Callout type="danger">
-        <strong style={{ color: "#8b0000" }}>The Berkeley anomaly:</strong> Classic Berkeley employees pay <em>nothing</em> toward 
-        their own pension — the city covers their 8% statutory contribution as an employer-paid benefit. 
-        This is not required by law. It is a negotiated perk. It costs taxpayers approximately <strong>$16–17M/year</strong>.
+      <Callout type="warning">
+        <strong>A notable difference:</strong> Classic Berkeley employees do not pay toward their own pension —
+        the City covers their 8% statutory CalPERS contribution as an employer-paid benefit.
+        This is a negotiated arrangement, not a legal requirement, and most peer cities have
+        moved away from it. The cost to Berkeley taxpayers is approximately <strong>$16–17M/year</strong>.
       </Callout>
 
       <SubHead>CalPERS Funded Status: Berkeley vs. Benchmarks</SubHead>
@@ -875,15 +878,15 @@ function CompareSection() {
         parks parcel tax increase, library parcel tax, soda tax reauthorization, streetlight assessment, clean stormwater fee, and more.
       </div>
 
-      <Callout type="dark">
-        <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 10, color: "#c41e1e" }}>
-          The question taxpayers should ask:
+      <Callout type="warning">
+        <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 10 }}>
+          Questions worth raising:
         </div>
-        Why should residents pay more when the city hasn't required employees to pay their own pension share? 
-        Why bond for infrastructure when benefit costs consume every dollar of revenue growth? 
-        Why add a sales tax when program effectiveness isn't being measured?
-        <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid #444", fontWeight: 700 }}>
-          Reform the cost structure first. Then — and only then — come to voters.
+        If employee cost-sharing is standard practice across California, why hasn't Berkeley brought it to the table?
+        If infrastructure needs keep growing despite dedicated measures, what would change with a bond?
+        If audit recommendations have gone unresolved for four years, what would change after a new tax?
+        <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid #e8d6a8", fontWeight: 700 }}>
+          These are the conversations we'd like to see before November 2026.
         </div>
       </Callout>
     </>
@@ -968,7 +971,7 @@ export default function App() {
     <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 820, margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* ── HEADER ── */}
       <header style={{
-        background: "#1a1a1a", color: "#fffdf9",
+        background: "#1e2d4a", color: "#fffdf9",
         padding: "clamp(24px,5vw,40px) clamp(20px,4vw,36px) clamp(20px,4vw,32px)",
         position: "relative", overflow: "hidden"
       }}>
@@ -984,12 +987,11 @@ export default function App() {
             fontSize: "clamp(28px,5vw,42px)", fontWeight: 900, lineHeight: 1.08, margin: 0,
             fontFamily: "'Playfair Display', Georgia, serif"
           }}>
-            Berkeley Has the Money.<br />They Just Hide It.
+            Berkeley's Budget:<br />What the Data Shows
           </h1>
           <p style={{ fontSize: "clamp(13px,2vw,15px)", color: "#aaa", marginTop: 12, maxWidth: 560, lineHeight: 1.55 }}>
-            Berkeley overbudgets, quietly rolls unspent money forward through the AAO process, raids dedicated funds
-            to fake a balanced budget — then asks voters for a new sales tax. The money exists.
-            The management doesn't.
+            Berkeley manages over $700M in annual revenues. Understanding how those funds are appropriated,
+            carried forward, and balanced is essential context for any conversation about new taxes in 2026.
           </p>
           <div style={{ display: "flex", gap: 16, marginTop: 18, flexWrap: "wrap", alignItems: "center" }}>
             <div style={{
@@ -1000,7 +1002,7 @@ export default function App() {
               REFORM BEFORE NEW REVENUE
             </div>
             <div style={{ fontSize: 11, color: "#888" }}>
-              $316M hidden carryovers · ~$20M fund raids · $33M deficit · Closeable through reform
+              $33M structural deficit · closeable through internal reform · audit findings unresolved
             </div>
           </div>
         </div>
@@ -1008,7 +1010,7 @@ export default function App() {
 
       {/* ── TAB NAV ── */}
       <nav style={{
-        display: "flex", borderBottom: "2px solid #1a1a1a",
+        display: "flex", borderBottom: "2px solid #1e2d4a",
         background: "#f5f1eb", position: "sticky", top: 0, zIndex: 10
       }}>
         {TABS.map((t, i) => (
@@ -1018,8 +1020,8 @@ export default function App() {
             style={{
               flex: 1, padding: "12px 8px", border: "none", cursor: "pointer",
               fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
-              background: tab === i ? "#1a1a1a" : "transparent",
-              color: tab === i ? "#fffdf9" : "#1a1a1a",
+              background: tab === i ? "#1e2d4a" : "transparent",
+              color: tab === i ? "#fffdf9" : "#1e2d4a",
               transition: "all 0.15s",
               fontFamily: "'JetBrains Mono', monospace",
               borderRight: i < TABS.length - 1 ? "1px solid #ddd" : "none"
@@ -1037,7 +1039,7 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer style={{
-        padding: "20px clamp(20px,4vw,36px)", borderTop: "2px solid #1a1a1a",
+        padding: "20px clamp(20px,4vw,36px)", borderTop: "2px solid #1e2d4a",
         fontSize: 10, color: "#999", lineHeight: 1.6,
         fontFamily: "'JetBrains Mono', monospace"
       }}>
