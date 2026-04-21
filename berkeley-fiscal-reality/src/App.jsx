@@ -109,7 +109,7 @@ const TABS = [
   { key: "numbers",   label: "THE NUMBERS" },
   { key: "record",    label: "AUDIT RECORD" },
   { key: "aao",       label: "AAO TRACKER" },
-  { key: "demands",   label: "DEMANDS" },
+  { key: "demands",   label: "OUR POSITION" },
   { key: "compare",   label: "COMPARISONS" },
 ];
 
@@ -439,109 +439,111 @@ function NumbersSection() {
 }
 
 function DemandsSection() {
-  const demands = [
+  const asks = [
     {
       n: "01",
-      title: "Vote NO on the November 2026 Sales Tax",
-      color: "#8b0000",
-      body: "A 0.5% sales tax is regressive — it hits low-income residents hardest. Before asking for new revenue, the City must demonstrate it has exhausted internal reform. It has not. The structural deficit was created by management choices, not by insufficient taxation.",
-      tag: "BALLOT MEASURE",
+      title: "Pause the November 2026 Sales Tax — Reform First",
+      color: "#1a4a8b",
+      body: "A 0.5% sales tax falls hardest on lower-income residents. Before asking for new revenue, Berkeley should demonstrate it has fully explored internal cost reform. The structural deficit is largely a compensation structure problem, not a revenue shortfall — and there are concrete, measurable steps that can close it.",
+      tag: "BALLOT TIMING",
     },
     {
       n: "02",
-      title: "Vote NO on the $300M Bond",
-      color: "#8b0000",
-      body: "Berkeley's unfunded capital need grew from $1.2B (2022) to $1.8B (2026) — $600M worse in three years — despite Measure FF passing. Bonding more does not fix a maintenance and management failure. Debt service will crowd out the operating budget further.",
-      tag: "BALLOT MEASURE",
+      title: "Reconsider the $300M Bond Until Capital Backlogs Are Explained",
+      color: "#1a4a8b",
+      body: "Berkeley's unfunded capital need grew from $1.2B to $1.8B in three years — despite Measure FF. Before issuing more debt, voters deserve a clear accounting of why the gap widened and what specifically the new bond would accomplish that existing measures have not.",
+      tag: "BALLOT TIMING",
     },
     {
       n: "03",
-      title: "Require a Full AAO Transparency Report Before Any Tax Vote",
-      color: "#c41e1e",
-      body: "Council must publish a plain-language accounting of every AAO carryover from FY2024–2026 before placing any measure on the ballot. Voters cannot give informed consent under Prop 218 if the City conceals how it actually manages appropriations.",
+      title: "Publish a Plain-Language AAO Summary Before Any Tax Vote",
+      color: "#1a4a8b",
+      body: "The annual AAO process moves hundreds of millions in mid-cycle amendments through the consent calendar with minimal public explanation. A one-page summary — total carryovers, total new adjustments, and General Fund impact — should accompany every AAO package sent to Council and posted publicly.",
       tag: "TRANSPARENCY",
     },
     {
       n: "04",
-      title: "Stop Paying Employees' 8% Pension Contribution",
-      color: "#c41e1e",
-      body: "Berkeley covers the employee's own statutory pension share — a negotiated perk that costs taxpayers ~$16–17M/year. No peer city does this. Classic employees pay nothing toward their own pension. This single reform closes more than half the deficit.",
+      title: "Bring Employee Pension Cost-Sharing to the Table",
+      color: "#2a5c3f",
+      body: "Berkeley pays the employee's own 8% CalPERS contribution on their behalf — a negotiated benefit that most peer cities ended years ago. At ~$16–17M/year, this single item represents more than half the structural deficit. We ask that the City open an honest public conversation about what cost-sharing could look like in future MOU negotiations.",
       tag: "COST REFORM",
     },
     {
       n: "05",
-      title: "Restore the Section 115 Trust — and Stop Raiding It",
-      color: "#d4860b",
-      body: "The City withdrew $3M in FY25 and $6M in FY26 from the pension pre-funding trust to close the operating gap. The 2022 audit warned explicitly against this. Council must pass a resolution banning further operational use of the trust and commit to restoring the $9M withdrawn.",
+      title: "Protect the Section 115 Pension Pre-Funding Trust",
+      color: "#2a5c3f",
+      body: "The City withdrew $9M from the Section 115 Trust over FY25–26 to cover operating expenses — precisely the use the 2022 audit warned against. We ask Council to formally clarify the permitted uses of the trust and commit to a replenishment schedule. Long-term pension stability depends on keeping this fund intact.",
       tag: "FIDUCIARY DUTY",
     },
     {
       n: "06",
-      title: "Publish Excess Equity Balances for All Internal Service Funds",
-      color: "#d4860b",
-      body: "IT Cost Allocation, Workers' Compensation, and other internal funds accumulated excess equity above their reserve targets — and that equity was swept to balance the General Fund. Council must disclose these balances annually, explain variances from targets, and prohibit transfers that exceed defined thresholds without a public vote.",
+      title: "Disclose Internal Service Fund Balances Annually",
+      color: "#2a5c3f",
+      body: "When internal funds like IT Cost Allocation and Workers' Compensation accumulate balances above their reserve targets, those surpluses should be reported to Council and the public — not quietly swept into the General Fund when a budget gap appears. Annual disclosure with target vs. actual comparisons is a reasonable standard.",
       tag: "TRANSPARENCY",
     },
     {
       n: "07",
-      title: "Implement All Five 2022 Audit Recommendations — Now",
-      color: "#d4860b",
-      body: "The City Auditor issued five specific recommendations in 2022. Zero were fully resolved by 2026. Council must assign a named staff member accountable for each recommendation, set a 90-day compliance deadline, and report publicly on implementation status quarterly.",
+      title: "Set a Completion Date for the 2022 Audit Recommendations",
+      color: "#8b6914",
+      body: "The City Auditor's 2022 report made five specific, actionable recommendations. Four years later, none are fully resolved — and the 2026 audit largely repeats them. We ask Council to assign named staff to each recommendation, set a completion timeline, and report quarterly on progress.",
       tag: "ACCOUNTABILITY",
     },
     {
       n: "08",
-      title: "Freeze Non-Essential Hiring Until Deficit Is Closed",
-      color: "#1a1a1a",
-      body: "Berkeley has 44.4 vacant positions left unfunded in FY26 to save ~$8–10M. This confirms positions exist that the City itself doesn't believe are needed. Formalize that freeze as policy and do not backfill vacancies in administrative roles until the structural deficit is eliminated.",
+      title: "Formalize the Vacancy Management Policy",
+      color: "#8b6914",
+      body: "Berkeley left 44.4 positions unfunded in FY26, saving an estimated $8–10M. This reflects a practical judgment that those positions aren't currently essential. We ask that this be made an explicit policy decision rather than an informal workaround — with clear criteria for when positions are backfilled.",
       tag: "FISCAL DISCIPLINE",
     },
   ];
 
   const tagColors = {
-    "BALLOT MEASURE": "#8b0000",
-    "TRANSPARENCY": "#1a4a8b",
-    "COST REFORM": "#c41e1e",
-    "FIDUCIARY DUTY": "#c41e1e",
-    "ACCOUNTABILITY": "#d4860b",
-    "FISCAL DISCIPLINE": "#1a1a1a",
+    "BALLOT TIMING":    "#1a4a8b",
+    "TRANSPARENCY":     "#1a4a8b",
+    "COST REFORM":      "#2a5c3f",
+    "FIDUCIARY DUTY":   "#2a5c3f",
+    "ACCOUNTABILITY":   "#8b6914",
+    "FISCAL DISCIPLINE":"#8b6914",
   };
 
   return (
     <>
-      <SectionTitle color="#c41e1e">DEMANDS</SectionTitle>
+      <SectionTitle color="#1a4a8b">OUR POSITION</SectionTitle>
 
-      {/* ── Anti-tax 2026 Banner ── */}
-      <div style={{ background: "#8b0000", color: "#fff", padding: "20px 22px", borderRadius: 8, marginBottom: 28 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "3px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10, color: "#ffaaaa" }}>
-          THE CASE AGAINST NEW TAXES IN 2026
+      {/* ── Framing Banner ── */}
+      <div style={{ background: "#1a2a4a", color: "#fff", padding: "20px 22px", borderRadius: 8, marginBottom: 28 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "3px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10, color: "#93b8e8" }}>
+          THE CASE FOR REFORM BEFORE NEW REVENUE — 2026
         </div>
-        <p style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.65, margin: "0 0 12px", color: "#fff" }}>
-          The City of Berkeley has the money. It doesn't manage it well. And it lies — by omission — about how it uses the money it has,
-          hiding hundreds of millions in the AAO process while asking voters for more.
+        <p style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.7, margin: "0 0 14px", color: "#e8f0fa" }}>
+          We support Berkeley's long-term fiscal health. That's precisely why we think new taxes should wait
+          until the City demonstrates it has addressed the structural issues its own auditors have identified.
+          The data shows a management challenge that precedes any revenue shortfall.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: 10 }}>
           {[
-            { label: "Revenue > $700M/yr", note: "City is not underfunded" },
-            { label: "$316M Rolled Forward", note: "Unspent money the City 'forgot' to tell you about" },
-            { label: "~$20M Fund Raids", note: "Excess equity swept to fake a balanced budget" },
-            { label: "0 of 5 Audit Recs", note: "Not one implemented in four years" },
+            { label: "Revenue > $700M/yr", note: "Berkeley is not underfunded" },
+            { label: "$316M in AAO Amendments", note: "All-fund mid-cycle moves, minimal public review" },
+            { label: "~$20M in Fund Transfers", note: "Internal equity used to close the FY26 gap" },
+            { label: "0 of 5 Audit Recs Done", note: "2022 recommendations, still unresolved in 2026" },
           ].map((item, i) => (
-            <div key={i} style={{ background: "rgba(255,255,255,0.1)", borderRadius: 6, padding: "10px 12px" }}>
+            <div key={i} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "10px 12px", border: "1px solid rgba(255,255,255,0.12)" }}>
               <div style={{ fontSize: 13, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", color: "#fff" }}>{item.label}</div>
-              <div style={{ fontSize: 10, color: "#ffcccc", marginTop: 3 }}>{item.note}</div>
+              <div style={{ fontSize: 10, color: "#93b8e8", marginTop: 3 }}>{item.note}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── Demands List ── */}
-      <SubHead>What We Are Demanding from Council Members</SubHead>
+      {/* ── Asks List ── */}
+      <SubHead>What We're Asking of Council</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 18, lineHeight: 1.6 }}>
-        These are not requests. They are the minimum conditions that should be met before any new tax measure is placed on a Berkeley ballot.
-        Every Council member should be asked — on the record — whether they support each of the following.
+        These eight reforms are grounded in the City's own audit findings and financial reports.
+        They are achievable, measurable, and — we believe — what responsible stewardship looks like
+        before asking Berkeley residents to contribute more.
       </p>
-      {demands.map((d) => (
+      {asks.map((d) => (
         <div key={d.n} style={{
           marginBottom: 12, padding: "14px 16px",
           borderLeft: `4px solid ${d.color}`, background: "#faf8f5",
@@ -562,32 +564,36 @@ function DemandsSection() {
       ))}
 
       {/* ── Savings Table ── */}
-      <SubHead>The Deficit Is Closeable — Without You</SubHead>
+      <SubHead>A Path to Fiscal Balance — Without New Taxes</SubHead>
+      <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
+        The structural deficit is real — but it is closeable through reforms the City has the authority to pursue today.
+        These are not speculative; they are based on comparable reforms in other California cities.
+      </p>
       <DataTable
-        headers={["Reform", "Annual Savings"]}
+        headers={["Reform", "Est. Annual Savings"]}
         rows={[
-          ["Stop paying employee's 8% CalPERS share", { v: "~$16–17M", c: "#c41e1e" }],
-          ["Negotiate 1–3% UAL cost-sharing from employees", { v: "~$4–6M", c: "#c41e1e" }],
-          ["50/50 OPEB pre-funding split (follow state model)", { v: "~$4–6M", c: "#c41e1e" }],
-          ["5% FTE reduction via attrition (no layoffs)", { v: "~$6–9M", c: "#d4860b" }],
-          ["Program sunset review + contract audits", { v: "~$4–8M", c: "#d4860b" }],
-          [{ v: "Total Potential Savings", bold: true }, { v: "$34–46M/yr", c: "#2a7d4f" }],
-          ["Structural deficit to close", { v: "−$27–33M", c: "#c41e1e" }],
+          ["Employee cost-sharing on 8% CalPERS contribution", { v: "~$16–17M", c: "#2a5c3f" }],
+          ["Negotiate 1–3% UAL cost-sharing in future MOUs", { v: "~$4–6M", c: "#2a5c3f" }],
+          ["50/50 OPEB pre-funding split (California state model)", { v: "~$4–6M", c: "#2a5c3f" }],
+          ["5% workforce reduction through attrition only", { v: "~$6–9M", c: "#8b6914" }],
+          ["Program sunset review + contract renegotiation", { v: "~$4–8M", c: "#8b6914" }],
+          [{ v: "Total Potential Annual Savings", bold: true }, { v: "$34–46M", c: "#2a5c3f" }],
+          [{ v: "Structural deficit to close (FY27–28 proj.)", bold: false }, { v: "$27–33M", c: "#555" }],
         ]}
       />
 
-      <Callout type="dark">
-        <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 10, color: "#c41e1e" }}>
-          The Bottom Line for November 2026
+      <Callout type="warning">
+        <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 8 }}>
+          Our ask is simple: reform first, then ask.
         </div>
-        <p style={{ margin: "0 0 12px", fontSize: 13, lineHeight: 1.75, color: "#e8e4df" }}>
-          Berkeley has collected hundreds of millions in new taxes since 2020 — Measure FF, Measure W, Measure P,
-          the soda tax, the transfer tax, parcel tax increases. The structural deficit exists anyway.
-          The 2022 audit warned about every single problem visible today. Nothing changed.
+        <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.75 }}>
+          Berkeley has passed significant new revenue measures since 2020 — Measure FF, Measure W, Measure P,
+          transfer tax increases, and more. The structural deficit grew alongside them. That pattern suggests
+          the problem is structural cost growth, not insufficient taxation.
         </p>
-        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.75, fontWeight: 700, color: "#fff" }}>
-          More taxes will not fix a management failure. Council members must be held accountable
-          before voters are asked to pay more. The money is there. The will to manage it — that's what's missing.
+        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.75 }}>
+          Demonstrate the reforms. Show voters that the cost structure is under control.
+          Build the trust — then make the case for new revenue. That is the path to a yes we can believe in.
         </p>
       </Callout>
     </>
@@ -991,7 +997,7 @@ export default function App() {
               fontSize: 11, fontWeight: 800, letterSpacing: "2.5px", textTransform: "uppercase",
               fontFamily: "'JetBrains Mono', monospace"
             }}>
-              NO NEW TAXES — NOV 2026
+              REFORM BEFORE NEW REVENUE
             </div>
             <div style={{ fontSize: 11, color: "#888" }}>
               $316M hidden carryovers · ~$20M fund raids · $33M deficit · Closeable through reform
