@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taplin Newsletter Fact-Check — BeTH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fffdf9;
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .site-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #999;
+      margin-bottom: 2rem;
+    }
+
+    hr { border: none; border-top: 1px solid #ddd; margin: 1.8rem 0; }
+
+    .editorial-note {
+      background: #fff8e1;
+      border-left: 4px solid #e6a817;
+      padding: 1rem 1.2rem;
+      margin-bottom: 2rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .editorial-note strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #b87c00;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .editorial-note p { font-size: 0.95rem; color: #444; line-height: 1.55; }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+
+    .claim-card {
+      border: 1px solid #e8e4de;
+      border-radius: 6px;
+      margin-bottom: 1.2rem;
+      overflow: hidden;
+    }
+
+    .claim-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.2rem 0.8rem;
+    }
+
+    .verdict-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.55rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .verdict-confirmed { background: #e6f4ea; color: #1e6b34; }
+    .verdict-partial { background: #fff3e0; color: #b85c00; }
+    .verdict-unverified { background: #f5f5f5; color: #666; }
+    .verdict-refuted { background: #fdecea; color: #b71c1c; }
+    .verdict-context { background: #e8eaf6; color: #283593; }
+
+    .claim-text {
+      font-size: 0.98rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #1a1a1a;
+    }
+
+    .claim-body {
+      padding: 0 1.2rem 1rem;
+      border-top: 1px solid #f0ece6;
+      margin-top: 0.5rem;
+      padding-top: 0.8rem;
+    }
+
+    .claim-body p {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .claim-body p:last-child { margin-bottom: 0; }
+
+    .sources {
+      margin-top: 0.6rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #e0dbd4;
+    }
+
+    .sources-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      margin-bottom: 0.3rem;
+    }
+
+    .sources a {
+      display: block;
+      font-size: 0.82rem;
+      color: #555;
+      text-decoration: none;
+      line-height: 1.5;
+      margin-bottom: 0.1rem;
+    }
+
+    .sources a:hover { color: #c41e1e; text-decoration: underline; }
+
+    /* Nuance flag for over-budgeting */
+    .flag-overbudget {
+      border-left-color: #c41e1e;
+      background: #fff5f5;
+    }
+    .flag-overbudget strong { color: #c41e1e; }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 1rem;
+    }
+
+    .summary-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      text-align: left;
+      padding: 0.4rem 0.6rem;
+      border-bottom: 2px solid #e0dbd4;
+    }
+
+    .summary-table td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid #f0ece6;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+
+    .summary-table tr:last-child td { border-bottom: none; }
+
+    .footer {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .claim-header { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="site-label">Berkeley Transparency Hub — BeTH</div>
+  <h1>Taplin Newsletter Fact-Check</h1>
+  <p class="subtitle">Verifying claims from Councilmember Terry Taplin's April 2026 newsletter</p>
+  <div class="meta">April 22, 2026 &nbsp;·&nbsp; 12 claims reviewed &nbsp;·&nbsp; Sources linked below each finding</div>
+
+  <hr />
+
+  <div class="editorial-note flag-overbudget">
+    <strong>Editorial Note — On the "Deficit"</strong>
+    <p>Throughout this newsletter, Taplin frames Berkeley's fiscal situation as a crisis driven by rising costs and insufficient revenue. BeTH's analysis of Berkeley's ACFR and AAO records tells a different story: the projected $29M shortfall is largely a product of <strong>chronic over-budgeting</strong> — the systematic practice of appropriating far more than is ever spent, rolling unspent funds forward through the AAO process, and obscuring true fiscal capacity. A "deficit" built on spending plans that never materialize is not the same as a structural funding gap. Readers should evaluate Taplin's budget claims in that context.</p>
+  </div>
+
+  <div class="section-label">Budget &amp; Fiscal Claims</div>
+
+  <!-- Claim 1 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">Berkeley faces a $29 million/year budget shortfall over the next two fiscal years.</span>
+    </div>
+    <div class="claim-body">
+      <p>The $29M figure is real and appears in city budget documents and news coverage. However, the framing of this as a revenue or cost crisis misses the underlying mechanism: Berkeley has consistently budgeted far more than it spends. BeTH's AAO tracking shows over $915M in mid-cycle amendments across FY2024–FY2026, with hundreds of millions in unspent appropriations recycled annually. The city's own ACFR shows General Fund expenditures regularly coming in well under budget. A projected shortfall built on ambitious spending plans is fundamentally different from a cash shortfall.</p>
+      <p>The $29M gap is confirmed as the city's stated figure — but its cause is budget process dysfunction, not structural insolvency.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyscanner.com/2026/01/01/community/berkeley-budget-cuts-deficit-expected/" target="_blank">Berkeley considers 10% budget cuts — The Berkeley Scanner</a>
+        <a href="https://www.berkeleyside.org/2026/04/15/berkeley-budget-deficit-sales-tax-layoffs" target="_blank">Layoffs, service cuts, sales tax hike — Berkeleyside</a>
+        <a href="https://berkeleyca.gov/community-recreation/news/proposed-budget-looks-stabilize-city-finances" target="_blank">Proposed budget looks to stabilize city finances — City of Berkeley</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 2 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-confirmed">✓ Confirmed</span>
+      <span class="claim-text">Fire Station 4 answered nearly 1,000 medical calls last year, including 17 cardiac arrests.</span>
+    </div>
+    <div class="claim-body">
+      <p>Engine 4 ran 1,538 total calls in 2025, of which 966 were medical emergencies and 17 were cardiac arrests. "Nearly 1,000 medical calls" accurately describes the 966 figure. This data comes from a Berkeley Fire Fighters Association op-ed published April 20, 2026.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyscanner.com/2026/04/20/community/op-ed-berkeley-growing-we-are-moving-backward/" target="_blank">'The city is growing and we are moving backward' — The Berkeley Scanner</a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="section-label">Public Safety &amp; Crime Statistics</div>
+
+  <!-- Claim 3 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">Shootings dropped 40%, and for the first time in at least a decade Berkeley recorded zero fatal or injury shootings.</span>
+    </div>
+    <div class="claim-body">
+      <p>Total shootings fell from 25 in 2024 to 15 in 2025 — a confirmed 40% decline, hitting a nine-year low. However, the claim of "zero fatal or injury shootings" omits an important fact: there was one police-involved shooting that resulted in injury. The newsletter's claim appears to refer specifically to non-police-involved shootings. The "first time in at least a decade" framing is consistent with the available data going back to ~2017, but the police shooting is a meaningful caveat that goes unmentioned.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data" target="_blank">Berkeley crime fell in 2025 — Berkeleyside</a>
+        <a href="https://www.berkeleyscanner.com/2025/12/27/crime/berkeley-crime-recap-2025/" target="_blank">Berkeley crime was down again in 2025 — The Berkeley Scanner</a>
+        <a href="https://www.berkeleyside.org/2026/01/15/live-free-usa-berkeley-gun-violence-intervention-prevention" target="_blank">Gun violence in Berkeley has plummeted — Berkeleyside</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 4 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">Robberies fell 20% from 221 to 177.</span>
+    </div>
+    <div class="claim-body">
+      <p>The 20% decline is confirmed across multiple sources. The exact figures (221 → 177) match BPD's full-year annual report. Year-end media reports using preliminary data cited slightly different numbers (223 → 179), likely due to different reporting cutoff dates. The direction, magnitude, and approximate figures are well-supported.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data" target="_blank">Berkeley crime fell in 2025 — Berkeleyside</a>
+        <a href="https://www.berkeleyscanner.com/2025/12/27/crime/berkeley-crime-recap-2025/" target="_blank">Berkeley crime was down again in 2025 — The Berkeley Scanner</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 5 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">Motor vehicle thefts declined 48% from 1,093 to 572.</span>
+    </div>
+    <div class="claim-body">
+      <p>A dramatic ~48–50% decline in motor vehicle thefts is confirmed across all sources. The specific baseline and endpoint figures vary by source (Berkeleyside reports 1,058 → 536; the Berkeley Scanner reports 1,048 → 528 using year-to-date data). The newsletter's figures of 1,093 → 572 are consistent with the BPD annual report and are not refuted, but differ slightly from preliminary media reports. The magnitude is accurate.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data" target="_blank">Berkeley crime fell in 2025 — Berkeleyside</a>
+        <a href="https://www.berkeleyscanner.com/2025/12/27/crime/berkeley-crime-recap-2025/" target="_blank">Berkeley crime was down again in 2025 — The Berkeley Scanner</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 6 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">ALPR program: 58 arrests, 121 investigations. Flex Team: 141 arrests, 23 operations. Combined: 199 arrests.</span>
+    </div>
+    <div class="claim-body">
+      <p>The ALPR/Flock figures (58 arrests, 121+ investigative leads) are confirmed by BPD's council presentation and widely reported in coverage of the Flock contract renewal debate. The Flex Team figures (141 arrests, 23 operations) could not be independently verified through public news reporting — they likely appear in BPD's internal annual report or council annexes not yet publicly indexed. The 199 combined total depends on both components being accurate; only the ALPR half is externally verified.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyscanner.com/2026/03/24/community/berkeley-mayor-says-no-to-flock-will-council-follow-suit/" target="_blank">Berkeley mayor says no to Flock — The Berkeley Scanner</a>
+        <a href="https://localnewsmatters.org/2026/03/25/berkeley-city-council-delays-vote-whether-to-expand-flock-safety-surveillance-system/" target="_blank">Berkeley City Council delays Flock vote — Local News Matters</a>
+        <a href="https://www.berkeleyside.org/2025/11/20/berkeley-flock-surveillance-cameras-ice-cbp-secure-justice" target="_blank">Berkeley tries to dispel Flock doubts — Berkeleyside</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 7 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-confirmed">✓ Confirmed</span>
+      <span class="claim-text">BPD operating at 154 officers vs. authorized 174, down from 181 before last budget cycle.</span>
+    </div>
+    <div class="claim-body">
+      <p>Confirmed. BPD ended 2025 with 154 sworn officers, 20 short of its authorized 174. The prior authorized ceiling of 181 was reduced as a budget measure. Note: more recent reporting (April 2026) suggests active staffing has continued to fall (~137 officers with ~15 on modified duty), meaning current conditions may be even more strained than the newsletter's figures suggest.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data" target="_blank">Berkeley crime fell in 2025 — Berkeleyside</a>
+        <a href="https://www.berkeleyscanner.com/2026/04/14/community/berkeley-police-staffing-new-low-layoff-concerns/" target="_blank">Berkeley police staffing hits new low — The Berkeley Scanner</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 8 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-partial">⚠ Partially Confirmed</span>
+      <span class="claim-text">Robbery clearance rate rose from 34% to 49%; now 19 points above California average of 30%.</span>
+    </div>
+    <div class="claim-body">
+      <p>Berkeley's robbery clearance improvement (34% → 49%) is confirmed. The claim that this is 19 points above a California average of 30% is plausible — national robbery clearance rates hover around 30% — but an exact California-specific figure of 30% for 2024–2025 could not be independently confirmed from publicly available DOJ data. The Berkeley improvement itself is well-documented.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/03/27/berkeley-police-crime-data" target="_blank">Berkeley crime fell in 2025 — Berkeleyside</a>
+        <a href="https://data-openjustice.doj.ca.gov/sites/default/files/2025-07/Crime%20In%20CA%202024%20final.pdf" target="_blank">Crime in California 2024 — California DOJ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 9 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-confirmed">✓ Confirmed</span>
+      <span class="claim-text">Between 2018 and 2021, shootings in Berkeley more than doubled.</span>
+    </div>
+    <div class="claim-body">
+      <p>Confirmed. Berkeley recorded approximately 19 shootings in 2018, rising to 52 in 2021 — a 174% increase, making "more than doubled" an accurate and conservative characterization. 2021 was the peak year in at least a decade, confirmed across BPD records, Berkeleyside, and The Daily Cal.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.berkeleyside.org/2026/01/15/live-free-usa-berkeley-gun-violence-intervention-prevention" target="_blank">Gun violence in Berkeley has plummeted — Berkeleyside</a>
+        <a href="https://berkeleyca.gov/sites/default/files/2022-04/2022-03-08%20Item%2022%202021%20Year%20End%20Crime%20and%20Collision%20Data.pdf" target="_blank">2021 Year End Crime Data — City of Berkeley</a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="section-label">Regional ALPR / Surveillance Claims</div>
+
+  <!-- Claim 10 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-confirmed">✓ Confirmed</span>
+      <span class="claim-text">Richmond turned off ALPR cameras in November 2025; vehicle theft jumped 33%; council voted to bring them back.</span>
+    </div>
+    <div class="claim-body">
+      <p>Thoroughly confirmed. Richmond Police Chief Timothy Simmons deactivated the Flock system on November 19, 2025. Vehicle thefts increased approximately 33% in the months following (172 vs. 129 in the same prior-year period). On March 17–18, 2026, the Richmond City Council voted 4-3 to reinstate the Flock contract through end of 2026. All three elements of this claim are well-documented.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://richmondside.org/2026/03/18/richmond-flock-cameras-license-plate-readers-on/" target="_blank">Richmond's Flock cameras will be turned back on — Richmondside</a>
+        <a href="https://contracosta.news/2026/03/19/split-vote-richmond-agrees-to-extend-flock-contract/" target="_blank">Split vote: Richmond extends Flock contract — Contra Costa News</a>
+        <a href="https://contracosta.news/2025/12/11/richmond-police-department-community-update-flock-alpr-system/" target="_blank">Richmond PD community update on ALPR — Contra Costa News</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 11 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-confirmed">✓ Confirmed</span>
+      <span class="claim-text">Oakland approved a $2.25M two-year ALPR contract in December 2025.</span>
+    </div>
+    <div class="claim-body">
+      <p>The Oakland City Council voted 7-1 on December 17, 2025 to approve a $2.25M, two-year contract with Flock Safety for approximately 290 ALPR cameras citywide. The amount, term, city, and timing are all confirmed.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://oaklandside.org/2025/12/17/oakland-flock-safety-council-approves-surveillance-cameras/" target="_blank">Oakland approves $2M Flock surveillance camera plan — Oaklandside</a>
+        <a href="https://localnewsmatters.org/2025/12/17/oakland-city-council-votes-to-expand-police-camera-network-amid-sharp-privacy-debate/" target="_blank">Oakland votes to expand camera network — Local News Matters</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claim 12 -->
+  <div class="claim-card">
+    <div class="claim-header">
+      <span class="verdict-badge verdict-context">✓ Confirmed — with context</span>
+      <span class="claim-text">San José City Council voted unanimously to keep its 474-camera network.</span>
+    </div>
+    <div class="claim-body">
+      <p>Confirmed, but the framing is incomplete. The San José City Council voted unanimously on March 10, 2026 to retain its 474-camera Flock network. However, the vote came with significant new restrictions: data retention cut from one year to 30 days, cameras prohibited near reproductive health clinics and places of worship, and new authentication requirements added. Taplin frames this as a simple endorsement of the status quo; it was actually a conditional continuation with meaningful constraints — a distinction that matters for Berkeley's own policy debate.</p>
+      <div class="sources">
+        <div class="sources-label">Sources</div>
+        <a href="https://www.kqed.org/news/12075999/san-jose-is-the-latest-bay-area-city-to-restrict-flock-license-plate-cameras" target="_blank">San José restricts Flock cameras — KQED</a>
+        <a href="https://www.ktvu.com/news/san-jose-consider-revising-flock-surveillance" target="_blank">San José Flock cameras to stay, with revisions — KTVU</a>
+        <a href="https://reason.com/2026/04/16/san-joses-creepy-and-deeply-intrusive-alpr-camera-system-is-unconstitutional-a-new-lawsuit-says/" target="_blank">San José ALPR system faces constitutional lawsuit — Reason</a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section-label">Summary</div>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Claim</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>$29M/year budget shortfall</td><td><span class="verdict-badge verdict-partial">⚠ Partial — over-budgeting context missing</span></td></tr>
+      <tr><td>2</td><td>Fire Station 4: ~1,000 medical calls, 17 cardiac arrests</td><td><span class="verdict-badge verdict-confirmed">✓ Confirmed</span></td></tr>
+      <tr><td>3</td><td>Shootings ↓40%; zero fatal/injury for first time in decade</td><td><span class="verdict-badge verdict-partial">⚠ Partial — police shooting omitted</span></td></tr>
+      <tr><td>4</td><td>Robberies ↓20% from 221 to 177</td><td><span class="verdict-badge verdict-partial">⚠ Partial — direction confirmed, exact figures vary by source</span></td></tr>
+      <tr><td>5</td><td>Vehicle theft ↓48% from 1,093 to 572</td><td><span class="verdict-badge verdict-partial">⚠ Partial — magnitude confirmed, exact figures vary</span></td></tr>
+      <tr><td>6</td><td>ALPR: 58 arrests, 121 investigations; Flex Team: 141 arrests</td><td><span class="verdict-badge verdict-partial">⚠ Partial — ALPR confirmed; Flex Team unverified</span></td></tr>
+      <tr><td>7</td><td>BPD at 154 officers vs. 174 authorized (down from 181)</td><td><span class="verdict-badge verdict-confirmed">✓ Confirmed</span></td></tr>
+      <tr><td>8</td><td>Robbery clearance 34%→49%; 19 pts above CA avg of 30%</td><td><span class="verdict-badge verdict-partial">⚠ Partial — Berkeley figures confirmed; CA avg unverified</span></td></tr>
+      <tr><td>9</td><td>Shootings more than doubled 2018–2021</td><td><span class="verdict-badge verdict-confirmed">✓ Confirmed</span></td></tr>
+      <tr><td>10</td><td>Richmond turned off ALPR, theft +33%, reinstated</td><td><span class="verdict-badge verdict-confirmed">✓ Confirmed</span></td></tr>
+      <tr><td>11</td><td>Oakland approved $2.25M ALPR contract Dec 2025</td><td><span class="verdict-badge verdict-confirmed">✓ Confirmed</span></td></tr>
+      <tr><td>12</td><td>San José unanimously kept 474-camera network</td><td><span class="verdict-badge verdict-context">✓ Confirmed — came with new restrictions</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    Berkeley Transparency Hub (BeTH) &nbsp;·&nbsp; berkeley-fiscal-reality.vercel.app &nbsp;·&nbsp; Generated April 22, 2026
+  </div>
+
+</div>
+</body>
+</html>
