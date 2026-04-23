@@ -111,6 +111,8 @@ const TABS = [
   { key: "aao",       label: "AAO TRACKER" },
   { key: "demands",   label: "OUR POSITION" },
   { key: "compare",   label: "COMPARISONS" },
+  { key: "habit",     label: "THE HABIT",    href: "/history-of-the-habit.html" },
+  { key: "factcheck", label: "FACT CHECK",   href: "/taplin-factcheck.html" },
 ];
 
 function ShellGameSection() {
@@ -1016,7 +1018,7 @@ export default function App() {
         {TABS.map((t, i) => (
           <button
             key={t.key}
-            onClick={() => setTab(i)}
+            onClick={() => t.href ? window.location.href = t.href : setTab(i)}
             style={{
               flex: 1, padding: "12px 8px", border: "none", cursor: "pointer",
               fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
