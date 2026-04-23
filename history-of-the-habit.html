@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History of the Habit — BeTH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fffdf9;
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem 5rem;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .site-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #999;
+      margin-bottom: 2.5rem;
+    }
+
+    hr { border: none; border-top: 1px solid #e0dbd4; margin: 2rem 0; }
+
+    /* Lede */
+    .lede {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 2rem;
+      border-left: 4px solid #c41e1e;
+      padding-left: 1.2rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .stat-box {
+      background: #f7f3ee;
+      border: 1px solid #e0dbd4;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #c41e1e;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #777;
+      line-height: 1.3;
+    }
+
+    /* Section headers */
+    .era-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.2rem;
+    }
+    .era-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .era-year.prop13 { background: #c41e1e; }
+    .era-year.recession { background: #7b3f00; }
+    .era-year.pension { background: #1a237e; }
+    .era-year.modern { background: #1b5e20; }
+    .era-year.now { background: #c41e1e; }
+
+    .era-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    /* Timeline entries */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      bottom: 0;
+      width: 2px;
+      background: #e0dbd4;
+    }
+
+    .entry {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+    }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -1.6rem;
+      top: 0.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #c0b8ae;
+      border: 2px solid #fffdf9;
+    }
+    .entry.red::before { background: #c41e1e; }
+    .entry.gold::before { background: #e6a817; }
+
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #999;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .entry-body {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .entry-body strong { color: #1a1a1a; }
+
+    .quote {
+      background: #f7f3ee;
+      border-left: 3px solid #c0b8ae;
+      padding: 0.6rem 1rem;
+      margin: 0.5rem 0;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .quote cite {
+      display: block;
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #999;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+    .tag-baitswitch { background: #fdecea; color: #b71c1c; }
+    .tag-ignored { background: #fff3e0; color: #b85c00; }
+    .tag-fundsweep { background: #e8eaf6; color: #283593; }
+    .tag-overbudget { background: #e8f5e9; color: #1b5e20; }
+    .tag-pension { background: #f3e5f5; color: #4a148c; }
+    .tag-debt { background: #e0f2f1; color: #004d40; }
+
+    /* Pattern summary */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) { .pattern-grid { grid-template-columns: 1fr; } }
+
+    .pattern-card {
+      border: 1px solid #e0dbd4;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .pattern-card-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #c41e1e;
+      margin-bottom: 0.5rem;
+    }
+    .pattern-card p {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    /* Pension table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0;
+    }
+    .data-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #888;
+      text-align: left;
+      padding: 0.4rem 0.6rem;
+      border-bottom: 2px solid #e0dbd4;
+    }
+    .data-table td {
+      padding: 0.45rem 0.6rem;
+      border-bottom: 1px solid #f0ece6;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:last-child { color: #c41e1e; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+
+    .footer {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    a { color: #555; }
+    a:hover { color: #c41e1e; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="site-label">Berkeley Transparency Hub — BeTH</div>
+  <h1>History of the Habit</h1>
+  <p class="subtitle">Berkeley's fiscal dysfunction is not a crisis. It's a culture — documented across five decades of audits, ignored warnings, bait-and-switch ballot measures, and one-time fixes that never fix anything.</p>
+  <div class="meta">Research compiled April 2026 &nbsp;·&nbsp; Sources linked throughout</div>
+
+  <div class="lede">
+    Every five to ten years, Berkeley declares a budget emergency, cuts services, goes to voters for a new tax, and promises to address the "structural" problem. Then it doesn't. The next cycle begins. This page documents the pattern — in the city's own words, through its own auditors, using its own records.
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-box">
+      <div class="stat-number">$1.8B</div>
+      <div class="stat-label">Infrastructure backlog<br/>2025</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">$695M</div>
+      <div class="stat-label">Unfunded pension<br/>liability 2025</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">28</div>
+      <div class="stat-label">Years oldest ignored<br/>audit recommendation</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">65</div>
+      <div class="stat-label">Open audit recommendations<br/>across 9 audits (2026)</div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ERA 1: Pre-1978 -->
+  <div class="era-header">
+    <span class="era-year">Pre-1978</span>
+    <span class="era-title">The Era of Constraint</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry">
+      <div class="entry-date">Before 1978</div>
+      <div class="entry-title">Berkeley runs on property taxes</div>
+      <div class="entry-body">
+        Before Proposition 13, Berkeley's city budget was primarily funded by property taxes — a stable, predictable revenue source. The General Fund was constrained by actual revenues. Budget process workarounds were limited because they were unnecessary: revenues covered obligations without creative accounting. This era represents Berkeley's last period of genuine fiscal discipline.
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 2: Prop 13 -->
+  <div class="era-header">
+    <span class="era-year prop13">1978 — The Inflection Point</span>
+    <span class="era-title">Proposition 13 Breaks the Model</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry red">
+      <div class="entry-date">June 1978</div>
+      <div class="entry-title">Prop 13 passes — Berkeley loses 53% of property tax revenue overnight</div>
+      <div class="entry-body">
+        <span class="tag tag-fundsweep">Revenue Shock</span>
+        Berkeley voted against Prop 13 by nearly 3-to-1. It passed statewide anyway. The city's primary revenue source collapsed. Within days, a bitterly contested 5–4 council majority used the emergency to strip community agencies of funding. The city hastily approved a "catch-all package" of tax and revenue increases on June 30 — one day before the initiative took effect. <strong>The workaround culture was born.</strong>
+      </div>
+    </div>
+
+    <div class="entry gold">
+      <div class="entry-date">1980</div>
+      <div class="entry-title">Library Relief Act — Template #1: Take it off the General Fund</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span>
+        Berkeley passes the Library Relief Act, a square-footage parcel tax that takes the public library entirely out of the General Fund. Sold as "saving the library." Effect: freed General Fund money for other uses with no accountability to voters about how it would be spent. This becomes the template for every subsequent dedicated tax measure.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">1986</div>
+      <div class="entry-title">BSEP established — the pattern scales to schools</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span>
+        The Berkeley Schools Excellence Program parcel tax is created, taking school funding out of the General Fund with a dedicated tax. BSEP passes every election cycle since. Each renewal reinforces the political formula: promise a specific service, collect a dedicated tax, manage the General Fund separately with minimal accountability.
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 3: Early 2000s -->
+  <div class="era-header">
+    <span class="era-year recession">2001–2006</span>
+    <span class="era-title">Dot-Com Bust: First Repeat of the Cycle</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry red">
+      <div class="entry-date">Late 2003</div>
+      <div class="entry-title">$9.5M deficit — fire parcel tax proposed, then pulled in embarrassment</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span>
+        Berkeley faces an $8–10M General Fund deficit with projections of $19.5M within five years. Mayor Tom Bates proposes a parcel tax titled "Special Tax to Fund Fire Prevention and Protection Services." Problem: only $2 million of the $7 million measure was actually going to fire services. The Berkeley Fire Fighters Local 1227 declares opposition to their own namesake tax. Bates withdraws the measure 24 hours before the council vote. <strong>Voters are saved from funding a shell game — this time.</strong>
+      </div>
+    </div>
+
+    <div class="entry gold">
+      <div class="entry-date">2005</div>
+      <div class="entry-title">Auditor issues "Delayed Implementation" report — recommendations ignored since 1998</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Audit Ignored</span>
+        City Auditor Ann-Marie Hogan formally documents that audit recommendations are going unimplemented — some dating back to <strong>1998</strong>. This is the first formal record of Berkeley's systematic pattern of ignoring its own auditor. By 2012, 23 recommendations from 10 separate audits will still be outstanding.
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 4: Great Recession -->
+  <div class="era-header">
+    <span class="era-year pension">2006–2012</span>
+    <span class="era-title">Great Recession Cycle: The Warning Is Written Down and Ignored</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry red">
+      <div class="entry-date">2006 / 2008</div>
+      <div class="entry-title">City Manager puts the answer in writing — twice. Nobody acts.</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Audit Ignored</span>
+        City Manager Phil Kamlarz states in the 2008–2009 Budget Book cover letter — citing a 2006 warning:
+        <div class="quote">
+          "The only method to effectively eliminate the City's structural deficit is through cost reductions — primarily through controlling labor costs, since employee salary and benefits make up 77% of the City's operating budget."
+          <cite>— City Manager Phil Kamlarz, 2008 Budget Book (citing 2006 report)</cite>
+        </div>
+        This sentence will still be quoted in op-eds in 2016, unchanged, because nothing changed.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">January 2009</div>
+      <div class="entry-title">$8.5M state takeaway — and an 8% raise for the City Manager</div>
+      <div class="entry-body">
+        <span class="tag tag-overbudget">Fiscal Contradiction</span>
+        Staff discloses potential $8.5M in state takeaways. Contingency fund already depleted. Hiring freezes, cuts, and overtime restrictions proposed. Simultaneously, Mayor Bates proposes an <strong>8% salary increase for City Manager Kamlarz</strong> — from $214,836 to $232,020 — while the Budget Manager advises the council to "proceed with caution."
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">March 2010</div>
+      <div class="entry-title">$14.6M deficit — "most serious downturn" in 35 years of service</div>
+      <div class="entry-body">
+        City Manager Kamlarz, with 35 years at Berkeley, calls it the worst he's seen. Transfer tax revenue collapses from $16M to $8M. 67 positions proposed for elimination. Refuse collection rates already up 20% the prior year. <strong>This is the third consecutive "unprecedented" fiscal crisis in 12 years.</strong>
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">November 2010</div>
+      <div class="entry-title">Auditor: "Employee Benefits — Tough Decisions Ahead" — $250M+ in unfunded liabilities</div>
+      <div class="entry-body">
+        <span class="tag tag-pension">Pension</span><span class="tag tag-ignored">Audit Ignored</span>
+        City Auditor Ann-Marie Hogan releases a landmark report:
+        <ul style="margin: 0.5rem 0 0.5rem 1.2rem; font-size:0.9rem; color:#444; line-height:1.7;">
+          <li>$250M+ in unfunded pension and benefit liabilities (actuarial basis)</li>
+          <li>Using actual asset values: $400M+ unfunded</li>
+          <li>Berkeley pays not just employer CalPERS contributions but <strong>most employees' own 8% contribution</strong></li>
+          <li>Sick-leave cash-outs at retirement flagged as unusual and costly — former City Manager Kamlarz receives $147,439 on departure, plus $20,785/month pension ($250K/year total)</li>
+        </ul>
+        Auditor recommends eliminating sick-leave cash-out policy. Compliance requested by September 2012. <strong>It is not implemented.</strong>
+      </div>
+    </div>
+
+    <div class="entry gold">
+      <div class="entry-date">November 2011</div>
+      <div class="entry-title">"Failing Streets" audit — $54M backlog, 32x cost multiplier for delay</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Audit Ignored</span><span class="tag tag-debt">Infrastructure</span>
+        Auditor Hogan finds over 62% of Berkeley's 216 centerline miles of streets need resurfacing or reconstruction. Cost: $54 million. Key finding: <strong>the cost of reconstructing a failed street is 32 times the cost of timely maintenance.</strong> The report wins a national auditing award. The streets continue to fail. By 2019, the backlog reaches $251M. By 2024, $286M for streets alone. By 2025, total infrastructure backlog: $1.8 billion.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">February 2012</div>
+      <div class="entry-title">Pension unfunded liability: $329.87M — council told, council ignores</div>
+      <div class="entry-body">
+        <span class="tag tag-pension">Pension</span>
+        Police safety pension contributions require 42% of salary. Full funding in 20 years would require 50.7% — or 61.5% if funded in 10 years. UC Berkeley economist Tim Wallace of Berkeley Budget SOS group: <em>"The city auditor had warned the City Council they were in real trouble but the council paid no attention."</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 5: 2013-2018 -->
+  <div class="era-header">
+    <span class="era-year pension">2013–2018</span>
+    <span class="era-title">The Long Drift: Same Problems, Bigger Numbers</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry">
+      <div class="entry-date">2013</div>
+      <div class="entry-title">Pensions and infrastructure named as "key budget liabilities" — again</div>
+      <div class="entry-body">
+        Berkeleyside reports pensions and infrastructure as Berkeley's primary budget challenges — the same two issues identified in 2010, 2011, and 2012. Third consecutive year of public identification with no corrective action.
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">June 2016</div>
+      <div class="entry-title">"Berkeley's Fiscal Condition is Not Good. Really" — $1B in unfunded liabilities</div>
+      <div class="entry-body">
+        <span class="tag tag-pension">Pension</span><span class="tag tag-debt">Infrastructure</span>
+        Finance analyst Barbara Gilbert publishes a comprehensive op-ed:
+        <ul style="margin: 0.5rem 0 0.5rem 1.2rem; font-size:0.9rem; color:#444; line-height:1.7;">
+          <li>~$1 billion in unfunded liabilities — half employees, half infrastructure — "with no meaningful way to pay these down"</li>
+          <li>Berkeley's bond rating is AA+ not AAA because it lacks "a formal policy and plan to address unfunded pension liabilities"</li>
+          <li>Most recent labor negotiations "worsened the situation dramatically"</li>
+          <li>She quotes Kamlarz's 2006/2008 warning directly: <em>"Here we are in 2016."</em></li>
+        </ul>
+        <a href="https://www.berkeleyside.org/2016/06/17/op-ed-berkeleys-fiscal-condition-is-not-good-really">Source: Berkeleyside, June 2016 →</a>
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">November 2016</div>
+      <div class="entry-title">Measure U1 — "affordable housing" tax goes to General Fund, spent on Council chambers</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span>
+        Voters approve Measure U1 (75–25%) — a business license tax increase on landlords, sold as funding for affordable housing. The city deliberately structures the measure so revenues flow to the <strong>General Fund</strong>, not the Housing Trust Fund — making the promise legally unenforceable.
+
+        Within one year: <strong>$6.65M from U1 revenues spent to purchase the former Premier Cru building for new City Council chambers.</strong> Berkeleyside headline: "Berkeley has done a bait and switch by using housing funds to buy new Council chambers."
+
+        By 2025: $6.1M redirected to close General Fund gap; $2.5M cut from Small Sites affordable housing program.
+        <div class="quote">
+          "Berkeley has done a bait and switch by using housing funds to buy new Council chambers."
+          <cite>— Berkeleyside opinion, March 31, 2017</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">March 2018</div>
+      <div class="entry-title">Pension unfunded liability hits $640M — up $500M in a decade</div>
+      <div class="entry-body">
+        <span class="tag tag-pension">Pension</span>
+        Analysis by Isabelle Gaston: Berkeley owes $640M+ in unfunded pension obligations, including ~$100M in retiree healthcare to which employees contribute nothing during employment. CalPERS assumed 7.0%+ returns; actual 10-year return: <strong>4.4%</strong> — during one of the strongest bull markets in history. City officials continue to say they are "working on it."
+      </div>
+    </div>
+
+    <div class="entry gold">
+      <div class="entry-date">May 2018</div>
+      <div class="entry-title">Auditor Ann-Marie Hogan retires after 24 years — leaving behind $600M+ in unfunded liabilities</div>
+      <div class="entry-body">
+        Hogan, elected in 1994, issued hundreds of audit reports. She leaves behind a city with crumbling infrastructure, an unfunded pension crisis, and a pattern of audit non-implementation she documented herself in 2005. Her successor, Jenny Wong, will find the same problems — plus new ones.
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 6: 2019-2022 -->
+  <div class="era-header">
+    <span class="era-year modern">2019–2022</span>
+    <span class="era-title">COVID Covers the Cracks</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry red">
+      <div class="entry-date">November 2020</div>
+      <div class="entry-title">Measure FF fire tax — oversight bypassed within months of passage</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span><span class="tag tag-ignored">Oversight Bypassed</span>
+        Voters approve Measure FF, an $8.5M/year parcel tax for fire services with mandatory citizen oversight. Within months:
+        <ul style="margin: 0.5rem 0 0.5rem 1.2rem; font-size:0.9rem; color:#444; line-height:1.7;">
+          <li>9 retired firefighters hired for vegetation management in September 2020 — commission not informed until December</li>
+          <li>$2M Outdoor Public Warning System purchased without consulting the commission</li>
+          <li>$40M training facility proposed without budget review</li>
+          <li>Commission given PowerPoints instead of budget documents</li>
+        </ul>
+        Commission Chair Jose Luis Bedolla: <em>"The commission continues to ask for transparency and clarity."</em>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">May 2022</div>
+      <div class="entry-title">Auditor Wong: finances "strong for now" — but $773M pension liability, $1.2B infrastructure backlog</div>
+      <div class="entry-body">
+        <span class="tag tag-pension">Pension</span><span class="tag tag-debt">Infrastructure</span>
+        New City Auditor Jenny Wong's first major financial condition audit covers FY 2012–FY 2021. Pension and OPEB obligations: $773.1M (up from $567.4M in 2012). Infrastructure backlog: $1.2B. California State Auditor rates Berkeley's pension funded ratio (66%) as <strong>"high risk."</strong> Berkeley has not met its own targets for pension contributions.
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">November 2022</div>
+      <div class="entry-title">Measure L — $650M infrastructure bond fails. Voters don't trust the city to spend it.</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Voter Rejection</span>
+        Berkeley's largest-ever proposed bond measure — $650M for streets, housing, wildfire safety, infrastructure — receives 59.4% yes, short of the required 66.7%. City leaders refused to commit revenues to specific projects. Result: the $1.2B (now $1.8B) backlog has no identified funding mechanism. <strong>The pattern: ask voters for money with no accountability strings. Voters say no.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERA 7: Now -->
+  <div class="era-header">
+    <span class="era-year now">2023–2026</span>
+    <span class="era-title">The Current "Crisis" — Same Script, New Cast</span>
+  </div>
+
+  <div class="timeline">
+    <div class="entry gold">
+      <div class="entry-date">January 2025</div>
+      <div class="entry-title">2009 lease audit reopened: "Berkeley Faces the Same Risks 16 Years Later"</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Audit Ignored</span>
+        City Auditor Jenny Wong reopens the 2009 lease management audit. Findings: the city <strong>still lacks a clear approach to lease management, a relevant policy, and a complete inventory of leases and licenses.</strong> The city had lost track of an entire building. 7 of the 24 original recommendations were dropped in 2022 without resolution; 8 are now re-opened. Total span of non-implementation: <strong>23 years and counting.</strong>
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">February 2026</div>
+      <div class="entry-title">$43M in no-bid contracts — 94 contracts, no documented competitive process</div>
+      <div class="entry-body">
+        <span class="tag tag-ignored">Governance Failure</span>
+        Auditor Wong finds 94 contracts worth $43M in FY 2024 entered without documented competitive bidding. In FY 2022, nearly $85M in long-term recycling contracts awarded without competition. No evidence of corruption — but elevated risk of overpaying and zero quality assurance.
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">April 8, 2026</div>
+      <div class="entry-title">Auditor Wong: "Structural Deficit Poses Risk to Financial Sustainability"</div>
+      <div class="entry-body">
+        <span class="tag tag-fundsweep">Fund Sweep</span><span class="tag tag-pension">Pension</span><span class="tag tag-ignored">One-Time Fixes</span>
+        The most comprehensive audit to date — FY 2016 through FY 2025:
+        <ul style="margin: 0.5rem 0 0.5rem 1.2rem; font-size:0.9rem; color:#444; line-height:1.7;">
+          <li>Structural deficit: <strong>$12M–$40M per year for several years</strong>, projected to reach $33M in FY 2028</li>
+          <li>"The City relied on one-time funding sources to balance its budget for the past several years"</li>
+          <li><strong>$4.7M swept from the workers' compensation fund</strong> to the General Fund in FY 2025 — despite workers' comp already being $2M underfunded</li>
+          <li>Unfunded pension liability: $694.8M</li>
+          <li>Infrastructure backlog: $1.8B</li>
+          <li>Personnel costs: 20% growth between FY 2016 and FY 2025; two-thirds of the General Fund</li>
+        </ul>
+        <a href="https://berkeleyca.gov/your-government/city-audits/city-auditor-reports">Source: City Auditor Report, April 2026 →</a>
+      </div>
+    </div>
+
+    <div class="entry red">
+      <div class="entry-date">April 2026</div>
+      <div class="entry-title">The $29M "crisis" — and the familiar solution</div>
+      <div class="entry-body">
+        <span class="tag tag-baitswitch">Bait &amp; Switch</span>
+        The city's proposed response to the current deficit: 38 filled position layoffs, elimination of 100 vacant positions, and a <strong>0.5% sales tax on the November 2026 ballot</strong> — projected to raise $9M/year — with the implicit threat that Fire Station 4 closes if voters say no.
+
+        Budget Manager Sharon Friedrichsen acknowledges: <em>"A lot of these options are not sustainable."</em>
+
+        <strong>This is the same playbook used in 2003, 2009, and 2010.</strong> The names have changed. The script has not.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- The Pattern -->
+  <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; margin-bottom:1rem;">The Recurring Playbook</h2>
+  <p style="font-size:0.95rem; color:#444; line-height:1.6; margin-bottom:1.2rem;">Six tools, used in rotating combination across five decades:</p>
+
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <div class="pattern-card-title">1. Over-Budget &amp; Pocket the Savings</div>
+      <p>Personnel lines are systematically over-budgeted. The "savings" are booked as mid-year windfalls, recycled through AAO amendments with minimal public scrutiny. The FY 2025 mid-year update explicitly attributes savings to "over budgeting for program managers." In FY 2021 alone, unencumbered carryovers totaled $35.4M.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-title">2. Raid Internal Service Funds</div>
+      <p>When the General Fund runs short, Berkeley sweeps surpluses from internal funds — workers' compensation, parking, marina. In FY 2025: $4.7M from workers' comp despite that fund being $2M short of covering its own claims. The auditor warned this puts long-term fund sustainability at risk. It happened anyway.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-title">3. Ballot Measure "Bait &amp; Switch"</div>
+      <p>Tax measures are framed around specific popular services (libraries, fire, schools, affordable housing) but structured to flow to the General Fund, leaving the council free to spend proceeds however it chooses. When challenged, the legal disclaimer is: "We never legally promised anything." Voters approved it anyway.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-title">4. Defer Maintenance, Declare Emergency Later</div>
+      <p>The 2011 "Failing Streets" audit found a $54M backlog and warned that delay multiplies costs 32-fold. Berkeley deferred. By 2025 the backlog is $1.8B — a 33x increase in 14 years. The same dynamic applies to pools, piers, facilities, and pension contributions. Deferral is free today and catastrophic later.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-title">5. Ignore the Auditor</div>
+      <p>As of 2026: 65 open recommendations across 9 audits. Some date to 1998. The lease management audit was first issued in 2009 — the city had lost track of an entire building by 2025, when the same audit was reopened with the same findings. The audit function exists. The implementation function does not.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-title">6. Threaten Cuts to Essential Services</div>
+      <p>Each cycle ends with the same political ultimatum: approve new revenue or fire stations close, police are cut, libraries shorten hours. In 2026 it's Fire Station 4. In 2010 it was 67 positions. In 2003 it was fire services (while redirecting most of the tax elsewhere). The service threat is the lever. It has worked repeatedly.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Pension Growth Table -->
+  <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; margin-bottom:0.8rem;">The Pension Number Nobody Acted On</h2>
+  <p style="font-size:0.9rem; color:#555; margin-bottom:0.8rem; line-height:1.6;">Berkeley's unfunded pension and OPEB liability, as documented over 15 years of audits. Each year: new warnings. Each year: no structural response.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Unfunded Pension + OPEB Liability</th>
+        <th>Change from Prior</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2010</td><td>~$250M (actuarial) / $400M+ (market value)</td><td>—</td></tr>
+      <tr><td>2012</td><td>$329.87M (CalPERS only) / $567.4M total</td><td>+$167M</td></tr>
+      <tr><td>2016</td><td>~$640M</td><td>+$73M</td></tr>
+      <tr><td>2018</td><td>$640M+ (up $500M in decade)</td><td>Accelerating</td></tr>
+      <tr><td>2021</td><td>$773.1M</td><td>+$133M</td></tr>
+      <tr><td>2025</td><td>$694.8M</td><td>↓ (CalPERS gains)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.8rem; color:#999; margin-top:0.4rem; font-style:italic;">Sources: City Auditor Reports 2010, 2012, 2022, 2026; Berkeleyside op-eds 2016, 2018</p>
+
+  <div class="footer">
+    Berkeley Transparency Hub (BeTH) &nbsp;·&nbsp; Sources linked throughout &nbsp;·&nbsp; Compiled April 2026
+  </div>
+
+</div>
+</body>
+</html>
