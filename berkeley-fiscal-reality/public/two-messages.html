@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two Messages, One Set of Facts — BeTH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fffdf9;
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem 5rem;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+    .back-link:hover { color: #c41e1e; }
+
+    .site-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle { font-size: 1.05rem; color: #555; line-height: 1.6; margin-bottom: 0.8rem; }
+
+    .framing-note {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #888;
+      line-height: 1.55;
+      margin-bottom: 2.25rem;
+      border-left: 3px solid #e0dbd4;
+      padding-left: 0.9rem;
+    }
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1e2d4a;
+      margin: 2.75rem 0 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0dbd4;
+    }
+
+    .message {
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .message.m1 { background: #fdecea; border: 1px solid #f3c9c4; }
+    .message.m2 { background: #edf3fa; border: 1px solid #c8d8ec; }
+
+    .msg-tags { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+    .msg-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; }
+    .m1 .msg-label { color: #b71c1c; }
+    .m2 .msg-label { color: #1a4a8b; }
+    .msg-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.15rem 0.55rem; border-radius: 3px; text-transform: uppercase;
+    }
+    .m1 .msg-pill { background: #f7c5c0; color: #8b0000; }
+    .m2 .msg-pill { background: #cfe0f2; color: #1a4a8b; }
+
+    .msg-head {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin-bottom: 0.9rem;
+    }
+    .m1 .msg-head { color: #6e1410; }
+    .m2 .msg-head { color: #16263d; }
+
+    .message p { font-size: 0.96rem; line-height: 1.72; margin-bottom: 0.85rem; }
+    .m1 p { color: #4a2421; }
+    .m2 p { color: #23303f; }
+    .message p:last-child { margin-bottom: 0; }
+    .message p strong { font-weight: 700; }
+
+    ul.facts { list-style: none; }
+    ul.facts li {
+      font-size: 0.9rem; color: #555; line-height: 1.6;
+      padding-left: 1.3rem; position: relative; margin-bottom: 0.65rem;
+    }
+    ul.facts li::before { content: "▪"; position: absolute; left: 0.1rem; color: #1e2d4a; }
+
+    .sources {
+      margin-top: 2rem;
+      background: #faf8f5;
+      border: 1px solid #e0dbd4;
+      border-radius: 6px;
+      padding: 0.9rem 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: #888;
+      line-height: 1.7;
+    }
+    .sources strong { color: #666; }
+
+    .footer {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #bbb;
+      text-align: center;
+      line-height: 1.7;
+    }
+    a { color: #555; }
+    a:hover { color: #c41e1e; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <a class="back-link" href="/">← Berkeley Transparency Hub</a>
+
+  <div class="site-label">Berkeley Transparency Hub — BeTH</div>
+  <h1>Two Messages, One Set of Facts</h1>
+  <p class="subtitle">Both messages rest on the same verified facts. They differ only in tone: the first uses the "fiction" frame to capture attention; the second is the measured version that names the two real problems and casts the City Auditor as the ally. Use them together — the first to get heard, the second to be trusted.</p>
+  <p class="framing-note">These are advocacy framings — one community member's way of communicating the data, not a neutral finding of the Transparency Hub. The underlying facts are sourced at the bottom.</p>
+
+  <div class="message m1">
+    <div class="msg-tags"><span class="msg-label">MESSAGE 1</span><span class="msg-pill">To capture attention</span></div>
+    <div class="msg-head">Berkeley's budget is a fiction — and the City's own Auditor has the receipts.</div>
+    <p>Every year for the better part of a decade, Berkeley has declared its budget "balanced." Every year it was nothing of the kind. The gap has been papered over with reserves, ARPA money, fund balance, and one-time transfers — $10M, then $40M, then $27, $22, $12, $17, and $29M. Seven years of "balanced" budgets that never balanced anything.</p>
+    <p>How do we know the numbers aren't real? Because the moment the City was forced to re-base this budget to what it <strong>actually spends</strong>, <strong>$16.5 million in personnel costs simply vanished</strong> — money budgeted year after year against padded baselines. A budget you can shrink by $16.5M just by being honest was never an honest budget.</p>
+    <p>And this year's "surplus"? It depends on a sales-tax measure voters haven't passed yet. Strip out that assumption and the one-time money — which drops to <strong>zero</strong> next year — and the structural hole is right where it always was.</p>
+    <p>Meanwhile the City Auditor has handed Council a playbook: <strong>384 recommendations across 54 audits.</strong> The City <strong>dropped 76 of them</strong> — many by letting them expire untried after five years — and has another 43 still open. The worst offenders are the departments with the most money: Public Works has acted on barely a third of its findings; the City Manager's office on half.</p>
+    <p>This isn't a math problem. It's a discipline problem. The two things Berkeley actually needs are simple to name and hard to dodge: <strong>tell the truth about the money, and hold programs accountable for results.</strong> The Auditor has been saying so for years.</p>
+  </div>
+
+  <div class="message m2">
+    <div class="msg-tags"><span class="msg-label">MESSAGE 2</span><span class="msg-pill">To build the coalition</span></div>
+    <div class="msg-head">Berkeley's budget challenge is real — and two governance fixes would address most of it.</div>
+    <p>Berkeley faces a roughly $30-million-a-year General Fund gap. Some of it reflects genuine cost growth: over the last decade, expenses rose about 8% a year against 6.5% revenue growth. That part is real, and no amount of process reform erases it entirely.</p>
+    <p>But a large share of the problem is not the math — it's the process. Two issues stand out, and the City Auditor is our strongest ally on both.</p>
+    <p><strong>First, transparency and honesty in budgeting.</strong> The adopted budget is a poor guide to what the City actually spends. This year's re-basing removed $16.5M from the personnel budget alone. The fix is straightforward: budget to actuals, let operating appropriations lapse, separate capital from operating, discipline mid-year amendments, and publish a standing "adopted-versus-actual" reconciliation.</p>
+    <p><strong>Second, accountability to results.</strong> The most common finding across the Auditor's 54 audits is that programs lack measurable goals — from zero waste to code enforcement to homeless services. Of 384 recommendations, 76 were dropped and 43 remain open, concentrated in the highest-spending departments. The fix is to tie budgeting to performance, and to require an explicit Council decision with a cost-benefit before any recommendation is dropped.</p>
+    <p>This is exactly the work the Auditor's office exists to do. Council should treat the audit record as the backbone of the budget process, not a separate report filed and forgotten. Honesty about the money and accountability for results won't close the entire gap — but they would end the annual ritual of one-time fixes and rebuild public trust in the numbers.</p>
+  </div>
+
+  <h2>Shared Fact Base</h2>
+  <ul class="facts">
+    <li>Recurring GF deficits closed with one-time measures: $10M (2019), $40M (2021), $27M (2022), $22M (2023), $12M (2024), $17M (2025), $29M (2026).</li>
+    <li>Re-baselining to actuals cut GF personnel budget $16.5M / −7.4% (Salaries −$9.45M, Pension −$3.68M, Health/Retiree −$1.58M, Overtime −$0.71M).</li>
+    <li>FY28 revenue assumes the Nov 2026 Sales &amp; Use Tax measure passes; one-time resources fall from $2.1M (FY27) to $0 (FY28).</li>
+    <li>Cost growth FY17–FY26: ~8% expense vs. ~6.5% revenue.</li>
+    <li>Audit record: 384 recommendations, 54 audits; 265 implemented (69%), 76 dropped (20%, many by 5-year lapse), 43 open. Public Works 33% implemented; City Manager 50%.</li>
+    <li>FY2027 Audit Plan language: "ensuring City dollars are spent responsibly and aligned with Berkeley values."</li>
+  </ul>
+
+  <div class="sources">
+    <strong>SOURCES — </strong>Proposed FY2027–FY2028 Biennial Budget, Item 21, Supp Packet 2 (2026-05-19);
+    Berkeley City Auditor's Recommendation Dashboard (snapshot 2026-04-24);
+    FY2027 Audit Plan + Whistleblower Annual Report (2026-06-10).
+  </div>
+
+  <div class="footer">
+    Berkeley Transparency Hub (BeTH) &nbsp;·&nbsp; Messaging note, June 2026 &nbsp;·&nbsp; Facts sourced above
+  </div>
+
+</div>
+</body>
+</html>

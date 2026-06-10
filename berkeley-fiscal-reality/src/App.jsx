@@ -113,6 +113,8 @@ const TABS = [
   { key: "compare",   label: "COMPARISONS" },
   { key: "habit",     label: "THE HABIT",    href: "/history-of-the-habit.html" },
   { key: "factcheck", label: "FACT CHECK",   href: "/taplin-factcheck.html" },
+  { key: "reform",    label: "THE FIX",      href: "/rational-budgeting-process.html" },
+  { key: "messaging", label: "MESSAGING",    href: "/two-messages.html" },
 ];
 
 function ShellGameSection() {
@@ -1033,6 +1035,38 @@ export default function App() {
           </button>
         ))}
       </nav>
+
+      {/* ── HOW TO READ THIS ── */}
+      <section style={{
+        padding: "clamp(18px,3vw,24px) clamp(20px,4vw,36px)",
+        background: "#faf8f5",
+        borderBottom: "1px solid #e8e4df",
+        fontFamily: "'Source Serif 4', Georgia, serif",
+        color: "#1a1a1a"
+      }}>
+        <div style={{
+          fontSize: 10, fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase",
+          color: "#1e2d4a", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace"
+        }}>
+          How to read this
+        </div>
+        <p style={{ fontSize: 14, lineHeight: 1.65, margin: "0 0 10px 0" }}>
+          There is no secret pot of money. Berkeley's structural deficit is real —
+          roughly <strong>$33M a year</strong>, on top of about <strong>$1.8B</strong> in unfunded
+          capital and retirement obligations. Closing that gap will require cuts, deferrals, new
+          revenue, or some mix of the three.
+        </p>
+        <p style={{ fontSize: 14, lineHeight: 1.65, margin: "0 0 10px 0" }}>
+          This site shows where the current budget actually goes, in enough detail that you can
+          weigh the tradeoffs yourself. Highlighting a contract or program here is not a claim that
+          it is waste — it is an invitation to see what is on the table before decisions get made
+          out of public view.
+        </p>
+        <p style={{ fontSize: 14, lineHeight: 1.65, margin: 0, color: "#555" }}>
+          The Berkeley Transparency Hub does not publish its own list of cuts. Those choices belong
+          to residents, councilmembers, and city staff.
+        </p>
+      </section>
 
       {/* ── CONTENT ── */}
       <main ref={contentRef} style={{ padding: "clamp(20px,4vw,36px)", flex: 1 }}>

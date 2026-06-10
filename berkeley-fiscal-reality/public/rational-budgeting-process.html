@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Rational Budgeting Process — BeTH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fffdf9;
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem 1rem 5rem;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+    .back-link:hover { color: #c41e1e; }
+
+    .site-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #999;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1e2d4a;
+      margin: 2.75rem 0 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0dbd4;
+    }
+
+    .lede {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 2rem;
+      border-left: 4px solid #1e2d4a;
+      padding-left: 1.2rem;
+    }
+    .lede strong { color: #1a1a1a; }
+
+    p { font-size: 0.98rem; line-height: 1.7; color: #333; margin-bottom: 1rem; }
+
+    .card {
+      background: #faf8f5;
+      border-left: 4px solid #1e2d4a;
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.9rem;
+    }
+    .card-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .card-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1e2d4a;
+    }
+    .card-title { font-weight: 700; font-size: 1rem; flex: 1; }
+    .card-body { font-size: 0.92rem; color: #444; line-height: 1.65; }
+    .card.red { border-left-color: #c41e1e; }
+    .card.gold { border-left-color: #b85c00; }
+    .card.blue { border-left-color: #1a4a8b; }
+
+    .basis {
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.55;
+      border-top: 1px dashed #e0dbd4;
+      padding-top: 0.55rem;
+      margin-top: 0.6rem;
+    }
+    .basis strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: #b85c00;
+    }
+
+    .conf {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .conf-high { background: #e8f5e9; color: #1b5e20; }
+    .conf-mixed { background: #fff3e0; color: #b85c00; }
+    .conf-caveat { background: #fdecea; color: #b71c1c; }
+
+    .principle { display: flex; gap: 0.8rem; align-items: baseline; margin-bottom: 0.7rem; }
+    .principle .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a4a8b;
+      min-width: 1.1rem;
+    }
+    .principle .txt { font-size: 0.95rem; line-height: 1.6; }
+    .principle .txt strong { color: #1a1a1a; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .data-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #fff;
+      background: #1a1a1a;
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+    }
+    .data-table td { padding: 0.5rem 0.7rem; border-bottom: 1px solid #f0ece6; color: #333; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td:last-child { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #1a4a8b; font-weight: 600; }
+
+    .assessment {
+      background: #1a2a4a;
+      color: #e8f0fa;
+      border-radius: 8px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .assessment .h { font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 0.7rem; }
+    .assessment p { color: #d4e0f0; font-size: 0.92rem; }
+    .assessment p:last-child { margin-bottom: 0; color: #aac2e0; font-size: 0.86rem; }
+
+    ul.needs { list-style: none; }
+    ul.needs li {
+      font-size: 0.92rem; color: #555; line-height: 1.6;
+      padding-left: 1.2rem; position: relative; margin-bottom: 0.6rem;
+    }
+    ul.needs li::before { content: "→"; position: absolute; left: 0; color: #b85c00; }
+
+    .footer {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #bbb;
+      text-align: center;
+      line-height: 1.7;
+    }
+    a { color: #555; }
+    a:hover { color: #c41e1e; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <a class="back-link" href="/">← Berkeley Transparency Hub</a>
+
+  <div class="site-label">Berkeley Transparency Hub — BeTH</div>
+  <h1>A Rational Budgeting Process for Berkeley</h1>
+  <p class="subtitle">A reform framework grounded in 54 audits, 384 recommendations, and the FY2027–FY2028 Proposed Budget.</p>
+  <div class="meta">Compiled June 2026 &nbsp;·&nbsp; Sources in berkeley-budget-database.json &amp; audit-budget-opportunities.md</div>
+
+  <div class="lede">
+    The conclusion is not "the numbers are fake." It is that the process produces an adopted budget that
+    <strong>poorly predicts actual spending</strong>, <strong>defers its own structural fixes</strong>, and
+    <strong>leaves the largest recurring cost driver to attrition</strong>. A rational process fixes the
+    process, not just the year.
+  </div>
+
+  <h2>What the Data Shows</h2>
+
+  <div class="card red">
+    <div class="card-head"><span class="card-num">01</span><span class="card-title">The deficit is recurring — and closed with one-time money every year</span></div>
+    <div class="card-body">$10M (2019) → $40M (2021) → $27M → $22M → $12M → $17M → $29M (2026). Every year was "balanced" with reserves, ARPA, fund balance, transfers, the Section 115 Trust, or vacancy savings. None resolved the structure.</div>
+  </div>
+  <div class="card gold">
+    <div class="card-head"><span class="card-num">02</span><span class="card-title">The baseline was padded</span></div>
+    <div class="card-body">The FY27–28 budget re-based to actuals and cut the General Fund personnel budget by <strong>$16.5M / −7.4%</strong> (Salaries −$9.45M, Pension −$3.68M, Health/Retiree −$1.58M, Overtime −$0.71M). A budget that can shed $16.5M by "re-baselining to actual spending" was carrying $16.5M of appropriation that didn't reflect reality.</div>
+  </div>
+  <div class="card blue">
+    <div class="card-head"><span class="card-num">03</span><span class="card-title">Personnel is the structural driver — and is barely touched on the cost-sharing side</span></div>
+    <div class="card-body">Salaries &amp; benefits are 66–67% of the General Fund (FY27 proposed: Salaries $105.0M, Pension $54.6M, Health/Retiree $21.9M). The budget attacks this almost entirely through attrition (164 fewer positions) rather than the recurring cost of benefits per remaining employee.</div>
+  </div>
+
+  <p style="background:#fff3e0;border:1px solid #f0d9b8;border-radius:6px;padding:0.9rem 1.1rem;font-size:0.9rem;color:#5a4a2a;margin-top:1.2rem;">
+    And the City has a standing, ignored playbook for the rest: of 384 recommendations, 76 were dropped (many
+    by silent 5-year lapse) and 43 are open — concentrated in the highest-spending departments (Public Works 33%
+    implemented; City Manager 50%) and in exactly the categories a structural fix needs (Efficiency &amp;
+    Effectiveness 47%, Transparency &amp; Accountability 29%).
+  </p>
+
+  <h2>Design Principles</h2>
+  <div class="principle"><span class="num">1</span><span class="txt"><strong>Truth in budgeting.</strong> The adopted budget should approximate what is actually spent. Minimize the adopted → amended → actual gap and publish it.</span></div>
+  <div class="principle"><span class="num">2</span><span class="txt"><strong>Structural balance.</strong> Recurring revenue funds recurring expense; one-time money funds only one-time needs. No exceptions hidden in transfers.</span></div>
+  <div class="principle"><span class="num">3</span><span class="txt"><strong>Outcome accountability.</strong> Every program states a goal and a measure; allocation follows results; audit findings feed the budget.</span></div>
+  <div class="principle"><span class="num">4</span><span class="txt"><strong>Cost discipline on the real driver.</strong> Personnel cost is managed on both sides — workload-based positions and benefit cost-sharing, not attrition alone.</span></div>
+  <div class="principle"><span class="num">5</span><span class="txt"><strong>Protected funds.</strong> Reserves and replacement / internal-service funds are rule-bound and cannot be silently raided.</span></div>
+
+  <h2>The Process — Eight Mechanics, Each Tied to an Audit Revelation</h2>
+
+  <div class="card">
+    <div class="card-head"><span class="card-num">1</span><span class="card-title">Baseline integrity (zero-based to actuals)</span><span class="conf conf-high">CONFIDENCE: HIGH</span></div>
+    <div class="card-body">Re-base every department to trailing actual expenditures annually; no automatic escalation of unspent lines. Vacant positions budgeted at true cost and removed after a fixed vacancy window unless re-justified.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong>The City just demonstrated this works — $16.5M came out of the GF personnel baseline. Institutionalize it instead of doing it once in a crisis.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">2</span><span class="card-title">Carryover reform (appropriations lapse)</span><span class="conf conf-mixed">DIRECTION HIGH · MAGNITUDE MEDIUM</span></div>
+    <div class="card-body">Operating appropriations lapse at year-end. Only encumbered funds and separately-budgeted capital carry forward, by explicit re-appropriation with written justification. Capital lives in a multi-year fund so operating carryovers stop masking true operating cost.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong>The 2022 Financial Condition audit called for a capital / deferred-maintenance funding plan (dropped); commingling capital timing with operating budgets is part of why all-fund department totals swing wildly (Public Works $187M → $234M → $213M). Magnitude needs year-end fund-balance schedules + CAFR.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">3</span><span class="card-title">AAO discipline (stop the mid-year drift)</span><span class="conf conf-mixed">DIRECTION HIGH · MAGNITUDE MEDIUM</span></div>
+    <div class="card-body">Consolidate Annual Appropriations Ordinance amendments to a fixed quarterly cycle. Each amendment must identify a specific source, be net-neutral to fund balance, or require a Council supermajority. Publish a standing adopted → amended → actual reconciliation.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong>The recurring "no performance measures / no documented procedures" theme (Zero Waste, Code Enforcement, Contracts audits) reflects a culture where money moves without a tracked rationale. AAO history/magnitude needs the AAO ordinances themselves.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">4</span><span class="card-title">Personnel cost-sharing (manage the driver, not just headcount)</span><span class="conf conf-caveat">LEVER HIGH · $ FIGURE LOW</span></div>
+    <div class="card-body">Bargain employee contributions toward health-premium and pension cost across MOUs, phased in. The GF Health/Retiree line is $21.9M and Pension $54.6M; cutting 164 positions reduces count but leaves per-employee benefit cost — the actual growth driver — unaddressed.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong><em>Employee Benefits: Tough Decisions Ahead</em> and the Financial Condition Section 115 Trust recommendation (dropped) both point here. This is a bargaining outcome, not a unilateral lever; no savings figure is credible until the active-vs-retiree health split and CalPERS contribution rates are in hand.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">5</span><span class="card-title">Performance-based allocation</span><span class="conf conf-high">CONFIDENCE: HIGH</span></div>
+    <div class="card-body">Every program submits a goal and a measurable outcome with its budget request. Programs that cannot state a measure, or that miss targets, are flagged for review before funding is renewed — not cut automatically, but no longer funded on autopilot.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong>The single most repeated audit finding — missing performance measures in Zero Waste (2014/2016), Code Enforcement (2018), Library program evaluation (2020), Restaurant Inspections (2024), and Homeless Response Team (2025, all 6 recs still Not Started). The audits already wrote the requirement.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">6</span><span class="card-title">Audit-accountability loop (end the silent 5-year lapse)</span><span class="conf conf-high">CONFIDENCE: HIGH</span></div>
+    <div class="card-body">The budget adoption packet reports, per department, the status of every open and relevant audit recommendation. Dropping a recommendation requires an explicit Council vote with a written cost-benefit — ending the practice where a fix is "dropped" simply because five years passed.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong>76 of 384 recommendations dropped, a large share by automatic lapse rather than decision; the Financial Condition deficit fixes themselves were dropped "to allow for updated recommendations." Tie budget adoption to recommendation status and deferral becomes a recorded choice.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">7</span><span class="card-title">Reserve and replacement-fund rules</span><span class="conf conf-high">CONFIDENCE: HIGH</span></div>
+    <div class="card-body">Adopt a replenishment schedule for the Stability and Catastrophic reserves and protect internal-service / replacement funds: no diversion without a documented cost analysis showing the impact, approved by Council.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong><em>Fleet Replacement Fund Short Millions</em> (2021) — 11 of 12 recs still only Partly Implemented while $2M (FY25) and $0.5M (FY24) were transferred out of the Equipment Replacement Fund; the dropped reserve-replenishment recommendation.</div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-num">8</span><span class="card-title">Revenue integrity</span><span class="conf conf-high">CONFIDENCE: HIGH</span></div>
+    <div class="card-body">Maintain complete, current inventories of grants, leases, and fees; track receivables; set cost-recovery fees where allowed. Capture revenue the City is already owed before cutting services.</div>
+    <div class="basis"><strong>AUDIT BASIS — </strong><em>Citywide Grants Management</em> (2016, all 15 dropped); <em>2009 Leases Audit Follow-Up</em> (2025, lease inventory still not centralized 16 years on); franchise-fee recovery and fee-study items; the <em>Business License Taxes</em> audit ("…Will Increase Revenues").</div>
+  </div>
+
+  <h2>How the Mechanics Close the Loop</h2>
+  <table class="data-table">
+    <thead><tr><th>Symptom in the Data</th><th>Mechanic</th></tr></thead>
+    <tbody>
+      <tr><td>$16.5M of padded personnel baseline</td><td>1 Baseline integrity</td></tr>
+      <tr><td>Adopted budget ≠ actual spending</td><td>2 Carryover + 3 AAO discipline</td></tr>
+      <tr><td>Personnel cost growth left to attrition</td><td>4 Cost-sharing</td></tr>
+      <tr><td>Programs with no measurable goals</td><td>5 Performance allocation</td></tr>
+      <tr><td>76 recommendations dropped, many by lapse</td><td>6 Audit-accountability loop</td></tr>
+      <tr><td>Replacement / reserve funds raided</td><td>7 Fund rules</td></tr>
+      <tr><td>Grant / lease / fee revenue uncaptured</td><td>8 Revenue integrity</td></tr>
+      <tr><td>Recurring deficit closed with one-time money</td><td>Principle 2, enforced by 1–3 + 7</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Independent Assessment — Unvarnished</h2>
+  <div class="assessment">
+    <div class="h">A large share of the gap is a governance choice.</div>
+    <p>The strongest claim here is not that the deficit is fake. There is real cost growth — 8% expense vs. 6.5% revenue over FY17–26 — that no process change fully erases. The defensible claim is narrower and more damaging: the City can re-baseline $16.5M when forced to; it has a standing audit playbook it mostly ignored in its biggest departments; and it has left the dominant cost driver — benefits per employee — to attrition rather than cost-sharing.</p>
+    <p>Two cautions: carryover and AAO discipline have legitimate limits (encumbrances and multi-year capital genuinely must carry — the reform is transparency and control, not literal "no carryover"); and health cost-sharing is bargained, not decreed, and can't be scored until the active/retiree split and contribution rates are sourced.</p>
+  </div>
+
+  <h2>Data Still Needed to Quantify the Case</h2>
+  <ul class="needs">
+    <li>Year-end fund-balance and carryover schedules (CAFR / adopted budget book) — to size carryover.</li>
+    <li>FY2026 and prior Annual Appropriations Ordinances — to size mid-year AAO drift and build the reconciliation.</li>
+    <li>MOU benefit terms + CalPERS health schedules — to split active vs. retiree health and model contribution scenarios.</li>
+    <li>The Auditor's FY2025 updated financial condition report — where the dropped 2022 structural recommendations were said to be re-issued.</li>
+  </ul>
+
+  <div class="footer">
+    Berkeley Transparency Hub (BeTH) &nbsp;·&nbsp; Reform framework, June 2026 &nbsp;·&nbsp; Grounded in the City Auditor's recommendation record
+  </div>
+
+</div>
+</body>
+</html>
