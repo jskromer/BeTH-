@@ -112,7 +112,6 @@ const TABS = [
   { key: "demands",   label: "OUR POSITION" },
   { key: "compare",   label: "COMPARISONS" },
   { key: "habit",     label: "THE HABIT",    href: "/history-of-the-habit.html" },
-  { key: "factcheck", label: "FACT CHECK",   href: "/taplin-factcheck.html" },
   { key: "reform",    label: "THE FIX",      href: "/rational-budgeting-process.html" },
   { key: "messaging", label: "MESSAGING",    href: "/two-messages.html" },
 ];
@@ -962,6 +961,7 @@ function DataTable({ headers, rows }) {
 /* ──────────────────── MAIN APP ──────────────────── */
 export default function App() {
   const [tab, setTab] = useState(0);
+  const [deepOpen, setDeepOpen] = useState(false);
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -970,6 +970,10 @@ export default function App() {
 
   const sections = [ShellGameSection, NumbersSection, AuditSection, CarryoverTracker, DemandsSection, CompareSection];
   const ActiveSection = sections[tab];
+
+  // Section tabs (rendered inline) vs. deep-dive link pages (grouped in a dropdown)
+  const sectionTabs = TABS.filter((t) => !t.href);
+  const linkTabs = TABS.filter((t) => t.href);
 
   return (
     <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 820, margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -1017,10 +1021,10 @@ export default function App() {
         display: "flex", borderBottom: "2px solid #1e2d4a",
         background: "#f5f1eb", position: "sticky", top: 0, zIndex: 10
       }}>
-        {TABS.map((t, i) => (
+        {sectionTabs.map((t, i) => (
           <button
             key={t.key}
-            onClick={() => t.href ? window.location.href = t.href : setTab(i)}
+            onClick={() => setTab(i)}
             style={{
               flex: 1, padding: "12px 8px", border: "none", cursor: "pointer",
               fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
@@ -1028,12 +1032,58 @@ export default function App() {
               color: tab === i ? "#fffdf9" : "#1e2d4a",
               transition: "all 0.15s",
               fontFamily: "'JetBrains Mono', monospace",
-              borderRight: i < TABS.length - 1 ? "1px solid #ddd" : "none"
+              borderRight: "1px solid #ddd"
             }}
           >
             {t.label}
           </button>
         ))}
+
+        {/* Deep-dive pages grouped under a dropdown */}
+        <div
+          style={{ position: "relative", flex: 1 }}
+          onMouseLeave={() => setDeepOpen(false)}
+        >
+          <button
+            onClick={() => setDeepOpen((o) => !o)}
+            aria-expanded={deepOpen}
+            style={{
+              width: "100%", padding: "12px 8px", border: "none", cursor: "pointer",
+              fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
+              background: deepOpen ? "#1e2d4a" : "transparent",
+              color: deepOpen ? "#fffdf9" : "#1e2d4a",
+              transition: "all 0.15s", fontFamily: "'JetBrains Mono', monospace"
+            }}
+          >
+            DEEP DIVES {deepOpen ? "▴" : "▾"}
+          </button>
+          {deepOpen && (
+            <div style={{
+              position: "absolute", top: "100%", right: 0, minWidth: 190,
+              background: "#1e2d4a", zIndex: 20,
+              boxShadow: "0 8px 20px rgba(0,0,0,0.22)", borderRadius: "0 0 4px 4px", overflow: "hidden"
+            }}>
+              {linkTabs.map((t) => (
+                <button
+                  key={t.key}
+                  onClick={() => { window.location.href = t.href; }}
+                  style={{
+                    display: "block", width: "100%", textAlign: "left",
+                    padding: "12px 16px", border: "none", cursor: "pointer",
+                    fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
+                    background: "transparent", color: "#fffdf9",
+                    borderBottom: "1px solid rgba(255,255,255,0.1)",
+                    fontFamily: "'JetBrains Mono', monospace", transition: "background 0.15s"
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </nav>
 
       {/* ── HOW TO READ THIS ── */}
