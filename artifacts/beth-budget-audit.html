@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Beth Budget Audit",
+  "schemaVersion": 1,
+  "description": "Berkeley Transparency Hub — rationalizes the FY2027-FY2028 Proposed Budget against the City Auditor's 384 recommendations across 54 audits. Shows the recurring deficit pattern, how each year's ~$30M gap is closed, a department scoreboard joining budget change + FTE + audit follow-through, recommendation status/category breakdowns, and 12 audit-identified efficiency/accountability opportunities mapped to budget areas. Data embedded from the budget packet and the Auditor's recommendation dashboard."
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeTH — Berkeley Budget vs. Audit Accountability</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
+  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --grey:#8b95a3; --teal:#0f766e; --accent:#15543f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
+h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
+.sub { color:var(--mut); margin:0 0 4px; }
+.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
+h2 { font-size:18px; margin:34px 0 6px; letter-spacing:-.01em; }
+h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
+.lead { color:var(--mut); margin:0 0 14px; max-width:760px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:8px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.kpi .v { font-size:24px; font-weight:700; letter-spacing:-.02em; }
+.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
+.kpi .note { font-size:11.5px; margin-top:6px; padding-top:6px; border-top:1px dashed var(--line); color:var(--mut); }
+.kpi.warn .v { color:var(--amber); }
+.kpi.bad .v { color:var(--red); }
+.chartbox { position:relative; height:300px; }
+.chartbox.sm { height:240px; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:760px){ .two{grid-template-columns:1fr;} }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { text-align:right; padding:8px 9px; border-bottom:1px solid var(--line); white-space:nowrap; }
+th:first-child,td:first-child { text-align:left; white-space:normal; }
+th { color:var(--mut); font-weight:600; font-size:12px; position:sticky; top:0; background:var(--card); cursor:pointer; user-select:none; }
+tbody tr:hover { background:#fafbfc; }
+.bar { height:8px; border-radius:5px; background:var(--line); overflow:hidden; min-width:54px; display:inline-block; vertical-align:middle; }
+.bar > span { display:block; height:100%; }
+.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; }
+.pos { color:var(--green); } .neg { color:var(--red); }
+.muted { color:var(--mut); }
+.opp { border-left:4px solid var(--accent); }
+.opp h3 { font-size:15px; margin:0 0 2px; }
+.opp .meta { font-size:12px; color:var(--mut); margin-bottom:8px; }
+.chips { margin:6px 0 0; }
+.chip { font-size:11px; padding:2px 8px; border-radius:6px; background:#eef1f5; color:var(--mut); margin-right:6px; display:inline-block; margin-bottom:4px; }
+.chip.drop { background:#fbe9e7; color:#b23a2e; } .chip.open { background:#fff5d6; color:#8a6300; }
+.legend { font-size:12px; color:var(--mut); margin:2px 0 10px; }
+.dot { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:4px; vertical-align:middle; }
+.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
+details summary { cursor:pointer; color:var(--accent); font-size:13px; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Berkeley Budget × Audit Accountability</h1>
+  <p class="sub">Rationalizing the FY2027–FY2028 Proposed Budget against the City Auditor's recommendation record.</p>
+  <span class="tag">Berkeley Transparency Hub · neutral scoreboard · residents decide</span>
+
+  <div class="disc"><b>The core question this page answers:</b> the budget cuts ~$30M/yr and ~164 positions. Are the dollars that stay — and the ones cut — tied to goals the City is actually accountable for? The Auditor has issued <b>384 recommendations</b> across <b>54 audits</b> on exactly that: efficiency, internal controls, and accountability. This page joins the two.</p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <h2><span class="n">1</span>The pattern: balanced on paper, year after year</h2>
+  <p class="lead">Berkeley has reported a General Fund deficit every year since 2019 and closed each one with one-time measures — reserves, ARPA, transfers, fund balance, vacancy savings — without resolving the structural gap. The FY27–28 budget repeats the pattern: a paper surplus that depends on a November 2026 sales-tax measure and $2.1M of one-time money (dropping to $0 in FY28).</p>
+  <div class="card"><div class="chartbox"><canvas id="deficitChart"></canvas></div></div>
+
+  <h2><span class="n">2</span>How the gap was closed</h2>
+  <p class="lead">Each year's ~$30M hole is bridged by revenue re-projection (including the assumed sales-tax measure), cost shifts, debt-service and parking adjustments, and one-time resources. FY2028 carries no one-time cushion, so the sales-tax measure is the whole margin.</p>
+  <div class="two">
+    <div class="card"><div class="chartbox sm"><canvas id="wf27"></canvas></div></div>
+    <div class="card"><div class="chartbox sm"><canvas id="wf28"></canvas></div></div>
+  </div>
+
+  <h2><span class="n">3</span>Department scoreboard — budget change meets audit follow-through</h2>
+  <p class="lead">For each department: how its all-funds budget moves FY2026→FY2027, its total positions, and its record on Auditor recommendations. The departments with the most dollars (Public Works, City Manager) have the weakest implementation records — the clearest accountability gap. Click headers to sort.</p>
+  <div class="legend">
+    <span class="dot" style="background:var(--green)"></span>Implemented
+    <span class="dot" style="background:var(--amber)"></span>Open (started / partly / not started)
+    <span class="dot" style="background:var(--blue)"></span>Dropped
+  </div>
+  <div class="card" style="overflow-x:auto;"><table id="deptTable"></table></div>
+  <p class="muted" style="font-size:12px;">Audit recommendations are tracked by the Auditor's own department groupings, which don't map one-to-one to budget departments (e.g., many citywide items sit under "City Manager"; "Budget and Fiscal Management" is shown with Finance). Budget figures are all-funds. Rows without an audit match show "—".</p>
+
+  <h2><span class="n">4</span>What the Auditor found — and what happened to it</h2>
+  <p class="lead">Of 384 recommendations, 265 were implemented (69%), but <b>76 were dropped (20%)</b> and 43 remain open. Nearly half of all findings are about Efficiency &amp; Effectiveness, and another 29% about Transparency &amp; Accountability — precisely the levers a structural fix needs.</p>
+  <div class="two">
+    <div class="card"><div class="chartbox sm"><canvas id="statusChart"></canvas></div></div>
+    <div class="card"><div class="chartbox sm"><canvas id="catChart"></canvas></div></div>
+  </div>
+
+  <h2><span class="n">5</span>Efficiency &amp; accountability opportunities the budget overlooks</h2>
+  <p class="lead">Specific, audit-identified opportunities — efficiencies, foregone revenue, and accountability gaps — mapped to the departments the budget is reshaping. "Dropped" means the City declined or let the recommendation lapse; "Open" means not yet done. Many lapsed automatically under the Auditor's 5-year rule, untried.</p>
+  <div id="opps"></div>
+
+  <h2><span class="n">6</span>The Auditor's own FY2027 plan</h2>
+  <div class="card" id="planCard"></div>
+
+  <div class="foot" id="foot"></div>
+
+</div>
+<script>
+const DB = {"_meta": {"title": "Berkeley Budget + Audit Consolidated Database", "purpose": "Single canonical store unifying the FY2027-FY2028 Proposed Biennial Budget with the City Auditor's recommendation-tracking data, so structural cuts can be evaluated against audit-identified accountability and efficiency goals.", "builtFor": "Berkeley Transparency Hub (BeTH)", "builtOn": "2026-06-10", "positioning": "Neutral scoreboard. Surfaces patterns; does not prescribe cuts. Residents decide.", "sources": [{"id": "budget", "title": "Proposed FY2027 & FY2028 Biennial Budget, Item 21, Supp Packet 2", "date": "2026-05-19", "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf"}, {"id": "audit-dashboard", "title": "Berkeley City Auditor's Recommendation Dashboard", "publisher": "Jenny Wong, City Auditor", "liveFeed": "https://s3-recommendation-dashboard-production.s3-us-west-2.amazonaws.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/current.json", "dashboardUrl": "https://dashboard.missionmark.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/", "snapshotPublishedAt": "2026-04-24"}, {"id": "audit-plan", "title": "FY 2027 Audit Plan + First Annual Whistleblower Program Report", "publisher": "Berkeley City Auditor", "date": "2026-06-10"}], "relatedFiles": ["fy2027-2028-proposed-budget.json (full budget tables)", "audit-budget-opportunities.md (deep-dive memo)"]}, "headlineFindings": {"structuralDeficitClosedOnPaper": true, "proposedSurplus": {"fy2027": 981220, "fy2028": 699849}, "contingency": "FY2028 revenue assumes a November 2026 Sales & Use Tax measure passes. Staff state additional reductions are required if it fails.", "netFTEReductionAllFunds": -164.33, "netFTEReductionPct": -0.0929, "auditRecommendationsTotal": 384, "auditRecommendationsImplementedPct": 0.69, "auditRecommendationsDropped": 76, "auditRecommendationsDroppedPct": 0.198, "auditRecommendationsOpen": 43, "keyTension": "The budget cuts ~164 FTE and ~$30M/yr largely through attrition and a tax measure, while 76 audit recommendations (many on efficiency and revenue) were dropped and 43 remain open. The City's largest-budget departments (Public Works, City Manager) have the weakest audit-implementation records."}, "budget": {"generalFundBalancingRecap": {"fy2027": {"initialDeficit": -32256300, "afterRevenueProjections": -27144582, "totalDeficitBeforeOneTime": -31349339, "useOfOneTimeResources": 2100000, "deficitAfterAdjustments": -29249339, "proposedSurplus": 981220}, "fy2028": {"initialDeficit": -33206801, "afterRevenueProjections": -24915773, "totalDeficitBeforeOneTime": -29532958, "useOfOneTimeResources": 0, "deficitAfterAdjustments": -29532958, "proposedSurplus": 699849}}, "deficitHistory": [{"fy": "2018-2019", "deficit": 10000000}, {"fy": "2020-2021", "deficit": 40000000}, {"fy": "2022", "deficit": 27000000}, {"fy": "2023", "deficit": 22000000}, {"fy": "2024", "deficit": 12000000}, {"fy": "2025", "deficit": 17000000}, {"fy": "2026", "deficit": 29000000}], "allFundsByDepartment": [{"department": "Mayor and Council", "fy2026Adopted": 7936134, "fy2027Proposed": 7542519, "fy2028Proposed": 7719768}, {"department": "City Auditor", "fy2026Adopted": 3934495, "fy2027Proposed": 4014900, "fy2028Proposed": 4155307}, {"department": "Rent Board", "fy2026Adopted": 10074940, "fy2027Proposed": 9579554, "fy2028Proposed": 9764186}, {"department": "Office of the Director of Police Accountability", "fy2026Adopted": 1146056, "fy2027Proposed": 1218244, "fy2028Proposed": 1268137}, {"department": "City Manager", "fy2026Adopted": 23399636, "fy2027Proposed": 23081446, "fy2028Proposed": 23038965}, {"department": "Library", "fy2026Adopted": 33865077, "fy2027Proposed": 34365131, "fy2028Proposed": 31293695}, {"department": "City Attorney", "fy2026Adopted": 9825142, "fy2027Proposed": 11740854, "fy2028Proposed": 11890544}, {"department": "City Clerk", "fy2026Adopted": 3709023, "fy2027Proposed": 4387560, "fy2028Proposed": 4442419}, {"department": "Finance", "fy2026Adopted": 12026929, "fy2027Proposed": 11585018, "fy2028Proposed": 11890064}, {"department": "Human Resources", "fy2026Adopted": 6804564, "fy2027Proposed": 6700330, "fy2028Proposed": 7008628}, {"department": "Information Technology", "fy2026Adopted": 24019890, "fy2027Proposed": 19978807, "fy2028Proposed": 20371561}, {"department": "Health, Housing & Community Services", "fy2026Adopted": 119850769, "fy2027Proposed": 165498829, "fy2028Proposed": 153980699}, {"department": "Parks, Recreation & Waterfront", "fy2026Adopted": 52502355, "fy2027Proposed": 52169781, "fy2028Proposed": 49722942}, {"department": "Planning and Development", "fy2026Adopted": 34631009, "fy2027Proposed": 34391855, "fy2028Proposed": 34899876}, {"department": "Public Works", "fy2026Adopted": 187063884, "fy2027Proposed": 234458957, "fy2028Proposed": 213420904}, {"department": "Police", "fy2026Adopted": 106237136, "fy2027Proposed": 106898286, "fy2028Proposed": 108497860}, {"department": "Fire", "fy2026Adopted": 78273290, "fy2027Proposed": 79042106, "fy2028Proposed": 81368163}, {"department": "Non-Departmental", "fy2026Adopted": 113913030, "fy2027Proposed": 98535848, "fy2028Proposed": 90520021}, {"department": "Grand Total", "fy2026Adopted": 829213359, "fy2027Proposed": 905190026, "fy2028Proposed": 865253739}], "staffingByDepartment": [{"department": "City Attorney", "totalFTE": 19.0, "generalFund": 19.0}, {"department": "City Auditor", "totalFTE": 15.75, "generalFund": 14.83}, {"department": "City Clerk", "totalFTE": 9.0, "generalFund": 8.43}, {"department": "City Manager", "totalFTE": 44.0, "generalFund": 29.45}, {"department": "Finance", "totalFTE": 48.0, "generalFund": 39.25}, {"department": "Fire", "totalFTE": 190.0, "generalFund": 137.33}, {"department": "Health, Housing & Community Services", "totalFTE": 195.0, "generalFund": 65.27}, {"department": "Human Resources", "totalFTE": 24.0, "generalFund": 16.2}, {"department": "Information Technology", "totalFTE": 45.0, "generalFund": 0.0}, {"department": "Library", "totalFTE": 131.05, "generalFund": 0.0}, {"department": "Mayor and Council", "totalFTE": 23.0, "generalFund": 23.0}, {"department": "Office of the Director of Police Accountability", "totalFTE": 4.0, "generalFund": 4.0}, {"department": "Parks, Recreation & Waterfront", "totalFTE": 114.0, "generalFund": 25.5}, {"department": "Planning & Development", "totalFTE": 105.04, "generalFund": 11.86}, {"department": "Police", "totalFTE": 272.0, "generalFund": 250.0}, {"department": "Public Works", "totalFTE": 337.0, "generalFund": 18.79}, {"department": "Rent Board", "totalFTE": 29.0, "generalFund": 0.5}], "staffingNotes": {"totalFTE": 1604.84, "rifGeneralFundCumulative": 150, "balancingPlanFTE": 183, "preservedContingentOnSalesTax": 33}, "note": "Full revenue-by-category, expenditure-by-category, one-time resources, service impacts, and Measure U1 detail are in fy2027-2028-proposed-budget.json."}, "audit": {"statuses": [{"name": "Not Started", "color": "red", "open": true}, {"name": "Started", "color": "grey", "open": true}, {"name": "Partly Implemented", "color": "yellow", "open": true}, {"name": "Implemented", "color": "green", "closed": true}, {"name": "Dropped", "color": "blue", "closed": true}], "categories": ["Internal Controls", "Efficiency and Effectiveness", "Regulatory Compliance", "Transparency and Accountability", "Training", "Equity"], "overallStats": {"auditCount": 54, "recommendationCount": 384}, "byStatus": [{"status": "Not Started", "value": 9}, {"status": "Started", "value": 12}, {"status": "Partly Implemented", "value": 22}, {"status": "Implemented", "value": 265}, {"status": "Dropped", "value": 76}], "byCategory": [{"category": "Internal Controls", "value": 82}, {"category": "Efficiency and Effectiveness", "value": 180}, {"category": "Regulatory Compliance", "value": 8}, {"category": "Transparency and Accountability", "value": 111}, {"category": "Training", "value": 2}, {"category": "Equity", "value": 1}], "byDepartmentAndStatus": [{"department": "Mayor and Council", "totalCount": 4, "Implemented": 2, "Started": 1, "NotStarted": 1}, {"department": "Budget and Fiscal Management", "totalCount": 5, "Implemented": 5}, {"department": "Library", "totalCount": 6, "Implemented": 5, "Dropped": 1}, {"department": "Information Technology", "totalCount": 9, "Implemented": 7, "Dropped": 2}, {"department": "City Auditor", "totalCount": 11, "Implemented": 11}, {"department": "Parks, Recreation and Waterfront", "totalCount": 19, "Implemented": 17, "Dropped": 2}, {"department": "Planning", "totalCount": 20, "Implemented": 19, "Dropped": 1}, {"department": "Human Resources", "totalCount": 21, "Implemented": 18, "PartlyImplemented": 2, "Started": 1}, {"department": "Fire", "totalCount": 24, "Implemented": 12, "Dropped": 12}, {"department": "Health, Housing and Community Services", "totalCount": 35, "Implemented": 28, "NotStarted": 1, "Started": 1, "PartlyImplemented": 5}, {"department": "Police", "totalCount": 35, "Implemented": 34, "Dropped": 1}, {"department": "Finance", "totalCount": 43, "Implemented": 42, "Dropped": 1}, {"department": "Public Works", "totalCount": 64, "Implemented": 21, "Dropped": 24, "PartlyImplemented": 11, "Started": 7, "NotStarted": 1}, {"department": "City Manager", "totalCount": 88, "Implemented": 44, "Dropped": 32, "PartlyImplemented": 4, "Started": 2, "NotStarted": 6}], "byYearAndStatus": [{"year": "2014", "totalCount": 68, "Implemented": 55, "Dropped": 13}, {"year": "2016", "totalCount": 48, "Implemented": 27, "Dropped": 21}, {"year": "2017", "totalCount": 43, "Implemented": 36, "Dropped": 7}, {"year": "2018", "totalCount": 35, "Implemented": 30, "Dropped": 5}, {"year": "2019", "totalCount": 31, "Implemented": 18, "Dropped": 12, "PartlyImplemented": 1}, {"year": "2021", "totalCount": 14, "Implemented": 3, "PartlyImplemented": 11}, {"year": "2022", "totalCount": 17, "Implemented": 13, "Dropped": 4}, {"year": "2023", "totalCount": 31, "Implemented": 20, "PartlyImplemented": 5, "Started": 4, "Dropped": 1, "NotStarted": 1}, {"year": "2024", "totalCount": 9, "Implemented": 2, "PartlyImplemented": 5, "Started": 1, "NotStarted": 1}, {"year": "2025", "totalCount": 6, "NotStarted": 6}, {"year": "Unissued", "totalCount": 8, "Started": 7, "NotStarted": 1}], "fy2027AuditPlan": {"newAudits": ["Public Health", "Measure FF (streets and sidewalks)"], "continuingAudits": ["Rent Board", "Business License Taxes"], "whistleblower": {"firstAnnualReport": true, "calendarYear": 2025, "reportsReceived": 42, "expansionPaused": true, "reason": "Auditor reduced own baseline budget to contribute to deficit reduction; paused public expansion and limited staff training"}}}, "opportunities": {"_description": "Audit-identified efficiency, revenue, and accountability opportunities mapped to budget areas. Each links one or more audit recommendations (current status) to the relevant department's budget. 'Dropped' means the City declined or let it lapse; 'Open' means not yet implemented.", "items": [{"id": "OPP-01", "title": "Citywide grants management never built", "department": "City Manager / Public Works / Finance", "audit": "Citywide Grants Management (2016)", "recsTotal": 15, "status": "All 15 Dropped", "budgetLink": "Relevant to grant revenue capture as the City leans on one-time and external funds; Grant Funds = ~$42.5M/yr.", "opportunity": "City never adopted grants policy, procedures manual, accounting ownership, or a grants management system. Audit warned of misrecorded expenditures, untracked receivables, and clawback risk. Most recs lapsed via the 5-year auto-drop rule, not an affirmative decision.", "category": "Transparency and Accountability / Efficiency", "confidence": "High"}, {"id": "OPP-02", "title": "Fleet Replacement Fund chronically short; GF raided", "department": "Public Works", "audit": "Fleet Replacement Fund Short Millions (2021)", "recsTotal": 12, "status": "11 Partly Implemented, 1 Implemented (none fully resolved 4 yrs on)", "budgetLink": "Public Works is the largest department ($234M FY27). $2M (FY25) and $0.5M (FY24) were transferred OUT of Equipment Replacement Fund 671 to Maintenance Fund 672.", "opportunity": "Underfunded fleet fund means deferred vehicle replacement and future cost spikes. Audit asked for a funding model, optimal fleet-size (right-sizing) study, and an Administrative Regulation requiring documented justification before raiding the fund. Right-sizing survey twice failed to get responses.", "category": "Efficiency and Effectiveness", "confidence": "High"}, {"id": "OPP-03", "title": "Zero Waste efficiencies declined", "department": "Public Works", "audit": "Underfunded Mandate: Zero Waste 2020 Goal (2014) + Unified Vision of Zero Waste (2016)", "recsTotal": 27, "status": "18 Dropped", "budgetLink": "Zero Waste is an enterprise fund; enterprise/parking fund stabilization is an explicit budget pressure.", "opportunity": "Dropped items include a comprehensive route audit to align billing with service (under-billing risk), franchise-fee recovery on recyclables, mobile route technology, and a strategic plan with performance measures. One dropped rec cited ~$496K/yr potential savings from biweekly garbage collection (requires state waiver).", "category": "Efficiency and Effectiveness", "confidence": "High"}, {"id": "OPP-04", "title": "No citywide staffing analysis before a 164-FTE cut", "department": "City Manager / Human Resources / Council", "audit": "Staff Shortages (2023)", "recsTotal": 25, "status": "Mixed; key items Open (Started/Partly/Not Started)", "budgetLink": "Budget removes 164.33 FTE net. Audit recommended a critical-needs staffing analysis to size the workforce BEFORE cutting.", "opportunity": "Open items: department-by-department staffing analysis, citywide telework policy aligned to best practice, succession plan, retention goals/targets, exit-interview process, and reducing unused building space to cut overhead. The HR 'staffing analysis' rec is only Partly Implemented; cuts are proceeding via attrition rather than need-based analysis.", "category": "Efficiency and Effectiveness", "confidence": "High"}, {"id": "OPP-05", "title": "Fire prevention inspection program: all fixes dropped", "department": "Fire", "audit": "Fire Prevention Inspections (2019)", "recsTotal": 11, "status": "All 11 Dropped", "budgetLink": "Fire is being cut (Fire Station 4 browning, 9 FTE eliminated). Audit found inspection capacity and revenue gaps.", "opportunity": "Dropped: workload/staffing analysis, risk-based inspection prioritization, a citation issuance/tracking/collections process (foregone revenue), educational outreach, database controls. Two were affirmatively 'will not implement' (risk accepted); the rest lapsed.", "category": "Efficiency and Effectiveness / Internal Controls", "confidence": "High"}, {"id": "OPP-06", "title": "Structural-deficit recommendations themselves were dropped", "department": "City Manager", "audit": "Berkeley's Financial Condition FY2012-FY2021 (2022)", "recsTotal": 5, "status": "4 Dropped, 1 Implemented", "budgetLink": "Directly about the structural deficit the budget is trying to solve.", "opportunity": "Dropped: a Section 115 Trust funding plan, reserve replenishment plan (Stability/Catastrophic reserves), enterprise-fund balance policy, and a capital/deferred-maintenance funding plan. City dropped them 'to allow for updated recommendations in the FY2025 updated financial condition report' — so the fixes are deferred to a later report rather than resolved.", "category": "Efficiency and Effectiveness / Internal Controls", "confidence": "High"}, {"id": "OPP-07", "title": "Code enforcement: software, metrics, staffing all dropped", "department": "City Manager", "audit": "Code Enforcement Resources Constrained (2018)", "recsTotal": 12, "status": "5 Dropped, 7 Implemented", "budgetLink": "Code enforcement generates citation revenue and addresses health/safety risk.", "opportunity": "Dropped: case-management software, mobile field tech, a staffing/workload analysis, and performance metrics/reporting. Foregone citation revenue and efficiency.", "category": "Efficiency and Effectiveness", "confidence": "High"}, {"id": "OPP-08", "title": "Homelessness spending lacks outcome tracking", "department": "City Manager (Homeless Response Team) / HHCS", "audit": "Homeless Response Team (2025)", "recsTotal": 6, "status": "All 6 Not Started", "budgetLink": "Homelessness is a major GF spend area with active budget reductions (Winter Shelter, STAIR Center, outreach worker).", "opportunity": "Newest audit; all recs open. Asks for expanded public outcome reporting, documented data procedures, HMIS Outreach module adoption in city-funded contracts, and a staffing assessment for data/reporting. Without these, the City cannot show whether homelessness dollars meet goals — exactly the accountability test for what to cut vs. keep.", "category": "Transparency and Accountability", "confidence": "High"}, {"id": "OPP-09", "title": "Restaurant inspection fees could fund staffing", "department": "Health, Housing and Community Services", "audit": "Berkeley Restaurant Inspections (2024)", "recsTotal": 9, "status": "Mostly Open (1 Not Started, 1 Started, 5 Partly, 2 Implemented)", "budgetLink": "Program chronically understaffed and missing targets; HHCS budget grew but program underperforms.", "opportunity": "A completed fee study (pending Council) could let fees support increased staffing — a revenue-aligned fix. Also open: public inspection data portal, placarding program, performance metrics, and revenue-vs-expenditure tracking for the program.", "category": "Efficiency and Effectiveness / Transparency", "confidence": "High"}, {"id": "OPP-10", "title": "Lease portfolio still not centralized after 16 years", "department": "Public Works / Finance", "audit": "2009 Leases Audit Follow-Up - Same Risks 16 Years Later (2025)", "recsTotal": 8, "status": "7 Started, 1 Not Started", "budgetLink": "City lease revenue and cost oversight; a Real Property Administrator was newly hired (Aug 2025).", "opportunity": "No centralized lease inventory with contract numbers, COLAs, terms, and locations. The City re-issued in 2025 the same recommendations it failed to implement from 2009, risking missed escalators, unbilled revenue, and weak oversight. Work has just started.", "category": "Efficiency and Effectiveness / Internal Controls", "confidence": "High"}, {"id": "OPP-11", "title": "Largest-budget departments have weakest audit follow-through", "department": "Public Works; City Manager", "audit": "Cross-cutting (dashboard aggregates)", "recsTotal": 152, "status": "Pattern", "budgetLink": "Public Works ($234M FY27) and City Manager span the biggest discretionary footprints.", "opportunity": "Public Works: of 64 recs, only 21 implemented (33%), 24 dropped (38%), 19 open. City Manager: of 88 recs, 44 implemented (50%), 32 dropped (36%). The departments with the most dollars have the weakest record of acting on audit-identified efficiency/accountability fixes.", "category": "Transparency and Accountability", "confidence": "High"}, {"id": "OPP-12", "title": "1-in-5 audit recommendations dropped, many by passive lapse", "department": "Citywide", "audit": "Cross-cutting", "recsTotal": 76, "status": "Dropped", "budgetLink": "Citywide efficiency/accountability backlog.", "opportunity": "76 of 384 recs (19.8%) are Dropped. A large share were dropped automatically under the Auditor's '5-year' rule (not implemented in time), not by an affirmative cost-benefit decision — meaning efficiency/accountability fixes expired untried. Concentrated in 2014/2016 Public Works and grants/zero-waste work.", "category": "Transparency and Accountability", "confidence": "High"}]}};
+
+const fmtM = n => (n<0?'-':'') + '$' + (Math.abs(n)/1e6).toFixed(1) + 'M';
+const fmtPct = n => (n*100).toFixed(0) + '%';
+const C = { green:'#1f9d6b', red:'#d6453a', amber:'#e3a008', blue:'#3d6fd6', grey:'#8b95a3', ink:'#1a2030', mut:'#5a6473', accent:'#15543f', line:'#e4e8ee' };
+Chart.defaults.font.family = '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif';
+Chart.defaults.font.size = 12;
+Chart.defaults.color = C.mut;
+
+/* ---------- KPIs ---------- */
+const bs = Object.fromEntries(DB.audit.byStatus.map(s=>[s.status,s.value]));
+const open = bs['Not Started']+bs['Started']+bs['Partly Implemented'];
+const impl = bs['Implemented'];
+const total = DB.audit.overallStats.recommendationCount;
+const kpis = [
+  {v: fmtM(-29249339)+' / '+fmtM(-29532958), l:'GF balancing need, FY27 / FY28', cls:'bad'},
+  {v:'+$1.0M / +$0.7M', l:'Proposed surplus', cls:'warn', note:'Contingent on Nov 2026 sales-tax measure'},
+  {v:'−164.3', l:'Net positions cut (all funds, −9.3%)', cls:'bad'},
+  {v: total, l:'Audit recommendations (54 audits)'},
+  {v: fmtPct(impl/total), l:'Implemented ('+impl+')', cls:''},
+  {v: bs['Dropped'], l:'Dropped ('+fmtPct(bs['Dropped']/total)+')', cls:'bad'},
+  {v: open, l:'Still open', cls:'warn'}
+];
+document.getElementById('kpis').innerHTML = kpis.map(k=>
+  `<div class="kpi ${k.cls||''}"><div class="v">${k.v}</div><div class="l">${k.l}</div>${k.note?`<div class="note">${k.note}</div>`:''}</div>`).join('');
+
+/* ---------- Deficit history ---------- */
+const dh = DB.budget.deficitHistory;
+new Chart(document.getElementById('deficitChart'), {
+  type:'bar',
+  data:{ labels: dh.map(d=>d.fy), datasets:[{ label:'Estimated GF deficit', data: dh.map(d=>d.deficit/1e6),
+    backgroundColor: dh.map((d,i)=> i===dh.length-1 ? C.red : '#bcccdd'), borderRadius:5 }]},
+  options:{ plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'M deficit'}}},
+    scales:{ y:{ title:{display:true,text:'$ millions'}, grid:{color:C.line} }, x:{grid:{display:false}} } }
+});
+
+/* ---------- Waterfalls ---------- */
+function waterfall(id, fy, d){
+  const steps = [
+    ['Initial deficit', d.initialDeficit, C.red],
+    ['+ Revenue re-projection', d.afterRevenueProjections - d.initialDeficit, C.green],
+    ['± Debt / parking / non-dept', d.totalDeficitBeforeOneTime - d.afterRevenueProjections, C.amber],
+    ['+ One-time resources', d.deficitAfterAdjustments - d.totalDeficitBeforeOneTime, C.green]
+  ];
+  let run=0; const bases=[], mags=[], cols=[];
+  steps.forEach(s=>{ const v=s[1]; bases.push(v>=0?run:run+v); mags.push(Math.abs(v)); cols.push(s[2]); run+=v; });
+  bases.push(0); mags.push(Math.abs(run)); cols.push(C.grey);
+  new Chart(document.getElementById(id), {
+    type:'bar',
+    data:{ labels:[...steps.map(s=>s[0]),'Net balancing need'],
+      datasets:[ {label:'base', data:bases.map(b=>b/1e6), backgroundColor:'transparent', stack:'s'},
+        {label:'val', data:mags.map(m=>m/1e6), backgroundColor:cols, stack:'s', borderRadius:4} ]},
+    options:{ indexAxis:'y', plugins:{legend:{display:false}, title:{display:true,text:fy+' — closing the gap ($M)', color:C.ink, font:{size:13}},
+      tooltip:{callbacks:{label:c=> c.datasetIndex===1 ? '$'+c.parsed.x.toFixed(1)+'M' : ''}}},
+      scales:{ x:{grid:{color:C.line}}, y:{grid:{display:false}} } }
+  });
+}
+waterfall('wf27','FY2027', DB.budget.generalFundBalancingRecap.fy2027);
+waterfall('wf28','FY2028', DB.budget.generalFundBalancingRecap.fy2028);
+
+/* ---------- Department scoreboard ---------- */
+// map audit dept grouping -> budget dept
+const auditFor = {};
+DB.audit.byDepartmentAndStatus.forEach(a=>{ auditFor[a.department]=a; });
+const joinMap = {
+  'Public Works':'Public Works', 'City Manager':'City Manager', 'Finance':'Finance',
+  'Police':'Police', 'Fire':'Fire', 'Health, Housing & Community Services':'Health, Housing and Community Services',
+  'Parks, Recreation & Waterfront':'Parks, Recreation and Waterfront', 'Planning and Development':'Planning',
+  'Human Resources':'Human Resources', 'Information Technology':'Information Technology', 'Library':'Library',
+  'Mayor and Council':'Mayor and Council', 'City Auditor':'City Auditor'
+};
+const fteFor = Object.fromEntries(DB.budget.staffingByDepartment.map(s=>[s.department,s.totalFTE]));
+const fteAlias = {'Health, Housing & Community Services':'Health, Housing & Community Services','Planning and Development':'Planning & Development','Parks, Recreation & Waterfront':'Parks, Recreation & Waterfront'};
+function getFte(dept){ return fteFor[dept] ?? fteFor[fteAlias[dept]] ?? null; }
+
+const rows = DB.budget.allFundsByDepartment.filter(d=>d.department!=='Grand Total').map(d=>{
+  const a = auditFor[joinMap[d.department]];
+  const chg = (d.fy2027Proposed - d.fy2026Adopted)/d.fy2026Adopted;
+  let impl=0,drop=0,opn=0,tot=0;
+  if(a){ tot=a.totalCount; impl=a.Implemented||0; drop=a.Dropped||0; opn=tot-impl-drop; }
+  return { dept:d.department, fy26:d.fy2026Adopted, fy27:d.fy2027Proposed, chg, fte:getFte(d.department),
+    tot, impl, drop, opn, implPct: tot? impl/tot : null };
+});
+
+let sortKey='fy27', sortDir=-1;
+function renderTable(){
+  rows.sort((x,y)=>{ let a=x[sortKey], b=y[sortKey]; if(a==null)a=-Infinity; if(b==null)b=-Infinity; return (a<b?-1:a>b?1:0)*sortDir; });
+  const head = `<thead><tr>
+    <th data-k="dept">Department</th>
+    <th data-k="fy27">FY27 budget</th>
+    <th data-k="chg">Δ vs FY26</th>
+    <th data-k="fte">Positions</th>
+    <th data-k="tot">Audit recs</th>
+    <th data-k="implPct">Implemented</th>
+    <th data-k="drop">Dropped</th>
+    <th data-k="opn">Open</th>
+    <th data-k="implPct">Follow-through</th></tr></thead>`;
+  const body = rows.map(r=>{
+    const chgCls = r.chg>=0?'pos':'neg';
+    let bar='—';
+    if(r.tot){ const w=200; const ip=r.impl/r.tot*100, op=r.opn/r.tot*100, dp=r.drop/r.tot*100;
+      bar=`<span class="bar" style="width:120px;"><span style="width:${ip}%;background:${C.green};float:left"></span><span style="width:${op}%;background:${C.amber};float:left"></span><span style="width:${dp}%;background:${C.blue};float:left"></span></span>`; }
+    return `<tr>
+      <td>${r.dept}</td>
+      <td>${fmtM(r.fy27)}</td>
+      <td class="${chgCls}">${(r.chg>=0?'+':'')}${(r.chg*100).toFixed(1)}%</td>
+      <td>${r.fte!=null?r.fte.toFixed(0):'—'}</td>
+      <td>${r.tot||'—'}</td>
+      <td>${r.implPct!=null?fmtPct(r.implPct):'—'}</td>
+      <td>${r.tot?r.drop:'—'}</td>
+      <td>${r.tot?r.opn:'—'}</td>
+      <td>${bar}</td></tr>`;
+  }).join('');
+  const t=document.getElementById('deptTable'); t.innerHTML=head+'<tbody>'+body+'</tbody>';
+  t.querySelectorAll('th').forEach(th=>th.onclick=()=>{ const k=th.dataset.k; if(k===sortKey)sortDir*=-1; else{sortKey=k;sortDir=(k==='dept')?1:-1;} renderTable(); });
+}
+renderTable();
+
+/* ---------- Status + category charts ---------- */
+const sc = DB.audit.byStatus;
+new Chart(document.getElementById('statusChart'), {
+  type:'doughnut',
+  data:{ labels: sc.map(s=>s.status+' ('+s.value+')'),
+    datasets:[{ data: sc.map(s=>s.value), backgroundColor:[C.red,C.grey,C.amber,C.green,C.blue], borderWidth:2, borderColor:'#fff' }]},
+  options:{ cutout:'58%', plugins:{ legend:{position:'right', labels:{boxWidth:11,padding:8}}, title:{display:true,text:'Recommendation status (n=384)',color:C.ink,font:{size:13}} } }
+});
+const cc = [...DB.audit.byCategory].sort((a,b)=>b.value-a.value);
+new Chart(document.getElementById('catChart'), {
+  type:'bar',
+  data:{ labels: cc.map(c=>c.category), datasets:[{ data: cc.map(c=>c.value),
+    backgroundColor: cc.map(c=> /Accountability|Transparency/.test(c.category)?C.accent : /Efficiency/.test(c.category)?C.teal||'#0f766e':'#9fb0c2'), borderRadius:4 }]},
+  options:{ indexAxis:'y', plugins:{legend:{display:false}, title:{display:true,text:'Findings by category',color:C.ink,font:{size:13}}},
+    scales:{ x:{grid:{color:C.line}}, y:{grid:{display:false}} } }
+});
+
+/* ---------- Opportunities ---------- */
+document.getElementById('opps').innerHTML = DB.opportunities.items.map(o=>{
+  const statusChip = /Dropped/i.test(o.status)?'drop':'open';
+  return `<div class="card opp">
+    <h3>${o.id} · ${o.title}</h3>
+    <div class="meta">${o.department} &nbsp;·&nbsp; ${o.audit} &nbsp;·&nbsp; ${o.recsTotal} recs</div>
+    <div>${o.opportunity}</div>
+    <div style="margin-top:8px;font-size:13px;"><b>Budget link:</b> <span class="muted">${o.budgetLink}</span></div>
+    <div class="chips">
+      <span class="chip ${statusChip}">${o.status}</span>
+      <span class="chip">${o.category}</span>
+      <span class="chip">confidence: ${o.confidence}</span>
+    </div></div>`;
+}).join('');
+
+/* ---------- Plan ---------- */
+const p = DB.audit.fy2027AuditPlan;
+document.getElementById('planCard').innerHTML = `
+  <div style="font-size:13.5px;">
+  <b>New FY2027 audits:</b> ${p.newAudits.join(', ')}.<br>
+  <b>Completing:</b> ${p.continuingAudits.join(', ')}.<br>
+  <b>Whistleblower program:</b> first annual report (CY2025) — ${p.whistleblower.reportsReceived} reports received. Public expansion <b>paused</b>: the Auditor cut its own baseline budget to contribute to deficit reduction, limiting staff training.
+  </div>`;
+
+document.getElementById('foot').innerHTML =
+  `Sources: Proposed FY2027–FY2028 Biennial Budget (Item 21, Supp 2, 2026-05-19) · Berkeley City Auditor's Recommendation Dashboard (snapshot ${DB.audit_publishedAt||'2026-04-24'}) · FY2027 Audit Plan (2026-06-10). Neutral scoreboard for the Berkeley Transparency Hub — patterns only; the page prescribes no cuts.`;
+</script>
+</body>
+</html>

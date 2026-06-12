@@ -1,0 +1,1100 @@
+Return-path: <AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com>
+Original-recipient: rfc822;jskromer@mac.com
+Received: from p00-icloudmta-smtpin-us-east-2d-60-percent-15 by p103-mailgateway-smtp-5d5cb659f4-m5sq2 (mailgateway 2624B60)
+	with SMTP id 880554f9-5b3e-4e9d-b417-ad7c4256f560 
+	for <jskromer@mac.com>; Wed, 10 Jun 2026 17:00:43 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 880554f9-5b3e-4e9d-b417-ad7c4256f560
+Received: from ccm168.constantcontact.com (ccm168.constantcontact.com [208.75.123.168])
+	by p00-icloudmta-smtpin-us-east-2d-60-percent-15 (Postfix) with ESMTPS id 72510C0040E
+	for <jskromer@mac.com>; Wed, 10 Jun 2026 17:00:37 +0000 (UTC)
+X-ICL-Info: GAtbRVYDBVFFSlVHSgQEUFUKE0oWX1gHVQoPB0UCBlpbTlNZSQIFTERPXlcdVAsjAi0SFioIWCYnKjEZH2VwBDtAJBVJYQtfKkhXR0oGAVpCS1dHTANpUUEIMC40aEEnEBAeHEFjQzcaTigkKQ0LIhwXSBQXXkUWFBcSFBdeQgMWDUgUF10WBBFEBBIKW1MOEAAFFlZXWRRVCwVKEkNdEBoUAwU4XVcBWxoJGlhYUw4aRAUUFQEAWlsaCRkLRFcMARoJGQxRVRZbGgkaWEBCEEgaBRpJBg5MFhYIBAxRWBYWFggDGVNCTBYWC1ccVAsAEAsNEhRVTwEUVwEYDgtXFwERSBQbQ1MMEVcFGBUQWwsRRFpGSQQEUUdKUkBLBwBRW0hXR0oGAVpCS1dHTAMYU0JNV0RMCABUQldWWU4CB1FFSSw7VgIGUkc5FQ4WVBgBFgoDGRweVQ0YRw==
+X-ICL-Score: 2.33303302422
+Authentication-Results: bimi.icloud.com; bimi=none
+X-ARC-Info: policy=fail; arc=none; r1=-20; r2=0
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=berkeleyca.gov
+X-DMARC-Policy: v=DMARC1; p=quarantine; rua=mailto:postmaster@cityofberkeley.info,mailto:dmarc_agg@vali.email;
+X-DMARC-Info: pass=pass; dmarc-policy=quarantine; s=r0; d=r1; pdomain=berkeleyca.gov
+Authentication-Results: dkim-verifier.icloud.com; dkim=pass header.d=berkeleyca.gov header.i=@berkeleyca.gov header.b=HcDdOhfc
+Authentication-Results: dkim-verifier.icloud.com; dkim=pass header.d=auth.ccsend.com header.i=@auth.ccsend.com header.b=JStb72/v
+Received-SPF: pass (spf.icloud.com: domain of AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com designates 208.75.123.168 as permitted sender) receiver=spf.icloud.com; client-ip=208.75.123.168; helo=ccm168.constantcontact.com; envelope-from=AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com designates 208.75.123.168 as permitted sender) smtp.mailfrom=AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=2020774185; d=berkeleyca.gov; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=0kjIfRWwV6/rrWVYJcoJCt19wuKWrSSWGWQncc+awRs=; b=HcDdOhfc+L+Up0H3bpeo6TwM2sP04nBOButS5FxjRh2HyDZY7BCgpG7des1aUr8kyglTAVOBIWM0Gk9BTBDKgkv5qj5GREX5HaKLwJk5AehdOPRPnr7/eOW5CD4xkQU2jDGtyni6fqGE6/f2t1gXN6loZJyHkBSI4jKDnw4FmP4=
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=0kjIfRWwV6/rrWVYJcoJCt19wuKWrSSWGWQncc+awRs=; b=JStb72/vDIiNdPTsfqu4WMtk04t1ghUhN3wK8LmNlMVMf6yeFrAnigxE+u4iqrBQWykq+RUsUbfzVBvRIh9uptyhoOjyvp/Xau0j5PwhXjYfyZz8DX/xuRxugy5/vdWfQ88tFQcx4+gb3U+RScaK8tFOVxYjCY2hHKAQ690q7nI=
+Message-ID: <1142323473763.1102678721043.1741348667.0.621300JL.2002@synd.ccsend.com>
+Date: Wed, 10 Jun 2026 13:00:35 -0400 (EDT)
+From: Berkeley City Auditor <auditor@berkeleyca.gov>
+Reply-To: auditor@berkeleyca.gov
+To: jskromer@mac.com
+Subject: New Audit Plan and Whistleblower Annual Report
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_469959201_1215697262.1781110835470"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001CzcqcMEQrB5foLjhOJZRLA%3D%3D&se=001nzdBoN_-X8zkQ_SvJG5f-g%3D%3D&t=001EkZLEx15CcE%3D&llr=tqamm5cab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: c13b5a47-c9c3-4525-a781-415f37d05bd5
+X-250ok-CID: c13b5a47-c9c3-4525-a781-415f37d05bd5
+X-Channel-ID: df8a9560-b5f0-11e8-b193-d4ae528ecd49
+X-Return-Path-Hint: AwTtaR8nDRSWngUFfN9Bb1Q==_1102678721043_34qVYLXwEeixk9SuUo7NSQ==@in.constantcontact.com
+X-Roving-Campaignid: 1142323473763
+X-Roving-Id: 1102678721043.1741348667
+X-Feedback-ID: df8a9560-b5f0-11e8-b193-d4ae528ecd49:c13b5a47-c9c3-4525-a781-415f37d05bd5:1102678721043:CTCT
+X-CTCT-ID: df767120-b5f0-11e8-b193-d4ae528ecd49
+X-MANTSH: 1TFkXGxoaHxEKWUQXZmxrTGNZfBsbRhMRCllNF25PRkNcT1gRCl9ZFxkcHhEKX00
+ XZEVETxEKWUkXGxoZcRkGHBJ3BhsfHgYaBhoGHR0GGnEaEBp3BhoGGgYZGgYaBhoGGnEaEBp3B
+ hoRClleF2xseREKQ04XZVlNHkZldWUZaExSX3xAaVBoellMTVN4XxsaG3VobFgRClhcFxkEGgQ
+ fEgUbGgQbHBgEGRoEGBMQGx4aHxoRCl5ZF0JyUFB4EQpNXBcbHx8RCkxaF2lobU1rexEKTEYXT
+ WsRCkNaFxgaEgQdHwQbGBkEGxwSEQpCXhcbEQpCRhd6Tm5CbXJaTB9SWxEKQkcXY31sf0F+AWl
+ nHH8RCkJcFxsRCl5OFxsRCkJLF2gZU3ppQWBCXwFIEQpCSRdoGVN6aUFgQl8BSBEKQkUXYFJ6G
+ HlPWmtYfmIRCkJOF2gZU3ppQWBCXwFIEQpCTBdoBUlZfwVjQ0JOcxEKQmwXYXlYZGYZZHhFR1M
+ RCkJAF2hSQ29mfkh+eF1rEQpCWBdrQnBAGl8SUG0BaxEKQngXZBxGeEkaXF9ncmQRClpYFxsbE
+ QpwaBdkHX5kZU4dGW9OQxAHHhsRCnBoF2ViTnkZGH9bEmFnEBoRCnBoF2R/XFtkchNbTXtnEAc
+ eGxEKcGgXblobEm0fXGB6b3AQBx4TEQpwaBdhHRwBfXt8eWQbfBAHGRoRCnBoF2ZoXktdQ2ddX
+ l1EEAcZExEKcGgXZ2RcaEx9eBlJfG4QGhEKcGgXaR9/U1llaWcBbBsQGhEKcH8XaHBaSXNBZ35
+ hWFwQBx4TEQpwXxdobWsbSWJQTXpwRBAaEQpwfRdjTmBrQUdfa1huchAaEQpwfxdhXmR8Gm1sb
+ 1hsQRAHHhIRCnBfF2NrT3J6e1BfeEhjEAceGREKcH0XZ0RsT2daXWYeQU8QBx4YEQpwXxdoRkJ
+ AQV8BREViQhAZGhEKcH0XaFNOcEJEYFpnXhIQGhEKcF8XaHJ5QU9MfBNsYHsQBx8dEQpwfRdke
+ 1llQ0ZeQUccWBAaEQpwXxdjGEFITWdrRGlkcBAaEQpwfRdoWUIaXklLXGl8chAaEQpwfRdsT2U
+ dHmdca2hsTBAaEQpwfRdrUmJLfX5nZn1DfxAaEQpwfRdoS0ZYX1twQ3gZHBAaEQpwXxd6TkxnT
+ 2B4GxpOaBAHHhgRCnB9F2gBRk19Hh9IbF4dEAcdGBEKcH0XZFJYenAeUEseTGEQGhEKcH0XZ3p
+ 4E0MaSGlzWlgQBx8dEQpwfRdnZQFIeAFAbHocXhAaEQpwfRdkQGABYnpIeHgebhAHGxIRCnB9F
+ 24FZ3wSG3lQS0RaEBoRCnB9F29JeU0FR2BgSXoSEAcfGREKcH0Xb0JFaHMYHR5/WkwQGhEKcH0
+ XYUJ7BXh6U1NvY20QGhEKcH0XbBIfHx0ZemhEaRIQGhEKcH0XZERQG25SQ3p8SFAQGhEKcH0XZ
+ 0RsT2daXWYeQU8QBx4YEQpwbBdlAUJeTH1nTxxrUBAaEQptfhcaEQpYTRdLEQ==
+X-Proofpoint-ORIG-GUID: Osg4lO_O3BfxuVjCzBPsfgyRu101_BFr
+X-Authority-Info: v=2.4 cv=EMoLElZC c=1 sm=1 tr=0 ts=6a299836 b=1
+ cx=c_apl:c_pps a=G58264fAo/+q9x1j6ffC0w==:117 a=G58264fAo/+q9x1j6ffC0w==:17
+ a=FelO9ux0wxsA:10 a=d9B2TaBE80UA:10 a=v_NAjMqiye0A:10 a=FEUDwJEtSWQA:10
+ a=S-GsefQTIc__O-ra3Y8A:9 a=QEXdDO2ut3YA:10 a=QXhRXOM3AAAA:8 a=3KUoxB9FAAAA:8
+ a=SMWI_GU_gGmQSbGO:21 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10 a=lqcHg5cX4UMA:10
+ a=Ru97nHiPDtp4odn3vKgu:22 a=521Rx6bm6kqzOMQ2tcaV:22 cc=prm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDE2MCBTYWx0ZWRfX6Q8mXLx6XRm2
+ ryoIIACEoYnuLriE+vPx0jQ76XymKrKx+gjsPq739NilDX32PzBrROTbCNFjDIg3COdVPznUO5+
+ ATRianOKIiQdr9KOoX0voRwhRQpqUUQmgfeQV6JduQK4GCeZaVpL69Klv8XKexxnwYt0vFVw0ba
+ MOkb29+39p2OQLr8DAmRygd08sUCFk79nWj++NtHcRNNzhwAGo/UAM7Z/uUBJ1D+hYJlqRYsiAF
+ 6eLP2AMoC2OzJ/2wdrTfIgUvMMv+2iNwLg1b+FqwxR1rZrakuVS26AYWMC0wxRlYDrde+IaWa00
+ 9SnoYhywZdrTSu7XvI2AKYzDiquAGu7/heH2kTHTVNCjIWPChB6FTKO95/XT1kAXCvD5iKth9E9
+ p+qIMlPx4jNU/K2nJ31m0s0LX1B76feXDmad/4sqbHvbATMm3nJz/s0c/wM9LuLwPmoMHZ5C+l9
+ bY9mv1KSjwSQOODlWJw==
+X-Proofpoint-GUID: Osg4lO_O3BfxuVjCzBPsfgyRu101_BFr
+X-JNJ: AAAAAAABiYuVTj4k58xKKA+bxlBMCg2dOjgZlobEfLLumZnTOaPEi5M7Dr/Z4j8yJ6X72Fz3SjaBdwPioa74ZMFHU89izN9fKaRau1WGcg76Bp+IbIHoDsGdESJTwxuJ2jduWtAJ7ZzuZLrPaViVwYp54ma/wNTeqGU5fkhyG+h84DKK2+W9syVWi9Zgh85r66aJJLpF/aLQITNzluQ6xflSYuvjHCe00dgWfXmlDCJnVxcHae3yxJ7lubzTrvqrm6ZcL9oKHBU0HN12ekgJky33ezJDK5Eqr0drT6h/P/8evXbwf8ik1iUcjHmRFg6CoxTuHpjeCmCwTTWRvkQojfaXXiOYvSv9F9uMFRYZxGFwQxd1ZeEfTxWQf1Kx0rprmND1eePPQfb+175PKbMQYeRIAF1emZzrKdQtHxD1j+3Q255k5nSLo9FZGS7EcA7bm+zDU0H5VxsMxsuopHEgf9+4uaHaUh9lsirRRfN44nji+y+3rtfbrSR1vXYyHSCpflnZIaQzEndDwlmfUalqEHGsHf1mfolEt6c/eYHatZxS4ZNMGnkHeFlJrcd0Mx3B0oNVLSojqutqv2hjQNApD+4EDU5YAPbkwgfrZ4KPVrTVGplFq/Io1dGVattkS8HNFGy7zXlIRBV9FTNNbYIrotxvdqVB0iNb2ukSQSP80CfbvIW1EnZUIKgeXFV4jASIW/BmqYk8h7lkPrVlHE/1puNhEW/6hW8v02IWcEfLvK9/DH8y+eLpTG+M+tjT9MRcGwUpcZvSBhYtIin5Xw/2dU0tiDYHir75oStzuzj7aRl9H/l0wM6KzTdtgfVuIvlPF64XLAo4kDymWCjoRfmfNybwpjL6SwbaKUf87CBOvOpQcJU4Gtbwhu71w4EfdZXKeiuAoHNbQgSjbQB20ZUTG5aFPAB8g0zn/rBn30Hq/zZ/laY148tzBfTU2gy08mMRK2/KsGFEdIf8bXKrpJXaM4EPl55SkZNzkVbe1eGPSKP6+CYXRBkz+5h9eBxz0oFYFE6kNNAtR4OWgOCvaSWgsloFegIMtUuIfbJXUg==
+
+------=_Part_469959201_1215697262.1781110835470
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Email from City of Berkeley Auditor's Office =E2=80=8A =E2=80=8A Jenny Wong=
+, City Auditor Promoting transparency and accountability in Berkeley govern=
+ment. =E2=80=8A Audit News from the City Auditor June 2026 Quick Links City=
+ Auditor's Web Page Audits and Issued Reports Berkeley City Council Agendas=
+       Join Our Mailing List Looking Ahead to FY 2027 It is June! Besides h=
+aving more daylight to enjoy all Berkeley has to offer, June also marks the=
+ end of the City=E2=80=99s fiscal year. Before the end of every fiscal year=
+, my office releases our annual plan for what we will audit in the upcoming=
+ year. See below for the list of important audits we will work on in fiscal=
+ year 2027. We also just released our first ever annual Whistleblower Progr=
+am report detailing the work of the program in its first calendar year, 202=
+5. June also means budget season in the City of Berkeley. The City faces a =
+nearly $30 million per year structural deficit in the General Fund. For mor=
+e context on the City=E2=80=99s budget and broader financial condition, ple=
+ase read our recent financial condition audit. Business License Taxes, Meas=
+ure FF, Public Health, and Rent Board Audits Planned for FY 2027  Given Ber=
+keley=E2=80=99s financial challenges, we plan to focus our work in the next=
+ year on ensuring City dollars are spent responsibly and aligned with Berke=
+ley values. Our FY 2027 Audit Plan includes beginning new audits of public =
+health and Measure FF (streets and sidewalks). We will also complete our on=
+going audits of the Rent Board and business license taxes.    We also plan =
+to continue our Whistleblower Program, which just released its first annual=
+ report (see below). To contribute to the City=E2=80=99s efforts to address=
+ the structural budget deficit, the Auditor=E2=80=99s Office reduced our ba=
+seline budget. As a result, we will pause the expansion of the Whistleblowe=
+r Program to the public and have limited resources for staff training. Whil=
+e these reductions will impact the office, we are committed to fulfilling o=
+ur charter-mandated responsibilities. Our capacity to initiate and complete=
+ projects this fiscal year will depend on available resources.    Finally, =
+we will continue to track the implementation of audit recommendations throu=
+gh our dashboard, and work with city departments to report on the status of=
+ these recommendations through council reports.   For additional informatio=
+n, you can read the full FY 2027 Audit Plan on our website.  First Annual W=
+histleblower Program Report Release for 2025  Our Whistleblower Program rel=
+eased its first annual report since the program launched. The Whistleblower=
+ Program provides a confidential mechanism for city employees or officials =
+to report concerns related to fraud, waste, and abuse of city resources. By=
+ providing an independent and confidential reporting channel, the program h=
+elps identify risks, improve accountability, and strengthen public trust in=
+ city operations.   =EF=BB=BF Calendar year 2025 marked the first full year=
+ of the Whistleblower Program. During this year, the Program received 42 ne=
+w reports and closed 41 cases. Cases may be closed for several reasons, inc=
+luding completion of an investigation, referral to another department or en=
+tity, insufficient information to proceed, or because the allegation was ou=
+tside the Program=E2=80=99s authority.  Disposition of Closed Cases (2025) =
+ The Whistleblower Program may issue public reports when investigations res=
+ult in substantiated findings or doing so is in the public interest. To dat=
+e, we have issued a public report titled =E2=80=9CSubstantiated Whistleblow=
+er Allegation: $286,000 Vehicle Purchased Without Prior Council Approval.=
+=E2=80=9D   The Auditor=E2=80=99s independence ensures the integrity of the=
+ Whistleblower Program, which operates as an important and trustworthy chan=
+nel for employees and officials to report ethical concerns. Looking forward=
+, the Whistleblower Program will continue to enhance intake and investigati=
+on procedures and work closely with departments to address fraud, waste, an=
+d abuse.  Check out the full report now! Budget Updates On May 19, the City=
+ Council held its first public hearing on the City Manager=E2=80=99s propos=
+ed budget for FY 2027 and FY 2028. The City faces a nearly $30 million per =
+year structural deficit in the General Fund. Read the City Manager=E2=80=99=
+s proposed plan to balance the budget. Another key part of the budget proce=
+ss is the City=E2=80=99s five-year capital plan, referred to as the Capital=
+ Improvement Program (CIP). Yesterday, City Council held the first public h=
+earing on the proposed CIP. City Council will hold the next public hearing =
+of the City budget on June 16. On June 23, City Council will hold the final=
+ public hearing and consider adoption of the City budget and CIP. Visit the=
+ Council agenda=E2=80=AFwebpage=E2=80=AFfor information on how to attend Ci=
+ty Council meetings remotely or in-person. For more context on the City=E2=
+=80=99s financial condition, please read our latest audit report. =E2=80=8A=
+ =E2=80=8A Berkeley City Auditor | Website =E2=80=8A       Berkeley City Au=
+ditor's Office | 2180 Milvia Street, 3rd Floor | Berkeley, CA 94704 US Unsu=
+bscribe | Update Profile | Constant Contact Data Notice
+------=_Part_469959201_1215697262.1781110835470
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML>
+<html lang=3D"en-US"> <head> <title>Email from City of Berkeley Auditor's O=
+ffice</title> <meta http-equiv=3D"Content-Type" content=3D"text/html; chars=
+et=3Dutf-8"> <meta name=3D"viewport" content=3D"width=3Ddevice-width, initi=
+al-scale=3D1, maximum-scale=3D1">   <style type=3D"text/css" data-premailer=
+=3D"ignore">=20
+/* The following 2 styles are for handling signup landing pages  /* Set the=
+ default value for the targeted layout to display: none */ .layout--email_s=
+ignup_fineprint { display: none; }  /* Display the targeted layout only if =
+the doc contains email_address input */ body:has(label[for=3D"email_address=
+"]) .layout--email_signup_fineprint { display: block; }
+@media only screen and (max-width:480px) { .footer-main-width { width: 100%=
+ !important; }  .footer-mobile-hidden { display: none !important; }  .foote=
+r-mobile-hidden { display: none !important; }  .footer-column { display: bl=
+ock !important; }  .footer-mobile-stack { display: block !important; }  .fo=
+oter-mobile-stack-padding { padding-top: 3px; } }=20
+/* IE: correctly scale images with w/h attbs */ img { -ms-interpolation-mod=
+e: bicubic; }=20
+.layout { min-width: 100%; }=20
+table { table-layout: fixed; } .shell_outer-row, .shell_panel-row { table-l=
+ayout: auto; }=20
+/* Gmail/Web viewport fix */ u + .body .shell_outer-row { width: 630px; }=
+=20
+/* LIST AND p STYLE OVERRIDES */ .text .text_content-cell p { margin: 0; pa=
+dding: 0; margin-bottom: 0; } .text .text_content-cell ul, .text .text_cont=
+ent-cell ol { padding: 0; margin: 0 0 0 40px; } .text .text_content-cell li=
+ { padding: 0; margin: 0; /* line-height: 1.2; Remove after testing */ } /*=
+ Text Link Style Reset */ a { text-decoration: underline; } /* iOS: Autolin=
+k styles inherited */ a[x-apple-data-detectors] { text-decoration: underlin=
+e !important; font-size: inherit !important; font-family: inherit !importan=
+t; font-weight: inherit !important; line-height: inherit !important; color:=
+ inherit !important; } /* FF/Chrome: Smooth font rendering */ .text .text_c=
+ontent-cell { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; }
+</style> <!--[if gte mso 9]> <style id=3D"ol-styles">=20
+/* OUTLOOK-SPECIFIC STYLES */ li { text-indent: -1em; padding: 0; margin: 0=
+; /* line-height: 1.2; Remove after testing */ } ul, ol { padding: 0 0 0 40=
+px; } p { margin: 0; padding: 0; margin-bottom: 0; }=20
+</style> <![endif]-->  <style>@media only screen and (max-width:480px) {
+.button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.button_border-row .button_content-cell {
+padding-top: 10px !important; padding-right: 20px !important; padding-botto=
+m: 10px !important; padding-left: 20px !important;
+}
+.column .content-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.layout .column .content-padding-horizontal .content-padding-horizontal {
+padding-left: 0px !important; padding-right: 0px !important;
+}
+.layout .column .content-padding-horizontal .block-wrapper_border-row .cont=
+ent-padding-horizontal {
+padding-left: 20px !important; padding-right: 20px !important;
+}
+.dataTable {
+overflow: auto !important;
+}
+.dataTable .dataTable_content {
+width: auto !important;
+}
+.icons_container {
+text-align: center !important;
+}
+.image--mobile-center img {
+float: none !important;
+}
+.image--mobile-full-width img.image_content {
+width: 100% !important; max-width: 100% !important;
+}
+.image--mobile-full-width .image_container-caption {
+width: 100% !important; max-width: 100% !important;
+}
+.image.image--float-left {
+float: none !important;
+}
+.image--float-left.image--mobile-center .image_container-caption {
+display: inline-block !important;
+}
+.image--float-left.image--mobile-center .image_container {
+text-align: center !important;
+}
+.image.image--float-right {
+float: none !important;
+}
+.image--float-right.image--mobile-center .image_container-caption {
+display: inline-block !important;
+}
+.image--float-right.image--mobile-center .image_container {
+text-align: center !important;
+}
+.layout-margin .layout-margin_cell {
+padding: 0px 20px !important;
+}
+.layout-margin--uniform .layout-margin_cell {
+padding: 20px 20px !important;
+}
+.scale {
+width: 100% !important;
+}
+.stack {
+display: block !important; box-sizing: border-box;
+}
+.hide {
+display: none !important;
+}
+u + .body .shell_outer-row {
+width: 100% !important;
+}
+.socialFollow_container {
+text-align: center !important;
+}
+.text .text_content-cell {
+font-size: 16px !important;
+}
+.text .text_content-cell h1 {
+font-size: 24px !important;
+}
+.text .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--sectionHeading .text_content-cell {
+font-size: 24px !important;
+}
+.text--heading .text_content-cell {
+font-size: 24px !important;
+}
+.text--feature .text_content-cell h2 {
+font-size: 20px !important;
+}
+.text--articleHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--article .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--featureHeading .text_content-cell {
+font-size: 20px !important;
+}
+.text--feature .text_content-cell h3 {
+font-size: 20px !important;
+}
+.text--dataTable .text_content-cell .dataTable .dataTable_content-cell {
+font-size: 12px !important;
+}
+.text--dataTable .text_content-cell .dataTable th.dataTable_content-cell {
+font-size: px !important;
+}
+}
+</style>
+</head> <body class=3D"body template template--en-US" data-template-version=
+=3D"1.53.6" data-canonical-name=3D"CPE-PT14037" lang=3D"en-US" align=3D"cen=
+ter" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; m=
+in-width: 100%; width: 100%; margin: 0px; padding: 0px;"> <div id=3D"prehea=
+der" style=3D"color: transparent; display: none; font-size: 1px; line-heigh=
+t: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"><sp=
+an data-entity-ref=3D"preheader"></span></div> <div id=3D"tracking-image" s=
+tyle=3D"color: transparent; display: none; font-size: 1px; line-height: 1px=
+; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"><img src=
+=3D"https://tqamm5cab.cc.rs6.net/on.jsp?ca=3Dc13b5a47-c9c3-4525-a781-415f37=
+d05bd5&a=3D1102678721043&c=3Ddf767120-b5f0-11e8-b193-d4ae528ecd49&ch=3Ddf8a=
+9560-b5f0-11e8-b193-d4ae528ecd49" / alt=3D""></div> <div class=3D"shell" la=
+ng=3D"en-US" dir=3D"ltr" style=3D"background-color: #F0F9E8;">    <table cl=
+ass=3D"shell_panel-row" width=3D"100%" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"background: #F0F9E8 url('');" bgcolor=3D"#F0F9E8" bac=
+kground=3D""> <tr class=3D""> <td class=3D"shell_panel-cell" style=3D"" ali=
+gn=3D"center" valign=3D"top"> <table class=3D"shell_width-row scale" style=
+=3D"width: 630px;" align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td class=3D"shell_width-cell" style=3D"padding: 15px 10px;=
+" align=3D"center" valign=3D"top"> <table class=3D"shell_content-row" width=
+=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+> <tr> <td class=3D"shell_content-cell" style=3D"background-color: #FFFFFF;=
+ padding: 0; border: 0px solid #368A9C;" align=3D"center" valign=3D"top" bg=
+color=3D"#FFFFFF"> <table class=3D"layout layout--1-column" style=3D"table-=
+layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: 100=
+%;" align=3D"center" valign=3D"top">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container" style=3D"padding-top: 0=
+px; padding-bottom: 0px;" width=3D"100%" align=3D"center" valign=3D"top"> <=
+table class=3D"divider_content-row" style=3D"width: 100%; height: 1px;" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"divider_co=
+ntent-cell" style=3D"padding-bottom: 9px; background-color: #1D617D; height=
+: 1px; line-height: 1px; border-bottom-width: 0px;" height=3D"1" align=3D"c=
+enter" bgcolor=3D"#1D617D"> <img alt=3D"" width=3D"5" height=3D"1" border=
+=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact.com/=
+letters/images/1101116784221/S.gif" style=3D"display: block; height: 1px; w=
+idth: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table>=
+ <table class=3D"layout layout--1-column" style=3D"table-layout: fixed;" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td cla=
+ss=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"center"=
+ valign=3D"top">
+<div class=3D"spacer" style=3D"line-height: 10px; height: 10px;">&#x200a;</=
+div> <table class=3D"image image--padding-vertical" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"image_contain=
+er" style=3D"padding-top: 10px; padding-bottom: 10px;" align=3D"center" val=
+ign=3D"top"> <table class=3D"image_container-caption text" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td c=
+lass=3D"text_content-cell" style=3D"text-align: -webkit-center; font-family=
+: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; line=
+-height: 1.2; display: block; word-wrap: break-word; padding: 0px;" align=
+=3D"center"> <img data-image-content class=3D"image_content" style=3D"displ=
+ay: block; height: auto; max-width: 100%;" width=3D"546" src=3D"https://fil=
+es.constantcontact.com/31206ccb001/c98add1b-359e-460c-ae47-087d49011efb.png=
+?rdr=3Dtrue" alt=3D"Berkeley City Auditor logo" align=3D"center">  </td> </=
+tr> </table> </td> </tr> </table>  <div class=3D"spacer" style=3D"line-heig=
+ht: 10px; height: 10px;">&#x200a;</div>
+</td> </tr> </table> <table class=3D"layout layout--sectionHeading layout--=
+1-column" style=3D"background-color: #1D617D; table-layout: fixed;" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#1D61=
+7D"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: 100%;"=
+ align=3D"center" valign=3D"top"> <table class=3D"text text--sectionHeading=
+ text--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_conten=
+t-cell content-padding-horizontal" style=3D"line-height: 1; text-align: cen=
+ter; font-family: Arial,Verdana,Helvetica,sans-serif; color: #368A9C; font-=
+size: 28px; display: block; word-wrap: break-word; padding: 10px 20px;" ali=
+gn=3D"center" valign=3D"top">
+<div>
+<div><span style=3D"color: rgb(240, 249, 232);">Jenny Wong, City Auditor</s=
+pan></div>
+<div><span style=3D"font-size: 12px; color: rgb(240, 249, 232);">Promoting =
+transparency and accountability in Berkeley government.</span></div>
+</div>
+<div class=3D"ql-clipboard" tabindex=3D"-1" style=3D"position: fixed; top: =
+0px;"></div>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top"><div class=3D"spa=
+cer" style=3D"line-height: 10px; height: 10px;">&#x200a;</div></td> </tr> <=
+/table> <table class=3D"layout layout--heading layout--2-column" style=3D"t=
+able-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: =
+35%;" align=3D"center" valign=3D"top"> <table class=3D"text text--padding-v=
+ertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell content-p=
+adding-horizontal" style=3D"text-align: left; font-family: Arial,Verdana,He=
+lvetica,sans-serif; color: #1a191a; font-size: 16px; line-height: 1.2; disp=
+lay: block; word-wrap: break-word; padding: 10px 10px 10px 20px;" align=3D"=
+left" valign=3D"top">
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-weight: bold; font-size: 24px; color: rgb(202, 139, 67); font-family:=
+ Arial, Verdana, Helvetica, sans-serif;">Audit News</span><span style=3D"fo=
+nt-weight: bold; font-size: 22px; color: rgb(202, 139, 67); font-family: Ar=
+ial, Verdana, Helvetica, sans-serif;"> </span></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"color: rgb(26, 25, 26); font-family: Arial, Verdana, Helvetica, sans-serif=
+;">from the City Auditor</span></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"color: rgb(26, 25, 26);">June 2026</span></p>
+</td> </tr> </table>   <table class=3D"image image--padding-vertical" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=
+=3D"image_container" style=3D"padding-top: 10px; padding-bottom: 10px;" ali=
+gn=3D"center" valign=3D"top"> <table class=3D"image_container-caption text"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fi=
+xed;"> <tr> <td class=3D"text_content-cell" style=3D"text-align: -webkit-ce=
+nter; font-family: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font=
+-size: 16px; line-height: 1.2; display: block; word-wrap: break-word; paddi=
+ng: 0px;" align=3D"center"> <img data-image-content class=3D"image_content"=
+ style=3D"display: block; height: auto; max-width: 100%;" width=3D"155" src=
+=3D"https://files.constantcontact.com/31206ccb001/29d54072-2148-42bd-bc25-e=
+b4d64ba18d7.jpg?rdr=3Dtrue" alt=3D"Berkeley City Auditor Jenny Wong" align=
+=3D"center">  </td> </tr> </table> </td> </tr> </table>   <table class=3D"t=
+ext text--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_con=
+tent-cell content-padding-horizontal" style=3D"text-align: left; font-famil=
+y: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; lin=
+e-height: 1.2; display: block; word-wrap: break-word; padding: 10px 10px 10=
+px 20px;" align=3D"left" valign=3D"top">
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><span style=3D=
+"font-size: 18px; font-weight: bold;">Quick Links</span></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><a href=3D"htt=
+ps://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_=
+ClxABJWLkqmHqNI5Enp9GPrFd4lWYiQZDw94ocHHGOmSti6oyI--m_nQA6uwH8Vks_VgK9o1fVM=
+ivOkJCHrLAW0DiVnHFz1NY7LyZwDg114fEq0qcqZKITRAkL9lfCFgZSzDRY-kDx-L0yQaEJfhTW=
+aj_ToQx&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=
+=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" target=3D"=
+_blank" style=3D"font-size: 12px; font-family: Arial, Verdana, Helvetica, s=
+ans-serif; color: #48a199; font-weight: normal; text-decoration: underline;=
+ font-style: normal;">City Auditor's Web Page</a></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><a href=3D"htt=
+ps://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_=
+ClxABJWLkqmHqNI5Enp9GPrFd4lWY7mBX6Yf0MZbG9r-mluPGLsUqb4CKlOsSpi3ifubbapNp3G=
+evSV8VGcHv1Zk_XDqQoGSbZ_OOiLGuJGu8ugAeX5wTmrD7j158niYCVUbp7RUFVILR-4kRMMxCf=
+GQeQKY_f06HfDrHwy9AviD2i_CknyUhXsk5LwEG&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zme=
+F5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq=
+2VVre08VVT4Uig=3D=3D" target=3D"_blank" style=3D"font-size: 12px; font-fami=
+ly: Arial, Verdana, Helvetica, sans-serif; color: #48a199; font-weight: nor=
+mal; text-decoration: underline; font-style: normal;">Audits and Issued Rep=
+orts</a></p>
+<p style=3D"text-align: center; margin: 0;" align=3D"center"><a href=3D"htt=
+ps://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_=
+ClxABJWLkqmHqNI5Enp9GPrFd4lWYNwP_D0vwVBOYmpeBEd5kNdHZfi4ObDM52yt9gLYdIE1i8d=
+-owKQoA-c92fxU6VwAMrjYjsFVc6NExeDEPKHrleFh444LqfiECSHq3nMhNz2hnvCD2INVOAfoo=
+nDp5rw7P2FCH2B8Ew9yZdiCx3Q8Jt3yIwXjG5r4&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zme=
+F5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq=
+2VVre08VVT4Uig=3D=3D" target=3D"_blank" style=3D"font-size: 12px; font-fami=
+ly: Arial, Verdana, Helvetica, sans-serif; color: #48a199; font-weight: nor=
+mal; text-decoration: underline; font-style: normal;">Berkeley City Council=
+ Agendas</a></p>
+</td> </tr> </table>   <table class=3D"socialFollow socialFollow--padding-v=
+ertical" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <=
+tr> <td class=3D"socialFollow_container content-padding-horizontal" style=
+=3D"height: 1px; line-height: 1px; padding: 10px 10px 10px 20px;" width=3D"=
+100%" align=3D"center" valign=3D"top"> <a href=3D"https://tqamm5cab.cc.rs6.=
+net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Env2tF=
+Ou4wzo5MCTXiZZKxurTc7x1o-yB266b9R6hQKnAMS8AwqM-RW5HUXFPtOOnO866NlWXCNxX8oA8=
+9iyxXJ3UaqXLDa1gwXbsxCj5hEiSaFD1f6gtm_zP27JVt5kcZ_4ktaoSnRB8xJiCXWBA2SI=3D&=
+c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyY=
+w5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D"=
+true"><img class=3D"socialFollow_icon" alt=3D"Linkedin" width=3D"32" border=
+=3D"0" src=3D"https://imgssl.constantcontact.com/letters/images/CPE/SocialI=
+consV2/circles/color/linkedin.png" style=3D"display: inline-block; margin: =
+0; padding: 0;"></a> &#xa0;<a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=
+=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Env2tFOu4wzo5KdFXS=
+vHyTbG-MDl89twny9WyVB1IWL6ntBKnp-cDeV8uiSRvCr27LfHixa3x7ecsGY6VGWaEwNa6h4gz=
+WblPC90_aLyMyHfcsWugsoJNSU1TxiPTYgWgBA=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUm=
+I5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwt=
+z2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D"true"><img class=3D"socialFoll=
+ow_icon" alt=3D"Facebook" width=3D"32" border=3D"0" src=3D"https://imgssl.c=
+onstantcontact.com/letters/images/CPE/SocialIconsV2/circles/color/facebook.=
+png" style=3D"display: inline-block; margin: 0; padding: 0;"></a> &#xa0;<a =
+href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUg=
+A7FYJJGqLB_ClxABJWLkqmHqNI5Eno3Uda_snyaptuIDIk6nFKKrMlQDU5sK2b7TSaq4W-jPl7j=
+Do_q_Ut2B12zVlhn7iyUqqHlC187CtbdoKsEUEgcwAkhE_dBgIowOSgVT-mAWU1zW5i_qTbvY-6=
+LSvwraQqbwTv_SNqeFak-FnGakks4=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD6=
+1JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08=
+VVT4Uig=3D=3D" data-trackable=3D"true"><img class=3D"socialFollow_icon" alt=
+=3D"Bluesky" width=3D"32" border=3D"0" src=3D"https://imgssl.constantcontac=
+t.com/letters/images/CPE/SocialIconsV2/circles/color/bluesky.png" style=3D"=
+display: inline-block; margin: 0; padding: 0;"></a> &#xa0;<a href=3D"https:=
+//tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_Clx=
+ABJWLkqmHqNI5EnurbJT59iqkuYAasDna2bCL0D3W2U-CUbf6LIXhQa5j8oIfAqznKxqUd4LvAz=
+aMiJ9KlZKQuGqf5h_38mFkN0bb3a5LgumCj_rgo_ShNooHb_UeclUvcSUL7D6NaItzCFw=3D=3D=
+&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOy=
+Yw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D=
+"true"><img class=3D"socialFollow_icon" alt=3D"Instagram" width=3D"32" bord=
+er=3D"0" src=3D"https://imgssl.constantcontact.com/letters/images/CPE/Socia=
+lIconsV2/circles/color/instagram.png" style=3D"display: inline-block; margi=
+n: 0; padding: 0;"></a> </td> </tr> </table>    <table class=3D"button butt=
+on--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"table-layout: fixed; word-break: break-word;"> <tr> <td=
+ class=3D"button_container content-padding-horizontal" style=3D"padding: 10=
+px 10px 10px 20px;" align=3D"center"> <table class=3D"button_content-row" s=
+tyle=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=
+=3D"button_content-cell button_link" style=3D"background-color: #CA8B43; wi=
+dth: inherit; border-radius: 10px; border-spacing: 0; max-width: 100%; colo=
+r: #FFFFFF; font-family: Arial,Verdana,Helvetica,sans-serif; font-size: 14p=
+x; word-wrap: break-word; text-decoration: none; padding: 10px 15px; border=
+-style: none;" align=3D"center" bgcolor=3D"#CA8B43"> <a class=3D"button_lin=
+k" href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvm=
+HUgA7FYJJGqLB_ClxABJWLkqmHqNI5Env2tFOu4wzo5cfrJgE2-l06tbNNmcG1wNgMMtqRBHvXv=
+TosfqPXBhncS7jKjK3WpzLBk176EPXh6eqSUsR3s1s54wqx85kKnsUv9R4ZUeFPGKtaXzQyekTZ=
+Y88B-Semn1cS6c786LwSjM_nRrBp2arYdiQ_99YwwKSStJE-yMbqZw7sWkReNHnPKBtWeTOSGSQ=
+=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=
+=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" target=3D"=
+_blank" data-trackable=3D"true" style=3D"color: #F0F9E8; font-family: Arial=
+,Verdana,Helvetica,sans-serif; font-size: 14px; word-wrap: break-word; text=
+-decoration: none;">Join Our Mailing List</a> </td> </tr> </table> </td> </=
+tr> </table>    </td>  <td class=3D"column column--2 scale stack" style=3D"=
+width: 65%;" align=3D"center" valign=3D"top"> <table class=3D"text text--pa=
+dding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell =
+content-padding-horizontal" style=3D"text-align: center; font-family: Arial=
+,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; line-height=
+: 1.2; display: block; word-wrap: break-word; padding: 10px 20px 2px 10px;"=
+ align=3D"center" valign=3D"top"><h1 style=3D"text-align: center; font-fami=
+ly: Arial,Verdana,Helvetica,sans-serif; color: #368A9C; font-size: 24px; fo=
+nt-weight: bold; margin: 0;" align=3D"center"><span style=3D"color: rgb(0, =
+136, 144);">Looking Ahead to FY 2027</span></h1></td> </tr> </table>   <tab=
+le class=3D"text text--padding-vertical" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td clas=
+s=3D"text_content-cell content-padding-horizontal" style=3D"text-align: lef=
+t; font-family: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-si=
+ze: 16px; line-height: 1.2; display: block; word-wrap: break-word; padding:=
+ 10px 20px 10px 10px;" align=3D"left" valign=3D"top">
+<p style=3D"margin: 0;">It is June! Besides having more daylight to enjoy a=
+ll Berkeley has to offer, June also marks the end of the City&#x2019;s fisc=
+al year. Before the end of every fiscal year, my office releases <a href=3D=
+"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJG=
+qLB_ClxABJWLkqmHqNI5EniHHlxVY-plx6eaWgUEx8z2pL4Y4bgXxg4bU1L1mM0gYz2sOWCzWQ1=
+ACgdjqwiViF8xFphuTNDbmcSEj1T0lvEcrcLJQ3YKUnx921PN00rIOmkv45fEH9WoZIUrtQwnfa=
+EtpO29Z_Ol2ORof1N9W7xmfa8wgqFvl7uOC03NpM-kDnzn3HwVerfO48DpU2eR2uXzA6xpbPJzP=
+mIUr5WDC9Bw=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=
+=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" r=
+el=3D"noopener noreferrer" target=3D"_blank" style=3D"color: #48a199; font-=
+weight: normal; text-decoration: underline; font-style: normal;">our annual=
+ plan</a> for what we will audit in the upcoming year. See below for the li=
+st of important audits we will work on in fiscal year 2027.</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">We also just released our first ever <a href=3D"htt=
+ps://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_=
+ClxABJWLkqmHqNI5EniHHlxVY-plxBM5cE-6i9NFDKv-YtMGQcnbDBEPU_FU-iLEfghAodyvwDC=
+VvR7Rh4nx_BO3KIaxZyh79vKCwYFNRUWHNPFn2tf-tT0wqalnOplCsg62GqT_IndhreXyJdy1hu=
+_gsEOSWFjeYYfFtKyXIW95E1aivI-Rr8kHrIZzq4djDxD8oJseJNZWE0WDRuNdZwqVlC1vHsUtR=
+bTH8dFg=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D=
+&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"=
+noopener noreferrer" target=3D"_blank" style=3D"color: #48a199; font-weight=
+: normal; text-decoration: underline; font-style: normal;">annual Whistlebl=
+ower Program report</a> detailing the work of the program in its first cale=
+ndar year, 2025.</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">June also means budget season in the City of Berkel=
+ey. The City faces a nearly $30 million per year structural deficit in the =
+General Fund. For more context on the City&#x2019;s budget and broader fina=
+ncial condition, please read our <a href=3D"https://tqamm5cab.cc.rs6.net/tn=
+.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EngkIiv_MyKO=
+UzW8U-1uPr90XOW0ECwcltW3lJFEJiCHuQf4E84PSbb_ISC5DXMnRZ4oJWjdVSiAgtMvvZ7ozbd=
+K_9ycWJruPVL9-J40KbJQKfInO0VsmOgMNKgyXqipXPK4jVNF3VA_1nSdGPi2eWnzoNpeNbkXAh=
+obqSX5A_18GRyRszTzmlYGklIkcLAOjPI2MfUttMBQnnXe6vFHRDR1yDkoTy_IJwB5t6FSAsvA3=
+_FeVNqlqqOgGZs7Ke5jZL234GUDVaUgCD3u2qfcBQTlqLAo6yjZnOs3lPps2SQJS4sNXknbyvXk=
+=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DF=
+IOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopene=
+r noreferrer" target=3D"_blank" style=3D"color: #48a199; font-weight: norma=
+l; text-decoration: underline; font-style: normal;">recent financial condit=
+ion audit</a>.</p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container content-padding-horizont=
+al" style=3D"padding: 10px 20px;" width=3D"100%" align=3D"center" valign=3D=
+"top"> <table class=3D"divider_content-row" style=3D"height: 1px; width: 10=
+0%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"di=
+vider_content-cell" style=3D"height: 1px; line-height: 1px; padding-bottom:=
+ 0px; background-color: #368A9C; border-bottom-width: 0px;" height=3D"1" al=
+ign=3D"center" bgcolor=3D"#368A9C"> <img alt=3D"" width=3D"5" height=3D"1" =
+border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontac=
+t.com/letters/images/1101116784221/S.gif" style=3D"display: block; height: =
+1px; width: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </=
+table> <table class=3D"layout layout--heading layout--1-column" style=3D"ta=
+ble-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: 1=
+00%;" align=3D"center" valign=3D"top"> <table class=3D"text text--padding-v=
+ertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell content-p=
+adding-horizontal" style=3D"text-align: center; background-color: #ffffff; =
+font-family: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size:=
+ 16px; line-height: 1.2; display: block; word-wrap: break-word; padding: 10=
+px 20px;" align=3D"center" valign=3D"top" bgcolor=3D"#ffffff"><h2 style=3D"=
+text-align: center; font-family: Arial,Verdana,Helvetica,sans-serif; color:=
+ #606d78; font-size: 22px; font-weight: bold; margin: 0;" align=3D"center">
+<span style=3D"font-weight: bold;">Business License Taxes, Measure FF, Publ=
+ic Health, and Rent Board Audits Planned for FY 2027</span>&#xa0;</h2></td>=
+ </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1-colu=
+mn" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stack" s=
+tyle=3D"width: 100%;" align=3D"center" valign=3D"top"> <table class=3D"imag=
+e image--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0"> <tr> <td class=3D"image_container content-padding-horizont=
+al" style=3D"background-color: #ffffff; padding: 10px 20px;" align=3D"cente=
+r" valign=3D"top" bgcolor=3D"#ffffff"> <table class=3D"image_container-capt=
+ion text" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-l=
+ayout: fixed;"> <tr> <td class=3D"text_content-cell" style=3D"text-align: -=
+webkit-center; font-family: Arial,Verdana,Helvetica,sans-serif; color: #1a1=
+91a; font-size: 16px; line-height: 1.2; display: block; word-wrap: break-wo=
+rd; padding: 0px;" align=3D"center"> <a href=3D"https://tqamm5cab.cc.rs6.ne=
+t/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EniHHlxV=
+Y-plx6eaWgUEx8z2pL4Y4bgXxg4bU1L1mM0gYz2sOWCzWQ1ACgdjqwiViF8xFphuTNDbmcSEj1T=
+0lvEcrcLJQ3YKUnx921PN00rIOmkv45fEH9WoZIUrtQwnfaEtpO29Z_Ol2ORof1N9W7xmfa8wgq=
+Fvl7uOC03NpM-kDnzn3HwVerfO48DpU2eR2uUUjEaa2a9nOz9HktW2Ef3s=3D&c=3D0FbHlJUpC=
+iAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGk=
+YDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D"true" style=
+=3D"color: #48a199; font-weight: normal; text-decoration: underline; font-s=
+tyle: normal;"><img data-image-content class=3D"image_content" style=3D"dis=
+play: block; height: auto; max-width: 100%;" width=3D"570" src=3D"https://f=
+iles.constantcontact.com/31206ccb001/101d2d9b-7823-4744-8e2c-088d3e7705d9.p=
+ng?rdr=3Dtrue" alt=3D"The graphic shows items on the FY 2027 Audit Plan rep=
+resented with icons: business license taxes, public health, Measure FF, Whi=
+stleblower Program, Rent Stabilization Board, and Audit Follow-Up. " align=
+=3D"center"></a>  </td> </tr> </table> </td> </tr> </table>  </td> </tr> </=
+table> <table class=3D"layout layout--1-column" style=3D"table-layout: fixe=
+d;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr></=
+tr> </table> <table class=3D"layout layout--1-column" style=3D"table-layout=
+: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> =
+<tr> <td class=3D"column column--1 scale stack" style=3D"width: 100%;" alig=
+n=3D"center" valign=3D"top"> <table class=3D"text text--padding-vertical" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"tab=
+le-layout: fixed;"> <tr> <td class=3D"text_content-cell content-padding-hor=
+izontal" style=3D"text-align: left; background-color: #ffffff; font-family:=
+ Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; line-=
+height: 1.2; display: block; word-wrap: break-word; padding: 10px 20px;" al=
+ign=3D"left" valign=3D"top" bgcolor=3D"#ffffff">
+<p style=3D"margin: 0;">Given Berkeley&#x2019;s financial challenges, we pl=
+an to focus our work in the next year on ensuring City dollars are spent re=
+sponsibly and aligned with Berkeley values. Our <a href=3D"https://tqamm5ca=
+b.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHq=
+NI5EniHHlxVY-plx6eaWgUEx8z2pL4Y4bgXxg4bU1L1mM0gYz2sOWCzWQ1ACgdjqwiViF8xFphu=
+TNDbmcSEj1T0lvEcrcLJQ3YKUnx921PN00rIOmkv45fEH9WoZIUrtQwnfaEtpO29Z_Ol2ORof1N=
+9W7xmfa8wgqFvl7uOC03NpM-kDnzn3HwVerfO48DpU2eR2uRs3HIT4CABPh9q4dagXgEw=3D&c=
+=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw=
+5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener nor=
+eferrer" target=3D"_blank" style=3D"color: #48a199; font-weight: normal; te=
+xt-decoration: underline; font-style: normal;">FY 2027 Audit Plan</a> inclu=
+des beginning new audits of public health and Measure FF (streets and sidew=
+alks). We will also complete our ongoing audits of the Rent Board and busin=
+ess license taxes.&#xa0;</p>
+<p style=3D"margin: 0;">&#xa0;</p>
+<p style=3D"margin: 0;">We also plan to continue our Whistleblower Program,=
+ which just released its first annual report (see below).</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">To contribute to the City&#x2019;s efforts to addre=
+ss the structural budget deficit, the Auditor&#x2019;s Office reduced our b=
+aseline budget. As a result, we will pause the expansion of the Whistleblow=
+er Program to the public and have limited resources for staff training. Whi=
+le these reductions will impact the office, we are committed to fulfilling =
+our charter-mandated responsibilities. Our capacity to initiate and complet=
+e projects this fiscal year will depend on available resources.&#xa0;</p>
+<p style=3D"margin: 0;">&#xa0;</p>
+<p style=3D"margin: 0;">Finally, we will continue to track the implementati=
+on of audit recommendations through <a href=3D"https://tqamm5cab.cc.rs6.net=
+/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Enk6bUv93=
+r6V8MN7eAPvkXs7VuRXmDFN3gIlti03EBC3qyQTgQo9B2IHac2wJqozh17GAIU_GRIt2AcnqqPE=
+fyy2561jBVbpLndlcSZsFv0nDoaPvj8umsMrpWlM_lUrAL5YeRNsW6v1cXNaikL2yHAlmjUmwrZ=
+CNwg=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D=
+&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"=
+noopener noreferrer" target=3D"_blank" style=3D"color: #48a199; font-weight=
+: normal; text-decoration: underline; font-style: normal;">our dashboard</a=
+>, and work with city departments to report on the status of these recommen=
+dations through council reports.<span style=3D"font-family: Arial, Verdana,=
+ Helvetica, sans-serif;">&#xa0;</span>&#xa0;</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">For additional information, you can read the full&#=
+xa0;<a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1C=
+TcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EniHHlxVY-plx6eaWgUEx8z2pL4Y4bgXxg4bU1L1m=
+M0gYz2sOWCzWQ1ACgdjqwiViF8xFphuTNDbmcSEj1T0lvEcrcLJQ3YKUnx921PN00rIOmkv45fE=
+H9WoZIUrtQwnfaEtpO29Z_Ol2ORof1N9W7xmfa8wgqFvl7uOC03NpM-kDnzn3HwVerfO48DpU2e=
+R2uUHT5LqYXOreIm7j52KmCD4=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJ=
+qeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4=
+Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blank" style=3D"color: #4=
+8a199; font-weight: normal; text-decoration: underline; font-style: normal;=
+">FY 2027 Audit Plan</a> on <a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?=
+f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Enp9GPrFd4lWYiQZD=
+w94ocHHGOmSti6oyI--m_nQA6uwH8Vks_VgK9o1fVMivOkJCHrLAW0DiVnHFz1NY7LyZwDg114f=
+Eq0qcqZKITRAkL9lfCFgZSzDRY-kDx-L0yQaEJXUa8M-m0G_y&c=3D0FbHlJUpCiAjHENOEKgJ7=
+6oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-b=
+aJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blan=
+k" style=3D"color: #48a199; font-weight: normal; text-decoration: underline=
+; font-style: normal;">our website</a>.&#xa0;</p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container content-padding-horizont=
+al" style=3D"padding: 10px 20px;" width=3D"100%" align=3D"center" valign=3D=
+"top"> <table class=3D"divider_content-row" style=3D"height: 1px; width: 10=
+0%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"di=
+vider_content-cell" style=3D"height: 1px; line-height: 1px; padding-bottom:=
+ 0px; background-color: #368A9C; border-bottom-width: 0px;" height=3D"1" al=
+ign=3D"center" bgcolor=3D"#368A9C"> <img alt=3D"" width=3D"5" height=3D"1" =
+border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontac=
+t.com/letters/images/1101116784221/S.gif" style=3D"display: block; height: =
+1px; width: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </=
+table> <table class=3D"layout layout--1-column" style=3D"table-layout: fixe=
+d;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <=
+td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"c=
+enter" valign=3D"top"> <table class=3D"text text--padding-vertical" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-l=
+ayout: fixed;"> <tr> <td class=3D"text_content-cell content-padding-horizon=
+tal" style=3D"text-align: center; font-family: Arial,Verdana,Helvetica,sans=
+-serif; color: #1a191a; font-size: 16px; line-height: 1.2; display: block; =
+word-wrap: break-word; padding: 10px 20px;" align=3D"center" valign=3D"top"=
+><h2 style=3D"font-family: Arial,Verdana,Helvetica,sans-serif; color: #606d=
+78; font-size: 22px; font-weight: bold; margin: 0;">
+<span style=3D"font-weight: bold; color: rgb(0, 136, 144);">First Annual Wh=
+istleblower Program Report Release for 2025</span><span style=3D"font-weigh=
+t: bold;">&#xa0;</span>
+</h2></td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layo=
+ut--1-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale=
+ stack" style=3D"width: 100%;" align=3D"center" valign=3D"top"> <table clas=
+s=3D"text text--padding-vertical" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"=
+text_content-cell content-padding-horizontal" style=3D"text-align: left; fo=
+nt-family: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 1=
+6px; line-height: 1.2; display: block; word-wrap: break-word; padding: 10px=
+ 20px;" align=3D"left" valign=3D"top">
+<p style=3D"margin: 0;">Our Whistleblower Program released its <a href=3D"h=
+ttps://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqL=
+B_ClxABJWLkqmHqNI5EniHHlxVY-plxBM5cE-6i9NFDKv-YtMGQcnbDBEPU_FU-iLEfghAodyvw=
+DCVvR7Rh4nx_BO3KIaxZyh79vKCwYFNRUWHNPFn2tf-tT0wqalnOplCsg62GqT_IndhreXyJdy1=
+hu_gsEOSWFjeYYfFtKyXIW95E1aivI-Rr8kHrIZzq4djDxD8oJseJNZWE0WDRuDQcScmNkUBta7=
+l67HeVX_k=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=
+=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=
+=3D"noopener noreferrer" target=3D"_blank" style=3D"color: #48a199; font-we=
+ight: normal; text-decoration: underline; font-style: normal;">first annual=
+ report</a> since the program launched. The Whistleblower Program provides =
+a confidential mechanism for city employees or officials to report concerns=
+ related to fraud, waste, and abuse of city resources. By providing an inde=
+pendent and confidential reporting channel, the program helps identify risk=
+s, improve accountability, and strengthen public trust in city operations. =
+<span style=3D"font-weight: bold;">&#xa0;</span></p>
+<p style=3D"margin: 0;"><span style=3D"font-weight: bold;">&#xfeff;</span><=
+/p>
+<p style=3D"margin: 0;">Calendar year 2025 marked the first full year of th=
+e Whistleblower Program. During this year, the Program received 42 new repo=
+rts and closed 41 cases. Cases may be closed for several reasons, including=
+ completion of an investigation, referral to another department or entity, =
+insufficient information to proceed, or because the allegation was outside =
+the Program&#x2019;s authority.&#xa0;</p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top"> <table class=3D"=
+text text--padding-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_co=
+ntent-cell content-padding-horizontal" style=3D"text-align: left; font-fami=
+ly: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; li=
+ne-height: 1.2; display: block; word-wrap: break-word; padding: 10px 20px;"=
+ align=3D"left" valign=3D"top"><h3 style=3D"text-align: center; font-family=
+: Arial,Verdana,Helvetica,sans-serif; color: #368A9C; font-size: 18px; font=
+-weight: bold; margin: 0;" align=3D"center"><span style=3D"font-weight: bol=
+d;">Disposition of Closed Cases (2025)&#xa0;</span></h3></td> </tr> </table=
+>  </td> </tr> </table> <table class=3D"layout layout--1-column" style=3D"t=
+able-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"width: =
+100%;" align=3D"center" valign=3D"top"> <table class=3D"image image--paddin=
+g-vertical" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+> <tr> <td class=3D"image_container content-padding-horizontal" style=3D"pa=
+dding: 10px 20px;" align=3D"center" valign=3D"top"> <table class=3D"image_c=
+ontainer-caption text" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"table-layout: fixed;"> <tr> <td class=3D"text_content-cell" style=3D"=
+text-align: -webkit-center; font-family: Arial,Verdana,Helvetica,sans-serif=
+; color: #1a191a; font-size: 16px; line-height: 1.2; display: block; word-w=
+rap: break-word; padding: 0px;" align=3D"center"> <img data-image-content c=
+lass=3D"image_content" style=3D"display: block; height: auto; max-width: 10=
+0%;" width=3D"570" src=3D"https://files.constantcontact.com/31206ccb001/7e9=
+42642-6256-4702-a42e-07c82794443b.png?rdr=3Dtrue" alt=3D"Bar chart showing =
+41 closed cases were resolved in 2025, including cases referred and closed =
+(16), closed as not in purview (11), closed due to insufficient information=
+ (9), investigated and closed (4), and closed as previously addressed (1). =
+" align=3D"center">  </td> </tr> </table> </td> </tr> </table>  </td> </tr>=
+ </table> <table class=3D"layout layout--1-column" style=3D"table-layout: f=
+ixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr=
+> <td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=
+=3D"center" valign=3D"top"> <table class=3D"text text--padding-vertical" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"tabl=
+e-layout: fixed;"> <tr> <td class=3D"text_content-cell content-padding-hori=
+zontal" style=3D"text-align: left; font-family: Arial,Verdana,Helvetica,san=
+s-serif; color: #1a191a; font-size: 16px; line-height: 1.2; display: block;=
+ word-wrap: break-word; padding: 10px 20px;" align=3D"left" valign=3D"top">
+<p style=3D"margin: 0;">The Whistleblower Program may issue public reports =
+when investigations result in substantiated findings or doing so is in the =
+public interest. To date, we have issued a public report titled &#x201c;<a =
+href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUg=
+A7FYJJGqLB_ClxABJWLkqmHqNI5EngkIiv_MyKOU57Qs_QkpwLR1fXGtU5Q9yKgAsS1FGA3w12U=
+N0CJ1Pb0zl_DDUK3qhxe6xpsA8Bxb5OQ7obZ2dIqvfJ66C9BvU9Cm5shl4fqM12dhuYrAFYwndt=
+X3NKRHlN2lYiRUIhgb0RVxvlflN-PVy1B2-sITcInXSjLV24KGbBvghA2soc6KV47B8ItSDQQjw=
+RroYfeuFeG9d9hLZTvhS-hsjgD7ZDYioYEJJ2aXMfqyYPs9j2fcv_ykJqeqLAs8t8Pa73NHVAGd=
+PVEAiKxoQ1NR4WnzFyGYFyoMxaed&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJ=
+qeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4=
+Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blank" style=3D"color: #4=
+8a199; font-weight: normal; text-decoration: underline; font-style: normal;=
+">Substantiated Whistleblower Allegation: $286,000 Vehicle Purchased Withou=
+t Prior Council Approval</a>.&#x201d;&#xa0;&#xa0;</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">The Auditor&#x2019;s independence ensures the integ=
+rity of the Whistleblower Program, which operates as an important and trust=
+worthy channel for employees and officials to report ethical concerns. Look=
+ing forward, the Whistleblower Program will continue to enhance intake and =
+investigation procedures and work closely with departments to address fraud=
+, waste, and abuse.&#xa0;</p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top">  <table class=3D=
+"button button--padding-vertical" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed; word-break: break-wo=
+rd;"> <tr> <td class=3D"button_container content-padding-horizontal" style=
+=3D"padding: 10px 20px;" align=3D"center"> <table class=3D"button_content-r=
+ow" style=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td c=
+lass=3D"button_content-cell button_link" style=3D"font-size: 20px; width: i=
+nherit; border-radius: 10px; border-spacing: 0; background-color: #368A9C; =
+max-width: 100%; color: #FFFFFF; font-family: Arial,Verdana,Helvetica,sans-=
+serif; word-wrap: break-word; text-decoration: none; padding: 10px 15px; bo=
+rder-style: none;" align=3D"center" bgcolor=3D"#368A9C"> <a class=3D"button=
+_link" href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1C=
+TcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EniHHlxVY-plxBM5cE-6i9NFDKv-YtMGQcnbDBEPU=
+_FU-iLEfghAodyvwDCVvR7Rh4nx_BO3KIaxZyh79vKCwYFNRUWHNPFn2tf-tT0wqalnOplCsg62=
+GqT_IndhreXyJdy1hu_gsEOSWFjeYYfFtKyXIW95E1aivI-Rr8kHrIZzq4djDxD8oJseJNZWE0W=
+DRuIy3uFIZCwrf8PGf9TBqRpw=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJ=
+qeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4=
+Uig=3D=3D" target=3D"_blank" data-trackable=3D"true" style=3D"font-size: 20=
+px; font-weight: bold; color: #FFFFFF; font-family: Arial,Verdana,Helvetica=
+,sans-serif; word-wrap: break-word; text-decoration: none;">Check out the f=
+ull report now!</a> </td> </tr> </table> </td> </tr> </table>    </td> </tr=
+> </table> <table class=3D"layout layout--1-column" style=3D"table-layout: =
+fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <t=
+r> <td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=
+=3D"center" valign=3D"top">
+<table class=3D"divider" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"> <tr> <td class=3D"divider_container content-padding-horizont=
+al" style=3D"padding: 10px 20px;" width=3D"100%" align=3D"center" valign=3D=
+"top"> <table class=3D"divider_content-row" style=3D"height: 1px; width: 10=
+0%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"di=
+vider_content-cell" style=3D"height: 1px; line-height: 1px; padding-bottom:=
+ 0px; background-color: #368A9C; border-bottom-width: 0px;" height=3D"1" al=
+ign=3D"center" bgcolor=3D"#368A9C"> <img alt=3D"" width=3D"5" height=3D"1" =
+border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontac=
+t.com/letters/images/1101116784221/S.gif" style=3D"display: block; height: =
+1px; width: 5px;"> </td> </tr> </table> </td> </tr> </table> </td> </tr> </=
+table> <table class=3D"layout layout--1-column" style=3D"table-layout: fixe=
+d;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <=
+td class=3D"column column--1 scale stack" style=3D"width: 100%;" align=3D"c=
+enter" valign=3D"top"> <table class=3D"text text--padding-vertical" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-l=
+ayout: fixed;"> <tr> <td class=3D"text_content-cell content-padding-horizon=
+tal" style=3D"text-align: center; background-color: #ffffff; font-family: A=
+rial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; line-he=
+ight: 1.2; display: block; word-wrap: break-word; padding: 10px 20px;" alig=
+n=3D"center" valign=3D"top" bgcolor=3D"#ffffff"><h2 style=3D"text-align: ce=
+nter; font-family: Arial,Verdana,Helvetica,sans-serif; color: #606d78; font=
+-size: 22px; font-weight: bold; margin: 0;" align=3D"center"><span style=3D=
+"font-weight: bold;">Budget Updates</span></h2></td> </tr> </table>  </td> =
+</tr> </table> <table class=3D"layout layout--1-column" style=3D"table-layo=
+ut: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+> <tr> <td class=3D"column column--1 scale stack" style=3D"width: 100%;" al=
+ign=3D"center" valign=3D"top"> <table class=3D"text text--padding-vertical"=
+ width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"t=
+able-layout: fixed;"> <tr> <td class=3D"text_content-cell content-padding-h=
+orizontal" style=3D"text-align: left; background-color: #ffffff; font-famil=
+y: Arial,Verdana,Helvetica,sans-serif; color: #1a191a; font-size: 16px; lin=
+e-height: 1.2; display: block; word-wrap: break-word; padding: 10px 20px;" =
+align=3D"left" valign=3D"top" bgcolor=3D"#ffffff">
+<p style=3D"margin: 0;">On May 19, the City Council held its first public h=
+earing on the City Manager&#x2019;s proposed budget for FY 2027 and FY 2028=
+. The City faces a nearly $30 million per year structural deficit in the Ge=
+neral Fund. Read the <a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001=
+BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EniHHlxVY-plxV9EmJA8WmEU=
+vNPOnfMH-HmrQx43Vh6XSDK5BtmyKYQ7Do1oG9OaJCKdTKoXWR4R1jH_Fcbkf8y2mhgJ9vQ1iGa=
+FJvRS9X1L0rd7nORrE1e_b4HvkZm7od22wAPVCOUZfktjauK2-TiL0NOzryQZ8bVftC1Ub9heNa=
+-uy0AUXD4e3rRQTrJuoUwGMjPRAjr4AVjk9CK04-Posptshii81euePvEUXfh7w7XwdDhtQ7v3f=
+glklSyYsjMYSioTD2HB8JIBBwkkxDCBEknb9v8-Q0w=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76=
+oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-ba=
+Juwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blank=
+" style=3D"color: #48a199; font-weight: normal; text-decoration: underline;=
+ font-style: normal;">City Manager&#x2019;s proposed plan</a> to balance th=
+e budget.</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">Another key part of the budget process is the City&=
+#x2019;s five-year capital plan, referred to as the Capital Improvement Pro=
+gram (CIP). Yesterday, City Council held the first public hearing on <a hre=
+f=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7F=
+YJJGqLB_ClxABJWLkqmHqNI5EniHHlxVY-plxhPQ-sKZvQCsQyb35veGEr0Yp-LqyaPcjHC7nz2=
+i2Nd7s1IkuH-1uEGcdCKxWtMW-ZUWsBNoS0XBRg_rNqvciMOqaDi2mfDr69wdEo2ESdCKDS2Htj=
+OVZjDkcj2e5Am5VN57_h8wFmGetG0P5Lqjdhg=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI=
+5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz=
+2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blank" sty=
+le=3D"color: #48a199; font-weight: normal; text-decoration: underline; font=
+-style: normal;">the proposed CIP</a><a href=3D"#" rel=3D"noopener noreferr=
+er" target=3D"_blank" style=3D"color: #48a199; font-weight: normal; text-de=
+coration: underline; font-style: normal;">.</a></p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">City Council will hold the next public hearing of t=
+he City budget on June 16. On June 23, City Council will hold the final pub=
+lic hearing and consider adoption of the City budget and CIP. Visit the <a =
+href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUg=
+A7FYJJGqLB_ClxABJWLkqmHqNI5Enp9GPrFd4lWYNwP_D0vwVBOYmpeBEd5kNdHZfi4ObDM52yt=
+9gLYdIE1i8d-owKQoA-c92fxU6VwAMrjYjsFVc6NExeDEPKHrleFh444LqfiECSHq3nMhNz2hnv=
+CD2INVOAfoonDp5rw7P2FCH2B8Ew9yZdiCx3Q8JiBB6WV76sEY&c=3D0FbHlJUpCiAjHENOEKgJ=
+76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-=
+baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_bla=
+nk" style=3D"color: #48a199; font-weight: normal; text-decoration: underlin=
+e; font-style: normal;">Council agenda</a><a href=3D"https://tqamm5cab.cc.r=
+s6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Enp=
+9GPrFd4lWYNwP_D0vwVBOYmpeBEd5kNdHZfi4ObDM52yt9gLYdIE1i8d-owKQoA-c92fxU6VwAM=
+rjYjsFVc6NExeDEPKHrleFh444LqfiECSHq3nMhNz2hnvCD2INVOAfoonDp5rw7P2FCH2B8Ew9y=
+ZdiCx3Q8JhiEhd1eMbtw&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9A=
+idNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=
+=3D" rel=3D"noopener noreferrer" target=3D"_blank" style=3D"font-family: Ar=
+ial, Verdana, Helvetica, sans-serif; color: #48a199; font-weight: normal; t=
+ext-decoration: underline; font-style: normal;">&#x202f;</a><a href=3D"http=
+s://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_C=
+lxABJWLkqmHqNI5Enp9GPrFd4lWYNwP_D0vwVBOYmpeBEd5kNdHZfi4ObDM52yt9gLYdIE1i8d-=
+owKQoA-c92fxU6VwAMrjYjsFVc6NExeDEPKHrleFh444LqfiECSHq3nMhNz2hnvCD2INVOAfoon=
+Dp5rw7P2FCH2B8Ew9yZdiCx3Q8JtzEM_0WlENL&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF=
+5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2=
+VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer" target=3D"_blank" style=3D=
+"color: #48a199; font-weight: normal; text-decoration: underline; font-styl=
+e: normal;">webpage</a><span style=3D"font-family: Arial, Verdana, Helvetic=
+a, sans-serif;">&#x202f;</span>for information on how to attend City Counci=
+l meetings remotely or in-person.</p>
+<p style=3D"margin: 0;"><br></p>
+<p style=3D"margin: 0;">For more context on the City&#x2019;s financial con=
+dition, please read <a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001B=
+JmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EngkIiv_MyKOUzW8U-1uPr90X=
+OW0ECwcltW3lJFEJiCHuQf4E84PSbb_ISC5DXMnRZ4oJWjdVSiAgtMvvZ7ozbdK_9ycWJruPVL9=
+-J40KbJQKfInO0VsmOgMNKgyXqipXPK4jVNF3VA_1nSdGPi2eWnzoNpeNbkXAhobqSX5A_18GRy=
+RszTzmlYGklIkcLAOjPI2MfUttMBQnnXe6vFHRDR1yDkoTy_IJwB5t6FSAsvA3_FeVNqlqqOgGZ=
+s7Ke5jZL234GUDVaUgCD3u2qfcBQTlqLAo6yjZnOhf_tVmzPtfVYZG1_9Ms2bA=3D&c=3D0FbHl=
+JUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSR=
+pWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" rel=3D"noopener noreferrer"=
+ target=3D"_blank" style=3D"color: #48a199; font-weight: normal; text-decor=
+ation: underline; font-style: normal;">our latest audit report</a>.</p>
+</td> </tr> </table>  </td> </tr> </table> <table class=3D"layout layout--1=
+-column" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stac=
+k" style=3D"width: 100%;" align=3D"center" valign=3D"top"><div class=3D"spa=
+cer" style=3D"line-height: 10px; height: 10px;">&#x200a;</div></td> </tr> <=
+/table> <table class=3D"layout layout--2-column" style=3D"background-color:=
+ #1D617D; table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" bgcolor=3D"#1D617D"> <tr> <td class=3D"column column--=
+1 scale stack" style=3D"width: 50%;" align=3D"center" valign=3D"top">
+<div class=3D"spacer" style=3D"line-height: 10px; height: 10px;">&#x200a;</=
+div> <table class=3D"text text--padding-vertical" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"table-layout: fixed;"> <tr>=
+ <td class=3D"text_content-cell content-padding-horizontal" style=3D"text-a=
+lign: left; font-family: Arial,Verdana,Helvetica,sans-serif; color: #1a191a=
+; font-size: 16px; line-height: 1.2; display: block; word-wrap: break-word;=
+ padding: 10px 10px 10px 20px;" align=3D"left" valign=3D"top"><p style=3D"m=
+argin: 0;"><span style=3D"color: rgb(240, 249, 232); font-weight: bold;">Be=
+rkeley City Auditor</span><span style=3D"color: rgb(240, 249, 232);"> | </s=
+pan><a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1C=
+TcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Enp9GPrFd4lWYiQZDw94ocHHGOmSti6oyI--m_nQA=
+6uwH8Vks_VgK9o1fVMivOkJCHrLAW0DiVnHFz1NY7LyZwDg114fEq0qcqZKITRAkL9lfCFgZSzD=
+RY-kDx-L0yQaEJTiwFMEDp7RH&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqea=
+SkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=
+=3D=3D" target=3D"_blank" style=3D"color: rgb(240, 249, 232); font-weight: =
+normal; text-decoration: underline; font-style: normal;">Website</a></p></t=
+d> </tr> </table>  </td>  <td class=3D"column column--2 scale stack" style=
+=3D"width: 50%;" align=3D"center" valign=3D"top">
+<div class=3D"spacer" style=3D"line-height: 10px; height: 10px;">&#x200a;</=
+div> <table class=3D"socialFollow socialFollow--padding-vertical" width=3D"=
+100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tr> <td class=3D"s=
+ocialFollow_container content-padding-horizontal" style=3D"height: 1px; lin=
+e-height: 1px; padding: 10px 20px 10px 10px;" width=3D"100%" align=3D"right=
+" valign=3D"top"> <a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJm=
+dSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Env2tFOu4wzo5MCTXiZZKxurTc7=
+x1o-yB266b9R6hQKnAMS8AwqM-RW5HUXFPtOOnO866NlWXCNxX8oA89iyxXJ3UaqXLDa1gwXbsx=
+Cj5hEiSaFD1f6gtm_zP27JVt5kcZ_68jQUO8fnc_zLsTD_pHv8=3D&c=3D0FbHlJUpCiAjHENOE=
+KgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz=
+-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D"true"><img class=3D"s=
+ocialFollow_icon" alt=3D"Linkedin" width=3D"32" border=3D"0" src=3D"https:/=
+/imgssl.constantcontact.com/letters/images/CPE/SocialIconsV2/circles/gray/l=
+inkedin.png" style=3D"display: inline-block; margin: 0; padding: 0;"></a> &=
+#xa0;<a href=3D"https://tqamm5cab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1=
+CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5Env2tFOu4wzo5KdFXSvHyTbG-MDl89twny9WyVB1=
+IWL6ntBKnp-cDeV8uiSRvCr27LfHixa3x7ecsGY6VGWaEwNa6h4gzWblPC90_aLyMyHfcCk0KhC=
+9hEU8NYz7NryLymA=3D=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU=
+9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=
+=3D" data-trackable=3D"true"><img class=3D"socialFollow_icon" alt=3D"Facebo=
+ok" width=3D"32" border=3D"0" src=3D"https://imgssl.constantcontact.com/let=
+ters/images/CPE/SocialIconsV2/circles/gray/facebook.png" style=3D"display: =
+inline-block; margin: 0; padding: 0;"></a> &#xa0;<a href=3D"https://tqamm5c=
+ab.cc.rs6.net/tn.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmH=
+qNI5Eno3Uda_snyaptuIDIk6nFKKrMlQDU5sK2b7TSaq4W-jPl7jDo_q_Ut2B12zVlhn7iyUqqH=
+lC187CtbdoKsEUEgcwAkhE_dBgIowOSgVT-mAWU1zW5i_qTbvY-6LSvwraQu4mM5G3tmsOni7rQ=
+BZpO_4=3D&c=3D0FbHlJUpCiAjHENOEKgJ76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&=
+ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-tra=
+ckable=3D"true"><img class=3D"socialFollow_icon" alt=3D"Bluesky" width=3D"3=
+2" border=3D"0" src=3D"https://imgssl.constantcontact.com/letters/images/CP=
+E/SocialIconsV2/circles/gray/bluesky.png" style=3D"display: inline-block; m=
+argin: 0; padding: 0;"></a> &#xa0;<a href=3D"https://tqamm5cab.cc.rs6.net/t=
+n.jsp?f=3D001BJmdSwsNRyLCwXw1CTcvmHUgA7FYJJGqLB_ClxABJWLkqmHqNI5EnurbJT59iq=
+kuYAasDna2bCL0D3W2U-CUbf6LIXhQa5j8oIfAqznKxqUd4LvAzaMiJ9KlZKQuGqf5h_38mFkN0=
+bb3a5LgumCj_rgo_ShNooHb_UeclUvcSUK58hu7kZXSHA=3D=3D&c=3D0FbHlJUpCiAjHENOEKg=
+J76oUUmI5zmeF5i2mD61JOJqeaSkU9AidNA=3D=3D&ch=3DFIOyYw5GQICrSRpWGkYDr_a3cz-l=
+-baJuwtz2Jbq2VVre08VVT4Uig=3D=3D" data-trackable=3D"true"><img class=3D"soc=
+ialFollow_icon" alt=3D"Instagram" width=3D"32" border=3D"0" src=3D"https://=
+imgssl.constantcontact.com/letters/images/CPE/SocialIconsV2/circles/gray/in=
+stagram.png" style=3D"display: inline-block; margin: 0; padding: 0;"></a> <=
+/td> </tr> </table>  </td> </tr> </table>  </td> </tr> </table> </td> </tr>=
+ </table> </td> </tr> <tr class=3D""> <td class=3D"shell_panel-cell shell_p=
+anel-cell--footer" style=3D"background-color: #FFFFFF;" align=3D"center" va=
+lign=3D"top" bgcolor=3D"#FFFFFF"> <table class=3D"shell_width-row scale" st=
+yle=3D"width: 630px;" align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0"> <tr> <td class=3D"shell_width-cell" style=3D"padding: 0px 10p=
+x;" align=3D"center" valign=3D"top"> <table class=3D"shell_content-row" wid=
+th=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"> <tr> <td class=3D"shell_content-cell" style=3D"background-color: transp=
+arent; padding: 0; border: 0 solid #368A9C;" align=3D"center" valign=3D"top=
+" bgcolor=3D"transparent"> <table class=3D"layout layout--1-column" style=
+=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0"> <tr> <td class=3D"column column--1 scale stack" style=3D"wi=
+dth: 100%;" align=3D"center" valign=3D"top"> <table class=3D"complianceAddr=
+ess complianceAddress--padding-vertical" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"complianceAddress_content-=
+cell content-padding-horizontal" align=3D"center" style=3D"color: #595959; =
+font-family: Verdana,Geneva,sans-serif; font-size: 12px; line-height: 1.2; =
+padding: 10px 20px;"> <p style=3D"margin: 0;"><span>Berkeley City Auditor's=
+ Office | </span><span>2180 Milvia Street, 3rd Floor</span><span>   | </spa=
+n><span>Berkeley, CA 94704 US</span></p> </td> </tr> </table>   <table clas=
+s=3D"complianceLinks complianceLinks--padding-vertical" width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td class=3D"complianceL=
+inks_content-cell content-padding-horizontal" align=3D"center" style=3D"col=
+or: #595959; font-family: Verdana,Geneva,sans-serif; font-size: 12px; line-=
+height: 1.2; padding: 10px 20px;"> <p style=3D"margin: 0;"> <a href=3D"http=
+s://audience.constantcontact.com/preferences/unsubscribe?m=3D001CzcqcMEQrB5=
+foLjhOJZRLA=3D=3D&c=3Ddf767120-b5f0-11e8-b193-d4ae528ecd49&ca=3Dc13b5a47-c9=
+c3-4525-a781-415f37d05bd5" data-track=3D"false" style=3D"color: inherit;">U=
+nsubscribe<span></span></a><span> | </span><span></span><span><a href=3D"ht=
+tps://audience.constantcontact.com/preferences/update/init?ch=3Ddf8a9560-b5=
+f0-11e8-b193-d4ae528ecd49&c=3Ddf767120-b5f0-11e8-b193-d4ae528ecd49&t=3D001F=
+jXgHRl2UlqCZC7DEyo7RQ=3D=3D&m=3D001CzcqcMEQrB5foLjhOJZRLA=3D=3D&ca=3Dc13b5a=
+47-c9c3-4525-a781-415f37d05bd5" data-track=3D"false" style=3D"color: inheri=
+t;">Update Profile</a></span><span> | </span><span><span></span><a href=3D"=
+https://www.constantcontact.com/legal/customer-contact-data-notice" data-tr=
+ack=3D"false" style=3D"color: inherit;">Constant Contact Data Notice</a></s=
+pan> </p> </td> </tr> </table>  </td> </tr> </table>  </td> </tr> </table> =
+</td> </tr> </table> </td> </tr> <tr class=3D""> <td class=3D"shell_panel-c=
+ell shell_panel-cell--footer" style=3D"background-color: #FFFFFF;" align=3D=
+"center" valign=3D"top" bgcolor=3D"#FFFFFF"> <table class=3D"shell_width-ro=
+w scale" style=3D"width: 630px;" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td class=3D"shell_width-cell" style=3D"padd=
+ing: 0px 10px;" align=3D"center" valign=3D"top"> <table class=3D"shell_cont=
+ent-row" width=3D"100%" align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0"> <tr> <td class=3D"shell_content-cell" style=3D"background-c=
+olor: transparent; padding: 0; border: 0 solid #368A9C;" align=3D"center" v=
+align=3D"top" bgcolor=3D"transparent"> <table class=3D"layout layout--1-col=
+umn" style=3D"table-layout: fixed;" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td class=3D"column column--1 scale stack" s=
+tyle=3D"width: 100%;" align=3D"center" valign=3D"top"> <table class=3D"imag=
+e" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> <t=
+d class=3D"image_container" style=3D"" align=3D"center" valign=3D"top"> <ta=
+ble class=3D"image_container-caption text" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"table-layout: fixed;"> <tr> <td class=3D"text_con=
+tent-cell" style=3D"text-align: -webkit-center; font-family: Arial,Verdana,=
+Helvetica,sans-serif; color: #1a191a; font-size: 16px; line-height: 1.2; di=
+splay: block; word-wrap: break-word; padding: 0px;" align=3D"center"> <a hr=
+ef=3D"https://www.constantcontact.com/landing1/vr/home?cc=3Dnge&utm_campaig=
+n=3Dnge&rmc=3DVF21_CPE&utm_medium=3DVF21_CPE&utm_source=3Dviral&nav=3Dc13b5=
+a47-c9c3-4525-a781-415f37d05bd5" data-trackable=3D"false" style=3D"color: #=
+48a199; font-weight: normal; text-decoration: underline; font-style: normal=
+;"><img data-image-content class=3D"image_content" style=3D"display: block;=
+ height: auto; max-width: 100%;" width=3D"220" src=3D"https://imgssl.consta=
+ntcontact.com/letters/images/CPE/referralLogos/H-Stacked-FC-WhiteBG-Email-F=
+ooter.png" alt=3D"Constant Contact" align=3D"center"></a>  </td> </tr> </ta=
+ble> </td> </tr> </table>  </td> </tr> </table>  </td> </tr> </table> </td>=
+ </tr> </table> </td> </tr>  </table> </div>  </body>  </html>
+
+------=_Part_469959201_1215697262.1781110835470--

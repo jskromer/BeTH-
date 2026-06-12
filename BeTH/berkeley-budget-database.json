@@ -1,0 +1,1168 @@
+{
+ "_meta": {
+  "title": "Berkeley Budget + Audit Consolidated Database",
+  "purpose": "Single canonical store unifying the FY2027-FY2028 Proposed Biennial Budget with the City Auditor's recommendation-tracking data, so structural cuts can be evaluated against audit-identified accountability and efficiency goals.",
+  "builtFor": "Berkeley Transparency Hub (BeTH)",
+  "builtOn": "2026-06-10",
+  "positioning": "Neutral scoreboard. Surfaces patterns; does not prescribe cuts. Residents decide.",
+  "sources": [
+   {
+    "id": "budget",
+    "title": "Proposed FY2027 & FY2028 Biennial Budget, Item 21, Supp Packet 2",
+    "date": "2026-05-19",
+    "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf"
+   },
+   {
+    "id": "audit-dashboard",
+    "title": "Berkeley City Auditor's Recommendation Dashboard",
+    "publisher": "Jenny Wong, City Auditor",
+    "liveFeed": "https://s3-recommendation-dashboard-production.s3-us-west-2.amazonaws.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/current.json",
+    "dashboardUrl": "https://dashboard.missionmark.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/",
+    "snapshotPublishedAt": "2026-04-24"
+   },
+   {
+    "id": "audit-plan",
+    "title": "FY 2027 Audit Plan + First Annual Whistleblower Program Report",
+    "publisher": "Berkeley City Auditor",
+    "date": "2026-06-10"
+   },
+   {
+    "id": "community-agency-fy25",
+    "title": "FY25-26 Biennial Budget Adoption, Item 53 Att. 2 - FY 2025 Community Agency Advances",
+    "date": "2024-06-25",
+    "url": "https://berkeleyca.gov/sites/default/files/documents/2024-06-25%20Item%2053%20Fiscal%20Years%202025%20%20%202026%20Biennial%20Budget%20Adoption.pdf"
+   }
+  ],
+  "relatedFiles": [
+   "fy2027-2028-proposed-budget.json (full budget tables)",
+   "audit-budget-opportunities.md (deep-dive memo)"
+  ]
+ },
+ "headlineFindings": {
+  "structuralDeficitClosedOnPaper": true,
+  "proposedSurplus": {
+   "fy2027": 981220,
+   "fy2028": 699849
+  },
+  "contingency": "FY2028 revenue assumes a November 2026 Sales & Use Tax measure passes. Staff state additional reductions are required if it fails.",
+  "netFTEReductionAllFunds": -164.33,
+  "netFTEReductionPct": -0.0929,
+  "auditRecommendationsTotal": 384,
+  "auditRecommendationsImplementedPct": 0.69,
+  "auditRecommendationsDropped": 76,
+  "auditRecommendationsDroppedPct": 0.198,
+  "auditRecommendationsOpen": 43,
+  "keyTension": "The budget cuts ~164 FTE and ~$30M/yr largely through attrition and a tax measure, while 76 audit recommendations (many on efficiency and revenue) were dropped and 43 remain open. The City's largest-budget departments (Public Works, City Manager) have the weakest audit-implementation records."
+ },
+ "budget": {
+  "generalFundBalancingRecap": {
+   "fy2027": {
+    "initialDeficit": -32256300,
+    "afterRevenueProjections": -27144582,
+    "totalDeficitBeforeOneTime": -31349339,
+    "useOfOneTimeResources": 2100000,
+    "deficitAfterAdjustments": -29249339,
+    "proposedSurplus": 981220
+   },
+   "fy2028": {
+    "initialDeficit": -33206801,
+    "afterRevenueProjections": -24915773,
+    "totalDeficitBeforeOneTime": -29532958,
+    "useOfOneTimeResources": 0,
+    "deficitAfterAdjustments": -29532958,
+    "proposedSurplus": 699849
+   }
+  },
+  "deficitHistory": [
+   {
+    "fy": "2018-2019",
+    "deficit": 10000000
+   },
+   {
+    "fy": "2020-2021",
+    "deficit": 40000000
+   },
+   {
+    "fy": "2022",
+    "deficit": 27000000
+   },
+   {
+    "fy": "2023",
+    "deficit": 22000000
+   },
+   {
+    "fy": "2024",
+    "deficit": 12000000
+   },
+   {
+    "fy": "2025",
+    "deficit": 17000000
+   },
+   {
+    "fy": "2026",
+    "deficit": 29000000
+   }
+  ],
+  "allFundsByDepartment": [
+   {
+    "department": "Mayor and Council",
+    "fy2026Adopted": 7936134,
+    "fy2027Proposed": 7542519,
+    "fy2028Proposed": 7719768
+   },
+   {
+    "department": "City Auditor",
+    "fy2026Adopted": 3934495,
+    "fy2027Proposed": 4014900,
+    "fy2028Proposed": 4155307
+   },
+   {
+    "department": "Rent Board",
+    "fy2026Adopted": 10074940,
+    "fy2027Proposed": 9579554,
+    "fy2028Proposed": 9764186
+   },
+   {
+    "department": "Office of the Director of Police Accountability",
+    "fy2026Adopted": 1146056,
+    "fy2027Proposed": 1218244,
+    "fy2028Proposed": 1268137
+   },
+   {
+    "department": "City Manager",
+    "fy2026Adopted": 23399636,
+    "fy2027Proposed": 23081446,
+    "fy2028Proposed": 23038965
+   },
+   {
+    "department": "Library",
+    "fy2026Adopted": 33865077,
+    "fy2027Proposed": 34365131,
+    "fy2028Proposed": 31293695
+   },
+   {
+    "department": "City Attorney",
+    "fy2026Adopted": 9825142,
+    "fy2027Proposed": 11740854,
+    "fy2028Proposed": 11890544
+   },
+   {
+    "department": "City Clerk",
+    "fy2026Adopted": 3709023,
+    "fy2027Proposed": 4387560,
+    "fy2028Proposed": 4442419
+   },
+   {
+    "department": "Finance",
+    "fy2026Adopted": 12026929,
+    "fy2027Proposed": 11585018,
+    "fy2028Proposed": 11890064
+   },
+   {
+    "department": "Human Resources",
+    "fy2026Adopted": 6804564,
+    "fy2027Proposed": 6700330,
+    "fy2028Proposed": 7008628
+   },
+   {
+    "department": "Information Technology",
+    "fy2026Adopted": 24019890,
+    "fy2027Proposed": 19978807,
+    "fy2028Proposed": 20371561
+   },
+   {
+    "department": "Health, Housing & Community Services",
+    "fy2026Adopted": 119850769,
+    "fy2027Proposed": 165498829,
+    "fy2028Proposed": 153980699
+   },
+   {
+    "department": "Parks, Recreation & Waterfront",
+    "fy2026Adopted": 52502355,
+    "fy2027Proposed": 52169781,
+    "fy2028Proposed": 49722942
+   },
+   {
+    "department": "Planning and Development",
+    "fy2026Adopted": 34631009,
+    "fy2027Proposed": 34391855,
+    "fy2028Proposed": 34899876
+   },
+   {
+    "department": "Public Works",
+    "fy2026Adopted": 187063884,
+    "fy2027Proposed": 234458957,
+    "fy2028Proposed": 213420904
+   },
+   {
+    "department": "Police",
+    "fy2026Adopted": 106237136,
+    "fy2027Proposed": 106898286,
+    "fy2028Proposed": 108497860
+   },
+   {
+    "department": "Fire",
+    "fy2026Adopted": 78273290,
+    "fy2027Proposed": 79042106,
+    "fy2028Proposed": 81368163
+   },
+   {
+    "department": "Non-Departmental",
+    "fy2026Adopted": 113913030,
+    "fy2027Proposed": 98535848,
+    "fy2028Proposed": 90520021
+   },
+   {
+    "department": "Grand Total",
+    "fy2026Adopted": 829213359,
+    "fy2027Proposed": 905190026,
+    "fy2028Proposed": 865253739
+   }
+  ],
+  "staffingByDepartment": [
+   {
+    "department": "City Attorney",
+    "totalFTE": 19.0,
+    "generalFund": 19.0
+   },
+   {
+    "department": "City Auditor",
+    "totalFTE": 15.75,
+    "generalFund": 14.83
+   },
+   {
+    "department": "City Clerk",
+    "totalFTE": 9.0,
+    "generalFund": 8.43
+   },
+   {
+    "department": "City Manager",
+    "totalFTE": 44.0,
+    "generalFund": 29.45
+   },
+   {
+    "department": "Finance",
+    "totalFTE": 48.0,
+    "generalFund": 39.25
+   },
+   {
+    "department": "Fire",
+    "totalFTE": 190.0,
+    "generalFund": 137.33
+   },
+   {
+    "department": "Health, Housing & Community Services",
+    "totalFTE": 195.0,
+    "generalFund": 65.27
+   },
+   {
+    "department": "Human Resources",
+    "totalFTE": 24.0,
+    "generalFund": 16.2
+   },
+   {
+    "department": "Information Technology",
+    "totalFTE": 45.0,
+    "generalFund": 0.0
+   },
+   {
+    "department": "Library",
+    "totalFTE": 131.05,
+    "generalFund": 0.0
+   },
+   {
+    "department": "Mayor and Council",
+    "totalFTE": 23.0,
+    "generalFund": 23.0
+   },
+   {
+    "department": "Office of the Director of Police Accountability",
+    "totalFTE": 4.0,
+    "generalFund": 4.0
+   },
+   {
+    "department": "Parks, Recreation & Waterfront",
+    "totalFTE": 114.0,
+    "generalFund": 25.5
+   },
+   {
+    "department": "Planning & Development",
+    "totalFTE": 105.04,
+    "generalFund": 11.86
+   },
+   {
+    "department": "Police",
+    "totalFTE": 272.0,
+    "generalFund": 250.0
+   },
+   {
+    "department": "Public Works",
+    "totalFTE": 337.0,
+    "generalFund": 18.79
+   },
+   {
+    "department": "Rent Board",
+    "totalFTE": 29.0,
+    "generalFund": 0.5
+   }
+  ],
+  "staffingNotes": {
+   "totalFTE": 1604.84,
+   "rifGeneralFundCumulative": 150,
+   "balancingPlanFTE": 183,
+   "preservedContingentOnSalesTax": 33
+  },
+  "note": "Full revenue-by-category, expenditure-by-category, one-time resources, service impacts, and Measure U1 detail are in fy2027-2028-proposed-budget.json."
+ },
+ "audit": {
+  "statuses": [
+   {
+    "name": "Not Started",
+    "color": "red",
+    "open": true
+   },
+   {
+    "name": "Started",
+    "color": "grey",
+    "open": true
+   },
+   {
+    "name": "Partly Implemented",
+    "color": "yellow",
+    "open": true
+   },
+   {
+    "name": "Implemented",
+    "color": "green",
+    "closed": true
+   },
+   {
+    "name": "Dropped",
+    "color": "blue",
+    "closed": true
+   }
+  ],
+  "categories": [
+   "Internal Controls",
+   "Efficiency and Effectiveness",
+   "Regulatory Compliance",
+   "Transparency and Accountability",
+   "Training",
+   "Equity"
+  ],
+  "overallStats": {
+   "auditCount": 54,
+   "recommendationCount": 384
+  },
+  "byStatus": [
+   {
+    "status": "Not Started",
+    "value": 9
+   },
+   {
+    "status": "Started",
+    "value": 12
+   },
+   {
+    "status": "Partly Implemented",
+    "value": 22
+   },
+   {
+    "status": "Implemented",
+    "value": 265
+   },
+   {
+    "status": "Dropped",
+    "value": 76
+   }
+  ],
+  "byCategory": [
+   {
+    "category": "Internal Controls",
+    "value": 82
+   },
+   {
+    "category": "Efficiency and Effectiveness",
+    "value": 180
+   },
+   {
+    "category": "Regulatory Compliance",
+    "value": 8
+   },
+   {
+    "category": "Transparency and Accountability",
+    "value": 111
+   },
+   {
+    "category": "Training",
+    "value": 2
+   },
+   {
+    "category": "Equity",
+    "value": 1
+   }
+  ],
+  "byDepartmentAndStatus": [
+   {
+    "department": "Mayor and Council",
+    "totalCount": 4,
+    "Implemented": 2,
+    "Started": 1,
+    "NotStarted": 1
+   },
+   {
+    "department": "Budget and Fiscal Management",
+    "totalCount": 5,
+    "Implemented": 5
+   },
+   {
+    "department": "Library",
+    "totalCount": 6,
+    "Implemented": 5,
+    "Dropped": 1
+   },
+   {
+    "department": "Information Technology",
+    "totalCount": 9,
+    "Implemented": 7,
+    "Dropped": 2
+   },
+   {
+    "department": "City Auditor",
+    "totalCount": 11,
+    "Implemented": 11
+   },
+   {
+    "department": "Parks, Recreation and Waterfront",
+    "totalCount": 19,
+    "Implemented": 17,
+    "Dropped": 2
+   },
+   {
+    "department": "Planning",
+    "totalCount": 20,
+    "Implemented": 19,
+    "Dropped": 1
+   },
+   {
+    "department": "Human Resources",
+    "totalCount": 21,
+    "Implemented": 18,
+    "PartlyImplemented": 2,
+    "Started": 1
+   },
+   {
+    "department": "Fire",
+    "totalCount": 24,
+    "Implemented": 12,
+    "Dropped": 12
+   },
+   {
+    "department": "Health, Housing and Community Services",
+    "totalCount": 35,
+    "Implemented": 28,
+    "NotStarted": 1,
+    "Started": 1,
+    "PartlyImplemented": 5
+   },
+   {
+    "department": "Police",
+    "totalCount": 35,
+    "Implemented": 34,
+    "Dropped": 1
+   },
+   {
+    "department": "Finance",
+    "totalCount": 43,
+    "Implemented": 42,
+    "Dropped": 1
+   },
+   {
+    "department": "Public Works",
+    "totalCount": 64,
+    "Implemented": 21,
+    "Dropped": 24,
+    "PartlyImplemented": 11,
+    "Started": 7,
+    "NotStarted": 1
+   },
+   {
+    "department": "City Manager",
+    "totalCount": 88,
+    "Implemented": 44,
+    "Dropped": 32,
+    "PartlyImplemented": 4,
+    "Started": 2,
+    "NotStarted": 6
+   }
+  ],
+  "byYearAndStatus": [
+   {
+    "year": "2014",
+    "totalCount": 68,
+    "Implemented": 55,
+    "Dropped": 13
+   },
+   {
+    "year": "2016",
+    "totalCount": 48,
+    "Implemented": 27,
+    "Dropped": 21
+   },
+   {
+    "year": "2017",
+    "totalCount": 43,
+    "Implemented": 36,
+    "Dropped": 7
+   },
+   {
+    "year": "2018",
+    "totalCount": 35,
+    "Implemented": 30,
+    "Dropped": 5
+   },
+   {
+    "year": "2019",
+    "totalCount": 31,
+    "Implemented": 18,
+    "Dropped": 12,
+    "PartlyImplemented": 1
+   },
+   {
+    "year": "2021",
+    "totalCount": 14,
+    "Implemented": 3,
+    "PartlyImplemented": 11
+   },
+   {
+    "year": "2022",
+    "totalCount": 17,
+    "Implemented": 13,
+    "Dropped": 4
+   },
+   {
+    "year": "2023",
+    "totalCount": 31,
+    "Implemented": 20,
+    "PartlyImplemented": 5,
+    "Started": 4,
+    "Dropped": 1,
+    "NotStarted": 1
+   },
+   {
+    "year": "2024",
+    "totalCount": 9,
+    "Implemented": 2,
+    "PartlyImplemented": 5,
+    "Started": 1,
+    "NotStarted": 1
+   },
+   {
+    "year": "2025",
+    "totalCount": 6,
+    "NotStarted": 6
+   },
+   {
+    "year": "Unissued",
+    "totalCount": 8,
+    "Started": 7,
+    "NotStarted": 1
+   }
+  ],
+  "fy2027AuditPlan": {
+   "newAudits": [
+    "Public Health",
+    "Measure FF (streets and sidewalks)"
+   ],
+   "continuingAudits": [
+    "Rent Board",
+    "Business License Taxes"
+   ],
+   "whistleblower": {
+    "firstAnnualReport": true,
+    "calendarYear": 2025,
+    "reportsReceived": 42,
+    "expansionPaused": true,
+    "reason": "Auditor reduced own baseline budget to contribute to deficit reduction; paused public expansion and limited staff training"
+   }
+  }
+ },
+ "opportunities": {
+  "_description": "Audit-identified efficiency, revenue, and accountability opportunities mapped to budget areas. Each links one or more audit recommendations (current status) to the relevant department's budget. 'Dropped' means the City declined or let it lapse; 'Open' means not yet implemented.",
+  "items": [
+   {
+    "id": "OPP-01",
+    "title": "Citywide grants management never built",
+    "department": "City Manager / Public Works / Finance",
+    "audit": "Citywide Grants Management (2016)",
+    "recsTotal": 15,
+    "status": "All 15 Dropped",
+    "budgetLink": "Relevant to grant revenue capture as the City leans on one-time and external funds; Grant Funds = ~$42.5M/yr.",
+    "opportunity": "City never adopted grants policy, procedures manual, accounting ownership, or a grants management system. Audit warned of misrecorded expenditures, untracked receivables, and clawback risk. Most recs lapsed via the 5-year auto-drop rule, not an affirmative decision.",
+    "category": "Transparency and Accountability / Efficiency",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-02",
+    "title": "Fleet Replacement Fund chronically short; GF raided",
+    "department": "Public Works",
+    "audit": "Fleet Replacement Fund Short Millions (2021)",
+    "recsTotal": 12,
+    "status": "11 Partly Implemented, 1 Implemented (none fully resolved 4 yrs on)",
+    "budgetLink": "Public Works is the largest department ($234M FY27). $2M (FY25) and $0.5M (FY24) were transferred OUT of Equipment Replacement Fund 671 to Maintenance Fund 672.",
+    "opportunity": "Underfunded fleet fund means deferred vehicle replacement and future cost spikes. Audit asked for a funding model, optimal fleet-size (right-sizing) study, and an Administrative Regulation requiring documented justification before raiding the fund. Right-sizing survey twice failed to get responses.",
+    "category": "Efficiency and Effectiveness",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-03",
+    "title": "Zero Waste efficiencies declined",
+    "department": "Public Works",
+    "audit": "Underfunded Mandate: Zero Waste 2020 Goal (2014) + Unified Vision of Zero Waste (2016)",
+    "recsTotal": 27,
+    "status": "18 Dropped",
+    "budgetLink": "Zero Waste is an enterprise fund; enterprise/parking fund stabilization is an explicit budget pressure.",
+    "opportunity": "Dropped items include a comprehensive route audit to align billing with service (under-billing risk), franchise-fee recovery on recyclables, mobile route technology, and a strategic plan with performance measures. One dropped rec cited ~$496K/yr potential savings from biweekly garbage collection (requires state waiver).",
+    "category": "Efficiency and Effectiveness",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-04",
+    "title": "No citywide staffing analysis before a 164-FTE cut",
+    "department": "City Manager / Human Resources / Council",
+    "audit": "Staff Shortages (2023)",
+    "recsTotal": 25,
+    "status": "Mixed; key items Open (Started/Partly/Not Started)",
+    "budgetLink": "Budget removes 164.33 FTE net. Audit recommended a critical-needs staffing analysis to size the workforce BEFORE cutting.",
+    "opportunity": "Open items: department-by-department staffing analysis, citywide telework policy aligned to best practice, succession plan, retention goals/targets, exit-interview process, and reducing unused building space to cut overhead. The HR 'staffing analysis' rec is only Partly Implemented; cuts are proceeding via attrition rather than need-based analysis.",
+    "category": "Efficiency and Effectiveness",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-05",
+    "title": "Fire prevention inspection program: all fixes dropped",
+    "department": "Fire",
+    "audit": "Fire Prevention Inspections (2019)",
+    "recsTotal": 11,
+    "status": "All 11 Dropped",
+    "budgetLink": "Fire is being cut (Fire Station 4 browning, 9 FTE eliminated). Audit found inspection capacity and revenue gaps.",
+    "opportunity": "Dropped: workload/staffing analysis, risk-based inspection prioritization, a citation issuance/tracking/collections process (foregone revenue), educational outreach, database controls. Two were affirmatively 'will not implement' (risk accepted); the rest lapsed.",
+    "category": "Efficiency and Effectiveness / Internal Controls",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-06",
+    "title": "Structural-deficit recommendations themselves were dropped",
+    "department": "City Manager",
+    "audit": "Berkeley's Financial Condition FY2012-FY2021 (2022)",
+    "recsTotal": 5,
+    "status": "4 Dropped, 1 Implemented",
+    "budgetLink": "Directly about the structural deficit the budget is trying to solve.",
+    "opportunity": "Dropped: a Section 115 Trust funding plan, reserve replenishment plan (Stability/Catastrophic reserves), enterprise-fund balance policy, and a capital/deferred-maintenance funding plan. City dropped them 'to allow for updated recommendations in the FY2025 updated financial condition report' \u2014 so the fixes are deferred to a later report rather than resolved.",
+    "category": "Efficiency and Effectiveness / Internal Controls",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-07",
+    "title": "Code enforcement: software, metrics, staffing all dropped",
+    "department": "City Manager",
+    "audit": "Code Enforcement Resources Constrained (2018)",
+    "recsTotal": 12,
+    "status": "5 Dropped, 7 Implemented",
+    "budgetLink": "Code enforcement generates citation revenue and addresses health/safety risk.",
+    "opportunity": "Dropped: case-management software, mobile field tech, a staffing/workload analysis, and performance metrics/reporting. Foregone citation revenue and efficiency.",
+    "category": "Efficiency and Effectiveness",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-08",
+    "title": "Homelessness spending lacks outcome tracking",
+    "department": "City Manager (Homeless Response Team) / HHCS",
+    "audit": "Homeless Response Team (2025)",
+    "recsTotal": 6,
+    "status": "All 6 Not Started",
+    "budgetLink": "Homelessness is a major GF spend area with active budget reductions (Winter Shelter, STAIR Center, outreach worker).",
+    "opportunity": "Newest audit; all recs open. Asks for expanded public outcome reporting, documented data procedures, HMIS Outreach module adoption in city-funded contracts, and a staffing assessment for data/reporting. Without these, the City cannot show whether homelessness dollars meet goals \u2014 exactly the accountability test for what to cut vs. keep.",
+    "category": "Transparency and Accountability",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-09",
+    "title": "Restaurant inspection fees could fund staffing",
+    "department": "Health, Housing and Community Services",
+    "audit": "Berkeley Restaurant Inspections (2024)",
+    "recsTotal": 9,
+    "status": "Mostly Open (1 Not Started, 1 Started, 5 Partly, 2 Implemented)",
+    "budgetLink": "Program chronically understaffed and missing targets; HHCS budget grew but program underperforms.",
+    "opportunity": "A completed fee study (pending Council) could let fees support increased staffing \u2014 a revenue-aligned fix. Also open: public inspection data portal, placarding program, performance metrics, and revenue-vs-expenditure tracking for the program.",
+    "category": "Efficiency and Effectiveness / Transparency",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-10",
+    "title": "Lease portfolio still not centralized after 16 years",
+    "department": "Public Works / Finance",
+    "audit": "2009 Leases Audit Follow-Up - Same Risks 16 Years Later (2025)",
+    "recsTotal": 8,
+    "status": "7 Started, 1 Not Started",
+    "budgetLink": "City lease revenue and cost oversight; a Real Property Administrator was newly hired (Aug 2025).",
+    "opportunity": "No centralized lease inventory with contract numbers, COLAs, terms, and locations. The City re-issued in 2025 the same recommendations it failed to implement from 2009, risking missed escalators, unbilled revenue, and weak oversight. Work has just started.",
+    "category": "Efficiency and Effectiveness / Internal Controls",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-11",
+    "title": "Largest-budget departments have weakest audit follow-through",
+    "department": "Public Works; City Manager",
+    "audit": "Cross-cutting (dashboard aggregates)",
+    "recsTotal": 152,
+    "status": "Pattern",
+    "budgetLink": "Public Works ($234M FY27) and City Manager span the biggest discretionary footprints.",
+    "opportunity": "Public Works: of 64 recs, only 21 implemented (33%), 24 dropped (38%), 19 open. City Manager: of 88 recs, 44 implemented (50%), 32 dropped (36%). The departments with the most dollars have the weakest record of acting on audit-identified efficiency/accountability fixes.",
+    "category": "Transparency and Accountability",
+    "confidence": "High"
+   },
+   {
+    "id": "OPP-12",
+    "title": "1-in-5 audit recommendations dropped, many by passive lapse",
+    "department": "Citywide",
+    "audit": "Cross-cutting",
+    "recsTotal": 76,
+    "status": "Dropped",
+    "budgetLink": "Citywide efficiency/accountability backlog.",
+    "opportunity": "76 of 384 recs (19.8%) are Dropped. A large share were dropped automatically under the Auditor's '5-year' rule (not implemented in time), not by an affirmative cost-benefit decision \u2014 meaning efficiency/accountability fixes expired untried. Concentrated in 2014/2016 Public Works and grants/zero-waste work.",
+    "category": "Transparency and Accountability",
+    "confidence": "High"
+   }
+  ]
+ },
+ "agendas": {
+  "_description": "Structured council/committee agenda items ingested for the BeTH tracker.",
+  "meetings": [
+   {
+    "meeting": "Budget & Finance Committee",
+    "date": "2026-06-11",
+    "agendaDate": "2026-06",
+    "members": "Ishii (Mayor), Kesarwani, Blackaby; Alternate: Tregub",
+    "source": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-agendas/2026-06-11%20Agenda%20Packet%20-%20Budget.pdf",
+    "spendingItems": [],
+    "actionItems": [
+     {
+      "id": "act-061101",
+      "item": 2,
+      "department": "Mayor's Office",
+      "description": "Mayor's Proposed City Budget FY2027-FY2028 \u2014 committee review",
+      "category": "Budget & Finance",
+      "note": "NO MATERIAL in packet \u2014 'No Material Available for this Item' placeholder. Proposed biennial budget reviewed without published staff report in agenda packet."
+     },
+     {
+      "id": "act-061102",
+      "item": 3,
+      "department": "HHCS",
+      "description": "HHCS Community Agency Contracting Overview",
+      "category": "Health & Human Services",
+      "note": "NO MATERIAL in packet. Follows audit finding that Council awarded $417,400 in non-competitive CBO contracts via budget referrals in FY2024."
+     }
+    ],
+    "referrals": [
+     {
+      "id": "ref-061101",
+      "item": 4,
+      "sponsors": "Kesarwani (Author), Ishii (Co-Sponsor)",
+      "description": "Amend BMC 7.18 to require competitive procurement for all service contracts >$100,000; raises Council approval threshold from $50,000 to $100,000; applies to all Charter Officers; emergencies and justified sole-source excepted. Implements Auditor Rec 1.2 from Feb 19, 2026 contracts audit.",
+      "category": "Budget & Finance",
+      "referred": "2026-04-27",
+      "due": "2026-10-13",
+      "status": "Unscheduled",
+      "agendaDate": "2026-06",
+      "auditLink": "City Contracts: Outdated Process Led to Non-Competitive Contracts (2026-02-19), Rec 1.2",
+      "fiscalImplications": "Staff time; potential savings \u2014 FY2024 had $43M (30%) of contract dollars awarded without documented competition; $85M/10yr recycling contracts never bid"
+     },
+     {
+      "id": "ref-061102",
+      "item": 5,
+      "sponsors": "Lunaparra (Author), O'Keefe (Co-Sponsor)",
+      "description": "Resolution restricting Council discretionary spending: salary savings from step-placement differentials stay in personnel; no transfer to non-personnel except one-time $10K cap for new Councilmembers in year one. Excludes Mayor's budget.",
+      "category": "Budget & Finance",
+      "referred": "2026-05-04",
+      "due": "2026-10-20",
+      "status": "Unscheduled",
+      "agendaDate": "2026-06",
+      "fiscalImplications": "~$550,000/yr in salary savings returned to General Fund at current staffing levels (sponsor estimate)"
+     }
+    ],
+    "fromMinutes": [
+     {
+      "id": "ref-052801",
+      "item": 3,
+      "meeting": "2026-05-28",
+      "sponsors": "O'Keefe (Author), Blackaby (Co-Sponsor)",
+      "description": "Solano Avenue Stroll co-sponsorship + budget referral: $81K/yr city services (Police $55K, Fire $14K, Waste $12K) + $57.5K/yr barricades/supplies/zero-waste + $10K/yr event support = $148.5K/yr, $297K over FY27-28. Sent to Council with qualified positive recommendation; staff to cost out buying vs. renting barricades.",
+      "category": "Budget & Finance",
+      "agendaDate": "2026-05",
+      "fiscalImplications": "$297,000 referred to FY2027-28 budget process"
+     }
+    ],
+    "summary": {
+     "newExpenses": 0,
+     "newRevenue": 0,
+     "passThrough": 0,
+     "policyReferrals": 2,
+     "netSpendingImpact": "No spending approved at this meeting. Pending referrals net POSITIVE for GF if adopted: ~$550K/yr (Lunaparra) + unquantified procurement savings (Kesarwani); offset by $148.5K/yr Solano Stroll referral from May 28."
+    }
+   }
+  ]
+ },
+ "communityAgencyAllocations": {
+  "_description": "FY2025 community agency contract allocations (with 25% advances) adopted with the FY25-26 Biennial Budget, 2024-06-25 Council Item 53, Attachment 2. Four-year FY2025-2028 RFP cycle, so roster is stable through FY28 absent budget action.",
+  "source": {
+   "title": "FY 2025 & 2026 Biennial Budget Adoption, Item 53, Attachment 2: Community Agency Contract Advances",
+   "date": "2024-06-25",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2024-06-25%20Item%2053%20Fiscal%20Years%202025%20%20%202026%20Biennial%20Budget%20Adoption.pdf"
+  },
+  "stats": {
+   "agencyCount": 45,
+   "hhcsLedCount": 41,
+   "fy2025Total": 17882892,
+   "fy2025AdvancesTotal": 4449451,
+   "top6Total": 12044782,
+   "top6Share": 0.674,
+   "top6Agencies": [
+    "Bay Area Community Services",
+    "Dorothy Day",
+    "Easy Does It",
+    "Insight Housing",
+    "Eviction Defense Center",
+    "Lifelong Medical Care"
+   ],
+   "contractsUnder250k": 33
+  },
+  "notes": [
+   "Top 6 agencies (homeless services/housing/health) absorb 67% of total; long tail of sub-$250K contracts carries high admin overhead per dollar (contracting, quarterly advances, City Data Services monitoring).",
+   "Five agencies flagged alsoSsbTaxGrantee hold separate Healthy Berkeley SSB-tax grants (Res. 70,765: $1,495,180 over FY24-25 across 8 grantees).",
+   "Lead dept abbreviations: HHCS, CMO=City Manager's Office, IT=Information Technology, PW=Public Works."
+  ],
+  "agencies": [
+   {
+    "id": "ca-001",
+    "agency": "Alameda County Homeless Action Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 129539,
+    "fy2025Advance": 32385
+   },
+   {
+    "id": "ca-002",
+    "agency": "Bananas",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 93333,
+    "fy2025Advance": 23333
+   },
+   {
+    "id": "ca-003",
+    "agency": "Bay Area Community Land Trust",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 205200,
+    "fy2025Advance": 51300
+   },
+   {
+    "id": "ca-004",
+    "agency": "Bay Area Community Services",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 4492895,
+    "fy2025Advance": 1123224
+   },
+   {
+    "id": "ca-005",
+    "agency": "Bay Area Hispano Institute for Advancement",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 186541,
+    "fy2025Advance": 46635
+   },
+   {
+    "id": "ca-006",
+    "agency": "Bay Area Outreach and Recreation Program",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 50592,
+    "fy2025Advance": 12648
+   },
+   {
+    "id": "ca-007",
+    "agency": "Berkeley Community Gardening Collaborative",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 19720,
+    "fy2025Advance": 4930
+   },
+   {
+    "id": "ca-008",
+    "agency": "Berkeley Community Media",
+    "leadDept": "IT",
+    "fy2025Allocation": 285210,
+    "fy2025Advance": 71303
+   },
+   {
+    "id": "ca-009",
+    "agency": "Berkeley Community Scholars",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 35000,
+    "fy2025Advance": 8750
+   },
+   {
+    "id": "ca-010",
+    "agency": "Berkeley Unified School District",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 134328,
+    "fy2025Advance": 33582,
+    "alsoSsbTaxGrantee": true
+   },
+   {
+    "id": "ca-011",
+    "agency": "Berkeley Public Schools Fund",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 73117,
+    "fy2025Advance": 18279
+   },
+   {
+    "id": "ca-012",
+    "agency": "Berkeley Youth Alternatives",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 60000,
+    "fy2025Advance": 15000,
+    "alsoSsbTaxGrantee": true
+   },
+   {
+    "id": "ca-013",
+    "agency": "Big Oaks Learning Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 142463,
+    "fy2025Advance": 35616
+   },
+   {
+    "id": "ca-014",
+    "agency": "Biotech Partners",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 150000,
+    "fy2025Advance": 37500
+   },
+   {
+    "id": "ca-015",
+    "agency": "Bread Project",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 70000,
+    "fy2025Advance": 17500
+   },
+   {
+    "id": "ca-016",
+    "agency": "Building Opportunities for Self Sufficiency",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 295316,
+    "fy2025Advance": 73829
+   },
+   {
+    "id": "ca-017",
+    "agency": "Center for Independent Living",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 211600,
+    "fy2025Advance": 52900
+   },
+   {
+    "id": "ca-018",
+    "agency": "Dorothy Day",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 2385601,
+    "fy2025Advance": 596400
+   },
+   {
+    "id": "ca-019",
+    "agency": "Downtown Berkeley Association",
+    "leadDept": "CMO",
+    "fy2025Allocation": 40000,
+    "fy2025Advance": 10000
+   },
+   {
+    "id": "ca-020",
+    "agency": "Downtown Streets Team",
+    "leadDept": "PW",
+    "fy2025Allocation": 225000,
+    "fy2025Advance": 56250
+   },
+   {
+    "id": "ca-021",
+    "agency": "East Bay Community Law Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 323556,
+    "fy2025Advance": 80889
+   },
+   {
+    "id": "ca-022",
+    "agency": "Easy Does It",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 1712079,
+    "fy2025Advance": 428020
+   },
+   {
+    "id": "ca-023",
+    "agency": "Eden Council for Hope and Opportunity",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 35000,
+    "fy2025Advance": 8750
+   },
+   {
+    "id": "ca-024",
+    "agency": "Ephesians Children's Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 18573,
+    "fy2025Advance": 4643
+   },
+   {
+    "id": "ca-025",
+    "agency": "Eviction Defense Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 1072139,
+    "fy2025Advance": 268035
+   },
+   {
+    "id": "ca-026",
+    "agency": "Family Violence Law Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 75000,
+    "fy2025Advance": 18750
+   },
+   {
+    "id": "ca-027",
+    "agency": "Habitat for Humanity East Bay/Silicon Valley",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 154280,
+    "fy2025Advance": 38570
+   },
+   {
+    "id": "ca-028",
+    "agency": "Healthy Black Families, Inc.",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 240000,
+    "fy2025Advance": 60000,
+    "alsoSsbTaxGrantee": true
+   },
+   {
+    "id": "ca-029",
+    "agency": "Insight Housing",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 1336116,
+    "fy2025Advance": 334029
+   },
+   {
+    "id": "ca-030",
+    "agency": "Inter-City Services",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 101351,
+    "fy2025Advance": 25338
+   },
+   {
+    "id": "ca-031",
+    "agency": "J-Sei",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 30000,
+    "fy2025Advance": 7500
+   },
+   {
+    "id": "ca-032",
+    "agency": "Larkin Street",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 189255,
+    "fy2025Advance": 47314
+   },
+   {
+    "id": "ca-033",
+    "agency": "Lifelong Medical Care",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 1045952,
+    "fy2025Advance": 261488,
+    "alsoSsbTaxGrantee": true
+   },
+   {
+    "id": "ca-034",
+    "agency": "Multicultural Institute",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 132500,
+    "fy2025Advance": 33125,
+    "alsoSsbTaxGrantee": true
+   },
+   {
+    "id": "ca-035",
+    "agency": "Nia House Learning Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 100000,
+    "fy2025Advance": 25000
+   },
+   {
+    "id": "ca-036",
+    "agency": "Peer Wellness Collective",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 32016,
+    "fy2025Advance": 8004
+   },
+   {
+    "id": "ca-037",
+    "agency": "Rebuilding Together",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 207944,
+    "fy2025Advance": 30713
+   },
+   {
+    "id": "ca-038",
+    "agency": "RISE Program",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 229328,
+    "fy2025Advance": 57332
+   },
+   {
+    "id": "ca-039",
+    "agency": "Stiles Hall",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 100000,
+    "fy2025Advance": 25000
+   },
+   {
+    "id": "ca-040",
+    "agency": "Supplybank.Org",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 30000,
+    "fy2025Advance": 7500
+   },
+   {
+    "id": "ca-041",
+    "agency": "Through the Looking Glass",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 35000,
+    "fy2025Advance": 8750
+   },
+   {
+    "id": "ca-042",
+    "agency": "UC Berkeley",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 140000,
+    "fy2025Advance": 35000
+   },
+   {
+    "id": "ca-043",
+    "agency": "Village of Love",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 250000,
+    "fy2025Advance": 62500
+   },
+   {
+    "id": "ca-044",
+    "agency": "Visit Berkeley",
+    "leadDept": "CMO",
+    "fy2025Allocation": 740277,
+    "fy2025Advance": 185069
+   },
+   {
+    "id": "ca-045",
+    "agency": "Women's Daytime Drop-In Center",
+    "leadDept": "HHCS",
+    "fy2025Allocation": 267071,
+    "fy2025Advance": 66768
+   }
+  ]
+ }
+}

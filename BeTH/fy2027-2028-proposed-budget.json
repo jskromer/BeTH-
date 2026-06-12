@@ -1,0 +1,201 @@
+{
+  "source": {
+    "id": "budget-fy2027-2028-proposed",
+    "title": "Proposed FY 2027 and FY 2028 Biennial Budget and Public Hearing #1",
+    "itemNumber": 21,
+    "meetingDate": "2026-05-19",
+    "packet": "Supplemental Packet 2",
+    "submittedBy": "Maricar Dupaya, Budget Manager",
+    "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf",
+    "pages": 208,
+    "agendaDate": "2026-05",
+    "documentType": "Biennial Budget",
+    "note": "Budget packet, not an agenda consent calendar. Ingested as summary/structured budget data rather than per-item contract rows."
+  },
+  "headline": {
+    "structuralDeficitClosedOnPaper": true,
+    "contingency": "FY2028 revenue assumes passage of a November 2026 Sales & Use Tax measure. Packet states additional reductions will be required if it does not pass.",
+    "proposedSurplus": { "fy2027": 981220, "fy2028": 699849 }
+  },
+  "deficitHistory": [
+    { "fiscalYear": "2018-2019", "estimatedDeficit": 10000000, "resolvingMeasure": "Reset of Property Transfer Tax baseline; increased transfers from other funds; decreased transfers to other funds" },
+    { "fiscalYear": "2020-2021", "estimatedDeficit": 40000000, "resolvingMeasure": "Hiring freeze, no capital investment, use of $11M reserves" },
+    { "fiscalYear": "2022", "estimatedDeficit": 27000000, "resolvingMeasure": "Use of $23M ARPA funds; deferment of large capital projects, equipment, and new projects" },
+    { "fiscalYear": "2023", "estimatedDeficit": 22000000, "resolvingMeasure": "Use of Fund Balance and salary savings from vacancies" },
+    { "fiscalYear": "2024", "estimatedDeficit": 12000000, "resolvingMeasure": "Use of Fund Balance and salary savings from vacancies" },
+    { "fiscalYear": "2025", "estimatedDeficit": 17000000, "resolvingMeasure": "Fund Balance, vacancy salary savings, Sec. 115 Trust, Workers Comp holiday" },
+    { "fiscalYear": "2026", "estimatedDeficit": 29000000, "resolvingMeasure": "GF revenue increase, Sec. 115 Trust, Workers Comp fund, IT Cost Allocation, Small Sites Reallocation, freezing 45 vacant positions" }
+  ],
+  "generalFundBalancingRecap": {
+    "fy2027": {
+      "initialDeficit": -32256300,
+      "additionalRevenueProjections": 5111718,
+      "revisedDeficitAfterRevenue": -27144582,
+      "adjustments": {
+        "centerStreetDebtService_1947": -1630454,
+        "parkingFundsStabilization": -1050938,
+        "nonDepartmental": -1523365
+      },
+      "totalDeficitBeforeOneTime": -31349339,
+      "useOfOneTimeResources": 2100000,
+      "deficitAfterAdjustments": -29249339
+    },
+    "fy2028": {
+      "initialDeficit": -33206801,
+      "additionalRevenueProjections": 8291028,
+      "revisedDeficitAfterRevenue": -24915773,
+      "adjustments": {
+        "centerStreetDebtService_1947": -1623581,
+        "parkingFundsStabilization": -1050938,
+        "nonDepartmental": -1942666
+      },
+      "totalDeficitBeforeOneTime": -29532958,
+      "useOfOneTimeResources": 0,
+      "deficitAfterAdjustments": -29532958
+    }
+  },
+  "generalFundBudgetStatus": {
+    "fy2027": {
+      "revenuesBaseline": 297181421, "revenuesProposed": 314898507, "revenuesVariance": 17717086,
+      "personnelBaseline": 224457262, "personnelProposed": 207920092, "personnelVariance": -16537170,
+      "nonPersonnelBaseline": 104980459, "nonPersonnelProposed": 105997195, "nonPersonnelVariance": 1016736,
+      "totalExpendituresBaseline": 329437721, "totalExpendituresProposed": 313917287, "totalExpendituresVariance": -15520434,
+      "surplusDeficitBaseline": -32256300, "surplusDeficitProposed": 981220
+    },
+    "fy2028": {
+      "revenuesBaseline": 302343897, "revenuesProposed": 320288556, "revenuesVariance": 17944659,
+      "personnelBaseline": 229407084, "personnelProposed": 212945750, "personnelVariance": -16461334,
+      "nonPersonnelBaseline": 106143614, "nonPersonnelProposed": 106642957, "nonPersonnelVariance": 499343,
+      "totalExpendituresBaseline": 335550698, "totalExpendituresProposed": 319588707, "totalExpendituresVariance": -15961991,
+      "surplusDeficitBaseline": -33206801, "surplusDeficitProposed": 699849
+    },
+    "salariesBenefitsShareOfGF": { "fy2027": 0.66, "fy2028": 0.67 }
+  },
+  "generalFundRevenueByCategory": [
+    { "category": "Ambulance Fees", "fy2026Adopted": 8900000, "fy2027Proposed": 9200000, "fy2028Proposed": 9200000 },
+    { "category": "Business License Taxes", "fy2026Adopted": 24480000, "fy2027Proposed": 24969600, "fy2028Proposed": 25468992 },
+    { "category": "Franchise Fees", "fy2026Adopted": 1822528, "fy2027Proposed": 2100000, "fy2028Proposed": 2100000 },
+    { "category": "Indirect Cost Reimbursement", "fy2026Adopted": 7070256, "fy2027Proposed": 8488124, "fy2028Proposed": 8619434 },
+    { "category": "Interest Income", "fy2026Adopted": 14000000, "fy2027Proposed": 13500000, "fy2028Proposed": 12500000 },
+    { "category": "Measure U1", "fy2026Adopted": 6500000, "fy2027Proposed": 6600000, "fy2028Proposed": 6600000 },
+    { "category": "Moving Violations", "fy2026Adopted": 132600, "fy2027Proposed": 165360, "fy2028Proposed": 165360 },
+    { "category": "Other Revenues", "fy2026Adopted": 8000000, "fy2027Proposed": 8044391, "fy2028Proposed": 8245501 },
+    { "category": "Other Taxes", "fy2026Adopted": 8953059, "fy2027Proposed": 8500000, "fy2028Proposed": 8630000 },
+    { "category": "Parking Fine-Regular Collections", "fy2026Adopted": 5900000, "fy2027Proposed": 6650000, "fy2028Proposed": 6650000 },
+    { "category": "Property Transfer Tax", "fy2026Adopted": 22000000, "fy2027Proposed": 21450000, "fy2028Proposed": 21450000 },
+    { "category": "Property Transfer Tax - Measure P", "fy2026Adopted": 9100000, "fy2027Proposed": 11655000, "fy2028Proposed": 12237750 },
+    { "category": "Recreational Cannabis", "fy2026Adopted": 18000, "fy2027Proposed": 18000, "fy2028Proposed": 1000000 },
+    { "category": "Sales Tax", "fy2026Adopted": 19106713, "fy2027Proposed": 19353282, "fy2028Proposed": 29395218, "note": "FY2028 jump reflects assumed Nov 2026 Sales & Use Tax measure" },
+    { "category": "Secured Property Taxes", "fy2026Adopted": 95236939, "fy2027Proposed": 98784093, "fy2028Proposed": 103454324 },
+    { "category": "Short-Term Rentals", "fy2026Adopted": 1400000, "fy2027Proposed": 1650000, "fy2028Proposed": 1400000 },
+    { "category": "Soda Tax", "fy2026Adopted": 1147387, "fy2027Proposed": 1147387, "fy2028Proposed": 1147387 },
+    { "category": "Supplemental Taxes", "fy2026Adopted": 2900000, "fy2027Proposed": 2500000, "fy2028Proposed": 2000000 },
+    { "category": "Transfers", "fy2026Adopted": 23842130, "fy2027Proposed": 15957135, "fy2028Proposed": 3477720 },
+    { "category": "Transient Occupancy Taxes", "fy2026Adopted": 6500000, "fy2027Proposed": 7725000, "fy2028Proposed": 7867547 },
+    { "category": "Unsecured Property Taxes", "fy2026Adopted": 4973066, "fy2027Proposed": 5100000, "fy2028Proposed": 5100000 },
+    { "category": "Utility Users Taxes", "fy2026Adopted": 19396728, "fy2027Proposed": 18750000, "fy2028Proposed": 18750000 },
+    { "category": "Vehicle In Lieu Taxes", "fy2026Adopted": 20055853, "fy2027Proposed": 21091135, "fy2028Proposed": 21829324 },
+    { "category": "Property Transfer Tax - Measure W", "fy2026Adopted": 0, "fy2027Proposed": 1500000, "fy2028Proposed": 3000000 },
+    { "category": "Grand Total", "fy2026Adopted": 311435259, "fy2027Proposed": 314898507, "fy2028Proposed": 320288556 }
+  ],
+  "allFundsByFundType": [
+    { "fundType": "Capital Projects Funds", "fy2026Adopted": 34323934, "fy2027Proposed": 34031251, "fy2028Proposed": 34285867 },
+    { "fundType": "Debt Service Funds", "fy2026Adopted": 7537556, "fy2027Proposed": 7537556, "fy2028Proposed": 7537556 },
+    { "fundType": "Enterprise Funds", "fy2026Adopted": 134831492.77, "fy2027Proposed": 137203505.80, "fy2028Proposed": 140332711.63 },
+    { "fundType": "General Funds", "fy2026Adopted": 324209113.17, "fy2027Proposed": 327772360.62, "fy2028Proposed": 333162410.47 },
+    { "fundType": "Grant Funds", "fy2026Adopted": 44398880.56, "fy2027Proposed": 42510122.80, "fy2028Proposed": 42019157.80 },
+    { "fundType": "Internal Service Funds", "fy2026Adopted": 51742340.81, "fy2027Proposed": 51742340.81, "fy2028Proposed": 51742340.81 },
+    { "fundType": "Other Funds", "fy2026Adopted": 15473295.75, "fy2027Proposed": 15473295.75, "fy2028Proposed": 15473295.75 },
+    { "fundType": "Special Funds", "fy2026Adopted": 152614598.08, "fy2027Proposed": 155836915.88, "fy2028Proposed": 148884254.43 },
+    { "fundType": "Grand Total", "fy2026Adopted": 765131211.14, "fy2027Proposed": 772107348.66, "fy2028Proposed": 773437593.89 }
+  ],
+  "allFundsExpendituresByDepartment": [
+    { "department": "Mayor and Council", "fy2024Actuals": 4203792, "fy2025Actuals": 5840753, "fy2026Adopted": 7936134, "fy2027Proposed": 7542519, "fy2028Proposed": 7719768 },
+    { "department": "City Auditor", "fy2024Actuals": 3157444, "fy2025Actuals": 3686754, "fy2026Adopted": 3934495, "fy2027Proposed": 4014900, "fy2028Proposed": 4155307 },
+    { "department": "Rent Board", "fy2024Actuals": 7028903, "fy2025Actuals": 7682929, "fy2026Adopted": 10074940, "fy2027Proposed": 9579554, "fy2028Proposed": 9764186 },
+    { "department": "Office of the Director of Police Accountability", "fy2024Actuals": 1210483, "fy2025Actuals": 1700439, "fy2026Adopted": 1146056, "fy2027Proposed": 1218244, "fy2028Proposed": 1268137 },
+    { "department": "City Manager", "fy2024Actuals": 22096549, "fy2025Actuals": 25266724, "fy2026Adopted": 23399636, "fy2027Proposed": 23081446, "fy2028Proposed": 23038965 },
+    { "department": "Library", "fy2024Actuals": 24026043, "fy2025Actuals": 25859095, "fy2026Adopted": 33865077, "fy2027Proposed": 34365131, "fy2028Proposed": 31293695 },
+    { "department": "City Attorney", "fy2024Actuals": 9112692, "fy2025Actuals": 9353380, "fy2026Adopted": 9825142, "fy2027Proposed": 11740854, "fy2028Proposed": 11890544 },
+    { "department": "City Clerk", "fy2024Actuals": 2823822, "fy2025Actuals": 4908450, "fy2026Adopted": 3709023, "fy2027Proposed": 4387560, "fy2028Proposed": 4442419 },
+    { "department": "Finance", "fy2024Actuals": 8938144, "fy2025Actuals": 9836330, "fy2026Adopted": 12026929, "fy2027Proposed": 11585018, "fy2028Proposed": 11890064 },
+    { "department": "Human Resources", "fy2024Actuals": 5551340, "fy2025Actuals": 6600558, "fy2026Adopted": 6804564, "fy2027Proposed": 6700330, "fy2028Proposed": 7008628 },
+    { "department": "Information Technology", "fy2024Actuals": 15298230, "fy2025Actuals": 20189882, "fy2026Adopted": 24019890, "fy2027Proposed": 19978807, "fy2028Proposed": 20371561 },
+    { "department": "Health, Housing & Community Services", "fy2024Actuals": 108295302, "fy2025Actuals": 97486043, "fy2026Adopted": 119850769, "fy2027Proposed": 165498829, "fy2028Proposed": 153980699 },
+    { "department": "Parks, Recreation & Waterfront", "fy2024Actuals": 48266958, "fy2025Actuals": 59806044, "fy2026Adopted": 52502355, "fy2027Proposed": 52169781, "fy2028Proposed": 49722942 },
+    { "department": "Planning and Development", "fy2024Actuals": 26533191, "fy2025Actuals": 28954317, "fy2026Adopted": 34631009, "fy2027Proposed": 34391855, "fy2028Proposed": 34899876 },
+    { "department": "Public Works", "fy2024Actuals": 149296617, "fy2025Actuals": 168988224, "fy2026Adopted": 187063884, "fy2027Proposed": 234458957, "fy2028Proposed": 213420904 },
+    { "department": "Police", "fy2024Actuals": 90716174, "fy2025Actuals": 93777039, "fy2026Adopted": 106237136, "fy2027Proposed": 106898286, "fy2028Proposed": 108497860 },
+    { "department": "Fire", "fy2024Actuals": 68731246, "fy2025Actuals": 83215996, "fy2026Adopted": 78273290, "fy2027Proposed": 79042106, "fy2028Proposed": 81368163 },
+    { "department": "Non-Departmental", "fy2024Actuals": 133946419, "fy2025Actuals": 135407033, "fy2026Adopted": 113913030, "fy2027Proposed": 98535848, "fy2028Proposed": 90520021 },
+    { "department": "Grand Total", "fy2024Actuals": 729233350, "fy2025Actuals": 788559989, "fy2026Adopted": 829213359, "fy2027Proposed": 905190026, "fy2028Proposed": 865253739 }
+  ],
+  "allFundsExpendituresByCategory": [
+    { "category": "Capital Outlay", "fy2024Actuals": 44560352, "fy2025Actuals": 58454365, "fy2026Adopted": 57336395, "fy2027Proposed": 89787521, "fy2028Proposed": 70419709 },
+    { "category": "Internal Services & All Others", "fy2024Actuals": 186342714, "fy2025Actuals": 177883392, "fy2026Adopted": 187421580, "fy2027Proposed": 231752638, "fy2028Proposed": 213458457 },
+    { "category": "Salaries & Benefits", "fy2024Actuals": 341001654, "fy2025Actuals": 370872889, "fy2026Adopted": 423510403, "fy2027Proposed": 411465568, "fy2028Proposed": 422526431 },
+    { "category": "Services & Materials", "fy2024Actuals": 157328630, "fy2025Actuals": 181349343, "fy2026Adopted": 160944981, "fy2027Proposed": 172184300, "fy2028Proposed": 158849142 },
+    { "category": "Grand Total", "fy2024Actuals": 729233350, "fy2025Actuals": 788559989, "fy2026Adopted": 829213359, "fy2027Proposed": 905190026, "fy2028Proposed": 865253739 }
+  ],
+  "staffing": {
+    "totalFTE": { "fy2027Proposed": 1604.84, "fy2028Proposed": 1604.84 },
+    "generalFundFTE": { "fy2027": 663.41, "fy2028": 663.57 },
+    "otherFundsFTE": { "fy2027": 941.43, "fy2028": 941.27 },
+    "netReductionFTEAllFunds": -164.33,
+    "netReductionPct": -0.0929,
+    "comparedTo": "FY 2026 Adopted",
+    "reductionInForceGF": { "cumulativeFTE": 150, "fy26Frozen": 45, "fy27_28": 105 },
+    "balancingPlanTotalFTE": 183,
+    "preservedFTEContingentOnSalesTax": 33,
+    "byDepartment": [
+      { "department": "City Attorney", "totalFTE": 19.00, "generalFund": 19.00, "otherFunds": 0.00 },
+      { "department": "City Auditor", "totalFTE": 15.75, "generalFund": 14.83, "otherFunds": 0.92 },
+      { "department": "City Clerk", "totalFTE": 9.00, "generalFund": 8.43, "otherFunds": 0.57 },
+      { "department": "City Manager", "totalFTE": 44.00, "generalFund": 29.45, "otherFunds": 14.55 },
+      { "department": "Finance", "totalFTE": 48.00, "generalFund": 39.25, "otherFunds": 8.75 },
+      { "department": "Fire Department", "totalFTE": 190.00, "generalFund": 137.33, "otherFunds": 52.67 },
+      { "department": "Health, Housing & Community Services", "totalFTE": 195.00, "generalFund": 65.27, "otherFunds": 129.73 },
+      { "department": "Human Resources", "totalFTE": 24.00, "generalFund": 16.20, "otherFunds": 7.80 },
+      { "department": "Information Technology", "totalFTE": 45.00, "generalFund": 0.00, "otherFunds": 45.00 },
+      { "department": "Library", "totalFTE": 131.05, "generalFund": 0.00, "otherFunds": 131.05 },
+      { "department": "Mayor and Council", "totalFTE": 23.00, "generalFund": 23.00, "otherFunds": 0.00 },
+      { "department": "Office of the Director of Police Accountability", "totalFTE": 4.00, "generalFund": 4.00, "otherFunds": 0.00 },
+      { "department": "Parks, Recreation & Waterfront", "totalFTE": 114.00, "generalFund": 25.50, "otherFunds": 88.50 },
+      { "department": "Planning & Development", "totalFTE": 105.04, "generalFund": 11.86, "otherFunds": 93.18 },
+      { "department": "Police Department", "totalFTE": 272.00, "generalFund": 250.00, "otherFunds": 22.00 },
+      { "department": "Public Works", "totalFTE": 337.00, "generalFund": 18.79, "otherFunds": 318.21 },
+      { "department": "Rent Board", "totalFTE": 29.00, "generalFund": 0.50, "otherFunds": 28.50 },
+      { "department": "Grand Total", "totalFTE": 1604.84, "generalFund": 663.41, "otherFunds": 941.43 }
+    ]
+  },
+  "oneTimeResources": {
+    "fy2027Total": 2100000,
+    "fy2028Total": 0,
+    "sustainServicesPendingSalesTax": 9400000,
+    "employeesImpactedByBalancing": 500000,
+    "note": "$9.4M one-time used to sustain public safety and youth/adult programs in FY27 until Nov 2026 Sales Tax outcome known"
+  },
+  "serviceImpacts": [
+    { "area": "Fire", "category": "Public Safety", "impact": "Browning of Fire Station 4 and elimination of nine FTEs" },
+    { "area": "Police", "category": "Public Safety", "impact": "Sworn and non-sworn staffing reductions diminish response to 9-1-1 calls" },
+    { "area": "Homelessness", "category": "Health & Human Services", "impact": "Reductions: City share of DBA outreach worker, Seasonal Winter Shelter Program, vacant Social Services Specialist, BACS STAIR Center" },
+    { "area": "Homelessness", "category": "Health & Human Services", "impact": "Reallocations: BOSS Step Up Housing (Measure U1), BACS STAIR Center (PLHA)" },
+    { "area": "Recreation", "category": "Parks & Recreation", "impact": "Fewer camps, afterschool slots, pool and community center hours, youth programs, special events; 1x funds used in FY27 to prevent elimination of three recreation positions" },
+    { "area": "Mental Health & Crisis Response", "category": "Health & Human Services", "impact": "Mental Health programs right-sized after State funding changes; some cost shifted to preserve services" }
+  ],
+  "measureU1ProposedExpenditures": {
+    "fy2027Total": 11486809,
+    "fy2028Total": 6518971,
+    "lineItems": [
+      { "item": "Personnel", "fy2027": 2084923, "fy2028": 2150123 },
+      { "item": "Housing Trust Fund", "fy2027": 1855000, "fy2028": 2500000 },
+      { "item": "1740 San Pablo (HTF project, prior U1 commitment)", "fy2027": 4496669, "fy2028": 0 },
+      { "item": "Ephesians Court (HTF project, prior U1 commitment)", "fy2027": 499012, "fy2028": 0 },
+      { "item": "Capacity Building for Emerging Developers", "fy2027": 200000, "fy2028": 200000 },
+      { "item": "BOSS Step Housing", "fy2027": 806136, "fy2028": 768848 },
+      { "item": "Eviction Defense Center and EBCLC", "fy2027": 800000, "fy2028": 800000 },
+      { "item": "Capri Motel Lease", "fy2027": 645069, "fy2028": 0 },
+      { "item": "Flex Funds", "fy2027": 100000, "fy2028": 100000 }
+    ]
+  }
+}
