@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The "Mayor's Budget" — Berkeley Transparency Hub</title>
+<meta name="description" content="What a Berkeley 'Mayor's budget' actually is, what the City Charter says, where the idea comes from, and whether the practice began with Loni Hancock. A sourced explainer." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a3340;        /* primary text — deep slate-navy */
+    --slate:#3f4f63;       /* dark panels */
+    --slate-2:#34414f;
+    --steel:#43698f;       /* steel-blue accent */
+    --steel-deep:#33567a;
+    --red:#a8322c;         /* reserved alert red */
+    --paper:#f5f7f9;       /* page background */
+    --card:#ffffff;
+    --rule:#dde3ea;
+    --rule-strong:#c3ccd6;
+    --muted:#5d6b7a;
+    --hi:#2f6f57; --mod:#956613; --low:#a8322c; --unk:#6b7280;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; background:var(--paper); color:var(--navy);
+    font-family:"Source Serif 4", Georgia, serif; font-size:18.5px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 26px; }
+  a{ color:var(--steel-deep); text-underline-offset:3px; text-decoration-thickness:1px; }
+  a:hover{ color:var(--steel); }
+  a:focus-visible{ outline:2px solid var(--steel); outline-offset:2px; border-radius:2px; }
+
+  /* ---- hub bar (matches standalone-page convention) ---- */
+  .hubbar{ background:var(--slate); color:#eef1f5; }
+  .hubbar-in{ max-width:var(--maxw); margin:0 auto; padding:11px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .hubbar a.back{
+    font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:#cdd6e0; text-decoration:none;
+  }
+  .hubbar a.back:hover{ color:#fff; }
+  .hubbar .stamp{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9fb0c1; }
+
+  /* ---- masthead ---- */
+  .masthead{ padding:48px 0 26px; border-bottom:2px solid var(--navy); }
+  .eyebrow{
+    font-family:"JetBrains Mono", monospace; font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--steel-deep); margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow .tick{ width:22px; height:2px; background:var(--steel); display:inline-block; }
+  h1{
+    font-family:"Playfair Display", serif; font-weight:700;
+    font-size:clamp(2.1rem, 6.2vw, 3.4rem); line-height:1.02;
+    letter-spacing:-.01em; margin:.05em 0 .3em; color:var(--navy);
+  }
+  h1 .q{ font-style:italic; font-weight:600; color:var(--steel-deep); }
+  .dek{
+    font-size:clamp(1.06rem,2.3vw,1.28rem); line-height:1.45; color:var(--muted);
+    max-width:62ch; margin:0 0 26px; font-weight:400;
+  }
+  .meta-row{
+    font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--muted);
+    display:flex; flex-wrap:wrap; gap:6px 24px;
+  }
+  .meta-row b{ color:var(--navy); font-weight:700; }
+
+  /* ---- confidence legend / chips (the signature) ---- */
+  .legend{ margin:24px 0 0; padding:14px 16px; background:var(--card); border:1px solid var(--rule-strong); }
+  .legend .lt{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px 3px 8px; color:#fff; display:inline-flex; align-items:center; gap:6px; line-height:1.4; }
+  .chip::before{ content:""; width:6px;height:6px;border-radius:50%; background:rgba(255,255,255,.85); }
+  .chip.hi{background:var(--hi)} .chip.mod{background:var(--mod)} .chip.low{background:var(--low)} .chip.unk{background:var(--unk)}
+  .c{ font-family:"JetBrains Mono",monospace; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 6px; color:#fff; vertical-align:.1em; white-space:nowrap; }
+  .c.hi{background:var(--hi)} .c.mod{background:var(--mod)} .c.low{background:var(--low)} .c.unk{background:var(--unk)}
+
+  /* ---- verdict band ---- */
+  .verdict{ margin:32px 0 8px; padding:24px 26px; background:var(--slate); color:#eef1f5; }
+  .verdict .vk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#9fb6c9; margin-bottom:9px; }
+  .verdict .vt{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.62rem; line-height:1.1; margin:0 0 .4em; color:#fff; }
+  .verdict .vt em{ color:#8fbede; font-style:italic; }
+  .verdict p{ margin:0; font-size:1.01rem; color:#d4dbe3; }
+
+  /* ---- sections ---- */
+  section{ padding:36px 0; border-bottom:1px solid var(--rule); }
+  .sec-no{ font-family:"JetBrains Mono",monospace; font-size:11.5px; font-weight:700; letter-spacing:.1em; color:var(--steel); margin-bottom:9px; display:block; }
+  h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(1.45rem,3.6vw,1.95rem); line-height:1.1; letter-spacing:-.005em; margin:0 0 .5em; color:var(--navy); }
+  p{ margin:0 0 1.05em; } p:last-child{ margin-bottom:0; }
+  strong{ font-weight:600; color:var(--navy); }
+  .lead{ font-size:1.05rem; }
+  ul.clean{ padding-left:1.15em; margin:.3em 0 1.05em; } ul.clean li{ margin:0 0 .55em; }
+
+  /* charter chain */
+  .chain{ display:grid; grid-template-columns:1fr; gap:10px; margin:22px 0 18px; }
+  .node{ border:1px solid var(--rule-strong); background:var(--card); padding:13px 15px; }
+  .node .role{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.06rem; color:var(--navy); margin-bottom:3px; }
+  .node .does{ font-size:.92rem; color:var(--muted); line-height:1.42; }
+  .node .cite{ font-family:"JetBrains Mono",monospace; font-size:10px; color:var(--steel-deep); letter-spacing:.02em; margin-top:6px; }
+  .arrow{ text-align:center; color:var(--rule-strong); font-size:1.15rem; line-height:.4; }
+  .node.aside{ border-style:dashed; background:transparent; border-color:var(--steel); }
+  .node.aside .role{ color:var(--steel-deep); }
+  @media(min-width:700px){ .chain{ grid-template-columns:1fr auto 1fr auto 1fr; align-items:stretch; } .arrow{ display:flex; align-items:center; padding:0 2px; } .chain .aside-wrap{ grid-column:1 / -1; } }
+
+  /* honesty panel */
+  .panel{ margin:8px 0 0; padding:22px 26px; background:#fbf4ee; border:1px solid #e7d4c2; border-left:4px solid var(--red); }
+  .panel .pk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+  .panel h2{ font-size:1.35rem; margin-bottom:.45em; }
+  .panel ul{ margin:.4em 0 0; padding-left:1.15em; } .panel li{ margin:0 0 .5em; }
+
+  /* sources */
+  .sources{ border-bottom:none; }
+  .sources ol{ font-size:.95rem; color:var(--muted); padding-left:1.4em; margin:.4em 0 0; line-height:1.5; }
+  .sources li{ margin:0 0 .55em; }
+  .sources .tag{ font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--steel-deep); border:1px solid var(--rule-strong); padding:1px 5px; margin-right:7px; white-space:nowrap; }
+
+  footer{ padding:28px 0 64px; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.7; }
+  footer .bar{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }
+
+  @media (prefers-reduced-motion: no-preference){
+    .masthead, section, footer{ animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(7px)} to{opacity:1; transform:none} }
+</style>
+</head>
+<body>
+
+<div class="hubbar">
+  <div class="hubbar-in">
+    <a class="back" href="index.html">&larr; Berkeley Transparency Hub</a>
+    <span class="stamp">Explainer</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Budget &amp; Governance</div>
+    <h1>The <span class="q">&ldquo;Mayor&rsquo;s Budget&rdquo;</span> in Berkeley</h1>
+    <p class="dek">Each budget cycle, the Mayor presents a set of budget recommendations. It looks like an executive&rsquo;s budget &mdash; but Berkeley&rsquo;s founding documents never created one. Here is what the Charter actually says, where the idea comes from, and whether the custom began with Loni Hancock.</p>
+    <div class="meta-row">
+      <span><b>Updated</b> June 11, 2026</span>
+      <span><b>Basis</b> City Charter + civic history</span>
+      <span><b>Method</b> primary text, confidence-labeled</span>
+    </div>
+    <div class="legend">
+      <div class="lt">How to read the confidence labels</div>
+      <div class="chips">
+        <span class="chip hi">High</span><span class="chip mod">Moderate</span>
+        <span class="chip low">Low</span><span class="chip unk">Unknown</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="verdict" role="note" aria-label="Bottom line">
+    <div class="vk">Bottom line</div>
+    <p class="vt">It&rsquo;s a <em>custom</em>, not a charter power.</p>
+    <p>The Charter assigns budget preparation to the City Manager and adoption to the Council. The Mayor holds one vote and no veto. The &ldquo;Mayor&rsquo;s budget&rdquo; is a recommendation layered on top &mdash; influential, but not a founding-document instrument.</p>
+  </div>
+
+  <section>
+    <span class="sec-no">01</span>
+    <h2>What you&rsquo;re seeing at the budget meeting</h2>
+    <p class="lead">When a Berkeley mayor &ldquo;presents her budget,&rdquo; she is not submitting the city&rsquo;s budget. She is offering <strong>recommended changes</strong> to the budget the City Manager has already prepared, ahead of the Council&rsquo;s adoption vote.</p>
+    <p>The instrument is real and recurring &mdash; in recent cycles the budget committee has formally taken up &ldquo;council referrals and the mayor&rsquo;s budget proposal&rdquo; alongside the Manager&rsquo;s plan. <span class="c hi">High</span> But its weight is exactly one vote plus persuasion. It carries no veto and no automatic force.</p>
+  </section>
+
+  <section>
+    <span class="sec-no">02</span>
+    <h2>What the Charter actually says</h2>
+    <p>Berkeley&rsquo;s &ldquo;constitution&rdquo; is its City Charter. Three provisions decide the question, and none of them mentions a Mayor&rsquo;s budget. <span class="c hi">High</span></p>
+    <div class="chain" aria-label="Berkeley charter budget chain">
+      <div class="node"><div class="role">City Manager</div><div class="does">Prepares &amp; submits the proposed annual budget.</div><div class="cite">Charter Art. VII, §28(g)</div></div>
+      <div class="arrow" aria-hidden="true">&rarr;</div>
+      <div class="node"><div class="role">City Council</div><div class="does">Adopts it &mdash; the Annual Appropriations Ordinance (two-thirds vote).</div><div class="cite">Charter Art. X</div></div>
+      <div class="arrow" aria-hidden="true">&rarr;</div>
+      <div class="node"><div class="role">Mayor</div><div class="does">Presides over the Council. One vote. No veto.</div><div class="cite">Charter Art. VI, §21</div></div>
+      <div class="aside-wrap"><div class="node aside"><div class="role">&ldquo;Mayor&rsquo;s budget&rdquo;</div><div class="does">Sits <em>outside</em> this chain &mdash; a customary recommendation, not a charter step.</div></div></div>
+    </div>
+    <p>The Mayor is elected citywide (Charter §9), which gives her the only at-large mandate in city government &mdash; but directly elected is not the same as a strong mayor. Section 21 still limits her to presiding and a single vote, with no veto. <span class="c hi">High</span></p>
+  </section>
+
+  <section>
+    <span class="sec-no">03</span>
+    <h2>Where the idea of a &ldquo;mayor&rsquo;s budget&rdquo; comes from</h2>
+    <p>The phrase carries real meaning &mdash; just from a different tradition than Berkeley&rsquo;s. In <strong>strong-mayor</strong> cities (San Francisco, Oakland, Los Angeles), an elected chief executive proposes the budget and usually wields a line-item veto. That &ldquo;executive budget&rdquo; model grew out of Progressive-era reform a century ago. <span class="c hi">High</span></p>
+    <p>Berkeley adopted the <strong>competing model</strong>: council&ndash;manager government, in place since <strong>1923</strong>. Here a professional, appointed manager prepares the budget and the elected council adopts it; the mayor presides. Berkeley&rsquo;s analog to a strong mayor&rsquo;s executive budget is simply the City Manager&rsquo;s proposed budget. <span class="c hi">High</span></p>
+    <p>This was a deliberate choice, reaffirmed over decades. Berkeley&rsquo;s Charter Review Committee explicitly <strong>rejected the strong-mayor form</strong> &mdash; including its veto power &mdash; on the principle that no single official should hold that concentration of authority. In the 1970s the city&rsquo;s reform energy ran the other way entirely, toward a stronger <em>council</em>. <span class="c hi">High</span></p>
+  </section>
+
+  <section>
+    <span class="sec-no">04</span>
+    <h2>So what is Berkeley&rsquo;s &ldquo;Mayor&rsquo;s budget&rdquo;?</h2>
+    <p>A leadership instrument, not a legal one. Its real footing is positional and political:</p>
+    <ul class="clean">
+      <li><strong>Council chair.</strong> The Mayor leads the body that holds the adoption vote, which sets the framing for the whole debate.</li>
+      <li><strong>Budget &amp; Finance Committee chair.</strong> The Mayor currently chairs the three-member committee that reviews budget development &mdash; the natural launch point for mayoral recommendations.</li>
+      <li><strong>Citywide mandate.</strong> As the only at-large elected official, the Mayor supplies an electorally accountable voice in a process otherwise run by an unelected manager.</li>
+    </ul>
+    <p>None of these are charter powers. All of them are why an elected leader in a weak-mayor system still produces something that <em>looks like</em> an executive budget. <span class="c mod">Moderate</span></p>
+  </section>
+
+  <section>
+    <span class="sec-no">05</span>
+    <h2>Provenance: did it start with Loni Hancock?</h2>
+    <p>A persistent piece of local lore &mdash; relayed by former Mayor Jesse Arreguín &mdash; holds that the Mayor&rsquo;s-budget tradition began with <strong>Loni Hancock</strong>, possibly in the 1970s. We tested it.</p>
+    <p><strong>The dating fails for a mayoral budget.</strong> Hancock was a city councilmember from 1971&ndash;1979 and Mayor only from <strong>1986&ndash;1994</strong>. She wasn&rsquo;t mayor in the &rsquo;70s, so a Mayor&rsquo;s budget can&rsquo;t originate with her then. If it traces to Hancock at all, the window is her mayoralty &mdash; the late 1980s. <span class="c hi">High</span></p>
+    <p><strong>There is a real 1970s budget reform &mdash; but a different one.</strong> As a <em>councilmember</em>, Hancock is credited with instigating citizen review of the budget and creating the consent calendar. That participatory-budget innovation is the likely seed of the &ldquo;Hancock + 1970s + budget&rdquo; memory &mdash; but it is not a mayor&rsquo;s budget. <span class="c mod">Moderate</span></p>
+    <p><strong>Her own oral history is silent.</strong> Hancock&rsquo;s 2021 oral history (UC Berkeley / California State Government Oral History Program) was reviewed in full. Every budget passage concerns the <em>state</em> budget; her Berkeley mayoral years come up, but never in city-budget-process terms, and she makes no claim to have started the practice. The source neither confirms nor refutes it. <span class="c hi">High</span></p>
+    <p><strong>So the attribution is plausible but unverified.</strong> No public document ties the practice&rsquo;s origin to Hancock; the named &ldquo;mayor&rsquo;s budget proposal&rdquo; appears in the record only in the recent era. For an undocumented custom, a former mayor&rsquo;s testimony carries real weight on the <em>who</em> &mdash; but the <em>when</em> is most likely her mayoralty, c.&nbsp;1986&ndash;1994, not the 1970s. <span class="c low">Low&ndash;Moderate</span></p>
+  </section>
+
+  <section class="panel" role="note">
+    <div class="pk">Open record · help us close it</div>
+    <h2>What we couldn&rsquo;t verify</h2>
+    <p>Berkeley&rsquo;s online agenda and minutes archives don&rsquo;t reach back to 1986&ndash;1994, so the origin of the Mayor&rsquo;s-budget custom remains in oral tradition. Two things would settle it:</p>
+    <ul>
+      <li><strong>Offline records</strong> &mdash; physical Council minutes and budget messages from Hancock&rsquo;s mayoral terms, held at the Berkeley Public Library, the City Clerk, or the Berkeley Historical Society.</li>
+      <li><strong>Direct testimony</strong> &mdash; from Hancock (who gave a 2021 oral history) or from Arreguín, the original source of the claim.</li>
+    </ul>
+    <p style="margin-top:1em">Have a document, a minute entry, or a first-hand account? It belongs in the public record. Send it in and we&rsquo;ll update this page with the source.</p>
+  </section>
+
+  <section class="sources">
+    <span class="sec-no">Sources</span>
+    <h2>What this is built on</h2>
+    <ol>
+      <li><span class="tag">Primary</span>Berkeley City Charter — <a href="https://berkeley.municipal.codes/Charter/21">Art. VI §21 (Mayor)</a>, <a href="https://berkeley.municipal.codes/Charter/28">Art. VII §28 (City Manager)</a>, Art. X (Finance &amp; Taxation), and the Charter preamble (council&ndash;manager since 1923).</li>
+      <li><span class="tag">History</span>Berkeley Historical Society and Berkeley Citizens Action archives — 1970s charter politics, the rejected strong-mayor form, and Hancock&rsquo;s council-era budget reforms.</li>
+      <li><span class="tag">Primary</span>Hon. Loni Hancock oral history (2021), <a href="https://digicoll.lib.berkeley.edu/record/264129">UC Berkeley Oral History Center / Bancroft Library</a>.</li>
+      <li><span class="tag">Record</span>Office dates via UC Berkeley Library, Ballotpedia, and contemporaneous press; modern &ldquo;mayor&rsquo;s budget proposal&rdquo; usage via Berkeley Scanner budget coverage (2025).</li>
+      <li><span class="tag">Context</span>Executive-budget history (Progressive-era reform; council&ndash;manager Model City Charter) is general public-administration background, not Berkeley-specific.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Berkeley Transparency Hub · Explainer series<br>
+    Confidence labels reflect the strength of the underlying evidence, not certainty. Corrections and primary sources welcome.
+  </footer>
+
+</main>
+</body>
+</html>

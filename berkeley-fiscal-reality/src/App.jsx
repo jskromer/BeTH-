@@ -112,6 +112,7 @@ const TABS = [
   { key: "demands",   label: "OUR POSITION" },
   { key: "compare",   label: "COMPARISONS" },
   { key: "habit",     label: "THE HABIT",    href: "/history-of-the-habit.html" },
+  { key: "mayor",     label: "MAYOR'S BUDGET", href: "/mayors-budget.html" },
   { key: "reform",    label: "THE FIX",      href: "/rational-budgeting-process.html" },
   { key: "messaging", label: "MESSAGING",    href: "/two-messages.html" },
 ];
@@ -127,9 +128,9 @@ function ShellGameSection() {
   ];
 
   const patches = [
-    { source: "Section 115 Pension Trust", amount: 6.0, note: "Pre-funding trust — intended for pension obligations, not operations" },
-    { source: "IT Cost Allocation Fund", amount: 6.2, note: "Internal service fund — one-time transfer to General Fund" },
-    { source: "Workers' Compensation Fund", amount: 5.2, note: "Claims reserve — drew down above-target balance" },
+    { source: "Section 115 Pension Trust", amount: 6.0, note: "$6.0M used for FY26 pension obligations (FY2025 ACFR, MD&A)" },
+    { source: "IT Cost Allocation Fund", amount: 6.2, note: "Above-target balance transferred to GF, FY26 (FY2025 ACFR)" },
+    { source: "Workers' Compensation Fund", amount: 5.2, note: "$5.2M transferred to GF, FY26 (FY2025 ACFR, MD&A)" },
     { source: "Measure U1 Funds", amount: 2.5, note: "Voter-approved special revenue — applied to operating budget" },
     { source: "44.4 Vacant Positions Left Unfunded", amount: null, note: "~$8–10M est. — positions deferred rather than eliminated" },
     { source: "11.8 GF Positions Moved to Other Funds", amount: null, note: "~$2–3M est. — cost shifted to non-GF accounts" },
@@ -173,10 +174,10 @@ function ShellGameSection() {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", border: "2px solid #1a1a1a", borderRadius: 8, overflow: "hidden", marginBottom: 28 }}>
         {[
-          { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Used to balance this year's budget", color: "#1a4a8b" },
+          { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Internal-fund redirects to balance the General Fund", color: "#1a4a8b" },
           { value: "$316M", label: "AAO Carryovers (3 yrs)", sub: "All funds FY24–26 ($32M GF portion)", color: "#1a4a8b" },
           { value: "$33M", label: "Structural Deficit", sub: "Projected recurring FY27–28 gap", color: "#c41e1e" },
-          { value: "0 of 5", label: "Audit Recs Resolved", sub: "2022 recommendations, still open", color: "#8b6914" },
+          { value: "0 of 5", label: "Audit Recs Resolved", sub: "2022 financial-condition recs · 76 of 384 dropped citywide", color: "#8b6914" },
         ].map((s, i, arr) => (
           <div key={i} style={{ padding: "16px 12px", background: "#faf8f5", borderRight: i < arr.length - 1 ? "1px solid #e0dcd6" : "none", textAlign: "center" }}>
             <StatBlock {...s} />
@@ -241,8 +242,8 @@ function ShellGameSection() {
 
       <SubHead>FY 2026: How the Budget Was Balanced</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 12, lineHeight: 1.6 }}>
-        The City's Annual Comprehensive Financial Report (FY2025, pp. v–xix) notes that the FY26 budget
-        relied on one-time measures to close the gap. Here's what those measures were, in plain language:
+        The FY2025 ACFR (MD&A) notes that the FY26 budget update, though balanced, relies on one-time
+        measures to close the gap. Here's what those measures were, in plain language:
       </p>
       <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 20 }}>
         <div style={{ background: "#1a2a4a", color: "#fff", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -350,8 +351,8 @@ function NumbersSection() {
         <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: 10 }}>
           {[
             { label: "IT Fund Transfer", value: "$6.2M", note: "Excess balance moved to General Fund" },
-            { label: "Workers' Comp Transfer", value: "$5.2M", note: "Above-target reserve drawn down" },
-            { label: "Pension Trust Transfer", value: "$6.0M", note: "Pre-funding trust — used for operations" },
+            { label: "Workers' Comp Transfer", value: "$5.2M", note: "Transferred to GF, FY26 (FY2025 ACFR)" },
+            { label: "Pension Trust Transfer", value: "$6.0M", note: "Section 115 Trust — FY26 pension obligations (FY2025 ACFR)" },
             { label: "Measure U1 Applied", value: "$2.5M", note: "Special revenue applied to operating budget" },
           ].map((item, i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "10px 12px", border: "1px solid rgba(255,255,255,0.12)" }}>
@@ -433,7 +434,7 @@ function NumbersSection() {
         </p>
         <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7 }}>
           The structural deficit is real — and it is driven primarily by benefit cost growth that outpaces revenue.
-          The reforms needed are known, the savings are calculable, and comparable cities have implemented them.
+          The reforms needed are known, and comparable cities have implemented versions of them — though the precise savings depend on contract and actuarial data the City has not yet published.
           That is the conversation we'd like to see happen before new taxes are placed on the ballot.
         </p>
       </Callout>
@@ -468,14 +469,14 @@ function DemandsSection() {
       n: "04",
       title: "Bring Employee Pension Cost-Sharing to the Table",
       color: "#2a5c3f",
-      body: "Berkeley pays the employee's own 8% CalPERS contribution on their behalf — a negotiated benefit that most peer cities ended years ago. At ~$16–17M/year, this single item represents more than half the structural deficit. We ask that the City open an honest public conversation about what cost-sharing could look like in future MOU negotiations.",
+      body: "Berkeley pays the employee's own 8% CalPERS contribution on their behalf — a negotiated benefit several peer California cities have moved away from. Estimates put this on the order of $16–17M/year, but the precise figure can't be confirmed without the current MOU terms and CalPERS contribution schedules, and any change is a bargained outcome rather than a unilateral lever. We ask that the City open an honest public conversation about what cost-sharing could look like in future MOU negotiations.",
       tag: "COST REFORM",
     },
     {
       n: "05",
       title: "Protect the Section 115 Pension Pre-Funding Trust",
       color: "#2a5c3f",
-      body: "The City withdrew $9M from the Section 115 Trust over FY25–26 to cover operating expenses — precisely the use the 2022 audit warned against. We ask Council to formally clarify the permitted uses of the trust and commit to a replenishment schedule. Long-term pension stability depends on keeping this fund intact.",
+      body: "The City drew on the Section 115 Trust to balance operations — about $3M in FY2025 and $6M in FY26, roughly $9M over two years (City Auditor; FY2025 ACFR) — precisely the use the 2022 audit warned against. We ask Council to formally clarify the permitted uses of the trust and commit to a replenishment schedule. Long-term pension stability depends on keeping this fund intact.",
       tag: "FIDUCIARY DUTY",
     },
     {
@@ -567,10 +568,14 @@ function DemandsSection() {
       ))}
 
       {/* ── Savings Table ── */}
-      <SubHead>A Path to Fiscal Balance — Without New Taxes</SubHead>
+      <SubHead>A Path to Fiscal Balance — Reform Levers</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The structural deficit is real — but it is closeable through reforms the City has the authority to pursue today.
-        These are not speculative; they are based on comparable reforms in other California cities.
+        The structural deficit is real. The levers below are drawn from comparable California cities and the City
+        Auditor's findings. The dollar ranges are <strong>illustrative estimates, not precise projections</strong> —
+        several (especially the cost-sharing items) are bargained outcomes that depend on MOU terms and CalPERS/actuarial
+        data the City has not yet published. They show the order of magnitude available through internal reform, not a
+        guaranteed total. See <a href="/rational-budgeting-process.html" style={{ color: "#1a4a8b" }}>The Fix</a> for the
+        confidence level behind each lever.
       </p>
       <DataTable
         headers={["Reform", "Est. Annual Savings"]}
@@ -580,7 +585,7 @@ function DemandsSection() {
           ["50/50 OPEB pre-funding split (California state model)", { v: "~$4–6M", c: "#2a5c3f" }],
           ["5% workforce reduction through attrition only", { v: "~$6–9M", c: "#8b6914" }],
           ["Program sunset review + contract renegotiation", { v: "~$4–8M", c: "#8b6914" }],
-          [{ v: "Total Potential Annual Savings", bold: true }, { v: "$34–46M", c: "#2a5c3f" }],
+          [{ v: "Illustrative Total (estimates, not additive certainty)", bold: true }, { v: "$34–46M", c: "#2a5c3f" }],
           [{ v: "Structural deficit to close (FY27–28 proj.)", bold: false }, { v: "$27–33M", c: "#555" }],
         ]}
       />
@@ -645,9 +650,9 @@ function AuditSection() {
   };
 
   const patchItems = [
-    { source: "Section 115 Pension Trust", amount: "$6.0M", note: "Transfer from pre-funding trust to General Fund" },
-    { source: "IT Cost Allocation Fund balance", amount: "$6.2M", note: "Above-target balance transferred to GF" },
-    { source: "Workers' Compensation Fund", amount: "$5.2M", note: "Above-target reserve drawn down" },
+    { source: "Section 115 Pension Trust", amount: "$6.0M", note: "FY26 pension obligations (FY2025 ACFR, MD&A)" },
+    { source: "IT Cost Allocation Fund balance", amount: "$6.2M", note: "Above-target balance transferred to GF, FY26" },
+    { source: "Workers' Compensation Fund", amount: "$5.2M", note: "Transferred to GF, FY26 (FY2025 ACFR, MD&A)" },
     { source: "Measure U1 funds", amount: "$2.5M", note: "Special revenue applied to operating budget" },
     { source: "44.4 vacant positions left unfunded", amount: "~$8–10M", note: "Positions deferred rather than eliminated" },
     { source: "11.8 GF positions moved to other funds", amount: "~$2–3M", note: "Costs shifted to non-GF accounts" },
@@ -678,6 +683,24 @@ function AuditSection() {
         where conditions have improved, held steady, or worsened — and how the City has responded to
         the five specific recommendations made in 2022.
       </p>
+
+      {/* ── Bridge: the full audit record beyond the 2022 five ── */}
+      <div style={{ background: "#1a2a4a", color: "#e8f0fa", padding: "16px 18px", borderRadius: 8, marginBottom: 24 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
+          BEYOND THESE FIVE — THE FULL AUDIT RECORD
+        </div>
+        <p style={{ fontSize: 13, lineHeight: 1.7, margin: "0 0 8px" }}>
+          The five recommendations below come from one report — the 2022 financial-condition audit. Across the City
+          Auditor's full record of <strong>54 audits and 384 recommendations</strong>, about <strong>265 (69%) have been
+          implemented</strong>, <strong>76 dropped</strong> (many by simply lapsing after five years), and <strong>43 remain
+          open</strong> — with the weakest follow-through in the highest-spending departments (Public Works ~33%, City
+          Manager ~50%).
+        </p>
+        <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#aac2e0" }}>
+          See <a href="/rational-budgeting-process.html" style={{ color: "#93b8e8" }}>The Fix</a> for how that record maps
+          to specific budget reforms.
+        </p>
+      </div>
 
       {/* ── Audit Comparison ── */}
       <SubHead>2022 Audit vs. 2026 Audit: What Changed</SubHead>
@@ -744,7 +767,7 @@ function AuditSection() {
       {/* ── Budget Patch Kit ── */}
       <SubHead>How the FY 2026 Budget Was Balanced</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The ACFR notes that the FY26 budget used one-time measures to close the structural gap.
+        The FY2025 ACFR notes that the FY26 budget update used one-time measures to close the structural gap.
         These measures addressed the current year but don't resolve the underlying cost trends.
       </p>
       <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
@@ -787,7 +810,7 @@ function AuditSection() {
           ["Public Safety Expenses", "$162.3M", "$190.0M", { v: "▼ −15%", c: "#2a7d4f" }],
           ["Property Tax Revenue", "$148.4M", "$135.7M", { v: "▲ +9%", c: "#2a7d4f" }],
           ["Stability Reserve", "$32.8M", "—", { v: "19.5% of GF", c: "#d4860b" }],
-          ["Section 115 Trust", "$29.5M*", "$35.5M", { v: "*After $6M withdrawal", c: "#c41e1e" }],
+          ["Section 115 Trust", "$29.5M*", "$35.5M", { v: "*$6M decline from FY24", c: "#c41e1e" }],
         ]}
       />
       <div style={{ fontSize: 11, color: "#999", marginTop: 8, fontStyle: "italic" }}>
@@ -838,7 +861,8 @@ function CompareSection() {
         <strong>A notable difference:</strong> Classic Berkeley employees do not pay toward their own pension —
         the City covers their 8% statutory CalPERS contribution as an employer-paid benefit.
         This is a negotiated arrangement, not a legal requirement, and most peer cities have
-        moved away from it. The cost to Berkeley taxpayers is approximately <strong>$16–17M/year</strong>.
+        moved away from it. The cost to Berkeley taxpayers is estimated on the order of <strong>$16–17M/year</strong> —
+        though the exact figure requires the MOU terms and CalPERS contribution schedules to confirm.
       </Callout>
 
       <SubHead>CalPERS Funded Status: Berkeley vs. Benchmarks</SubHead>
@@ -864,7 +888,7 @@ function CompareSection() {
       <SubHead>What Voters Are Already Being Asked (Nov 2026)</SubHead>
       <div style={{ fontSize: 12, lineHeight: 1.5 }}>
         {[
-          ["0.5% City Sales Tax", "~$10M/yr", "General Fund deficit"],
+          ["0.5% City Sales Tax", "~$9M/yr", "General Fund deficit"],
           ["$300M GO Bond", "~$20M/yr debt svc", "Infrastructure capital"],
           ["Regional Transit Tax (SB63)", "0.5% sales tax", "BART / AC Transit"],
           ["Arts & Creative Economy Parcel Tax", "TBD", "Performing arts orgs"],
