@@ -134,3 +134,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# --- BeTH repo hygiene ---
+.DS_Store
+.~lock*#
+~$*
+T1/
