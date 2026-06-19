@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berkeley Budget Basics — Berkeley Transparency Hub</title>
+<style>
+  :root{
+    --navy:#1f3864; --navy2:#2e4a7a; --ink:#1a1a1a; --muted:#5b6470;
+    --line:#e3e7ee; --bg:#f7f8fa; --card:#ffffff; --accent:#c0392b; --good:#2e7d46;
+    --bar:#3a5a92; --bar2:#7b95c4; --maxw:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--navy2)}
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:48px 20px 40px}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  .hero h1{margin:0 0 6px;font-size:2.05rem;letter-spacing:-.02em}
+  .hero .tag{font-size:1.05rem;opacity:.92;font-weight:400;margin:0}
+  .hero .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:700;opacity:.8;margin-bottom:10px}
+  .updated{margin-top:14px;font-size:.8rem;opacity:.75}
+  main{padding:8px 20px 60px}
+  section{max-width:var(--maxw);margin:42px auto 0}
+  h2{font-size:1.4rem;color:var(--navy);margin:0 0 4px;letter-spacing:-.01em}
+  h2 .num{color:var(--bar2);font-weight:800;margin-right:8px}
+  .lede{color:var(--muted);margin:0 0 18px;font-size:1.02rem}
+  p{margin:0 0 14px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;
+    box-shadow:0 1px 2px rgba(20,30,60,.04)}
+  .card .big{font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.1}
+  .card .lbl{font-size:.82rem;color:var(--muted);margin-top:4px}
+  .card .sub{font-size:.72rem;color:#8a929d;margin-top:6px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .bar-row{display:grid;grid-template-columns:190px 1fr 64px;align-items:center;gap:12px;margin:9px 0}
+  .bar-row .name{font-size:.86rem;color:var(--ink)}
+  .bar-track{background:#eef1f6;border-radius:6px;height:22px;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,var(--bar),var(--bar2));border-radius:6px}
+  .bar-row .val{font-size:.82rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+  .note{font-size:.85rem;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pill{display:inline-block;background:#eef2f8;color:var(--navy);border-radius:999px;
+    padding:3px 11px;font-size:.74rem;font-weight:700;margin-bottom:8px}
+  .pill.warn{background:#fbeae8;color:var(--accent)}
+  .pill.ok{background:#e7f3ec;color:var(--good)}
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.92rem;margin:6px 0 4px}
+  .flow b{color:var(--navy)} .flow .arw{color:#aab2bf}
+  ul.clean{margin:6px 0 0;padding-left:20px} ul.clean li{margin:5px 0}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .toc a{background:rgba(255,255,255,.14);color:#fff;text-decoration:none;border-radius:999px;
+    padding:6px 13px;font-size:.82rem;border:1px solid rgba(255,255,255,.18)}
+  .toc a:hover{background:rgba(255,255,255,.26)}
+  footer{max-width:var(--maxw);margin:50px auto 0;padding:22px 20px 0;border-top:1px solid var(--line);
+    color:var(--muted);font-size:.84rem}
+  .disclaim{background:#fff;border:1px solid var(--line);border-left:4px solid var(--bar2);
+    border-radius:8px;padding:14px 16px;font-size:.86rem;color:var(--muted);margin-top:16px}
+  .linkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .linkcard{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px;transition:.15s ease;box-shadow:0 1px 2px rgba(20,30,60,.04)}
+  .linkcard:hover{border-color:var(--bar2);box-shadow:0 5px 16px rgba(20,30,60,.09);transform:translateY(-1px)}
+  .linkcard .q{font-weight:700;color:var(--navy);font-size:.98rem;margin-bottom:5px}
+  .linkcard .d{font-size:.84rem;color:var(--muted);line-height:1.5}
+  .linkcard .file{font-size:.72rem;color:var(--bar2);margin-top:9px;font-weight:600;letter-spacing:.01em}
+  .chain{background:#eef2f8;border:1px solid #d8e0ee;border-radius:12px;padding:18px 20px;margin-bottom:16px;font-size:.98rem}
+  .chain b{color:var(--navy)}
+  @media(max-width:640px){
+    .hero h1{font-size:1.6rem}.two{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:120px 1fr 54px;gap:8px}.bar-row .name{font-size:.78rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Berkeley Transparency Hub · BeTH</div>
+    <h1>Berkeley Budget Basics</h1>
+    <p class="tag">A plain-language look at where the City of Berkeley gets its money, where it goes, and the choices ahead.</p>
+    <div class="toc">
+      <a href="#snapshot">Snapshot</a>
+      <a href="#dollar">Where the money goes</a>
+      <a href="#deficit">The deficit</a>
+      <a href="#capital">What we own vs. need</a>
+      <a href="#truecost">Why true cost is hard to see</a>
+      <a href="#deeper">How it connects</a>
+      <a href="berkeley-tax-measures.html">Tax measures</a>
+      <a href="berkeley-budget-glossary.html">Glossary</a>
+      <a href="#about">About &amp; sources</a>
+    </div>
+    <div class="updated">Last updated June 18, 2026 · Figures from the FY2024 audited financial report and the FY2027–28 Proposed Budget.</div>
+  </div>
+</header>
+
+<main>
+
+<section id="snapshot">
+  <h2>The snapshot</h2>
+  <p class="lede">The numbers a resident needs to start with.</p>
+  <div class="cards">
+    <div class="card"><div class="big">~$1.8B</div><div class="lbl">Total annual budget (all funds, FY2027)</div></div>
+    <div class="card"><div class="big">~$283M</div><div class="lbl">General Fund (the discretionary core)</div></div>
+    <div class="card"><div class="big">~$29M</div><div class="lbl">Recurring budget gap being closed</div><div class="sub">Each year, FY2027 &amp; FY2028</div></div>
+    <div class="card"><div class="big">~122,000</div><div class="lbl">Residents</div></div>
+    <div class="card"><div class="big">1,605</div><div class="lbl">City staff (full-time equivalent)</div></div>
+    <div class="card"><div class="big">~$2.1B</div><div class="lbl">Unfunded infrastructure needs</div><div class="sub">Not on the balance sheet</div></div>
+  </div>
+</section>
+
+<section id="dollar">
+  <h2>Where each tax dollar goes</h2>
+  <p class="lede">The audited <strong>net cost</strong> of each service — what general taxes pay after fees and grants. Total: <strong>$334&nbsp;million</strong> (FY2024).</p>
+  <div class="panel">
+    <div class="bar-row"><div class="name">Public safety</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="val">51.5%</div></div>
+    <div class="bar-row"><div class="name">Parks, libraries &amp; recreation</div><div class="bar-track"><div class="bar-fill" style="width:34.8%"></div></div><div class="val">17.9%</div></div>
+    <div class="bar-row"><div class="name">General government</div><div class="bar-track"><div class="bar-fill" style="width:25.0%"></div></div><div class="val">12.9%</div></div>
+    <div class="bar-row"><div class="name">Health &amp; welfare</div><div class="bar-track"><div class="bar-fill" style="width:10.7%"></div></div><div class="val">5.5%</div></div>
+    <div class="bar-row"><div class="name">Streets &amp; highways</div><div class="bar-track"><div class="bar-fill" style="width:8.0%"></div></div><div class="val">4.1%</div></div>
+    <div class="bar-row"><div class="name">Housing &amp; community dev.</div><div class="bar-track"><div class="bar-fill" style="width:7.2%"></div></div><div class="val">3.7%</div></div>
+    <div class="bar-row"><div class="name">Interest on debt</div><div class="bar-track"><div class="bar-fill" style="width:4.6%"></div></div><div class="val">2.4%</div></div>
+    <div class="bar-row"><div class="name">Economic development</div><div class="bar-track"><div class="bar-fill" style="width:3.7%"></div></div><div class="val">1.9%</div></div>
+    <div class="note">Public safety (police, fire, 911) is just over half of every general-tax dollar. Bars scaled to the largest category. Source: FY2024 Statement of Activities.</div>
+  </div>
+  <p style="margin-top:16px"><strong>Where it comes from:</strong> about <strong>$324M in taxes</strong>. Property taxes are roughly two-thirds of that; the rest is business-license tax (~$31M), sales tax (~$20M), utility-users tax (~$17M), and hotel and other taxes.</p>
+</section>
+
+<section id="deficit">
+  <h2>The &ldquo;deficit&rdquo; &mdash; and where the money actually went</h2>
+  <p class="lede">Here is the part that confuses almost everyone: the City projects a ~$29M/year deficit <em>and</em> spent <strong>less</strong> than it budgeted every year. Both are true. Here's how.</p>
+  <div class="two">
+    <div class="panel">
+      <span class="pill warn">What the &ldquo;deficit&rdquo; is</span>
+      <p>It's a <strong>forecast</strong>, not a record that the City ran out of cash &mdash; and it's the gap between <strong>two sets of choices</strong>: how much the City decides to spend, and how much it decides (and voters allow) it to raise. It's measured against a baseline that assumes <em>full staffing</em> &mdash; positions the City chronically leaves unfilled. <strong>It recurs because those choices recur, not because it's required.</strong></p>
+    </div>
+    <div class="panel">
+      <span class="pill ok">What actually happened</span>
+      <p>The City <strong>under-spent its budget every year, 2020&ndash;2024</strong> &mdash; mostly because it couldn't fill open jobs &mdash; while revenue often beat forecast. So it ran surpluses and <strong>built up savings</strong>.</p>
+      <p style="margin:0">Its General Fund reserves grew from <strong>~$84M (2018) to ~$158M (2023)</strong>.</p>
+    </div>
+  </div>
+
+  <div class="note" style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin-top:16px">
+    <strong>The clearest proof it's a choice:</strong> when the City re-based this budget to what it <em>actually spends</em>, <strong>$16.5M in personnel budget simply disappeared</strong> &mdash; with no service cut (salaries &minus;$9.5M, pensions &minus;$3.7M, health &minus;$1.6M, overtime &minus;$0.7M). A budget you can shrink by $16.5M just by being honest about it was carrying $16.5M of padding. The gap is partly an artifact of how the baseline is drawn.
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <span class="pill">So where did the money go?</span>
+    <p>The surplus didn't vanish &mdash; by deliberate policy, the City <strong>swept roughly $30&ndash;42M a year out of the operating budget</strong> into walled-off savings:</p>
+    <div class="cards" style="margin-top:4px">
+      <div class="card"><div class="big">~$18M/yr</div><div class="lbl">To the capital fund (roads, buildings)</div></div>
+      <div class="card"><div class="big">~$27M</div><div class="lbl">Banked in a pension pre-funding trust</div></div>
+      <div class="card"><div class="big">~$54M</div><div class="lbl">Held in rainy-day &amp; catastrophic reserves</div></div>
+    </div>
+    <div class="note">So the money went into reserves, pension pre-funding, and capital &mdash; not into thin air. The catch: most of it is now legally committed or restricted. The truly <em>free</em> reserve is only about <strong>$29.6M</strong> &mdash; roughly one year of the projected deficit. And 2024 was the first year spending actually outran revenue, which is what turned the projection serious.</div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <span class="pill">What's locked vs. what's a choice</span>
+    <p>Calling the gap &ldquo;built-in&rdquo; hides that nearly every piece of it is a decision &mdash; just on different time horizons, and by different deciders.</p>
+    <div class="cards" style="margin-top:4px">
+      <div class="card"><div class="big" style="font-size:1.02rem">Hard to change fast</div><div class="lbl">Pension bills (set by CalPERS, legally owed), union contracts, debt payments, and mandates like the federal sewer order.</div></div>
+      <div class="card"><div class="big" style="font-size:1.02rem">Within the City's control</div><div class="lbl">Service levels, staffing targets, and the choice to budget at full staffing it never fills &mdash; budget to <em>actual</em> staffing and part of the gap disappears on paper.</div></div>
+      <div class="card"><div class="big" style="font-size:1.02rem">Needs the voters</div><div class="lbl">Raising revenue. State limits (Prop 13 &amp; Prop 218) cap what the City can raise without a public vote &mdash; the revenue side isn't the Council's alone.</div></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <span class="pill">How the gap is being closed</span>
+    <p>Mainly by reducing staff. The plan eliminates <strong>138 positions</strong> &mdash; about 100 already vacant and 38 filled. <strong>33 of them</strong> would be restored <em>if</em> voters pass a proposed 0.5% sales tax in November 2026 (raising the rate to 10.75%, ~$9&ndash;10M/yr).</p>
+  </div>
+
+  <div class="note">The honest read: this isn't hidden money (reserve-building is prudent, and most of it is committed), and it isn't &ldquo;no problem&rdquo; (pension costs really do jump after 2025, and 2024 was the first year spending outran revenue). But it also isn't a <em>requirement</em>. It's a <strong>recurring decision &mdash; made under real constraints</strong> &mdash; about what to spend, how to staff, and whether to ask voters for more &mdash; decisions the Council makes (the City Manager drafts the budget; the Mayor holds one vote and no veto). One-time fixes never end it because the <em>choices</em> repeat, not because the gap is a law of nature.</div>
+</section>
+
+<section id="capital">
+  <h2>What the City owns vs. what it needs</h2>
+  <p class="lede">The longer-term challenge sits largely off the annual budget.</p>
+  <div class="cards">
+    <div class="card"><div class="big">~$609M</div><div class="lbl">Value of City infrastructure today (after wear)</div></div>
+    <div class="card"><div class="big">~$2.1B</div><div class="lbl">Cost to bring it up to standard</div><div class="sub">Streets, sewers, storm drains, marina, buildings</div></div>
+    <div class="card"><div class="big">~$807M</div><div class="lbl">Pension &amp; retiree-health debt owed</div></div>
+  </div>
+  <p class="note" style="border:0;padding:0;margin-top:12px">Worth knowing: the City has <strong>no single public list of what it owns</strong>. Asset data is split across an internal maintenance system, separate <a href="https://data.cityofberkeley.info/">open-data map layers</a>, and the annual audit &mdash; so even &ldquo;what we own&rdquo; has to be assembled piece by piece.</p>
+  <div class="panel" style="margin-top:16px">
+    <span class="pill warn">The cost of waiting</span>
+    <p>Repairs get more expensive the longer they wait. The City's own figures show the <strong>street-repair backlog growing from ~$250M today to ~$545M by 2035</strong> if left unfunded — compounding faster than the City's cost of borrowing. Meanwhile street condition has held flat at a "poor/at-risk" rating for three straight years despite ongoing paving.</p>
+    <ul class="clean">
+      <li><strong>Sewers</strong> are the one area legally required to keep pace (a federal consent decree) — and the best-funded.</li>
+      <li><strong>The Marina</strong> faces ~$131M in failing docks and pilings and a long-running deficit.</li>
+      <li><strong>Storm drains</strong> carry a ~$208M need against a fee that hasn't risen since the 1990s.</li>
+    </ul>
+    <p class="note" style="border:0;padding:0;margin-top:14px">Which needs should come first? BeTH proposes ranking them <a href="#deeper">by risk rather than by department</a> &mdash; and counting each project's full lifetime cost, not just its sticker price.</p>
+  </div>
+</section>
+
+<section id="truecost">
+  <h2>Why the true cost is hard to see</h2>
+  <p class="lede">Two honest limits every resident should understand before drawing conclusions.</p>
+  <div class="two">
+    <div class="panel">
+      <span class="pill">Budget vs. audit</span>
+      <p>The <strong>budget</strong> is an estimate, set before the year, organized by department. The <strong>audited financial report (CAFR)</strong> is the verified record afterward, and it's the only place that shows the full picture — including the value of aging assets and the pension debt the budget leaves out.</p>
+    </div>
+    <div class="panel">
+      <span class="pill">Costs cross departments</span>
+      <p>Money is tracked by <em>which department the worker sits in</em>, not by the problem being solved. A parks crew clearing an encampment is counted as "parks," not "homelessness." So no single number captures what a cross-cutting service truly costs.</p>
+    </div>
+  </div>
+  <div class="note">The City's own Auditor notes that Berkeley's reported <strong>~$35M homelessness figure excludes most staff time</strong> spent across Public Works, Parks, Police, Fire, and the City Attorney — and that the City "did not assess" those additional costs. The real total is higher and, today, not fully knowable from City records. This is a measurement gap, not evidence of wrongdoing &mdash; and it's the same gap that makes it hard to tell whether spending <a href="#deeper">produces results</a>.</div>
+</section>
+
+<section id="deeper">
+  <h2>How the pieces fit together</h2>
+  <p class="lede">The basics above open onto one connected argument. This is the throughline of the BeTH project &mdash; each question leads to the next.</p>
+  <div class="chain">
+    <b>The deficit recurs by choice</b>, so cuts alone won't end it <span style="color:#aab2bf">→</span> that puts a premium on <b>spending well</b>, which means asking <b>are we getting results?</b> <span style="color:#aab2bf">→</span> today we often can't tell, because <b>the true cost is scattered across departments</b> <span style="color:#aab2bf">→</span> and capital is chosen <b>by silo, not by risk</b>, which lets the <b>cost of waiting</b> compound. Fixing how the City <em>measures</em> is what makes everything else possible.
+  </div>
+  <div class="linkgrid">
+    <a class="linkcard" href="#deficit"><div class="q">Why the deficit recurs (it's a choice)</div><div class="d">A gap between chosen spending and chosen revenue &mdash; not missing money. The surplus went to reserves and pensions.</div><div class="file">On this page ↑</div></a>
+    <a class="linkcard" href="Berkeley_Outcomes_Performance.xlsx"><div class="q">Are we getting results?</div><div class="d">Spending vs. outcomes. Streets sit at PCI 56 &mdash; flat for three years despite ~$18M/yr of paving.</div><div class="file">Outcomes &amp; Performance · spreadsheet</div></a>
+    <a class="linkcard" href="#truecost"><div class="q">Why true cost is hidden</div><div class="d">Money is tracked by department, not by problem &mdash; so homelessness costs leak across six departments.</div><div class="file">On this page ↑</div></a>
+    <a class="linkcard" href="Berkeley_Capital_Prioritization_Brief.docx"><div class="q">Fund by risk, not by silo</div><div class="d">A transparent rubric to rank the ~$2.1B in unfunded needs &mdash; the ranking the City hasn't published.</div><div class="file">Prioritization Brief · document</div></a>
+    <a class="linkcard" href="Berkeley_TCO_Capital_Planning_Process.docx"><div class="q">The cost of waiting</div><div class="d">Deferring repairs is the City's most expensive borrowing. Sticker price is only part of true cost.</div><div class="file">Total Cost of Ownership · document</div></a>
+    <a class="linkcard" href="Berkeley_Asset_Service_KnowledgeBase.xlsx"><div class="q">What the City owns</div><div class="d">Every asset class &mdash; its condition, funding, and unfunded need. The infrastructure inventory.</div><div class="file">Asset &amp; Service Knowledge Base · spreadsheet</div></a>
+    <a class="linkcard" href="Berkeley_Benchmarking_FTE_Assets.xlsx"><div class="q">How Berkeley compares</div><div class="d">Staffing and spending per resident vs. 15 peer cities &mdash; with the caveats that make it a fair comparison.</div><div class="file">Benchmarking · spreadsheet</div></a>
+    <a class="linkcard" href="mayors-budget.html"><div class="q">Who actually writes the budget?</div><div class="d">The Charter assigns it to the City Manager; the Council adopts it via the Annual Appropriations Ordinance; the &ldquo;Mayor's budget&rdquo; is a custom, not a power.</div><div class="file">Explainer · web page</div></a>
+    <a class="linkcard" href="berkeley-budget-database.json"><div class="q">The underlying data</div><div class="d">The full, sourced, confidence-tagged database behind every figure on this page.</div><div class="file">berkeley-budget-database.json</div></a>
+    <a class="linkcard" href="berkeley-budget-glossary.html"><div class="q">Confused by a term?</div><div class="d">AAO, CAFR, structural deficit, fund balance, FTE &mdash; a plain-English glossary of every budget word here.</div><div class="file">Budget Terms · web page</div></a>
+    <a class="linkcard" href="berkeley-tax-measures.html"><div class="q">Which taxes did voters approve?</div><div class="d">Every operative parcel tax, bond, and general tax &mdash; with a link to the actual election item that passed.</div><div class="file">Tax Measures · web page</div></a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About this page</h2>
+  <p>The Berkeley Transparency Hub (BeTH) is an independent effort to make the City's finances easier to understand. It is a neutral scoreboard — it presents the facts and leaves the choices to residents and their elected representatives.</p>
+  <p style="margin-bottom:6px"><strong>Primary sources:</strong></p>
+  <ul class="clean">
+    <li>City of Berkeley FY2024 Annual Comprehensive Financial Report (audited)</li>
+    <li>Proposed FY2027 &amp; FY2028 Biennial Budget and Five-Year Capital Improvement Program</li>
+    <li>City Auditor reports; MTC pavement data; federal sewer consent decree filings</li>
+    <li>City asset &amp; GIS inventories: <a href="https://data.cityofberkeley.info/">Open Data Portal</a>, the <a href="https://berkeleyca.gov/city-services/community-gis-portal">Community GIS Portal</a>, and the Public Works NEXGEN asset-management system</li>
+  </ul>
+  <div class="disclaim">
+    This is an independent, unofficial summary for public understanding. Figures are rounded and carry the City's own published confidence limits. It is not financial advice and is not affiliated with or endorsed by the City of Berkeley. For official figures, consult the City's budget and financial reports at berkeleyca.gov.
+  </div>
+  <footer>
+    Berkeley Transparency Hub (BeTH) · Built June 18, 2026 · Data current to the FY2024 audit and the FY2027–28 Proposed Budget.
+  </footer>
+</section>
+
+</main>
+</body>
+</html>

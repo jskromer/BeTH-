@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Two Fixable Problems — Berkeley Transparency Hub</title>
+<meta name="description" content="Berkeley's ~$30M structural deficit is partly real cost growth — but two governance problems (honesty in budgeting, and accountability to results) are choices the City can fix, and the City Auditor has already mapped the way." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+<style>
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --slate-2:#34414f; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff; --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a;
+    --hi:#2f6f57; --mod:#956613; --low:#a8322c; --unk:#6b7280; --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--navy); font-family:"Source Serif 4", Georgia, serif; font-size:18.5px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 26px; }
+  a{ color:var(--steel-deep); text-underline-offset:3px; text-decoration-thickness:1px; }
+  a:hover{ color:var(--steel); }
+
+  .hubbar{ background:var(--slate); color:#eef1f5; }
+  .hubbar-in{ max-width:var(--maxw); margin:0 auto; padding:11px 26px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .hubbar a.back{ font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#cdd6e0; text-decoration:none; }
+  .hubbar a.back:hover{ color:#fff; }
+  .hubbar .stamp{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9fb0c1; }
+
+  .masthead{ padding:48px 0 26px; border-bottom:2px solid var(--navy); }
+  .eyebrow{ font-family:"JetBrains Mono", monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+  .eyebrow .tick{ width:22px; height:2px; background:var(--steel); display:inline-block; }
+  h1{ font-family:"Playfair Display", serif; font-weight:700; font-size:clamp(2.1rem, 6.2vw, 3.4rem); line-height:1.02; letter-spacing:-.01em; margin:.05em 0 .3em; color:var(--navy); }
+  h1 .q{ font-style:italic; font-weight:600; color:var(--steel-deep); }
+  .dek{ font-size:clamp(1.06rem,2.3vw,1.28rem); line-height:1.45; color:var(--muted); max-width:62ch; margin:0 0 26px; font-weight:400; }
+  .meta-row{ font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 24px; }
+  .meta-row b{ color:var(--navy); font-weight:700; }
+
+  .legend{ margin:24px 0 0; padding:14px 16px; background:var(--card); border:1px solid var(--rule-strong); }
+  .legend .lt{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px 3px 8px; color:#fff; display:inline-flex; align-items:center; gap:6px; line-height:1.4; }
+  .chip::before{ content:""; width:6px;height:6px;border-radius:50%; background:rgba(255,255,255,.85); }
+  .chip.hi{background:var(--hi)} .chip.mod{background:var(--mod)} .chip.low{background:var(--low)} .chip.unk{background:var(--unk)}
+  .c{ font-family:"JetBrains Mono",monospace; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 6px; color:#fff; vertical-align:.1em; white-space:nowrap; }
+  .c.hi{background:var(--hi)} .c.mod{background:var(--mod)} .c.low{background:var(--low)} .c.unk{background:var(--unk)}
+
+  .verdict{ margin:32px 0 8px; padding:24px 26px; background:var(--slate); color:#eef1f5; }
+  .verdict .vk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#9fb6c9; margin-bottom:9px; }
+  .verdict .vt{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.62rem; line-height:1.1; margin:0 0 .4em; color:#fff; }
+  .verdict .vt em{ color:#8fbede; font-style:italic; }
+  .verdict p{ margin:0; font-size:1.01rem; color:#d4dbe3; }
+
+  section{ padding:36px 0; border-bottom:1px solid var(--rule); }
+  .sec-no{ font-family:"JetBrains Mono",monospace; font-size:11.5px; font-weight:700; letter-spacing:.1em; color:var(--steel); margin-bottom:9px; display:block; }
+  h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(1.45rem,3.6vw,1.95rem); line-height:1.1; letter-spacing:-.005em; margin:0 0 .5em; color:var(--navy); }
+  p{ margin:0 0 1.05em; } p:last-child{ margin-bottom:0; }
+  strong{ font-weight:600; color:var(--navy); }
+  .lead{ font-size:1.05rem; }
+  ul.clean{ padding-left:1.15em; margin:.3em 0 1.05em; } ul.clean li{ margin:0 0 .55em; }
+
+  .statrow{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:22px 0 6px; }
+  @media(min-width:620px){ .statrow{ grid-template-columns:repeat(4,1fr); } }
+  .stat{ background:var(--card); border:1px solid var(--rule-strong); padding:14px 15px; }
+  .stat .v{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.5rem; color:var(--navy); line-height:1; }
+  .stat .l{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.03em; text-transform:uppercase; color:var(--muted); margin-top:7px; line-height:1.4; }
+
+  .real{ margin:8px 0 0; padding:16px 18px; background:#eef3f0; border:1px solid #cfe0d6; border-left:4px solid var(--hi); font-size:.97rem; }
+  .real b{ color:var(--navy); }
+
+  .prob{ background:var(--card); border:1px solid var(--rule-strong); padding:22px 24px; margin:18px 0; }
+  .prob .pn{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--steel-deep); }
+  .prob h3{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.32rem; margin:.3em 0 .4em; color:var(--navy); }
+  .fix{ background:#f0f3f7; border-left:3px solid var(--steel); padding:12px 15px; margin-top:14px; font-size:.96rem; }
+  .fix b{ color:var(--steel-deep); }
+
+  figure{ margin:18px 0 4px; }
+  .chartwrap{ background:var(--card); border:1px solid var(--rule-strong); padding:16px 16px 10px; }
+  .chartbox{ position:relative; height:210px; }
+  .chartbox.tall{ height:300px; }
+  figcaption{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.02em; color:var(--muted); margin-top:9px; line-height:1.5; }
+
+  .panel{ margin:8px 0 0; padding:22px 26px; background:#eef2f6; border:1px solid #cdd9e4; border-left:4px solid var(--steel); }
+  .panel .pk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:10px; }
+  .panel h2{ font-size:1.35rem; margin-bottom:.45em; }
+  .panel .q{ font-family:"Playfair Display",serif; font-style:italic; font-size:1.16rem; color:var(--navy); border-left:3px solid var(--steel); padding-left:14px; margin:.4em 0 .8em; }
+
+  .sources{ border-bottom:none; }
+  .sources ol{ font-size:.95rem; color:var(--muted); padding-left:1.4em; margin:.4em 0 0; line-height:1.5; }
+  .sources li{ margin:0 0 .55em; }
+  .sources .tag{ font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--steel-deep); border:1px solid var(--rule-strong); padding:1px 5px; margin-right:7px; white-space:nowrap; }
+
+  footer{ padding:28px 0 64px; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.7; }
+  footer .bar{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }
+
+  @media (prefers-reduced-motion: no-preference){
+    .masthead, section, footer{ animation:rise .5s cubic-bezier(.2,.7,.2,1) both; }
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(7px)} to{opacity:1; transform:none} }
+</style>
+</head>
+<body>
+
+<div class="hubbar">
+  <div class="hubbar-in">
+    <a class="back" href="index.html">&larr; Berkeley Transparency Hub</a>
+    <span class="stamp">Budget &middot; Analysis</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Budget &amp; Governance</div>
+    <h1>Two <span class="q">fixable</span> problems</h1>
+    <p class="dek">Berkeley&rsquo;s roughly $30-million-a-year structural deficit is partly real cost growth &mdash; but most of what makes the budget feel unmanageable comes down to two governance choices: honesty about the money, and accountability for results. The City Auditor has already mapped both.</p>
+    <div class="meta-row">
+      <span><b>Updated</b> June 12, 2026</span>
+      <span><b>Basis</b> FY2027&ndash;28 Proposed Budget + 54 audits</span>
+      <span><b>Method</b> primary documents, confidence-labeled</span>
+    </div>
+    <div class="legend">
+      <div class="lt">How to read the confidence labels</div>
+      <div class="chips">
+        <span class="chip hi">High</span><span class="chip mod">Moderate</span>
+        <span class="chip low">Low</span><span class="chip unk">Unknown</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="verdict" role="note" aria-label="Bottom line">
+    <div class="vk">Bottom line</div>
+    <p class="vt">Real deficit, <em>fixable</em> process.</p>
+    <p>Some of the gap is genuine cost growth that no reform erases. But the distance between what the City adopts and what it actually spends &mdash; and the habit of funding programs that never have to prove results &mdash; are choices. Fixing them won&rsquo;t close the whole gap, but it would end the annual ritual of one-time patches.</p>
+  </div>
+
+  <section>
+    <span class="sec-no">01</span>
+    <h2>Start with what&rsquo;s real</h2>
+    <p class="lead">Berkeley faces a roughly <strong>$30-million-a-year</strong> General Fund gap, and part of it is genuine. Over the last decade, expenses grew about <strong>8% a year against 6.5% revenue growth</strong>. <span class="c hi">High</span> No process change erases that entirely &mdash; and saying so plainly is what makes the rest of the case credible.</p>
+    <div class="statrow" id="statrow"></div>
+    <div class="real"><b>What&rsquo;s real:</b> structural cost growth exists. <b>What&rsquo;s fixable:</b> the gap between what the City adopts and what it actually spends, and the discipline to fund results. Those two are governance choices &mdash; the subject of this page.</div>
+  </section>
+
+  <section>
+    <span class="sec-no">02</span>
+    <h2>Problem one: honesty in budgeting</h2>
+    <div class="prob">
+      <div class="pn">Problem 01 &middot; Transparency</div>
+      <h3>The adopted budget is a poor guide to what the City actually spends.</h3>
+      <p>This year&rsquo;s re-basing to real expenditures removed <strong>$16.5 million from the General Fund personnel budget alone</strong> &mdash; proof that prior budgets carried padding that didn&rsquo;t reflect actual need. <span class="c hi">High</span> Year-end carryovers and mid-year appropriation amendments widen the gap between what Council adopts and what is ultimately spent. <span class="c mod">Moderate</span></p>
+      <figure>
+        <div class="chartwrap"><div class="chartbox"><canvas id="padChart"></canvas></div></div>
+        <figcaption>FY2027 General Fund personnel — dollars removed from the &ldquo;baseline&rdquo; to reach the proposed budget. No service decision; just honesty about prior padding. Source: budget packet, baseline vs. proposed.</figcaption>
+      </figure>
+      <div class="fix"><b>The fix:</b> budget to actuals, let operating appropriations lapse at year-end, separate capital from operating, discipline mid-year amendments to a fixed cycle with identified funding, and publish a standing <b>adopted-versus-actual</b> reconciliation residents can see.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-no">03</span>
+    <h2>Problem two: accountability to results</h2>
+    <div class="prob">
+      <div class="pn">Problem 02 &middot; Accountability</div>
+      <h3>Programs are funded without having to prove they work.</h3>
+      <p>The single most common finding across the Auditor&rsquo;s <strong>54 audits</strong> is that programs lack measurable goals and outcome tracking &mdash; from zero waste to code enforcement to homeless services. Of <strong>384 recommendations, 76 were dropped</strong> (many by simply lapsing untried after five years) and 43 remain open. <span class="c hi">High</span></p>
+      <figure>
+        <div class="chartwrap"><div class="chartbox"><canvas id="statusChart"></canvas></div></div>
+        <figcaption>Status of all 384 audit recommendations. &ldquo;Dropped&rdquo; includes recommendations the City let expire without acting. Source: City Auditor Recommendation Dashboard.</figcaption>
+      </figure>
+      <div class="fix"><b>The fix:</b> tie budgeting to performance &mdash; every program states a goal and a measure, and <b>dropping an audit recommendation requires an explicit Council decision with a cost-benefit</b>, not a silent five-year expiration.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-no">04</span>
+    <h2>Where the gap really sits</h2>
+    <p>The departments with the most dollars have the weakest record of acting on the Auditor&rsquo;s findings. That isn&rsquo;t an indictment &mdash; it&rsquo;s the clearest place a results-based budget process would help. <span class="c hi">High</span></p>
+    <figure>
+      <div class="chartwrap"><div class="chartbox tall"><canvas id="deptChart"></canvas></div></div>
+      <figcaption>Share of each department&rsquo;s audit recommendations actually implemented, worst to best. The Auditor groups some citywide items under &ldquo;City Manager,&rdquo; which doesn&rsquo;t map one-to-one to the budget department. Sources: budget packet (FY27 figures) + Recommendation Dashboard.</figcaption>
+    </figure>
+  </section>
+
+  <section class="panel" role="note">
+    <div class="pk">The ally</div>
+    <h2>The Auditor is the partner, not the adversary</h2>
+    <p>This is precisely the work the Auditor&rsquo;s office exists to do. Its FY2027 plan commits to:</p>
+    <p class="q">&ldquo;ensuring City dollars are spent responsibly and aligned with Berkeley values.&rdquo;</p>
+    <p>Council should treat the audit record as the <strong>backbone</strong> of the budget process &mdash; not a separate report filed and forgotten. The Auditor has already done the diagnostic work; the budget process simply needs to use it. Honesty about the money and accountability for results won&rsquo;t close the entire gap, but they would end the annual ritual of one-time fixes and rebuild public trust in the numbers.</p>
+  </section>
+
+  <section class="sources">
+    <span class="sec-no">Sources</span>
+    <h2>What this is built on</h2>
+    <ol>
+      <li><span class="tag">Primary</span>Proposed FY2027 &amp; FY2028 Biennial Budget, Item 21, Supplemental Packet 2 (May 19, 2026) &mdash; deficit history, baseline-vs-proposed personnel, cost-growth figures.</li>
+      <li><span class="tag">Primary</span>Berkeley City Auditor&rsquo;s Recommendation Dashboard &mdash; 384 recommendations across 54 audits; status and department breakdowns (snapshot April 24, 2026).</li>
+      <li><span class="tag">Primary</span>FY2027 Audit Plan &amp; first Whistleblower Annual Report, Office of the City Auditor (June 2026) &mdash; quoted commitment language.</li>
+      <li><span class="tag">Data</span>Consolidated figures in the Hub&rsquo;s <code>berkeley-budget-database.json</code>; full cross-walk in <code>audit-budget-opportunities.md</code> and <code>rational-budgeting-process.md</code>.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Berkeley Transparency Hub &middot; Budget analysis<br>
+    Confidence labels reflect the strength of the underlying evidence, not certainty. The carryover and mid-year-amendment magnitudes are directional pending the Annual Appropriations Ordinances and year-end schedules. Corrections and primary sources welcome.
+  </footer>
+
+</main>
+
+<script>
+const PAD = [["Salaries",9.453],["Pension",3.678],["Health/Retiree",1.582],["Overtime",0.714],["Workers Comp",0.375],["Other",0.734]].sort((a,b)=>b[1]-a[1]);
+const STATUS = [["Not Started",9,"#a8322c"],["Started",12,"#6b7280"],["Partly Implemented",22,"#956613"],["Implemented",265,"#2f6f57"],["Dropped",76,"#33567a"]];
+const DEPT = [ // [name, implementedPct, totalRecs, fy27budgetM]
+  ["Public Works",32.8,64,234.5],["City Manager",50.0,88,23.1],["Fire",50.0,24,79.0],["Mayor & Council",50.0,4,7.5],
+  ["Information Technology",77.8,9,20.0],["Health, Housing & CS",80.0,35,165.5],["Library",83.3,6,34.4],
+  ["Human Resources",85.7,21,6.7],["Parks, Rec & Waterfront",89.5,19,52.2],["Planning",95.0,20,34.4],
+  ["Police",97.1,35,106.9],["Finance",97.7,43,11.6]
+].sort((a,b)=>a[1]-b[1]);
+
+const NAVY="#2a3340", STEEL="#43698f", STEELD="#33567a", RED="#a8322c", HI="#2f6f57", MOD="#956613", MUT="#5d6b7a", RULE="#dde3ea";
+if (window.Chart){
+  Chart.defaults.font.family = "'JetBrains Mono', monospace";
+  Chart.defaults.font.size = 10.5;
+  Chart.defaults.color = MUT;
+
+  document.getElementById('statrow').innerHTML = [
+    ["~$30M/yr","General Fund structural gap"],
+    ["$16.5M","padding removed by re-baselining"],
+    ["76 / 384","audit fixes dropped"],
+    ["8% vs 6.5%","expense vs revenue growth"]
+  ].map(s=>`<div class="stat"><div class="v">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('');
+
+  new Chart(document.getElementById('padChart'), {
+    type:'bar',
+    data:{ labels:PAD.map(p=>p[0]), datasets:[{ data:PAD.map(p=>p[1]), backgroundColor:STEEL, borderRadius:3 }]},
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>'$'+c.parsed.x.toFixed(2)+'M off baseline'}}},
+      scales:{ x:{title:{display:true,text:'$ millions removed'},grid:{color:RULE}}, y:{grid:{display:false}} } }
+  });
+
+  new Chart(document.getElementById('statusChart'), {
+    type:'doughnut',
+    data:{ labels:STATUS.map(s=>s[0]+' ('+s[1]+')'), datasets:[{ data:STATUS.map(s=>s[1]), backgroundColor:STATUS.map(s=>s[2]), borderColor:'#fff', borderWidth:2 }]},
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'58%',
+      plugins:{ legend:{position:'right', labels:{boxWidth:10,padding:7}} } }
+  });
+
+  new Chart(document.getElementById('deptChart'), {
+    type:'bar',
+    data:{ labels:DEPT.map(d=>d[0]), datasets:[{ data:DEPT.map(d=>d[1]),
+      backgroundColor:DEPT.map(d=> d[1]<55?RED : d[1]<80?MOD : HI), borderRadius:3 }]},
+    options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>{const d=DEPT[c.dataIndex]; return d[1].toFixed(0)+'% of '+d[2]+' recs implemented · $'+d[3]+'M';}}}},
+      scales:{ x:{title:{display:true,text:'% of audit recommendations implemented'},min:0,max:100,grid:{color:RULE}}, y:{grid:{display:false}} } }
+  });
+}
+</script>
+</body>
+</html>
