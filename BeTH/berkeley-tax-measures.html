@@ -1,266 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Berkeley's Tax Measures — Berkeley Transparency Hub</title>
-<style>
-  :root{
-    --navy:#1f3864; --navy2:#2e4a7a; --ink:#1a1a1a; --muted:#5b6470;
-    --line:#e3e7ee; --bg:#f7f8fa; --card:#ffffff; --accent:#c0392b; --good:#2e7d46; --maxw:1040px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.55;-webkit-font-smoothing:antialiased}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Berkeley's Tax Measures — Berkeley Transparency Hub</title><style>
+  :root{--navy:#1f3864;--navy2:#2e4a7a;--ink:#1a1a1a;--muted:#5b6470;--line:#e3e7ee;--bg:#f7f8fa;--card:#fff;--accent:#c0392b;--good:#2e7d46;--maxw:760px}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:var(--navy2)}
-  header.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:42px 20px 34px}
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:40px 20px 30px}
   .wrap{max-width:var(--maxw);margin:0 auto}
-  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:700;opacity:.8;margin-bottom:10px}
+  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:700;opacity:.85;margin-bottom:10px}
   .hero h1{margin:0 0 6px;font-size:1.95rem;letter-spacing:-.02em}
-  .hero .tag{font-size:1.02rem;opacity:.92;font-weight:400;margin:0;max-width:70ch}
-  .hero .back{display:inline-block;margin-top:14px;font-size:.82rem;color:#cfe0ff;text-decoration:none}
-  .hero .back:hover{color:#fff}
-  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-  .toc a{background:rgba(255,255,255,.14);color:#fff;text-decoration:none;border-radius:999px;padding:6px 13px;font-size:.82rem;border:1px solid rgba(255,255,255,.18)}
-  .toc a:hover{background:rgba(255,255,255,.26)}
-  main{padding:8px 20px 60px}
-  section{max-width:var(--maxw);margin:34px auto 0}
-  h2{font-size:1.25rem;color:var(--navy);margin:0 0 4px}
-  .sub{color:var(--muted);font-size:.9rem;margin:0 0 14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
-  .m{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 17px;box-shadow:0 1px 2px rgba(20,30,60,.04);display:flex;flex-direction:column}
-  .m .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-  .m .name{font-weight:700;color:var(--navy);font-size:1.02rem}
-  .m .yr{font-size:.78rem;color:var(--muted);white-space:nowrap}
+  .hero .sub{font-size:1.02rem;opacity:.92;margin:0}
+  .hero .back{display:inline-block;margin-top:14px;font-size:.82rem;color:#cfe0ff;text-decoration:none}.hero .back:hover{color:#fff}
+  main{padding:8px 20px 60px}section{max-width:var(--maxw);margin:26px auto 0}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 15px}
+  .fact .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+  .fact .v{font-size:1rem;color:var(--navy);font-weight:700;margin-top:3px}
+  h2{font-size:1.1rem;color:var(--navy);margin:24px 0 6px}
+  p{margin:0 0 12px}
+  .cta{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;border-radius:9px;padding:11px 18px;font-weight:700;font-size:.92rem;margin:4px 8px 4px 0}
+  .cta:hover{background:var(--navy2)}
+  .cta.alt{background:#fff;color:var(--navy);border:1px solid var(--navy2)}
+  .flag{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 15px;font-size:.9rem;color:var(--muted);margin-top:14px}
+  footer{max-width:var(--maxw);margin:40px auto 0;padding:18px 20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+
+  section{max-width:1040px;margin:30px auto 0}.wrap,main section{}
+  h2{font-size:1.25rem;border-bottom:2px solid var(--line);padding-bottom:6px}.subh{color:var(--muted);font-size:.9rem;margin:-2px 0 12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .m{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;box-shadow:0 1px 2px rgba(20,30,60,.04);transition:.15s}
+  .m:hover{border-color:var(--navy2);box-shadow:0 5px 16px rgba(20,30,60,.09);transform:translateY(-1px)}
+  .m .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.m .name{font-weight:700;color:var(--navy);font-size:1.02rem}.m .yr{font-size:.76rem;color:var(--muted);white-space:nowrap}
   .m .pill{display:inline-block;background:#eef2f8;color:var(--navy);border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:700;margin:6px 0}
-  .m .rate{font-size:.86rem;margin:2px 0}
-  .m .purpose{font-size:.86rem;color:var(--ink);margin:3px 0 6px}
-  .m .meta{font-size:.78rem;color:var(--muted);margin-top:auto}
-  .m .flag{font-size:.78rem;color:var(--accent);margin-top:6px}
-  .m .links{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.82rem;font-weight:600}
-  .ok{color:var(--good)}
-  .note{font-size:.85rem;color:var(--muted);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--navy2);border-radius:8px;padding:12px 15px;margin-top:14px}
-  footer{max-width:var(--maxw);margin:46px auto 0;padding:20px 20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
-  @media(max-width:640px){.hero h1{font-size:1.55rem}}
-</style>
-</head>
-<body>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="kicker">Berkeley Transparency Hub · BeTH</div>
-    <h1>Berkeley's Tax Measures</h1>
-    <p class="tag">The voter-approved taxes and bonds currently funding the City — what each does, and a link to the actual election item that passed. Special taxes and bonds needed a two-thirds vote; general taxes a simple majority.</p>
-    <div class="toc">
-      <a href="#parcel">Parcel taxes</a>
-      <a href="#bonds">Bonds</a>
-      <a href="#general">General taxes</a>
-      <a href="#other">Other</a>
-    </div>
-    <a class="back" href="berkeley-budget-basics.html">&larr; Back to Budget Basics</a>
-  </div>
-</header>
-
-<main>
-
-<section id="parcel">
-  <h2>Special parcel taxes</h2>
-  <p class="sub">Per-square-foot taxes on building improvements, dedicated to a purpose. Required a two-thirds vote.</p>
-  <div class="grid">
-
-    <div class="m">
-      <div class="top"><span class="name">Measure GG</span><span class="yr">Nov 2008</span></div>
-      <span class="pill">Fire / disaster &amp; EMS</span>
-      <div class="rate">$0.04083/sq ft (dwellings), $0.06179/sq ft (other); escalates yearly.</div>
-      <div class="purpose">Keeps fire stations staffed, paramedic first response, CERT disaster prep, emergency radio.</div>
-      <div class="meta">Passed 71.7% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/City_of_Berkeley_parcel_tax,_Measure_GG_(November_2008)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure FF</span><span class="yr">Nov 2020</span></div>
-      <span class="pill">Emergency response</span>
-      <div class="rate">$0.1047/sq ft of improvements; escalates. ~$8.5M/yr.</div>
-      <div class="purpose">Firefighting, EMS, 9-1-1, wildfire prevention &amp; preparedness.</div>
-      <div class="meta">Passed 74.2% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_FF,_Emergency_Response_and_Preparedness_Parcel_Tax_(November_2020)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-ff">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure FF</span><span class="yr">Nov 2024</span></div>
-      <span class="pill">Streets &amp; sidewalks</span>
-      <div class="rate">$0.17/sq ft (dwellings), $0.25/sq ft (other). ~$15M/yr for 14 yrs (~$267M).</div>
-      <div class="purpose">Street/sidewalk/path repair (60%), traffic safety (30%), green infrastructure (10%). Funds begin FY2026.</div>
-      <div class="meta">Passed 60.9% (citizen initiative, majority) · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_FF,_Sidewalk_and_Street_Repairs_Parcel_Tax_Measure_(November_2024)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-ff-sidewalk-and-street-repairs-parcel">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure X</span><span class="yr">Nov 2024</span></div>
-      <span class="pill">Library</span>
-      <div class="rate">Adds 6¢/sq ft (residential), up to 9¢ (non-res) to the Library Services Tax. ~$5.6M/yr.</div>
-      <div class="purpose">Berkeley Public Library operations (~99.8% of its operating cost). The library tax dates to the 1980 Library Relief Act.</div>
-      <div class="meta">Passed 78.6% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_X,_Library_Maintenance_Parcel_Tax_Measure_(November_2024)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure Y</span><span class="yr">Nov 2024</span></div>
-      <span class="pill">Parks &amp; trees</span>
-      <div class="rate">Parks tax raised to $0.2652/sq ft of improvements. ~$22M/yr total.</div>
-      <div class="purpose">Maintenance &amp; staffing of 58 parks, street landscaping, all City trees. (Predecessor: Measure F, 2014.)</div>
-      <div class="meta">Passed 75.2% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_Y,_Park_Maintenance_Parcel_Tax_Measure_(November_2024)">Election result &rarr;</a> <a href="https://ballotpedia.org/City_of_Berkeley_Special_Parks_Parcel_Tax,_Measure_F_(November_2014)">Measure F (2014)</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Paramedic / EMS tax</span><span class="yr">~1997</span></div>
-      <span class="pill">Emergency medical</span>
-      <div class="rate">Up to $0.0329/sq ft of improvements.</div>
-      <div class="purpose">City emergency medical / paramedic services (distinct from Measure GG).</div>
-      <div class="meta">Operative</div>
-      <div class="flag">No certified election-results page found for the original ballot letter; documented via Municipal Code Ch. 7.90.</div>
-      <div class="links"><a href="https://berkeley.municipal.codes/BMC/7.90.020">Municipal Code &rarr;</a></div>
-    </div>
-
-  </div>
-</section>
-
-<section id="bonds">
-  <h2>General obligation bonds</h2>
-  <p class="sub">Borrowing for capital projects, repaid by a property tax on assessed value. Required a two-thirds vote.</p>
-  <div class="grid">
-
-    <div class="m">
-      <div class="top"><span class="name">Measure M</span><span class="yr">Nov 2012</span></div>
-      <span class="pill">Streets &amp; watershed bond</span>
-      <div class="rate">Up to $30M; debt-service tax over ~30 yrs.</div>
-      <div class="purpose">Street repair + green infrastructure (rain gardens, bioswales) to cut flooding and protect the Bay.</div>
-      <div class="meta">Passed 73.3% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley_Streets_and_Watershed_bond_proposition,_Measure_M_(November_2012)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-m">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure T1</span><span class="yr">Nov 2016</span></div>
-      <span class="pill">Infrastructure bond</span>
-      <div class="rate">Up to $100M; ~$21 per $100k assessed value (avg).</div>
-      <div class="purpose">Repair aging infrastructure &amp; facilities — sidewalks, storm drains, parks, streets, senior/rec centers, City buildings.</div>
-      <div class="meta">Passed 86.6% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Bond_Issue,_Measure_T1_(November_2016)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-t1">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure O</span><span class="yr">Nov 2018</span></div>
-      <span class="pill">Affordable housing bond</span>
-      <div class="rate">Up to $135M; ~$23 per $100k assessed value (avg).</div>
-      <div class="purpose">Acquire, build, rehab &amp; preserve affordable housing for low- to middle-income households.</div>
-      <div class="meta">Passed 77.5% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_O,_Housing_Bonds_(November_2018)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-o">City page</a></div>
-    </div>
-
-  </div>
-</section>
-
-<section id="general">
-  <h2>General taxes</h2>
-  <p class="sub">Revenue to the General Fund. Required a simple majority. (Council may direct the spending, but it isn't legally dedicated.)</p>
-  <div class="grid">
-
-    <div class="m">
-      <div class="top"><span class="name">Measure S</span><span class="yr">Nov 2010</span></div>
-      <span class="pill">Cannabis tax</span>
-      <div class="rate">Authorizes up to 10% gross receipts; Council sets the actual rate (cut to ~5% in 2018).</div>
-      <div class="purpose">General Fund.</div>
-      <div class="meta">Passed 83.0% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley_Tax_on_Medical_and_Recreational_Marijuana,_Measure_S_(November_2010)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure D</span><span class="yr">Nov 2014</span></div>
-      <span class="pill">Soda tax</span>
-      <div class="rate">1¢ per fluid ounce on distributors of sugar-sweetened beverages — first in the U.S.</div>
-      <div class="purpose">General Fund (a citizen panel advises on health uses).</div>
-      <div class="meta">Passed ~76% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/City_of_Berkeley_Sugary_Beverages_and_Soda_Tax_Question,_Measure_D_(November_2014)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure U1</span><span class="yr">Nov 2016</span></div>
-      <span class="pill">Business license tax</span>
-      <div class="rate">Gross-receipts tax on owners of 5+ rental units raised to 2.880% (sitting tenants exempt). ~$3–4M/yr.</div>
-      <div class="purpose">General Fund — Council directs toward affordable housing / anti-homelessness.</div>
-      <div class="meta">Passed 74.9% · operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Business_License_Tax,_Measure_U1_(November_2016)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure P</span><span class="yr">Nov 2018</span></div>
-      <span class="pill">Transfer tax</span>
-      <div class="rate">Transfer tax raised to 2.5% on sales over ~$1.5M.</div>
-      <div class="purpose">General Fund — directed to homeless services.</div>
-      <div class="meta">Passed ~72% · operative (rate now collected; superseded by Measure W in 2027)</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_P,_Real_Property_Transfer_Tax_Increase_(November_2018)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-p-w">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure W</span><span class="yr">Nov 2024</span></div>
-      <span class="pill">Transfer tax</span>
-      <div class="rate">Tiered: 2.5% / 3.0% / 3.5% on higher-value sales. Removes Measure P's 2029 sunset (makes it permanent).</div>
-      <div class="purpose">Homeless services. Takes effect Jan 1, 2027.</div>
-      <div class="meta">Passed 60.9% · takes effect 2027</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_W,_Real_Property_Transfer_Tax_Rates_Measure_(November_2024)">Election result &rarr;</a> <a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/measure-p-w">City page</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Measure M</span><span class="yr">Nov 2022</span></div>
-      <span class="pill">Empty-homes (vacancy) tax</span>
-      <div class="rate">$3,000–$12,000/yr on units vacant &gt;182 days. Effective 2024.</div>
-      <div class="purpose">General Fund / housing.</div>
-      <div class="meta">Passed 64.9%</div>
-      <div class="flag">Under legal challenge — a comparable San Francisco vacancy tax was struck down on appeal. Currently levied; durability uncertain.</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_M,_Vacant_Residential_Property_Tax_Measure_(November_2022)">Election result &rarr;</a></div>
-    </div>
-
-  </div>
-</section>
-
-<section id="other">
-  <h2>Other &amp; context</h2>
-  <p class="sub">A spending authorization, taxes the Council sets without a measure, and the regional/school taxes that are <em>not</em> City of Berkeley taxes.</p>
-  <div class="grid">
-
-    <div class="m">
-      <div class="top"><span class="name">Measure AA</span><span class="yr">Nov 2024</span></div>
-      <span class="pill">Spending authorization (not a tax)</span>
-      <div class="rate">Raises no taxes.</div>
-      <div class="purpose">Lets the City <em>spend</em> existing special-tax revenue above the state "Gann" appropriations limit (FY2026–FY2029). Must be renewed every 4 years.</div>
-      <div class="meta">Operative</div>
-      <div class="links"><a href="https://ballotpedia.org/Berkeley,_California,_Measure_AA,_Expenditure_of_Tax_Revenue_and_Investment_Income_Measure_(November_2024)">Election result &rarr;</a></div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Council-set taxes</span><span class="yr">ongoing</span></div>
-      <span class="pill">No ballot measure</span>
-      <div class="purpose"><strong>Utility Users Tax</strong> (7.5%; a 2020 increase, Measure HH, <em>failed</em>), <strong>Hotel/Transient Occupancy Tax</strong> (12%), and the <strong>base Business License Tax</strong> are set by Council ordinance, not by a voter measure.</div>
-      <div class="meta">Operative · council-set</div>
-    </div>
-
-    <div class="m">
-      <div class="top"><span class="name">Not City taxes</span><span class="yr">&mdash;</span></div>
-      <span class="pill">Regional &amp; school</span>
-      <div class="purpose">Berkeley property owners also pay <strong>school-district</strong> taxes (BSEP/Measure H, school bonds) and <strong>regional</strong> taxes (EBRPD Measure WW, AC Transit, BART Measure RR, county Measures B/BB). These are <em>not</em> City of Berkeley measures.</div>
-    </div>
-
-  </div>
-  <div class="note">Recent measures that did <strong>not</strong> pass (and are not collected): Measure GG 2024 (gas/emissions tax), Measure HH 2020 (utility-tax increase), and Measure EE 2024 (the competing street-repair tax). The only operative "GG" is the 2008 fire tax above.</div>
-</section>
-
-<footer>
-  Berkeley Transparency Hub (BeTH) · Tax measures · Updated June 18, 2026. "Election result" links go to Ballotpedia's official measure pages or the City's measure pages. Independent, unofficial reference. A few items (the 1980s library origin, the 1997 paramedic letter) lack a certified online election page and are sourced to the Municipal Code. Verify current rates against the City's tax pages, since several escalate annually.
-</footer>
-
-</main>
-</body>
-</html>
+  .m .purpose{font-size:.88rem;margin:2px 0 6px}.m .meta{font-size:.78rem;color:var(--muted)}.m .more{margin-top:8px;font-size:.8rem;font-weight:700;color:var(--navy2)}
+  .flag{font-size:.76rem;margin-top:6px}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="kicker">Berkeley Transparency Hub · BeTH</div>
+<h1>Berkeley's Tax Measures</h1>
+<p class="sub">The voter-approved taxes and bonds funding the City. Open any measure for the details and a link to the actual election item that passed.</p>
+<a class="back" href="berkeley-budget-basics.html">&larr; Back to Budget Basics</a></div></header>
+<main><section><h2>Special parcel taxes</h2><p class="subh">Per-square-foot taxes dedicated to a purpose. Two-thirds vote.</p><div class="grid"><a class="m" href="measure-gg-2008.html">
+<div class="top"><span class="name">Measure GG</span><span class="yr">November 2008</span></div>
+<span class="pill">Special parcel tax</span>
+<div class="purpose">A parcel tax for fire, paramedic and disaster services.</div>
+<div class="meta">Passed 71.7% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-ff-2020.html">
+<div class="top"><span class="name">Measure FF</span><span class="yr">November 2020</span></div>
+<span class="pill">Special parcel tax</span>
+<div class="purpose">A parcel tax for emergency response and wildfire preparedness.</div>
+<div class="meta">Passed 74.2% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-ff-2024.html">
+<div class="top"><span class="name">Measure FF</span><span class="yr">November 2024</span></div>
+<span class="pill">Special parcel tax (citizen initiative)</span>
+<div class="purpose">A parcel tax to repair streets and sidewalks.</div>
+<div class="meta">Passed 60.9% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-x-2024.html">
+<div class="top"><span class="name">Measure X</span><span class="yr">November 2024</span></div>
+<span class="pill">Special parcel tax</span>
+<div class="purpose">A parcel tax increase for the public library.</div>
+<div class="meta">Passed 78.6% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-y-2024.html">
+<div class="top"><span class="name">Measure Y</span><span class="yr">November 2024</span></div>
+<span class="pill">Special parcel tax</span>
+<div class="purpose">A parcel tax increase for parks, trees and landscaping.</div>
+<div class="meta">Passed 75.2% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-paramedic-ems.html">
+<div class="top"><span class="name">Paramedic / EMS Tax</span><span class="yr">1997</span></div>
+<span class="pill">Special parcel tax</span>
+<div class="purpose">A parcel tax for emergency medical and paramedic services.</div>
+<div class="meta">Passed — · Operative</div><div class="flag">No certified online election-results page was found for the original ballot letter; this measure is documented via the Berkeley Municipal Code rather than a certified election record.</div>
+<div class="more">Open this measure &rarr;</div></a></div></section><section><h2>General obligation bonds</h2><p class="subh">Borrowing for capital, repaid by a property tax. Two-thirds vote.</p><div class="grid"><a class="m" href="measure-m-2012.html">
+<div class="top"><span class="name">Measure M</span><span class="yr">November 2012</span></div>
+<span class="pill">General obligation bond</span>
+<div class="purpose">A bond for streets and green stormwater infrastructure.</div>
+<div class="meta">Passed 73.3% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-t1-2016.html">
+<div class="top"><span class="name">Measure T1</span><span class="yr">November 2016</span></div>
+<span class="pill">General obligation bond</span>
+<div class="purpose">A bond to repair aging infrastructure and facilities.</div>
+<div class="meta">Passed 86.6% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-o-2018.html">
+<div class="top"><span class="name">Measure O</span><span class="yr">November 2018</span></div>
+<span class="pill">General obligation bond</span>
+<div class="purpose">A bond for affordable housing.</div>
+<div class="meta">Passed 77.5% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a></div></section><section><h2>General taxes</h2><p class="subh">Revenue to the General Fund. Simple-majority vote.</p><div class="grid"><a class="m" href="measure-s-2010.html">
+<div class="top"><span class="name">Measure S</span><span class="yr">November 2010</span></div>
+<span class="pill">General tax (cannabis)</span>
+<div class="purpose">A business tax on cannabis.</div>
+<div class="meta">Passed 83.0% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-d-2014.html">
+<div class="top"><span class="name">Measure D</span><span class="yr">November 2014</span></div>
+<span class="pill">General tax (soda)</span>
+<div class="purpose">The nation&#x27;s first soda tax.</div>
+<div class="meta">Passed ~76% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-u1-2016.html">
+<div class="top"><span class="name">Measure U1</span><span class="yr">November 2016</span></div>
+<span class="pill">General tax (business license)</span>
+<div class="purpose">A business-license tax on large rental properties.</div>
+<div class="meta">Passed 74.9% · Operative</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-p-2018.html">
+<div class="top"><span class="name">Measure P</span><span class="yr">November 2018</span></div>
+<span class="pill">General tax (transfer tax)</span>
+<div class="purpose">A real-property transfer tax increase for homeless services.</div>
+<div class="meta">Passed ~72% · Operative (until 2027)</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-w-2024.html">
+<div class="top"><span class="name">Measure W</span><span class="yr">November 2024</span></div>
+<span class="pill">General tax (transfer tax)</span>
+<div class="purpose">A tiered transfer-tax update that makes the homeless-services tax permanent.</div>
+<div class="meta">Passed 60.9% · Takes effect Jan 2027</div>
+<div class="more">Open this measure &rarr;</div></a><a class="m" href="measure-m-2022.html">
+<div class="top"><span class="name">Measure M</span><span class="yr">November 2022</span></div>
+<span class="pill">General tax (vacancy)</span>
+<div class="purpose">An empty-homes tax on long-vacant residential units.</div>
+<div class="meta">Passed 64.9% · Levied; contested</div><div class="flag">Under legal challenge — a comparable San Francisco empty-homes tax was struck down on appeal. The tax is currently levied, but its durability is uncertain. Not to be confused with the 2012 Measure M (streets/watershed bond).</div>
+<div class="more">Open this measure &rarr;</div></a></div></section><section><h2>Other</h2><p class="subh">A spending authorization, plus context.</p><div class="grid"><a class="m" href="measure-aa-2024.html">
+<div class="top"><span class="name">Measure AA</span><span class="yr">November 2024</span></div>
+<span class="pill">Spending authorization (not a tax)</span>
+<div class="purpose">A spending authorization — it raises no taxes.</div>
+<div class="meta">Passed Passed · Operative</div>
+<div class="more">Open this measure &rarr;</div></a></div></section>
+<section><div class="flag" style="border-left-color:var(--navy2)">Recent measures that did <strong>not</strong> pass (and are not collected): Measure GG 2024 (gas/emissions tax), Measure HH 2020 (utility-tax increase), and Measure EE 2024 (the competing street tax). Council-set taxes with no ballot measure include the Utility Users Tax (7.5%), the hotel tax (12%), and the base Business License Tax. School-district and regional taxes (BUSD, EBRPD Measure WW, AC Transit, BART, county Measures B/BB) are not City of Berkeley measures.</div></section>
+<footer>Berkeley Transparency Hub (BeTH) · Tax measures · Updated June 2026 · Independent, unofficial reference. Several rates escalate annually — verify current figures on the City's tax pages.</footer>
+</main></body></html>
