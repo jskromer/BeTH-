@@ -1157,8 +1157,11 @@ export default function App() {
         CalPERS Actuarial Valuations (June 30, 2021); Foster & Foster Pension &amp; OPEB Funding Study (Feb 2023); 
         City of Berkeley FY2024 Revenue Narratives; Daily Californian (Mar 2026); Berkeleyside; CalPERS Circular Letters.
         <div style={{ marginTop: 8, color: "#bbb" }}>
-          Compiled by <strong>Berkeley Transparency Hub</strong> · Data as of Spring 2026 · 
+          Compiled by <strong>Berkeley Transparency Hub</strong> · Data as of Spring 2026 ·
           This is a civic transparency resource, not legal or financial advice.
+        </div>
+        <div style={{ marginTop: 8 }}>
+          See also the neutral data hub: <a href="https://be-th-kappa.vercel.app/BeTH/berkeley-budget-basics.html" target="_blank" rel="noopener" style={{ color: "#93b8e8" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
         </div>
       </footer>
     </div>
