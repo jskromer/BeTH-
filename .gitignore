@@ -140,3 +140,8 @@ dist
 .~lock*#
 ~$*
 T1/
+
+# Unrelated / sensitive — never commit or publish
+NJ PY6 TRM*
+Berkeley_Efficiency_Bargaining_Strategy.docx
+*.rtfd/

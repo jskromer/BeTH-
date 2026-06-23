@@ -115,6 +115,7 @@ const TABS = [
   { key: "mayor",     label: "MAYOR'S BUDGET", href: "/mayors-budget.html" },
   { key: "reform",    label: "THE FIX",      href: "/rational-budgeting-process.html" },
   { key: "messaging", label: "MESSAGING",    href: "/two-messages.html" },
+  { key: "beth",      label: "BETH DATA HUB ↗", href: "https://berkeley-budgets.vercel.app/", external: true },
 ];
 
 function ShellGameSection() {
@@ -1037,6 +1038,9 @@ export default function App() {
               $33M structural deficit · closeable through internal reform · audit findings unresolved
             </div>
           </div>
+          <div style={{ marginTop: 14, fontSize: 12, color: "#888", fontFamily: "'JetBrains Mono', monospace" }}>
+            Prefer the neutral, non-advocacy data? See the <a href="https://berkeley-budgets.vercel.app/" target="_blank" rel="noopener" style={{ color: "#93b8e8", fontWeight: 700 }}>Berkeley Transparency Hub &#8599;</a>
+          </div>
         </div>
       </header>
 
@@ -1090,7 +1094,7 @@ export default function App() {
               {linkTabs.map((t) => (
                 <button
                   key={t.key}
-                  onClick={() => { window.location.href = t.href; }}
+                  onClick={() => { if (t.external) { window.open(t.href, "_blank", "noopener"); } else { window.location.href = t.href; } }}
                   style={{
                     display: "block", width: "100%", textAlign: "left",
                     padding: "12px 16px", border: "none", cursor: "pointer",
@@ -1161,7 +1165,7 @@ export default function App() {
           This is a civic transparency resource, not legal or financial advice.
         </div>
         <div style={{ marginTop: 8 }}>
-          See also the neutral data hub: <a href="https://be-th-kappa.vercel.app/BeTH/berkeley-budget-basics.html" target="_blank" rel="noopener" style={{ color: "#93b8e8" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
+          See also the neutral data hub: <a href="https://berkeley-budgets.vercel.app/" target="_blank" rel="noopener" style={{ color: "#93b8e8" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
         </div>
       </footer>
     </div>
