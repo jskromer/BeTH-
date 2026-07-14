@@ -7,6 +7,7 @@
 | beth-budget-audit | `artifacts/beth-budget-audit.html` | Analytical scoreboard: FY27/28 budget × audit follow-through by department |
 | beth-budget-fiction | `artifacts/beth-budget-fiction.html` | Public-facing op-ed edition ("the budget is a fiction") |
 | beth-two-problems | `artifacts/beth-two-problems.html` | Measured coalition edition (transparency + accountability, Auditor as ally) |
+| beth-plans-synthesis | `artifacts/beth-plans-synthesis.html` | 27 adopted plans vs. 2018 Strategic Plan goals: currency flags, coverage gaps, FY27–28 fiscal context. Public copy: `docs/berkeley-plans-synthesis.html` |
 
 Live versions remain in the Cowork sidebar; these are static archives.
 
