@@ -1,0 +1,157 @@
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "BeTH Fund Map",
+  "schemaVersion": 1,
+  "description": "Berkeley Transparency Hub — connecting the budget to the ~110 individual funds Berkeley maintains. Audited FY2025 ACFR: the department view vs. the fund view, the full fund taxonomy, where the $621.9M in governmental fund balances sits, and why big balances and a structural deficit coexist."
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeTH — The Fund Map: Connecting the Budget to Berkeley's ~110 Funds</title>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
+  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --grey:#8b95a3; --accent:#15543f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
+h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
+.sub { color:var(--mut); margin:0 0 4px; }
+.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
+h2 { font-size:18px; margin:32px 0 6px; letter-spacing:-.01em; }
+h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
+h3 { font-size:14.5px; margin:18px 0 6px; }
+.lead { color:var(--mut); margin:0 0 14px; max-width:800px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:14px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.kpi .v { font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--accent); }
+.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
+.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; white-space:nowrap; }
+.c-High { background:#e7f1ec; color:#15543f; } .c-Moderate { background:#fff5d6; color:#8a6300; }
+a { color:var(--accent); }
+.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
+.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--mut); font-weight:600; font-size:12px; white-space:nowrap; }
+.num2 { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:760px){ .twocol { grid-template-columns:1fr; } }
+.view { border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:var(--card); }
+.view h3 { margin-top:0; color:var(--accent); }
+.stack { display:flex; height:34px; border-radius:6px; overflow:hidden; margin:10px 0 6px; }
+.stack div { height:100%; }
+.sk { display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--mut); }
+.sk span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+.tree { font-size:13.5px; line-height:1.65; }
+.tree .cat { font-weight:700; color:var(--accent); margin-top:10px; }
+.tree .sub2 { margin-left:18px; }
+.tree .cnt { color:var(--mut); font-weight:400; }
+.ex { background:#eef3fb; border:1px solid #cfdcf0; border-radius:10px; padding:12px 14px; font-size:13px; color:#2b3f63; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The Fund Map: Connecting the Budget to Berkeley's ~110 Funds</h1>
+  <p class="sub">The budget shows 18 departments. The audit shows the same money scattered across roughly 110 legally separate pots. This page connects the two views.</p>
+  <span class="tag">Berkeley Transparency Hub · neutral tracker · residents decide</span>
+
+  <div class="disc"><b>Why this matters:</b> almost every confusing thing about Berkeley's finances — how a city with $621.9M in fund balances can run a ~$29M deficit, why voter-approved measure money "can't just fix the streets budget," why nobody can quote one number for what homelessness costs — traces back to the fund structure. The budget is written by <i>department</i>; the money legally lives in <i>funds</i>; and most funds are walled off by law or ballot language.</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">~110</div><div class="l">individual funds maintained (FY2025 ACFR; count Moderate, categories High)</div></div>
+    <div class="kpi"><div class="v">$621.9M</div><div class="l">total governmental fund balances, June 30, 2025</div></div>
+    <div class="kpi"><div class="v">65%</div><div class="l">of those balances legally restricted ($406.4M)</div></div>
+    <div class="kpi"><div class="v">$22.2M</div><div class="l">unassigned — the only citywide "free" money, less than one year of the deficit</div></div>
+  </div>
+
+  <h2><span class="n">A</span>Two views of the same money</h2>
+  <div class="twocol">
+    <div class="view">
+      <h3>The budget view — by department</h3>
+      <p style="font-size:13.5px; margin:0 0 8px;">The FY2027 adopted budget appropriates <b>$905M</b> (all funds) across <b>18 departments</b>. Six of them — Public Works, HHCS, Police, Non-Departmental, Fire, Parks — carry 81% of it. This is the view Council votes on and the public debates.</p>
+      <p style="font-size:12.5px; color:var(--mut); margin:0;">See: <a href="https://kromerforberkeley.org/budget.html">department breakdown</a> · <a href="berkeley-budget-basics.html">Budget Basics</a></p>
+    </div>
+    <div class="view">
+      <h3>The audit view — by fund</h3>
+      <p style="font-size:13.5px; margin:0 0 8px;">The ACFR reports the same dollars by <b>fund</b>: 5 major governmental funds, ~86 nonmajor governmental funds, 8 enterprise funds, 8 internal service funds, and fiduciary trusts. Each fund is a separate legal pot with its own revenue source and spending rules. This is the view that determines what's actually possible.</p>
+      <p style="font-size:12.5px; color:var(--mut); margin:0;">A department spends from many funds; a fund can feed many departments. The crosswalk between them is the map below.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">B</span>The full fund taxonomy</h2>
+  <p class="lead">Every category below is a legal wall. Money inside stays inside unless the law, the ballot measure, or the grant agreement says otherwise.</p>
+  <div class="card tree">
+    <div class="cat">Governmental funds — $621.9M in balances</div>
+    <div class="sub2"><b>Major funds (5):</b> General Fund ($154.9M balance — the only discretionary pot) · Grants Fund ($70.4M) · Library ($25.1M) · Capital Improvement ($23.8M) · Measure O Housing Bond ($81.3M)</div>
+    <div class="sub2"><b>Special revenue funds <span class="cnt">(~61)</span>:</b> every earmarked tax and fee gets its own fund — Park Tax, Measure FF Public Safety, Measure GG Fire, Paramedic Assessment, Street Lighting, CDBG, State Gas Tax, three separate Measure B funds and three separate Measure BB funds (county rules require it), Affordable Housing Mitigation Fee, Fair Elections (public campaign financing), Health/Mental Health State Realignment, down to an Animal Shelter donations fund and a "Legacy fund" that exists to hold the balances of dead funds.</div>
+    <div class="sub2"><b>Capital project funds <span class="cnt">(~12)</span>:</b> Measure T1, Measure M streets/watershed, Measure G, phone-system and software replacement reserves, Park Acquisition…</div>
+    <div class="sub2"><b>Debt service funds <span class="cnt">(~13)</span>:</b> one per bond issue — T1, Measure M, Measure O, pension refunding, 2025 Lease Revenue Notes (fire building)…</div>
+    <div class="cat">Proprietary funds — run like businesses</div>
+    <div class="sub2"><b>Enterprise funds (8):</b> Zero Waste, Marina, Sanitary Sewer, Clean Storm Water, Permit Service Center, Off-Street Parking, Parking Meter, Building Purchases &amp; Management. Funded by $132.3M/yr in customer charges, not taxes. This is why your refuse rate and your sewer fee can rise while the General Fund still has a deficit — separate economies.</div>
+    <div class="sub2"><b>Internal service funds (8):</b> equipment replacement, building maintenance, central services, computer replacement, workers' comp, sick leave/vacation payout, public liability, catastrophic loss. City departments "buy" from these — their transfers are why naive fund-by-fund addition double-counts.</div>
+    <div class="cat">Fiduciary funds — not the City's money</div>
+    <div class="sub2">Safety Members Pension Trust, OPEB (retiree health) trusts, custodial funds. Held for others; excluded from the government-wide statements entirely.</div>
+  </div>
+
+  <h2><span class="n">C</span>Where the $621.9M actually sits</h2>
+  <p class="lead">Fund balances sound like savings. Most are spoken for. The classification below is the auditor's, not BeTH's.</p>
+  <div class="card">
+    <div class="stack">
+      <div style="width:65.3%; background:#8f2c24;" title="Restricted $406.4M"></div>
+      <div style="width:24.5%; background:#b58900;" title="Committed $152.6M"></div>
+      <div style="width:6.2%; background:#3d6fd6;" title="Assigned $38.8M"></div>
+      <div style="width:0.3%; background:#8b95a3;" title="Nonspendable $1.9M"></div>
+      <div style="width:3.6%; background:#1f9d6b;" title="Unassigned $22.2M"></div>
+    </div>
+    <div class="sk">
+      <span style="--c:1"><span style="display:none"></span></span>
+    </div>
+    <table style="margin-top:8px;">
+      <tr><th>Classification</th><th class="num2">Amount</th><th>Meaning</th></tr>
+      <tr><td><span class="pill" style="background:#fdecea;color:#8f2c24;">Restricted — 65%</span></td><td class="num2">$406,437,918</td><td>Locked by external force: ballot measures, grant agreements, bond covenants, state law. Council cannot repurpose it.</td></tr>
+      <tr><td><span class="pill" style="background:#fff5d6;color:#8a6300;">Committed — 25%</span></td><td class="num2">$152,568,524</td><td>Locked by Council's own formal action (reserves policy, pension pre-funding). Reversible, but only by explicit vote — and reversing it is a one-time fix.</td></tr>
+      <tr><td><span class="pill" style="background:#eef3fb;color:#2b3f63;">Assigned — 6%</span></td><td class="num2">$38,781,285</td><td>Earmarked by management intent; softest lock.</td></tr>
+      <tr><td><span class="pill" style="background:#f0f0f3;color:#6a7280;">Nonspendable</span></td><td class="num2">$1,881,627</td><td>Not cash (prepaid items, long-term notes).</td></tr>
+      <tr><td><span class="pill" style="background:#e7f1ec;color:#15543f;">Unassigned — 3.6%</span></td><td class="num2">$22,245,650</td><td>The only genuinely free money citywide — General Fund unassigned $31.7M, minus small deficits in other funds. Less than one year of the ~$29M structural gap.</td></tr>
+    </table>
+    <p style="font-size:13px; color:var(--mut); margin:10px 0 0;">General Fund balance alone: $154.9M — but it decomposes to $42.2M restricted + $58.3M committed + $22.7M assigned + <b>$31.7M unassigned</b>. This reconciles Budget Basics' "truly free reserve ≈ $29.6M" to the audited statement.</p>
+  </div>
+
+  <h2><span class="n">D</span>How a dollar finds its way — four worked examples</h2>
+  <div class="card" style="overflow-x:auto;">
+  <table>
+    <tr><th>Revenue</th><th>→ Fund</th><th>→ Department (budget view)</th><th>→ What you see</th></tr>
+    <tr><td>Park Tax (voter-approved 1997/2000/2008)</td><td>Park Tax Fund (special revenue)</td><td>Parks, Recreation &amp; Waterfront</td><td>Park maintenance — and why parks money can't fill potholes</td></tr>
+    <tr><td>Alameda Co. Measure BB sales tax</td><td><i>Three</i> separate Measure BB funds (streets / bike-ped / paratransit — county agreement requires separation)</td><td>Public Works</td><td>Paving and bike lanes — earmarked before it arrives</td></tr>
+    <tr><td>Federal &amp; state grants</td><td>Grants Fund + CDBG Fund</td><td>Mostly HHCS</td><td>Health, housing, shelter services — see the <a href="berkeley-grant-flows.html">grant-flows infographic</a></td></tr>
+    <tr><td>Your refuse bill</td><td>Zero Waste enterprise fund</td><td>Public Works</td><td>Trash collection — a closed loop; rates must cover costs</td></tr>
+  </table>
+  </div>
+  <div class="ex"><b>The reverse lookup is the hard one.</b> "What does Berkeley spend on homelessness?" has no clean answer because the spending crosses HHCS, Public Works, Police, Fire, and the City Attorney <i>and</i> draws from the General Fund, Grants Fund, Measure P revenue, and Shelter Operations Fund simultaneously. The fund structure is why cross-cutting costs are unknowable from published statements — the measurement gap BeTH keeps returning to.</div>
+
+  <h2><span class="n">E</span>What the fund map explains</h2>
+  <div class="card">
+    <p><b>Why a deficit and big balances coexist.</b> The ~$29M gap lives in one fund (General); the $600M+ in balances lives mostly in others, behind legal walls. Neither fact contradicts the other — and quoting either alone misleads.</p>
+    <p><b>Why every fix goes to the ballot.</b> Council's discretionary lever is one fund out of ~110. Raising restricted money (parcel taxes, bonds) needs voters; moving restricted money is mostly illegal. Hence the November 2026 ballot: a sales tax (rare <i>general</i>-purpose revenue that lands in the GF) plus an infrastructure bond (which would create yet another fund).</p>
+    <p><b>Why oversight is hard by design.</b> Sixty-one special revenue funds each carry their own reporting, ballot-compliance, and audit trail — including a fund whose job is holding the remains of dead funds. Fund sprawl isn't malfeasance; it's accumulated ballot measures and grant conditions. But every added wall makes the whole harder to see, which is the transparency case in one sentence.</p>
+    <p style="margin-bottom:0;"><b>Why "just cut waste" and "just use reserves" both miss.</b> The committed $152.6M (reserves, pension pre-funding) can be tapped only by explicit Council reversal, once, with real future costs. The restricted $406M can't be tapped at all. The recurring gap needs recurring answers — in the one fund where recurring choices are made.</p>
+  </div>
+
+  <div class="foot">
+    <b>Confidence:</b> All dollar figures — High (audited FY2025 ACFR: governmental funds balance sheet, fund-balance classifications, fund descriptions pp. 178–182). Fund count ~110 — Moderate (hand-tallied from the ACFR's fund descriptions; the City does not publish a single authoritative count). FY2027 budget figures — High (adopted budget / budget-spine dataset).<br><br>
+    <b>Sources:</b> City of Berkeley FY2025 Annual Comprehensive Financial Report ·
+    FY2027–28 Adopted Biennial Budget ·
+    <a href="berkeley-budget-basics.html">BeTH: Budget Basics</a> ·
+    <a href="berkeley-grant-flows.html">BeTH: How Grant Money Flows</a> ·
+    <a href="berkeley-plans-synthesis.html">BeTH: Adopted Plans vs. Strategic Priorities</a>
+    <br><br>
+    Berkeley Transparency Hub. Maintained by Steve Kromer, candidate for Berkeley City Council District 1 — <a href="https://kromerforberkeley.org">kromerforberkeley.org</a>.
+  </div>
+
+</div>
+</body>
+</html>
