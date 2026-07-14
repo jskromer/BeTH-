@@ -1,0 +1,216 @@
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "BeTH Grant Flows",
+  "schemaVersion": 1,
+  "description": "Berkeley Transparency Hub — infographic on how state and federal grant money flows into (and around) Berkeley's finances. Audited FY2025 ACFR figures: $60.2M intergovernmental revenue, where it lands by fund, what services it buys, the $27.6M execution gap, and why none of it can close the General Fund deficit."
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeTH — How Grant Money Flows Through Berkeley</title>
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
+  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --grey:#8b95a3; --accent:#15543f;
+  --fed:#3d6fd6; --state:#b07d2b; --county:#7c5cbf; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
+h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
+.sub { color:var(--mut); margin:0 0 4px; }
+.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
+h2 { font-size:18px; margin:32px 0 6px; letter-spacing:-.01em; }
+h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
+.lead { color:var(--mut); margin:0 0 14px; max-width:780px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:14px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.kpi .v { font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--accent); }
+.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
+.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; white-space:nowrap; }
+.c-High { background:#e7f1ec; color:#15543f; } .c-Moderate { background:#fff5d6; color:#8a6300; } .c-Unknown { background:#f0f0f3; color:#6a7280; }
+a { color:var(--accent); }
+.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
+.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+.flow { width:100%; height:auto; display:block; }
+.legend { display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--mut); margin-top:8px; }
+.legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+.lg-fed::before { background:var(--fed); } .lg-state::before { background:var(--state); } .lg-county::before { background:var(--county); }
+.impacts { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; }
+.imp { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.imp b { color:var(--accent); }
+.imp .num { font-size:20px; font-weight:800; color:var(--mut); opacity:.5; float:right; }
+.bar { height:16px; border-radius:4px; background:var(--accent); margin:2px 0 8px; }
+.barlbl { font-size:12.5px; color:var(--mut); display:flex; justify-content:space-between; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--mut); font-weight:600; font-size:12px; white-space:nowrap; }
+.num2 { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How Grant Money Flows Through Berkeley</h1>
+  <p class="sub">State and federal dollars fund real services here — but they flow <i>around</i> the General Fund, not into it. Audited FY2025 figures.</p>
+  <span class="tag">Berkeley Transparency Hub · neutral tracker · residents decide</span>
+
+  <div class="disc"><b>The one-sentence version:</b> Berkeley received <b>$60.2M</b> in intergovernmental revenue in FY2025 — about 12.5&cent; of every governmental-fund dollar — but only <b>$0.6M</b> of it touched the General Fund. Grant money buys health, housing, and street projects; it cannot close the ~$29M structural deficit, and it is shrinking.</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">$60.2M</div><div class="l">Intergovernmental revenue, all governmental funds, FY2025 (12.5% of $480M total)</div></div>
+    <div class="kpi"><div class="v">$0.6M</div><div class="l">…of which reached the General Fund — 0.2% of GF revenue</div></div>
+    <div class="kpi"><div class="v">−$7.0M</div><div class="l">One-year drop in operating grants ($51.3M → $44.3M), led by ARPA sunset and CDBG decline</div></div>
+    <div class="kpi"><div class="v">$27.6M</div><div class="l">Budgeted Grants Fund spending that went unspent in FY2025 (38% of authority)</div></div>
+  </div>
+
+  <h2><span class="n">A</span>The flow — from Washington and Sacramento to Berkeley services</h2>
+  <p class="lead">Money enters through three doors, pools almost entirely in the walled-off <b>Grants Fund</b>, and exits as specific, restricted services. Band widths are proportional to FY2025 actuals.</p>
+  <div class="card">
+    <svg class="flow" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow of grant funds from federal, state, and county sources through Berkeley's funds to services">
+      <defs>
+        <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#aab2bf"/></marker>
+      </defs>
+      <!-- Column headers -->
+      <text x="105" y="24" font-size="13" font-weight="700" fill="#5a6473" text-anchor="middle">WHERE IT STARTS</text>
+      <text x="500" y="24" font-size="13" font-weight="700" fill="#5a6473" text-anchor="middle">WHERE IT LANDS (City funds)</text>
+      <text x="880" y="24" font-size="13" font-weight="700" fill="#5a6473" text-anchor="middle">WHAT IT BUYS (FY2025 actual)</text>
+
+      <!-- Sources -->
+      <g font-size="12.5">
+        <rect x="20" y="44" width="180" height="118" rx="10" fill="#eef3fb" stroke="#3d6fd6"/>
+        <text x="32" y="66" font-weight="700" fill="#2b4a8f">FEDERAL</text>
+        <text x="32" y="86" fill="#1a2030">• ARPA (winding down)</text>
+        <text x="32" y="104" fill="#1a2030">• CDBG / HOME (HUD)</text>
+        <text x="32" y="122" fill="#1a2030">• Byrne JAG (via county,</text>
+        <text x="40" y="138" fill="#1a2030">−10% admin skim)</text>
+        <text x="32" y="156" fill="#5a6473" font-size="11">Health &amp; housing programs</text>
+
+        <rect x="20" y="180" width="180" height="128" rx="10" fill="#fdf6e9" stroke="#b07d2b"/>
+        <text x="32" y="202" font-weight="700" fill="#8a5f1a">STATE OF CALIFORNIA</text>
+        <text x="32" y="222" fill="#1a2030">• Gas Tax / SB1 (streets)</text>
+        <text x="32" y="240" fill="#1a2030">• Transportation &amp; safety grants</text>
+        <text x="32" y="258" fill="#1a2030">• Health pass-throughs</text>
+        <text x="32" y="276" fill="#1a2030">• Capital: $7.7M enterprise-</text>
+        <text x="40" y="292" fill="#1a2030">fund grant (FY2025)</text>
+
+        <rect x="20" y="326" width="180" height="108" rx="10" fill="#f3effb" stroke="#7c5cbf"/>
+        <text x="32" y="348" font-weight="700" fill="#5b3fa0">ALAMEDA COUNTY</text>
+        <text x="32" y="368" fill="#1a2030">• Senior services &amp; meals</text>
+        <text x="40" y="384" fill="#1a2030">(~$437K/yr, FY27)</text>
+        <text x="32" y="402" fill="#1a2030">• Measure BB sales tax</text>
+        <text x="32" y="420" fill="#1a2030">• Health program grants</text>
+      </g>
+
+      <!-- Arrows sources -> funds -->
+      <path d="M200,103 C280,103 300,150 360,168" fill="none" stroke="#aab2bf" stroke-width="14" opacity=".55" marker-end="url(#arr)"/>
+      <path d="M200,244 C280,244 300,220 360,205" fill="none" stroke="#aab2bf" stroke-width="12" opacity=".55" marker-end="url(#arr)"/>
+      <path d="M200,380 C280,380 300,280 360,238" fill="none" stroke="#aab2bf" stroke-width="7" opacity=".55" marker-end="url(#arr)"/>
+
+      <!-- Funds -->
+      <g font-size="12.5">
+        <rect x="368" y="120" width="264" height="170" rx="10" fill="#e7f1ec" stroke="#15543f"/>
+        <text x="382" y="144" font-weight="700" fill="#15543f">GRANTS FUND — $55.3M</text>
+        <text x="382" y="163" fill="#1a2030">92% of all grant revenue pools here.</text>
+        <text x="382" y="181" fill="#1a2030">Legally restricted: each dollar is tied</text>
+        <text x="382" y="199" fill="#1a2030">to its program. Cannot be moved to</text>
+        <text x="382" y="217" fill="#1a2030">balance the budget.</text>
+        <text x="382" y="243" fill="#8f2c24" font-weight="600">$27.6M of $72.8M budgeted</text>
+        <text x="382" y="261" fill="#8f2c24" font-weight="600">spending went unspent (38%)</text>
+
+        <rect x="368" y="306" width="264" height="58" rx="10" fill="#ffffff" stroke="#e4e8ee"/>
+        <text x="382" y="330" font-weight="700" fill="#5a6473">OTHER SPECIAL FUNDS — $4.3M</text>
+        <text x="382" y="348" fill="#5a6473">Library $0.19M · other governmental $4.1M</text>
+
+        <rect x="368" y="380" width="264" height="72" rx="10" fill="#ffffff" stroke="#e4e8ee"/>
+        <text x="382" y="404" font-weight="700" fill="#5a6473">GENERAL FUND — $0.64M</text>
+        <text x="382" y="422" fill="#5a6473">0.2% of the GF's $285.8M revenue.</text>
+        <text x="382" y="440" fill="#5a6473">The deficit lives here; grants don't.</text>
+      </g>
+
+      <!-- Arrows funds -> uses (proportional) -->
+      <path d="M632,160 C700,160 710,120 760,96"  fill="none" stroke="#aab2bf" stroke-width="22" opacity=".55" marker-end="url(#arr)"/>
+      <path d="M632,205 C700,205 710,190 760,176" fill="none" stroke="#aab2bf" stroke-width="15" opacity=".55" marker-end="url(#arr)"/>
+      <path d="M632,245 C700,245 710,248 760,250" fill="none" stroke="#aab2bf" stroke-width="6"  opacity=".55" marker-end="url(#arr)"/>
+      <path d="M632,270 C700,270 710,306 760,314" fill="none" stroke="#aab2bf" stroke-width="4"  opacity=".55" marker-end="url(#arr)"/>
+      <path d="M632,282 C700,282 710,362 760,372" fill="none" stroke="#aab2bf" stroke-width="4"  opacity=".55" marker-end="url(#arr)"/>
+
+      <!-- Uses -->
+      <g font-size="12.5">
+        <rect x="768" y="64" width="212" height="62" rx="10" fill="#e7f1ec" stroke="#cfe3d9"/>
+        <text x="780" y="88" font-weight="700" fill="#15543f">Health &amp; welfare</text>
+        <text x="780" y="108" fill="#1a2030">$23.4M — 52% of grant spend</text>
+
+        <rect x="768" y="142" width="212" height="62" rx="10" fill="#e7f1ec" stroke="#cfe3d9"/>
+        <text x="780" y="166" font-weight="700" fill="#15543f">Housing &amp; community dev.</text>
+        <text x="780" y="186" fill="#1a2030">$14.0M — 31%</text>
+
+        <rect x="768" y="220" width="212" height="56" rx="10" fill="#ffffff" stroke="#e4e8ee"/>
+        <text x="780" y="242" font-weight="700" fill="#5a6473">General government</text>
+        <text x="780" y="260" fill="#5a6473">$3.8M — 8%</text>
+
+        <rect x="768" y="290" width="212" height="52" rx="10" fill="#ffffff" stroke="#e4e8ee"/>
+        <text x="780" y="310" font-weight="700" fill="#5a6473">Public safety</text>
+        <text x="780" y="328" fill="#5a6473">$1.9M — 4%</text>
+
+        <rect x="768" y="354" width="212" height="66" rx="10" fill="#ffffff" stroke="#e4e8ee"/>
+        <text x="780" y="374" font-weight="700" fill="#5a6473">Streets · culture · econ dev</text>
+        <text x="780" y="392" fill="#5a6473">$1.0M · $1.0M · $0.07M</text>
+        <text x="780" y="410" fill="#5a6473">(5% combined)</text>
+      </g>
+
+      <!-- Footnote inside svg -->
+      <text x="20" y="480" font-size="12" fill="#5a6473">Chains matter: some "county" and "state" dollars started federal (e.g., Byrne JAG: $40,714 federal grant → Alameda Co. Sheriff keeps 10% admin → Berkeley PD nets $36,643).</text>
+      <text x="20" y="500" font-size="12" fill="#5a6473">Fund amounts: FY2025 ACFR governmental-funds statement. Service split: Grants Fund actual expenditures, budgetary basis.</text>
+      <text x="20" y="530" font-size="12" fill="#8b95a3">The federal-vs-state split of the $60.2M is published only in the separate Single Audit, not the ACFR — Unknown here.</text>
+    </svg>
+  </div>
+
+  <h2><span class="n">B</span>Grant money is shrinking</h2>
+  <div class="card">
+    <div class="barlbl"><span>FY2024 operating grants &amp; contributions</span><span><b>$51.3M</b></span></div>
+    <div class="bar" style="width:100%"></div>
+    <div class="barlbl"><span>FY2025 operating grants &amp; contributions</span><span><b>$44.3M</b></span></div>
+    <div class="bar" style="width:86%; background:#b58900;"></div>
+    <p style="margin:10px 0 0; font-size:13.5px; color:var(--mut);">The −$7.0M drop is led by ARPA wind-down (−$2.9M) and a CDBG decline (−$2.2M). The City's own ACFR warns that rebounding local revenues "will not match the amount of federal dollars previously received" under ARPA. Capital grants moved the other way in FY2025 (+$5.0M, to $13.3M) on a one-time $7.7M state enterprise-fund grant.</p>
+  </div>
+
+  <h2><span class="n">C</span>What this means for Berkeley's finances</h2>
+  <div class="impacts">
+    <div class="imp"><span class="num">1</span><b>Grants can't fix the deficit.</b> The ~$29M structural gap is a General Fund problem, and grants supply 0.2% of General Fund revenue. Every grant dollar is legally fenced to its program — more grant money and a bigger deficit can coexist indefinitely.</div>
+    <div class="imp"><span class="num">2</span><b>But grant cuts become service cuts.</b> 83% of grant spending is health, welfare, and housing. HHCS — now the city's #2 department at $165.5M proposed for FY2027, up 38% — is heavily pass-through-driven <span class="pill c-Moderate">Moderate</span>. If Washington or Sacramento pulls back, Berkeley residents lose services even though the budget gap doesn't move.</div>
+    <div class="imp"><span class="num">3</span><b>Berkeley leaves awarded money on the table.</b> In FY2025 the city budgeted $72.8M of Grants Fund spending and executed $45.2M — a 38% execution gap, concentrated in health ($11.4M unspent) and housing ($10.9M unspent). Grant delivery takes staff, and the FY27–28 budget cuts 138 positions.</div>
+    <div class="imp"><span class="num">4</span><b>Pass-through chains take a cut and add risk.</b> Federal money often arrives via the state or county, minus admin skims (10% on Byrne JAG) and subject to each layer's politics. The county-level chain also runs the other way: Berkeley pays into county measures (BB) and gets allocations back.</div>
+    <div class="imp"><span class="num">5</span><b>Grant-chasing shapes the city's plans.</b> As the plans synthesis shows, Berkeley's freshest adopted plans (LHMP, CWPP, Bicycle, Pedestrian) are exactly the ones required for FEMA and transportation grant eligibility. Grant funding doesn't just pay for projects — it decides which plans stay alive.</div>
+    <div class="imp"><span class="num">6</span><b>One-time capital ≠ recurring relief.</b> Big headline numbers (the $7.7M state capital grant; the $125M Prop 4 waterfront-park money nearby) are one-time and capital-only. They build things Berkeley must then operate and maintain from the same strained General Fund.</div>
+  </div>
+
+  <h2><span class="n">D</span>The numbers behind the picture</h2>
+  <div class="card" style="overflow-x:auto;">
+  <table>
+    <tr><th>Measure</th><th class="num2">FY2025</th><th>Source / note</th><th>Confidence</th></tr>
+    <tr><td>Intergovernmental revenue, all governmental funds</td><td class="num2">$60,216,414</td><td>ACFR, governmental funds statement</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>&nbsp;&nbsp;of which: Grants Fund</td><td class="num2">$55,283,524</td><td>Same statement</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>&nbsp;&nbsp;of which: General Fund</td><td class="num2">$640,337</td><td>Same statement; GF total revenue $285.8M</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>Operating grants &amp; contributions (government-wide)</td><td class="num2">$44,337,052</td><td>Statement of Activities; FY2024: $51,339,948</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>Capital grants &amp; contributions (government-wide)</td><td class="num2">$13,251,223</td><td>Incl. $7,689,069 state capital grant, enterprise funds</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>Grants Fund spending: budgeted vs actual</td><td class="num2">$72.8M → $45.2M</td><td>Budget-and-actual schedule, budgetary basis</td><td><span class="pill c-High">High</span></td></tr>
+    <tr><td>Federal vs state split of the $60.2M</td><td class="num2">—</td><td>Published in the Single Audit (SEFA), not the ACFR</td><td><span class="pill c-Unknown">Unknown</span></td></tr>
+    <tr><td>HHCS FY2027 growth driven by grants/pass-throughs</td><td class="num2">+38%</td><td>FY27–28 proposed budget; composition not itemized</td><td><span class="pill c-Moderate">Moderate</span></td></tr>
+  </table>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> City of Berkeley FY2025 Annual Comprehensive Financial Report (audited) — Statement of Activities, Governmental Funds statement, Grants Fund budget-and-actual schedule ·
+    FY2027–28 Proposed Biennial Budget (June 23, 2026 adoption packet) ·
+    <a href="https://berkeleyca.gov/sites/default/files/2026-06/2026-07-07%20Item%2004%20Revenue%20Grant%20Agreements.pdf">July 7, 2026 Item 4 (Byrne JAG revenue agreements)</a> ·
+    <a href="https://jskromer.github.io/BeTH-/berkeley-plans-synthesis.html">BeTH: Adopted Plans vs. Strategic Priorities</a> ·
+    <a href="https://jskromer.github.io/BeTH-/berkeley-budget-basics.html">BeTH: Budget Basics</a>
+    <br><br>
+    Berkeley Transparency Hub. Maintained by Steve Kromer, candidate for Berkeley City Council District 1 — <a href="https://kromerforberkeley.org">kromerforberkeley.org</a>.
+  </div>
+
+</div>
+</body>
+</html>
