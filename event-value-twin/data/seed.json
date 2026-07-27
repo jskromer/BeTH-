@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "model": "Berkeley Event Value Twin",
+    "case": "Berkeley Kite Festival",
+    "version": "0.1.0-preliminary",
+    "base_year_dollars": 2025,
+    "geography": {
+      "core": "City of Berkeley",
+      "region": "East Bay (Alameda + Contra Costa)",
+      "note": "Boundaries and direct/indirect/induced definitions chosen to match Berkeley's 2025 Creative Economy Economic Impact Analysis so results are comparable to a study the City already commissioned."
+    },
+    "status": "ILLUSTRATIVE DEFAULTS. Every value below is a modeled or stipulated placeholder pending the data-gap register in evidence_sources. None is a measured fact. The Kite Festival last ran 2017-2019; 2020-2022 were disrupted by COVID and are not valid no-festival controls.",
+    "citation_disclaimer": "Do NOT use the Creative Economy report's portfolio-wide '$197 catalyzed per grant dollar' as an event multiplier. That figure describes a portfolio of organizations, not the marginal return of one event."
+  },
+
+  "event_scenarios": [
+    { "id": "no_festival",      "label": "1. No festival",                       "attendance": 0,     "event_days": 0, "one_day": false, "parking_price": 0,  "sponsorship": 0,     "transit_service": "none",     "note": "Counterfactual baseline. Public resources put to their ordinary use." },
+    { "id": "former_model",     "label": "2. Full festival, former model",       "attendance": 20000, "event_days": 2, "one_day": false, "parking_price": 0,  "sponsorship": 40000, "transit_service": "regular",  "note": "Reconstructs the ~2017-2019 operating model: free parking, no managed demand." },
+    { "id": "one_day",          "label": "3. Smaller / one-day festival",        "attendance": 11000, "event_days": 1, "one_day": true,  "parking_price": 0,  "sponsorship": 25000, "transit_service": "regular",  "note": "Reduced footprint pilot." },
+    { "id": "managed_full",     "label": "4. Full festival, managed access",     "attendance": 20000, "event_days": 2, "one_day": false, "parking_price": 15, "sponsorship": 80000, "transit_service": "event_plus","note": "Paid/reserved parking, shuttle, bike valet, added AC Transit service, sponsorship requirements." },
+    { "id": "alt_waterfront",   "label": "5. Alternative waterfront event",      "attendance": 9000,  "event_days": 1, "one_day": true,  "parking_price": 10, "sponsorship": 30000, "transit_service": "regular",  "note": "Different event using the same public resources - the opportunity-cost comparator." }
+  ],
+
+  "attendance_segments": [
+    { "id": "res",        "label": "Berkeley residents",              "share": 0.45, "party_size": 3.2, "would_visit_anyway": 0.90 },
+    { "id": "day_eb",     "label": "Day visitors, East Bay",          "share": 0.28, "party_size": 3.4, "would_visit_anyway": 0.35 },
+    { "id": "day_out",    "label": "Day visitors, outside East Bay",  "share": 0.15, "party_size": 3.6, "would_visit_anyway": 0.12 },
+    { "id": "night_bk",   "label": "Overnight, staying in Berkeley",  "share": 0.045,"party_size": 2.8, "would_visit_anyway": 0.20 },
+    { "id": "night_out",  "label": "Overnight, staying elsewhere",    "share": 0.045,"party_size": 2.8, "would_visit_anyway": 0.25 },
+    { "id": "vendor",     "label": "Vendors, performers, kite teams", "share": 0.03, "party_size": 1.0, "would_visit_anyway": 0.05 }
+  ],
+
+  "visitor_spending": {
+    "_units": "Dollars per person per event-day, 2025$. attribution = 1 - would_visit_anyway blend (festival-attribution factor). retention = share of spending that lands inside Berkeley.",
+    "per_segment": {
+      "res":       { "spend_low": 10, "spend_mid": 18,  "spend_high": 28,  "attribution": 0.12, "retention_berkeley": 0.95 },
+      "day_eb":    { "spend_low": 20, "spend_mid": 34,  "spend_high": 52,  "attribution": 0.55, "retention_berkeley": 0.85 },
+      "day_out":   { "spend_low": 32, "spend_mid": 50,  "spend_high": 78,  "attribution": 0.80, "retention_berkeley": 0.85 },
+      "night_bk":  { "spend_low": 120,"spend_mid": 190, "spend_high": 300, "attribution": 0.85, "retention_berkeley": 0.90 },
+      "night_out": { "spend_low": 45, "spend_mid": 72,  "spend_high": 110, "attribution": 0.72, "retention_berkeley": 0.55 },
+      "vendor":    { "spend_low": 60, "spend_mid": 110, "spend_high": 180, "attribution": 0.60, "retention_berkeley": 0.70 }
+    }
+  },
+
+  "io_multipliers": {
+    "_note": "Applied to incremental, Berkeley-retained direct spending. IMPLAN row is primary (matches Creative Economy study); RIMS II is an independent cross-check. Ranges express multiplier uncertainty, not a single incontrovertible figure.",
+    "implan": { "output": 1.55, "value_added_ratio": 0.62, "labor_income_ratio": 0.34, "jobs_per_million_output": 6.8 },
+    "rims2":  { "output": 1.42, "value_added_ratio": 0.58, "labor_income_ratio": 0.31, "jobs_per_million_output": 6.1 }
+  },
+
+  "city_service_costs": {
+    "_note": "Marina Fund chart-of-accounts framing. Each line tagged so an accounting allocation is never mistaken for a true marginal cost. Values are per full 2-day event unless noted; one-day scenarios scale by event_days/2 for variable lines.",
+    "lines": [
+      { "account": "Police overtime",          "cost_low": 22000, "cost_mid": 34000, "cost_high": 52000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Fire / EMS standby",        "cost_low": 6000,  "cost_mid": 9000,  "cost_high": 14000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Public Works cleanup",      "cost_low": 7000,  "cost_mid": 11000, "cost_high": 17000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Parks / Marina staff OT",   "cost_low": 5000,  "cost_mid": 8000,  "cost_high": 12000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Contracted toilets/barriers","cost_low": 6000, "cost_mid": 9000,  "cost_high": 13000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Traffic / transit mgmt",    "cost_low": 3000,  "cost_mid": 6000,  "cost_high": 11000, "type": "incremental_cash", "scales_with_days": true },
+      { "account": "Allocated salaried staff",  "cost_low": 4000,  "cost_mid": 6000,  "cost_high": 9000,  "type": "allocated",        "scales_with_days": false },
+      { "account": "Turf / path capital wear",  "cost_low": 2000,  "cost_mid": 5000,  "cost_high": 12000, "type": "capital_impact",   "scales_with_days": false }
+    ],
+    "managed_access_addon": { "cost_low": 12000, "cost_mid": 18000, "cost_high": 26000, "type": "incremental_cash", "note": "Shuttle, satellite parking, bike valet, added AC Transit service under scenario 4." }
+  },
+
+  "city_revenues": {
+    "_note": "Modeled where transaction data cannot be released; observed where legally available. Sales-tax share is the City's local share of taxable Berkeley-retained incremental sales.",
+    "sales_tax_local_share": 0.0125,
+    "transient_occupancy_tax_rate": 0.12,
+    "lodging_share_of_night_bk_spend": 0.62,
+    "vendor_fee_per_vendor": 175,
+    "vendors_count": { "low": 30, "mid": 45, "high": 65 },
+    "parking_capture_rate": 0.55,
+    "note_sponsorship": "Sponsorship is carried on event_scenarios, not here, because it is an event-operations revenue, not a City tax."
+  },
+
+  "transportation_inputs": {
+    "auto_mode_share": { "regular": 0.72, "event_plus": 0.52, "none": 0.72 },
+    "avg_vehicle_occupancy": 2.7,
+    "peak_hour_fraction": 0.35,
+    "avg_roundtrip_miles_by_segment": { "res": 5, "day_eb": 22, "day_out": 70, "night_bk": 12, "night_out": 30, "vendor": 40 },
+    "transit_daily_riders_added": { "none": 0, "regular": 400, "event_plus": 2200 }
+  },
+
+  "parking_inventory": {
+    "_note": "Berkeley Waterfront parking framework identified 2,000+ spaces but flagged limited utilization data. Treat capacity as modeled.",
+    "marina_spaces": 2050,
+    "baseline_occupancy": 0.45,
+    "spaces_reservable_scenarios": ["managed_full", "alt_waterfront"]
+  },
+
+  "environmental_impacts": {
+    "kg_co2_per_mile": 0.34,
+    "generator_kg_co2_per_day": 900,
+    "waste_kg_per_attendee": 0.35,
+    "diversion_rate": { "regular": 0.45, "event_plus": 0.70, "none": 0.0 },
+    "shadow_carbon_cost_per_ton": 190,
+    "monetize_carbon_default": false
+  },
+
+  "community_outcomes": {
+    "_note": "Kept as visible indicators, not forced into dollars. Measured by a structured post-event survey. A later stated-preference study could estimate willingness-to-pay - deliberately excluded from this first release.",
+    "indicators": [
+      "free_family_recreation",
+      "access_across_income_groups",
+      "waterfront_visibility",
+      "community_participation",
+      "youth_engagement",
+      "arts_cultural_identity",
+      "vendor_nonprofit_exposure",
+      "disability_accessibility",
+      "resident_satisfaction",
+      "repeat_visit_intention"
+    ],
+    "free_admission": true
+  },
+
+  "model_assumptions": {
+    "monte_carlo_runs": 5000,
+    "distribution": "triangular(low, mid, high)",
+    "correlated_draws": ["attendance", "weather"],
+    "adverse_weather_probability": { "conservative": 0.30, "central": 0.18, "high": 0.08 },
+    "weather_attendance_haircut": 0.45,
+    "displacement_share": { "conservative": 0.15, "central": 0.08, "high": 0.03 },
+    "_displacement_note": "Share of incremental local activity that is not truly new to Berkeley - deterred waterfront customers, crowded-out park users, purchases merely shifted to the festival weekend, other events that cannot occur. Subtracted before multipliers. This is the gross-to-net step.",
+    "confidence_target": "80% interval reported on every headline result"
+  },
+
+  "evidence_sources": [
+    { "field": "attendance",              "value": "20,000 (2-day)", "source": "Stipulated pending organizer/press reconstruction 2017-2019", "confidence": "low",    "basis": "stipulated" },
+    { "field": "non_berkeley_share",      "value": "~55%",           "source": "To be measured by AEP6-style intercept survey",              "confidence": "low",    "basis": "stipulated" },
+    { "field": "per_segment_spending",    "value": "see visitor_spending", "source": "AEP6 + NPS Visitor Spending Effects profiles, adapted", "confidence": "low",   "basis": "modeled" },
+    { "field": "io_multipliers",          "value": "IMPLAN 1.55 / RIMS II 1.42", "source": "Method matched to Berkeley Creative Economy (IMPLAN); BEA RIMS II cross-check", "confidence": "medium", "basis": "modeled" },
+    { "field": "city_service_costs",      "value": "~$88k central",  "source": "Reconstruct from City invoices, OT logs, Marina Fund chart of accounts", "confidence": "low", "basis": "stipulated" },
+    { "field": "sales_tax_local_share",   "value": "1.25%",          "source": "Bradley-Burns local + district approximation; confirm City share", "confidence": "medium", "basis": "modeled" },
+    { "field": "parking_capacity",        "value": "2,050 spaces",   "source": "Berkeley Waterfront parking framework (utilization data limited)", "confidence": "medium", "basis": "measured" },
+    { "field": "emission_factors",        "value": "0.34 kg/mi",     "source": "Fleet-average light-duty; align with Berkeley climate tracking", "confidence": "medium", "basis": "modeled" }
+  ],
+
+  "data_gaps": [
+    "Hourly/daily attendance estimates 2017-2019",
+    "Organizer budgets and sponsorship receipts",
+    "City invoices, fee calculations, OT vs regular-time hours by department",
+    "Vendor lists and fees",
+    "Attendee ZIP codes / intercept survey (never collected)",
+    "Waterfront restaurant & hotel indicators for festival vs comparison weekends",
+    "Waste tonnage and diversion by material",
+    "Sales-tax increment (may be confidential; modeled fallback required)"
+  ]
+}

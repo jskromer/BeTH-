@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berkeley Event Value Twin — Berkeley Transparency Hub</title>
+<style>
+  :root{
+    --navy:#1f3864; --navy2:#2e4a7a; --ink:#1a1a1a; --muted:#5b6470;
+    --line:#e3e7ee; --bg:#f7f8fa; --card:#ffffff; --accent:#c0392b; --good:#2e7d46;
+    --warn:#b6862b; --bar:#3a5a92; --bar2:#7b95c4; --maxw:1060px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--navy2)}
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:46px 20px 34px}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  .hero .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:700;opacity:.8;margin-bottom:10px}
+  .hero h1{margin:0 0 6px;font-size:2.05rem;letter-spacing:-.02em}
+  .hero .tag{font-size:1.05rem;opacity:.92;font-weight:400;margin:0 0 4px;max-width:760px}
+  .updated{margin-top:14px;font-size:.8rem;opacity:.75}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .toc a{background:rgba(255,255,255,.14);color:#fff;text-decoration:none;border-radius:999px;
+    padding:6px 13px;font-size:.82rem;border:1px solid rgba(255,255,255,.18)}
+  .toc a:hover{background:rgba(255,255,255,.26)}
+  main{padding:8px 20px 60px}
+  section{max-width:var(--maxw);margin:40px auto 0;scroll-margin-top:14px}
+  h2{font-size:1.4rem;color:var(--navy);margin:0 0 4px;letter-spacing:-.01em}
+  h2 .num{color:var(--bar2);font-weight:800;margin-right:8px}
+  .lede{color:var(--muted);margin:0 0 18px;font-size:1.02rem}
+  p{margin:0 0 14px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .disclaim{background:#fff8ee;border:1px solid #f0e2c6;border-left:4px solid var(--warn);
+    border-radius:8px;padding:14px 16px;font-size:.9rem;color:#6b5a34;margin-top:18px}
+  .disclaim b{color:#8a6d1f}
+  /* scenario bar */
+  .scenariobar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+    display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
+  .fld{display:flex;flex-direction:column;gap:4px}
+  .fld label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  select,input[type=range]{accent-color:var(--navy2)}
+  select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;background:#fff;color:var(--ink);min-width:230px}
+  .verdict{font-size:.9rem;color:var(--muted);margin-left:auto;text-align:right;max-width:340px}
+  /* decision panels */
+  .quad{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .qpanel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    box-shadow:0 1px 2px rgba(20,30,60,.04);position:relative;overflow:hidden}
+  .qpanel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bar2)}
+  .qpanel.fiscal::before{background:var(--navy)} .qpanel.econ::before{background:var(--good)}
+  .qpanel.comm::before{background:#7d5ba6} .qpanel.trans::before{background:var(--warn)}
+  .qpanel .hd{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+  .qpanel .big{font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.1}
+  .qpanel .big.neg{color:var(--accent)} .qpanel .big.pos{color:var(--good)}
+  .qpanel .sub{font-size:.82rem;color:var(--muted);margin-top:5px}
+  .qpanel .rng{font-size:.74rem;color:#8a929d;margin-top:6px;font-variant-numeric:tabular-nums}
+  .qpanel ul{margin:8px 0 0;padding-left:0;list-style:none}
+  .qpanel li{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;padding:3px 0;border-top:1px dashed #eef1f6}
+  .qpanel li span:last-child{font-variant-numeric:tabular-nums;color:var(--navy);font-weight:600}
+  /* sliders */
+  .lab{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+  .ctrl{display:flex;flex-direction:column;gap:5px}
+  .ctrl .row{display:flex;justify-content:space-between;align-items:baseline}
+  .ctrl .nm{font-size:.86rem;font-weight:600;color:var(--ink)}
+  .ctrl .vv{font-size:.86rem;font-weight:700;color:var(--navy2);font-variant-numeric:tabular-nums}
+  .ctrl input[type=range]{width:100%}
+  .ctrl .hint{font-size:.72rem;color:#8a929d}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{border:0;background:#fff;padding:7px 12px;font-size:.82rem;cursor:pointer;color:var(--muted)}
+  .seg button.on{background:var(--navy);color:#fff;font-weight:600}
+  /* scorecard table */
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.grp td{background:#f2f5fa;font-weight:700;color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+  .tag{display:inline-block;border-radius:999px;padding:2px 9px;font-size:.68rem;font-weight:700}
+  .tag.measured{background:#e7f3ec;color:var(--good)} .tag.modeled{background:#eef2f8;color:var(--navy)}
+  .tag.stipulated{background:#fbeae8;color:var(--accent)}
+  .tag.low{background:#fbeae8;color:var(--accent)} .tag.medium{background:#fff3d9;color:var(--warn)} .tag.high{background:#e7f3ec;color:var(--good)}
+  .note{font-size:.85rem;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:#eef2f8;color:var(--navy);border:1px solid #d8e0ee;border-radius:999px;padding:6px 12px;font-size:.82rem}
+  .chip.free{background:#e7f3ec;color:var(--good);border-color:#c7e6d2}
+  footer{max-width:var(--maxw);margin:50px auto 0;padding:22px 20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem}
+  svg{max-width:100%;height:auto}
+  @media(max-width:720px){
+    .hero h1{font-size:1.6rem}.quad{grid-template-columns:1fr}.lab{grid-template-columns:1fr}
+    .verdict{margin-left:0;text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Berkeley Transparency Hub · BeTH</div>
+    <h1>Berkeley Event Value Twin</h1>
+    <p class="tag">A reusable model for weighing civic events — the Kite Festival first. It compares complete, auditable scenarios instead of arguing them, and keeps three questions apart that are usually mixed together: economic impact, City fiscal impact, and public value.</p>
+    <div class="toc">
+      <a href="#summary">1 · Decision summary</a>
+      <a href="#lab">2 · Scenario laboratory</a>
+      <a href="#scorecard">3 · Full scorecard</a>
+      <a href="#flows">4 · Money flows</a>
+      <a href="#map">5 · Waterfront</a>
+      <a href="#public">6 · Public value</a>
+      <a href="#evidence">7 · Evidence register</a>
+    </div>
+    <div class="updated">Preliminary Counterfactual Value Assessment · v0.1 · figures in 2025 dollars</div>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap disclaim" style="margin-top:22px">
+  <b>Read this first.</b> Every number on this page is an <b>illustrative default</b>, not a measured fact. The Kite Festival last ran 2017–2019 (2020–2022 were COVID-disrupted and are not valid no-festival controls). Values are modeled or stipulated placeholders pending the <a href="#evidence">evidence register</a> and its data gaps. The model’s job is to make the <em>structure</em> of the decision auditable — plug in real records and it recomputes. It never reduces the choice to one dollar figure or labels the event simply “profitable.”
+</div>
+
+<!-- SCENARIO BAR -->
+<section id="summary" style="margin-top:26px">
+  <h2><span class="num">1</span>Decision summary</h2>
+  <p class="lede">Pick a scenario. Each panel shows an expected value, an 80% uncertainty range, and the comparison with doing nothing.</p>
+  <div class="scenariobar">
+    <div class="fld">
+      <label for="scenario">Scenario</label>
+      <select id="scenario"></select>
+    </div>
+    <div class="fld">
+      <label>Uncertainty band</label>
+      <div class="seg" id="band">
+        <button data-b="conservative">Conservative</button>
+        <button data-b="central" class="on">Central</button>
+        <button data-b="high">Optimistic</button>
+      </div>
+    </div>
+    <div class="verdict" id="verdict"></div>
+  </div>
+
+  <div class="quad" style="margin-top:16px">
+    <div class="qpanel fiscal">
+      <div class="hd">City finances — the Marina Fund line</div>
+      <div class="big" id="f-net">—</div>
+      <div class="sub" id="f-sub">Revenue minus incremental City cost</div>
+      <div class="rng" id="f-rng"></div>
+      <ul id="f-list"></ul>
+    </div>
+    <div class="qpanel econ">
+      <div class="hd">Local economy — incremental, not gross</div>
+      <div class="big pos" id="e-out">—</div>
+      <div class="sub" id="e-sub">IMPLAN total output · RIMS II cross-check</div>
+      <div class="rng" id="e-rng"></div>
+      <ul id="e-list"></ul>
+    </div>
+    <div class="qpanel comm">
+      <div class="hd">Community</div>
+      <div class="big" id="c-att" style="color:#7d5ba6">—</div>
+      <div class="sub">Attendance · free admission</div>
+      <ul id="c-list"></ul>
+    </div>
+    <div class="qpanel trans">
+      <div class="hd">Transportation &amp; environment</div>
+      <div class="big" id="t-veh" style="color:var(--warn)">—</div>
+      <div class="sub">Peak-hour vehicle arrivals</div>
+      <ul id="t-list"></ul>
+    </div>
+  </div>
+  <div id="policy" class="disclaim" style="border-left-color:var(--navy2);background:#eef2f8;border-color:#d8e0ee;color:#3a4658"></div>
+</section>
+
+<!-- SCENARIO LAB -->
+<section id="lab">
+  <h2><span class="num">2</span>Scenario laboratory</h2>
+  <p class="lede">Move any assumption and the entire scorecard updates. These are the levers the City actually controls or can survey for.</p>
+  <div class="panel lab" id="controls"></div>
+  <p class="note">Spending is made <strong>incremental</strong> before it counts: <span class="mono">incremental = observed × festival-attribution × Berkeley-retention</span>, then <strong>displacement</strong> is subtracted (deterred waterfront customers, crowded-out park users, purchases merely shifted to the weekend). That gross-to-net step is the difference between an ordinary impact study and this one.</p>
+</section>
+
+<!-- SCORECARD -->
+<section id="scorecard">
+  <h2><span class="num">3</span>Full scorecard</h2>
+  <p class="lede">Eight dimensions, never collapsed into one number. Compared against the no-festival baseline.</p>
+  <div class="panel"><table id="sctable"><tbody></tbody></table></div>
+</section>
+
+<!-- MONEY FLOWS -->
+<section id="flows">
+  <h2><span class="num">4</span>Money flows — where the dollars actually land</h2>
+  <p class="lede">Gross attendee spending is <em>not</em> a benefit. This traces it: how much would have happened anyway, how much leaks out of Berkeley, and only what remains is new activity that the multiplier acts on.</p>
+  <div class="panel"><div id="sankey"></div></div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <h2><span class="num">5</span>Waterfront — schematic footprint</h2>
+  <p class="lede">A schematic of the operational picture at Cesar Chavez Park &amp; the Marina — event footprint, parking pressure, access routes, and sensitive habitat. Not a survey drawing; a placeholder for a real GIS layer.</p>
+  <div class="panel"><div id="mapsvg"></div></div>
+</section>
+
+<!-- PUBLIC VALUE -->
+<section id="public">
+  <h2><span class="num">6</span>Public value — kept as indicators, not fake dollars</h2>
+  <p class="lede">Some benefits shouldn’t be forced into questionable dollar estimates. They’re measured by a structured post-event survey and shown on their own terms. A willingness-to-pay study could come later — deliberately excluded from this first release, because a contingent-valuation number is too easy to hide behind.</p>
+  <div class="panel">
+    <div class="chips" id="pubchips"></div>
+    <p class="note">Distribution is its own dimension: <strong id="pub-sub">—</strong> Who receives the benefits and who bears the burdens is reported separately from any total.</p>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="evidence">
+  <h2><span class="num">7</span>Evidence register</h2>
+  <p class="lede">Every consequential input carries a source, a confidence rating, and whether it was measured, modeled, or stipulated. The historical festival is evidence; the future festival is a counterfactual inference — this table keeps the two honest.</p>
+  <div class="panel" style="overflow-x:auto"><table id="evtable"><thead><tr>
+    <th>Input</th><th>Current value</th><th>Source / plan to obtain</th><th>Confidence</th><th>Basis</th></tr></thead><tbody></tbody></table></div>
+  <div class="panel" style="margin-top:16px">
+    <div class="hd" style="font-weight:700;color:var(--navy);margin-bottom:8px">Open data gaps blocking a firm answer</div>
+    <ul id="gaps" class="clean" style="margin:0;padding-left:20px"></ul>
+  </div>
+</section>
+
+<section>
+  <div class="disclaim" style="border-left-color:var(--good);background:#f0f7f2;border-color:#cfe6d7;color:#3a5544">
+    <b>Recommended first decision — not “restore the festival.”</b> Under central assumptions the event is expected to require a modest City subsidy while producing a much larger amount of incremental local activity. Whether that is favorable depends on Berkeley’s public-purpose and distributional criteria — not on this model. The defensible next step is to <strong>authorize a one-event pilot specification</strong> (one day, managed parking, strong transit and bike provisions, sponsorship requirements, and a pre-approved measurement plan) that collects exactly the records this register is missing.
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><strong>Berkeley Event Value Twin</strong> — part of the <a href="berkeley-budget-basics.html">Berkeley Transparency Hub</a>. Method deliberately mirrors work the City already commissioned: geography and multipliers aligned to Berkeley’s 2025 Creative Economy Economic Impact Analysis (IMPLAN), cross-checked with BEA RIMS II; City costs framed on the Marina Fund chart of accounts; visitor spending built for an AEP6 / NPS Visitor-Spending-Effects intercept survey; transportation on the FHWA planned-special-event method; emissions and waste kept in physical units per Berkeley’s climate tracking.</p>
+  <p>Reproducible engine, schema, and seed data: <span class="mono">event-value-twin/</span> in the repository (<span class="mono">python3 model/event_value_twin.py</span>). Every figure here regenerates from <span class="mono">data/seed.json</span> — no hidden cells. All values illustrative pending the evidence register above.</p>
+</footer>
+</main>
+
+<script>
+/* ============================================================================
+   Berkeley Event Value Twin — engine (mirrors event-value-twin/model/*.py)
+   ========================================================================== */
+const SEED = {
+  scenarios: [
+    {id:"no_festival",  label:"1 · No festival (baseline)",              attendance:0,     days:0, parking_price:0,  sponsorship:0,     transit:"none"},
+    {id:"former_model", label:"2 · Full festival, former model",        attendance:20000, days:2, parking_price:0,  sponsorship:40000, transit:"regular"},
+    {id:"one_day",      label:"3 · Smaller / one-day festival",         attendance:11000, days:1, parking_price:0,  sponsorship:25000, transit:"regular"},
+    {id:"managed_full", label:"4 · Full festival, managed access",      attendance:20000, days:2, parking_price:15, sponsorship:80000, transit:"event_plus"},
+    {id:"alt_waterfront",label:"5 · Alternative waterfront event",       attendance:9000,  days:1, parking_price:10, sponsorship:30000, transit:"regular"}
+  ],
+  segs:[
+    {id:"res",      label:"Berkeley residents",             share:0.45, party:3.2, miles:5},
+    {id:"day_eb",   label:"Day visitors · East Bay",        share:0.28, party:3.4, miles:22},
+    {id:"day_out",  label:"Day visitors · outside East Bay",share:0.15, party:3.6, miles:70},
+    {id:"night_bk", label:"Overnight · in Berkeley",        share:0.045,party:2.8, miles:12},
+    {id:"night_out",label:"Overnight · elsewhere",          share:0.045,party:2.8, miles:30},
+    {id:"vendor",   label:"Vendors / performers / teams",   share:0.03, party:1.0, miles:40}
+  ],
+  spend:{
+    res:      {lo:10, mid:18, hi:28,  attr:0.12, ret:0.95},
+    day_eb:   {lo:20, mid:34, hi:52,  attr:0.55, ret:0.85},
+    day_out:  {lo:32, mid:50, hi:78,  attr:0.80, ret:0.85},
+    night_bk: {lo:120,mid:190,hi:300, attr:0.85, ret:0.90},
+    night_out:{lo:45, mid:72, hi:110, attr:0.72, ret:0.55},
+    vendor:   {lo:60, mid:110,hi:180, attr:0.60, ret:0.70}
+  },
+  io:{ implan:{out:1.55, va:0.62, li:0.34, jpm:6.8}, rims2:{out:1.42, va:0.58, li:0.31, jpm:6.1} },
+  costs:[
+    {a:"Police overtime",           lo:22000,mid:34000,hi:52000,type:"incremental cash",days:true},
+    {a:"Fire / EMS standby",        lo:6000, mid:9000, hi:14000,type:"incremental cash",days:true},
+    {a:"Public Works cleanup",      lo:7000, mid:11000,hi:17000,type:"incremental cash",days:true},
+    {a:"Parks / Marina staff OT",   lo:5000, mid:8000, hi:12000,type:"incremental cash",days:true},
+    {a:"Contracted toilets/barriers",lo:6000,mid:9000, hi:13000,type:"incremental cash",days:true},
+    {a:"Traffic / transit mgmt",    lo:3000, mid:6000, hi:11000,type:"incremental cash",days:true},
+    {a:"Allocated salaried staff",  lo:4000, mid:6000, hi:9000, type:"allocated",       days:false},
+    {a:"Turf / path capital wear",  lo:2000, mid:5000, hi:12000,type:"capital impact",  days:false}
+  ],
+  managed_addon:{lo:12000,mid:18000,hi:26000},
+  rev:{ sales_tax:0.0125, tot:0.12, lodging_share:0.62, vendor_fee:175,
+        vendors:{lo:30,mid:45,hi:65}, parking_capture:0.55 },
+  trans:{ auto:{none:0.72,regular:0.72,event_plus:0.52}, occ:2.7, peak:0.35,
+          transit_added:{none:0,regular:400,event_plus:2200} },
+  parking:{ spaces:2050, base_occ:0.45, reservable:["managed_full","alt_waterfront"] },
+  env:{ kgco2_mi:0.34, gen_day:900, waste_kg:0.35, diversion:{none:0,regular:0.45,event_plus:0.70},
+        shadow:190 },
+  mc:{ runs:1400, weather_p:{conservative:0.30,central:0.18,high:0.08}, haircut:0.45,
+       displacement:{conservative:0.15,central:0.08,high:0.03} },
+  community:["free family recreation","access across income groups","waterfront visibility",
+    "community participation","youth engagement","arts & cultural identity",
+    "vendor & nonprofit exposure","disability accessibility","resident satisfaction","repeat-visit intention"],
+  evidence:[
+    {f:"Attendance",v:"20,000 (2-day)",s:"Reconstruct from organizer / press records 2017–2019",c:"low",b:"stipulated"},
+    {f:"Non-Berkeley share",v:"~55%",s:"AEP6-style intercept survey",c:"low",b:"stipulated"},
+    {f:"Per-segment spending",v:"see laboratory",s:"AEP6 + NPS Visitor Spending Effects profiles",c:"low",b:"modeled"},
+    {f:"IO multipliers",v:"IMPLAN 1.55 / RIMS II 1.42",s:"Matched to Berkeley Creative Economy; BEA cross-check",c:"medium",b:"modeled"},
+    {f:"City service costs",v:"~$88k central",s:"City invoices, OT logs, Marina Fund chart of accounts",c:"low",b:"stipulated"},
+    {f:"Sales-tax local share",v:"1.25%",s:"Bradley-Burns + district approximation; confirm City share",c:"medium",b:"modeled"},
+    {f:"Parking capacity",v:"2,050 spaces",s:"Berkeley Waterfront parking framework (utilization limited)",c:"medium",b:"measured"},
+    {f:"Emission factors",v:"0.34 kg/mi",s:"Fleet-average light-duty; align to Berkeley climate tracking",c:"medium",b:"modeled"}
+  ],
+  gaps:["Hourly/daily attendance 2017–2019","Organizer budgets & sponsorship receipts",
+    "City invoices, fee calculations, OT vs regular hours by department","Vendor lists & fees",
+    "Attendee ZIP codes / intercept survey (never collected)",
+    "Waterfront restaurant & hotel indicators, festival vs comparison weekends",
+    "Waste tonnage & diversion by material","Sales-tax increment (may be confidential; modeled fallback)"]
+};
+
+/* ---- effective segment shares given a target non-Berkeley share ---- */
+function effShares(nonBk){
+  const resBase=0.45, nonBase=1-resBase;
+  const res=1-nonBk;
+  const out={};
+  SEED.segs.forEach(s=>{
+    if(s.id==="res") out[s.id]=res;
+    else out[s.id]=s.share*(nonBk/nonBase);
+  });
+  return out;
+}
+
+/* ---- deterministic scorecard ---- */
+function compute(st, draw){
+  draw = draw || {};
+  const sc={label:st.label};
+  const att = draw.attendance!==undefined?draw.attendance:st.attendance;
+  const days = st.days;
+  if(att<=0 || days<=0){ return zero(sc); }
+  const shares = effShares(st.nonBk);
+  let direct=0, taxable=0, lodging=0;
+  SEED.segs.forEach(s=>{
+    const sp=SEED.spend[s.id];
+    const per = draw["spend_"+s.id]!==undefined?draw["spend_"+s.id]:sp.mid;
+    const people = att*shares[s.id];
+    const observed = people*per*days;
+    const incr = observed*sp.attr*sp.ret;
+    direct+=incr; taxable+=incr;
+    if(s.id==="night_bk") lodging += incr*SEED.rev.lodging_share;
+  });
+  const disp = draw.displacement!==undefined?draw.displacement:SEED.mc.displacement[st.band];
+  direct*=(1-disp); taxable*=(1-disp); lodging*=(1-disp);
+  sc.direct=direct;
+
+  const im=SEED.io.implan, r2=SEED.io.rims2;
+  sc.implan=direct*im.out; sc.rims2=direct*r2.out;
+  sc.va=sc.implan*im.va; sc.li=sc.implan*im.li; sc.jobs=sc.implan/1e6*im.jpm;
+
+  // revenue
+  const taxbase=Math.max(0,taxable-lodging);
+  sc.sales_tax=taxbase*SEED.rev.sales_tax;
+  sc.tot=lodging*SEED.rev.tot;
+  sc.vendor_fees=(draw.vendors!==undefined?draw.vendors:SEED.rev.vendors.mid)*SEED.rev.vendor_fee;
+  sc.sponsorship=draw.sponsorship!==undefined?draw.sponsorship:st.sponsorship;
+
+  // cost
+  let cost=0;
+  SEED.costs.forEach(l=>{ let c=draw["cost_"+l.a]!==undefined?draw["cost_"+l.a]:l.mid;
+    if(l.days) c*=days/2; cost+=c; });
+  if(st.transit==="event_plus") cost += draw.cost_managed!==undefined?draw.cost_managed:SEED.managed_addon.mid;
+  sc.cost=cost;
+
+  // transport
+  const auto=SEED.trans.auto[st.transit]??0.72;
+  const vehTotal=(att*auto)/SEED.trans.occ;
+  sc.veh_peak=vehTotal*SEED.trans.peak;
+  const avail=SEED.parking.spaces*(1-SEED.parking.base_occ);
+  sc.shortfall=Math.max(0,sc.veh_peak-avail);
+  sc.transit_riders=(SEED.trans.transit_added[st.transit]??0)*days;
+  sc.parking_rev=0;
+  if(SEED.parking.reservable.includes(st.id) && st.parking_price>0){
+    const parked=Math.min(sc.veh_peak,avail);
+    sc.parking_rev=parked*st.parking_price*SEED.rev.parking_capture*days;
+  }
+  sc.revenue=sc.sales_tax+sc.tot+sc.vendor_fees+sc.parking_rev+sc.sponsorship;
+  sc.net=sc.revenue-sc.cost;
+
+  // environment
+  let vmt=0;
+  SEED.segs.forEach(s=>{ const people=att*shares[s.id]; const parties=people/Math.max(s.party,1);
+    vmt+=parties*auto*s.miles*days; });
+  sc.vmt=vmt;
+  sc.emis=(vmt*SEED.env.kgco2_mi+SEED.env.gen_day*days)/1000;
+  sc.waste=(att*SEED.env.waste_kg*days)/1000;
+  sc.diversion=SEED.env.diversion[st.transit];
+
+  // distribution
+  sc.att=att;
+  const nonres=att*(1-shares.res);
+  sc.cost_att=cost/att;
+  sc.subsidy_nonres = nonres? Math.max(0,-sc.net)/nonres : 0;
+  sc.nonBk_att=nonres;
+  return sc;
+}
+function zero(sc){ ["direct","implan","rims2","va","li","jobs","sales_tax","tot","vendor_fees",
+  "sponsorship","cost","veh_peak","shortfall","transit_riders","parking_rev","revenue","net",
+  "vmt","emis","waste","diversion","att","cost_att","subsidy_nonres","nonBk_att"].forEach(k=>sc[k]=0);
+  return sc; }
+
+/* ---- Monte Carlo (triangular draws) ---- */
+function tri(lo,mid,hi){
+  lo=Math.min(lo,hi); hi=Math.max(lo,hi);
+  if(hi<=lo) return mid;
+  const mode=Math.min(Math.max(mid,lo),hi);
+  const u=Math.random(), f=(mode-lo)/(hi-lo);
+  return u<f ? lo+Math.sqrt(u*(hi-lo)*(mode-lo)) : hi-Math.sqrt((1-u)*(hi-lo)*(hi-mode));
+}
+function monteCarlo(st){
+  if(st.attendance<=0) return {p:0, net:[0,0,0], out:[0,0,0], jobs:[0,0,0]};
+  const runs=SEED.mc.runs, wp=SEED.mc.weather_p[st.band], hc=SEED.mc.haircut;
+  const nets=[], outs=[], jobs=[]; let pos=0;
+  for(let i=0;i<runs;i++){
+    const d={};
+    let a=tri(st.attendance*0.7, st.attendance, st.attendance*1.25);
+    if(Math.random()<wp) a*=(1-hc);
+    d.attendance=a;
+    for(const k in SEED.spend){ const sp=SEED.spend[k]; d["spend_"+k]=tri(sp.lo,sp.mid,sp.hi); }
+    SEED.costs.forEach(l=> d["cost_"+l.a]=tri(l.lo,l.mid,l.hi));
+    d.cost_managed=tri(SEED.managed_addon.lo,SEED.managed_addon.mid,SEED.managed_addon.hi);
+    d.sponsorship=tri(st.sponsorship*0.5, st.sponsorship, st.sponsorship*1.4);
+    d.vendors=tri(SEED.rev.vendors.lo,SEED.rev.vendors.mid,SEED.rev.vendors.hi);
+    d.displacement=SEED.mc.displacement[st.band];
+    const sc=compute(st,d);
+    nets.push(sc.net); outs.push(sc.implan); jobs.push(sc.jobs);
+    if(sc.net>0) pos++;
+  }
+  const q=(arr,p)=>{ const s=[...arr].sort((x,y)=>x-y); return s[Math.min(Math.floor(p*s.length),s.length-1)]; };
+  return { p:pos/runs,
+    net:[q(nets,.10),q(nets,.50),q(nets,.90)],
+    out:[q(outs,.10),q(outs,.50),q(outs,.90)],
+    jobs:[q(jobs,.10),q(jobs,.50),q(jobs,.90)] };
+}
+
+/* ============================================================================
+   State + controls
+   ========================================================================== */
+const CONTROLS=[
+  {k:"attendance",nm:"Attendance (unique, over event)",min:0,max:40000,step:500,fmt:v=>num(v)},
+  {k:"nonBk",     nm:"Non-Berkeley share",min:0,max:0.9,step:0.01,fmt:v=>pct(v)},
+  {k:"days",      nm:"Event days",min:1,max:3,step:1,fmt:v=>v},
+  {k:"parking_price",nm:"Event parking price",min:0,max:30,step:1,fmt:v=>"$"+v},
+  {k:"sponsorship",nm:"Sponsorship secured",min:0,max:200000,step:5000,fmt:v=>money(v)},
+];
+let ST=null;
+function loadScenario(id){
+  const s=SEED.scenarios.find(x=>x.id===id);
+  ST={ id:s.id, label:s.label, attendance:s.attendance, days:s.days,
+       parking_price:s.parking_price, sponsorship:s.sponsorship, transit:s.transit,
+       nonBk:0.55, band:document.querySelector("#band .on").dataset.b };
+}
+
+/* ---- formatting ---- */
+const num=v=>Math.round(v).toLocaleString("en-US");
+const money=v=>{const n=Math.round(v); return (n<0?"−$":"$")+Math.abs(n).toLocaleString("en-US");};
+const moneyK=v=>{const a=Math.abs(v); const s=v<0?"−":"";
+  if(a>=1e6) return s+"$"+(a/1e6).toFixed(2)+"M"; if(a>=1e3) return s+"$"+(a/1e3).toFixed(0)+"k"; return s+"$"+Math.round(a);};
+const pct=v=>Math.round(v*100)+"%";
+const dec=(v,d=1)=>v.toFixed(d);
+
+/* ============================================================================
+   Render
+   ========================================================================== */
+function render(){
+  const sc=compute(ST);
+  const mc=monteCarlo(ST);
+  const base=compute({...ST,attendance:0,days:0}); // no-festival
+
+  // ---- Decision panels ----
+  const netEl=document.getElementById("f-net");
+  netEl.textContent = sc.att? money(sc.net) : "$0";
+  netEl.className="big "+(sc.net<0?"neg":sc.net>0?"pos":"");
+  document.getElementById("f-sub").textContent = sc.att
+    ? `P[ revenue > cost ] = ${Math.round(mc.p*100)}%` : "No event — no incremental City cost or revenue";
+  document.getElementById("f-rng").textContent = sc.att
+    ? `80% interval  ${moneyK(mc.net[0])} … ${moneyK(mc.net[2])}` : "";
+  document.getElementById("f-list").innerHTML = sc.att? [
+    li("Revenue (tax + fees + sponsor)", money(sc.revenue)),
+    li("Incremental City cost", money(-sc.cost)),
+    li("Subsidy per nonresident visitor", sc.net<0?money(sc.subsidy_nonres):"—")
+  ].join("") : "";
+
+  document.getElementById("e-out").textContent = sc.att? moneyK(sc.implan):"$0";
+  document.getElementById("e-rng").textContent = sc.att
+    ? `RIMS II cross-check ${moneyK(sc.rims2)} · 80% ${moneyK(mc.out[0])} … ${moneyK(mc.out[2])}` : "";
+  document.getElementById("e-list").innerHTML = sc.att? [
+    li("Incremental direct (Berkeley-retained)", money(sc.direct)),
+    li("Regional value added", money(sc.va)),
+    li("Labor income", money(sc.li)),
+    li("Jobs supported (annualized)", dec(sc.jobs,1))
+  ].join("") : "";
+
+  document.getElementById("c-att").textContent = num(sc.att);
+  document.getElementById("c-list").innerHTML = [
+    li("Nonresident visitors", num(sc.nonBk_att)),
+    li("Admission", "Free"),
+    li("Public-value indicators", SEED.community.length+" tracked")
+  ].join("");
+
+  document.getElementById("t-veh").textContent = num(sc.veh_peak);
+  document.getElementById("t-list").innerHTML = [
+    li("Peak parking shortfall", sc.shortfall>0? num(sc.shortfall)+" spaces":"none"),
+    li("Vehicle miles travelled", num(sc.vmt)),
+    li("Transport CO₂", dec(sc.emis,1)+" t"),
+    li("Added transit riders", num(sc.transit_riders))
+  ].join("");
+
+  // ---- policy read-out ----
+  document.getElementById("policy").innerHTML = policyText(sc,mc);
+
+  // ---- verdict in bar ----
+  document.getElementById("verdict").innerHTML = sc.att
+    ? `<b>${Math.round(mc.p*100)}%</b> chance City revenue covers City cost. Economic activity <b>${moneyK(sc.implan)}</b> can be large while the City still runs a deficit — that separation is the point.`
+    : `The counterfactual baseline: public resources at their ordinary use.`;
+
+  renderScorecard(sc,base,mc);
+  renderSankey(sc);
+  renderPublic(sc);
+}
+function li(a,b){return `<li><span>${a}</span><span>${b}</span></li>`;}
+
+function policyText(sc,mc){
+  if(!sc.att) return "<b>No-festival baseline.</b> Every other scenario is measured against this. Choosing it is not “free” — it forgoes the community and economic value shown elsewhere, at zero City cost and zero congestion.";
+  const dir = sc.net>=0? "is expected to at least cover its City cost"
+    : "is expected to require a City subsidy";
+  return `<b>Under ${ST.band} assumptions</b>, this scenario ${dir} (net <b>${money(sc.net)}</b>, ${Math.round(mc.p*100)}% chance of covering cost) while producing <b>${moneyK(sc.implan)}</b> of incremental local activity and <b>${dec(sc.jobs,1)}</b> jobs. Whether that is a good outcome depends on Berkeley’s public-purpose and distributional criteria — the model does not decide it. The event costs <b>${money(sc.cost_att)}</b> of City service per attendee${sc.net<0?`, or <b>${money(sc.subsidy_nonres)}</b> of subsidy per nonresident visitor`:""}.`;
+}
+
+/* ---- scorecard table ---- */
+function renderScorecard(sc,base,mc){
+  const R=(d)=> d;
+  const rows=[
+    ["grp","City finances"],
+    ["Net City fiscal result (Marina Fund line)", money(sc.net), money(base.net)],
+    ["  Revenue: sales + occupancy tax", money(sc.sales_tax+sc.tot), "$0"],
+    ["  Revenue: vendor fees + parking + sponsorship", money(sc.vendor_fees+sc.parking_rev+sc.sponsorship), "$0"],
+    ["  Incremental City service cost", money(sc.cost), "$0"],
+    ["grp","Local economy (incremental, net of displacement)"],
+    ["Incremental direct spending, Berkeley-retained", money(sc.direct), "$0"],
+    ["IMPLAN total output", money(sc.implan), "$0"],
+    ["RIMS II total output (cross-check)", money(sc.rims2), "$0"],
+    ["Regional value added", money(sc.va), "$0"],
+    ["Labor income", money(sc.li), "$0"],
+    ["Jobs supported (annualized)", dec(sc.jobs,1), "0"],
+    ["grp","Transportation"],
+    ["Peak-hour vehicle arrivals", num(sc.veh_peak), "0"],
+    ["Parking shortfall at peak", sc.shortfall>0?num(sc.shortfall)+" spaces":"none", "none"],
+    ["Added transit riders", num(sc.transit_riders), "0"],
+    ["grp","Environment (physical units)"],
+    ["Vehicle miles travelled", num(sc.vmt), "0"],
+    ["Transportation + generator CO₂", dec(sc.emis,1)+" t", "0 t"],
+    ["Event waste", dec(sc.waste,2)+" t", "0 t"],
+    ["Waste diversion rate", pct(sc.diversion||0), "—"],
+    ["grp","Community & distribution"],
+    ["Attendance", num(sc.att), "0"],
+    ["Nonresident visitors", num(sc.nonBk_att), "0"],
+    ["City cost per attendee", sc.att?money(sc.cost_att):"—", "—"],
+    ["Subsidy per nonresident visitor", sc.net<0?money(sc.subsidy_nonres):"—", "—"],
+    ["grp","Risk"],
+    ["Probability revenue exceeds cost", Math.round(mc.p*100)+"%", "—"],
+    ["Net fiscal 80% interval", sc.att?`${moneyK(mc.net[0])} … ${moneyK(mc.net[2])}`:"—", "—"]
+  ];
+  const tb=document.querySelector("#sctable tbody");
+  tb.innerHTML = rows.map(r=>{
+    if(r[0]==="grp") return `<tr class="grp"><td colspan="3">${r[1]}</td></tr>`;
+    const indent = r[0].startsWith("  ")?' style="padding-left:24px;color:var(--muted)"':'';
+    return `<tr><td${indent}>${r[0].trim()}</td><td class="n">${r[1]}</td><td class="n" style="color:#9aa2ad">${r[2]}</td></tr>`;
+  }).join("");
+  if(!tb.dataset.head){
+    tb.insertAdjacentHTML("afterbegin",`<tr><th>Dimension</th><th class="n">This scenario</th><th class="n">No festival</th></tr>`);
+    tb.dataset.head="1";
+  }
+}
+
+/* ---- money-flow diagram (honest stacked ribbon) ---- */
+function renderSankey(sc){
+  const el=document.getElementById("sankey");
+  if(!sc.att){ el.innerHTML='<p class="note" style="border:0">No festival — no flows.</p>'; return; }
+  // recompute gross observed & its split
+  const shares=effShares(ST.nonBk); let gross=0, wouldAnyway=0, leaked=0, netBk=0;
+  const disp=SEED.mc.displacement[ST.band];
+  SEED.segs.forEach(s=>{
+    const sp=SEED.spend[s.id]; const people=sc.att*shares[s.id];
+    const observed=people*sp.mid*ST.days;
+    gross+=observed;
+    wouldAnyway += observed*(1-sp.attr);
+    const attributed=observed*sp.attr;
+    leaked += attributed*(1-sp.ret);
+    netBk += attributed*sp.ret;
+  });
+  const displaced=netBk*disp; netBk-=displaced;
+  const W=980,H=250,x0=20,x1=470,x2=930;
+  const total=gross||1;
+  const segData=[
+    {label:"Would have happened anyway",val:wouldAnyway,col:"#c9cfd9"},
+    {label:"Leaked outside Berkeley",val:leaked,col:"#e0a96b"},
+    {label:"Displaced / merely shifted",val:displaced,col:"#d98b8b"},
+    {label:"New activity kept in Berkeley",val:netBk,col:"#4f7d5a"}
+  ];
+  const scaleY=(H-30)/total; let y=15;
+  let left=`<rect x="${x0}" y="15" width="26" height="${total*scaleY}" rx="4" fill="#3a5a92"/>`;
+  left+=`<text x="${x0+34}" y="24" font-size="12" font-weight="700" fill="#1f3864">Gross attendee spending ${moneyK(gross)}</text>`;
+  let ribbons="", right="", ry=15;
+  segData.forEach(sg=>{
+    const h=sg.val*scaleY;
+    ribbons+=`<path d="M ${x0+26} ${y} C ${(x0+x1)/2} ${y}, ${(x0+x1)/2} ${ry}, ${x1} ${ry} L ${x1} ${ry+h} C ${(x0+x1)/2} ${ry+h}, ${(x0+x1)/2} ${y+h}, ${x0+26} ${y+h} Z" fill="${sg.col}" opacity="0.85"/>`;
+    right+=`<rect x="${x1}" y="${ry}" width="26" height="${h}" rx="3" fill="${sg.col}"/>`+
+      `<text x="${x1+34}" y="${ry+Math.max(14,h/2)}" font-size="12" fill="#1a1a1a">${sg.label} — <tspan font-weight="700">${moneyK(sg.val)}</tspan></text>`;
+    y+=h; ry+=h;
+  });
+  const svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Money flow from gross spending to net Berkeley activity">
+    ${ribbons}${left}${right}
+    <text x="${x1}" y="${H-2}" font-size="11" fill="#5b6470">Only the green band is new activity the multiplier acts on. Everything left of it is what a conventional impact study double-counts.</text>
+  </svg>`;
+  el.innerHTML=svg+`<p class="note">Of <b>${moneyK(gross)}</b> gross attendee spending, only <b>${moneyK(netBk)}</b> (${Math.round(netBk/gross*100)}%) is genuinely new activity retained in Berkeley after attribution, leakage and displacement. Sponsorship (${moneyK(sc.sponsorship)}) and vendor fees flow to event operations and City revenue separately.</p>`;
+}
+
+/* ---- schematic waterfront map ---- */
+function renderMap(){
+  const shortfall = compute(ST).shortfall;
+  const pressure = shortfall>500?"#c0392b":shortfall>0?"#b6862b":"#2e7d46";
+  const el=document.getElementById("mapsvg");
+  el.innerHTML=`<svg viewBox="0 0 960 380" role="img" aria-label="Schematic of the Berkeley Marina event footprint">
+    <rect x="0" y="0" width="960" height="380" fill="#eaf1f6"/>
+    <path d="M0,0 L520,0 L470,120 L360,190 L300,300 L220,380 L0,380 Z" fill="#cfe0ec"/>
+    <text x="60" y="60" font-size="14" fill="#4a6b86" font-style="italic">San Francisco Bay</text>
+    <ellipse cx="640" cy="150" rx="150" ry="95" fill="#d7e8c9" stroke="#9cbf86" stroke-width="2"/>
+    <text x="640" y="150" font-size="14" font-weight="700" fill="#3f6b34" text-anchor="middle">Cesar Chavez Park</text>
+    <text x="640" y="170" font-size="12" fill="#4f7d5a" text-anchor="middle">event footprint</text>
+    <rect x="560" y="250" width="180" height="70" rx="6" fill="#fff" stroke="${pressure}" stroke-width="3"/>
+    <text x="650" y="278" font-size="12" font-weight="700" fill="#1f3864" text-anchor="middle">Marina parking</text>
+    <text x="650" y="298" font-size="12" fill="${pressure}" text-anchor="middle">${shortfall>0? num(shortfall)+" short at peak":"within capacity"}</text>
+    <circle cx="470" cy="120" r="7" fill="#9cbf86"/><text x="440" y="110" font-size="11" fill="#5f7a4e">habitat</text>
+    <path d="M760,330 L760,120" stroke="#3a5a92" stroke-width="3" stroke-dasharray="2 6"/>
+    <text x="770" y="200" font-size="11" fill="#3a5a92">access route / shuttle</text>
+    <path d="M560,300 C 460,300 420,220 470,120" stroke="#7d5ba6" stroke-width="3" fill="none" stroke-dasharray="6 5"/>
+    <text x="430" y="270" font-size="11" fill="#7d5ba6">bike / pedestrian</text>
+    <rect x="600" y="90" width="14" height="14" fill="#c0392b"/><text x="620" y="102" font-size="11" fill="#8a3227">safety / sanitation post</text>
+  </svg>
+  <p class="note">Schematic only — a placeholder for a PostGIS layer of the real footprint, parking occupancy, visitor origins, routes and sensitive habitat. Parking box recolors with the live peak-shortfall estimate.</p>`;
+}
+
+function renderPublic(sc){
+  const el=document.getElementById("pubchips");
+  el.innerHTML = SEED.community.map((c,i)=>`<span class="chip${i===0?' free':''}">${c}</span>`).join("");
+  document.getElementById("pub-sub").textContent = sc.att
+    ? `${num(sc.nonBk_att)} of ${num(sc.att)} attendees are nonresidents; residents receive a free amenity partly subsidized by all taxpayers, while nearby neighborhoods bear most congestion.`
+    : "No event; no distributional effects to report.";
+}
+
+/* ---- evidence + gaps (static) ---- */
+function renderEvidence(){
+  const tb=document.querySelector("#evtable tbody");
+  tb.innerHTML=SEED.evidence.map(e=>`<tr>
+    <td>${e.f}</td><td>${e.v}</td><td>${e.s}</td>
+    <td><span class="tag ${e.c}">${e.c}</span></td>
+    <td><span class="tag ${e.b}">${e.b}</span></td></tr>`).join("");
+  document.getElementById("gaps").innerHTML=SEED.gaps.map(g=>`<li>${g}</li>`).join("");
+}
+
+/* ---- controls ---- */
+function buildControls(){
+  const host=document.getElementById("controls");
+  host.innerHTML = CONTROLS.map(c=>`
+    <div class="ctrl">
+      <div class="row"><span class="nm">${c.nm}</span><span class="vv" id="v-${c.k}"></span></div>
+      <input type="range" id="r-${c.k}" min="${c.min}" max="${c.max}" step="${c.step}">
+    </div>`).join("") + `
+    <div class="ctrl">
+      <div class="row"><span class="nm">Transit / access mode</span></div>
+      <div class="seg" id="r-transit">
+        <button data-v="none">None</button>
+        <button data-v="regular">Regular</button>
+        <button data-v="event_plus">Event-plus</button>
+      </div>
+      <span class="hint">Event-plus = added AC Transit service, shuttle, bike valet, satellite parking.</span>
+    </div>`;
+  CONTROLS.forEach(c=>{
+    const r=document.getElementById("r-"+c.k);
+    r.addEventListener("input",()=>{ setFromControls(); });
+  });
+  document.querySelectorAll("#r-transit button").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll("#r-transit button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); ST.transit=b.dataset.v; syncAndRender();
+  }));
+}
+function syncControls(){
+  document.getElementById("r-attendance").value=ST.attendance;
+  document.getElementById("r-nonBk").value=ST.nonBk;
+  document.getElementById("r-days").value=ST.days;
+  document.getElementById("r-parking_price").value=ST.parking_price;
+  document.getElementById("r-sponsorship").value=ST.sponsorship;
+  document.querySelectorAll("#r-transit button").forEach(b=>b.classList.toggle("on",b.dataset.v===ST.transit));
+  updateLabels();
+}
+function setFromControls(){
+  ST.attendance=+document.getElementById("r-attendance").value;
+  ST.nonBk=+document.getElementById("r-nonBk").value;
+  ST.days=+document.getElementById("r-days").value;
+  ST.parking_price=+document.getElementById("r-parking_price").value;
+  ST.sponsorship=+document.getElementById("r-sponsorship").value;
+  syncAndRender();
+}
+function updateLabels(){
+  CONTROLS.forEach(c=>{ document.getElementById("v-"+c.k).textContent=c.fmt(ST[c.k]); });
+}
+function syncAndRender(){ updateLabels(); render(); renderMap(); }
+
+/* ---- boot ---- */
+function boot(){
+  const sel=document.getElementById("scenario");
+  sel.innerHTML=SEED.scenarios.map(s=>`<option value="${s.id}">${s.label}</option>`).join("");
+  sel.value="former_model";
+  loadScenario("former_model");
+  buildControls(); renderEvidence();
+  syncControls(); render(); renderMap();
+
+  sel.addEventListener("change",()=>{ loadScenario(sel.value); syncControls(); render(); renderMap(); });
+  document.querySelectorAll("#band button").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll("#band button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); ST.band=b.dataset.b; render();
+  }));
+}
+boot();
+</script>
+</body>
+</html>

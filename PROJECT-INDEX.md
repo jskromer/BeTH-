@@ -11,6 +11,15 @@
 
 Live versions remain in the Cowork sidebar; these are static archives.
 
+## Berkeley Event Value Twin (`event-value-twin/` + `docs/berkeley-event-value-twin.html`)
+A reusable model for evaluating civic events (Kite Festival as first case), keeping economic impact, City fiscal impact, and public value separate. Counterfactual/incrementality math + IMPLAN/RIMS-II cross-check + Monte Carlo.
+- `docs/berkeley-event-value-twin.html` — interactive dashboard (self-contained; five screens, live scorecard, money-flow diagram, evidence register). Linked from Budget Basics.
+- `event-value-twin/data/seed.json` — the 12 seed tables (2019-style reconstruction + 5 scenarios), all values illustrative/tagged measured·modeled·stipulated
+- `event-value-twin/model/event_value_twin.py` — transparent engine (stdlib only); `python3 model/event_value_twin.py` reproduces every dashboard figure
+- `event-value-twin/model/schema.sql` — PostgreSQL/PostGIS DDL for the 12 tables
+- `event-value-twin/README.md` — methodology & commitments
+- **Status:** v0.1 preliminary. Numbers are illustrative pending the data-gap register; Kite Festival last ran 2017–2019.
+
 ## FY2027–28 budget analysis (`BeTH/`)
 - `berkeley-budget-database.json` — canonical consolidated store: balancing recap, deficit history, all-funds by department, staffing, audit layer, 12-item opportunity cross-walk
 - `fy2027-2028-proposed-budget.json` — parsed proposed-budget data
