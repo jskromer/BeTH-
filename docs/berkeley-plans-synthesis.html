@@ -1,192 +1,521 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BeTH — Adopted Plans vs. Strategic Priorities</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adopted Plans vs. Strategic Priorities — Berkeley Transparency Hub</title>
+<meta name="description" content="All 27 plans on Berkeley's adopted-plans list, mapped against the 2018 Strategic Plan's nine goals, the city's fiscal reality, and the referral queue that decides which plans staff actually work on." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
-  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --grey:#8b95a3; --accent:#15543f; }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
-.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
-h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
-.sub { color:var(--mut); margin:0 0 4px; }
-.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
-h2 { font-size:18px; margin:32px 0 6px; letter-spacing:-.01em; }
-h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
-h3 { font-size:14.5px; margin:22px 0 6px; }
-.lead { color:var(--mut); margin:0 0 14px; max-width:780px; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
-.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:14px; }
-.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
-.kpi .v { font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--accent); }
-.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
-table { width:100%; border-collapse:collapse; font-size:13.5px; }
-th,td { text-align:left; padding:8px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
-th { color:var(--mut); font-weight:600; font-size:12px; white-space:nowrap; }
-tbody tr:hover { background:#fafbfc; }
-.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; white-space:nowrap; }
-.c-cur { background:#e7f1ec; color:#15543f; }
-.c-age { background:#fff5d6; color:#8a6300; }
-.c-stale { background:#fdecea; color:#8f2c24; }
-a { color:var(--accent); }
-.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
-.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
-.nowrap { white-space:nowrap; }
-ul { margin:6px 0; padding-left:1.3em; }
-li { margin:4px 0; }
-.goals ol { padding-left:1.4em; margin:6px 0; }
-.goals li { margin:3px 0; }
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff;
+    --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a;
+    --hi:#2f6f57; --mod:#956613; --low:#a8322c; --unk:#6b7280;
+    --cur:#2f6f57; --age:#956613; --stale:#a8322c; --dead:#6b7280;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--navy);
+    font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  a{color:var(--steel-deep);text-underline-offset:3px;text-decoration-thickness:1px}
+  a:hover{color:var(--steel)}
+  a:focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:2px}
+
+  .hubbar{background:var(--slate);color:#eef1f5}
+  .hubbar-in{max-width:var(--maxw);margin:0 auto;padding:11px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .hubbar a.back{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:#cdd6e0;text-decoration:none}
+  .hubbar a.back:hover{color:#fff}
+  .hubbar .stamp{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9fb0c1}
+
+  .masthead{padding:48px 0 26px;border-bottom:2px solid var(--navy)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--steel-deep);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px}
+  .eyebrow .tick{width:22px;height:2px;background:var(--steel);display:inline-block}
+  h1{font-family:"Playfair Display",serif;font-weight:700;
+    font-size:clamp(2rem,5.6vw,3.2rem);line-height:1.03;letter-spacing:-.01em;
+    margin:.05em 0 .3em;color:var(--navy)}
+  h1 .q{font-style:italic;font-weight:600;color:var(--steel-deep)}
+  .dek{font-size:clamp(1.04rem,2.2vw,1.24rem);line-height:1.45;color:var(--muted);
+    max-width:64ch;margin:0 0 24px}
+  .meta-row{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 24px}
+  .meta-row b{color:var(--navy);font-weight:700}
+
+  .legend{margin:24px 0 0;padding:14px 16px;background:var(--card);border:1px solid var(--rule-strong)}
+  .legend .lt{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:3px 9px 3px 8px;color:#fff;display:inline-flex;
+    align-items:center;gap:6px;line-height:1.4}
+  .chip::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.85)}
+  .chip.hi{background:var(--hi)}.chip.mod{background:var(--mod)}
+  .chip.low{background:var(--low)}.chip.unk{background:var(--unk)}
+  .c{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.03em;
+    text-transform:uppercase;padding:1px 6px;color:#fff;vertical-align:.1em;white-space:nowrap}
+  .c.hi{background:var(--hi)}.c.mod{background:var(--mod)}
+  .c.low{background:var(--low)}.c.unk{background:var(--unk)}
+
+  .verdict{margin:32px 0 8px;padding:24px 26px;background:var(--slate);color:#eef1f5}
+  .verdict .vk{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:#9fb6c9;margin-bottom:9px}
+  .verdict .vt{font-family:"Playfair Display",serif;font-weight:700;font-size:1.5rem;
+    line-height:1.12;margin:0 0 .5em;color:#fff}
+  .verdict .vt em{color:#8fbede;font-style:italic}
+  .verdict p{margin:0 0 .8em;font-size:1rem;color:#d4dbe3}
+  .verdict p:last-child{margin-bottom:0}
+
+  /* metric strip */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule-strong);
+    border:1px solid var(--rule-strong);margin:26px 0 0}
+  .metric{background:var(--card);padding:16px 15px}
+  .metric .v{font-family:"Playfair Display",serif;font-weight:700;font-size:1.85rem;
+    line-height:1;color:var(--navy)}
+  .metric .v small{font-size:.95rem;font-weight:600;color:var(--muted)}
+  .metric .l{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--muted);margin-top:9px;line-height:1.5}
+  .metric.flag .v{color:var(--red)}
+
+  section{padding:38px 0;border-bottom:1px solid var(--rule)}
+  .sec-no{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    letter-spacing:.14em;color:var(--steel);margin-bottom:10px;display:block;text-transform:uppercase}
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.4rem,3.4vw,1.9rem);
+    line-height:1.12;letter-spacing:-.005em;margin:0 0 .55em;color:var(--navy)}
+  h3{font-family:"Playfair Display",serif;font-weight:700;font-size:1.12rem;
+    margin:1.8em 0 .5em;color:var(--navy)}
+  h3:first-of-type{margin-top:1.1em}
+  p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
+  strong{font-weight:600;color:var(--navy)}
+  .lead{font-size:1.04rem}
+  ul.clean,ol.clean{padding-left:1.2em;margin:.4em 0 1.05em}
+  ul.clean li,ol.clean li{margin:0 0 .6em}
+
+  /* goal list */
+  .goals{list-style:none;padding:0;margin:18px 0 0;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule-strong);
+    border:1px solid var(--rule-strong)}
+  .goals li{background:var(--card);padding:12px 14px;font-size:.95rem;line-height:1.45;
+    display:flex;gap:10px;align-items:baseline}
+  .goals li .gn{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+    color:var(--steel);flex:0 0 auto}
+  .goals li.none{background:#fbf4ee}
+  .goals li.none .gn{color:var(--red)}
+
+  /* tables */
+  .tscroll{overflow-x:auto;margin:16px 0 6px;border:1px solid var(--rule-strong);background:var(--card)}
+  table{width:100%;min-width:640px;border-collapse:collapse;font-size:.92rem}
+  thead th{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px;
+    border-bottom:2px solid var(--navy);font-weight:700;white-space:nowrap}
+  tbody td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#eff3f7}
+  td.date,td.rank{font-family:"JetBrains Mono",monospace;font-size:11.5px;white-space:nowrap;color:var(--muted)}
+  td.rank{font-weight:700;color:var(--steel-deep)}
+  .pn{font-weight:600}
+  .st{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;padding:2px 6px;color:#fff;white-space:nowrap}
+  .st.cur{background:var(--cur)}.st.age{background:var(--age)}
+  .st.stale{background:var(--stale)}.st.dead{background:var(--dead)}
+  .tnote{font-size:.87rem;color:var(--muted);font-style:italic;margin:0 0 1.05em}
+
+  .panel{margin:22px 0;padding:20px 24px;background:#fbf4ee;border:1px solid #e7d4c2;
+    border-left:4px solid var(--red)}
+  .panel .pk{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--red);margin-bottom:9px}
+  .panel h3{margin-top:0}
+  .panel ul{margin:.4em 0 0;padding-left:1.2em}.panel li{margin:0 0 .5em}
+
+  .box{margin:20px 0;padding:18px 22px;background:var(--card);border:1px solid var(--rule-strong)}
+  .box .bk{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--steel-deep);margin-bottom:9px}
+
+  /* stated position — deliberately distinct from tracker content */
+  .stance{margin:26px 0 6px;padding:22px 26px;background:#eef2f6;
+    border:1px solid var(--rule-strong);border-left:5px solid var(--steel)}
+  .stance .sk{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--steel-deep);margin-bottom:12px}
+  .stance blockquote{margin:0;font-family:"Playfair Display",serif;font-weight:600;
+    font-size:clamp(1.1rem,2.5vw,1.32rem);line-height:1.4;color:var(--navy)}
+  .stance .attrib{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;
+    color:var(--muted);margin-top:14px;text-transform:uppercase}
+  .stance .gloss{font-size:.95rem;color:var(--muted);line-height:1.5;margin:16px 0 0;
+    padding-top:14px;border-top:1px solid var(--rule-strong)}
+  .stance .gloss strong{color:var(--navy)}
+  .metriclist{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+  .metriclist li{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;
+    text-transform:uppercase;padding:4px 9px;background:var(--card);
+    border:1px solid var(--rule-strong);color:var(--navy)}
+  .metriclist li.rare{background:var(--steel);color:#fff;border-color:var(--steel)}
+
+  .steps{counter-reset:s;margin:20px 0;display:grid;gap:9px}
+  .step{border:1px solid var(--rule-strong);background:var(--card);padding:12px 16px 12px 50px;
+    position:relative}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;bottom:0;
+    width:34px;background:var(--slate);color:#fff;font-family:"JetBrains Mono",monospace;
+    font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step.silent{border-left:4px solid var(--red)}
+  .step .s1{font-family:"Playfair Display",serif;font-weight:700;font-size:1.02rem;margin-bottom:3px}
+  .step .s2{font-size:.92rem;color:var(--muted);line-height:1.45}
+
+  .sources{border-bottom:none}
+  .sources p{font-size:.92rem;color:var(--muted);line-height:1.6}
+  .sources .tag{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--steel-deep);border:1px solid var(--rule-strong);
+    padding:1px 5px;margin-right:7px;white-space:nowrap}
+  .sources ol{font-size:.93rem;color:var(--muted);padding-left:1.4em;margin:.4em 0 0;line-height:1.55}
+  .sources li{margin:0 0 .6em}
+
+  footer{padding:28px 0 64px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    letter-spacing:.02em;color:var(--muted);line-height:1.75}
+  footer .bar{height:3px;background:var(--navy);margin:0 0 16px;width:48px}
+  footer a{color:var(--steel-deep)}
+
+  @media(max-width:640px){
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    body{font-size:17px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .masthead,section,footer{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <h1>Berkeley's Adopted Plans vs. Its Strategic Priorities</h1>
-  <p class="sub">All 27 plans listed under "Our Work &rarr; Adopted Plans" on berkeleyca.gov, mapped to the 2018 Strategic Plan's nine goals and today's budget reality. Compiled July 14, 2026.</p>
-  <span class="tag">Berkeley Transparency Hub · neutral tracker · residents decide</span>
-
-  <div class="disc"><b>The headline:</b> Berkeley's planning portfolio is barbell-shaped — a cluster of fresh, externally-driven plans (2020&ndash;2026) sits on top of a land-use and climate backbone that is 15&ndash;40 years old. Four of the nine Strategic Plan goals (fiscal health, customer service, workforce, standalone equity) have <b>no adopted plan at all</b>. The Strategic Plan itself is 8 years old, and its "refreshed each budget cycle" priorities have effectively been replaced by deficit management: ~$29M annual deficits, ~10% General Fund cuts, 138 positions slated for elimination in the FY2027&ndash;28 budget.</div>
-
-  <div class="kpis">
-    <div class="kpi"><div class="v">10 / 27</div><div class="l">plans adopted since 2020 (37%)</div></div>
-    <div class="kpi"><div class="v">10 / 27</div><div class="l">plans 15+ years old or expired by their own terms (37%)</div></div>
-    <div class="kpi"><div class="v">2016</div><div class="l">median adoption year — two years <i>before</i> the Strategic Plan they implement</div></div>
-    <div class="kpi"><div class="v">4 / 9</div><div class="l">strategic goals with zero adopted plans behind them</div></div>
+<div class="hubbar">
+  <div class="hubbar-in">
+    <a class="back" href="index.html">&larr; Berkeley Transparency Hub</a>
+    <span class="stamp">Tracker</span>
   </div>
-
-  <h2><span class="n">A</span>The nine Strategic Plan goals (January 2018)</h2>
-  <div class="card goals">
-    <ol>
-      <li>Affordable housing and housing support for the most vulnerable</li>
-      <li>Global leader on climate change and environmental justice</li>
-      <li>Champion social and racial equity</li>
-      <li>Efficient, financially healthy City government</li>
-      <li>State-of-the-art, well-maintained infrastructure and facilities</li>
-      <li>Dynamic, sustainable, locally-based economy</li>
-      <li>Resilient, safe, connected, prepared city</li>
-      <li>Customer-focused, excellent, accessible service</li>
-      <li>Attract and retain a talented, diverse workforce</li>
-    </ol>
-  </div>
-
-  <h2><span class="n">B</span>All 27 plans, by strategic goal and currency</h2>
-  <p class="lead">Key: <span class="pill c-cur">Current</span> &le;5 yrs &nbsp;·&nbsp; <span class="pill c-age">Aging</span> 6&ndash;14 yrs &nbsp;·&nbsp; <span class="pill c-stale">Stale</span> 15+ yrs or expired by its own terms. Dates from the city's listing pages.</p>
-
-  <h3>Goal 7 — Resilience &amp; safety (best-covered goal)</h3>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/local-hazard-mitigation-plan-lhmp">Local Hazard Mitigation Plan</a></td><td class="nowrap">03/2025</td><td><span class="pill c-cur">Current</span></td><td>FEMA requires 5-year updates — stays current because a mandate forces it</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/community-wildfire-protection-plan">Community Wildfire Protection Plan</a></td><td class="nowrap">05/2023</td><td><span class="pill c-cur">Current</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/emergency-operations-plan">Emergency Operations Plan</a></td><td class="nowrap">04/2017</td><td><span class="pill c-age">Aging</span></td><td>9 years old for the city's core disaster-response document</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-resilience-strategy">Berkeley Resilience Strategy</a></td><td class="nowrap">04/2016</td><td><span class="pill c-stale">Stale</span></td><td>Artifact of the Rockefeller "100 Resilient Cities" program, which shut down in 2019 <i>(moderate confidence)</i></td></tr>
-  </table>
-  </div>
-
-  <h3>Goals 2 &amp; 5 — Climate &amp; environment</h3>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-existing-buildings-electrification-strategy">Existing Buildings Electrification Strategy</a></td><td class="nowrap">11/2021</td><td><span class="pill c-cur">Current</span></td><td>Current on paper — but its regulatory companion (the natural gas ban) was invalidated in <i>CRA v. Berkeley</i> (9th Cir.), repealed 2024 <i>(moderate confidence)</i></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-electric-mobility-roadmap">Electric Mobility Roadmap</a></td><td class="nowrap">07/2020</td><td><span class="pill c-age">Aging</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/municipal-fleet-electrification-plan">Municipal Fleet Electrification Plan</a></td><td class="nowrap">07/2020</td><td><span class="pill c-age">Aging</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/green-infrastructure-plan">Green Infrastructure Plan</a></td><td class="nowrap">09/2019</td><td><span class="pill c-age">Aging</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/watershed-management-plan">Watershed Management Plan</a></td><td class="nowrap">10/2012</td><td><span class="pill c-age">Aging</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-climate-action-plan"><b>Climate Action Plan</b></a></td><td class="nowrap"><b>06/2009</b></td><td><span class="pill c-stale">Stale</span></td><td><b>17 years old.</b> Predates the 2018 climate emergency declaration, building electrification, and current state law. For a city whose stated goal is "global leader in addressing climate change," the single most glaring goal/plan mismatch.</td></tr>
-  </table>
-  </div>
-
-  <h3>Goals 5 &amp; 7 — Transportation (most actively planned domain)</h3>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-bicycle-plan">Bicycle Plan</a></td><td class="nowrap">06/2026</td><td><span class="pill c-cur">Current</span></td><td>Adopted four weeks ago — newest plan on the list</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-transit-first-policy-implementation-plan">Transit-First Policy Implementation Plan</a></td><td class="nowrap">03/2023</td><td><span class="pill c-cur">Current</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/pedestrian-plan-2020">Pedestrian Plan</a></td><td class="nowrap">01/2021</td><td><span class="pill c-cur">Current</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/vision-zero-action-plan">Vision Zero Action Plan</a></td><td class="nowrap">03/2020</td><td><span class="pill c-age">Aging</span></td><td>Commits to zero traffic deaths <b>by 2028</b> — 18 months out, and the plan is 6 years old</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-strategic-transportation-best-plan">Berkeley Strategic Transportation (BeST) Plan</a></td><td class="nowrap">06/2016</td><td><span class="pill c-stale">Stale</span></td><td>Superseded in practice by the newer modal plans</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/streets-and-open-space-improvement-plan-sosip">Streets &amp; Open Space Improvement Plan (SOSIP)</a></td><td class="nowrap">01/2013</td><td><span class="pill c-age">Aging</span></td><td>Downtown public-realm vision, pre-pandemic downtown</td></tr>
-  </table>
-  </div>
-
-  <h3>Goals 1 &amp; 6 — Land use, housing &amp; economy (oldest backbone)</h3>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/adeline-corridor-specific-plan">Adeline Corridor Specific Plan</a></td><td class="nowrap">12/2020</td><td><span class="pill c-cur">Current</span></td><td>The only recent area plan</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/downtown-area-plan">Downtown Area Plan</a></td><td class="nowrap">03/2012</td><td><span class="pill c-age">Aging</span></td><td></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/southside-plan">Southside Plan</a></td><td class="nowrap">09/2011</td><td><span class="pill c-age">Aging</span></td><td>Predates recent Southside upzoning <i>(moderate confidence)</i></td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/general-plan">General Plan</a></td><td class="nowrap">04/2002</td><td><span class="pill c-stale">Stale</span></td><td><b>24 years old.</b> The umbrella document for all land-use decisions. (Housing Element updated separately per state cycle — the 2023&ndash;2031 element isn't on this list.)</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-marina-master-plan">Marina Master Plan</a></td><td class="nowrap">07/2003</td><td><span class="pill c-stale">Stale</span></td><td>Waterfront Specific Plan process underway to replace it (see July 7, 2026 agenda Item 9)</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/south-shattuck-strategic-plan">South Shattuck Strategic Plan</a></td><td class="nowrap">06/1998</td><td><span class="pill c-stale">Stale</span></td><td>28 years</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/university-avenue-strategic-plan">University Avenue Strategic Plan</a></td><td class="nowrap">11/1996</td><td><span class="pill c-stale">Stale</span></td><td>30 years</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/west-berkeley-plan">West Berkeley Plan</a></td><td class="nowrap">12/1993</td><td><span class="pill c-stale">Stale</span></td><td>33 years</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/waterfront-master-plan">Waterfront Master Plan</a></td><td class="nowrap">10/1986</td><td><span class="pill c-stale">Stale</span></td><td><b>40 years — the oldest plan still listed as governing</b></td></tr>
-  </table>
-  </div>
-
-  <h3>Goal-orphaned / other</h3>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/age-friendly-berkeley-action-plan">Age-Friendly Berkeley Action Plan</a></td><td class="nowrap">12/2018</td><td><span class="pill c-stale">Stale</span></td><td>Was a <b>three-year</b> plan; expired by its own terms in 2021</td></tr>
-    <tr><td><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/citywide-pools-master-plan">Citywide Pools Master Plan</a></td><td class="nowrap">11/2009</td><td><span class="pill c-stale">Stale</span></td><td>17 years</td></tr>
-  </table>
-  </div>
-
-  <h2><span class="n">C</span>Coverage gaps: goals with no plan</h2>
-  <div class="card">
-    <ul>
-      <li><b>Goal 4 (financially healthy government)</b> — no fiscal sustainability plan is listed, yet this is the city's dominant operational reality: projected deficits of $29.2M (FY27) and $29.5M (FY28), a proposed sales-tax measure, and General Fund cuts of ~10.3% (&asymp;7.0% if the tax passes).</li>
-      <li><b>Goal 9 (workforce)</b> — no plan, and the FY27&ndash;28 budget slates 138 positions for cuts, working directly against the goal.</li>
-      <li><b>Goal 8 (customer service)</b> — no plan.</li>
-      <li><b>Goal 3 (equity)</b> — no standalone plan; equity appears only as a lens inside newer plans (Pedestrian, Vision Zero, Adeline, Electrification Strategy).</li>
-    </ul>
-    <p style="margin:8px 0 0;">Goal 1 (affordable housing) is nearly as thin: nothing on this list directly addresses housing production or homelessness. The real instruments — the Housing Element, Measure O bond, Measures P/W transfer-tax funding — live elsewhere on the city site.</p>
-  </div>
-
-  <h2><span class="n">D</span>Patterns worth noting</h2>
-  <div class="card">
-    <p><b>Plans stay current only when something external forces it.</b> The LHMP (FEMA mandate), CWPP (grant eligibility), and Bicycle/Pedestrian plans (competitive transportation funding) are fresh. Purely aspirational documents — Climate Action Plan, Resilience Strategy, the corridor plans — go stale because nothing compels renewal.</p>
-    <p><b>The strategic hierarchy is inverted.</b> The documents that should sit at the top — the General Plan (2002) and Strategic Plan (2018) — are older than most of the tactical plans nominally implementing them. The site still describes priorities as "refreshed each budget cycle," but the budget cycle is now consumed by deficit closure, not strategic priority-setting; the February 2026 council referral re-prioritization is the closest thing to a current priority list.</p>
-    <p style="margin-bottom:0;"><b>Fiscal reality strands the old plans further.</b> Whatever unfunded recommendations sit inside the 1990s corridor plans, the 2009 Pools and Climate plans, and SOSIP were already unlikely; a two-year budget cutting 10% of the General Fund makes them dead letters unless the 2026 infrastructure bond measure passes and absorbs some of the capital backlog.</p>
-  </div>
-
-  <h2><span class="n">E</span>State &amp; county alignment — Senator Arreguín (SD07) and Assemblymember Wicks (AD14)</h2>
-  <p class="lead">Where Berkeley's strategies line up with what its state legislators list on their own websites. Senator Jesse Arreguín — Berkeley's former mayor — chairs the Senate Housing and Public Safety committees; Assemblymember Buffy Wicks chairs the new Select Committee on Housing Construction Innovation. Compiled from their official sites, July 14, 2026.</p>
-  <div class="card" style="overflow-x:auto;">
-  <table>
-    <tr><th>Berkeley strategy / plan</th><th>Arreguín — SD07</th><th>Wicks — AD14</th></tr>
-    <tr><td><b>Homeless services</b> (Goal 1; Measures P/W funding)</td><td><a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB479">SB 479</a> — homeless multidisciplinary teams; <b>names Berkeley explicitly</b> as an authorized health jurisdiction. Also SCR 100 (youth homelessness)</td><td>—</td></tr>
-    <tr><td><b>Housing production &amp; Housing Element</b> (Goal 1)</td><td><a href="https://sd07.senate.ca.gov/news/legislature-approves-1125-billion-affordable-housing-bond">$11.25B state affordable housing bond</a> — on the <b>same Nov 3, 2026 ballot</b> as Berkeley's proposed sales tax and infrastructure bond. Plus SB 9 (ADUs), SB 786 (Housing Element compliance), SB 489 (permit-completeness transparency), SR 71 (homeownership)</td><td>Chairs <a href="https://a14.asmdc.org/">Select Committee on Housing Construction Innovation</a> — cost-efficient, climate-smart homebuilding</td></tr>
-    <tr><td><b>Wildfire</b> (CWPP 2023; Measure FF)</td><td><a href="https://sd07.senate.ca.gov/news/bill-help-homeowners-protect-homes-wildfires-advances-committee">SB 1041 Fire Hardening Act</a> — extends PACE financing to home hardening; SB 1299 (fire-suppression contractor oversight)</td><td>—</td></tr>
-    <tr><td><b>Waterfront</b> (1986 Waterfront Master Plan — the stalest plan on this page)</td><td><a href="https://sd07.senate.ca.gov/news/senator-arreguin-applauds-governor-newsoms-support-transforming-golden-gate-fields-new-public">$125M in Prop 4 funds</a> (May Revise) toward converting Golden Gate Fields into a public waterfront park, adjacent to Berkeley's waterfront planning area</td><td>—</td></tr>
-    <tr><td><b>Clean streets / core services</b> (Goal 5)</td><td>SB 1218 (DMV registration holds for illegal-dumping fines), SB 692 (abandoned-vehicle abatement) — pairs with Berkeley's July 2026 large-vehicle parking item</td><td>—</td></tr>
-    <tr><td><b>Transit-First Plan</b> (2023)</td><td>SB 1166 — AC Transit labor disputes moved to PERB</td><td>—</td></tr>
-    <tr><td><b>Permitting speed / customer service</b> (Goal 8)</td><td>SB 489 — permit streamlining transparency (signed into law)</td><td>Red-tape-cutting laws for restaurant openings (signed) — same deregulatory logic applied to small business</td></tr>
-    <tr><td><b>County health &amp; HHCS grant pipeline</b> (Alameda County senior/meals revenue in the BeTH tracker)</td><td>SB 1400 — Alameda Health System governance overhaul; the clearest <b>county-level</b> item on either site</td><td>—</td></tr>
-  </table>
-  </div>
-  <div class="disc"><b>The non-alignment worth noting:</b> neither legislator's site lists anything touching Berkeley's Goal 4 (financially healthy government) — the ~$29M structural deficit is Berkeley's alone, and the state bond and Prop 4 money are capital dollars, not operating relief. Also notable: Arreguín, the former mayor who presided over the 2018 Strategic Plan, now carries a legislative package that maps more cleanly onto Berkeley's stated goals than Berkeley's own adopted-plans portfolio does. Wicks coverage is thinner here because her site exposes far less legislative detail than Arreguín's; her flagship permitting-reform work extends beyond what the site lists.</div>
-
-  <div class="foot">
-    <b>Confidence:</b> Plan names, adoption dates, summaries — High (city listing pages, July 14, 2026). Budget deficit figures and position counts — High (city budget documents, Berkeley Scanner). CRA v. Berkeley repeal, 100RC closure, Southside upzoning — Moderate (not re-verified against primary sources). Section E: Arreguín items — High (his site's legislation page); Wicks items — Moderate (her site exposes limited legislative detail).<br><br>
-    <b>Sources:</b>
-    <a href="https://berkeleyca.gov/your-government/our-work/strategic-plan">Strategic Plan</a> ·
-    <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans">Adopted Plans p.1</a> ·
-    <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans?page=1">p.2</a> ·
-    <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans?page=2">p.3</a> ·
-    <a href="https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028.pdf">Proposed FY2027&ndash;28 Biennial Budget</a> ·
-    <a href="https://www.berkeleyscanner.com/2026/04/15/community/berkeley-budget-plan-138-positions-slated-for-cuts/">Berkeley Scanner (position cuts)</a> ·
-    <a href="https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf">2026 Council Referral Prioritization</a> ·
-    <a href="https://sd07.senate.ca.gov/legislation">Sen. Arreguín SD07 Legislation</a> ·
-    <a href="https://sd07.senate.ca.gov/newsroom/press-releases">SD07 Press Releases</a> ·
-    <a href="https://a14.asmdc.org/">Asm. Wicks AD14</a>
-    <br><br>
-    Berkeley Transparency Hub. Maintained by Steve Kromer, candidate for Berkeley City Council District 1 — <a href="https://kromerforberkeley.org">kromerforberkeley.org</a>.
-  </div>
-
 </div>
+
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Plans &amp; Governance</div>
+    <h1>Berkeley&rsquo;s Adopted Plans vs. Its <span class="q">Strategic Priorities</span></h1>
+    <p class="dek">All 27 plans listed under &ldquo;Our Work &rarr; Adopted Plans&rdquo; on berkeleyca.gov, mapped against the nine goals of the 2018 Strategic Plan, the city&rsquo;s current fiscal position, and the referral queue that decides which plans staff actually work on.</p>
+    <div class="meta-row">
+      <span><b>Compiled</b> July 14, 2026</span>
+      <span><b>Revised</b> July 29, 2026</span>
+      <span><b>Basis</b> city listing pages, budget documents, primary records</span>
+    </div>
+    <div class="legend">
+      <div class="lt">Confidence labels</div>
+      <div class="chips">
+        <span class="chip hi">High</span><span class="chip mod">Moderate</span>
+        <span class="chip low">Low</span><span class="chip unk">Unknown</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="verdict" role="note" aria-label="In short">
+    <div class="vk">In short</div>
+    <p class="vt">The portfolio is <em>barbell-shaped</em>, and the hierarchy is upside down.</p>
+    <p>A cluster of recent, externally-driven plans sits on top of a land-use and climate backbone that is 15 to 40 years old, with little in between. The two documents that should sit at the top &mdash; the General Plan (2002) and the Strategic Plan (2018) &mdash; are older than most of the tactical plans nominally implementing them.</p>
+    <p>Four of the nine strategic goals have no adopted plan at all. And the plans that do exist reach staff only through a separate ranked queue of council referrals, where three of the four steps can stop a project without anyone voting against it.</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="v">6<small>&thinsp;/&thinsp;27</small></div><div class="l">Plans adopted within the last five years (22%)</div></div>
+    <div class="metric flag"><div class="v">12<small>&thinsp;/&thinsp;27</small></div><div class="l">Stale, expired by their own terms, or superseded (44%)</div></div>
+    <div class="metric"><div class="v">2016</div><div class="l">Median adoption year &mdash; two years before the Strategic Plan these documents implement</div></div>
+    <div class="metric flag"><div class="v">4<small>&thinsp;/&thinsp;9</small></div><div class="l">Strategic goals with zero adopted plans behind them</div></div>
+  </div>
+
+  <section>
+    <span class="sec-no">A</span>
+    <h2>The nine Strategic Plan goals</h2>
+    <p class="lead">Adopted January 2018. Goals with no adopted plan behind them are marked.</p>
+    <ul class="goals">
+      <li><span class="gn">1</span><span>Affordable housing and support for the most vulnerable</span></li>
+      <li><span class="gn">2</span><span>Global leader on climate change and environmental justice</span></li>
+      <li class="none"><span class="gn">3</span><span>Champion social and racial equity &mdash; <strong>no plan</strong></span></li>
+      <li class="none"><span class="gn">4</span><span>Efficient, financially healthy City government &mdash; <strong>no plan</strong></span></li>
+      <li><span class="gn">5</span><span>State-of-the-art, well-maintained infrastructure and facilities</span></li>
+      <li><span class="gn">6</span><span>Dynamic, sustainable, locally-based economy</span></li>
+      <li><span class="gn">7</span><span>Resilient, safe, connected, prepared city</span></li>
+      <li class="none"><span class="gn">8</span><span>Customer-focused, excellent, accessible service &mdash; <strong>no plan</strong></span></li>
+      <li class="none"><span class="gn">9</span><span>Attract and retain a talented, diverse workforce &mdash; <strong>no plan</strong></span></li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="sec-no">B</span>
+    <h2>All 27 plans, by strategic goal and currency</h2>
+    <p>Status reflects three tests: age, expiry by the plan&rsquo;s own terms, and whether the plan has been superseded or its regulatory companion invalidated. Adoption dates from the city&rsquo;s listing pages. <span class="c hi">High</span></p>
+    <p class="tnote">Current &mdash; adopted within five years &nbsp;·&nbsp; Aging &mdash; 6 to 14 years &nbsp;·&nbsp; Stale &mdash; 15 years or older &nbsp;·&nbsp; Defunct &mdash; expired by its own terms or superseded in practice, regardless of age.</p>
+
+    <h3>Goal 7 &mdash; Resilience and safety</h3>
+    <p>The best-covered goal, and the clearest illustration of why: three of these four documents are kept current by an external requirement.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/local-hazard-mitigation-plan-lhmp">Local Hazard Mitigation Plan</a></td><td class="date">03/2025</td><td><span class="st cur">Current</span></td><td>FEMA requires five-year updates. It stays current because a mandate forces it.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/community-wildfire-protection-plan">Community Wildfire Protection Plan</a></td><td class="date">05/2023</td><td><span class="st cur">Current</span></td><td>Tied to grant eligibility.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/emergency-operations-plan">Emergency Operations Plan</a></td><td class="date">04/2017</td><td><span class="st age">Aging</span></td><td>Nine years old, for the city&rsquo;s core disaster-response document.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-resilience-strategy">Berkeley Resilience Strategy</a></td><td class="date">04/2016</td><td><span class="st dead">Defunct</span></td><td>Produced under the Rockefeller Foundation&rsquo;s 100 Resilient Cities program, which wound down in 2019. <span class="c mod">Moderate</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Goals 2 and 5 &mdash; Climate and environment</h3>
+    <div class="tscroll"><table>
+      <thead><tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-existing-buildings-electrification-strategy">Existing Buildings Electrification Strategy</a></td><td class="date">11/2021</td><td><span class="st cur">Current</span></td><td>Current on paper. Its regulatory companion, the natural gas ban, was invalidated in <em>CRA v. Berkeley</em> and repealed in 2024. <span class="c mod">Moderate</span></td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-electric-mobility-roadmap">Electric Mobility Roadmap</a></td><td class="date">07/2020</td><td><span class="st age">Aging</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/municipal-fleet-electrification-plan">Municipal Fleet Electrification Plan</a></td><td class="date">07/2020</td><td><span class="st age">Aging</span></td><td>See also the 2023 fleet-replacement audit referral, still in the council queue at rank 19.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/green-infrastructure-plan">Green Infrastructure Plan</a></td><td class="date">09/2019</td><td><span class="st age">Aging</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/watershed-management-plan">Watershed Management Plan</a></td><td class="date">10/2012</td><td><span class="st age">Aging</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-climate-action-plan">Climate Action Plan</a></td><td class="date">06/2009</td><td><span class="st stale">Stale</span></td><td><strong>Seventeen years old.</strong> Predates the 2018 climate emergency declaration, building electrification, and current state law. For a city whose stated goal is global climate leadership, this is the sharpest goal-to-plan mismatch on the list.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Goals 5 and 7 &mdash; Transportation</h3>
+    <p>The most actively planned domain, and the only one where the plan shelf is genuinely fresh.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-bicycle-plan">Bicycle Plan</a></td><td class="date">06/2026</td><td><span class="st cur">Current</span></td><td>The newest plan on the list &mdash; adopted weeks before the July 28, 2026 council vote (7&ndash;2) reviving the Hopkins Street bike lanes.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-transit-first-policy-implementation-plan">Transit-First Policy Implementation Plan</a></td><td class="date">03/2023</td><td><span class="st cur">Current</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/pedestrian-plan-2020">Pedestrian Plan</a></td><td class="date">01/2021</td><td><span class="st cur">Current</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/vision-zero-action-plan">Vision Zero Action Plan</a></td><td class="date">03/2020</td><td><span class="st age">Aging</span></td><td>Commits to zero traffic deaths <strong>by 2028</strong> &mdash; roughly 18 months out, on a six-year-old plan.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-strategic-transportation-best-plan">Berkeley Strategic Transportation (BeST) Plan</a></td><td class="date">06/2016</td><td><span class="st dead">Defunct</span></td><td>Superseded in practice by the newer modal plans, though still listed as governing.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/streets-and-open-space-improvement-plan-sosip">Streets &amp; Open Space Improvement Plan (SOSIP)</a></td><td class="date">01/2013</td><td><span class="st age">Aging</span></td><td>A downtown public-realm vision for a pre-pandemic downtown. Still an active funding source &mdash; named in the Oxford Street referral.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Goals 1 and 6 &mdash; Land use, housing and economy</h3>
+    <p>The oldest backbone, and the tier with the most legal force. See Section F1.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/adeline-corridor-specific-plan">Adeline Corridor Specific Plan</a></td><td class="date">12/2020</td><td><span class="st age">Aging</span></td><td>The only recent area plan. A specific plan, so it legally constrains public works projects in its boundary.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/downtown-area-plan">Downtown Area Plan</a></td><td class="date">03/2012</td><td><span class="st age">Aging</span></td><td>&mdash;</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/southside-plan">Southside Plan</a></td><td class="date">09/2011</td><td><span class="st stale">Stale</span></td><td>Fifteen years old, and predates recent Southside upzoning. <span class="c mod">Moderate</span> Also the boundary for a pending impact-fee nexus study, queued at rank 27 since 2023.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/general-plan">General Plan</a></td><td class="date">04/2002</td><td><span class="st stale">Stale</span></td><td><strong>Twenty-four years old</strong> &mdash; and the umbrella document all zoning must conform to. The 2023&ndash;2031 Housing Element is updated on the state cycle and is not on this list.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/berkeley-marina-master-plan">Marina Master Plan</a></td><td class="date">07/2003</td><td><span class="st stale">Stale</span></td><td>A Waterfront Specific Plan process is underway to replace it &mdash; see the July 7, 2026 agenda, Item 9.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/south-shattuck-strategic-plan">South Shattuck Strategic Plan</a></td><td class="date">06/1998</td><td><span class="st stale">Stale</span></td><td>Twenty-eight years.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/university-avenue-strategic-plan">University Avenue Strategic Plan</a></td><td class="date">11/1996</td><td><span class="st stale">Stale</span></td><td>Thirty years.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/west-berkeley-plan">West Berkeley Plan</a></td><td class="date">12/1993</td><td><span class="st stale">Stale</span></td><td>Thirty-three years. Gilman Street rezoning has been queued as a referral since 2023.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/waterfront-master-plan">Waterfront Master Plan</a></td><td class="date">10/1986</td><td><span class="st stale">Stale</span></td><td><strong>Forty years &mdash; the oldest plan still listed as governing.</strong></td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Not tied to any strategic goal</h3>
+    <div class="tscroll"><table>
+      <thead><tr><th>Plan</th><th>Adopted</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/age-friendly-berkeley-action-plan">Age-Friendly Berkeley Action Plan</a></td><td class="date">12/2018</td><td><span class="st dead">Defunct</span></td><td>Written as a three-year plan. It expired by its own terms in 2021 and is still listed.</td></tr>
+        <tr><td class="pn"><a href="https://berkeleyca.gov/your-government/our-work/adopted-plans/citywide-pools-master-plan">Citywide Pools Master Plan</a></td><td class="date">11/2009</td><td><span class="st stale">Stale</span></td><td>Seventeen years.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="panel">
+      <div class="pk">Revision note &middot; July 29, 2026</div>
+      <p>An earlier version of this page counted 10 plans as current and 10 as stale, using a single age test. That produced internal contradictions: the BeST Plan was labelled stale at 10 years while the Southside Plan was labelled aging at 15. The status column now applies three explicit tests &mdash; age, expiry by the plan&rsquo;s own terms, and supersession &mdash; and the headline counts changed accordingly, to 6 current and 12 stale or defunct. The underlying dates are unchanged.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-no">C</span>
+    <h2>Coverage gaps: goals with no plan</h2>
+    <ul class="clean">
+      <li><strong>Goal 4, financially healthy government.</strong> No fiscal sustainability plan is listed, though this is the city&rsquo;s dominant operational reality: projected deficits of $29.2M in FY27 and $29.5M in FY28, and General Fund cuts of roughly 10.3% &mdash; about 7.0% if the proposed sales tax passes. <span class="c hi">High</span></li>
+      <li><strong>Goal 9, workforce.</strong> No plan, and the FY27&ndash;28 budget slates 138 positions for elimination &mdash; working directly against the stated goal. <span class="c hi">High</span></li>
+      <li><strong>Goal 8, customer service.</strong> No plan.</li>
+      <li><strong>Goal 3, equity.</strong> No standalone plan. Equity appears as a lens inside newer documents &mdash; the Pedestrian Plan, Vision Zero, Adeline, the electrification strategy &mdash; but nothing anchors it.</li>
+    </ul>
+    <p>Goal 1, affordable housing, is nearly as thin. Nothing on the adopted-plans list directly addresses housing production or homelessness. The real instruments &mdash; the Housing Element, the Measure O bond, Measures P and W transfer-tax funding &mdash; live elsewhere on the city site and are not presented as plans.</p>
+
+    <p><strong>Where the missing plans matter most is in contracting.</strong> A plan adopted by resolution cannot be enforced against the city &mdash; that is the argument in Section F1. But a <em>contract</em> can be enforced against a provider. Contracting is the one place in this system where the city holds real leverage, and there is no adopted plan governing how it uses it.</p>
+
+    <div class="stance">
+      <div class="sk">Stated position</div>
+      <blockquote>&ldquo;Government should require outcome-based contracting and standardized public reporting. Every publicly funded provider should track activity, placement, retention, stability, cost, and failure.&rdquo;</blockquote>
+      <div class="attrib">Steve Kromer &middot; Berkeley Transparency Hub</div>
+      <div class="gloss">
+        <p style="margin:0">Six measures. Public reporting in this space reliably captures the first and the fifth &mdash; how many people were served, and what it cost. The middle three describe whether the service worked. The last one is the measure almost no jurisdiction publishes.</p>
+        <ul class="metriclist">
+          <li>Activity</li><li>Placement</li><li>Retention</li><li>Stability</li><li>Cost</li><li class="rare">Failure</li>
+        </ul>
+        <p style="margin:14px 0 0"><strong>Why it belongs on this page:</strong> outcome terms written into a contract are enforceable in a way a resolution-adopted plan is not. Standardized reporting is what makes an aspirational goal auditable. Goals 3, 4, 8 and 9 have no plan behind them &mdash; and no reporting standard either, which is why their absence is hard to see from the outside.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-no">D</span>
+    <h2>Three patterns</h2>
+    <h3>Plans stay current only when something external forces it</h3>
+    <p>The Local Hazard Mitigation Plan has a FEMA mandate. The wildfire plan is tied to grant eligibility. The Bicycle and Pedestrian plans are tied to competitive transportation funding. All are fresh. The purely aspirational documents &mdash; the Climate Action Plan, the Resilience Strategy, the 1990s corridor plans &mdash; go stale, because nothing compels renewal and no one can be held to them.</p>
+
+    <h3>The strategic hierarchy is inverted</h3>
+    <p>The documents that should sit at the top are the oldest. The city still describes its priorities as refreshed each budget cycle, but the budget cycle is now consumed by deficit closure rather than priority-setting. The February 2026 council referral re-prioritization is the closest thing Berkeley has to a current, ranked statement of what it intends to do. Section F takes that list seriously.</p>
+
+    <h3>Fiscal reality strands the old plans further</h3>
+    <p>Whatever unfunded recommendations sit inside the 1990s corridor plans, the 2009 pools and climate plans, and SOSIP were already unlikely. A two-year budget cutting 10% of the General Fund makes them dead letters unless the November 2026 infrastructure bond passes and absorbs part of the capital backlog. <span class="c mod">Moderate</span></p>
+  </section>
+
+  <section>
+    <span class="sec-no">E</span>
+    <h2>State and county alignment</h2>
+    <p>Where Berkeley&rsquo;s plans line up with what its state legislators list on their own sites. Senator Jesse Arregu&iacute;n, Berkeley&rsquo;s former mayor, chairs the Senate Housing and Public Safety committees. Assemblymember Buffy Wicks chairs the Select Committee on Housing Construction Innovation. Compiled from their official sites, July 14, 2026.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Berkeley plan or strategy</th><th>Arregu&iacute;n &mdash; SD07</th><th>Wicks &mdash; AD14</th></tr></thead>
+      <tbody>
+        <tr><td class="pn">Homeless services<br><span style="font-size:.85rem;color:var(--muted)">Goal 1; Measures P and W funding</span></td><td><a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB479">SB 479</a>, homeless multidisciplinary teams &mdash; <strong>names Berkeley explicitly</strong> as an authorized health jurisdiction. Also SCR 100 on youth homelessness.</td><td>&mdash;</td></tr>
+        <tr><td class="pn">Housing production and Housing Element<br><span style="font-size:.85rem;color:var(--muted)">Goal 1</span></td><td><a href="https://sd07.senate.ca.gov/news/legislature-approves-1125-billion-affordable-housing-bond">$11.25B state affordable housing bond</a> &mdash; on the <strong>same November 3, 2026 ballot</strong> as Berkeley&rsquo;s proposed sales tax and infrastructure bond. Plus SB 9, SB 786, SB 489, SR 71.</td><td>Chairs the <a href="https://a14.asmdc.org/">Select Committee on Housing Construction Innovation</a> &mdash; cost-efficient, climate-smart homebuilding.</td></tr>
+        <tr><td class="pn">Wildfire<br><span style="font-size:.85rem;color:var(--muted)">CWPP 2023; Measure FF</span></td><td><a href="https://sd07.senate.ca.gov/news/bill-help-homeowners-protect-homes-wildfires-advances-committee">SB 1041</a>, extending PACE financing to home hardening; SB 1299 on fire-suppression contractor oversight.</td><td>&mdash;</td></tr>
+        <tr><td class="pn">Waterfront<br><span style="font-size:.85rem;color:var(--muted)">1986 Waterfront Master Plan &mdash; the oldest plan here</span></td><td><a href="https://sd07.senate.ca.gov/news/senator-arreguin-applauds-governor-newsoms-support-transforming-golden-gate-fields-new-public">$125M in Prop 4 funds</a> toward converting Golden Gate Fields into a public waterfront park, adjacent to Berkeley&rsquo;s waterfront planning area.</td><td>&mdash;</td></tr>
+        <tr><td class="pn">Clean streets and core services<br><span style="font-size:.85rem;color:var(--muted)">Goal 5</span></td><td>SB 1218 on DMV registration holds for illegal-dumping fines; SB 692 on abandoned-vehicle abatement.</td><td>&mdash;</td></tr>
+        <tr><td class="pn">Transit-First Plan (2023)</td><td>SB 1166, moving AC Transit labor disputes to PERB.</td><td>&mdash;</td></tr>
+        <tr><td class="pn">Permitting speed<br><span style="font-size:.85rem;color:var(--muted)">Goal 8</span></td><td>SB 489, permit-streamlining transparency &mdash; signed.</td><td>Red-tape reduction for restaurant openings &mdash; signed. Same deregulatory logic applied to small business.</td></tr>
+        <tr><td class="pn">County health and the HHCS grant pipeline</td><td>SB 1400, Alameda Health System governance overhaul &mdash; the clearest county-level item on either site.</td><td>&mdash;</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Where they don&rsquo;t align.</strong> Neither legislator&rsquo;s site lists anything touching Goal 4. The structural deficit is Berkeley&rsquo;s alone, and the state bond and Prop 4 money are capital dollars, not operating relief. Note also that Arregu&iacute;n, the former mayor who presided over the 2018 Strategic Plan, now carries a legislative package that maps more cleanly onto Berkeley&rsquo;s stated goals than Berkeley&rsquo;s own plan portfolio does. Coverage of Wicks is thinner here because her site exposes less legislative detail; her permitting-reform work extends beyond what it lists. <span class="c mod">Moderate</span></p>
+  </section>
+
+  <section>
+    <span class="sec-no">F</span>
+    <h2>How an adopted plan actually reaches staff</h2>
+    <p class="lead">Adoption commits the city rhetorically, and sometimes legally. It commits no staff hours and no dollars. Everything on this page has to pass through one mechanism to become work, and that mechanism is not on the plans page.</p>
+
+    <h3>F1 &mdash; The second axis: enforceability</h3>
+    <p>Sections B and C grade these plans by currency. There is a second axis that changes what staleness means: legal force. A stale plan that binds the city is a different problem from a current plan that merely guides it.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Tier</th><th>Which plans</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td class="pn">Binds</td><td>Adeline Corridor Specific Plan (2020); Southside Plan (2011). Also the San Pablo Corridor Specific Plan, referenced in council referrals but absent from the adopted-plans list.</td><td>State law bars approval of a public works project inside a specific-plan area that is inconsistent with that plan &mdash; Gov. Code §65455. A real constraint. <span class="c mod">Moderate&ndash;High</span></td></tr>
+        <tr><td class="pn">Constrains</td><td>General Plan (2002).</td><td>Zoning must be consistent with it, §65860. State law also contemplates annual review of proposed public works for General Plan conformity, §65401 &mdash; whether Berkeley performs one, we have not established. <span class="c mod">Moderate</span></td></tr>
+        <tr><td class="pn">Guides only</td><td>The other 24, including the Bicycle Plan, Pedestrian Plan, Vision Zero Action Plan, Climate Action Plan, BeST, SOSIP and every master plan.</td><td>Adopted by resolution. Essentially unenforceable against the city itself. A resident cannot sue to compel Berkeley to build what its own Bicycle Plan recommends. <span class="c hi">High</span></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Cross the two axes and the pattern sharpens.</strong> The General Plan is 24 years old <em>and</em> it is the document all zoning must conform to. The Waterfront Master Plan is 40 years old <em>and</em> governs an area now under active specific-plan work. Meanwhile the newest plan on the list, the June 2026 Bicycle Plan, sits in the tier with the least legal force. Berkeley&rsquo;s binding documents are its oldest, and its current documents are its weakest.</p>
+
+    <h3>F2 &mdash; Four decisions, three of which can be made by doing nothing</h3>
+    <p>Under the City Charter, Council cannot direct staff informally. <a href="https://berkeley.municipal.codes/Charter/28">Article VII §28(b)</a> requires that Council and its members deal with the administrative service solely through the City Manager, and bars any member from giving orders to the Manager&rsquo;s subordinates. So the only lawful route from a plan to scheduled work is a collective vote on a <strong>referral</strong> &mdash; which is not an ordinance, not an appropriation, not a contract award, and not a project approval for environmental review purposes. It binds no future council and creates no right anyone can enforce. <span class="c hi">High</span></p>
+    <div class="steps">
+      <div class="step">
+        <div class="s1">A referral is filed and adopted</div>
+        <div class="s2">Usually through a policy committee first. The item joins the outstanding-referral list. Nothing is funded and no work is scheduled.</div>
+      </div>
+      <div class="step silent">
+        <div class="s1">It is scored 0 to 5 by nine officials and ranked</div>
+        <div class="s2">Once a year, by Reweighted Range Voting. A low rank is not a rejection &mdash; the item simply sits.</div>
+      </div>
+      <div class="step silent">
+        <div class="s1">The City Manager may reorder it</div>
+        <div class="s2">Every adopting resolution grants the Manager authority to assign referrals so as not to exceed departmental staff capacity, explicitly including assignment out of the approved order. This is not a denial either.</div>
+      </div>
+      <div class="step silent">
+        <div class="s1">Money has to arrive separately</div>
+        <div class="s2">The rankings only guide the Manager and the Budget &amp; Finance Committee in developing Strategic Plan projects and funding allocations. An appropriation that never materialises is not a vote against the project.</div>
+      </div>
+    </div>
+    <p>Only the first step is a decision anyone has to defend. The three marked in red are places where a project stops because nothing happened.</p>
+
+    <h3>F3 &mdash; How the ranking works, and what it rewards</h3>
+    <p>Berkeley has used Reweighted Range Voting since March 2016. Each member scores every referral 0 to 5, with no limit on repeat scores. The highest total becomes priority one. Then the remaining scores are reweighted downward in proportion to the influence each member has already spent, so a member who scores many referrals highly exhausts their weighted vote quickly and has diminishing influence over what follows. Unscored items default to zero. The design goal is proportionality &mdash; a council minority still gets some priorities served rather than being shut out by a bare majority. <span class="c hi">High</span></p>
+    <p><strong>The side effect is that breadth is penalised.</strong> Scoring a whole plan&rsquo;s worth of items highly is self-defeating. In 2025, the last year individual ballots were published, one official scored only four of 43 referrals, all fives, and placed all four in the top seven; another scored 42 of 43 in the two-to-five range and spent their weighted vote almost immediately. Whether that reflects strategy or simply differing breadth of interest cannot be read off a score sheet. <span class="c mod">Moderate</span></p>
+    <div class="box">
+      <div class="bk">Records note</div>
+      <p>The 2025 results package (March 25, 2025, Item 3) included an attachment with every member&rsquo;s raw scores by district. The 2026 package (February 10, 2026, Item 1) does not &mdash; it publishes the ranked list only. Individual ballot behaviour is no longer visible in the current cycle. <span class="c hi">High</span></p>
+    </div>
+
+    <h3>F4 &mdash; The 2026 queue, and where the plans sit in it</h3>
+    <p>Going into the 2026 cycle there were 53 outstanding long-term referrals. Fourteen were removed on January 27 and 39 were ranked. Removal is the quietest way a plan commitment dies: the e-bike rebate referral, ranked 42nd in 2025, is simply absent from the 2026 list.</p>
+    <p>Three referrals tied for the top score, so all three were assigned rank 1. All three implement adopted transportation plans, and all three route to Public Works.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th>Rank</th><th>Referral</th><th>Filed</th><th>Department</th></tr></thead>
+      <tbody>
+        <tr><td class="rank">1 tie</td><td>Vision Zero rapid response on bicycle boulevards &mdash; applies Oakland&rsquo;s bike-route guide to boulevards designated in the Bicycle Plan, &ldquo;pursuant to the City&rsquo;s Vision Zero Action Plan, Complete Streets Policy, and other applicable policies and plans&rdquo;</td><td class="date">2024</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">1 tie</td><td>AB 43 speed-limit reductions on high-injury commercial corridors</td><td class="date">2022</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">1 tie</td><td>Southside Complete Streets &mdash; limiting cars on Telegraph</td><td class="date">2022</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">6</td><td>Oxford for All &mdash; see F5</td><td class="date">2025</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">13</td><td>Complete Streets and NACTO standards as the default engineering practice</td><td class="date">2022</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">22</td><td>Pedestrian priority at signalised intersections</td><td class="date"><strong>2017</strong></td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">28</td><td>Rapid flashing beacons at high-collision intersections</td><td class="date">2022</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">29</td><td>On-street secure bike storage</td><td class="date">2023</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">30</td><td>Navigable Cities framework into the Pedestrian Master Plan</td><td class="date">2020</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">33</td><td>Paid-parking expansion to fund pedestrian and bicycle facilities</td><td class="date">2021</td><td class="date">Public Works</td></tr>
+        <tr><td class="rank">35</td><td>Right-turn-on-red restrictions</td><td class="date">2022</td><td class="date">Public Works</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Two observations.</strong> Plan implementation is not losing the vote &mdash; it swept the top of the 2026 list. The constraint is downstream, at steps three and four. And <strong>19 of the 39 ranked referrals name Public Works as responsible department</strong>: roughly half the council&rsquo;s entire policy queue pointing at one department&rsquo;s capacity, which is exactly the condition under which the Manager&rsquo;s reordering authority becomes the real prioritisation. One item in the queue was filed in 2017. <span class="c hi">High</span></p>
+    <div class="box">
+      <div class="bk">For readers tracking the November 2026 ballot</div>
+      <p>The rank 2 referral for 2026 is a fiscal-policy framework asking staff to model a regular general-obligation bond issuance schedule, including a projection that Berkeley can issue $250&ndash;300 million in successive tranches while maintaining fiscal health and AAA-quality debt service coverage. The second-highest council priority this year is a framework for institutionalising repeat bond issuance. <span class="c hi">High</span></p>
+    </div>
+
+    <h3>F5 &mdash; What a referral that works looks like</h3>
+    <p>Two street-safety referrals, both citing adopted plans. Only one carries a funding path.</p>
+    <div class="tscroll"><table>
+      <thead><tr><th></th><th>Oxford for All &mdash; 2026 rank 6</th><th>Hopkins Street &mdash; Item 27, July 28, 2026</th></tr></thead>
+      <tbody>
+        <tr><td class="pn">Plan citation</td><td>The 2017 Bike Plan, the 2021 UC Berkeley Oxford/Fulton multimodal study, and the 2025 Bike Plan Update recommendations</td><td>Corridor safety improvements. The June 2026 Bicycle Plan was adopted weeks before the vote.</td></tr>
+        <tr><td class="pn">Repaving hook</td><td>Yes &mdash; implementation &ldquo;alongside upcoming repaving&rdquo;</td><td>Yes &mdash; the referral is to schedule the corridor for paving with safety improvements</td></tr>
+        <tr><td class="pn">Interim option</td><td>Yes &mdash; quick-build Class IV lanes if permanent improvements are not yet feasible</td><td>Not specified in the referral as filed</td></tr>
+        <tr><td class="pn">Money</td><td><strong>$400,000 named</strong>, with sources identified: SOSIP, Measure FF (2024), the Long Range Development Plan &mdash; plus a referral to the June budget process</td><td><strong>None identified &mdash; even after the July 28 approval.</strong> Council put the project at $5&ndash;6M (with about 145 parking spaces removed, preliminary) and tied installation to a future repaving cycle, but named no funding source; Councilmember Kesarwani, who carried the motion, conceded the council faces &ldquo;hard choices&rdquo; because the paving budget does not cover it. <span class="c hi">High</span></td></tr>
+      </tbody>
+    </table></div>
+    <p>Hopkins was already approved once, in May 2022, and stalled. On July 28, 2026 the council revived it: it declined 5&ndash;4 to study alternative routes, then voted 7&ndash;2 (Blackaby and O&rsquo;Keefe opposed) to direct Public Works to design 1.2 miles of bike lanes from Sutter Street to Peralta Avenue and the Ohlone Greenway, installed alongside an upcoming repaving project over the next two years. But the motion named no funding source. That is the whole point of this comparison: Hopkins won the vote and still has no money, while the lower-ranked Oxford referral arrived with $400,000 and identified sources. Council intent was never the binding constraint &mdash; funding and departmental capacity are. <span class="c hi">High</span></p>
+
+    <h3>F6 &mdash; Three fixes available without a charter amendment</h3>
+    <ul class="clean">
+      <li><strong>Bundle by plan.</strong> Let Council score plan-implementation programmes rather than a dozen fragments of the same plan. The ranking system can handle a consolidated item as easily as a fragment.</li>
+      <li><strong>Tier the queue.</strong> Referrals implementing legally binding obligations &mdash; specific plans, state mandates &mdash; should not compete on the same 0-to-5 scale as discretionary pilots.</li>
+      <li><strong>Publish the override, and restore the ballots.</strong> The Manager&rsquo;s reordering authority is granted every year and its exercise is never reported. Individual scores were published in 2025 and dropped in 2026. Both are one-page disclosures.</li>
+    </ul>
+  </section>
+
+  <section class="panel" role="note" style="border-bottom:none">
+    <div class="pk">Open record &middot; help us close it</div>
+    <h3>What we could not verify</h3>
+    <ul>
+      <li><strong>Whether the Manager&rsquo;s reordering authority is ever used.</strong> It is granted in every adopting resolution. We have found no report disclosing when referrals were worked out of rank order. Absence of a record is not evidence the authority is unused.</li>
+      <li><strong>General Plan conformity review of public works.</strong> State law contemplates an annual review. Whether Berkeley performs one, and what it produces, we have not established.</li>
+      <li><strong>The verbatim adopted Hopkins motion.</strong> The July 28 outcome is confirmed (7&ndash;2 to advance; 5&ndash;4 rejecting alternative routes &mdash; see F5). The exact adopted text and any attached conditions await the published minutes; no funding source was identified in the reporting.</li>
+      <li><strong>Which 14 referrals were removed in January 2026</strong>, and on what basis.</li>
+    </ul>
+    <p style="margin-top:1em">Have the adopted motion, a reordering disclosure, or a conformity review? Send it in and this page gets updated with the source.</p>
+  </section>
+
+  <section class="sources">
+    <span class="sec-no">Sources</span>
+    <h2>What this is built on</h2>
+    <ol>
+      <li><span class="tag">Primary</span><a href="https://berkeleyca.gov/your-government/our-work/strategic-plan">Strategic Plan</a> and the adopted-plans listing &mdash; <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans">page 1</a>, <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans?page=1">page 2</a>, <a href="https://berkeleyca.gov/your-government/our-work/adopted-plans?page=2">page 3</a>. All 27 plans and adoption dates.</li>
+      <li><span class="tag">Primary</span><a href="https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028.pdf">Proposed FY2027&ndash;28 Biennial Budget</a>; <a href="https://www.berkeleyscanner.com/2026/04/15/community/berkeley-budget-plan-138-positions-slated-for-cuts/">Berkeley Scanner on position cuts</a>.</li>
+      <li><span class="tag">Primary</span><a href="https://berkeleyca.gov/sites/default/files/2026-02/2026-02-10%20Special%20Item%2001%202026%20City%20Council%20Referral.pdf">2026 Council Referral Prioritization Results</a> (Feb 10, 2026, Item 1) &mdash; ranked list, tie handling, capacity-override resolution.</li>
+      <li><span class="tag">Primary</span><a href="https://berkeleyca.gov/sites/default/files/documents/2025-03-25%20Special%20Item%2003%202025%20City%20Council%20Referral%20Prioritization%20Results.pdf">2025 Council Referral Prioritization Results</a> (Mar 25, 2025, Item 3) &mdash; the last package including individual raw scores.</li>
+      <li><span class="tag">Primary</span><a href="https://berkeley.municipal.codes/Charter/28">Berkeley City Charter, Art. VII §28</a>, including the §28(b) non-interference clause.</li>
+      <li><span class="tag">Statute</span>Cal. Gov. Code §65455, §65860, §65401; CEQA Guidelines §15262.</li>
+      <li><span class="tag">Primary</span>Hopkins Street paving and safety referral, Council Item 27, July 28, 2026. Outcome via <a href="https://www.berkeleyside.org/2026/07/29/hopkins-bike-lane-berkeley-city-council">Berkeleyside, &ldquo;Berkeley City Council votes to back Hopkins Street bike lanes,&rdquo; July 29, 2026</a> &mdash; 7&ndash;2 vote, 1.2-mile scope, $5&ndash;6M estimate, no funding source.</li>
+      <li><span class="tag">Primary</span><a href="https://sd07.senate.ca.gov/legislation">Sen. Arregu&iacute;n SD07 legislation</a> and <a href="https://sd07.senate.ca.gov/newsroom/press-releases">press releases</a>; <a href="https://a14.asmdc.org/">Asm. Wicks AD14</a>.</li>
+    </ol>
+    <p style="margin-top:1.4em"><strong>Confidence summary.</strong> Plan names, adoption dates and the city&rsquo;s own listings &mdash; High. Budget deficit figures and position counts &mdash; High. Referral rankings, tie handling, department counts, and the absence of individual scores in 2026 &mdash; High. Charter §28(b) &mdash; High. Government Code characterisations in F1 &mdash; Moderate to Moderate&ndash;High; worth a City Attorney read before anyone relies on them. <em>CRA v. Berkeley</em> repeal, the 100 Resilient Cities wind-down, Southside upzoning, and the Hopkins cost estimate ($5&ndash;6M) and preliminary 145-space parking count &mdash; Moderate. The Hopkins vote outcome (7&ndash;2 to advance, 5&ndash;4 rejecting alternative routes, July 28, 2026) &mdash; High, per Berkeleyside.</p>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Berkeley Transparency Hub &middot; Plans tracker &middot; revised July 29, 2026<br>
+    Confidence labels reflect the strength of the underlying evidence, not certainty. Corrections and primary sources welcome.<br><br>
+    Maintained by Steve Kromer, candidate for Berkeley City Council District 1 &mdash; <a href="https://kromerforberkeley.org">kromerforberkeley.org</a>. This page is a tracker built from primary documents; readers draw their own conclusions.
+  </footer>
+
+</main>
 </body>
 </html>
