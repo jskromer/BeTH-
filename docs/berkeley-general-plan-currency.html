@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The General Plan Clock — Berkeley Transparency Hub</title>
+<meta name="description" content="Element-by-element currency of the Berkeley General Plan: what is adopted, what has been amended, and which state requirements were never triggered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=Spline+Sans+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFA;
+    --ink:#16191C;
+    --muted:#5C6169;
+    --rule:#DEDFD8;
+    --rule-strong:#B9BCB2;
+    --blue:#1F4E79;
+    --verified:#1B6B45;
+    --assumption:#8A5D07;
+    --topull:#4A5560;
+    --wash:#F3F4EF;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px;
+    line-height:1.62;
+  }
+  .wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem 5rem}
+  h1,h2,h3,h4{font-family:"Archivo",sans-serif;line-height:1.18;letter-spacing:-0.012em;margin:0}
+  h1{font-size:2.35rem;font-weight:700;margin-bottom:.5rem}
+  h2{font-size:1.35rem;font-weight:700;margin:3.25rem 0 .35rem;padding-top:1.5rem;border-top:2px solid var(--ink)}
+  h3{font-size:1.05rem;font-weight:600;margin:2rem 0 .35rem}
+  h4{font-size:.94rem;font-weight:600;margin:1.5rem 0 .3rem}
+  p{margin:.75rem 0}
+  a{color:var(--blue)}
+  code,.mono{font-family:"Spline Sans Mono",ui-monospace,monospace}
+
+  /* masthead */
+  header.masthead{border-bottom:2px solid var(--ink);padding:2.5rem 0 1.25rem;margin-bottom:1.5rem}
+  .kicker{font-family:"Spline Sans Mono",monospace;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem}
+  .standfirst{font-size:1.12rem;color:var(--muted);margin:.75rem 0 0;max-width:42rem}
+  .stamp{font-family:"Spline Sans Mono",monospace;font-size:.74rem;color:var(--muted);margin-top:1.1rem;line-height:1.7}
+
+  /* confidence tags */
+  .tag{font-family:"Spline Sans Mono",monospace;font-size:.68rem;font-weight:600;letter-spacing:.06em;
+       text-transform:uppercase;padding:.14em .45em;border:1px solid currentColor;border-radius:2px;
+       white-space:nowrap;vertical-align:.09em}
+  .v{color:var(--verified)}
+  .a{color:var(--assumption)}
+  .t{color:var(--topull)}
+  .legend{background:var(--wash);border:1px solid var(--rule);padding:.9rem 1.1rem;margin:1.5rem 0;font-size:.9rem}
+  .legend p{margin:.3rem 0}
+
+  /* element clock */
+  .clock{margin:1.75rem 0 .5rem;border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);padding:1rem 0}
+  .clock-scale{display:flex;justify-content:space-between;font-family:"Spline Sans Mono",monospace;
+               font-size:.68rem;color:var(--muted);margin:0 0 .6rem;padding-left:13.5rem}
+  .row{display:flex;align-items:center;gap:.5rem;padding:.28rem 0}
+  .row .name{flex:0 0 13rem;font-size:.85rem;line-height:1.3}
+  .track{position:relative;flex:1;height:14px;background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 100%);
+         background-size:calc(100%/25) 100%;border-bottom:1px solid var(--rule-strong)}
+  .bar{position:absolute;top:2px;height:10px;background:var(--ink)}
+  .bar.stale{background:var(--ink);opacity:.85}
+  .bar.current{background:var(--verified)}
+  .mark{position:absolute;top:-3px;height:20px;width:2px;background:var(--verified)}
+  .row .note{flex:0 0 6.5rem;font-family:"Spline Sans Mono",monospace;font-size:.7rem;color:var(--muted);text-align:right}
+  .clock-key{font-size:.82rem;color:var(--muted);margin:.85rem 0 0}
+  @media (max-width:640px){
+    .clock-scale{padding-left:0;display:none}
+    .row{flex-wrap:wrap}
+    .row .name{flex:0 0 100%;font-weight:600}
+    .row .note{flex:0 0 auto;text-align:left}
+    .track{flex:1 1 55%}
+  }
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.9rem}
+  th,td{text-align:left;vertical-align:top;padding:.55rem .6rem;border-bottom:1px solid var(--rule)}
+  th{font-family:"Archivo",sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.02em;
+     text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule-strong)}
+  td.num{font-family:"Spline Sans Mono",monospace;white-space:nowrap}
+  .table-scroll{overflow-x:auto}
+
+  /* callouts */
+  .finding{border-left:3px solid var(--blue);background:var(--wash);padding:.85rem 1.1rem;margin:1.4rem 0}
+  .finding p:first-child{margin-top:0}
+  .finding p:last-child{margin-bottom:0}
+  ul,ol{margin:.75rem 0;padding-left:1.35rem}
+  li{margin:.35rem 0}
+  .q{font-family:"Archivo",sans-serif;font-weight:600}
+
+  footer{margin-top:4rem;padding-top:1.25rem;border-top:2px solid var(--ink);font-size:.85rem;color:var(--muted)}
+  .srcs{font-size:.85rem}
+  .srcs li{margin:.5rem 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker"><a href="index.html">Berkeley Transparency Hub</a> &nbsp;·&nbsp; Plans &amp; Policy Currency</p>
+  <h1>The General Plan Clock</h1>
+  <p class="standfirst">Berkeley's General Plan has nine elements. One of them has been updated in the last twenty-four years. This page records what each element says, when it was last touched, and which state requirements were built to fire on an update that never came.</p>
+  <p class="stamp">
+    Compiled 2026-07-30 &nbsp;·&nbsp; Public data layer, not campaign material<br>
+    Companion to the <a href="berkeley-plans-synthesis.html">Adopted Plans vs. Strategic Priorities</a> tracker &mdash; this page is the drill-down on its General Plan row.<br>
+    Every claim carries a confidence tag. Nothing marked <span class="tag a">assumption</span> or <span class="tag t">to pull</span> should be asserted as a finding.
+  </p>
+</header>
+
+<p><strong>Acronyms used on this page:</strong> <span class="mono">AB</span> = Assembly Bill · <span class="mono">APR</span> = Annual Progress Report · <span class="mono">CEQA</span> = California Environmental Quality Act · <span class="mono">CY</span> = calendar year · <span class="mono">EJ</span> = environmental justice · <span class="mono">HCD</span> = California Department of Housing and Community Development · <span class="mono">LCI</span> = Governor's Office of Land Use and Climate Innovation (formerly OPR) · <span class="mono">LHMP</span> = Local Hazard Mitigation Plan · <span class="mono">LOS</span> = level of service · <span class="mono">OPR</span> = Office of Planning and Research · <span class="mono">PC</span> = Planning Commission · <span class="mono">RHNA</span> = Regional Housing Needs Allocation · <span class="mono">SB</span> = Senate Bill · <span class="mono">VMT</span> = vehicle miles traveled</p>
+
+<div class="legend">
+  <p><span class="tag v">verified</span> Sourced to a primary public document and checked. Safe to state publicly.</p>
+  <p><span class="tag a">assumption</span> A reading or model input, not a finding. Do not assert.</p>
+  <p><span class="tag t">to pull</span> The specific record that would close the gap. Unfinished work.</p>
+</div>
+
+<h2>1. What is adopted</h2>
+
+<p><span class="tag v">verified</span> The operative Berkeley General Plan was adopted <strong>December 18, 2001</strong> and <strong>April 23, 2002</strong>. It carries the seven state-required elements, organized into nine Berkeley elements. Source: <em>2024 General Plan Annual Progress Report</em>, City of Berkeley, submitted March 21, 2025, p. 3.</p>
+
+<p><span class="tag v">verified</span> The Transportation Element serves as Berkeley's circulation element. It was adopted December 18, 2001. It contains Policy T-4, the Transit-First Policy, and four network maps: Vehicular Circulation, Transit, Bicycle Circulation, and Emergency Access and Evacuation. The 2000 Bicycle Plan is incorporated into it by reference.</p>
+
+<p><span class="tag v">verified</span> Its factual baseline is the 1993 report <em>Conditions, Trends and Issues: A Background Report for Updating the City's General Plan</em>. Its commute-mode figures are from the 1990 census. Its traffic projections run from 1990 to 2020. The planning horizon of Berkeley's operative circulation element expired six years ago.</p>
+
+<h2>2. The element clock</h2>
+
+<p>Each bar runs from adoption to today. A green terminus marks the most recent amendment on record.</p>
+
+<div class="clock">
+  <div class="clock-scale"><span>2001</span><span>2008</span><span>2015</span><span>2022</span><span>2026</span></div>
+
+  <div class="row">
+    <span class="name">Land Use</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Transportation <em>(circulation)</em></span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Housing</span>
+    <span class="track"><span class="bar current" style="left:0;right:12%"></span><span class="mark" style="left:88%"></span></span>
+    <span class="note">Jan 2023</span>
+  </div>
+  <div class="row">
+    <span class="name">Disaster Preparedness &amp; Safety</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">update pending</span>
+  </div>
+  <div class="row">
+    <span class="name">Open Space &amp; Recreation</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Environmental Management</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Economic Development &amp; Employment</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Urban Design &amp; Preservation</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">no amendment</span>
+  </div>
+  <div class="row">
+    <span class="name">Citizen Participation</span>
+    <span class="track"><span class="bar stale" style="left:0;right:0"></span></span>
+    <span class="note">none since 2002</span>
+  </div>
+</div>
+
+<p class="clock-key"><span class="tag v">verified</span> The CY2024 APR states element by element that no amendment occurred during CY2024, and states in plain terms that the Citizen Participation Element "has not been updated since 2002." <span class="tag t">to pull</span> The APR series for CY2002 through CY2023 has not been pulled. A bar shown at full length means <em>no amendment on record in the documents pulled so far</em>, not proven never amended. Close this before publishing the strong version of the claim.</p>
+
+<p><span class="tag v">verified</span> A drafting note worth recording: the Urban Design and Preservation section of the CY2024 report states the element "was not amended during CY 2022." The heading is CY2024. The city's own currency report contains a stale year in one of its nine element sections.</p>
+
+<h2>3. The circulation element and the triggers that never fired</h2>
+
+<p>California modernized the circulation element three times since Berkeley adopted its own. Each round of reform is written as a <em>trigger</em>, not a deadline. The obligation attaches when a city substantively revises the element. A city that never revises never incurs it.</p>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Statute</th><th>What it requires</th><th>When it attaches</th><th>Status in Berkeley</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="num">AB 1358 (2008)<br>Complete Streets Act</td>
+      <td>Modify the circulation element to plan a balanced, multimodal network serving bicyclists, children, people with disabilities, motorists, freight, pedestrians, transit users and seniors.</td>
+      <td>Commencing Jan 1, 2011, "upon any substantive revision of the circulation element." Gov. Code § 65302(b)(2)(A).</td>
+      <td>Not triggered. <span class="tag a">assumption</span></td>
+    </tr>
+    <tr>
+      <td class="num">SB 743 (2013)<br>CEQA transportation metric</td>
+      <td>Replace automobile delay and LOS with VMT as the CEQA transportation impact metric.</td>
+      <td>Statewide by July 1, 2020, through CEQA Guidelines § 15064.3. Applies to environmental review, not to the general plan directly.</td>
+      <td>Handled outside the General Plan. <span class="tag v">verified</span></td>
+    </tr>
+    <tr>
+      <td class="num">SB 932 (2022)</td>
+      <td>Incorporate the Federal Highway Administration Safe System Approach; develop bicycle, pedestrian and traffic calming plans; identify safety corridors; set traffic calming around schools, parks and business districts; complete all identified actions within 25 years; begin implementation within 2 years of adoption.</td>
+      <td>"Upon any substantive revision of the circulation element, on or after January 1, 2025."</td>
+      <td>Not triggered. <span class="tag a">assumption</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>How Berkeley handled SB 743</h3>
+
+<p><span class="tag v">verified</span> Berkeley met the CEQA-side obligation with a standalone staff document, <em>City of Berkeley VMT Criteria and Thresholds</em>, dated <strong>June 29, 2020</strong>. That document states the City would also update its Transportation Impact Study Guidelines. It is an environmental-review instrument. It did not amend the Transportation Element, and the Transportation Element still frames Berkeley's transportation problem in the congestion terms the state abandoned.</p>
+
+<div class="finding">
+  <p><span class="tag a">assumption</span> <strong>The reading, stated plainly so it can be argued with:</strong> Berkeley is not in violation of AB 1358 or SB 932. Both are trigger-based, and Berkeley has not pulled the trigger in twenty-five years. The observation is not non-compliance. It is that the state's chosen mechanism for modernizing circulation elements is a voluntary trip-wire, and a city can hold a 1990-baseline circulation element indefinitely by declining to touch it, while adopting every downstream plan the modern statutes would have required anyway.</p>
+</div>
+
+<h3>Where the policy actually lives instead</h3>
+
+<p>Berkeley has not stopped making transportation policy. It has made it in instruments that sit below the General Plan and are not bound by its consistency requirement: the Berkeley Strategic Transportation Plan (2016), the Bicycle Plan, the Pedestrian Plan (2020), the Vision Zero Action Plan (2020), and the Transit-First Policy Implementation Plan (Council-approved March 2023). <span class="tag v">verified</span></p>
+
+<p>Two consequences follow, and both are checkable rather than rhetorical:</p>
+
+<ul>
+  <li>None of those plans re-derived the baseline the General Plan was supposed to hold. They implement a policy framework whose stated conditions data is from 1990 and 1993.</li>
+  <li><span class="tag v">verified</span> The CY2024 APR records that the Vision Zero program was "largely on hold during 2023 and 2024," against a Council-adopted goal of eliminating severe injury and fatal traffic crashes by 2028. The Telegraph Corridor Study and Adeline Complete Streets were each on hold during 2023 and restarted in 2024. A goal with a date, a program on hold for two of the intervening years, and no element-level reporting obligation is the pattern this Hub exists to record.</li>
+</ul>
+
+<h2>4. The Safety Element: an update with a published schedule</h2>
+
+<p>This is the one element with an active, funded, publicly scheduled update, which makes it the cleanest available test of whether Berkeley delivers a planning milestone on the date it published.</p>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Milestone</th><th>As published</th><th>Observed</th></tr></thead>
+  <tbody>
+    <tr><td>State grant awarded</td><td class="num">$497,042, LCI/OPR Adaptation Planning Grant Program, 2023</td><td><span class="tag v">verified</span> Partners: Ecology Center, Berkeley Climate Equity Collaborative</td></tr>
+    <tr><td>Consultant solicitation</td><td class="num">RFP Spec. No. 24-11641-C, issued Dec 2023</td><td><span class="tag v">verified</span></td></tr>
+    <tr><td>Public drafts of the elements</td><td class="num">"By January 2026," per the terms of the grant, as stated in the CY2024 APR</td><td><span class="tag v">verified</span> Not published as of 2026-07-30. Six months past.</td></tr>
+    <tr><td>Drafts to Planning Commission and Council</td><td class="num">"In 2026," per the project page</td><td><span class="tag t">to pull</span> No PC agenda item located</td></tr>
+    <tr><td>Project completion</td><td class="num">"Anticipated to be completed in 2027," per the CY2024 APR</td><td><span class="tag t">to pull</span></td></tr>
+    <tr><td>Latest public artifact</td><td class="num">Existing Conditions Reports (Disaster Preparedness &amp; Safety; Environmental Justice) and a Groundwater Analysis, posted June 2026</td><td><span class="tag v">verified</span> Last public event on the project page: pop-up exhibits, Oct 28, 2025</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><span class="tag v">verified</span> The 2024 Local Hazard Mitigation Plan was adopted by Council on <strong>March 18, 2025</strong>. The LHMP is an appendix to the Disaster Preparedness and Safety Element, so the appendix has been refreshed while the element it appends to has not.</p>
+
+<p><span class="tag a">assumption</span> Under SB 1035, a safety element is to be reviewed and revised as necessary upon each housing element revision and upon each LHMP revision, and not less than once every eight years. Berkeley revised its housing element in January 2023 and its LHMP in March 2025. Whether the city treats those as satisfied by the in-progress update, or as review obligations that were separately met, is a question for the City Attorney and Planning, not something this page should assert.</p>
+
+<h2>5. Internal consistency</h2>
+
+<p><span class="tag v">verified</span> Government Code § 65300.5 requires that a general plan and its elements comprise an integrated, internally consistent and compatible statement of policies. SB 932 amended that section in 2022 to underline the point.</p>
+
+<p>Berkeley now carries a 2023 housing element sized to an 8,934-unit RHNA, a 2025 middle-housing rezoning, an AB 2011 approval of 739 homes at North Berkeley BART, and a corridors upzoning in progress, all sitting on a circulation element whose conditions data predates every one of them.</p>
+
+<p><span class="tag a">assumption</span> This is a litigation surface, not a proven defect. A general-plan consistency challenge requires a specific inconsistency between a specific approval and a specific policy, and courts give cities wide deference. The honest statement is that the exposure exists and has not been tested, not that Berkeley's plan is invalid.</p>
+
+<h3>The specific inconsistency worth checking first</h3>
+
+<div class="finding">
+  <p>The 2001 Transportation Element commits the city to neighborhood traffic calming and neighborhood protection on residential streets.</p>
+  <p>The city's own 2025 Evacuation Time Study found that permanent traffic calming devices, including circles, speed humps and diverters, slow evacuation flow, and recommended the city develop a citywide traffic flow and evacuation strategy addressing movable versus permanent calming measures.</p>
+  <p>Those two positions have not been reconciled in any adopted document, because reconciling them would require amending the element. <span class="tag t">to pull</span> Confirm the calming finding against the primary study text before using it.</p>
+</div>
+
+<h2>6. The evacuation study, and what it says about the flatlands</h2>
+
+<p>Berkeley commissioned a 323-page Evacuation Time Study from KLD Associates, released July 2025, at a reported cost of $600,000, funded from Measure FF (2020), the General Fund and other sources. Coverage of the study is well-established; the primary document has not yet been read into this Hub. <span class="tag t">to pull</span></p>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Scenario</th><th>Area</th><th>Estimated clearance</th></tr></thead>
+  <tbody>
+    <tr><td>Wildfire, 1923 fire footprint</td><td>Berkeley hills</td><td class="num">1 hr 35 min – 4 hr 10 min</td></tr>
+    <tr><td>Wildfire, Panoramic Hill</td><td>One road in and out</td><td class="num">45 min – 1 hr 45 min</td></tr>
+    <tr><td>Tsunami, "Max Phase"</td><td>Bay to Seventh Street</td><td class="num">1 hr 50 min – 2 hr 15 min</td></tr>
+    <tr><td>Tsunami, "Phase 3"</td><td>West of Interstate 80</td><td class="num">55 min – 1 hr 45 min</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The tsunami scenarios are the west and northwest Berkeley scenarios. The Max Phase evacuation zone runs from the Bay to Seventh Street. This is not a hypothetical exercise for the flatlands: <span class="tag v">verified</span> on December 5, 2024 the National Tsunami Warning Center issued a warning covering Berkeley, and the City activated its Emergency Operations Center and conducted evacuations of the waterfront and areas in west Berkeley. The warning was cancelled roughly an hour after it was issued.</p>
+
+<p>Other reported findings, each worth confirming against the primary text:</p>
+<ul>
+  <li>Roughly 1,600 residential parcels citywide have only one way in or out.</li>
+  <li>New housing of all types increased modeled evacuation times by over 100% in some scenarios.</li>
+  <li>Removing parked cars from narrow roadways produced far less improvement than expected. Selective restrictions may still help emergency vehicles move inbound against traffic.</li>
+  <li>Recommendations include adaptive traffic signals, battery backups on all signals, and a citywide traffic flow and evacuation strategy.</li>
+</ul>
+
+<p><span class="tag v">verified</span> Separately, the CY2024 APR records that during the October 2024 extreme fire weather event the City advised hills residents to leave in advance, "because a fire starting under those conditions could quickly become catastrophic and the hills' roadway infrastructure will not support a quick evacuation." That is the city's own assessment of its road network, stated in a report filed with the state, and it appears in the Disaster Preparedness section rather than the Transportation section.</p>
+
+<h2>7. The four questions, applied</h2>
+
+<p>The Hub's standing method, applied to the General Plan rather than to a tax measure.</p>
+
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Question</th><th>Answer on record</th></tr></thead>
+  <tbody>
+    <tr><td class="q">What did it promise?</td><td>Six stated objectives, including maintaining and improving transit service and reducing automobile use and VMT in Berkeley.</td></tr>
+    <tr><td class="q">What would success have looked like?</td><td>No target values, no target year, and no baseline other than 1990 and 1993 conditions data.</td></tr>
+    <tr><td class="q">What do we observe?</td><td>The APR reports activity: grants applied for, projects designed, corridors studied. It reports no outcome measured against any stated objective. Transit ridership, mode share and VMT do not appear.</td></tr>
+    <tr><td class="q">What is the review period and sunset?</td><td>An annual progress report is required by Gov. Code § 65400. There is no target to report against, no sunset, and no reauthorization.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="finding">
+  <p>The APR is a compliance document that discharges a reporting duty without reporting an outcome. That is the same structure this Hub has recorded on the revenue side: Berkeley reports thoroughly on activity and spending, and has no instrument anywhere that asks whether the stated objective was met.</p>
+</div>
+
+<h2>8. Open items</h2>
+
+<ol>
+  <li><strong>General Plan APRs, CY2002 through CY2023, and CY2025.</strong> The CY2025 report should exist and was not located. It would establish the full amendment history and confirm or break the "no amendment on record" bars above. Highest yield per hour on this page. <span class="tag t">to pull</span></li>
+  <li><strong>The 323-page Evacuation Time Study.</strong> Every figure in section 6 is currently secondary. The file exceeds automated retrieval limits and needs a manual download. <span class="tag t">to pull</span></li>
+  <li><strong>Transportation Impact Study Guidelines.</strong> The June 2020 VMT document promised an update. Confirm whether it was completed, and whether the VMT thresholds were adopted by Council resolution or set at staff level. <span class="tag t">to pull</span></li>
+  <li><strong>Bicycle Plan update.</strong> The housing element implementation table stated an updated Bicycle Plan would be adopted in 2025. Status unknown. <span class="tag t">to pull</span></li>
+  <li><strong>Draft Safety and Environmental Justice Elements.</strong> Watch Planning Commission agendas. The grant-term date has already passed. <span class="tag t">to pull</span></li>
+  <li><strong>Hopkins Street corridor.</strong> Council approved the Hopkins bike lanes on July 29, 2026, with paving and pedestrian safety improvements reported at up to $20 million. Pull the staff report for the cost breakdown between paving and bikeway, and for whether the item states a lane-mile or condition target. <span class="tag t">to pull</span></li>
+  <li><strong>City Attorney position on SB 1035.</strong> Whether the 2023 housing element revision and the 2025 LHMP adoption triggered a safety element review obligation that is being satisfied by the in-progress update. <span class="tag t">to pull</span></li>
+</ol>
+
+<h2>Sources</h2>
+<ul class="srcs">
+  <li>City of Berkeley, <em>2024 General Plan Annual Progress Report</em>, submitted March 21, 2025. Primary source for adoption dates, element list, per-element amendment status, Transportation and Disaster Preparedness narratives, the $497,042 grant, the January 2026 draft date, and the October 2024 and December 2024 emergency events.</li>
+  <li>City of Berkeley, <em>General Plan: Transportation Element</em>, adopted December 18, 2001. Policy T-4, the four network maps, the 1993 background report and 1990 conditions data.</li>
+  <li>City of Berkeley, <em>VMT Criteria and Thresholds</em>, June 29, 2020.</li>
+  <li>City of Berkeley, <em>Prepared, Safe, and Healthy Berkeley for All</em> project page, checked 2026-07-30. Timeline, resources list, existing conditions reports.</li>
+  <li>City of Berkeley, <em>Local Hazard Mitigation Plan (LHMP)</em> page and Council item of March 18, 2025.</li>
+  <li>California Government Code § 65302(b)(2) and § 65300.5. AB 1358 (Leno, 2008); SB 932 (Portantino, 2022); SB 379 (Jackson, 2015); SB 99 (2019); AB 747 (2019); SB 1035 (2018).</li>
+  <li>CEQA Guidelines § 15064.3, implementing SB 743 (Steinberg, 2013).</li>
+  <li>Governor's Office of Land Use and Climate Innovation, Adaptation Planning Grant Program grantee profile, City of Berkeley, October 2023.</li>
+  <li>The Berkeley Scanner, reporting on the City's Evacuation Time Study, July 18, 2025. Secondary source for the figures in section 6, pending the primary document.</li>
+</ul>
+
+<footer>
+  <p><strong>Acronyms:</strong> <span class="mono">AB</span> = Assembly Bill · <span class="mono">APR</span> = Annual Progress Report · <span class="mono">CEQA</span> = California Environmental Quality Act · <span class="mono">CY</span> = calendar year · <span class="mono">EJ</span> = environmental justice · <span class="mono">HCD</span> = California Department of Housing and Community Development · <span class="mono">LCI</span> = Governor's Office of Land Use and Climate Innovation · <span class="mono">LHMP</span> = Local Hazard Mitigation Plan · <span class="mono">LOS</span> = level of service · <span class="mono">OPR</span> = Office of Planning and Research · <span class="mono">PC</span> = Planning Commission · <span class="mono">RHNA</span> = Regional Housing Needs Allocation · <span class="mono">SB</span> = Senate Bill · <span class="mono">VMT</span> = vehicle miles traveled</p>
+  <p>Berkeley Transparency Hub. Built from public documents. Every figure is traceable to a cited source or marked as unverified. Corrections welcome.</p>
+</footer>
+
+</div>
+</body>
+</html>
