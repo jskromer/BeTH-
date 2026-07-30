@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Council, Decoded — Berkeley Transparency Hub</title>
+<meta name="description" content="A monthly, plain-language recap of what Berkeley's City Council actually did with your money: the dollars moved, three items worth knowing, and what's on the horizon. Built from the council agenda." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff;
+    --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a; --maxw:820px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--navy);
+    font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  a{color:var(--steel-deep);text-underline-offset:3px}
+  a:hover{color:var(--steel)}
+
+  .hubbar{background:var(--slate);color:#eef1f5}
+  .hubbar-in{max-width:var(--maxw);margin:0 auto;padding:11px 26px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .hubbar a.back{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#cdd6e0;text-decoration:none}
+  .hubbar a.back:hover{color:#fff}
+  .hubbar .stamp{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#9fb0c1}
+
+  .masthead{padding:48px 0 24px;border-bottom:2px solid var(--navy)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .eyebrow .tick{width:22px;height:2px;background:var(--steel);display:inline-block}
+  h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(2rem,5.6vw,3.1rem);line-height:1.03;letter-spacing:-.015em;margin:.05em 0 .3em;color:var(--navy)}
+  .dek{font-size:clamp(1.04rem,2.2vw,1.24rem);line-height:1.45;color:var(--muted);max-width:60ch;margin:0 0 22px}
+
+  section{padding:36px 0;border-bottom:1px solid var(--rule)}
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;margin:0 0 .5em;color:var(--navy)}
+  p{margin:0 0 1.05em}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin:0 0 14px}
+
+  .spine{list-style:none;padding:0;margin:16px 0 0;counter-reset:s}
+  .spine li{background:var(--card);border:1px solid var(--rule-strong);padding:14px 16px 14px 52px;position:relative;margin:0 0 8px}
+  .spine li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;bottom:0;width:36px;background:var(--slate);color:#fff;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .spine .t{font-family:"Playfair Display",serif;font-weight:700;font-size:1.02rem;margin-bottom:2px}
+  .spine .d{font-size:.92rem;color:var(--muted);line-height:1.45}
+
+  .issues{list-style:none;padding:0;margin:16px 0 0;border-top:1px solid var(--rule-strong)}
+  .issues li{border-bottom:1px solid var(--rule);padding:13px 2px;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .issues a{font-family:"Playfair Display",serif;font-weight:600;font-size:1.05rem}
+  .issues .dt{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);white-space:nowrap}
+  .note{background:#eef2f6;border:1px solid var(--rule-strong);border-left:4px solid var(--steel);padding:16px 20px;margin:18px 0 0;font-size:.95rem;color:var(--muted)}
+  .note strong{color:var(--navy)}
+
+  footer{padding:28px 0 64px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.75}
+  footer .bar{height:3px;background:var(--navy);margin:0 0 16px;width:48px}
+  footer a{color:var(--steel-deep)}
+  @media(max-width:600px){body{font-size:17px}}
+</style>
+</head>
+<body>
+
+<div class="hubbar"><div class="hubbar-in">
+  <a class="back" href="index.html">&larr; Berkeley Transparency Hub</a>
+  <span class="stamp">Monthly recap</span>
+</div></div>
+
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> A monthly civic recap</div>
+    <h1>Council, Decoded</h1>
+    <p class="dek">Once a month, in under five minutes: what Berkeley&rsquo;s City Council actually did with your money. The dollars that moved, three items worth knowing, and what&rsquo;s on the horizon &mdash; in plain language, drawn straight from the council agenda.</p>
+  </header>
+
+  <section>
+    <h2>What each issue covers</h2>
+    <p class="sub">The same five-part spine, every month</p>
+    <ol class="spine">
+      <li><div class="t">The one-line hook</div><div class="d">A single concrete figure or decision from this month&rsquo;s agenda &mdash; the thing a resident would find surprising or useful.</div></li>
+      <li><div class="t">The numbers, decoded</div><div class="d">The month&rsquo;s money in plain language: new spending, incoming revenue, pass-through (collected but not spent), and the net impact on city spending.</div></li>
+      <li><div class="t">Three items worth knowing</div><div class="d">Three specific agenda items &mdash; who&rsquo;s getting paid, for what, and why it matters &mdash; chosen for relevance, not dollar size.</div></li>
+      <li><div class="t">On the horizon</div><div class="d">The policy referrals with no dollars attached yet &mdash; where next year&rsquo;s spending and policy are heading.</div></li>
+      <li><div class="t">What it means</div><div class="d">A short read on the through-line: what the month tells you about how the city sets priorities and spends.</div></li>
+    </ol>
+    <div class="note"><strong>How it&rsquo;s built.</strong> Roughly 80% of each issue comes straight from the council agenda, parsed into structured spending, revenue, and referral data. The judgment &mdash; what mattered, what to watch &mdash; is added by hand. Every figure traces back to the dated agenda packet.</div>
+  </section>
+
+  <section>
+    <h2>Issues</h2>
+    <p class="sub">Newest first</p>
+    <ul class="issues">
+      <li><span style="color:var(--muted)">The first monthly issue publishes with the next Council cycle.</span></li>
+    </ul>
+    <div class="note" style="border-left-color:var(--steel-deep)"><strong>The back catalog.</strong> Before the monthly recap, this Hub tracked the budget agenda week by week. Those dated <a href="budget-scans.html">Budget Agenda Scans</a> are the raw material the monthly issues are built from &mdash; and remain the permanent record.</div>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Berkeley Transparency Hub &middot; Council, Decoded &middot; built from the council agenda.<br>
+    Maintained by Steve Kromer. Corrections and primary sources welcome.
+  </footer>
+
+</main>
+</body>
+</html>

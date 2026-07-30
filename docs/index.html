@@ -1,21 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Berkeley Transparency Hub</title>
-<link rel="canonical" href="berkeley-budget-basics.html">
-<meta http-equiv="refresh" content="0; url=berkeley-budget-basics.html">
-<script>window.location.replace("berkeley-budget-basics.html");</script>
+<meta name="description" content="A neutral, plain-language tracker of Berkeley's budget, adopted plans, audits, ballot measures, and the machinery that turns intent into spending. Built from primary documents." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#f7f8fa;color:#1f3864;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;}
-  a{color:#2e4a7a;}
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff;
+    --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a; --maxw:960px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--navy);
+    font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  a{color:var(--steel-deep);text-underline-offset:3px}
+  a:hover{color:var(--steel)}
+
+  .masthead{padding:52px 0 26px;border-bottom:2px solid var(--navy)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--steel-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .eyebrow .tick{width:22px;height:2px;background:var(--steel);display:inline-block}
+  h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(2.1rem,6vw,3.4rem);
+    line-height:1.02;letter-spacing:-.015em;margin:.05em 0 .35em;color:var(--navy)}
+  .dek{font-size:clamp(1.05rem,2.2vw,1.28rem);line-height:1.45;color:var(--muted);max-width:60ch;margin:0 0 20px}
+  .stamp{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.7}
+
+  section{padding:34px 0;border-bottom:1px solid var(--rule)}
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;margin:0 0 .2em;color:var(--navy)}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--steel);margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;
+    background:var(--rule-strong);border:1px solid var(--rule-strong)}
+  .cardlink{background:var(--card);padding:16px 18px;text-decoration:none;color:inherit;display:block;transition:background .12s}
+  .cardlink:hover{background:#eff3f7}
+  .cardlink .q{font-family:"Playfair Display",serif;font-weight:700;font-size:1.04rem;color:var(--navy);line-height:1.2;margin-bottom:5px}
+  .cardlink .d{font-size:.9rem;color:var(--muted);line-height:1.45}
+  .cardlink .ext{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--steel);border:1px solid var(--rule-strong);padding:1px 5px;border-radius:2px;margin-left:6px;vertical-align:.12em}
+
+  .lead-cards{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+  .lead-cards .cardlink{padding:20px 22px}
+  .lead-cards .q{font-size:1.18rem}
+
+  footer{padding:30px 0 64px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.75}
+  footer .bar{height:3px;background:var(--navy);margin:0 0 16px;width:48px}
+  footer a{color:var(--steel-deep)}
+  @media(max-width:600px){body{font-size:17px}}
 </style>
 </head>
 <body>
-  <p>Berkeley Transparency Hub &mdash; redirecting&hellip; <br>
-  If you are not redirected, <a href="berkeley-budget-basics.html">open Budget Basics</a>.</p>
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Berkeley &middot; a neutral civic tracker</div>
+    <h1>Berkeley Transparency Hub</h1>
+    <p class="dek">Where the City&rsquo;s money comes from, where it goes, what it was promised to do, and whether anyone checks. Built from primary documents &mdash; agendas, budgets, audits, the ACFR &mdash; and written to be read in plain language.</p>
+    <p class="stamp">Every figure is traceable to a cited source or marked unverified. Corrections welcome.</p>
+  </header>
+
+  <section>
+    <h2>Start here</h2>
+    <p class="sub">New to the budget? Begin with these two.</p>
+    <div class="grid lead-cards">
+      <a class="cardlink" href="berkeley-simple-version.html"><div class="q">The Simple Version</div><div class="d">The ~$29M recurring gap explained with one envelope metaphor and four levers. Five minutes.</div></a>
+      <a class="cardlink" href="berkeley-budget-basics.html"><div class="q">Berkeley Budget Basics</div><div class="d">Where every tax dollar comes from and goes, the recurring gap, and the ~$2.1B in unfunded infrastructure.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plans &amp; governance</h2>
+    <p class="sub">What the city committed to &mdash; and how a plan actually becomes work</p>
+    <div class="grid">
+      <a class="cardlink" href="berkeley-plans-synthesis.html"><div class="q">Adopted Plans vs. Strategic Priorities</div><div class="d">All 27 plans scored for currency, the accountability pipeline, and the referral queue that decides what staff work on. The canonical plans tracker.</div></a>
+      <a class="cardlink" href="berkeley-general-plan-currency.html"><div class="q">The General Plan Clock</div><div class="d">Element-by-element: eight of the General Plan&rsquo;s nine elements are frozen at 2001&ndash;02. Only Housing is current.</div></a>
+      <a class="cardlink" href="berkeley-plans-audits-budget.html"><div class="q">Plans &times; Audits &times; Budget</div><div class="d">Each goal mapped to the City Auditor&rsquo;s 384 recommendations and the FY27&ndash;28 budget. 76 recommendations dropped.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Following the money</h2>
+    <p class="sub">How the ~$1.8B budget is actually structured</p>
+    <div class="grid">
+      <a class="cardlink" href="berkeley-fund-map.html"><div class="q">The Fund Map</div><div class="d">Connecting the budget to Berkeley&rsquo;s ~110 separate funds.</div></a>
+      <a class="cardlink" href="berkeley-grant-flows.html"><div class="q">How Grant Money Flows</div><div class="d">Where outside grant dollars enter and where they go.</div></a>
+      <a class="cardlink" href="berkeley-cross-fund.html"><div class="q">Cross-Fund Opportunities</div><div class="d">Six legal mechanisms by which other-fund savings could relieve the General Fund deficit.</div></a>
+      <a class="cardlink" href="berkeley-budget-glossary.html"><div class="q">Budget Terms, Plain English</div><div class="d">Consent calendar, pass-through, AAO, RFP &mdash; defined without jargon.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Deficit &amp; accountability</h2>
+    <p class="sub">The recurring gap, whose watch it grew on, and what the audits found</p>
+    <div class="grid">
+      <a class="cardlink" href="deficit-tenure-ledger.html"><div class="q">The Deficit Through Time</div><div class="d">On whose watch the gap grew &mdash; year by year.</div></a>
+      <a class="cardlink" href="budget-two-problems.html"><div class="q">Two Fixable Problems</div><div class="d">Transparency and accountability, framed as fixable rather than fated.</div></a>
+      <a class="cardlink" href="berkeley_budget_accountability.html"><div class="q">Budget Accountability, FY2016&ndash;26</div><div class="d">A decade of adopted-vs-actual, and where the reporting lapsed.</div></a>
+      <a class="cardlink" href="mayors-budget.html"><div class="q">The &ldquo;Mayor&rsquo;s Budget&rdquo;</div><div class="d">Where the budget really originates, and what that label obscures.</div></a>
+      <a class="cardlink" href="deficit-is-choices-talking-points.html"><div class="q">&ldquo;Deficit&rdquo; Is a Choice Word</div><div class="d">Public-comment talking points: the gap as a recurring decision, not an inevitability.</div></a>
+      <a class="cardlink" href="rent-board-fy27.html"><div class="q">Rent Board FY27 Budget</div><div class="d">The Rent Stabilization Board&rsquo;s separate budget, examined.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Council, Decoded</h2>
+    <p class="sub">A monthly, plain-language recap of what the Council did with your money</p>
+    <div class="grid">
+      <a class="cardlink" href="council-decoded.html"><div class="q">Council, Decoded &mdash; the series</div><div class="d">What happened at Council this month, decoded in under five minutes: the money moved, three items worth knowing, and what&rsquo;s on the horizon.</div></a>
+      <a class="cardlink" href="budget-scans.html"><div class="q">Budget Agenda Scans</div><div class="d">The raw, dated agenda scans that feed the monthly recap &mdash; the back catalog.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tax measures</h2>
+    <p class="sub">Every parcel tax and bond on your bill, and what&rsquo;s on the 2026 ballot</p>
+    <div class="grid">
+      <a class="cardlink" href="berkeley-tax-measures.html"><div class="q">Berkeley&rsquo;s Tax Measures</div><div class="d">A guide to the measures on your tax bill &mdash; links through to every individual measure, from Measure GG (2008) to the 2024 slate.</div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tools &amp; models</h2>
+    <p class="sub">Interactive companions &mdash; separate apps, part of the same project</p>
+    <div class="grid">
+      <a class="cardlink" href="https://berkeley-tax-calculator.vercel.app" target="_blank" rel="noopener noreferrer"><div class="q">Tax Measure Impact Calculator <span class="ext">tool &#8599;</span></div><div class="d">Enter your assessed value and see how the 2026 measures would change your property-tax bill.</div></a>
+      <a class="cardlink" href="https://berkeley-audit-dashboard.vercel.app" target="_blank" rel="noopener noreferrer"><div class="q">Financial Condition Dashboard <span class="ext">tool &#8599;</span></div><div class="d">The City&rsquo;s financial condition and homeless-spending comparison, as an interactive dashboard.</div></a>
+      <a class="cardlink" href="berkeley-event-value-twin.html"><div class="q">Event Value Twin</div><div class="d">A reusable model for weighing a civic event&rsquo;s economic, fiscal, and public value &mdash; Kite Festival as the first case.</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Berkeley Transparency Hub &middot; built from public documents &middot; a neutral civic tracker.<br>
+    Maintained by Steve Kromer. Corrections and primary sources welcome.
+  </footer>
+
+</main>
 </body>
 </html>
