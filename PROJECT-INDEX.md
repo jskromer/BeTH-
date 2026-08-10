@@ -45,7 +45,6 @@ A reusable model for evaluating civic events (Kite Festival as first case), keep
 - `berkeley-fiscal-reality/` — React site (`src/App.jsx`, `src/CarryoverTracker.jsx`); App.jsx carries the reverted/corrected FY26 balancing figures (uncommitted as of 2026-06-10)
 - `berkeley_carryover_tracker.jsx` — standalone carryover tracker component
 - `T1/` — deployed tracker (`index.html`, `t1_phase2_tracker.html`)
-- `carryover.html`, `history-of-the-habit.html`, `taplin-factcheck.html` — standalone pages
 - `beth-two-problems.pdf` — print version of the two-problems page
 
 ## Known gaps (carried over from session notes)
