@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start Here &mdash; Learn About Berkeley</title>
+<meta name="description" content="A guided reading path through Berkeley's budget for someone who has never read a municipal budget. Five pages, about forty minutes, in order." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff;
+    --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a; --maxw:840px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--navy);
+    font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  a{color:var(--steel-deep);text-underline-offset:3px}
+  a:hover{color:var(--steel)}
+
+  .masthead{padding:52px 0 26px;border-bottom:2px solid var(--navy)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--steel-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .eyebrow .tick{width:22px;height:2px;background:var(--steel);display:inline-block}
+  h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(2.1rem,6vw,3.2rem);
+    line-height:1.04;letter-spacing:-.015em;margin:.05em 0 .35em;color:var(--navy)}
+  .dek{font-size:clamp(1.05rem,2.2vw,1.26rem);line-height:1.45;color:var(--muted);max-width:62ch;margin:0 0 20px}
+  .stamp{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.7}
+
+  section{padding:34px 0;border-bottom:1px solid var(--rule)}
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:1.4rem;margin:0 0 .2em;color:var(--navy)}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--steel);margin:0 0 18px}
+  p{max-width:64ch}
+
+  .step{display:block;background:var(--card);border:1px solid var(--rule-strong);
+    padding:20px 22px 18px;margin:0 0 14px;text-decoration:none;color:inherit;transition:background .12s,border-color .12s}
+  .step:hover{background:#eff3f7;border-color:var(--steel)}
+  .step .head{display:flex;align-items:baseline;gap:12px;margin-bottom:7px}
+  .step .n{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:12px;color:var(--steel);
+    border:1px solid var(--rule-strong);padding:2px 7px;border-radius:2px;flex:none}
+  .step .q{font-family:"Playfair Display",serif;font-weight:700;font-size:1.2rem;color:var(--navy);line-height:1.2}
+  .step .time{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-left:auto;flex:none;white-space:nowrap}
+  .step .d{font-size:.95rem;color:var(--slate);line-height:1.5;margin:0 0 9px;max-width:66ch}
+  .step .after{font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.55;color:var(--muted);
+    border-top:1px solid var(--rule);padding-top:8px;max-width:66ch}
+  .step .after b{color:var(--steel-deep);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:10px}
+
+  .note{background:var(--card);border-left:3px solid var(--steel);padding:16px 20px;margin:18px 0 0}
+  .note p{margin:0 0 10px;font-size:.97rem;color:var(--slate)}
+  .note p:last-child{margin-bottom:0}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;
+    background:var(--rule-strong);border:1px solid var(--rule-strong)}
+  .cardlink{background:var(--card);padding:16px 18px;text-decoration:none;color:inherit;display:block;transition:background .12s}
+  .cardlink:hover{background:#eff3f7}
+  .cardlink .q{font-family:"Playfair Display",serif;font-weight:700;font-size:1.04rem;color:var(--navy);line-height:1.2;margin-bottom:5px}
+  .cardlink .d{font-size:.9rem;color:var(--muted);line-height:1.45}
+  .cardlink .ext{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--steel);border:1px solid var(--rule-strong);padding:1px 5px;border-radius:2px;margin-left:6px;vertical-align:.12em}
+
+  footer{padding:30px 0 64px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.75}
+  footer .bar{height:3px;background:var(--navy);margin:0 0 16px;width:48px}
+  footer a{color:var(--steel-deep)}
+  @media(max-width:600px){body{font-size:17px}.step .time{margin-left:0;width:100%}.step .head{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Start here &middot; a guided path</div>
+    <h1>If you&rsquo;ve never read a city budget</h1>
+    <p class="dek">This site has more than twenty pages and no obvious front door. Here is the order I&rsquo;d read them in &mdash; five pages, about forty minutes, each one assuming only what the one before it established.</p>
+    <p class="stamp">You do not need to live in Berkeley for this to make sense. The structure is the same in most American cities; only the numbers change.</p>
+  </header>
+
+  <section>
+    <h2>The path</h2>
+    <p class="sub">In order &mdash; each step builds on the last</p>
+
+    <a class="step" href="berkeley-simple-version.html">
+      <div class="head"><span class="n">1</span><span class="q">The Simple Version</span><span class="time">~5 min</span></div>
+      <p class="d">The whole problem in one metaphor: an envelope, four levers, and a recurring gap of about $29 million a year. No jargon, no tables.</p>
+      <p class="after"><b>After this you know</b><br>What &ldquo;structural deficit&rdquo; means, and why it is different from a bad year.</p>
+    </a>
+
+    <a class="step" href="berkeley-budget-basics.html">
+      <div class="head"><span class="n">2</span><span class="q">Berkeley Budget Basics</span><span class="time">~10 min</span></div>
+      <p class="d">The same story with the actual numbers attached: where every tax dollar comes from, where it goes, and the roughly $2.1 billion of infrastructure the city owns but has not funded.</p>
+      <p class="after"><b>After this you know</b><br>The shape of a ~$1.8B budget, and that the deficit is small next to the unfunded liability behind it.</p>
+    </a>
+
+    <a class="step" href="berkeley-fund-map.html">
+      <div class="head"><span class="n">3</span><span class="q">The Fund Map</span><span class="time">~8 min</span></div>
+      <p class="d">This is where most outsiders&rsquo; intuition breaks. A city is not one bank account &mdash; Berkeley runs about 110 separate funds, most of them legally walled off from each other. A city can be broke and flush at the same time, legally.</p>
+      <p class="after"><b>After this you know</b><br>Why &ldquo;just move the money&rdquo; is usually illegal, and why the General Fund is the only number that behaves like a household budget.</p>
+    </a>
+
+    <a class="step" href="berkeley-cross-fund.html">
+      <div class="head"><span class="n">4</span><span class="q">Cross-Fund Opportunities</span><span class="time">~8 min</span></div>
+      <p class="d">Having established that the walls are real, this page asks where they legally have doors: six mechanisms by which savings in other funds could relieve the General Fund. The constructive half of the argument.</p>
+      <p class="after"><b>After this you know</b><br>What can actually be done, as distinct from what is merely complained about.</p>
+    </a>
+
+    <a class="step" href="berkeley-plans-audits-budget.html">
+      <div class="head"><span class="n">5</span><span class="q">Plans &times; Audits &times; Budget</span><span class="time">~10 min</span></div>
+      <p class="d">The accountability loop, or its absence: each adopted goal traced to the City Auditor&rsquo;s 384 recommendations and then to the FY27&ndash;28 budget. 76 recommendations were dropped along the way.</p>
+      <p class="after"><b>After this you know</b><br>Whether anything the city promises is checked, by whom, and what happens when it isn&rsquo;t.</p>
+    </a>
+  </section>
+
+  <section>
+    <h2>How to read this site</h2>
+    <p class="sub">Two things to know before you start</p>
+    <div class="note">
+      <p><b>Every non-obvious claim carries a confidence label</b> &mdash; High, Moderate, Low, or Unknown &mdash; and the counterargument is published alongside the analysis. Where a figure could not be verified against a primary document, it says so rather than rounding the uncertainty away.</p>
+      <p><b>This site is maintained by a candidate.</b> Steve Kromer is running for Berkeley City Council in District 1. The analysis is built from primary documents &mdash; agendas, adopted budgets, audits, the ACFR &mdash; and is meant to survive being checked, but you should read it knowing who wrote it and why. Corrections are welcome and get made.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where to go next</h2>
+    <p class="sub">Once the five are done</p>
+    <div class="grid">
+      <a class="cardlink" href="berkeley-budget-glossary.html"><div class="q">Budget Terms, Plain English</div><div class="d">Consent calendar, pass-through, AAO, RFP &mdash; keep this open in a second tab as you read.</div></a>
+      <a class="cardlink" href="council-decoded.html"><div class="q">Council, Decoded</div><div class="d">The monthly recap: what money moved, three items worth knowing, what&rsquo;s coming.</div></a>
+      <a class="cardlink" href="berkeley-tax-measures.html"><div class="q">Berkeley&rsquo;s Tax Measures</div><div class="d">Every parcel tax and bond on the bill, measure by measure, back to 2008.</div></a>
+      <a class="cardlink" href="https://berkeley-audit-dashboard.vercel.app" target="_blank" rel="noopener noreferrer"><div class="q">Financial Condition Dashboard <span class="ext">tool &#8599;</span></div><div class="d">The live trackers, if you would rather poke at the data than read the argument.</div></a>
+      <a class="cardlink" href="index.html"><div class="q">The full index</div><div class="d">All twenty-odd pages, grouped by subject.</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Learn About Berkeley &middot; built from public documents.<br>
+    Maintained by Steve Kromer, a candidate for Berkeley City Council District 1. Figures are traceable to primary sources; corrections welcome.<br>
+    <a href="index.html">&larr; Back to Learn About Berkeley</a>
+  </footer>
+
+</main>
+</body>
+</html>
