@@ -178,7 +178,7 @@ function ShellGameSection() {
           { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Internal-fund redirects to balance the General Fund", color: "#1a4a8b" },
           { value: "$316M", label: "AAO Carryovers (3 yrs)", sub: "All funds FY24–26 ($32M GF portion)", color: "#1a4a8b" },
           { value: "$33M", label: "Structural Deficit", sub: "Projected recurring FY27–28 gap", color: "#c41e1e" },
-          { value: "0 of 5", label: "Audit Recs Resolved", sub: "2022 financial-condition recs · 76 of 384 dropped citywide", color: "#8b6914" },
+          { value: "0 of 5", label: "2022 Audit Recs Fully Resolved", sub: "BeTH assessment against the 2026 audit · 76 of 384 dropped citywide", color: "#8b6914" },
         ].map((s, i, arr) => (
           <div key={i} style={{ padding: "16px 12px", background: "#faf8f5", borderRight: i < arr.length - 1 ? "1px solid #e0dcd6" : "none", textAlign: "center" }}>
             <StatBlock {...s} />
@@ -331,7 +331,7 @@ function NumbersSection() {
     <>
       <SectionTitle color="#1a4a8b">THE NUMBERS</SectionTitle>
       <p style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24, color: "#333", fontWeight: 600 }}>
-        Berkeley is a well-funded city — managing over <strong>$700M/year</strong> in total revenues.
+        Berkeley is a well-funded city — its adopted FY2027 budget is <strong>$905M</strong> across all funds, and audited FY2025 revenues were $620M.
         Understanding where that money goes, and how the budget is balanced each year,
         gives residents the context they need before any vote on new taxes.
       </p>
@@ -374,16 +374,16 @@ function NumbersSection() {
       <DataTable
         headers={["Metric", "FY 2025 (Audited)", "FY 2024", "Direction"]}
         rows={[
-          ["Total Government Revenue", "$703M+", "—", { v: "Strong revenue base", c: "#2a7d4f" }],
-          ["Property Tax Revenue", "$148.4M", "$135.7M", { v: "▲ +9% YoY", c: "#2a7d4f" }],
-          ["General Fund Revenue", "$268M", "$262M", { v: "Essentially flat 3 yrs", c: "#d4860b" }],
-          ["General Fund Expenditure", "$295M", "$274M", { v: "▲ +7.7% YoY", c: "#c41e1e" }],
+          ["Total Revenues (government-wide)", "$619.6M", "$593.8M", { v: "▲ +4.3% YoY", c: "#2a7d4f" }],
+          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4% YoY", c: "#2a7d4f" }],
+          ["General Fund Revenue", "$285.8M", "$261.8M", { v: "▲ +9.2% YoY", c: "#2a7d4f" }],
+          ["General Fund Expenditures + transfers out", "$310.9M", "$282.9M", { v: "▲ +9.9% YoY", c: "#c41e1e" }],
           ["Stated Structural Deficit", "$27–33M", "—", { v: "Recurring, not one-time", c: "#c41e1e" }],
           ["Net Pension Liability", "$686.4M", "$723.8M", { v: "▼ improved slightly", c: "#d4860b" }],
           ["Net OPEB Liability", "$43.2M", "$83.4M", { v: "▼ improved (restructuring)", c: "#2a7d4f" }],
           ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ Getting worse", c: "#c41e1e" }],
           ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23% in one year", c: "#c41e1e" }],
-          ["Stability Reserve", "$32.8M", "—", { v: "19.5% of GF (target: 25%)", c: "#d4860b" }],
+          ["Reserves (Stability $32.8M + Catastrophic $25.5M)", "$58.3M", "—", { v: "21.3% of GF revenue (goal: 20–30%)", c: "#d4860b" }],
         ]}
       />
       <div style={{ fontSize: 11, color: "#999", marginTop: 6, fontStyle: "italic", marginBottom: 20 }}>
@@ -393,22 +393,22 @@ function NumbersSection() {
       {/* ── Revenue vs Expenditure ── */}
       <SubHead>Revenue vs. Expenditure Trends</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        General Fund revenue has been <strong>essentially flat for three years</strong> — it declined from $273M in FY23 to $262M in FY24 before recovering slightly.
+        General Fund revenue dipped in FY24 and recovered in FY25. The FY27 columns are the adopted budget: the City projected a $32M gap at baseline and closed it on paper with position cuts and re-based personnel costs.
         Meanwhile, expenditures have grown each year. The gap reflects benefit cost growth that consistently outpaces revenue.
       </p>
       <DataTable
-        headers={["", "FY23", "FY24", "FY25", "FY26", "FY27"]}
+        headers={["", "FY23", "FY24", "FY25", "FY26 adopted", "FY27 baseline", "FY27 adopted"]}
         rows={[
-          ["GF Revenue", "$273M", "$262M", "$262M", "$268M", "$273M"],
-          ["GF Expenditure", "$276M", "$274M", "$294M", "$295M", "$300M"],
-          [{ v: "Annual Gap", bold: true }, { v: "−$3M", c: "#c41e1e" }, { v: "−$12M", c: "#c41e1e" }, { v: "−$32M", c: "#c41e1e" }, { v: "−$27M", c: "#c41e1e" }, { v: "−$27M", c: "#c41e1e" }],
+          ["GF Revenue", "$273M", "$262M", "$286M", "$268M", "$297M", "$315M"],
+          ["GF Expenditure", "$276M", "$274M", "$277M", "$295M", "$329M", "$314M"],
+          [{ v: "Annual Gap", bold: true }, { v: "−$3M", c: "#c41e1e" }, { v: "−$12M", c: "#c41e1e" }, { v: "+$9M", c: "#2a7d4f" }, { v: "−$27M", c: "#c41e1e" }, { v: "−$32M", c: "#c41e1e" }, { v: "+$1M", c: "#2a7d4f" }],
         ]}
       />
 
       {/* ── Personnel Spiral ── */}
       <SubHead>Where the Spending Goes: The Personnel Cost Spiral</SubHead>
       <p style={{ fontSize: 13, lineHeight: 1.7, marginBottom: 16, color: "#444" }}>
-        Even with <strong>zero raises</strong>, total personnel costs will rise from $342M to <strong>$487M</strong> over
+        Per the City's 2023 Foster &amp; Foster study (pre-dating the FY27 re-basing that removed $16.5M of personnel budget), even with <strong>zero raises</strong> total personnel costs would rise from $342M to <strong>$487M</strong> over
         the next decade — a $145M automatic increase driven entirely by benefit cost growth.
         The fringe rate (benefits as a % of payroll) balloons from 65% to <strong>134%</strong>.
       </p>
@@ -429,7 +429,7 @@ function NumbersSection() {
           Putting It in Context
         </div>
         <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.7 }}>
-          Property tax revenue grew 9% in one year. Total city revenues exceed $700M. The General Fund collects $268M annually.
+          General-purpose property tax revenue grew 9% in one year. Audited FY2025 revenues were $620M and the adopted FY2027 budget is $905M across all funds. The General Fund — the roughly $315M the Council can spend at its discretion — is where the deficit lives.
           At the same time, $316M in appropriations moved through the AAO process across all funds over three years,
           and internal fund balances were drawn down to close the FY26 gap.
         </p>
@@ -528,7 +528,7 @@ function DemandsSection() {
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: 10 }}>
           {[
-            { label: "Revenue > $700M/yr", note: "Berkeley is not underfunded" },
+            { label: "$905M Budget (FY27)", note: "Berkeley is not underfunded" },
             { label: "$316M in AAO Amendments", note: "All-fund mid-cycle moves, minimal public review" },
             { label: "~$20M in Fund Transfers", note: "Internal equity used to close the FY26 gap" },
             { label: "0 of 5 Audit Recs Done", note: "2022 recommendations, still unresolved in 2026" },
@@ -596,7 +596,7 @@ function DemandsSection() {
           Our ask is simple: reform first, then ask.
         </div>
         <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.75 }}>
-          Berkeley has passed significant new revenue measures since 2020 — Measure FF, Measure W, Measure P,
+          Berkeley has passed significant new revenue measures since 2018 — Measure P (2018), Measure FF (2020), Measure W (2024),
           transfer tax increases, and more. The structural deficit grew alongside them. That pattern suggests
           the problem is structural cost growth, not insufficient taxation.
         </p>
@@ -615,7 +615,7 @@ function AuditSection() {
       id: "1.1",
       rec: "Complete risk assessment; propose plan to replenish Stability & Catastrophic Reserves; consider revising FY 2027 goal",
       status: "Backsliding",
-      outcome: "Goal pushed back 6 years (FY 2027 → FY 2033) AND reduced (30% → 25%). City drew $3M from Section 115 Trust in FY 2025.",
+      outcome: "Goal replaced in July 2025: 20–30% of GF revenues within ten years (was 30% by FY 2027). Reserves at 21.3% in FY 2025. City drew $3M from Section 115 Trust in FY 2025.",
     },
     {
       id: "1.2",
@@ -661,14 +661,14 @@ function AuditSection() {
 
   const auditDelta = [
     { metric: "Report Framing", v2022: "Pension Liabilities Need Attention", v2026: "Structural Deficit Poses Risk", dir: "worse" },
-    { metric: "Expense Growth (inflation-adj.)", v2022: "+20% over decade", v2026: "+39% over decade", dir: "worse" },
+    { metric: "Expense Growth (inflation-adj.)", v2022: "+20% over decade", v2026: "+33% over decade", dir: "worse" },
     { metric: "Structural Deficit", v2022: "Not identified", v2026: "$32–33M projected FY27–28", dir: "worse" },
     { metric: "Unfunded Capital Needs", v2022: "$1.2B", v2026: "$1.8B (+50% in 3 yrs)", dir: "worse" },
-    { metric: "Pension Funded Ratio", v2022: "66% — HIGH RISK", v2026: "66–72% — still HIGH RISK", dir: "flat" },
-    { metric: "Govt. Net Position", v2022: "−$101.7M", v2026: "−$188.7M", dir: "worse" },
+    { metric: "Pension Funded Ratio", v2022: "66% (FY20) — HIGH RISK", v2026: "66% (FY24) — still HIGH RISK", dir: "flat" },
+    { metric: "Unrestricted Net Position", v2022: "−$400.4M (FY24)", v2026: "−$415.2M (FY25)", dir: "worse" },
     { metric: "Section 115 Trust (per audit)", v2022: "$12.1M; missed targets", v2026: "$29.5M — then City raided $3M", dir: "worse" },
-    { metric: "Reserve Goal", v2022: "Target 30% by FY 2027", v2026: "Deferred to FY 2033; target cut to 25%", dir: "worse" },
-    { metric: "Personal Income per Resident", v2022: "+11% real growth", v2026: "+1% real growth", dir: "worse" },
+    { metric: "Reserve Goal", v2022: "Target 30% by FY 2027", v2026: "Reset to 20–30% within ten years (July 2025); at 21.3%", dir: "flat" },
+    { metric: "Median Household Income (real)", v2022: "+11% growth", v2026: "+1% growth, 2016–2024", dir: "worse" },
     { metric: "Net OPEB Liability", v2022: "+91% over decade", v2026: "Declined to $43.2M (FY25)", dir: "better" },
   ];
 
@@ -739,7 +739,7 @@ function AuditSection() {
       {/* ── Recommendations Scorecard ── */}
       <SubHead>2022 Audit Recommendations: Where Things Stand</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
-        The 2022 audit made five specific recommendations. The 2026 audit assessed where each one stands today.
+        The 2022 audit made five specific recommendations. The 2026 audit publishes no status table for them; the ratings below are BeTH's reading of what the 2026 audit reports on each subject.
       </p>
       {recs.map((r) => {
         const s = statusStyle[r.status];
@@ -809,9 +809,9 @@ function AuditSection() {
           ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ $14M worse", c: "#c41e1e" }],
           ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23%", c: "#c41e1e" }],
           ["Public Safety Expenses", "$162.3M", "$190.0M", { v: "▼ −15%", c: "#2a7d4f" }],
-          ["Property Tax Revenue", "$148.4M", "$135.7M", { v: "▲ +9%", c: "#2a7d4f" }],
-          ["Stability Reserve", "$32.8M", "—", { v: "19.5% of GF", c: "#d4860b" }],
-          ["Section 115 Trust", "$29.5M*", "$35.5M", { v: "*$6M decline from FY24", c: "#c41e1e" }],
+          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4%", c: "#2a7d4f" }],
+          ["Reserves (Stability + Catastrophic)", "$58.3M", "—", { v: "21.3% of GF revenue", c: "#d4860b" }],
+          ["Section 115 Trust balance", "$29.5M", "—", { v: "$3M drawn FY25; $6M more in FY26", c: "#c41e1e" }],
         ]}
       />
       <div style={{ fontSize: 11, color: "#999", marginTop: 8, fontStyle: "italic" }}>
@@ -839,7 +839,7 @@ function CompareSection() {
           </thead>
           <tbody>
             {[
-              ["Berkeley (Classic)", "0% — city pays it", "~38% + empl's 8%", "City covers employee's own share"],
+              ["Berkeley (Classic)", "8% required (9% safety)", "38% misc / 57% fire / 87% police", "Whether the City picks up the 8% under any MOU is unverified"],
               ["Berkeley (PEPRA)", "~50% normal cost", "Remainder + UAL", "Post-2013 hires per state law"],
               ["Escondido", "9% + UAL share", "Remainder", "Cost-sharing since 2018"],
               ["San José", "~11–16%", "Remainder", "Measure B reforms (modified)"],
@@ -870,10 +870,10 @@ function CompareSection() {
       {[
         ["Sonoma County (SCERA)", 93, "#2a7d4f"],
         ["Well-Funded Threshold", 90, "#2a7d4f"],
-        ["Berkeley Fire", 80.9, "#d4860b"],
-        ["Berkeley Misc", 80.1, "#d4860b"],
-        ["Avg. CalPERS Agency (2024)", 80.2, "#d4860b"],
-        ["Berkeley Police", 68.7, "#c41e1e"],
+        ["Berkeley Fire", 72.0, "#c41e1e"],
+        ["Berkeley Misc", 73.6, "#c41e1e"],
+        ["CalPERS system-wide (June 2024)", 75, "#d4860b"],
+        ["Berkeley Police", 62.9, "#c41e1e"],
       ].map(([name, pct, color]) => (
         <div key={name} style={{ marginBottom: 10 }}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontWeight: 600, marginBottom: 3 }}>
@@ -889,9 +889,9 @@ function CompareSection() {
       <SubHead>What Voters Are Already Being Asked (Nov 2026)</SubHead>
       <div style={{ fontSize: 12, lineHeight: 1.5 }}>
         {[
-          ["0.5% City Sales Tax", "~$9M/yr", "General Fund deficit"],
-          ["$300M GO Bond", "~$20M/yr debt svc", "Infrastructure capital"],
-          ["Regional Transit Tax (SB63)", "0.5% sales tax", "BART / AC Transit"],
+          ["0.5% City Sales Tax", "~$9–10M/yr", "General Fund deficit"],
+          ["$300M GO Bond", "$22.14 per $100k AV / yr", "Infrastructure capital"],
+          ["Regional Transit Tax (SB63)", "0.5% sales tax (authorized)", "BART / AC Transit"],
           ["Arts & Creative Economy Parcel Tax", "TBD", "Performing arts orgs"],
         ].map(([name, cost, purpose]) => (
           <div key={name} style={{ display: "flex", gap: 8, borderBottom: "1px dotted #ddd", padding: "7px 0", alignItems: "baseline", flexWrap: "wrap" }}>
@@ -1023,7 +1023,7 @@ export default function App() {
             Berkeley's Budget:<br />What the Data Shows
           </h1>
           <p style={{ fontSize: "clamp(13px,2vw,15px)", color: "#aaa", marginTop: 12, maxWidth: 560, lineHeight: 1.55 }}>
-            Berkeley manages over $700M in annual revenues. Understanding how those funds are appropriated,
+            Berkeley's adopted FY2027 budget is $905M across all funds; about $315M of it is the General Fund. Understanding how those funds are appropriated,
             carried forward, and balanced is essential context for any conversation about new taxes in 2026.
           </p>
           <div style={{ display: "flex", gap: 16, marginTop: 18, flexWrap: "wrap", alignItems: "center" }}>
@@ -1130,8 +1130,8 @@ export default function App() {
         </div>
         <p style={{ fontSize: 14, lineHeight: 1.65, margin: "0 0 10px 0" }}>
           There is no secret pot of money. Berkeley's structural deficit is real —
-          roughly <strong>$33M a year</strong>, on top of about <strong>$1.8B</strong> in unfunded
-          capital and retirement obligations. Closing that gap will require cuts, deferrals, new
+          roughly <strong>$32–33M a year</strong> in the General Fund, on top of about <strong>$1.8B</strong> in unfunded
+          capital needs and <strong>$730M</strong> in pension and retiree-health liabilities. Closing that gap will require cuts, deferrals, new
           revenue, or some mix of the three.
         </p>
         <p style={{ fontSize: 14, lineHeight: 1.65, margin: "0 0 10px 0" }}>
@@ -1158,7 +1158,7 @@ export default function App() {
         fontFamily: "'JetBrains Mono', monospace"
       }}>
         <strong style={{ color: "#666" }}>Sources:</strong> City of Berkeley Unfunded Liability Obligations Report (Apr 2023); 
-        CalPERS Actuarial Valuations (June 30, 2021); Foster & Foster Pension &amp; OPEB Funding Study (Feb 2023); 
+        City of Berkeley FY2025 ACFR (pension schedules, June 30, 2024 measurement date); Foster & Foster Pension &amp; OPEB Funding Study (Feb 2023, personnel projections); 
         City of Berkeley FY2024 Revenue Narratives; Daily Californian (Mar 2026); Berkeleyside; CalPERS Circular Letters.
         <div style={{ marginTop: 8, color: "#bbb" }}>
           Compiled by <strong>Berkeley Transparency Hub</strong> · Data as of Spring 2026 ·
