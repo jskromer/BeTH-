@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn About Berkeley — The Infrastructure Dashboard Referral: Sources, Data &amp; What Was Actually Built</title>
+<meta name="description" content="The September 29, 2026 referral asks City staff to build a public infrastructure dashboard modeled on a UC Berkeley student prototype. Here is every data source behind that prototype, every project loaded into it, and what the referral is buying.">
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
+  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --accent:#15543f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
+h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
+.sub { color:var(--mut); margin:0 0 4px; }
+.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
+h2 { font-size:18px; margin:32px 0 6px; letter-spacing:-.01em; }
+h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
+h3 { font-size:14.5px; margin:16px 0 6px; }
+.lead { color:var(--mut); margin:0 0 14px; max-width:800px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:14px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.kpi .v { font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--accent); }
+.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
+.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; white-space:nowrap; }
+.c-High { background:#e7f1ec; color:#15543f; } .c-Moderate { background:#fff5d6; color:#8a6300; } .c-Low { background:#fde8e6; color:#8f2b23; } .c-Unknown { background:#f0f0f3; color:#6a7280; }
+a { color:var(--accent); }
+.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
+.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--mut); font-weight:600; font-size:12px; white-space:nowrap; }
+.num2 { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.tl { border-left:4px solid var(--accent); padding:10px 14px; margin:12px 0; background:var(--card); border-radius:0 10px 10px 0; border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.tl b { color:var(--accent); }
+.tl .who { font-size:12.5px; color:var(--mut); margin-top:4px; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:760px){ .two { grid-template-columns:1fr; } }
+.side { font-size:12.5px; color:var(--mut); }
+.role { font-size:11px; font-weight:600; padding:1px 6px; border-radius:6px; background:#eef1f5; color:#46505e; white-space:nowrap; }
+ul.tight { margin:6px 0 0 18px; padding:0; } ul.tight li { margin-bottom:4px; }
+code { font-size:12.5px; background:#eef1f5; padding:1px 5px; border-radius:4px; }
+.scroll { overflow-x:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The Infrastructure Dashboard Referral: Sources, Data &amp; What Was Actually Built</h1>
+  <p class="sub">On September 29, 2026 the Council adopted, on consent, a referral asking City staff to build a public dashboard tracking infrastructure projects, modeled on a UC Berkeley student prototype. This page lists every data source behind that prototype, every project loaded into it, and what the referral is buying.</p>
+  <span class="tag">Infrastructure</span> <span class="tag">Vision 2050</span> <span class="tag">Sources &amp; data</span>
+
+  <div class="disc"><strong>Acronyms used on this page.</strong> AMP = Asset Management Program · CIP = Capital Improvement Program · CP 218 = UC Berkeley course number for the Transportation Planning Studio · EBMUD = East Bay Municipal Utility District · GIS = geographic information system · ISI = Institute for Sustainable Infrastructure · PCI = Pavement Condition Index · SAMP = Strategic Asset Management Plan · TF = Task Force (the Mayor's Vision 2050 Task Force).</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">$200,000</div><div class="l">Sponsor's estimate for the plan updates (staff and consultant time)</div></div>
+    <div class="kpi"><div class="v">$1.5B</div><div class="l">Unfunded infrastructure need stated in the referral</div></div>
+    <div class="kpi"><div class="v">16 of 118</div><div class="l">CIP projects loaded into the student prototype the referral cites</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Projects in the prototype with a score or a staff contact filled in</div></div>
+  </div>
+
+  <h2><span class="n">A</span>The referral</h2>
+  <div class="card">
+    <p><strong>Item 26, Consent Calendar, September 29, 2026.</strong> Author: Mayor Adena Ishii. Co-sponsors: Councilmembers Taplin, Tregub and O'Keefe. Title: "Referral to the City Manager to develop an updated Cross Departmental Program Plan and Strategic Asset Management Plan per the Realize Vision 2050 Plan to address the City's Long-term Infrastructure Needs and Maintenance Schedule and Provide Semi-annual Progress Reports to City Council." <span class="pill c-High">High</span></p>
+    <p><strong>Action.</strong> The annotated agenda records "Approved recommendation." The consent calendar was adopted in one motion (Taplin/Tregub), all ayes. The Agenda &amp; Rules Committee had moved the item from the Action Calendar to Consent between the draft and certified agendas. <span class="pill c-High">High</span></p>
+    <p><strong>What it asks for.</strong> Three things. First, an updated cross-departmental Program Plan: "all the infrastructure projects Citywide that need to be completed, attached with a rough cost analysis of each project and a prioritization plan informed by urgency and the Realize Vision 2050 plan." Second, an updated Strategic Asset Management Plan to track maintenance across asset life cycles. Third, a "transparency hub dashboard to publicly track its infrastructure projects," which "could be akin to the Transportation Studio: Capital Improvement Program (CIP) Hub created by the UC Berkeley students," and which "will track current project schedules and their budgets, as well as integrate future capital planning." The City Manager is to report to Council every six months on both plans. <span class="pill c-High">High</span></p>
+    <p><strong>Cost.</strong> "Approximately $200,000, which includes staff and consultant time," for the two plan updates. The referral gives no separate figure for the dashboard, its data layer, or ongoing maintenance. The $200,000 is the sponsor's estimate; staff have not costed it. <span class="pill c-High">High</span></p>
+    <p><strong>The need figure.</strong> The referral says "approximately $1.5 billion." The Mayor's Task Force report of December 2, 2025 says "approximately $2 billion." The student report says about $1.65 billion. The City's bond page has used $1.65–2B and the FY2027–31 proposed CIP cites $2.1B. These are different definitions and years, not a trend. <span class="pill c-High">High</span> that each is the published figure.</p>
+  </div>
+
+  <h2><span class="n">B</span>What the students built</h2>
+  <p class="lead">The referral's footnote 1 points to a Google Site. Behind the site is a report, a policy brief, and a live ArcGIS dashboard. Here is each one.</p>
+
+  <div class="card">
+    <h3>The report</h3>
+    <p><em>Improving the CIP Prioritization and Tracking Process in Berkeley</em>, February 2026. Authors Bim-Ray Yau, Samuel H. Arnett and Yutong Li, UC Berkeley Master of City Planning, CP 218 Transportation Planning Studio. Client: the Mayor's Office (Matt Nichols acknowledged). Professor Karen Trapenberg Frick acknowledged. <span class="pill c-High">High</span></p>
+    <p>Its findings on the City's current process: the FY2025–2029 CIP holds 118 projects totaling about $346 million in ten categories; several prioritization rubrics coexist (Budget Referral tiers, Public Works priority labels, pedestrian and bike plan scoring) with no public explanation of how they connect; the public GIS portal shows only existing assets; the permits web map has no cost, timeline or responsible party for any project. At about $15 million a year, the report projects network PCI falling from 55 to 53 between 2024 and 2028. <span class="pill c-High">High</span></p>
+    <p>Its recommendations come in two parts. Part One is a scoring system: consolidate the rubrics into one public explanation; screen projects into the CIP first, then rank them on eight Project Impact metrics plus EBMUD-style Urgency metrics; use ISI Envision as a supplement only; set the weights with the community, district by district. The report supplies metrics and deliberately no weights. Part Two is a tracker: an ArcGIS dashboard, because the City already runs ArcGIS, with a plain-language description, score and rank, budget and funding status, timeline, on-time and on-budget flags, and a staff contact for each project. The model is Ann Arbor, which tracks 400+ projects with one staff member, updates annually, and exports from its planning software (Allovance) into the map layer. <span class="pill c-High">High</span></p>
+    <p>Its own stated limits: weights not set; "every CIP project still needs a data record"; map symbology unresolved; citywide projects have no map representation; staff time and upkeep not costed. One section cites "200+ CIP projects" against the 118 cited earlier, unreconciled. <span class="pill c-High">High</span></p>
+  </div>
+
+  <div class="card">
+    <h3>The dashboard</h3>
+    <p>The ArcGIS item is titled <strong>"CP218 Test Template,"</strong> with the on-screen title <strong>"Project Tracker Template — Berkeley CIP, FY 25-29,"</strong> and the item snippet "Test Sample for City of Berkeley Transportation Studio." It was created November 4, 2025 and last modified December 15, 2025. Its data layers were populated December 16, 2025; read-only "view" copies were added May 12, 2026. Everything is public under a UC Berkeley ArcGIS account. <span class="pill c-High">High</span></p>
+    <p>It has one map, three project lists (points, lines, polygons), three category filters, a legend, and an "About" panel. The lists show three fields: project name, "On Time?" and "On Budget?". The category filter runs on <code>proj_cat</code>. No other field is surfaced in a widget. <span class="pill c-High">High</span></p>
+    <p>The underlying layers carry ten attribute fields: <code>proj_title</code>, <code>proj_cat</code>, <code>cip_score</code>, <code>onbudget</code>, <code>ontime</code>, <code>budgetsize</code>, <code>timeline</code>, <code>description</code>, <code>contact</code>, plus the system ID. Budget and timeline are stored as text strings copied from the CIP PDF ("$ 2,656,245", "FY2024-FY2026"), so they cannot be summed or sorted without cleanup. The on-time and on-budget values are hand-entered "Yes," "No" or "N/A" with no date, no source and no stated rule for how they were decided. <span class="pill c-High">High</span></p>
+  </div>
+
+  <h2><span class="n">C</span>Every data source behind the prototype</h2>
+  <p class="lead">Listed as the dashboard and report cite them, with the live endpoints. Anyone can query these.</p>
+  <div class="card scroll">
+    <table>
+      <thead><tr><th>#</th><th>Source</th><th>What it supplies</th><th>Where</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>City of Berkeley, <em>Adopted Capital Improvement Plan, FY 2025–2029</em> (City Manager's Office, Office of Budget and Fiscal Management)</td><td>Every project title, description, budget figure and fiscal-year range in the prototype, copied by hand from the PDF. The dashboard's "About" panel names it as the "source of project descriptions and data."</td><td><a href="https://berkeleyca.gov/sites/default/files/documents/FY-2025-2029-Capital-Improvement-Program.pdf">berkeleyca.gov PDF</a> (the dashboard's own link is mistyped as ".pd")</td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>2</td><td>City of Berkeley Open Data Portal, <em>Council Districts</em></td><td>The district boundary layer. Uploaded as a shapefile to the student account on December 15, 2025 and republished as a hosted layer. Carries 45 fields of 2021 redistricting demographics (population by race, citizen voting-age population, deviation from ideal size).</td><td><a href="https://data.cityofberkeley.info/City-Government/Council-Districts/b2uf-vm3c">data.cityofberkeley.info</a> · <a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/Berkeley_City_Council_Districts/FeatureServer/0">hosted copy</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>3</td><td>Hosted layer <em>CIP Points</em> (<code>CIP_(Points)_CP218</code>)</td><td>7 site-specific projects: two facilities, two parks, one storm water, two transportation.</td><td><a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_(Points)_CP218/FeatureServer/0">REST endpoint</a> · <a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_(Points)_CP218/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;returnGeometry=false&amp;f=pjson">all rows as JSON</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>4</td><td>Hosted layer <em>CIP Lines</em> (<code>CIP_Lines</code>)</td><td>5 linear projects: two transportation, two storm water, one sanitary sewer.</td><td><a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_Lines/FeatureServer/0">REST endpoint</a> · <a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_Lines/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;returnGeometry=false&amp;f=pjson">all rows as JSON</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>5</td><td>Hosted layer <em>CIP Polygon</em> (<code>CIP_Polygon</code>)</td><td>4 area projects: one waterfront, two parks, one sanitary sewer.</td><td><a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_Polygon/FeatureServer/0">REST endpoint</a> · <a href="https://services2.arcgis.com/iq8zYa0SRsvIFFKz/arcgis/rest/services/CIP_Polygon/FeatureServer/0/query?where=1%3D1&amp;outFields=*&amp;returnGeometry=false&amp;f=pjson">all rows as JSON</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>6</td><td>Read-only views of 3–5 (<code>CIP_Points_view</code>, <code>CIP_Lines_view</code>, <code>CIP_Polygon_view</code>), created May 12, 2026</td><td>Same rows as the source layers; the dashboard's map references the source layers directly.</td><td>Same ArcGIS org, items <code>b0fe82e3…</code>, <code>7c4fc5a3…</code>, <code>e392480e…</code></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>7</td><td>Web map <em>CIP Data</em> (item <code>add7a963…</code>)</td><td>Combines layers 2–5 with unique-value symbology by category. Created December 1, 2025; modified May 12, 2026.</td><td><a href="https://www.arcgis.com/home/item.html?id=add7a9632f1b43b8b7ed9938b42630b4">arcgis.com item</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>8</td><td>Dashboard <em>CP218 Test Template</em> (item <code>372444a6…</code>)</td><td>The page the referral links to. Built in ArcGIS Dashboards 4.34.</td><td><a href="https://www.arcgis.com/apps/dashboards/372444a6f02f4087991a50b74c88c203">live dashboard</a> · <a href="https://www.arcgis.com/sharing/rest/content/items/372444a6f02f4087991a50b74c88c203/data?f=json">configuration JSON</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>9</td><td>Student report, February 2026</td><td>Method, peer review, recommendations. Peer agencies reviewed: Ann Arbor, Athens (GA), Chico, EBMUD, Oakland, Somerville, Minneapolis, the MTA, NJTPA and SJTPO; interviews with New Mexico DOT, Caltrans District 4, Port of Seattle (on Envision) and Ann Arbor's infrastructure data manager.</td><td><a href="https://docs.google.com/document/d/1CvVRIyoJWR2VIJHGlfbVjRjbzLb6aKdGTtOJXxcHlFU">Google Doc</a> via <a href="https://sites.google.com/berkeley.edu/berkeley-cip-studio/full-report">studio site</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>10</td><td>Student policy brief, dated 12.24.25</td><td>One page, two recommendations, no data or figures.</td><td><a href="https://docs.google.com/document/d/153B_rJWX9nY-oH7wYoasUu23FqIdv3NRmbZ1D5X8RZ8">Google Doc</a> via the <a href="https://sites.google.com/berkeley.edu/berkeley-cip-studio/policy-recommendations">studio site</a></td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>11</td><td>Oakland CIP prioritization rubric; EBMUD urgency scale; NJTPA and SJTPO scoring systems; ISI Envision criteria</td><td>Peer frameworks the report's Appendices A–C reproduce. Oakland: nine criteria, 100 points, Health &amp; Safety 16, Equity 16, Existing Conditions 13. EBMUD urgency 0–4. NJTPA 800 points, SJTPO 125 points.</td><td>Report Appendices A–C</td><td><span class="pill c-High">High</span></td></tr>
+      </tbody>
+    </table>
+    <p class="side" style="margin-top:10px">Every source the report cites (82 footnotes, about 45 distinct sources), and a line-by-line check of the 16 records against the CIP, are on the <a href="berkeley-cip-hub-data-review.html">complete data review</a>.</p>
+  </div>
+
+  <h2><span class="n">D</span>The 16 projects in the prototype</h2>
+  <p class="lead">Every row the dashboard holds, as stored. Budget and timeline are the text strings in the layer. "Score" and "Contact" are empty for all 16.</p>
+  <div class="card scroll">
+    <table>
+      <thead><tr><th>Layer</th><th>Project</th><th>Category</th><th class="num2">Budget (as stored)</th><th>Timeline</th><th>On time?</th><th>On budget?</th></tr></thead>
+      <tbody>
+        <tr><td>Point</td><td>South Berkeley Senior Center</td><td>Facilities</td><td class="num2">$3,000,000</td><td>FY2024–FY2026</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Point</td><td>CY Storage Room / Roof Repairs, Bldg H (Corporation Yard)</td><td>Facilities</td><td class="num2">$690,000</td><td>FY2024–FY2026</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Point</td><td>Codornices Playground (Design)</td><td>Parks</td><td class="num2">N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+        <tr><td>Point</td><td>MLK Jr. Youth Services Center Seismic Retrofit and Renovation</td><td>Parks</td><td class="num2">$11,731,400</td><td>FY2024–FY2026</td><td>N/A</td><td>Yes</td></tr>
+        <tr><td>Point</td><td>Codornices Creek Restoration at 9th Street</td><td>Storm Water</td><td class="num2">$650,000</td><td>FY2027–FY2028</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Point</td><td>University Ave Bus Stop (University/Acton)</td><td>Transportation</td><td class="num2">$2,656,245</td><td>FY2024–FY2025</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Point</td><td>University Ave Bus Stop (University/Bonar)</td><td>Transportation</td><td class="num2">$2,656,245</td><td>FY2024–FY2025</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Line</td><td>Woolsey–Fulton Bike Boulevard</td><td>Transportation</td><td class="num2">$1,025,000</td><td>FY2024</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Line</td><td>Southside Complete Streets</td><td>Transportation</td><td class="num2">$16,571,541</td><td>FY2023–FY2024</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Line</td><td>Wildcat Canyon Road Repairs</td><td>Storm Water</td><td class="num2">$2,168,999</td><td>FY2023–FY2025</td><td>N/A</td><td>Yes</td></tr>
+        <tr><td>Line</td><td>West Berkeley Aquatic Park Stormwater Improvement (EPA grant)</td><td>Storm Water</td><td class="num2">$3,300,000</td><td>FY2025–2028</td><td>N/A</td><td>Yes</td></tr>
+        <tr><td>Line</td><td>FY2025 Adeline–Shattuck Sewer Rehabilitation, Area 2</td><td>Sanitary Sewer</td><td class="num2">$11,835,800</td><td>FY2025–FY2026</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Polygon</td><td>Marina Capital (annual allocation)</td><td>Waterfront</td><td class="num2">$1,050,000</td><td>FY2027–FY2029</td><td>N/A</td><td>N/A</td></tr>
+        <tr><td>Polygon</td><td>Adeline/Alcatraz Right-of-Way Landscaping</td><td>Parks</td><td class="num2">$75,000</td><td>FY2024–FY2026</td><td>N/A</td><td>No</td></tr>
+        <tr><td>Polygon</td><td>Santa Fe Right-of-Way (Blake to Ward)</td><td>Parks</td><td class="num2">$1,307,156</td><td>FY2024–FY2026</td><td>N/A</td><td>No</td></tr>
+        <tr><td>Polygon</td><td>FY2025 Adeline–Shattuck Sewer Rehabilitation, Area 1</td><td>Sanitary Sewer</td><td class="num2">$11,835,800</td><td>FY2025–FY2026</td><td>Yes</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+    <p class="side" style="margin-top:10px">Notes. The two University Avenue bus stops carry the same $2,656,245 figure and the same description; the CIP lists one project covering both stops, so the figure is likely double-counted if summed. The two Adeline–Shattuck sewer rows carry the same $11,835,800, the single project total, for the same reason. Two "No" values on budget (Adeline/Alcatraz landscaping, Santa Fe Right-of-Way) carry no explanation. In the Lines and Polygon layers, every row's edit timestamp equals its creation timestamp (December 16, 2025): no row has been edited since. The Points layer has no edit tracking, so the same cannot be confirmed for its seven rows; that layer's last change of any kind is May 12, 2026, the day the read-only views were created. <span class="pill c-High">High</span> on the stored values; the double-counting reading is ours.</p>
+  </div>
+
+  <h2><span class="n">E</span>What the referral is buying</h2>
+  <div class="two">
+    <div class="card">
+      <h3>The gap</h3>
+      <p>The referral says the student hub "will track current project schedules and their budgets, as well as integrate future capital planning." The students' own item is titled "Test Template," holds 16 of 118 projects with values copied by hand from a PDF, surfaces two status flags with no date or rule behind them, has no score, no contact, no funding source and no capital-planning data loaded, and the report says the full data layer still has to be built. The $200,000 covers the two plan updates. Nothing in the referral funds the data layer, the schema, or the staff time Ann Arbor's experience says a tracker needs. <span class="pill c-High">High</span> on each fact; the conclusion is ours.</p>
+      <p>What a usable version needs, drawn from the report and the Ann Arbor interview: a record for every CIP project; budget and schedule stored as numbers and dates, with the adopted value and the current value kept separately so "on time" and "on budget" are computed and dated; the funding source; the adopted target the project serves (PCI, sidewalk backlog, facility condition); a staff owner; a last-updated date; a machine-readable export; and a named person whose job includes updating it.</p>
+    </div>
+    <div class="card">
+      <h3>The counterargument</h3>
+      <p>A proof of concept is supposed to be thin. The referral asks staff to build the real thing, and a City-run dashboard with an accountable staff owner is more durable than any outside tracker. Ann Arbor shows one person can maintain 400+ projects once the setup is done. The student report is also the first public document to say plainly that Berkeley's scoring rubrics are unexplained and its project data is not public, which is more than the City had said about itself. The referral's six-month reporting cycle is a real commitment, and the first report is due around late March 2027. <span class="pill c-Moderate">Moderate</span> on the due date (six months from September 29, 2026; no date is set in the referral).</p>
+      <p>What to watch: whether the first semi-annual report arrives on time, whether it carries any project-level data, and whether the Program Plan update the Task Force set for Spring 2026 and the AMP steering committee it set for July 2026 appear in it. As of this writing neither has surfaced in the public record. <span class="pill c-Low">Low</span> (absence of evidence).</p>
+    </div>
+  </div>
+
+  <h2><span class="n">F</span>Related primary documents</h2>
+  <div class="card">
+    <ul class="tight">
+      <li><a href="https://berkeleyca.gov/sites/default/files/2026-09/2026-09-29%20Item%2026%20Referral%20to%20the%20City%20Manager%20to%20develop%20an%20updated.pdf">Item 26, September 29, 2026</a> (referral text) · <a href="https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-09-29%20Annotated%20Agenda%20-%20Council.pdf">annotated agenda</a> (action) · <a href="budget-scan-2026-09-29.html">our scan of that agenda</a></li>
+      <li><a href="https://sites.google.com/berkeley.edu/berkeley-cip-studio/home?authuser=0">Transportation Studio: Berkeley CIP</a> (the site the referral cites) · <a href="https://sites.google.com/berkeley.edu/berkeley-cip-studio/team">team</a></li>
+      <li><a href="https://berkeleyca.gov/sites/default/files/documents/2025-12-02%20Special%20Item%2001%20Sharing%20the%20Final%20Report%20of%20the%20Mayor.pdf">Mayor's Vision 2050 Task Force final report, December 2, 2025</a> ("Realize Vision 2050")</li>
+      <li><a href="https://berkeleyca.gov/sites/default/files/documents/Vision-2050-Framework.pdf">Vision 2050 Framework, 2020</a> · <a href="https://berkeleyca.gov/sites/default/files/documents/2021-11-16%20Item%2008%20Vision%202050.pdf">Progress report, November 16, 2021</a> · <a href="https://berkeleyca.gov/sites/default/files/2022-04/2022-05-10%20Item%2031%20Vision%202050%20Strategic%20Asset.pdf">SAMP and Asset Management Policy, May 10, 2022</a> · <a href="https://berkeleyca.gov/sites/default/files/documents/2021-03-16%20WS%20Item%2003b%20Turning%20Vision%202050%20into%20Reality.pdf">"Turning Vision 2050 into Reality," March 16, 2021</a> (the referral's footnotes 3–6)</li>
+      <li><a href="https://berkeleyca.gov/your-government/our-work/bond-revenue-measures/infrastructure-projects-potential-bond-measure">City bond page: infrastructure projects</a> (the referral's footnote 2; source of the "300 miles of sidewalks, 54 parks, 95 buildings" line)</li>
+      <li>Companion pages here: <a href="berkeley-cip-hub-data-review.html">The CIP studio: complete data review</a> · <a href="berkeley-cip-hub-vs-vision-2050.html">The studio and the referral, compared with Vision 2050</a> · <a href="measure-t1-2016.html">Measure T1 tracker</a> · <a href="berkeley-plans-synthesis.html">Berkeley's adopted plans, current to defunct</a> · <a href="berkeley-tax-measures.html">Tax and bond measures</a></li>
+    </ul>
+  </div>
+
+  <div class="disc"><strong>Acronyms.</strong> AMP = Asset Management Program · CIP = Capital Improvement Program · CP 218 = UC Berkeley Transportation Planning Studio course · EBMUD = East Bay Municipal Utility District · GIS = geographic information system · ISI = Institute for Sustainable Infrastructure · PCI = Pavement Condition Index · SAMP = Strategic Asset Management Plan · TF = Task Force.</div>
+
+  <div class="foot">Confidence pills: <span class="pill c-High">High</span> = read directly from the cited primary document or queried from the live data layer · <span class="pill c-Moderate">Moderate</span> = secondary source or inference from documents · <span class="pill c-Low">Low</span> = single source, unverified, or an absence of evidence · <span class="pill c-Unknown">Unknown</span> = not retrieved. The student authors are named as the report names them; the work was done for a public client and is public. Compiled October 22, 2026. Learn About Berkeley takes no position on the referral; the page records what it asks for and what exists.</div>
+</div>
+</body>
+</html>
