@@ -4,17 +4,17 @@ import CarryoverTracker from "./CarryoverTracker";
 /* ──────────────────── shared helpers ──────────────────── */
 const fmt = (n) => (n >= 1000 ? `$${(n / 1000).toFixed(1)}B` : `$${n}M`);
 
-function StatBlock({ value, label, sub, color = "#c41e1e" }) {
+function StatBlock({ value, label, sub, color = "#002198" }) {
   return (
     <div className="stat-block">
       <div style={{ fontSize: "clamp(24px,5vw,36px)", fontWeight: 900, color, letterSpacing: "-1px", lineHeight: 1.1, fontFamily: "'JetBrains Mono', monospace" }}>{value}</div>
-      <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", marginTop: 6, color: "#1a1a1a" }}>{label}</div>
+      <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", marginTop: 6, color: "#0b1540" }}>{label}</div>
       {sub && <div style={{ fontSize: 10, color: "#888", marginTop: 3 }}>{sub}</div>}
     </div>
   );
 }
 
-function Bar({ label, value, max, color = "#c41e1e", funded, suffix = " unfunded" }) {
+function Bar({ label, value, max, color = "#a8322c", funded, suffix = " unfunded" }) {
   const pct = (value / max) * 100;
   return (
     <div style={{ marginBottom: 12 }}>
@@ -23,13 +23,13 @@ function Bar({ label, value, max, color = "#c41e1e", funded, suffix = " unfunded
         <span style={{ color: "#666", fontFamily: "'JetBrains Mono', monospace", fontSize: 10 }}>
           ${value}M{suffix}
           {funded !== undefined && (
-            <span style={{ marginLeft: 6, color: funded < 20 ? "#c41e1e" : funded < 50 ? "#d4860b" : "#666", fontWeight: 700 }}>
+            <span style={{ marginLeft: 6, color: funded < 20 ? "#a8322c" : funded < 50 ? "#8a5a00" : "#666", fontWeight: 700 }}>
               ({funded}% funded)
             </span>
           )}
         </span>
       </div>
-      <div style={{ height: 8, background: "#e8e4df", borderRadius: 2, overflow: "hidden" }}>
+      <div style={{ height: 8, background: "#d3d6db", borderRadius: 2, overflow: "hidden" }}>
         <div style={{ height: "100%", width: `${Math.min(pct, 100)}%`, background: color, borderRadius: 2, transition: "width 0.8s cubic-bezier(.22,1,.36,1)" }} />
       </div>
     </div>
@@ -37,9 +37,9 @@ function Bar({ label, value, max, color = "#c41e1e", funded, suffix = " unfunded
 }
 
 // Bar where width = % funded; right label = unfunded % + $ amount
-function FundingBar({ label, funded, unfundedDollars, color = "#d4860b" }) {
+function FundingBar({ label, funded, unfundedDollars, color = "#8a5a00" }) {
   const unfundedPct = (100 - funded).toFixed(1);
-  const labelColor = funded < 20 ? "#c41e1e" : funded < 50 ? "#d4860b" : "#555";
+  const labelColor = funded < 20 ? "#a8322c" : funded < 50 ? "#8a5a00" : "#555";
   return (
     <div style={{ marginBottom: 12 }}>
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontWeight: 600, marginBottom: 4, flexWrap: "wrap", gap: 4 }}>
@@ -51,7 +51,7 @@ function FundingBar({ label, funded, unfundedDollars, color = "#d4860b" }) {
           )}
         </span>
       </div>
-      <div style={{ height: 8, background: "#e8e4df", borderRadius: 2, overflow: "hidden" }}>
+      <div style={{ height: 8, background: "#d3d6db", borderRadius: 2, overflow: "hidden" }}>
         <div style={{ height: "100%", width: `${funded}%`, background: color, borderRadius: 2, transition: "width 0.8s cubic-bezier(.22,1,.36,1)" }} />
       </div>
     </div>
@@ -59,11 +59,11 @@ function FundingBar({ label, funded, unfundedDollars, color = "#d4860b" }) {
 }
 
 function SolutionRow({ title, savings, detail, urgency }) {
-  const colors = { high: "#c41e1e", medium: "#d4860b", low: "#2a7d4f" };
+  const colors = { high: "#a8322c", medium: "#8a5a00", low: "#1f6b4a" };
   const labels = { high: "IMMEDIATE", medium: "NEAR-TERM", low: "STRUCTURAL" };
   return (
     <div style={{
-      padding: "14px 16px", background: "#faf8f5",
+      padding: "14px 16px", background: "#e4e7f3",
       borderLeft: `4px solid ${colors[urgency] || "#999"}`,
       marginBottom: 10, borderRadius: "0 6px 6px 0",
       transition: "transform 0.15s", cursor: "default"
@@ -75,7 +75,7 @@ function SolutionRow({ title, savings, detail, urgency }) {
             fontSize: 9, fontWeight: 800, letterSpacing: "1px", padding: "2px 8px",
             background: colors[urgency] + "18", color: colors[urgency], borderRadius: 3
           }}>{labels[urgency]}</span>
-          <span style={{ fontWeight: 800, fontSize: 15, color: "#2a7d4f", fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap" }}>{savings}</span>
+          <span style={{ fontWeight: 800, fontSize: 15, color: "#1f6b4a", fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap" }}>{savings}</span>
         </div>
       </div>
       <div style={{ fontSize: 12, color: "#555", marginTop: 6, lineHeight: 1.65 }}>{detail}</div>
@@ -85,10 +85,10 @@ function SolutionRow({ title, savings, detail, urgency }) {
 
 function Callout({ children, type = "danger" }) {
   const styles = {
-    danger: { bg: "#fdf0f0", border: "#e8c4c4", accent: "#8b0000" },
-    warning: { bg: "#fdf6e8", border: "#e8d6a8", accent: "#8b6914" },
-    success: { bg: "#edf7f0", border: "#b8dcc4", accent: "#2a7d4f" },
-    dark: { bg: "#1a2a4a", border: "#2a3a5a", accent: "#93b8e8" },
+    danger: { bg: "#fbeeed", border: "#efcfcc", accent: "#7a221d" },
+    warning: { bg: "#fbf1dc", border: "#ecd9a6", accent: "#6b4500" },
+    success: { bg: "#e3efe9", border: "#bfdccb", accent: "#1f6b4a" },
+    dark: { bg: "#000d6b", border: "#002198", accent: "#cfd8ff" },
   };
   const s = styles[type];
   return (
@@ -96,7 +96,7 @@ function Callout({ children, type = "danger" }) {
       marginTop: 20, padding: "16px 18px",
       background: s.bg, border: `1px solid ${s.border}`,
       borderRadius: 6, fontSize: 13, lineHeight: 1.65,
-      color: type === "dark" ? "#fffdf9" : "#333"
+      color: type === "dark" ? "#ebecee" : "#333"
     }}>
       {children}
     </div>
@@ -142,45 +142,45 @@ function ShellGameSection() {
       label: "City Fiscal Policy #5 — TENSION",
       quote: "\"Primarily allocating one-time revenue for one-time expenditures\"",
       detail: "The City's own fiscal policy calls for one-time funds to cover one-time costs. Using the Section 115 Trust and Workers' Comp reserve for recurring operating gaps raises the question of whether this principle is being followed.",
-      color: "#8b6914",
+      color: "#6b4500",
     },
     {
       label: "City Fiscal Policy #6 — FLAGGED IN TWO AUDITS",
       quote: "\"Enterprise and grant funds to balance and new programs to pay for themselves\"",
       detail: "Both the 2022 and 2026 City Auditor reports flag enterprise fund shortfalls as unresolved. The recommendation has been carried forward without resolution, suggesting this policy goal has not yet been achieved.",
-      color: "#8b6914",
+      color: "#6b4500",
     },
     {
       label: "Section 115 Trust — QUESTION OF INTENT",
       quote: "Council Resolution establishing trust for pension pre-funding",
       detail: "The trust was established specifically to pre-fund pension obligations. Withdrawals of $3M (FY25) and $6M (FY26) for operating purposes raise a reasonable question about whether this is consistent with the trust's stated purpose.",
-      color: "#8b6914",
+      color: "#6b4500",
     },
     {
       label: "Prop 218 (CA Constitution) — VOTER INFORMATION",
       quote: "Voter approval required; voters must be accurately informed",
       detail: "California's Prop 218 requires voter approval for new taxes. Residents casting that vote would benefit from a clear, plain-language accounting of how the current budget was balanced — including all internal fund transfers.",
-      color: "#8b6914",
+      color: "#6b4500",
     },
   ];
 
   return (
     <>
-      <SectionTitle color="#1a4a8b">HOW OUR BUDGET WORKS</SectionTitle>
+      <SectionTitle color="#002198">HOW OUR BUDGET WORKS</SectionTitle>
       <p style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24, color: "#333", fontWeight: 600 }}>
         Berkeley faces a $33M structural deficit and is considering a 0.5% sales tax and a $300M bond for November 2026.
         As residents, we think it's worth understanding how the City's budget is built, balanced, and amended each year —
         and what questions that process raises before we're asked to vote on new revenue.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", border: "2px solid #1a1a1a", borderRadius: 8, overflow: "hidden", marginBottom: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr))", border: "2px solid #0b1540", borderRadius: 8, overflow: "hidden", marginBottom: 28 }}>
         {[
-          { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Internal-fund redirects to balance the General Fund", color: "#1a4a8b" },
-          { value: "$316M", label: "AAO Carryovers (3 yrs)", sub: "All funds FY24–26 ($32M GF portion)", color: "#1a4a8b" },
-          { value: "$33M", label: "Structural Deficit", sub: "Projected recurring FY27–28 gap", color: "#c41e1e" },
-          { value: "0 of 5", label: "2022 Audit Recs Fully Resolved", sub: "BeTH assessment against the 2026 audit · 76 of 384 dropped citywide", color: "#8b6914" },
+          { value: "~$20M", label: "One-Time FY26 Transfers", sub: "Internal-fund redirects to balance the General Fund", color: "#002198" },
+          { value: "$316M", label: "AAO Carryovers (3 yrs)", sub: "All funds FY24–26 ($32M GF portion)", color: "#002198" },
+          { value: "$33M", label: "Structural Deficit", sub: "Projected recurring FY27–28 gap", color: "#a8322c" },
+          { value: "0 of 5", label: "2022 Audit Recs Fully Resolved", sub: "BeTH assessment against the 2026 audit · 76 of 384 dropped citywide", color: "#6b4500" },
         ].map((s, i, arr) => (
-          <div key={i} style={{ padding: "16px 12px", background: "#faf8f5", borderRight: i < arr.length - 1 ? "1px solid #e0dcd6" : "none", textAlign: "center" }}>
+          <div key={i} style={{ padding: "16px 12px", background: "#e4e7f3", borderRight: i < arr.length - 1 ? "1px solid #bfc4cb" : "none", textAlign: "center" }}>
             <StatBlock {...s} />
           </div>
         ))}
@@ -189,9 +189,9 @@ function ShellGameSection() {
       <SubHead>The Annual Budget Cycle — Six Steps</SubHead>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px,1fr))", gap: 10, marginBottom: 28 }}>
         {cycle.map((step) => (
-          <div key={step.n} style={{ padding: "14px 16px", background: "#faf8f5", borderLeft: "3px solid #c41e1e", borderRadius: "0 6px 6px 0" }}>
+          <div key={step.n} style={{ padding: "14px 16px", background: "#e4e7f3", borderLeft: "3px solid #a8322c", borderRadius: "0 6px 6px 0" }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 6 }}>
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 900, fontSize: 20, color: "#c41e1e", lineHeight: 1 }}>{step.n}</span>
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 900, fontSize: 20, color: "#a8322c", lineHeight: 1 }}>{step.n}</span>
               <span style={{ fontWeight: 800, fontSize: 13 }}>{step.title}</span>
             </div>
             <p style={{ fontSize: 12, lineHeight: 1.65, color: "#555", margin: 0 }}>{step.body}</p>
@@ -201,22 +201,22 @@ function ShellGameSection() {
 
       {/* ── Household Analogy Sidebar ── */}
       <div style={{
-        background: "#fffbf0", border: "1px solid #e8d6a8", borderLeft: "4px solid #d4860b",
+        background: "#f5f6f8", border: "1px solid #ecd9a6", borderLeft: "4px solid #8a5a00",
         borderRadius: "0 8px 8px 0", padding: "18px 20px", marginBottom: 28
       }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#d4860b", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#8a5a00", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
           📋 HOW TO FOLLOW THE MONEY — A HOUSEHOLD ANALOGY
         </div>
-        <p style={{ fontSize: 13, fontWeight: 700, margin: "0 0 12px", color: "#1a1a1a" }}>
+        <p style={{ fontSize: 13, fontWeight: 700, margin: "0 0 12px", color: "#0b1540" }}>
           Imagine your household earns $10,000/month and budgets $10,000 in expenses.
           You actually only spend $8,500. Here's what Berkeley does with that $1,500:
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: 10, marginBottom: 14 }}>
           {[
-            { step: "What a normal household does", desc: "Note the $1,500 surplus. Put it in savings or reduce next month's budget.", color: "#2a7d4f" },
-            { step: "What Berkeley does", desc: "Quietly roll that $1,500 into next month as extra spending authority — on top of the new $10,000 budget. Don't mention it.", color: "#c41e1e" },
+            { step: "What a normal household does", desc: "Note the $1,500 surplus. Put it in savings or reduce next month's budget.", color: "#1f6b4a" },
+            { step: "What Berkeley does", desc: "Quietly roll that $1,500 into next month as extra spending authority — on top of the new $10,000 budget. Don't mention it.", color: "#a8322c" },
           ].map((item, i) => (
-            <div key={i} style={{ background: i === 0 ? "#edf7f0" : "#fdf0f0", borderRadius: 6, padding: "12px 14px", border: `1px solid ${i === 0 ? "#b8dcc4" : "#e8c4c4"}` }}>
+            <div key={i} style={{ background: i === 0 ? "#e3efe9" : "#fbeeed", borderRadius: 6, padding: "12px 14px", border: `1px solid ${i === 0 ? "#bfdccb" : "#efcfcc"}` }}>
               <div style={{ fontSize: 10, fontWeight: 800, color: item.color, letterSpacing: "1px", marginBottom: 6, fontFamily: "'JetBrains Mono', monospace" }}>{item.step.toUpperCase()}</div>
               <div style={{ fontSize: 12, lineHeight: 1.65, color: "#333" }}>{item.desc}</div>
             </div>
@@ -226,10 +226,10 @@ function ShellGameSection() {
           Do that for three years and you've built a hidden pool of carry-forward money — tens of thousands of dollars
           that doesn't show up in your stated monthly budget. Then one month you tell your spouse:
           <em> "We have a $1,500 monthly deficit. We need you to get a second job."</em>
-          But you never mentioned the hidden pool. <strong style={{ color: "#c41e1e" }}>That's the AAO.</strong>
+          But you never mentioned the hidden pool. <strong style={{ color: "#a8322c" }}>That's the AAO.</strong>
         </p>
-        <div style={{ background: "#fff8e8", borderRadius: 6, padding: "10px 14px", border: "1px solid #e8d6a8" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: "#8b6914", marginBottom: 5 }}>On the numbers: All Funds vs. General Fund</div>
+        <div style={{ background: "#f5f6f8", borderRadius: 6, padding: "10px 14px", border: "1px solid #ecd9a6" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: "#6b4500", marginBottom: 5 }}>On the numbers: All Funds vs. General Fund</div>
           <p style={{ fontSize: 12, lineHeight: 1.7, margin: 0, color: "#555" }}>
             The $316M carryover figure covers <strong>all city funds</strong> — including capital projects, enterprise funds,
             and grants that legitimately span multiple years (think: a road project that takes 3 years to finish).
@@ -246,18 +246,18 @@ function ShellGameSection() {
         The FY2025 ACFR (MD&A) notes that the FY26 budget update, though balanced, relies on one-time
         measures to close the gap. Here's what those measures were, in plain language:
       </p>
-      <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 20 }}>
-        <div style={{ background: "#1a2a4a", color: "#fff", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ border: "1px solid #bfc4cb", borderRadius: 6, overflow: "hidden", marginBottom: 20 }}>
+        <div style={{ background: "#000d6b", color: "#fff", padding: "9px 14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>FY26 ONE-TIME BALANCING MEASURES</span>
           <span style={{ fontSize: 10, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace" }}>~$20M TOTAL</span>
         </div>
         {patches.map((item, i) => (
-          <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8, padding: "10px 14px", borderBottom: i < patches.length - 1 ? "1px solid #e8e4df" : "none", background: i % 2 === 0 ? "#fdf8f8" : "#fff" }}>
+          <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8, padding: "10px 14px", borderBottom: i < patches.length - 1 ? "1px solid #d3d6db" : "none", background: i % 2 === 0 ? "#fbeeed" : "#fff" }}>
             <div>
               <span style={{ fontWeight: 700, fontSize: 12 }}>{item.source}</span>
               <span style={{ fontSize: 11, color: "#888", display: "block", marginTop: 2 }}>{item.note}</span>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: 13, color: "#c41e1e", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: 13, color: "#a8322c", whiteSpace: "nowrap" }}>
               {item.amount ? `$${item.amount}M` : "~est."}
             </span>
           </div>
@@ -267,8 +267,8 @@ function ShellGameSection() {
       <SubHead>Three Years of Rolling Unspent Money (All Funds)</SubHead>
       <p style={{ fontSize: 12, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
         Each November, AAO#1 carries unspent prior-year appropriations into the new fiscal year across <em>all</em> city funds.
-        The <strong style={{ color: "#c41e1e" }}>red bars</strong> are true unspent carryovers.
-        The <strong style={{ color: "#d4860b" }}>amber bars</strong> are encumbrances — money contracted but not yet paid.
+        The <strong style={{ color: "#a8322c" }}>red bars</strong> are true unspent carryovers.
+        The <strong style={{ color: "#8a5a00" }}>amber bars</strong> are encumbrances — money contracted but not yet paid.
         The gray bars are new mid-cycle adjustments. General Fund carryovers specifically: $13.5M (FY24), $13.2M (FY25), $5.4M (FY26).
         Use the <strong>AAO TRACKER</strong> tab to drill into every line item.
       </p>
@@ -279,8 +279,8 @@ function ShellGameSection() {
       ].map(row => {
         const maxVal = 375;
         const bars = [
-          { label: "Unspent Carryovers", value: row.carryover, color: "#c41e1e" },
-          { label: "Encumbrances (committed, unpaid)", value: row.encumbered, color: "#d4860b" },
+          { label: "Unspent Carryovers", value: row.carryover, color: "#a8322c" },
+          { label: "Encumbrances (committed, unpaid)", value: row.encumbered, color: "#8a5a00" },
           { label: "New Mid-Cycle Adjustments", value: row.adjustments, color: "#aaa" },
         ];
         return (
@@ -295,7 +295,7 @@ function ShellGameSection() {
                   <span style={{ color: "#666" }}>{bar.label}</span>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, color: bar.color }}>${bar.value}M</span>
                 </div>
-                <div style={{ height: 7, background: "#e8e4df", borderRadius: 2 }}>
+                <div style={{ height: 7, background: "#d3d6db", borderRadius: 2 }}>
                   <div style={{ height: "100%", width: `${(bar.value / maxVal) * 100}%`, background: bar.color, borderRadius: 2, transition: "width 0.8s ease" }} />
                 </div>
               </div>
@@ -306,7 +306,7 @@ function ShellGameSection() {
 
       <SubHead>Policy Questions Worth Asking</SubHead>
       {policyPoints.map((v, i) => (
-        <div key={i} style={{ marginBottom: 10, padding: "13px 15px", background: "#faf8f5", border: `1px solid ${v.color}44`, borderLeft: `4px solid ${v.color}`, borderRadius: "0 6px 6px 0" }}>
+        <div key={i} style={{ marginBottom: 10, padding: "13px 15px", background: "#e4e7f3", border: `1px solid ${v.color}44`, borderLeft: `4px solid ${v.color}`, borderRadius: "0 6px 6px 0" }}>
           <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "1px", color: v.color, fontFamily: "'JetBrains Mono', monospace", marginBottom: 5 }}>{v.label}</div>
           <div style={{ fontSize: 12, fontStyle: "italic", color: "#555", marginBottom: 6 }}>{v.quote}</div>
           <div style={{ fontSize: 12, color: "#333", lineHeight: 1.65 }}>{v.detail}</div>
@@ -318,7 +318,7 @@ function ShellGameSection() {
         AAO amendments move through the consent calendar each November without a standalone public hearing or a
         plain-language summary of cumulative carryover patterns. The one-time balancing measures are disclosed in
         the ACFR — but that's a technical document most residents never see.
-        <div style={{ marginTop: 10, fontWeight: 700, fontSize: 13, color: "#8b6914" }}>
+        <div style={{ marginTop: 10, fontWeight: 700, fontSize: 13, color: "#6b4500" }}>
           A simple, annual plain-language budget summary — showing what carried forward, what was transferred, and what the real structural gap is — would go a long way toward the informed electorate Berkeley says it values.
         </div>
       </Callout>
@@ -329,7 +329,7 @@ function ShellGameSection() {
 function NumbersSection() {
   return (
     <>
-      <SectionTitle color="#1a4a8b">THE NUMBERS</SectionTitle>
+      <SectionTitle color="#002198">THE NUMBERS</SectionTitle>
       <p style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24, color: "#333", fontWeight: 600 }}>
         Berkeley is a well-funded city — its adopted FY2027 budget is <strong>$905M</strong> across all funds, and audited FY2025 revenues were $620M.
         Understanding where that money goes, and how the budget is balanced each year,
@@ -337,16 +337,16 @@ function NumbersSection() {
       </p>
 
       {/* ── Excess Equity Explainer ── */}
-      <div style={{ background: "#1a2a4a", color: "#fffdf9", padding: "18px 20px", borderRadius: 8, marginBottom: 24 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
+      <div style={{ background: "#000d6b", color: "#ebecee", padding: "18px 20px", borderRadius: 8, marginBottom: 24 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#cfd8ff", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>
           KEY CONCEPT: EXCESS EQUITY
         </div>
-        <p style={{ fontSize: 13, lineHeight: 1.75, margin: 0, color: "#e8f0fa" }}>
+        <p style={{ fontSize: 13, lineHeight: 1.75, margin: 0, color: "#e4e7f3" }}>
           <strong style={{ color: "#fff" }}>Excess equity</strong> is the balance that accumulates in internal service funds
           and enterprise funds above their stated reserve targets. Berkeley's IT Cost Allocation Fund, Workers' Compensation Fund,
           and other internal accounts had built up surpluses beyond what they needed as reserves.
           When the General Fund faced a structural gap, the City transferred funds from these pools to balance the budget.
-          <strong style={{ color: "#93b8e8" }}> This is a one-time measure — it resolves the current year's gap
+          <strong style={{ color: "#cfd8ff" }}> This is a one-time measure — it resolves the current year's gap
           but reduces the cushion those funds were built to maintain going forward.</strong>
         </p>
         <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: 10 }}>
@@ -357,9 +357,9 @@ function NumbersSection() {
             { label: "Measure U1 Applied", value: "$2.5M", note: "Special revenue applied to operating budget" },
           ].map((item, i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "10px 12px", border: "1px solid rgba(255,255,255,0.12)" }}>
-              <div style={{ fontSize: 20, fontWeight: 900, color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace" }}>{item.value}</div>
+              <div style={{ fontSize: 20, fontWeight: 900, color: "#cfd8ff", fontFamily: "'JetBrains Mono', monospace" }}>{item.value}</div>
               <div style={{ fontSize: 10, fontWeight: 700, color: "#fff", marginTop: 3 }}>{item.label}</div>
-              <div style={{ fontSize: 10, color: "#93b8e8", marginTop: 2 }}>{item.note}</div>
+              <div style={{ fontSize: 10, color: "#cfd8ff", marginTop: 2 }}>{item.note}</div>
             </div>
           ))}
         </div>
@@ -374,16 +374,16 @@ function NumbersSection() {
       <DataTable
         headers={["Metric", "FY 2025 (Audited)", "FY 2024", "Direction"]}
         rows={[
-          ["Total Revenues (government-wide)", "$619.6M", "$593.8M", { v: "▲ +4.3% YoY", c: "#2a7d4f" }],
-          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4% YoY", c: "#2a7d4f" }],
-          ["General Fund Revenue", "$285.8M", "$261.8M", { v: "▲ +9.2% YoY", c: "#2a7d4f" }],
-          ["General Fund Expenditures + transfers out", "$310.9M", "$282.9M", { v: "▲ +9.9% YoY", c: "#c41e1e" }],
-          ["Stated Structural Deficit", "$27–33M", "—", { v: "Recurring, not one-time", c: "#c41e1e" }],
-          ["Net Pension Liability", "$686.4M", "$723.8M", { v: "▼ improved slightly", c: "#d4860b" }],
-          ["Net OPEB Liability", "$43.2M", "$83.4M", { v: "▼ improved (restructuring)", c: "#2a7d4f" }],
-          ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ Getting worse", c: "#c41e1e" }],
-          ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23% in one year", c: "#c41e1e" }],
-          ["Reserves (Stability $32.8M + Catastrophic $25.5M)", "$58.3M", "—", { v: "21.3% of GF revenue (goal: 20–30%)", c: "#d4860b" }],
+          ["Total Revenues (government-wide)", "$619.6M", "$593.8M", { v: "▲ +4.3% YoY", c: "#1f6b4a" }],
+          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4% YoY", c: "#1f6b4a" }],
+          ["General Fund Revenue", "$285.8M", "$261.8M", { v: "▲ +9.2% YoY", c: "#1f6b4a" }],
+          ["General Fund Expenditures + transfers out", "$310.9M", "$282.9M", { v: "▲ +9.9% YoY", c: "#a8322c" }],
+          ["Stated Structural Deficit", "$27–33M", "—", { v: "Recurring, not one-time", c: "#a8322c" }],
+          ["Net Pension Liability", "$686.4M", "$723.8M", { v: "▼ improved slightly", c: "#8a5a00" }],
+          ["Net OPEB Liability", "$43.2M", "$83.4M", { v: "▼ improved (restructuring)", c: "#1f6b4a" }],
+          ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ Getting worse", c: "#a8322c" }],
+          ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23% in one year", c: "#a8322c" }],
+          ["Reserves (Stability $32.8M + Catastrophic $25.5M)", "$58.3M", "—", { v: "21.3% of GF revenue (goal: 20–30%)", c: "#8a5a00" }],
         ]}
       />
       <div style={{ fontSize: 11, color: "#999", marginTop: 6, fontStyle: "italic", marginBottom: 20 }}>
@@ -401,7 +401,7 @@ function NumbersSection() {
         rows={[
           ["GF Revenue", "$273M", "$262M", "$286M", "$268M", "$297M", "$315M"],
           ["GF Expenditure", "$276M", "$274M", "$277M", "$295M", "$329M", "$314M"],
-          [{ v: "Annual Gap", bold: true }, { v: "−$3M", c: "#c41e1e" }, { v: "−$12M", c: "#c41e1e" }, { v: "+$9M", c: "#2a7d4f" }, { v: "−$27M", c: "#c41e1e" }, { v: "−$32M", c: "#c41e1e" }, { v: "+$1M", c: "#2a7d4f" }],
+          [{ v: "Annual Gap", bold: true }, { v: "−$3M", c: "#a8322c" }, { v: "−$12M", c: "#a8322c" }, { v: "+$9M", c: "#1f6b4a" }, { v: "−$27M", c: "#a8322c" }, { v: "−$32M", c: "#a8322c" }, { v: "+$1M", c: "#1f6b4a" }],
         ]}
       />
 
@@ -416,11 +416,11 @@ function NumbersSection() {
         headers={["Cost Driver", "FY2024", "FY2034 (proj.)", "Δ Change"]}
         rows={[
           ["Base Payroll (held flat)", "$208M", "$208M", { v: "$0 change", c: "#333" }],
-          ["  ↳ Health Premiums", "$31M", "$96M", { v: "+$65M", c: "#c41e1e" }],
-          ["  ↳ CalPERS Employer Contribution", "$78M", "$130M", { v: "+$52M", c: "#c41e1e" }],
-          ["Total Benefits", "$134M", "$279M", { v: "+$145M", c: "#c41e1e" }],
-          ["Total Personnel", "$342M", "$487M", { v: "+42% auto-growth", c: "#c41e1e" }],
-          ["Fringe Rate (benefits/payroll)", "65%", "134%", { v: "+69 pts", c: "#c41e1e" }],
+          ["  ↳ Health Premiums", "$31M", "$96M", { v: "+$65M", c: "#a8322c" }],
+          ["  ↳ CalPERS Employer Contribution", "$78M", "$130M", { v: "+$52M", c: "#a8322c" }],
+          ["Total Benefits", "$134M", "$279M", { v: "+$145M", c: "#a8322c" }],
+          ["Total Personnel", "$342M", "$487M", { v: "+42% auto-growth", c: "#a8322c" }],
+          ["Fringe Rate (benefits/payroll)", "65%", "134%", { v: "+69 pts", c: "#a8322c" }],
         ]}
       />
 
@@ -448,80 +448,80 @@ function DemandsSection() {
     {
       n: "01",
       title: "Pause the November 2026 Sales Tax — Reform First",
-      color: "#1a4a8b",
+      color: "#002198",
       body: "A 0.5% sales tax falls hardest on lower-income residents. Before asking for new revenue, Berkeley should demonstrate it has fully explored internal cost reform. The structural deficit is largely a compensation structure problem, not a revenue shortfall — and there are concrete, measurable steps that can close it.",
       tag: "BALLOT TIMING",
     },
     {
       n: "02",
       title: "Reconsider the $300M Bond Until Capital Backlogs Are Explained",
-      color: "#1a4a8b",
+      color: "#002198",
       body: "Berkeley's unfunded capital need grew from $1.2B to $1.8B in three years — despite Measure FF. Before issuing more debt, voters deserve a clear accounting of why the gap widened and what specifically the new bond would accomplish that existing measures have not.",
       tag: "BALLOT TIMING",
     },
     {
       n: "03",
       title: "Publish a Plain-Language AAO Summary Before Any Tax Vote",
-      color: "#1a4a8b",
+      color: "#002198",
       body: "The annual AAO process moves hundreds of millions in mid-cycle amendments through the consent calendar with minimal public explanation. A one-page summary — total carryovers, total new adjustments, and General Fund impact — should accompany every AAO package sent to Council and posted publicly.",
       tag: "TRANSPARENCY",
     },
     {
       n: "04",
       title: "Bring Employee Pension Cost-Sharing to the Table",
-      color: "#2a5c3f",
+      color: "#174f37",
       body: "Berkeley pays the employee's own 8% CalPERS contribution on their behalf — a negotiated benefit several peer California cities have moved away from. Estimates put this on the order of $16–17M/year, but the precise figure can't be confirmed without the current MOU terms and CalPERS contribution schedules, and any change is a bargained outcome rather than a unilateral lever. We ask that the City open an honest public conversation about what cost-sharing could look like in future MOU negotiations.",
       tag: "COST REFORM",
     },
     {
       n: "05",
       title: "Protect the Section 115 Pension Pre-Funding Trust",
-      color: "#2a5c3f",
+      color: "#174f37",
       body: "The City drew on the Section 115 Trust to balance operations — about $3M in FY2025 and $6M in FY26, roughly $9M over two years (City Auditor; FY2025 ACFR) — precisely the use the 2022 audit warned against. We ask Council to formally clarify the permitted uses of the trust and commit to a replenishment schedule. Long-term pension stability depends on keeping this fund intact.",
       tag: "FIDUCIARY DUTY",
     },
     {
       n: "06",
       title: "Disclose Internal Service Fund Balances Annually",
-      color: "#2a5c3f",
+      color: "#174f37",
       body: "When internal funds like IT Cost Allocation and Workers' Compensation accumulate balances above their reserve targets, those surpluses should be reported to Council and the public — not quietly swept into the General Fund when a budget gap appears. Annual disclosure with target vs. actual comparisons is a reasonable standard.",
       tag: "TRANSPARENCY",
     },
     {
       n: "07",
       title: "Set a Completion Date for the 2022 Audit Recommendations",
-      color: "#8b6914",
+      color: "#6b4500",
       body: "The City Auditor's 2022 report made five specific, actionable recommendations. Four years later, none are fully resolved — and the 2026 audit largely repeats them. We ask Council to assign named staff to each recommendation, set a completion timeline, and report quarterly on progress.",
       tag: "ACCOUNTABILITY",
     },
     {
       n: "08",
       title: "Formalize the Vacancy Management Policy",
-      color: "#8b6914",
+      color: "#6b4500",
       body: "Berkeley left 44.4 positions unfunded in FY26, saving an estimated $8–10M. This reflects a practical judgment that those positions aren't currently essential. We ask that this be made an explicit policy decision rather than an informal workaround — with clear criteria for when positions are backfilled.",
       tag: "FISCAL DISCIPLINE",
     },
   ];
 
   const tagColors = {
-    "BALLOT TIMING":    "#1a4a8b",
-    "TRANSPARENCY":     "#1a4a8b",
-    "COST REFORM":      "#2a5c3f",
-    "FIDUCIARY DUTY":   "#2a5c3f",
-    "ACCOUNTABILITY":   "#8b6914",
-    "FISCAL DISCIPLINE":"#8b6914",
+    "BALLOT TIMING":    "#002198",
+    "TRANSPARENCY":     "#002198",
+    "COST REFORM":      "#174f37",
+    "FIDUCIARY DUTY":   "#174f37",
+    "ACCOUNTABILITY":   "#6b4500",
+    "FISCAL DISCIPLINE":"#6b4500",
   };
 
   return (
     <>
-      <SectionTitle color="#1a4a8b">OUR POSITION</SectionTitle>
+      <SectionTitle color="#002198">OUR POSITION</SectionTitle>
 
       {/* ── Framing Banner ── */}
-      <div style={{ background: "#1a2a4a", color: "#fff", padding: "20px 22px", borderRadius: 8, marginBottom: 28 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "3px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10, color: "#93b8e8" }}>
+      <div style={{ background: "#000d6b", color: "#fff", padding: "20px 22px", borderRadius: 8, marginBottom: 28 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "3px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10, color: "#cfd8ff" }}>
           THE CASE FOR REFORM BEFORE NEW REVENUE — 2026
         </div>
-        <p style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.7, margin: "0 0 14px", color: "#e8f0fa" }}>
+        <p style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.7, margin: "0 0 14px", color: "#e4e7f3" }}>
           We support Berkeley's long-term fiscal health. That's precisely why we think new taxes should wait
           until the City demonstrates it has addressed the structural issues its own auditors have identified.
           The data shows a management challenge that precedes any revenue shortfall.
@@ -535,7 +535,7 @@ function DemandsSection() {
           ].map((item, i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "10px 12px", border: "1px solid rgba(255,255,255,0.12)" }}>
               <div style={{ fontSize: 13, fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", color: "#fff" }}>{item.label}</div>
-              <div style={{ fontSize: 10, color: "#93b8e8", marginTop: 3 }}>{item.note}</div>
+              <div style={{ fontSize: 10, color: "#cfd8ff", marginTop: 3 }}>{item.note}</div>
             </div>
           ))}
         </div>
@@ -551,7 +551,7 @@ function DemandsSection() {
       {asks.map((d) => (
         <div key={d.n} style={{
           marginBottom: 12, padding: "14px 16px",
-          borderLeft: `4px solid ${d.color}`, background: "#faf8f5",
+          borderLeft: `4px solid ${d.color}`, background: "#e4e7f3",
           borderRadius: "0 6px 6px 0"
         }}>
           <div style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap", marginBottom: 7 }}>
@@ -575,18 +575,18 @@ function DemandsSection() {
         Auditor's findings. The dollar ranges are <strong>illustrative estimates, not precise projections</strong> —
         several (especially the cost-sharing items) are bargained outcomes that depend on MOU terms and CalPERS/actuarial
         data the City has not yet published. They show the order of magnitude available through internal reform, not a
-        guaranteed total. See <a href="/rational-budgeting-process.html" style={{ color: "#1a4a8b" }}>The Fix</a> for the
+        guaranteed total. See <a href="/rational-budgeting-process.html" style={{ color: "#002198" }}>The Fix</a> for the
         confidence level behind each lever.
       </p>
       <DataTable
         headers={["Reform", "Est. Annual Savings"]}
         rows={[
-          ["Employee cost-sharing on 8% CalPERS contribution", { v: "~$16–17M", c: "#2a5c3f" }],
-          ["Negotiate 1–3% UAL cost-sharing in future MOUs", { v: "~$4–6M", c: "#2a5c3f" }],
-          ["50/50 OPEB pre-funding split (California state model)", { v: "~$4–6M", c: "#2a5c3f" }],
-          ["5% workforce reduction through attrition only", { v: "~$6–9M", c: "#8b6914" }],
-          ["Program sunset review + contract renegotiation", { v: "~$4–8M", c: "#8b6914" }],
-          [{ v: "Illustrative Total (estimates, not additive certainty)", bold: true }, { v: "$34–46M", c: "#2a5c3f" }],
+          ["Employee cost-sharing on 8% CalPERS contribution", { v: "~$16–17M", c: "#174f37" }],
+          ["Negotiate 1–3% UAL cost-sharing in future MOUs", { v: "~$4–6M", c: "#174f37" }],
+          ["50/50 OPEB pre-funding split (California state model)", { v: "~$4–6M", c: "#174f37" }],
+          ["5% workforce reduction through attrition only", { v: "~$6–9M", c: "#6b4500" }],
+          ["Program sunset review + contract renegotiation", { v: "~$4–8M", c: "#6b4500" }],
+          [{ v: "Illustrative Total (estimates, not additive certainty)", bold: true }, { v: "$34–46M", c: "#174f37" }],
           [{ v: "Structural deficit to close (FY27–28 proj.)", bold: false }, { v: "$27–33M", c: "#555" }],
         ]}
       />
@@ -644,10 +644,10 @@ function AuditSection() {
   ];
 
   const statusStyle = {
-    "Not Addressed": { bg: "#fdf0f0", border: "#e8c4c4", color: "#8b0000", label: "NOT ADDRESSED" },
-    "Backsliding":   { bg: "#fdf0f0", border: "#e8c4c4", color: "#c41e1e", label: "BACKSLIDING" },
-    "Partial":       { bg: "#fdf6e8", border: "#e8d6a8", color: "#8b6914", label: "PARTIAL" },
-    "Addressed":     { bg: "#edf7f0", border: "#b8dcc4", color: "#2a7d4f", label: "ADDRESSED" },
+    "Not Addressed": { bg: "#fbeeed", border: "#efcfcc", color: "#7a221d", label: "NOT ADDRESSED" },
+    "Backsliding":   { bg: "#fbeeed", border: "#efcfcc", color: "#a8322c", label: "BACKSLIDING" },
+    "Partial":       { bg: "#fbf1dc", border: "#ecd9a6", color: "#6b4500", label: "PARTIAL" },
+    "Addressed":     { bg: "#e3efe9", border: "#bfdccb", color: "#1f6b4a", label: "ADDRESSED" },
   };
 
   const patchItems = [
@@ -672,12 +672,12 @@ function AuditSection() {
     { metric: "Net OPEB Liability", v2022: "+91% over decade", v2026: "Declined to $43.2M (FY25)", dir: "better" },
   ];
 
-  const dirStyle = { worse: "#c41e1e", flat: "#d4860b", better: "#2a7d4f" };
+  const dirStyle = { worse: "#a8322c", flat: "#8a5a00", better: "#1f6b4a" };
   const dirLabel = { worse: "▼ Worse", flat: "► Flat", better: "▲ Better" };
 
   return (
     <>
-      <SectionTitle color="#1a4a8b">THE AUDIT RECORD</SectionTitle>
+      <SectionTitle color="#002198">THE AUDIT RECORD</SectionTitle>
       <p style={{ fontSize: 13, color: "#555", marginBottom: 24, lineHeight: 1.6 }}>
         Berkeley's City Auditor has issued two comprehensive financial condition reports using the same ICMA methodology —
         in 2022 (covering FY 2012–2021) and 2026 (covering FY 2016–2025). Comparing them side by side shows
@@ -686,8 +686,8 @@ function AuditSection() {
       </p>
 
       {/* ── Bridge: the full audit record beyond the 2022 five ── */}
-      <div style={{ background: "#1a2a4a", color: "#e8f0fa", padding: "16px 18px", borderRadius: 8, marginBottom: 24 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#93b8e8", fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
+      <div style={{ background: "#000d6b", color: "#e4e7f3", padding: "16px 18px", borderRadius: 8, marginBottom: 24 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: "2px", color: "#cfd8ff", fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
           BEYOND THESE FIVE — THE FULL AUDIT RECORD
         </div>
         <p style={{ fontSize: 13, lineHeight: 1.7, margin: "0 0 8px" }}>
@@ -697,8 +697,8 @@ function AuditSection() {
           open</strong> — with the weakest follow-through in the highest-spending departments (Public Works ~33%, City
           Manager ~50%).
         </p>
-        <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#aac2e0" }}>
-          See <a href="/rational-budgeting-process.html" style={{ color: "#93b8e8" }}>The Fix</a> for how that record maps
+        <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#cfd8ff" }}>
+          See <a href="/rational-budgeting-process.html" style={{ color: "#cfd8ff" }}>The Fix</a> for how that record maps
           to specific budget reforms.
         </p>
       </div>
@@ -708,7 +708,7 @@ function AuditSection() {
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, minWidth: 560 }}>
           <thead>
-            <tr style={{ background: "#1a1a1a", color: "#fff" }}>
+            <tr style={{ background: "#0b1540", color: "#fff" }}>
               {["Indicator", "2022 Audit Finding", "2026 Audit Finding", ""].map((h, i) => (
                 <th key={i} style={{ padding: "9px 12px", textAlign: "left", fontSize: 10, fontWeight: 700, letterSpacing: "1px" }}>{h}</th>
               ))}
@@ -716,7 +716,7 @@ function AuditSection() {
           </thead>
           <tbody>
             {auditDelta.map((row, i) => (
-              <tr key={i} style={{ borderBottom: "1px solid #e8e4df", background: i % 2 === 0 ? "#faf8f5" : "transparent" }}>
+              <tr key={i} style={{ borderBottom: "1px solid #d3d6db", background: i % 2 === 0 ? "#e4e7f3" : "transparent" }}>
                 <td style={{ padding: "8px 12px", fontWeight: 700, fontSize: 11, color: "#333", whiteSpace: "nowrap" }}>{row.metric}</td>
                 <td style={{ padding: "8px 12px", fontSize: 11, color: "#555" }}>{row.v2022}</td>
                 <td style={{ padding: "8px 12px", fontSize: 11, fontWeight: 600, color: dirStyle[row.dir] }}>{row.v2026}</td>
@@ -730,7 +730,7 @@ function AuditSection() {
       </div>
 
       <Callout type="danger">
-        <strong style={{ color: "#8b0000" }}>The OPEB improvement is real</strong> — net OPEB liability fell from $83M to $43M in FY25,
+        <strong style={{ color: "#7a221d" }}>The OPEB improvement is real</strong> — net OPEB liability fell from $83M to $43M in FY25,
         partly due to favorable actuarial assumptions and benefit restructuring. But it's the one bright spot in an otherwise
         deteriorating picture. Pension liabilities remain at $686M, the structural deficit has arrived, and the capital backlog
         grew another $600M in just three years.
@@ -771,22 +771,22 @@ function AuditSection() {
         The FY2025 ACFR notes that the FY26 budget update used one-time measures to close the structural gap.
         These measures addressed the current year but don't resolve the underlying cost trends.
       </p>
-      <div style={{ border: "1px solid #d5cfc8", borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
-        <div style={{ background: "#1a2a4a", color: "#fff", padding: "8px 14px", fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>
+      <div style={{ border: "1px solid #bfc4cb", borderRadius: 6, overflow: "hidden", marginBottom: 16 }}>
+        <div style={{ background: "#000d6b", color: "#fff", padding: "8px 14px", fontSize: 10, fontWeight: 800, letterSpacing: "1.5px", fontFamily: "'JetBrains Mono', monospace" }}>
           FY26 ONE-TIME BALANCING MEASURES (~$20M)
         </div>
         {patchItems.map((item, i) => (
           <div key={i} style={{
             display: "flex", justifyContent: "space-between", alignItems: "baseline",
             flexWrap: "wrap", gap: 8,
-            padding: "9px 14px", borderBottom: i < patchItems.length - 1 ? "1px solid #e8e4df" : "none",
-            background: i % 2 === 0 ? "#fdf8f8" : "#fff"
+            padding: "9px 14px", borderBottom: i < patchItems.length - 1 ? "1px solid #d3d6db" : "none",
+            background: i % 2 === 0 ? "#fbeeed" : "#fff"
           }}>
             <div>
               <span style={{ fontWeight: 700, fontSize: 12 }}>{item.source}</span>
               <span style={{ fontSize: 11, color: "#888", marginLeft: 10 }}>{item.note}</span>
             </div>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: 13, color: "#c41e1e", whiteSpace: "nowrap" }}>{item.amount}</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: 13, color: "#a8322c", whiteSpace: "nowrap" }}>{item.amount}</span>
           </div>
         ))}
       </div>
@@ -804,14 +804,14 @@ function AuditSection() {
       <DataTable
         headers={["Metric", "FY 2025", "FY 2024", "Direction"]}
         rows={[
-          ["Net Pension Liability", "$686.4M", "$723.8M", { v: "▼ $37M", c: "#2a7d4f" }],
-          ["Net OPEB Liability", "$43.2M", "$83.4M", { v: "▼ $40M", c: "#2a7d4f" }],
-          ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ $14M worse", c: "#c41e1e" }],
-          ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23%", c: "#c41e1e" }],
-          ["Public Safety Expenses", "$162.3M", "$190.0M", { v: "▼ −15%", c: "#2a7d4f" }],
-          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4%", c: "#2a7d4f" }],
-          ["Reserves (Stability + Catastrophic)", "$58.3M", "—", { v: "21.3% of GF revenue", c: "#d4860b" }],
-          ["Section 115 Trust balance", "$29.5M", "—", { v: "$3M drawn FY25; $6M more in FY26", c: "#c41e1e" }],
+          ["Net Pension Liability", "$686.4M", "$723.8M", { v: "▼ $37M", c: "#1f6b4a" }],
+          ["Net OPEB Liability", "$43.2M", "$83.4M", { v: "▼ $40M", c: "#1f6b4a" }],
+          ["Unrestricted Net Position", "−$415.2M", "−$400.4M", { v: "▲ $14M worse", c: "#a8322c" }],
+          ["Health & Welfare Expenses", "$54.8M", "$44.5M", { v: "▲ +23%", c: "#a8322c" }],
+          ["Public Safety Expenses", "$162.3M", "$190.0M", { v: "▼ −15%", c: "#1f6b4a" }],
+          ["Property Tax (general-purpose levy)", "$148.4M", "$135.7M", { v: "▲ +9.4%", c: "#1f6b4a" }],
+          ["Reserves (Stability + Catastrophic)", "$58.3M", "—", { v: "21.3% of GF revenue", c: "#8a5a00" }],
+          ["Section 115 Trust balance", "$29.5M", "—", { v: "$3M drawn FY25; $6M more in FY26", c: "#a8322c" }],
         ]}
       />
       <div style={{ fontSize: 11, color: "#999", marginTop: 8, fontStyle: "italic" }}>
@@ -825,13 +825,13 @@ function AuditSection() {
 function CompareSection() {
   return (
     <>
-      <SectionTitle color="#1a4a8b">HOW BERKELEY COMPARES</SectionTitle>
+      <SectionTitle color="#002198">HOW BERKELEY COMPARES</SectionTitle>
 
       <SubHead>Employee Pension Contributions: Berkeley vs. Everyone</SubHead>
       <div style={{ overflowX: "auto", marginBottom: 8 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, minWidth: 540 }}>
           <thead>
-            <tr style={{ background: "#1a1a1a", color: "#fff" }}>
+            <tr style={{ background: "#0b1540", color: "#fff" }}>
               {["Entity", "Employee Pays", "Employer Pays", "Notes"].map(h => (
                 <th key={h} style={{ padding: "10px 12px", textAlign: h === "Notes" ? "left" : "center", fontSize: 10, fontWeight: 700, letterSpacing: "1px" }}>{h}</th>
               ))}
@@ -847,9 +847,9 @@ function CompareSection() {
               ["CA State (OPEB)", "50% of ADC", "50% of ADC", "Equal split adopted 2015"],
               ["Private Sector (avg)", "6–10% salary", "3–6% match", "Defined contribution (401k)"],
             ].map(([entity, emp, er, note], i) => (
-              <tr key={i} style={{ borderBottom: "1px solid #e8e4df", background: i === 0 ? "#fdf0f0" : "transparent" }}>
+              <tr key={i} style={{ borderBottom: "1px solid #d3d6db", background: i === 0 ? "#fbeeed" : "transparent" }}>
                 <td style={{ padding: "9px 12px", fontWeight: 700, fontSize: 12 }}>{entity}</td>
-                <td style={{ padding: "9px 12px", textAlign: "center", fontSize: 12, color: i === 0 ? "#c41e1e" : "#333", fontWeight: i === 0 ? 700 : 400 }}>{emp}</td>
+                <td style={{ padding: "9px 12px", textAlign: "center", fontSize: 12, color: i === 0 ? "#a8322c" : "#333", fontWeight: i === 0 ? 700 : 400 }}>{emp}</td>
                 <td style={{ padding: "9px 12px", textAlign: "center", fontSize: 12 }}>{er}</td>
                 <td style={{ padding: "9px 12px", fontSize: 11, color: "#666" }}>{note}</td>
               </tr>
@@ -868,19 +868,19 @@ function CompareSection() {
 
       <SubHead>CalPERS Funded Status: Berkeley vs. Benchmarks</SubHead>
       {[
-        ["Sonoma County (SCERA)", 93, "#2a7d4f"],
-        ["Well-Funded Threshold", 90, "#2a7d4f"],
-        ["Berkeley Fire", 72.0, "#c41e1e"],
-        ["Berkeley Misc", 73.6, "#c41e1e"],
-        ["CalPERS system-wide (June 2024)", 75, "#d4860b"],
-        ["Berkeley Police", 62.9, "#c41e1e"],
+        ["Sonoma County (SCERA)", 93, "#1f6b4a"],
+        ["Well-Funded Threshold", 90, "#1f6b4a"],
+        ["Berkeley Fire", 72.0, "#a8322c"],
+        ["Berkeley Misc", 73.6, "#a8322c"],
+        ["CalPERS system-wide (June 2024)", 75, "#8a5a00"],
+        ["Berkeley Police", 62.9, "#a8322c"],
       ].map(([name, pct, color]) => (
         <div key={name} style={{ marginBottom: 10 }}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontWeight: 600, marginBottom: 3 }}>
             <span>{name}</span>
             <span style={{ color, fontFamily: "'JetBrains Mono', monospace" }}>{pct}%</span>
           </div>
-          <div style={{ height: 7, background: "#e8e4df", borderRadius: 2, overflow: "hidden" }}>
+          <div style={{ height: 7, background: "#d3d6db", borderRadius: 2, overflow: "hidden" }}>
             <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 2, transition: "width 0.8s ease" }} />
           </div>
         </div>
@@ -896,7 +896,7 @@ function CompareSection() {
         ].map(([name, cost, purpose]) => (
           <div key={name} style={{ display: "flex", gap: 8, borderBottom: "1px dotted #ddd", padding: "7px 0", alignItems: "baseline", flexWrap: "wrap" }}>
             <span style={{ fontWeight: 700, minWidth: 220 }}>{name}</span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "#c41e1e", minWidth: 120 }}>{cost}</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "#a8322c", minWidth: 120 }}>{cost}</span>
             <span style={{ color: "#666", fontSize: 11 }}>{purpose}</span>
           </div>
         ))}
@@ -913,7 +913,7 @@ function CompareSection() {
         If employee cost-sharing is standard practice across California, why hasn't Berkeley brought it to the table?
         If infrastructure needs keep growing despite dedicated measures, what would change with a bond?
         If audit recommendations have gone unresolved for four years, what would change after a new tax?
-        <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid #e8d6a8", fontWeight: 700 }}>
+        <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid #ecd9a6", fontWeight: 700 }}>
           These are the conversations we'd like to see before November 2026.
         </div>
       </Callout>
@@ -930,14 +930,14 @@ function SectionTitle({ children, color }) {
   );
 }
 function SubHead({ children }) {
-  return <h3 style={{ fontSize: 14, fontWeight: 700, margin: "28px 0 14px", fontFamily: "'Source Serif 4', Georgia, serif" }}>{children}</h3>;
+  return <h3 style={{ fontSize: 14, fontWeight: 700, margin: "28px 0 14px", fontFamily: "'Jost', 'Helvetica Neue', Arial, sans-serif" }}>{children}</h3>;
 }
 function GroupHead({ children }) {
   return (
     <h3 style={{
       fontSize: 12, fontWeight: 800, letterSpacing: "1.5px", textTransform: "uppercase",
-      margin: "28px 0 12px", paddingBottom: 8, borderBottom: "2px solid #e8e4df",
-      fontFamily: "'JetBrains Mono', monospace", color: "#1a1a1a"
+      margin: "28px 0 12px", paddingBottom: 8, borderBottom: "2px solid #d3d6db",
+      fontFamily: "'JetBrains Mono', monospace", color: "#0b1540"
     }}>
       {children}
     </h3>
@@ -949,7 +949,7 @@ function DataTable({ headers, rows }) {
     <div style={{ overflowX: "auto" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, minWidth: 400 }}>
         <thead>
-          <tr style={{ background: "#1a1a1a", color: "#fff" }}>
+          <tr style={{ background: "#0b1540", color: "#fff" }}>
             {headers.map((h, i) => (
               <th key={i} style={{ padding: "8px 12px", textAlign: i === 0 ? "left" : "right", fontSize: 10, fontWeight: 700, letterSpacing: "1px" }}>{h}</th>
             ))}
@@ -957,7 +957,7 @@ function DataTable({ headers, rows }) {
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} style={{ borderBottom: "1px solid #e8e4df", background: typeof row[0] === "object" && row[0].bold ? "#fdf0f0" : row[0]?.toString().startsWith("  ") ? "#faf8f5" : "transparent" }}>
+            <tr key={ri} style={{ borderBottom: "1px solid #d3d6db", background: typeof row[0] === "object" && row[0].bold ? "#fbeeed" : row[0]?.toString().startsWith("  ") ? "#e4e7f3" : "transparent" }}>
               {row.map((cell, ci) => {
                 const isObj = typeof cell === "object" && cell !== null;
                 const value = isObj ? cell.v : cell;
@@ -1001,10 +1001,10 @@ export default function App() {
   const linkTabs = TABS.filter((t) => t.href);
 
   return (
-    <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 820, margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ fontFamily: "'Jost', 'Helvetica Neue', Arial, sans-serif", maxWidth: 820, margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* ── HEADER ── */}
       <header style={{
-        background: "#1e2d4a", color: "#fffdf9",
+        background: "#000d6b", color: "#ebecee",
         padding: "clamp(24px,5vw,40px) clamp(20px,4vw,36px) clamp(20px,4vw,32px)",
         position: "relative", overflow: "hidden"
       }}>
@@ -1013,12 +1013,12 @@ export default function App() {
           background: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(196,30,30,0.06) 10px, rgba(196,30,30,0.06) 20px)"
         }} />
         <div style={{ position: "relative" }}>
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#c41e1e", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#a8322c", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
             BERKELEY TRANSPARENCY HUB — FISCAL BRIEF
           </div>
           <h1 style={{
             fontSize: "clamp(28px,5vw,42px)", fontWeight: 900, lineHeight: 1.08, margin: 0,
-            fontFamily: "'Playfair Display', Georgia, serif"
+            fontFamily: "'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif"
           }}>
             Berkeley's Budget:<br />What the Data Shows
           </h1>
@@ -1028,7 +1028,7 @@ export default function App() {
           </p>
           <div style={{ display: "flex", gap: 16, marginTop: 18, flexWrap: "wrap", alignItems: "center" }}>
             <div style={{
-              padding: "6px 18px", border: "2px solid #c41e1e", color: "#c41e1e",
+              padding: "6px 18px", border: "2px solid #a8322c", color: "#a8322c",
               fontSize: 11, fontWeight: 800, letterSpacing: "2.5px", textTransform: "uppercase",
               fontFamily: "'JetBrains Mono', monospace"
             }}>
@@ -1039,15 +1039,15 @@ export default function App() {
             </div>
           </div>
           <div style={{ marginTop: 14, fontSize: 12, color: "#888", fontFamily: "'JetBrains Mono', monospace" }}>
-            Prefer the neutral, non-advocacy data? See the <a href="https://learn-about-berkeley.vercel.app/" target="_blank" rel="noopener" style={{ color: "#93b8e8", fontWeight: 700 }}>Berkeley Transparency Hub &#8599;</a>
+            Prefer the neutral, non-advocacy data? See the <a href="https://learn-about-berkeley.vercel.app/" target="_blank" rel="noopener" style={{ color: "#cfd8ff", fontWeight: 700 }}>Berkeley Transparency Hub &#8599;</a>
           </div>
         </div>
       </header>
 
       {/* ── TAB NAV ── */}
       <nav style={{
-        display: "flex", borderBottom: "2px solid #1e2d4a",
-        background: "#f5f1eb", position: "sticky", top: 0, zIndex: 10
+        display: "flex", borderBottom: "2px solid #000d6b",
+        background: "#e4e7f3", position: "sticky", top: 0, zIndex: 10
       }}>
         {sectionTabs.map((t, i) => (
           <button
@@ -1056,8 +1056,8 @@ export default function App() {
             style={{
               flex: 1, padding: "12px 8px", border: "none", cursor: "pointer",
               fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
-              background: tab === i ? "#1e2d4a" : "transparent",
-              color: tab === i ? "#fffdf9" : "#1e2d4a",
+              background: tab === i ? "#000d6b" : "transparent",
+              color: tab === i ? "#ebecee" : "#000d6b",
               transition: "all 0.15s",
               fontFamily: "'JetBrains Mono', monospace",
               borderRight: "1px solid #ddd"
@@ -1078,8 +1078,8 @@ export default function App() {
             style={{
               width: "100%", padding: "12px 8px", border: "none", cursor: "pointer",
               fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
-              background: deepOpen ? "#1e2d4a" : "transparent",
-              color: deepOpen ? "#fffdf9" : "#1e2d4a",
+              background: deepOpen ? "#000d6b" : "transparent",
+              color: deepOpen ? "#ebecee" : "#000d6b",
               transition: "all 0.15s", fontFamily: "'JetBrains Mono', monospace"
             }}
           >
@@ -1088,7 +1088,7 @@ export default function App() {
           {deepOpen && (
             <div style={{
               position: "absolute", top: "100%", right: 0, minWidth: 190,
-              background: "#1e2d4a", zIndex: 20,
+              background: "#000d6b", zIndex: 20,
               boxShadow: "0 8px 20px rgba(0,0,0,0.22)", borderRadius: "0 0 4px 4px", overflow: "hidden"
             }}>
               {linkTabs.map((t) => (
@@ -1099,7 +1099,7 @@ export default function App() {
                     display: "block", width: "100%", textAlign: "left",
                     padding: "12px 16px", border: "none", cursor: "pointer",
                     fontSize: 10, fontWeight: 800, letterSpacing: "1.5px",
-                    background: "transparent", color: "#fffdf9",
+                    background: "transparent", color: "#ebecee",
                     borderBottom: "1px solid rgba(255,255,255,0.1)",
                     fontFamily: "'JetBrains Mono', monospace", transition: "background 0.15s"
                   }}
@@ -1117,14 +1117,14 @@ export default function App() {
       {/* ── HOW TO READ THIS ── */}
       <section style={{
         padding: "clamp(18px,3vw,24px) clamp(20px,4vw,36px)",
-        background: "#faf8f5",
-        borderBottom: "1px solid #e8e4df",
-        fontFamily: "'Source Serif 4', Georgia, serif",
-        color: "#1a1a1a"
+        background: "#e4e7f3",
+        borderBottom: "1px solid #d3d6db",
+        fontFamily: "'Jost', 'Helvetica Neue', Arial, sans-serif",
+        color: "#0b1540"
       }}>
         <div style={{
           fontSize: 10, fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase",
-          color: "#1e2d4a", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace"
+          color: "#000d6b", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace"
         }}>
           How to read this
         </div>
@@ -1153,7 +1153,7 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer style={{
-        padding: "20px clamp(20px,4vw,36px)", borderTop: "2px solid #1e2d4a",
+        padding: "20px clamp(20px,4vw,36px)", borderTop: "2px solid #000d6b",
         fontSize: 10, color: "#999", lineHeight: 1.6,
         fontFamily: "'JetBrains Mono', monospace"
       }}>
@@ -1165,7 +1165,7 @@ export default function App() {
           This is a civic transparency resource, not legal or financial advice.
         </div>
         <div style={{ marginTop: 8 }}>
-          See also the neutral data hub: <a href="https://learn-about-berkeley.vercel.app/" target="_blank" rel="noopener" style={{ color: "#93b8e8" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
+          See also the neutral data hub: <a href="https://learn-about-berkeley.vercel.app/" target="_blank" rel="noopener" style={{ color: "#cfd8ff" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
         </div>
       </footer>
     </div>

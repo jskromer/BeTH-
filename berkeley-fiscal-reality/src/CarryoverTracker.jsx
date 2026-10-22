@@ -132,19 +132,19 @@ function Pill({ label, active, onClick, color }) {
   return (
     <button onClick={onClick} style={{
       padding: "4px 11px", fontSize: "10px", fontWeight: 700, letterSpacing: "0.5px",
-      textTransform: "uppercase", border: active ? "none" : "1px solid #d5d0c8",
-      borderRadius: 2, background: active ? (color || "#1a1a1a") : "transparent",
-      color: active ? "#fffdf9" : "#666", cursor: "pointer",
-      fontFamily: "'Source Serif 4', Georgia, serif", transition: "all 0.15s ease",
+      textTransform: "uppercase", border: active ? "none" : "1px solid #bfc4cb",
+      borderRadius: 2, background: active ? (color || "#0b1540") : "transparent",
+      color: active ? "#ebecee" : "#666", cursor: "pointer",
+      fontFamily: "'Jost', 'Helvetica Neue', Arial, sans-serif", transition: "all 0.15s ease",
     }}>{label}</button>
   );
 }
 
 const stStyle = (s) => {
-  if (s === "carried") return { text: "CARRIED", color: "#c41e1e", bg: "#fdf0f0" };
-  if (s === "new adjustment") return { text: "NEW", color: "#2a7d4f", bg: "#f0faf4" };
-  if (s === "partially redirected") return { text: "REDIRECT", color: "#d4860b", bg: "#fdf6e8" };
-  return { text: s, color: "#666", bg: "#f5f5f5" };
+  if (s === "carried") return { text: "CARRIED", color: "#a8322c", bg: "#fbeeed" };
+  if (s === "new adjustment") return { text: "NEW", color: "#1f6b4a", bg: "#e3efe9" };
+  if (s === "partially redirected") return { text: "REDIRECT", color: "#8a5a00", bg: "#fbf1dc" };
+  return { text: s, color: "#666", bg: "#f5f6f8" };
 };
 
 export default function CarryoverTracker() {
@@ -184,19 +184,19 @@ export default function CarryoverTracker() {
   const maxDeptTotal = deptTotals.length > 0 ? deptTotals[0][1].total : 1;
 
   return (
-    <div style={{ fontFamily: "'Source Serif 4', Georgia, serif", maxWidth: 840, margin: "0 auto", background: "#fffdf9" }}>
+    <div style={{ fontFamily: "'Jost', 'Helvetica Neue', Arial, sans-serif", maxWidth: 840, margin: "0 auto", background: "#ebecee" }}>
       {/* HEADER */}
-      <div style={{ background: "#1a1a1a", color: "#fffdf9", padding: "22px 28px 18px", position: "relative", overflow: "hidden" }}>
+      <div style={{ background: "#0b1540", color: "#ebecee", padding: "22px 28px 18px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(196,30,30,0.04) 12px, rgba(196,30,30,0.04) 24px)" }} />
         <div style={{ position: "relative" }}>
-          <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#c41e1e", marginBottom: 4 }}>BERKELEY TRANSPARENCY HUB — ACCOUNTABILITY TOOL</div>
-          <h1 style={{ fontSize: "26px", fontWeight: 900, lineHeight: 1.1, margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>Carryover Tracker</h1>
+          <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#a8322c", marginBottom: 4 }}>BERKELEY TRANSPARENCY HUB — ACCOUNTABILITY TOOL</div>
+          <h1 style={{ fontSize: "26px", fontWeight: 900, lineHeight: 1.1, margin: 0, fontFamily: "'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif" }}>Carryover Tracker</h1>
           <div style={{ fontSize: "12px", color: "#999", marginTop: 5, maxWidth: 560, lineHeight: 1.5 }}>Three years of mid-cycle budget amendments. Tracking the money that was budgeted, never spent, and quietly carried forward.</div>
         </div>
       </div>
 
       {/* VIEW TABS — prominent, directly below header */}
-      <div style={{ display: "flex", borderBottom: "2px solid #1a1a1a", background: "#f5f1eb" }}>
+      <div style={{ display: "flex", borderBottom: "2px solid #0b1540", background: "#e4e7f3" }}>
         {[
           { key: "trend", label: "📊 Overview" },
           { key: "list",  label: "📋 Line Items" },
@@ -208,8 +208,8 @@ export default function CarryoverTracker() {
             style={{
               flex: 1, padding: "11px 8px", border: "none", cursor: "pointer",
               fontSize: "11px", fontWeight: 800, letterSpacing: "1px",
-              background: view === t.key ? "#1a1a1a" : "transparent",
-              color: view === t.key ? "#fffdf9" : "#1a1a1a",
+              background: view === t.key ? "#0b1540" : "transparent",
+              color: view === t.key ? "#ebecee" : "#0b1540",
               transition: "all 0.15s",
               fontFamily: "'JetBrains Mono', monospace",
               borderRight: t.key !== "dept" ? "1px solid #ddd" : "none",
@@ -221,7 +221,7 @@ export default function CarryoverTracker() {
       </div>
 
       {/* FILTERS — always visible, affect List and Dept views */}
-      <div style={{ padding: "10px 20px", background: "#faf8f5", borderBottom: "1px solid #e0dbd2" }}>
+      <div style={{ padding: "10px 20px", background: "#e4e7f3", borderBottom: "1px solid #bfc4cb" }}>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 8 }}>
           <div>
             <div style={{ fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", color: "#999", marginBottom: 4 }}>Fiscal Year</div>
@@ -232,7 +232,7 @@ export default function CarryoverTracker() {
             <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>{CATEGORIES.map(c => <Pill key={c} label={c} active={filterCat === c} onClick={() => setFilterCat(c)} />)}</div>
           </div>
         </div>
-        <Pill label={"🧟 Zombies Only (" + zombieCount + ")"} active={zombieOnly} onClick={() => setZombieOnly(!zombieOnly)} color="#c41e1e" />
+        <Pill label={"🧟 Zombies Only (" + zombieCount + ")"} active={zombieOnly} onClick={() => setZombieOnly(!zombieOnly)} color="#a8322c" />
       </div>
 
       {/* CONTENT — each view owns all its content */}
@@ -247,35 +247,35 @@ export default function CarryoverTracker() {
                   <div style={{ fontSize: "13px", fontWeight: 800, marginBottom: 4 }}>{s.fy} <span style={{ fontSize: "10px", fontWeight: 400, color: "#999" }}>{s.date}</span></div>
                   <div style={{ display: "flex", height: 18, borderRadius: 2, overflow: "hidden", marginBottom: 6 }}>
                     <div style={{ width: (s.encumbered / s.total * 100) + "%", background: "#888", height: "100%" }} title="Encumbrances" />
-                    <div style={{ width: (s.carryover / s.total * 100) + "%", background: "#c41e1e", height: "100%" }} title="Carryovers" />
-                    <div style={{ width: (s.adjustments / s.total * 100) + "%", background: "#2a7d4f", height: "100%" }} title="Adjustments" />
+                    <div style={{ width: (s.carryover / s.total * 100) + "%", background: "#a8322c", height: "100%" }} title="Carryovers" />
+                    <div style={{ width: (s.adjustments / s.total * 100) + "%", background: "#1f6b4a", height: "100%" }} title="Adjustments" />
                   </div>
                   <div style={{ fontSize: "10px", color: "#666", lineHeight: 1.6 }}>
                     <div><strong>Total:</strong> {fmt(s.total)}</div>
-                    <div>GF: {fmt(s.gf_total)} <span style={{ color: "#c41e1e" }}>(carry: {fmt(s.gf_carryover)})</span></div>
+                    <div>GF: {fmt(s.gf_total)} <span style={{ color: "#a8322c" }}>(carry: {fmt(s.gf_carryover)})</span></div>
                   </div>
-                  {s.note && <div style={{ fontSize: "9px", color: "#b08020", marginTop: 3, fontStyle: "italic" }}>{s.note}</div>}
+                  {s.note && <div style={{ fontSize: "9px", color: "#8a5a00", marginTop: 3, fontStyle: "italic" }}>{s.note}</div>}
                 </div>
               ))}
             </div>
             <div style={{ display: "flex", gap: 16, fontSize: "9px", color: "#999", marginBottom: 20, justifyContent: "center" }}>
               <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#888", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Encumbered</span>
-              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#c41e1e", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Carryover</span>
-              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#2a7d4f", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Adjustments</span>
+              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#a8322c", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Carryover</span>
+              <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#1f6b4a", borderRadius: 1, verticalAlign: "middle", marginRight: 4 }} />Adjustments</span>
             </div>
             {/* Zombie stats */}
-            <div style={{ marginBottom: 20, padding: "14px 18px", background: "#1a1a1a", color: "#fffdf9", borderRadius: 4, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ marginBottom: 20, padding: "14px 18px", background: "#0b1540", color: "#ebecee", borderRadius: 4, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
               <div>
-                <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "2px", color: "#c41e1e", marginBottom: 2 }}>ZOMBIE APPROPRIATIONS</div>
+                <div style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "2px", color: "#a8322c", marginBottom: 2 }}>ZOMBIE APPROPRIATIONS</div>
                 <div style={{ fontSize: "12px", lineHeight: 1.5, maxWidth: 460 }}>Items appearing in multiple consecutive AAOs — budgeted, never fully spent, carried forward year after year.</div>
               </div>
               <div style={{ display: "flex", gap: 16, marginLeft: "auto" }}>
                 <div style={{ textAlign: "center" }}>
-                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{zombieCount}</div>
+                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#a8322c" }}>{zombieCount}</div>
                   <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Identified</div>
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#c41e1e" }}>{fmt(zombieTotal)}</div>
+                  <div style={{ fontSize: "24px", fontWeight: 900, color: "#a8322c" }}>{fmt(zombieTotal)}</div>
                   <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px", color: "#888" }}>Cumulative $</div>
                 </div>
               </div>
@@ -285,7 +285,7 @@ export default function CarryoverTracker() {
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
                 <thead>
-                  <tr style={{ background: "#1a1a1a", color: "#fff" }}>
+                  <tr style={{ background: "#0b1540", color: "#fff" }}>
                     <th style={{ padding: "7px 10px", textAlign: "left" }}>Component</th>
                     {AAO_SUMMARIES.map(s => <th key={s.fy} style={{ padding: "7px 10px", textAlign: "right" }}>{s.fy}</th>)}
                     <th style={{ padding: "7px 10px", textAlign: "right" }}>Δ FY24→26</th>
@@ -302,10 +302,10 @@ export default function CarryoverTracker() {
                     const delta = vals[2] - vals[0];
                     const isTotal = row.key === "gf_total";
                     return (
-                      <tr key={row.key} style={{ borderBottom: "1px solid #e8e4df", background: isTotal ? "#faf8f5" : "transparent" }}>
+                      <tr key={row.key} style={{ borderBottom: "1px solid #d3d6db", background: isTotal ? "#e4e7f3" : "transparent" }}>
                         <td style={{ padding: "7px 10px", fontWeight: isTotal ? 700 : 400 }}>{row.label}</td>
                         {vals.map((v, i) => <td key={i} style={{ padding: "7px 10px", textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: isTotal ? 700 : 400 }}>{fmt(v)}</td>)}
-                        <td style={{ padding: "7px 10px", textAlign: "right", fontWeight: 700, color: delta > 0 ? "#c41e1e" : delta < 0 ? "#2a7d4f" : "#666" }}>{delta > 0 ? "+" : ""}{fmt(delta)}</td>
+                        <td style={{ padding: "7px 10px", textAlign: "right", fontWeight: 700, color: delta > 0 ? "#a8322c" : delta < 0 ? "#1f6b4a" : "#666" }}>{delta > 0 ? "+" : ""}{fmt(delta)}</td>
                       </tr>
                     );
                   })}
@@ -321,13 +321,13 @@ export default function CarryoverTracker() {
                     <span style={{ fontWeight: 600 }}>{s.fy}</span>
                     <span style={{ color: "#888" }}>{fmt(s.total)}</span>
                   </div>
-                  <div style={{ height: 10, background: "#e8e4df", borderRadius: 2, overflow: "hidden" }}>
-                    <div style={{ height: "100%", width: (s.total/max*100) + "%", background: "#1a1a1a", borderRadius: 2, transition: "width 0.5s ease" }} />
+                  <div style={{ height: 10, background: "#d3d6db", borderRadius: 2, overflow: "hidden" }}>
+                    <div style={{ height: "100%", width: (s.total/max*100) + "%", background: "#0b1540", borderRadius: 2, transition: "width 0.5s ease" }} />
                   </div>
                 </div>
               );
             })}
-            <div style={{ marginTop: 16, padding: "12px 16px", background: "#fdf6e8", border: "1px solid #e8d6a8", borderRadius: 4, fontSize: "11px", lineHeight: 1.6 }}>
+            <div style={{ marginTop: 16, padding: "12px 16px", background: "#fbf1dc", border: "1px solid #ecd9a6", borderRadius: 4, fontSize: "11px", lineHeight: 1.6 }}>
               <strong>The pattern:</strong> AAO#1 grew from $250M to $374M in three years (+50%). GF carryover dropped from $13.5M to $5.4M (the $15M FY2024 shortfall forced tighter controls), but new GF adjustments exploded from $4.6M to $20.6M — including $15.8M in reserve transfers and a $7.5M CareBridge contract. The money finds a way.
             </div>
           </div>
@@ -337,7 +337,7 @@ export default function CarryoverTracker() {
           <div>
             <div style={{ display: "flex", gap: 8, marginBottom: 8, fontSize: "9px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", color: "#999" }}>
               <span>Sort:</span>
-              {["amount", "dept", "fy"].map(s => <span key={s} onClick={() => setSortBy(s)} style={{ cursor: "pointer", color: sortBy === s ? "#1a1a1a" : "#bbb", borderBottom: sortBy === s ? "1px solid #1a1a1a" : "none" }}>{s}</span>)}
+              {["amount", "dept", "fy"].map(s => <span key={s} onClick={() => setSortBy(s)} style={{ cursor: "pointer", color: sortBy === s ? "#0b1540" : "#bbb", borderBottom: sortBy === s ? "1px solid #0b1540" : "none" }}>{s}</span>)}
             </div>
             <div style={{ fontSize: "10px", color: "#999", marginBottom: 8 }}>{filtered.length} items · {fmtFull(filtered.reduce((s, i) => s + i.amount, 0))} total</div>
             {filtered.map(item => {
@@ -345,8 +345,8 @@ export default function CarryoverTracker() {
               const isExp = expandedId === item.id;
               return (
                 <div key={item.id} onClick={() => setExpandedId(isExp ? null : item.id)} style={{
-                  padding: "9px 14px", marginBottom: 3, background: item.zombie ? "#fdf0f0" : isExp ? "#faf8f5" : "transparent",
-                  borderLeft: "3px solid " + (item.zombie ? "#c41e1e" : sl.color), borderRadius: "0 3px 3px 0", cursor: "pointer",
+                  padding: "9px 14px", marginBottom: 3, background: item.zombie ? "#fbeeed" : isExp ? "#e4e7f3" : "transparent",
+                  borderLeft: "3px solid " + (item.zombie ? "#a8322c" : sl.color), borderRadius: "0 3px 3px 0", cursor: "pointer",
                 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
                     <div style={{ flex: 1 }}>
@@ -360,11 +360,11 @@ export default function CarryoverTracker() {
                     </div>
                   </div>
                   {isExp && (
-                    <div style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid #e8e4df", fontSize: "11px", color: "#555", lineHeight: 1.6 }}>
+                    <div style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid #d3d6db", fontSize: "11px", color: "#555", lineHeight: 1.6 }}>
                       <div><strong>Origin:</strong> {item.fy_origin} → {item.current_fy}</div>
                       <div><strong>Category:</strong> {item.category}</div>
                       {item.notes && <div><strong>Notes:</strong> {item.notes}</div>}
-                      {item.zombie && <div style={{ marginTop: 6, padding: "6px 10px", background: "#c41e1e", color: "#fff", borderRadius: 2, fontSize: "10px", fontWeight: 700 }}>⚠ ZOMBIE — This item has appeared in multiple consecutive AAO amendments without being fully spent.</div>}
+                      {item.zombie && <div style={{ marginTop: 6, padding: "6px 10px", background: "#a8322c", color: "#fff", borderRadius: 2, fontSize: "10px", fontWeight: 700 }}>⚠ ZOMBIE — This item has appeared in multiple consecutive AAO amendments without being fully spent.</div>}
                     </div>
                   )}
                 </div>
@@ -375,21 +375,21 @@ export default function CarryoverTracker() {
 
         {view === "dept" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#999", marginBottom: 12 }}>Department totals · <span style={{ color: "#c41e1e", fontWeight: 700 }}>carried</span> vs <span style={{ color: "#2a7d4f", fontWeight: 700 }}>new</span></div>
+            <div style={{ fontSize: "10px", color: "#999", marginBottom: 12 }}>Department totals · <span style={{ color: "#a8322c", fontWeight: 700 }}>carried</span> vs <span style={{ color: "#1f6b4a", fontWeight: 700 }}>new</span></div>
             {deptTotals.map(([dept, data]) => (
               <div key={dept} style={{ marginBottom: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: 700, marginBottom: 4 }}>
                   <span>{dept}</span>
                   <span style={{ fontVariantNumeric: "tabular-nums" }}>{fmt(data.total)} <span style={{ fontSize: "10px", color: "#999", fontWeight: 400 }}>({data.count})</span></span>
                 </div>
-                <div style={{ height: 10, background: "#e8e4df", borderRadius: 2, overflow: "hidden", display: "flex" }}>
-                  {data.carried > 0 && <div style={{ height: "100%", width: (data.carried/maxDeptTotal*100) + "%", background: "#c41e1e" }} />}
-                  {data.newAdj > 0 && <div style={{ height: "100%", width: (data.newAdj/maxDeptTotal*100) + "%", background: "#2a7d4f" }} />}
+                <div style={{ height: 10, background: "#d3d6db", borderRadius: 2, overflow: "hidden", display: "flex" }}>
+                  {data.carried > 0 && <div style={{ height: "100%", width: (data.carried/maxDeptTotal*100) + "%", background: "#a8322c" }} />}
+                  {data.newAdj > 0 && <div style={{ height: "100%", width: (data.newAdj/maxDeptTotal*100) + "%", background: "#1f6b4a" }} />}
                 </div>
                 <div style={{ display: "flex", gap: 12, fontSize: "10px", color: "#888", marginTop: 3 }}>
                   {data.carried > 0 && <span>Carried: {fmt(data.carried)}</span>}
                   {data.newAdj > 0 && <span>New: {fmt(data.newAdj)}</span>}
-                  {data.zombie > 0 && <span style={{ color: "#d4860b" }}>Zombie: {fmt(data.zombie)}</span>}
+                  {data.zombie > 0 && <span style={{ color: "#8a5a00" }}>Zombie: {fmt(data.zombie)}</span>}
                 </div>
               </div>
             ))}
@@ -397,12 +397,12 @@ export default function CarryoverTracker() {
         )}
 
         {/* ACCOUNTABILITY */}
-        <div style={{ marginTop: 24, padding: "16px 20px", background: "#1a1a1a", color: "#fffdf9", borderRadius: 4, fontSize: "12px", lineHeight: 1.7 }}>
-          <div style={{ fontWeight: 800, fontSize: "13px", marginBottom: 6, color: "#c41e1e" }}>The counterfactual question</div>
+        <div style={{ marginTop: 24, padding: "16px 20px", background: "#0b1540", color: "#ebecee", borderRadius: 4, fontSize: "12px", lineHeight: 1.7 }}>
+          <div style={{ fontWeight: 800, fontSize: "13px", marginBottom: 6, color: "#a8322c" }}>The counterfactual question</div>
           What if unspent appropriations simply lapsed at year-end? In three years, Berkeley processed <strong>{fmt(AAO_SUMMARIES.reduce((s, a) => s + a.total, 0))}</strong> in mid-cycle amendments — nearly as much as two full adopted budgets — with a fraction of the scrutiny.
         </div>
 
-        <div style={{ marginTop: 16, paddingTop: 12, borderTop: "1px solid #e0dbd2", fontSize: "9px", color: "#bbb", lineHeight: 1.5 }}>
+        <div style={{ marginTop: 16, paddingTop: 12, borderTop: "1px solid #bfc4cb", fontSize: "9px", color: "#bbb", lineHeight: 1.5 }}>
           <strong>Sources:</strong> City of Berkeley Budget Committee FY24 AAO#1 (Oct 2023); FY25 AAO#1 Council Report (Nov 2024); FY26 AAO#1 Revised Supplemental (Nov 2025). Compiled by Berkeley Transparency Hub.
         </div>
       </div>
