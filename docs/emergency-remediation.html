@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>If Measures U and V Fail — Learn About Berkeley</title>
+<meta name="description" content="The City's own Plan B for a failed sales tax is a $9.4M cut list. The structural gap is $29M a year. This page sets the City's list beside every remediation measure in the audit record, sized where a source exists, and the labor-contract calendar that governs the only lever large enough to matter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a3340; --slate:#3f4f63; --slate-2:#34414f; --steel:#43698f; --steel-deep:#33567a;
+    --red:#a8322c; --paper:#f5f7f9; --card:#ffffff; --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a;
+    --hi:#2f6f57; --mod:#956613; --low:#a8322c; --unk:#6b7280; --maxw:860px;
+  }
+  *{box-sizing:border-box}
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--paper); color:var(--navy); font-family:"Source Serif 4", Georgia, serif; font-size:18px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 26px; }
+  a{ color:var(--steel-deep); text-underline-offset:3px; text-decoration-thickness:1px; }
+  a:hover{ color:var(--steel); }
+  .hubbar{ background:var(--slate); color:#eef1f5; }
+  .hubbar-in{ max-width:var(--maxw); margin:0 auto; padding:11px 26px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .hubbar a.back{ font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#cdd6e0; text-decoration:none; }
+  .hubbar .stamp{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9fb0c1; }
+  .masthead{ padding:48px 0 26px; border-bottom:2px solid var(--navy); }
+  .eyebrow{ font-family:"JetBrains Mono", monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+  .eyebrow .tick{ width:22px; height:2px; background:var(--steel); display:inline-block; }
+  h1{ font-family:"Playfair Display", serif; font-weight:700; font-size:clamp(2rem, 6vw, 3.2rem); line-height:1.02; letter-spacing:-.01em; margin:.05em 0 .3em; color:var(--navy); }
+  h1 .q{ font-style:italic; font-weight:600; color:var(--steel-deep); }
+  .dek{ font-size:clamp(1.04rem,2.2vw,1.24rem); line-height:1.45; color:var(--muted); max-width:66ch; margin:0 0 26px; }
+  .meta-row{ font-family:"JetBrains Mono", monospace; font-size:11.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 24px; }
+  .meta-row b{ color:var(--navy); font-weight:700; }
+  .legend{ margin:24px 0 0; padding:14px 16px; background:var(--card); border:1px solid var(--rule-strong); }
+  .legend .lt{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; color:#fff; display:inline-flex; align-items:center; gap:6px; }
+  .chip.hi{background:var(--hi)} .chip.mod{background:var(--mod)} .chip.low{background:var(--low)} .chip.unk{background:var(--unk)}
+  .c{ font-family:"JetBrains Mono",monospace; font-size:10px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 6px; color:#fff; vertical-align:.12em; white-space:nowrap; }
+  .c.hi{background:var(--hi)} .c.mod{background:var(--mod)} .c.low{background:var(--low)} .c.unk{background:var(--unk)}
+  .verdict{ margin:32px 0 8px; padding:24px 26px; background:var(--slate); color:#eef1f5; }
+  .verdict .vk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#9fb6c9; margin-bottom:9px; }
+  .verdict .vt{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.55rem; line-height:1.12; margin:0 0 .4em; color:#fff; }
+  .verdict .vt em{ color:#8fbede; font-style:italic; }
+  .verdict p{ margin:0; font-size:1rem; color:#d4dbe3; }
+  section{ padding:36px 0; border-bottom:1px solid var(--rule); }
+  .sec-no{ font-family:"JetBrains Mono",monospace; font-size:11.5px; font-weight:700; letter-spacing:.1em; color:var(--steel); margin-bottom:9px; display:block; }
+  h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(1.4rem,3.4vw,1.9rem); line-height:1.1; margin:0 0 .5em; color:var(--navy); }
+  h3{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.2rem; margin:1.2em 0 .4em; color:var(--navy); }
+  p{ margin:0 0 1.05em; } p:last-child{ margin-bottom:0; }
+  strong{ font-weight:600; color:var(--navy); }
+  .lead{ font-size:1.05rem; }
+  ul.clean{ padding-left:1.15em; margin:.3em 0 1.05em; } ul.clean li{ margin:0 0 .55em; }
+  .statrow{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:22px 0 6px; }
+  @media(min-width:620px){ .statrow{ grid-template-columns:repeat(4,1fr); } }
+  .stat{ background:var(--card); border:1px solid var(--rule-strong); padding:14px 15px; }
+  .stat .v{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.45rem; color:var(--navy); line-height:1; }
+  .stat .l{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.03em; text-transform:uppercase; color:var(--muted); margin-top:7px; line-height:1.4; }
+  .real{ margin:8px 0 0; padding:16px 18px; background:#eef3f0; border:1px solid #cfe0d6; border-left:4px solid var(--hi); font-size:.97rem; }
+  .warn{ margin:8px 0 0; padding:16px 18px; background:#f7efee; border:1px solid #e3cfcd; border-left:4px solid var(--red); font-size:.97rem; }
+  .panel{ margin:8px 0 0; padding:22px 26px; background:#eef2f6; border:1px solid #cdd9e4; border-left:4px solid var(--steel); }
+  .panel .pk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:10px; }
+  .tw{ overflow-x:auto; margin:14px 0 6px; background:var(--card); border:1px solid var(--rule-strong); }
+  table{ width:100%; border-collapse:collapse; font-size:.92rem; }
+  th,td{ text-align:left; padding:9px 11px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:700; background:#f3f6f9; white-space:nowrap; }
+  td.n{ text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  td.tier{ font-family:"JetBrains Mono",monospace; font-size:10.5px; font-weight:700; color:var(--steel-deep); white-space:nowrap; }
+  tr.sub td{ background:#f3f6f9; font-weight:600; }
+  .cap{ font-family:"JetBrains Mono",monospace; font-size:10.5px; color:var(--muted); margin:8px 0 0; line-height:1.5; }
+  .sources{ border-bottom:none; }
+  .sources ol{ font-size:.93rem; color:var(--muted); padding-left:1.4em; margin:.4em 0 0; line-height:1.5; }
+  .sources li{ margin:0 0 .55em; }
+  footer{ padding:28px 0 64px; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.7; }
+  footer .bar{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }
+</style>
+<link rel="stylesheet" href="assets/kromer-theme.css">
+</head>
+<body>
+
+<div class="hubbar">
+  <div class="hubbar-in">
+    <a class="back" href="index.html">&larr; Learn About Berkeley</a>
+    <span class="stamp">Budget &middot; Remediation ledger</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Budget &amp; Governance</div>
+    <h1>If Measures U and V fail: <span class="q">the remediation ledger</span></h1>
+    <p class="dek">The City&rsquo;s own Plan B for a failed sales tax is a $9.4 million cut list. The recurring gap is $29 million a year. This page sets the City&rsquo;s list beside every remediation measure already in Berkeley&rsquo;s audit record, sized where a source exists, with the labor-contract calendar that governs the one lever large enough to close the gap on its own.</p>
+    <div class="meta-row">
+      <span><b>Published</b> October 22, 2026</span>
+      <span><b>Election</b> November 3, 2026</span>
+      <span><b>Basis</b> FY2027&ndash;28 adopted budget, B&amp;F Committee April 16, 2026, City union agreements, 54 audits</span>
+    </div>
+    <div class="legend">
+      <div class="lt">How to read the confidence labels</div>
+      <div class="chips">
+        <span class="chip hi">High</span><span class="chip mod">Moderate</span>
+        <span class="chip low">Low</span><span class="chip unk">Unknown</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="verdict" role="note" aria-label="Bottom line">
+    <div class="vk">Bottom line</div>
+    <p class="vt">A $9 million list for a <em>$29 million</em> problem.</p>
+    <p>If Measure V fails, the City has said it will close Fire Station 4, lay off police officers and cut recreation. That covers the one-time money the tax was meant to replace. It does not touch the structural gap, which the City has closed with one-time money for seven straight years. The measures that could, from re-basing to actuals to benefit cost-sharing, are all in the audit record, and most were dropped. Only one of them is big enough on its own, and it is bargained, not voted.</p>
+  </div>
+
+  <section>
+    <span class="sec-no">01</span>
+    <h2>What the City has already decided</h2>
+    <p class="lead">The FY2027&ndash;28 budget was built on two scenarios. Scenario 1 assumed Measure V passes. Scenario 2 is one line: &ldquo;Deeper cuts needed to balance the budget.&rdquo; <span class="c hi">High</span></p>
+
+    <div class="statrow">
+      <div class="stat"><div class="v">$29.25M</div><div class="l">FY2027 General Fund deficit after adjustments</div></div>
+      <div class="stat"><div class="v">$29.25M</div><div class="l">Ongoing reductions already adopted (10.3%)</div></div>
+      <div class="stat"><div class="v">$9.44M</div><div class="l">One-time money standing in for the sales tax in FY2027</div></div>
+      <div class="stat"><div class="v">$9&ndash;10M</div><div class="l">What Measure V would raise per year</div></div>
+    </div>
+    <p class="cap">Sources: B&amp;F Committee FY27&ndash;28 Budget Update, April 16, 2026, pp. 6&ndash;9; City Attorney&rsquo;s impartial analysis of Measure V. The $12.06M one-time pool = Operating Reserve $4.18M + Successor Agency dissolution $7.88M; $9.44M of it is labeled &ldquo;Proposed Sales and Use Tax,&rdquo; $2.1M smooths FY27 vs FY28, $0.5M covers costs for affected employees.</p>
+
+    <h3>Scenario 2: what the $9.44M was holding up</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Department</th><th>FY27 one-time allocation</th><th>What it preserved in FY27</th><th>What goes if V fails</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr><td>Police</td><td class="n">$5,345,885</td><td>15 officers and 6 dispatchers</td><td>Press account: 9 officer layoffs, 6 open officer positions and 6 vacant dispatcher jobs cut; specialty units (Traffic, Bicycle, Community Services, Detectives) shrink or end</td><td><span class="c hi">High</span> on the allocation; <span class="c mod">Mod</span> on the layoff count</td></tr>
+        <tr><td>Fire</td><td class="n">$3,631,106</td><td>Fire Station 4 (Marin Avenue) and nine positions</td><td>Station 4 &ldquo;browned&rdquo; (closed), nine FTE eliminated</td><td><span class="c hi">High</span></td></tr>
+        <tr><td>Parks, Recreation &amp; Waterfront</td><td class="n">$466,004</td><td>Three recreation positions; Therapeutic Recreation</td><td>Fewer camps and afterschool slots, reduced pool and community-center hours, Therapeutic Recreation ends</td><td><span class="c hi">High</span></td></tr>
+        <tr class="sub"><td>Total</td><td class="n">$9,442,995</td><td colspan="3">33 FTE contingent on the tax, per the adopted budget</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Sources: B&amp;F April 16, 2026, pp. 12, 23, 25; FY27&ndash;28 adopted budget staffing tables; Berkeleyside, October 14, 2026 (Fire Chief Sprague; City Manager Buddenhagen&rsquo;s spring plan). Some councilmembers have said they will not vote to close the station; the Council, not staff, makes that call.</p>
+
+    <div class="warn"><b>What has no Plan B at all.</b> Nothing published says what happens if <strong>Measure U</strong> (the $300M bond) fails. The five-year CIP stays at $346M against $1.5&ndash;2.1B of stated need, and the Vision 2050 reporting machinery, which the 2022 Program Plan made conditional on a revenue measure, waits again. See <a href="berkeley-cip-hub-vs-vision-2050.html">the CIP referral vs. Vision 2050</a>. If U passes, roughly $40.5M of its $313M is set aside for &ldquo;staffing and implementation,&rdquo; the only pool that could also fund the infrastructure tracker the Council referred on September 29. <span class="c mod">Moderate</span> on the U figures, which come from our September review of the bond resolution and were not re-read for this page.</div>
+  </section>
+
+  <section>
+    <span class="sec-no">02</span>
+    <h2>Seven years of one-time money</h2>
+    <p class="lead">The structural gap is not new, and neither is the method of closing it. The City&rsquo;s own budget document lists every year. <span class="c hi">High</span></p>
+    <div class="tw"><table>
+      <thead><tr><th>Fiscal year</th><th>Estimated deficit</th><th>How it was closed</th></tr></thead>
+      <tbody>
+        <tr><td>2018&ndash;19</td><td class="n">$10M</td><td>Property-transfer-tax baseline reset; more transfers in, fewer transfers out</td></tr>
+        <tr><td>2020&ndash;21</td><td class="n">$40M</td><td>Hiring freeze, no capital investment, $11M of reserves</td></tr>
+        <tr><td>2022</td><td class="n">$27M</td><td>$23M of federal ARPA money; capital and equipment deferred</td></tr>
+        <tr><td>2023</td><td class="n">$22M</td><td>Fund balance and vacancy salary savings</td></tr>
+        <tr><td>2024</td><td class="n">$12M</td><td>Fund balance and vacancy salary savings</td></tr>
+        <tr><td>2025</td><td class="n">$17M</td><td>Fund balance, vacancy savings, Section 115 pension trust, Workers&rsquo; Comp holiday</td></tr>
+        <tr><td>2026</td><td class="n">$29M</td><td>Revenue uptick, Section 115 trust, Workers&rsquo; Comp fund, IT cost-allocation balance ($6.2M), Measure U1 housing money redirected ($2.5M), 45 vacant positions frozen</td></tr>
+        <tr><td>2027</td><td class="n">$29M</td><td>$29.25M of ongoing cuts <em>plus</em> $12.06M one-time (reserve, Successor Agency) pending the sales tax</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Source: FY2027&ndash;28 Proposed Budget, deficit history; FY2025 ACFR transmittal letter. The pattern the Auditor named in 2022, and whose fixes the City dropped: a Section 115 funding plan, a reserve-replenishment plan, an enterprise-fund balance policy, and a capital funding plan. Four of five recommendations were &ldquo;deferred to allow for updated recommendations.&rdquo;</p>
+    <div class="real"><b>Where the money went instead.</b> The General Fund under-spent its budget every year FY2020&ndash;24 and swept $30&ndash;42M a year out to capital, the pension trust and reserves ($42.0M in FY2024). Combined banked reserves: about $80M (Stability $30.6M, Catastrophic $23.7M, Section 115 $26.5M). The deficit is a forward projection, not a past cash shortage; the surplus was real and was walled off by policy. <span class="c hi">High</span> See <a href="budget-two-problems.html">Two Fixable Problems</a>.</div>
+  </section>
+
+  <section>
+    <span class="sec-no">03</span>
+    <h2>The remediation stack</h2>
+    <p class="lead">Every measure below already exists in Berkeley&rsquo;s own record: an audit recommendation, a budget mechanic the City has used once, or a legal channel it is under-using. They are tiered by how fast each can reach the General Fund. The sizing column says &ldquo;unsized&rdquo; wherever no source gives a number; we do not invent one.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Tier</th><th>Measure</th><th>Basis in the record</th><th>Sizing</th><th>Timing</th><th>Conf.</th></tr></thead>
+      <tbody>
+        <tr class="sub"><td colspan="6">Tier A: this fiscal year, by Council action or administrative regulation</td></tr>
+        <tr><td class="tier">A1</td><td><strong>Re-base every department to trailing actuals</strong> (second pass). Vacant positions at true cost, removed after a fixed window.</td><td>The City took <strong>$16.5M</strong> out of the GF personnel baseline in one pass for FY27 (salaries &minus;$9.45M, pension &minus;$3.68M, health &minus;$1.58M, overtime &minus;$0.71M). The Auditor&rsquo;s 2023 Staff Shortages audit asked for a needs-based staffing analysis first; it is still open.</td><td>Unsized for a second pass; first pass $16.5M</td><td>AAO#1, FY27</td><td><span class="c hi">High</span></td></tr>
+        <tr><td class="tier">A2</td><td><strong>Stop replacement-fund diversions.</strong> No transfer out of an internal-service or replacement fund without a documented cost analysis and a Council vote.</td><td>Fleet Replacement Fund Short Millions (2021): $2.0M (FY25) and $0.5M (FY24) moved out of Equipment Replacement Fund 671; 11 of 12 recommendations still partial. Workers&rsquo; Comp fund used for Marina capital ($5.5M, FY24) and &ldquo;holidays&rdquo; in FY25&ndash;26.</td><td>~$1.25M/yr of future cost spikes avoided; no cash</td><td>Immediate policy</td><td><span class="c hi">High</span></td></tr>
+        <tr><td class="tier">A3</td><td><strong>Collect revenue already owed.</strong> Lease escalators, unbilled rent, fire-inspection citations, the completed restaurant-fee study.</td><td>2025 lease-portfolio audit (repeating 2009 verbatim): no central inventory. Fire prevention inspection audit: all 11 recommendations dropped. Restaurant fee study done, awaiting Council. One Marina tenant alone owes ~$0.89M.</td><td>Unsized; Real Property Administrator hired Aug 2025</td><td>90 days</td><td><span class="c hi">High</span> on the gaps; <span class="c unk">Unk</span> on yield</td></tr>
+        <tr><td class="tier">A4</td><td><strong>Recover full overhead from restricted and enterprise funds.</strong> City Attorney (100% GF), Finance (82%), HR (67%), City Manager (67%) serve all ~110 funds.</td><td>A cost-allocation plan exists; whether recovery is full and current is unpublished. Indirect-cost reimbursement to the GF is budgeted at $8.49M (FY27).</td><td>Unknown recovery rate</td><td>Next cost-allocation update</td><td><span class="c unk">Unknown</span></td></tr>
+        <tr><td class="tier">A5</td><td><strong>Spend restricted surpluses in place.</strong> Sequence paving with sewer trench work; charge eligible staff time to Measure FF, Park Tax and gas-tax funds, within ballot terms.</td><td>Sewer fund +$7.4M surplus (Prop 218: cannot transfer). Public Works already runs at 6% GF this way.</td><td>Unsized; guardrail: over-charging restricted funds is the opposite scandal</td><td>FY27 CIP sequencing</td><td><span class="c hi">High</span> on mechanism</td></tr>
+        <tr class="sub"><td colspan="6">Tier B: the FY2028 budget cycle</td></tr>
+        <tr><td class="tier">B1</td><td><strong>Charge full indirect costs to grants.</strong></td><td>~$55M/yr of grants; Alameda County keeps 10% of federal JAG money before passing it on; whether Berkeley charges its own allowable indirect rate is unpublished. Grants Management audit (2016): all 15 recommendations dropped; no grants system; $27.6M of grant authority unspent in FY2025.</td><td>Unsized</td><td>FY28</td><td><span class="c unk">Unknown</span></td></tr>
+        <tr><td class="tier">B2</td><td><strong>AAO discipline and carryover reform.</strong> Operating appropriations lapse; mid-year amendments on a fixed quarterly cycle, each with a funding source; publish adopted &rarr; amended &rarr; actual.</td><td>The Financial Condition audit (2022) called for the capital funding plan this replaces; AAO drift is not reported in the budget packet.</td><td>Unsized; needs the AAO ordinances</td><td>FY28 cycle</td><td><span class="c mod">Moderate</span></td></tr>
+        <tr><td class="tier">B3</td><td><strong>Performance-based renewal.</strong> Programs with no measurable outcome are flagged before funding renews.</td><td>The most repeated finding across 54 audits: Zero Waste, Code Enforcement, Library, Restaurant Inspections, Homeless Response Team (all 6 recommendations not started).</td><td>Unsized</td><td>FY28</td><td><span class="c hi">High</span> on the finding</td></tr>
+        <tr><td class="tier">B4</td><td><strong>Zero Waste efficiencies.</strong></td><td>18 of 27 recommendations dropped, including ~$496K/yr from biweekly collection. Enterprise fund at &minus;$1.5M (FY25), heading for the GF&rsquo;s door.</td><td>~$0.5M/yr named; more unsized</td><td>Rate cycle</td><td><span class="c hi">High</span></td></tr>
+        <tr class="sub"><td colspan="6">Tier C: bargained</td></tr>
+        <tr><td class="tier">C1</td><td><strong>Employee benefit cost-sharing.</strong> Employee contributions toward health premiums and pension, phased in across MOUs.</td><td>GF lines, FY27: Salaries $105.0M, Pension $54.6M, Health/Retiree $21.9M; about 70% of the GF is staffing. Audits: <em>Employee Benefits: Tough Decisions Ahead</em>; the Section 115 Trust recommendation (dropped). The FY27 cuts reduced <em>headcount</em> by 164 FTE and left <em>per-employee benefit cost</em> alone.</td><td><strong>Unsized until the MOU and CalPERS model exists</strong> (section 04)</td><td>Contract by contract; see calendar</td><td><span class="c low">Low</span> on any dollar figure</td></tr>
+        <tr class="sub"><td colspan="6">For comparison: the City&rsquo;s Scenario 2</td></tr>
+        <tr><td class="tier">City</td><td>Close Fire Station 4; police and dispatcher positions; recreation cuts</td><td>B&amp;F April 16, 2026</td><td>~$9.44M</td><td>Immediate</td><td><span class="c hi">High</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Tier A and B measures are process fixes with mostly unverified yields; some produce cash, some avoid future cost. Their defensible claim is narrower than &ldquo;this closes the deficit&rdquo;: they are the relief valves that do not require cutting police, firefighters or a public vote, and most sit in the Auditor&rsquo;s dropped pile. Detail on each: <a href="rational-budgeting-process.md">the eight mechanics</a> &middot; <a href="berkeley-cross-fund.html">the six cross-fund channels</a> &middot; <a href="berkeley-plans-audits-budget.html">plans &times; audits &times; budget</a>.</p>
+  </section>
+
+  <section>
+    <span class="sec-no">04</span>
+    <h2>The bargaining calendar</h2>
+    <p class="lead">Benefit cost-sharing cannot be voted into a budget. It is negotiated contract by contract, and the contracts open on a schedule the City publishes. <span class="c hi">High</span></p>
+    <div class="tw"><table>
+      <thead><tr><th>Unit</th><th>Covers</th><th>Expires</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>Berkeley Fire Fighters Assn, IAFF Local 1227</td><td>Sworn fire, non-managerial</td><td><strong>June 2026</strong></td><td rowspan="3"><strong>The only open table right now.</strong> All three fire contracts expired four months ago. Whether a successor agreement or extension is in place is not on the City&rsquo;s union page. <span class="c unk">Unknown</span> This is the live test of whether cost-sharing is being asked for, and the first records request.</td></tr>
+        <tr><td>Berkeley Chief Fire Officers Assn, Local 1227</td><td>Sworn fire, managerial</td><td><strong>June 2026</strong></td></tr>
+        <tr><td>Berkeley Fire EMS Professionals Assn</td><td>Fire EMS, non-managerial</td><td><strong>June 2026</strong></td></tr>
+        <tr><td>Public Employees Union Local 1</td><td>Management, professional, engineering paraprofessional</td><td>June 2027</td><td rowspan="3"><strong>The window.</strong> Three units covering most non-safety staff open eight months after the election. Bargaining positions are set in spring 2027. A Council direction on cost-sharing has to come before that.</td></tr>
+        <tr><td>SEIU 1021, Community Services &amp; Part-Time Recreation</td><td>Health, welfare, library, admin, recreation</td><td>June 2027</td></tr>
+        <tr><td>SEIU 1021, Maintenance &amp; Clerical</td><td>Manual labor, police non-sworn, clerical</td><td>June 2027</td></tr>
+        <tr><td>Berkeley Police Association</td><td>All sworn police</td><td>June 2028</td><td rowspan="2"><strong>Locked.</strong> The largest single payroll is off the table until 2028.</td></tr>
+        <tr><td>IBEW Local 1245</td><td>Electrical</td><td>June 2028</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">Source: <a href="https://berkeleyca.gov/your-government/jobs/union-agreements-and-employee-manuals">City of Berkeley, Union Agreements and Employee Manuals</a>, read October 22, 2026.</p>
+
+    <h3>What has to be modeled before anyone quotes a number</h3>
+    <ul class="clean">
+      <li>Current employee contribution rates for health premiums and pension, by unit, and by classic vs. PEPRA membership. Source: the MOUs (public) and the Compensation Matrix (revised December 2025).</li>
+      <li>The split inside the $21.9M Health/Retiree line between active-employee health and retiree OPEB. Source: FY2025 ACFR OPEB note; budget detail.</li>
+      <li>CalPERS employer contribution rates by plan (Miscellaneous, Police, Fire) and the unfunded liability schedule. Source: CalPERS actuarial valuations (public).</li>
+      <li>Then: a scenario table, 1 / 2 / 3 percentage points of additional employee contribution, by unit, by year, against the contract calendar above. About one week of work once the MOUs are read.</li>
+    </ul>
+    <div class="warn"><b>The honest framing.</b> Cost-sharing is bargained, cannot be booked by Council vote, and any figure before the model is a guess. The audit record is the basis for <em>asking</em>, not for a number. Published figures on this site will carry the model&rsquo;s date and assumptions or will not be published.</div>
+  </section>
+
+  <section>
+    <span class="sec-no">05</span>
+    <h2>The counterargument</h2>
+    <div class="panel">
+      <div class="pk">Strongest case against this page</div>
+      <p>The City already cut 10.3% of the General Fund in ongoing reductions, re-based to actuals, and has told voters plainly what a failed tax costs. That is more fiscal candor than most cities manage. Half the General Fund is police and fire, so any further cut lands on public safety whatever the process reforms say. The Tier A and B measures are real but small and slow; the City&rsquo;s own channel for the big lever is the bargaining table, and the fire contracts are at it now. A sales tax is the one revenue the Council can put to a simple-majority vote, and $9&ndash;10M a year of it buys time for the slower fixes to land. Refusing the tax does not make the audit recommendations implement themselves. <span class="c mod">Moderate</span></p>
+    </div>
+    <p style="margin-top:16px">Our assessment: the candor is real, and so is the arithmetic. The sales tax closes a third of the recurring gap and leaves two-thirds to the same one-time methods as the last seven years. The remediation stack does not close it either, except through the bargained lever, and that is why the bargaining calendar is on this page. Whichever way the vote goes, the question for the first budget update after November 3 is the same: what is the City asking for at the fire table, and what will it ask for at the 2027 tables.</p>
+  </section>
+
+  <section>
+    <span class="sec-no">06</span>
+    <h2>How this page will be used after November 3</h2>
+    <ul class="clean">
+      <li><strong>If U and V pass:</strong> this page becomes a ledger of what the City said it would do with the money, tracked against the budget&rsquo;s own list (the 33 preserved positions, Station 4, the bond&rsquo;s project list and its $40.5M implementation set-aside).</li>
+      <li><strong>If either fails:</strong> this page becomes the live remediation tracker. Each Council and Budget &amp; Finance action (AAO amendments, station closure, layoffs, MOU items, audit-recommendation status) is logged weekly as a dated event against the stack in section 03, with its source.</li>
+      <li><strong>Either way:</strong> the first entries are the fire-contract status, the AAO#1 amendment for FY27, and the Auditor&rsquo;s FY2025 financial condition report, where the dropped 2022 structural fixes were to be re-issued.</li>
+    </ul>
+  </section>
+
+  <section class="sources">
+    <span class="sec-no">Sources</span>
+    <ol>
+      <li>Budget &amp; Finance Policy Committee, <em>FY 2027 and FY 2028 Budget Update</em>, April 16, 2026 (deficit, one-time resources, Scenario 1 and 2, department reduction tables).</li>
+      <li>City of Berkeley, <em>Proposed FY 2027 and FY 2028 Biennial Budget</em>, Item 21, May 19, 2026, and the adopted budget (deficit history, staffing, service impacts).</li>
+      <li>FY2025 Annual Comprehensive Financial Report (transmittal letter; GF transfers; reserves).</li>
+      <li>City Auditor, <em>Berkeley&rsquo;s Financial Condition FY2016&ndash;2025</em> and the Recommendation Dashboard (status of 384 recommendations).</li>
+      <li>City of Berkeley, <a href="https://berkeleyca.gov/your-government/jobs/union-agreements-and-employee-manuals">Union Agreements and Employee Manuals</a>.</li>
+      <li>Berkeleyside, <a href="https://www.berkeleyside.org/2026/10/14/berkeley-measure-v-sales-tax-pro-con-analysis-budget">&ldquo;Measure V: Should Berkeley raise sales tax to close budget deficit?&rdquo;</a>, October 14, 2026.</li>
+      <li>City Attorney&rsquo;s impartial analyses of Measures U and V (via <a href="berkeley-tax-measures.html">Tax Measures</a>).</li>
+      <li>Learn About Berkeley: <a href="budget-two-problems.html">Two Fixable Problems</a>, <a href="berkeley-cross-fund.html">Cross-Fund Opportunities</a>, <a href="berkeley-fund-map.html">The Fund Map</a>, <a href="rational-budgeting-process.md">A Rational Budgeting Process</a>.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="bar"></div>
+    Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer, candidate for Berkeley City Council District 1. This page takes no position on how to vote on Measures U or V; it records what the City has said it will do under each outcome and what else is in the record.
+  </footer>
+
+</main>
+</body>
+</html>
