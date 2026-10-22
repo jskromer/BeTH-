@@ -2,16 +2,28 @@
  "fund_number": "ACFR-workers-compensation",
  "name": "Workers’ Compensation",
  "type": "internal_service",
- "department": "Finance / Public Works / IT / HR",
+ "department": "Human Resources / Finance (self-insurance)",
  "established": {
   "year": null,
-  "purpose": "Not yet researched",
+  "purpose": "Internal service fund that charges departments for workers' compensation self-insurance and pays claims",
   "source": "acfr-2025"
  },
- "legal_basis": "Not yet researched",
+ "legal_basis": "Internal service fund; charges set in the budget; Council may direct transfers by AAO",
  "restriction": "enterprise",
  "self_supporting": true,
  "annual": [
+  {
+   "fy": 2024,
+   "basis": "audited",
+   "revenue": 0,
+   "expenditure": 7806886,
+   "transfers_in": 813779,
+   "transfers_out": 5500000,
+   "ending_balance": 1944332,
+   "source": "acfr-2024",
+   "confidence": "High",
+   "note": "Internal service combining statement, ACFR FY2024 p.311-312. Zero operating revenue: no charges to departments"
+  },
   {
    "fy": 2025,
    "basis": "audited",
@@ -22,11 +34,77 @@
    "ending_balance": -9752938,
    "source": "acfr-2025",
    "confidence": "High",
-   "note": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, ACFR p.321",
+   "note": "Internal service combining statement, ACFR FY2025 p.321-322. Zero operating revenue for a second year; expenses $11,983,900; net position fell from $1,944,332 to -$9,752,938",
    "nonoperating": 1112676
   }
  ],
- "flows": [],
+ "flows": [
+  {
+   "id": "wc-2023-07-25-marina-loan",
+   "date": "2023-07-25",
+   "fy": 2024,
+   "kind": "transfer_out",
+   "amount": 5500000,
+   "from_fund": "ACFR-workers-compensation",
+   "to_fund": "Waterfront D and E dock replacement (Marina)",
+   "recurring": false,
+   "instrument": "Council Item 19, Resolution No. 70,997-N.S.",
+   "stated_reason": "Internal loan of $5.5M in place of a State DBW loan; repaid from Waterfront Transient Occupancy Tax from FY2025 plus a one-time $500,000",
+   "source": "council-2023-07-25",
+   "confidence": "High",
+   "reviewer": "SK",
+   "terms": "Booked in the FY2024 ACFR as a transfer out of $5,500,000, not as a loan receivable; the Marina Operations Fund shows no corresponding loan in. Repayment to this fund is not visible in either ACFR.",
+   "note": "See the Marina ledger, flow 608-2023-07-25-wc-loan."
+  },
+  {
+   "id": "wc-fy2024-no-charges",
+   "date": "FY2024",
+   "fy": 2024,
+   "kind": "holiday",
+   "amount": null,
+   "from_fund": "City departments",
+   "to_fund": "ACFR-workers-compensation",
+   "recurring": false,
+   "instrument": "FY2024 budget",
+   "stated_reason": "Contribution holiday: no workers' compensation charges billed to departments",
+   "source": "acfr-2024",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Amount is the foregone charge; the ACFR shows operating revenue of zero against $7.8M of claims and expenses. The normal charge level is not stated in the ACFR."
+  },
+  {
+   "id": "wc-fy2025-no-charges",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "holiday",
+   "amount": null,
+   "from_fund": "City departments",
+   "to_fund": "ACFR-workers-compensation",
+   "recurring": false,
+   "instrument": "FY2025 budget (described as a 'Workers' Compensation holiday' in the Marina Fund Update, May 22, 2025, and in the FY2025 deficit history)",
+   "stated_reason": "Contribution holiday for a second year",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Foregone charge not stated. Expenses $11,983,900; net position -$9,752,938 at June 30, 2025."
+  },
+  {
+   "id": "wc-2025-11-18-to-gf",
+   "date": "2025-11-18",
+   "fy": 2026,
+   "kind": "transfer_out",
+   "amount": 5187019,
+   "from_fund": "ACFR-workers-compensation",
+   "to_fund": "011",
+   "recurring": false,
+   "instrument": "FY2026 AAO Amendment, Consent Item 8, November 18, 2025",
+   "stated_reason": "Transfer to the General Fund: one of the FY2026 one-time measures ('Workers Comp fund') in the budget's deficit history",
+   "source": "aao-fy26-nov2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Budgeted; the fund's audited net position was already negative when this was adopted."
+  }
+ ],
  "flow_detail": {
   "fy": 2025,
   "source": "acfr-2025",
@@ -61,13 +139,24 @@
    }
   ]
  },
- "obligations": [],
+ "obligations": [
+  {
+   "kind": "claims_liability",
+   "amount": null,
+   "as_of": "2025-06-30",
+   "note": "Outstanding workers' compensation claims liability is reported in the ACFR self-insurance note; not yet read into this ledger",
+   "source": "acfr-2025",
+   "confidence": "Unknown"
+  }
+ ],
  "status": {
   "structural_deficit": true,
-  "years_in_deficit": "one audited year loaded",
+  "years_in_deficit": "Two years of zero revenue; net position negative since FY2025",
   "last_update": "2026-10-22",
   "open_questions": [
-   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+   "The normal annual charge to departments before the holidays, and when charges resume (FY2027-28 budget).",
+   "Whether any Waterfront TOT has been paid to this fund under Resolution 70,997.",
+   "The outstanding claims liability and the actuarial funding target."
   ]
  },
  "sources": {
@@ -75,7 +164,31 @@
    "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, p.321",
    "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
    "date": "2026-01"
+  },
+  "acfr-2024": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2024 (governmental funds statement p.78; proprietary p.87-88; internal service p.311-312; nonmajor combining p.227-244)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "date": "2024-12"
+  },
+  "aao-fy26-nov2025": {
+   "title": "FY2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2): schedule of transfers",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+   "date": "2025-11-18"
+  },
+  "council-2023-07-25": {
+   "title": "Council Item 19, $5.5M Loan for D and E Dock Replacement Project, July 25, 2023 (Resolution No. 70,997-N.S.)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2019%205.5M%20Loan%20for%20D%20and%20E%20Dock%20Replacement%20-%20REV%20PRW.pdf",
+   "date": "2023-07-25"
+  },
+  "bf-2025-05": {
+   "title": "Marina Fund Update, Budget & Finance Policy Committee, May 22, 2025 (Workers' Compensation holiday; indirect cost reductions)",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2001%20Presentation%20-%20Marina%20Fund%20Update.pdf",
+   "date": "2025-05-22"
+  },
+  "budget-fy27-28": {
+   "title": "Proposed FY 2027 and FY 2028 Biennial Budget, Item 21, May 19, 2026 (deficit history; balancing plan; one-time resources)",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf",
+   "date": "2026-05-19"
   }
- },
- "generated_by": "tools/acfr_funds.py"
+ }
 }

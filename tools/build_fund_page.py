@@ -46,6 +46,91 @@ def chip(c):
 
 # Prose that is not derivable from the data. Keyed by fund number.
 NARRATIVE = {
+    "011": {
+        "eyebrow": "Fund ledger · 011",
+        "title": "The General Fund: <span class=\"q\">where the surplus went</span>",
+        "dek": "The one fund the Council controls. It has under-spent its budget and run a 'structural deficit' at the same time for seven years. The ledger shows how: money moved out to capital, reserves and the pension trust, then moved back in from internal-service balances to close the gap.",
+        "verdict_title": "Swept out one year, <em>borrowed back the next.</em>",
+        "verdict": "In FY2024 the General Fund transferred $41.1M out, more than budgeted, into capital, the pension trust and reserves, and its balance fell for the first time since 2018. In FY2025 it moved $33.9M out and $9.0M in. The FY2026 budget then draws $23.5M back in, including $5.2M from the Workers' Compensation fund and $6.5M from the IT cost-allocation fund, to close a gap the City calls structural. The surplus was real; the deficit is a forward projection; the transfers are the bridge between them.",
+        "setup": "The General Fund receives the taxes and fees that are not earmarked: property tax, sales tax, business license, transfer tax, and the City's share of fines and charges. It is about a third of the all-funds budget and the only fund the Council can redirect without a vote of the people. Its balance was $154.9M at June 30, 2025, of which $31.7M was unassigned.",
+        "flow_lead": "FY2025 as the audit reports it. Transfers in and out are shown in the ledger below rather than the diagram; in FY2025 they were $9.0M in and $33.9M out.",
+        "chart_cap": "Governmental funds statement: total revenues vs total expenditures, excluding transfers. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
+        "findings": [
+            ("The fund under-spends and transfers out the difference.", "FY2024 transfers out were $41.1M against revenue of $261.8M and spending of $241.8M; FY2025 transfers out were $33.9M. The destinations are capital projects ($14.1M in FY2025), the catastrophic and public-liability insurance funds ($10.0M), the PERS savings fund ($4.8M) and reserves. The unassigned balance fell from $70M (2023) to $29.6M (2024) by reclassification, not spending.", "High"),
+            ("The FY2026 fix reverses the direction.", "The FY2026 AAO schedules $23.5M of transfers into the General Fund: $6.5M from the IT cost-allocation fund, $6.0M from the payroll deduction trust, $5.2M from the Workers' Compensation fund, $2.6M from health realignment, $2.5M of Measure U1 housing money, $1.0M from parking meters. Three of those are internal-service balances that exist to pay future claims and replacements.", "High"),
+            ("Seven years, seven one-time closes.", "The budget's own deficit history: $10M (FY2019), $40M, $27M, $22M, $12M, $17M, $29M (FY2026), each closed with reserves, ARPA, fund balance, vacancy savings, the Section 115 trust, or a Workers' Comp holiday. FY2027 adds $12.1M of one-time money (operating reserve and the dissolved Successor Agency) pending the November 2026 sales tax.", "High"),
+            ("The General Fund is the Marina's lender and its landlord.", "It lent the Marina Fund $2.48M in FY2025 (recorded as due from), transferred $1.3M plus $226K in FY2026, collects the Marina's indirect charges, and under Resolution 70,997 forgoes $1.0-1.5M a year of Waterfront hotel tax to repay the Workers' Compensation loan.", "High"),
+        ],
+        "counter": "Transferring surplus to capital, reserves and the pension trust is what prudent cities do; the Auditor criticized Berkeley for under-funding exactly those things. A structural deficit measured on the operating base is real even when fund balance is high, because the balance is one-time and the costs recur. And drawing internal-service balances in a crisis year is a recognized bridge, provided the charges resume. The ledger shows the sweep and the draw-back; whether that is discipline or circularity depends on whether the charges resume in FY2027.",
+        "what_next": ["Add the FY2026 audited transfers when the ACFR is published (early 2027) and compare them to the AAO schedule.", "Read the FY2024 ACFR transfers note for the full destination list.", "Track whether Workers' Compensation and IT cost-allocation charges resume in the FY2027-28 budget."],
+    },
+    "ACFR-park-tax": {
+        "eyebrow": "Fund ledger · Parks Tax",
+        "title": "The Parks Tax: <span class=\"q\">what Measure Y bought</span>",
+        "dek": "A parcel tax for parks, trees and landscaping, raised 20% by voters in November 2024. Its first-year effect includes $1.58M a year of Waterfront costs moved off the Marina Fund.",
+        "verdict_title": "A parks tax that now <em>carries the Waterfront.</em>",
+        "verdict": "Measure Y raised the Parks Tax by about $3.8M a year. From July 2025, $1.58M a year of Waterfront park and landscape maintenance moved from the failing Marina Fund onto this one, and in FY2027 5% of the Waterfront Deputy Director follows. The ballot question named parks generally; the Council's September 2024 intent resolution named the Waterfront. The shift was disclosed, in a resolution rather than on the ballot.",
+        "setup": "The Parks Tax is a special parcel tax, first approved in 1997 and raised in 2000, 2008, 2014 and 2024, charged per square foot of building improvements and indexed annually. By law it can be spent only on parks, trees and landscaping. It is the second-largest source of parks money after the General Fund.",
+        "flow_lead": "FY2025, the last year before Measure Y took effect. Revenue is almost entirely the parcel tax; spending is culture-recreation (park maintenance) with a small capital outlay.",
+        "chart_cap": "Nonmajor governmental combining statements: total revenues vs total expenditures, excluding transfers. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
+        "findings": [
+            ("Revenue up $1.3M, spending up $2.6M, before Measure Y.", "FY2024 to FY2025: revenue $18.1M to $19.4M; spending $15.1M to $17.7M. The balance still rose, to $12.3M, because the fund ran a surplus both years.", "High"),
+            ("The Marina shift is a third of the Measure Y uplift.", "Measure Y adds about $3.8M a year; the Waterfront cost shift takes $1.58M of it. Whether the rest raised park maintenance capacity or absorbed other cost growth is not visible until the FY2026 audit.", "High on the figures; Moderate on the reading"),
+        ],
+        "counter": "Cesar Chavez, Shorebird and Horseshoe are parks, and the Parks Tax is for parks; charging their upkeep to the parks tax rather than to boat-slip fees corrects a 60-year anomaly rather than creating one. The Council said so in a public resolution before the vote, and 75% of voters approved. The ledger records the shift; it does not say it was wrong.",
+        "what_next": ["Load FY2026 when audited and compare park maintenance spending to FY2025.", "Read the Measure Y expenditure plan in the FY2026 budget for the split between maintenance, trees and capital."],
+    },
+    "ACFR-equipment-maintenance-replacement": {
+        "eyebrow": "Fund ledger · 671 / 672",
+        "title": "Equipment Maintenance & Replacement: <span class=\"q\">the fund that gets raided</span>",
+        "dek": "Two internal-service funds, reported as one: departments pay 672 to maintain vehicles and 671 to replace them. The 2021 audit titled its report 'Fleet Replacement Fund Short Millions.' Since then $2.5M has moved from the replacement fund to pay maintenance.",
+        "verdict_title": "Replacement money, <em>spent on repairs.</em>",
+        "verdict": "In FY2024 $500,000 and in FY2025 $2,000,000 moved out of the replacement fund (671) to cover the maintenance fund's (672) operating costs. The 2021 audit asked for an Administrative Regulation requiring written justification before any such transfer; in October 2025 it was still 'partly implemented.' The combined fund's balance is healthy on paper, $39.8M, because it includes vehicles not yet bought.",
+        "setup": "Departments pay an annual charge per vehicle into fund 672 for maintenance and into fund 671 to accumulate the vehicle's replacement cost. When the vehicle ages out, 671 buys the replacement. The ACFR reports the two as one internal service fund. The City Auditor's 2021 report found the replacement charges too low to replace the fleet on schedule.",
+        "flow_lead": "FY2025 as the audit reports it. Revenue is almost entirely the equipment rental charge departments pay; spending is maintenance labor, parts and depreciation. Transfers in are the General Fund's and the CIP's contributions.",
+        "chart_cap": "Internal service combining statements: operating revenues vs operating expenses, including depreciation. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
+        "findings": [
+            ("$2.5M moved from replacement to maintenance in two years.", "Per the February 27, 2025 fleet audit presentation: $500,000 in FY2024 and $2,000,000 in FY2025 from fund 671 to fund 672 for operating expenses. The audit's recommendation 1.6 (an A.R. requiring documented justification before raiding the fund) was still partly implemented in October 2025.", "High"),
+            ("The fund replaces about 7% of the fleet a year.", "FY2020-24 average: 46 units a year, 7.4% of the fleet, implying a 13-14 year replacement cycle. $50.3M was spent or encumbered on replacement from FY2019 to FY2025, and the 671 balance rose from $7.4M to $19.7M.", "High"),
+            ("Electrification is an unfunded step change.", "Staff estimate about $9.0M of extra vehicle cost plus $6.5M of chargers for the Zero Waste fleet alone (October 2025). A new maintenance rate model is promised for the FY2027-28 mid-biennial update.", "Moderate"),
+        ],
+        "counter": "Moving replacement money to maintenance keeps vehicles running when the maintenance charge is set too low, and the combined fund still ran a surplus both years with a $39.8M net position. The audit's complaint is about documentation and rate-setting, not insolvency. A fund with rising balances and 11 of 12 recommendations partly implemented is a slow fix, not a raid.",
+        "what_next": ["Identify the source of the remaining $2.0M of FY2025 transfers in.", "Read the FY2027-28 mid-biennial rate model when published.", "Load FY2019-2023 from earlier ACFRs to show the balance build-up the audit describes."],
+    },
+    "ACFR-workers-compensation": {
+        "eyebrow": "Fund ledger · Workers' Compensation",
+        "title": "Workers' Compensation: <span class=\"q\">two years of zero revenue</span>",
+        "dek": "An internal-service fund that is supposed to bill departments for self-insured injury claims. In FY2024 and FY2025 it billed nothing, lent $5.5M to the Marina docks, and ended FY2025 $9.75M in the hole. The FY2026 budget then moves another $5.2M out of it to the General Fund.",
+        "verdict_title": "A claims fund used as <em>a piggy bank.</em>",
+        "verdict": "Operating revenue: $0 in FY2024, $0 in FY2025. Claims and expenses: $7.8M then $12.0M. Transfers out: $5.5M to the Marina dock project in FY2024, $5.2M to the General Fund budgeted for FY2026. Net position went from +$1.9M to −$9.75M in one year. The 'holidays' the Marina decks mention are this: departments, the General Fund among them, stopped paying their workers' compensation charge, and the fund paid claims out of its balance.",
+        "setup": "The Workers' Compensation Fund is one of eight internal service funds. Departments are charged a premium set in the budget; the fund pays injured-worker claims and administration. Its balance is the cushion against claims that take years to settle. The ACFR's self-insurance note carries the actuarial claims liability.",
+        "flow_lead": "FY2025 as the audit reports it: no revenue at all, $12.0M of claims and administration paid from the balance.",
+        "chart_cap": "Internal service combining statements: operating revenues vs operating expenses. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
+        "findings": [
+            ("Zero charges, two years running.", "The FY2024 and FY2025 statements both show operating revenue of $0 for this fund. The FY2025 deficit history calls FY2025 a 'Workers Comp holiday'; the Marina decks describe the same holiday as Marina relief. Every department that pays into this fund, including General Fund departments, got the relief.", "High"),
+            ("The $5.5M Marina loan was booked as a transfer out.", "Resolution 70,997 (July 25, 2023) called it an internal loan repayable from Waterfront hotel tax. The FY2024 ACFR shows it as a $5,500,000 transfer out, with no receivable, and the Marina Operations Fund shows no loan in. Where the money went on the books, and whether any TOT has come back, are open questions.", "High on the records; Unknown on the reconciliation"),
+            ("The General Fund is next.", "The FY2026 AAO budgets a $5,187,019 transfer from this fund to the General Fund, from a fund whose audited net position was already −$9.75M.", "High"),
+        ],
+        "counter": "A self-insurance fund can carry a negative net position for a time because claims are paid over years, and an actuary, not the balance sheet, says whether it is adequately funded. Suspending charges when a fund is over-reserved is a legitimate way to return money to departments; the City Auditor has in the past criticized over-accumulation in internal-service funds. If charges resume in FY2027 at an actuarially set rate, two holiday years are a timing choice, not a loss.",
+        "what_next": ["Read the ACFR self-insurance note for the claims liability and the actuarial target.", "Confirm in the FY2027-28 budget whether and at what rate charges resume.", "Request the accounting for the $5.5M dock transfer and any TOT repayments."],
+    },
+    "ACFR-zero-waste": {
+        "eyebrow": "Fund ledger · Zero Waste",
+        "title": "Zero Waste: <span class=\"q\">rates up, still losing</span>",
+        "dek": "The refuse enterprise. A five-year rate increase adopted in 2023 was supposed to keep the fund positive while its balance fell from $24.5M to $3.3M. Two years in, it has lost $4.0M and $1.3M and sits near zero.",
+        "verdict_title": "The rate plan's cushion <em>is already gone.</em>",
+        "verdict": "Council raised refuse, recycling and organics rates in June 2023 for FY2024 through FY2028, on a staff projection that the fund's balance would decline but stay positive. The audited result: an operating loss of $5.4M in FY2024 and $1.5M in FY2025, net position $349,593 at the start of FY2025. The 2014 and 2016 audits' efficiency recommendations, 18 of 27 of them, were dropped, including one sized at $496,000 a year.",
+        "setup": "The Zero Waste Fund collects refuse, recycling and organics rates from residents and businesses and pays for collection, the transfer station, street sweeping and illegal-dumping cleanup. Under Proposition 218 rates can rise only after a noticed hearing without a majority protest. The current schedule is Resolution 70,932 (June 27, 2023).",
+        "flow_lead": "FY2025 as the audit reports it. Revenue is refuse service fees; spending is dominated by personnel and contracted services. Transfers out went to capital project support and catastrophic insurance.",
+        "chart_cap": "Proprietary funds statement: operating revenues vs operating expenses, including depreciation. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
+        "findings": [
+            ("Two losing years after a rate increase.", "Operating loss $5.4M (FY2024) and $1.5M (FY2025). Net position $769,103 at June 30, 2024, restated to $349,593, and the fund is heading for the General Fund's door the way the Marina did.", "High"),
+            ("The efficiency list was dropped, not rejected.", "18 of 27 recommendations from the Zero Waste audits lapsed: a route audit to align billing with service, franchise-fee recovery on recyclables, mobile route technology, a strategic plan with performance measures, and biweekly collection (about $496K a year, needing a state waiver).", "High"),
+            ("The next costs are capital.", "The transfer station replacement and an electric fleet (about $15.5M for vehicles and chargers, staff estimate) are not in the 2023 rate schedule's assumptions.", "Moderate"),
+        ],
+        "counter": "The 2023 rate plan was designed to spend down a $24.5M balance; losses in its first years are the plan working, not failing, and FY2024's loss was inflated by one-time costs. Proposition 218 limits how fast rates can move. Dropped audit recommendations include some that needed state waivers the City cannot grant itself. The fund's problem is cost growth in a labor-heavy service, which no efficiency list fully offsets.",
+        "what_next": ["Compare the 2023 projection to audited results year by year as each ACFR is published.", "Load the rate schedule's FY2026-2028 steps and the Transfer Station budget.", "Track which dropped recommendations return in the FY2027-28 budget."],
+    },
     "608": {
         "eyebrow": "Fund ledger · 608",
         "title": "The Marina Fund: <span class=\"q\">one enterprise, six rescues</span>",
@@ -285,7 +370,7 @@ def build(json_path: Path, out_path: Path):
 
   <section>
     <span class="sec-no">02</span><h2>Every year, audited</h2>
-    <p class="lead">{"Revenue against expenses, FY2015 to the staff forecast for FY2028. The fund covered its costs in " + str(covered) + " of the " + str(len(audited)) + " audited years shown, and in none of the last three." if len(audited) > 1 else "Revenue against expenses for the one audited year loaded so far."}</p>
+    <p class="lead">{"Revenue against expenses, FY2015 to the staff forecast for FY2028. The fund covered its costs in " + str(covered) + " of the " + str(len(audited)) + " audited years shown" + (", and in none of the last three." if len(audited) >= 3 and not any(y["revenue"] >= y["expenditure"] for y in audited[-3:]) else ".") if len(audited) > 1 else "Revenue against expenses for the one audited year loaded so far."}</p>
     <div class="chartwrap">{chart}</div>
     <div class="tw"><table><thead><tr><th>Year</th><th>Basis</th><th>Revenue</th><th>Expenses</th><th>Result</th><th>Balance / net position</th><th>Conf.</th><th>Note</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
   </section>
