@@ -1,0 +1,129 @@
+{
+ "fund_number": "ACFR-off-street-parking",
+ "name": "Off-Street Parking",
+ "type": "enterprise",
+ "department": "Public Works / Parks / Planning",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "enterprise",
+ "self_supporting": true,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 5022846,
+   "expenditure": 7322441,
+   "transfers_in": 1000000,
+   "transfers_out": 7920,
+   "ending_balance": 7050595,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, ACFR p.85. Beginning balance 9,258,758",
+   "nonoperating": -900648
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Parking related revenues",
+    "amount": 4618745,
+    "kind": "own"
+   },
+   {
+    "line": "Lease revenues",
+    "amount": 323696,
+    "kind": "own"
+   },
+   {
+    "line": "Other revenues",
+    "amount": 80405,
+    "kind": "own"
+   },
+   {
+    "line": "Investment earnings",
+    "amount": 39835,
+    "kind": "own"
+   },
+   {
+    "line": "Transfers in",
+    "amount": 1000000,
+    "kind": "rescue"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Personnel services",
+    "amount": 376919
+   },
+   {
+    "line": "Employee benefits",
+    "amount": 276381
+   },
+   {
+    "line": "Transportation",
+    "amount": 4778
+   },
+   {
+    "line": "Repairs and maintenance",
+    "amount": 809168
+   },
+   {
+    "line": "Materials and supplies",
+    "amount": 1744
+   },
+   {
+    "line": "Utilities",
+    "amount": 373324
+   },
+   {
+    "line": "Specialized and professional services",
+    "amount": 3451157
+   },
+   {
+    "line": "Depreciation",
+    "amount": 1904452
+   },
+   {
+    "line": "Communication",
+    "amount": 105578
+   },
+   {
+    "line": "General administration",
+    "amount": 18940
+   },
+   {
+    "line": "Interest expense",
+    "amount": 940483
+   },
+   {
+    "line": "Transfers out",
+    "amount": 7920
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, p.85",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

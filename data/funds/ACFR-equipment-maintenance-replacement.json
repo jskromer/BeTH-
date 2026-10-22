@@ -1,0 +1,124 @@
+{
+ "fund_number": "ACFR-equipment-maintenance-replacement",
+ "name": "Equipment Maintenance Replacement",
+ "type": "internal_service",
+ "department": "Finance / Public Works / IT / HR",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "enterprise",
+ "self_supporting": true,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 19349244,
+   "expenditure": 16390504,
+   "transfers_in": 3759380,
+   "transfers_out": 2000000,
+   "ending_balance": 39849214,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, ACFR p.321",
+   "nonoperating": 338318
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Equipment rentals service charge",
+    "amount": 18958208,
+    "kind": "own"
+   },
+   {
+    "line": "Other revenues",
+    "amount": 391036,
+    "kind": "own"
+   },
+   {
+    "line": "Investment earnings",
+    "amount": 482155,
+    "kind": "own"
+   },
+   {
+    "line": "Transfers in",
+    "amount": 3759380,
+    "kind": "rescue"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Personnel services",
+    "amount": 2699816
+   },
+   {
+    "line": "Employee benefits",
+    "amount": 1784277
+   },
+   {
+    "line": "Transportation",
+    "amount": 291603
+   },
+   {
+    "line": "Repairs and maintenance",
+    "amount": 94680
+   },
+   {
+    "line": "Materials and supplies",
+    "amount": 4210835
+   },
+   {
+    "line": "Utilities",
+    "amount": 58366
+   },
+   {
+    "line": "Specialized and professional services",
+    "amount": 1645458
+   },
+   {
+    "line": "Depreciation",
+    "amount": 5443267
+   },
+   {
+    "line": "Communication",
+    "amount": 8104
+   },
+   {
+    "line": "General administration",
+    "amount": 154098
+   },
+   {
+    "line": "Interest expense",
+    "amount": 353464
+   },
+   {
+    "line": "Transfers out",
+    "amount": 2000000
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": false,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, p.321",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

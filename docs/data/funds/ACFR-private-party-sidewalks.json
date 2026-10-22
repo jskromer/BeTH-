@@ -1,0 +1,68 @@
+{
+ "fund_number": "ACFR-private-party-sidewalks",
+ "name": "Private Party Sidewalks",
+ "type": "special_revenue",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 312355,
+   "expenditure": 548981,
+   "transfers_in": 0,
+   "transfers_out": 0,
+   "ending_balance": 1274786,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.245. Beginning balance 1,511,412"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Charges for service",
+    "amount": 312355,
+    "kind": "own"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Highway and streets",
+    "amount": 66480
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 482501
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.245",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

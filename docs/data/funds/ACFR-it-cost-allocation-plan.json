@@ -1,0 +1,102 @@
+{
+ "fund_number": "ACFR-it-cost-allocation-plan",
+ "name": "IT Cost Allocation Plan",
+ "type": "internal_service",
+ "department": "Finance / Public Works / IT / HR",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "enterprise",
+ "self_supporting": true,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 16981907,
+   "expenditure": 16704509,
+   "transfers_in": 71335,
+   "transfers_out": 3396355,
+   "ending_balance": -5284045,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, ACFR p.321",
+   "nonoperating": -7118
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "IT service fee",
+    "amount": 16981907,
+    "kind": "own"
+   },
+   {
+    "line": "Transfers in",
+    "amount": 71335,
+    "kind": "rescue"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Personnel services",
+    "amount": 4716536
+   },
+   {
+    "line": "Employee benefits",
+    "amount": 3047273
+   },
+   {
+    "line": "Materials and supplies",
+    "amount": 248295
+   },
+   {
+    "line": "Specialized and professional services",
+    "amount": 7510576
+   },
+   {
+    "line": "Depreciation",
+    "amount": 177439
+   },
+   {
+    "line": "Communication",
+    "amount": 96799
+   },
+   {
+    "line": "General administration",
+    "amount": 907591
+   },
+   {
+    "line": "Interest expense",
+    "amount": 7118
+   },
+   {
+    "line": "Transfers out",
+    "amount": 3396355
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": false,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, p.321",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

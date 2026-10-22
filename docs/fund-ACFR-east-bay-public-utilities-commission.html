@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>East Bay Public Utilities Commission — Fund Ledger — Learn About Berkeley</title>
+<meta name="description" content="East Bay Public Utilities Commission is a special revenue fund: money earmarked by a tax measure, a grant or a fee for one purpose. This page is its ledger: the audited figures, where the money came from and went, and the dated events once they have been read from Council records.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#2a3340; --slate:#3f4f63; --slate-2:#34414f; --steel:#43698f; --steel-deep:#33567a; --red:#a8322c; --paper:#f5f7f9; --card:#ffffff; --rule:#dde3ea; --rule-strong:#c3ccd6; --muted:#5d6b7a; --hi:#2f6f57; --mod:#956613; --low:#a8322c; --unk:#6b7280; --maxw:960px; }
+  *{box-sizing:border-box} body{ margin:0; background:var(--paper); color:var(--navy); font-family:"Source Serif 4",Georgia,serif; font-size:18px; line-height:1.6; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 26px; } a{ color:var(--steel-deep); }
+  .hubbar{ background:var(--slate); color:#eef1f5; } .hubbar-in{ max-width:var(--maxw); margin:0 auto; padding:11px 26px; display:flex; justify-content:space-between; gap:14px; }
+  .hubbar a.back{ font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#cdd6e0; text-decoration:none; } .hubbar .stamp{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9fb0c1; }
+  .masthead{ padding:48px 0 26px; border-bottom:2px solid var(--navy); } .eyebrow{ font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:20px; display:flex; align-items:center; gap:10px; } .eyebrow .tick{ width:22px; height:2px; background:var(--steel); display:inline-block; }
+  h1{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(2rem,6vw,3.1rem); line-height:1.02; margin:.05em 0 .3em; } h1 .q{ font-style:italic; font-weight:600; color:var(--steel-deep); }
+  .dek{ font-size:clamp(1.04rem,2.2vw,1.22rem); line-height:1.45; color:var(--muted); max-width:66ch; margin:0 0 26px; } .meta-row{ font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 24px; } .meta-row b{ color:var(--navy); }
+  .legend{ margin:24px 0 0; padding:14px 16px; background:var(--card); border:1px solid var(--rule-strong); } .legend .lt{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; } .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; color:#fff; } .chip.hi{background:var(--hi)} .chip.mod{background:var(--mod)} .chip.low{background:var(--low)} .chip.unk{background:var(--unk)}
+  .c{ font-family:"JetBrains Mono",monospace; font-size:10px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 6px; color:#fff; vertical-align:.12em; white-space:nowrap; } .c.hi{background:var(--hi)} .c.mod{background:var(--mod)} .c.low{background:var(--low)} .c.unk{background:var(--unk)}
+  .verdict{ margin:32px 0 8px; padding:24px 26px; background:var(--slate); color:#eef1f5; } .verdict .vk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#9fb6c9; margin-bottom:9px; } .verdict .vt{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.55rem; line-height:1.12; margin:0 0 .4em; color:#fff; } .verdict .vt em{ color:#8fbede; font-style:italic; } .verdict p{ margin:0; font-size:1rem; color:#d4dbe3; }
+  section{ padding:36px 0; border-bottom:1px solid var(--rule); } .sec-no{ font-family:"JetBrains Mono",monospace; font-size:11.5px; font-weight:700; letter-spacing:.1em; color:var(--steel); margin-bottom:9px; display:block; }
+  h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(1.4rem,3.4vw,1.9rem); line-height:1.1; margin:0 0 .5em; } h3{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.18rem; margin:.3em 0 .4em; }
+  p{ margin:0 0 1.05em; } p:last-child{ margin-bottom:0; } .lead{ font-size:1.05rem; } ul.clean{ padding-left:1.15em; margin:.3em 0 1.05em; } ul.clean li{ margin:0 0 .55em; }
+  .statrow{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:22px 0 6px; } @media(min-width:620px){ .statrow{ grid-template-columns:repeat(4,1fr); } }
+  .stat{ background:var(--card); border:1px solid var(--rule-strong); padding:14px 15px; } .stat .v{ font-family:"Playfair Display",serif; font-weight:700; font-size:1.45rem; line-height:1; } .stat .l{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.03em; text-transform:uppercase; color:var(--muted); margin-top:7px; line-height:1.4; }
+  .prob{ background:var(--card); border:1px solid var(--rule-strong); padding:20px 22px; margin:14px 0; } .prob .pn{ font-family:"JetBrains Mono",monospace; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--steel-deep); }
+  .panel{ margin:8px 0 0; padding:22px 26px; background:#eef2f6; border:1px solid #cdd9e4; border-left:4px solid var(--steel); } .panel .pk{ font-family:"JetBrains Mono",monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--steel-deep); margin-bottom:10px; }
+  .chartwrap{ background:var(--card); border:1px solid var(--rule-strong); padding:16px 16px 10px; margin:14px 0; } .chartwrap svg{ width:100%; height:auto; display:block; }
+  .sw{ display:inline-block; width:12px; height:12px; vertical-align:-1px; margin-right:3px; } .sw.rev{ background:#002198 } .sw.exp{ background:#a8322c }
+  .cap{ font-family:"JetBrains Mono",monospace; font-size:10.5px; color:var(--muted); margin:8px 0 0; line-height:1.5; }
+  .tw{ overflow-x:auto; margin:14px 0 6px; background:var(--card); border:1px solid var(--rule-strong); } table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+  th,td{ text-align:left; padding:9px 11px; border-bottom:1px solid var(--rule); vertical-align:top; } th{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:#f3f6f9; white-space:nowrap; }
+  td.n{ text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; } td .sub{ font-family:"JetBrains Mono",monospace; font-size:10px; color:var(--muted); } td .terms{ font-size:.84rem; color:var(--muted); margin-top:4px; } td.note{ font-size:.84rem; color:var(--muted); min-width:220px; }
+  .sources ol{ font-size:.93rem; color:var(--muted); padding-left:1.4em; } .sources li{ margin:0 0 .55em; } .sources .tag{ font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--steel-deep); border:1px solid var(--rule-strong); padding:1px 5px; margin-left:7px; }
+  footer{ padding:28px 0 64px; font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--muted); line-height:1.7; } footer .bar{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }
+</style>
+<link rel="stylesheet" href="assets/kromer-theme.css">
+</head>
+<body>
+<div class="hubbar"><div class="hubbar-in"><a class="back" href="index.html">&larr; Learn About Berkeley</a><span class="stamp">Fund ledger · ACFR-east-bay-public-utilities-commission</span></div></div>
+<main class="wrap">
+  <header class="masthead">
+    <div class="eyebrow"><span class="tick"></span> Following the money</div>
+    <h1>East Bay Public Utilities Commission</h1>
+    <p class="dek">East Bay Public Utilities Commission is a special revenue fund: money earmarked by a tax measure, a grant or a fee for one purpose. This page is its ledger: the audited figures, where the money came from and went, and the dated events once they have been read from Council records.</p>
+    <div class="meta-row"><span><b>Fund</b> ACFR-east-bay-public-utilities-commission · special revenue</span><span><b>Department</b> See budget</span><span><b>Ledger updated</b> 2026-10-22</span><span><b>Data</b> <a href="data/funds/ACFR-east-bay-public-utilities-commission.json">ACFR-east-bay-public-utilities-commission.json</a></span></div>
+    <div class="legend"><div class="lt">How to read the confidence labels</div><div class="chips"><span class="chip hi">High</span><span class="chip mod">Moderate</span><span class="chip low">Low</span><span class="chip unk">Unknown</span></div></div>
+  </header>
+
+  <div class="verdict" role="note" aria-label="Bottom line"><div class="vk">Bottom line</div><p class="vt">One year loaded, <em>events not yet read.</em></p><p>In FY2025 it took in $0K and spent $0K, a $0K surplus. Year-end balance $4K. Only the FY2025 audit is loaded for this fund; prior years and the flow ledger are added as the agendas are read. Figures are the City&#x27;s; the reading is ours.</p></div>
+
+  <section>
+    <span class="sec-no">01</span><h2>How the fund was set up</h2>
+    <p class="lead">East Bay Public Utilities Commission: a special revenue fund: money earmarked by a tax measure, a grant or a fee for one purpose. Establishment, legal basis and purpose have not yet been researched for this fund; the ACFR fund description pages are the next source. <span class="c hi">High</span></p>
+    <div class="statrow">
+      <div class="stat"><div class="v">—</div><div class="l">Year established: not yet researched</div></div>
+      <div class="stat"><div class="v">$0K</div><div class="l">FY2025 result, audited</div></div>
+      <div class="stat"><div class="v">$0K</div><div class="l">Transfers in, FY2025</div></div>
+      <div class="stat"><div class="v">$4K</div><div class="l">Balance, June 30, 2025</div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-no">02</span><h2>Every year, audited</h2>
+    <p class="lead">Revenue against expenses for the one audited year loaded so far.</p>
+    <div class="chartwrap"><svg viewBox="0 0 860 300" role="img" aria-label="Revenue and expenses by fiscal year">
+<style>.g{stroke:#d8dce6;stroke-width:1} .yl,.xl{font:11px Jost,sans-serif;fill:#4b5577} .rev{fill:#002198} .exp{fill:#a8322c} .proj{opacity:.45}</style>
+<line class="g" x1="70" x2="850" y1="260.0" y2="260.0"/><text class="yl" x="62" y="264.0" text-anchor="end">$0K</text><line class="g" x1="70" x2="850" y1="199.0" y2="199.0"/><text class="yl" x="62" y="203.0" text-anchor="end">$0K</text><line class="g" x1="70" x2="850" y1="138.0" y2="138.0"/><text class="yl" x="62" y="142.0" text-anchor="end">$0K</text><line class="g" x1="70" x2="850" y1="77.0" y2="77.0"/><text class="yl" x="62" y="81.0" text-anchor="end">$0K</text><line class="g" x1="70" x2="850" y1="16.0" y2="16.0"/><text class="yl" x="62" y="20.0" text-anchor="end">$0K</text><rect class="rev" x="74.0" y="16.0" width="384.0" height="244.0"><title>FY2025 revenue: $122 (audited)</title></rect><rect class="exp" x="460.0" y="260.0" width="384.0" height="0.0"><title>FY2025 expenditure: $0 (audited)</title></rect><text class="xl" x="460.0" y="286" text-anchor="middle">25</text>
+</svg>
+<div class="cap"><span class="sw rev"></span> Revenue &nbsp; <span class="sw exp"></span> Expenses &nbsp; faded = staff projection. Revenue and spending as the ACFR statement reports them; transfers in and out are not included in either bar.</div></div>
+    <div class="tw"><table><thead><tr><th>Year</th><th>Basis</th><th>Revenue</th><th>Expenses</th><th>Result</th><th>Balance / net position</th><th>Conf.</th><th>Note</th></tr></thead><tbody><tr><td>FY2025</td><td>audited</td><td class="n">$122</td><td class="n">$0</td><td class="n">$122</td><td class="n">$4,114</td><td><span class="c hi">High</span></td><td class="note">Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.247. Beginning balance 3,992</td></tr></tbody></table></div>
+  </section>
+
+  
+
+  <section>
+    <span class="sec-no">04</span><h2>Where the money comes from and goes, FY2025</h2>
+    <p class="lead">One audited year, as the statement reports it: the fund&#x27;s own revenue sources on the left, its spending by line on the right, and any transfers or loans in shown as rescue money.</p>
+    <div class="chartwrap"><svg viewBox="0 0 900 136" role="img" aria-label="Money in and out of the Marina Fund, FY2025"><style>.fl{font:13px Jost,sans-serif;fill:#0b1540} .fs{font:11px Jost,sans-serif;fill:#4b5577} .fw{fill:#fff}</style><rect x="370.0" y="43.0" width="160" height="80" rx="10" fill="#002198"/><text x="450.0" y="75.0" text-anchor="middle" class="fl fw">East Bay Public Utilities </text><text x="450.0" y="97.0" text-anchor="middle" class="fs fw">balance June 30, 2025: $4K</text><line x1="300" y1="83.0" x2="368.0" y2="83.0" stroke="#1f6b4a" stroke-width="8.0" stroke-linecap="round" opacity=".85"/><text x="292" y="87.0" text-anchor="end" class="fl">Investment income</text><text x="292" y="101.0" text-anchor="end" class="fs">$0K</text><text x="20" y="34" class="fl">Money in, FY2025</text><text x="608" y="34" class="fl">Money out, FY2025</text></svg>
+<div class="cap"><span class="sw" style="background:#1f6b4a"></span> own revenue $0K &nbsp; <span class="sw" style="background:#a8322c"></span> rescue money $0K &nbsp; line width = amount. Outflows are operating expenses plus debt service and transfers; depreciation is non-cash. <span class="c hi">High</span></div></div>
+  </section>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <section>
+    <span class="sec-no">10</span><h2>Open questions and next entries</h2>
+    <h3>Open questions</h3><ul class="clean"><li>Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund.</li></ul>
+    <h3>Next entries</h3><ul class="clean"><li>Load FY2015–FY2024 from the earlier ACFRs.</li><li>Read the fund&#x27;s description page in the ACFR for its legal basis.</li><li>Scan Council budget adoptions and AAO amendments for transfers, loans and cost shifts affecting this fund.</li></ul>
+  </section>
+
+  <section class="sources">
+    <span class="sec-no">Sources</span><ol><li><a href="https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf">City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.247</a> <span class="tag">acfr-2025</span></li></ol>
+    <p class="cap">This page is generated from <a href="data/funds/ACFR-east-bay-public-utilities-commission.json">the fund's ledger file</a> by <code>tools/build_fund_page.py</code>. The schema is in <code>data/funds/SCHEMA.md</code>. Flows proposed by an agent and not yet reviewed are not shown.</p>
+  </section>
+
+  <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer, candidate for Berkeley City Council District 1. The page records what the City's own documents say about one fund; the findings are labeled, and the counterargument is published alongside.</footer>
+</main>
+</body>
+</html>

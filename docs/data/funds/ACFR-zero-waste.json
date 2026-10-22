@@ -1,0 +1,119 @@
+{
+ "fund_number": "ACFR-zero-waste",
+ "name": "Zero Waste",
+ "type": "enterprise",
+ "department": "Public Works / Parks / Planning",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "enterprise",
+ "self_supporting": true,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 55824861,
+   "expenditure": 57295995,
+   "transfers_in": 0,
+   "transfers_out": 845928,
+   "ending_balance": -923233,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, ACFR p.85. Beginning balance 349,593",
+   "nonoperating": 1044236
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Refuse service fees",
+    "amount": 55822714,
+    "kind": "own"
+   },
+   {
+    "line": "Other revenues",
+    "amount": 2147,
+    "kind": "own"
+   },
+   {
+    "line": "Investment earnings",
+    "amount": 1047149,
+    "kind": "own"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Personnel services",
+    "amount": 15367183
+   },
+   {
+    "line": "Employee benefits",
+    "amount": 9494000
+   },
+   {
+    "line": "Transportation",
+    "amount": 9159456
+   },
+   {
+    "line": "Repairs and maintenance",
+    "amount": 1712823
+   },
+   {
+    "line": "Materials and supplies",
+    "amount": 1794389
+   },
+   {
+    "line": "Utilities",
+    "amount": 839530
+   },
+   {
+    "line": "Specialized and professional services",
+    "amount": 15692133
+   },
+   {
+    "line": "Depreciation",
+    "amount": 461078
+   },
+   {
+    "line": "Communication",
+    "amount": 50233
+   },
+   {
+    "line": "General administration",
+    "amount": 2725170
+   },
+   {
+    "line": "Interest expense",
+    "amount": 2913
+   },
+   {
+    "line": "Transfers out",
+    "amount": 845928
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, p.85",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}
