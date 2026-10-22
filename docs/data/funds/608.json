@@ -47,6 +47,72 @@
     {"id": "608-fy2027-reductions", "date": "2026-06", "fy": 2027, "kind": "reduction", "amount": 433598, "from_fund": "608", "to_fund": "608", "recurring": true, "instrument": "FY2027-28 Adopted Budget", "stated_reason": "Waterfront Manager to 85%, Assistant Civil Engineer to 60%, 5% of Deputy Director shifted to Parks Tax, minor maintenance -$100K, security/marketing/supplies -$81K; net of a Senior Marina Assistant added", "source": "prw-2026-09", "confidence": "High", "reviewer": "SK", "note": "FY2028: $440,240"},
     {"id": "608-doubletree-arrears", "date": "2025-03", "fy": 2026, "kind": "write_off", "amount": 890000, "from_fund": "Doubletree Hotel (tenant)", "to_fund": "608", "recurring": false, "instrument": "Lease (60-year term to 2080; base rent ~$82K/month plus percentage rent)", "stated_reason": "Hotel stopped paying regular rent in early 2025 (Jan per May 2025 deck; March per Sept 2026 deck); paid $964,680 in Sept 2025; nothing since Dec 2025; ~$890K owed as of Sept 2026 (9 months base rent, 3 quarters percentage rent)", "terms": "Not written off; recorded here as revenue at risk. Budget assumed 35% of rent for FY27-28; actual zero. Staff: potential loss $840K through FY28.", "source": "prw-2026-09", "confidence": "High", "reviewer": "SK"}
   ],
+  "assets": {
+    "as_of": "2026-09-09",
+    "source": "prw-2026-09",
+    "confidence": "High",
+    "classes": [
+      {"name": "Shorelines, pathways, pier", "what": "5 miles of Bay Trail and pathways; the closed pier; South Cove small-boat access", "unfunded_need": 55432500},
+      {"name": "Inner harbor and docks", "what": "1,000 berths; D and E docks under replacement; South Cove East Dock repair unfunded; K-Dock; launch ramp; dry storage", "unfunded_need": 33385000},
+      {"name": "Dredging and seawall", "what": "South Cove seawall; dock timber piles; channel dredging", "unfunded_need": 20230000},
+      {"name": "Parking lots", "what": "11 lots", "unfunded_need": 17290000},
+      {"name": "Streets", "what": "1.8 miles: University Ave west of Frontage, Marina Blvd, Spinnaker Way, Seawall Drive", "unfunded_need": 15700000},
+      {"name": "City buildings", "what": "Office building; 125-127 University; Marina corp yard; 199 Seawall; public restrooms; Shorebird Nature Center", "unfunded_need": 10810500},
+      {"name": "Parks", "what": "Cesar Chavez, Shorebird and Horseshoe parks; Adventure Playground; Nature Center programs. Park and landscape maintenance moved to the Parks Tax in FY2026", "unfunded_need": null}
+    ],
+    "also": "All Waterfront utilities; 13 leases and licenses (hotel, restaurants, Skates, Hana Japan, Bait Shop, yacht and sailing clubs, office tenants)"
+  },
+  "balance_sheet": {
+    "as_of": "2025-06-30",
+    "source": "acfr-2025",
+    "confidence": "High",
+    "assets": [
+      {"line": "Cash and investments in treasury", "amount": 0, "note": "Balance exhausted in spring 2025"},
+      {"line": "Accounts receivable", "amount": 6477630, "note": "State grant and tenant arrears; split not disclosed"},
+      {"line": "Lease receivable (current and long-term)", "amount": 27371537, "note": "GASB 87 value of future rent under long leases; an asset only if tenants pay"},
+      {"line": "Land", "amount": 557386},
+      {"line": "Improvements other than buildings", "amount": 17278724},
+      {"line": "Machinery and equipment", "amount": 616316},
+      {"line": "Less accumulated depreciation", "amount": -11160768},
+      {"line": "Total assets", "amount": 45080389}
+    ],
+    "liabilities": [
+      {"line": "Accounts payable", "amount": 1460565},
+      {"line": "Due to other funds (General Fund)", "amount": 2477099},
+      {"line": "Notes payable, State DBW loan (current and long-term)", "amount": 5415120}
+    ],
+    "net_position": 2743673,
+    "note": "Net capital assets of about $7.3M at historical cost, against $163M of unfunded need; book value is not condition. No buildings line is reported for this fund; buildings sit in improvements or elsewhere (Moderate)."
+  },
+  "flow_detail": {
+    "fy": 2025,
+    "source": "acfr-2025",
+    "confidence": "High",
+    "inflows": [
+      {"line": "Berth rents", "amount": 5329258, "kind": "own"},
+      {"line": "Leases (hotel about half in a normal year)", "amount": 2265554, "kind": "own"},
+      {"line": "State capital grant", "amount": 7689069, "kind": "rescue"},
+      {"line": "General Fund loan", "amount": 2477099, "kind": "rescue"},
+      {"line": "Investment earnings", "amount": 122868, "kind": "own"}
+    ],
+    "outflows": [
+      {"line": "Staff and benefits", "amount": 4179607},
+      {"line": "Contracts and professional services", "amount": 3644335},
+      {"line": "Repairs and maintenance", "amount": 2826103},
+      {"line": "Utilities, supplies, transport, other", "amount": 1623467},
+      {"line": "City central charges (indirect)", "amount": 706259, "note": "Paid to the General Fund"},
+      {"line": "Depreciation (non-cash)", "amount": 594125},
+      {"line": "State loan interest and principal", "amount": 485719, "note": "Through FY2041"},
+      {"line": "Transfers out (First Source, Catastrophic Loss)", "amount": 17452}
+    ]
+  },
+  "tot": {
+    "waterfront_tot_per_year": [1000000, 1500000],
+    "citywide_tot": {"fy2026_adopted": 6500000, "fy2027_proposed": 7725000, "fy2028_proposed": 7867547},
+    "pledge": "Resolution 70,997 (July 25, 2023): the total Waterfront TOT from FY2025 until the $5.5M Workers' Compensation loan plus $500,000 is repaid",
+    "sources": ["council-2023-07-25", "budget-fy27-28"],
+    "confidence": "High"
+  },
   "obligations": [
     {"kind": "unfunded_capital", "amount": 131000000, "as_of": "2025-05-22", "note": "Failing docks and pilings; no capital reserve", "source": "bf-2025-05", "confidence": "High"},
     {"kind": "unfunded_capital", "amount": 163344000, "as_of": "2026-09-09", "note": "Inner harbor/docks $33.4M; parking lots $17.3M; streets $15.7M; shorelines/pathways/pier $55.4M; dredging and seawall $20.2M; City buildings $10.8M", "source": "prw-2026-09", "confidence": "High"},
@@ -74,6 +140,7 @@
     "council-2023-07-25": {"title": "Council Item 19, $5.5M Loan for D and E Dock Replacement Project, July 25, 2023 (staff report, revised; annotated agenda action)", "url": "https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2019%205.5M%20Loan%20for%20D%20and%20E%20Dock%20Replacement%20-%20REV%20PRW.pdf", "date": "2023-07-25"},
     "council-2025-06-24": {"title": "FY 2026 Proposed Budget Update Adoption, Council Item 24, June 24, 2025", "url": "https://berkeleyca.gov/sites/default/files/documents/2025-06-24%20Item%2024%20FY%202026%20Proposed%20Budget%20Update%20Adoption.pdf", "date": "2025-06-24"},
     "council-2025-11-18": {"title": "FY 2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2)", "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf", "date": "2025-11-18"},
+    "budget-fy27-28": {"title": "Proposed FY 2027 and FY 2028 Biennial Budget, Item 21, May 19, 2026 (General Fund revenue by category: Transient Occupancy Taxes)", "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf", "date": "2026-05-19"},
     "council-2024-09-24": {"title": "Resolution Clarifying the Intent of Measure Y (2024), Council Item 10, September 24, 2024", "url": "https://berkeleyca.gov/sites/default/files/documents/2024-09-24%20Item%2010%20Resolution%20Clarifying%20the%20Intent%20of%20Measure%20Y%20%282024%29%20-%20Rev.pdf", "date": "2024-09-24"}
   }
 }

@@ -19,6 +19,10 @@ Validate with `python3 tools/ledger.py data/funds/608.json`.
 | `annual` | array of Year | Audited or adopted figures by fiscal year (see below) |
 | `flows` | array of Flow | Dated events (see below) |
 | `obligations` | array | `{kind, amount, as_of, note, source, confidence}`: unfunded capital need, debt, loans owed |
+| `assets` | object, optional | `{as_of, source, confidence, classes[{name, what, unfunded_need}], also}`: the physical inventory the fund must maintain |
+| `balance_sheet` | object, optional | `{as_of, source, confidence, assets[{line, amount, note}], liabilities[...], net_position, note}`: the ACFR statement of net position for the fund |
+| `flow_detail` | object, optional | `{fy, source, confidence, inflows[{line, amount, kind: own|rescue}], outflows[{line, amount, note}]}`: one audited year's money in and out, for the flow diagram |
+| `tot` | object, optional | Fund-specific: a pledged revenue stream and its size (used by the Marina page's hotel-tax section) |
 | `status` | object | `{structural_deficit, years_in_deficit, last_update, open_questions[]}` |
 | `sources` | object | `id -> {title, url, date}`; flows and years cite a source by id |
 

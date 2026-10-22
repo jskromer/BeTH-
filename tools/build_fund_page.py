@@ -62,6 +62,13 @@ NARRATIVE = {
             ("The problem is the charter, not the year.", "Every rescue restates the same mismatch: an enterprise fund that must cover streets, parks and a seawall for the general public out of boat slips and a hotel lease. Until the Waterfront's public-park costs are carried by the funds that carry every other park, the next rescue is already scheduled.", "Moderate"),
         ],
         "counter": "An enterprise fund with a 25-year structural deficit has two honest outcomes: subsidize it openly or close the service. Berkeley has chosen to subsidize, and every transfer on this page went through a public vote of the Council. Measure Y's park-maintenance purpose does cover Waterfront parks, which are parks, and the Council said so before the election. The Doubletree collapse is a Bay Area hotel-market event the City did not cause. Replacing a State loan with an internal one saved the fund up to $10M in interest. And letting the Waterfront fail would cost more than any of this. The ledger does not settle that argument; it makes it visible.",
+        "tot_lead": "The Waterfront's hotel generates Transient Occupancy Tax, and the question comes up every time the Marina Fund is discussed: why not just give the Marina its own hotel tax? It is about the right size for the operating gap. It is not a fix, for three reasons.",
+        "tot_points": [
+            ("It is already pledged.", "Council's July 25, 2023 resolution directs the entire Waterfront TOT, from FY2025 until paid off, to repay the $5.5M Workers' Compensation loan plus $500,000. At $1.0–1.5M a year that runs four to six years, into roughly FY2029–2031. Whether any TOT has actually flowed to that repayment is an open question; the audits do not show it.", "High"),
+            ("It comes from the same hotel.", "TOT is a percentage of room revenue at the Doubletree, which has lost money every year since 2020, is in special servicing, and has paid no rent since December 2025. When a hotel's lease income fails its tax yield is falling too; if the lender takes it or closes it, TOT goes to zero. Pledging TOT to the Marina swaps one bet on this hotel for a larger bet on the same hotel.", "High"),
+            ("It is General Fund money.", "TOT is a general tax. Sending it to the Marina needs no vote, only a budget line, but it is a $1.0–1.5M annual General Fund subsidy with a label, in a year the General Fund is cutting $29M. It makes the sixth pocket permanent; it does not make the fund self-supporting. And at $1.5M a year, a capital reserve would reach the $163M need in about a century.", "High"),
+        ],
+        "tot_close": "Where the idea is strongest: 'revenue the Waterfront generates should stay at the Waterfront' is the charter fix this page points at, done properly. Waterfront parks to the Parks Tax (done, via Measure Y), Waterfront streets to the street funds, and Waterfront TOT to a Marina capital reserve once the loan is repaid, with the operating fund sized to berths and leases only. That would be a re-chartering, which is what the fund has needed for 25 years. It would still not be 'everything.'",
         "what_next": [
             "Ask Finance how the July 2023 $5.5M authorization was booked, how much has been drawn, and how much Waterfront TOT has gone to repay it since FY2025.",
             "Ask which 'other funds' absorbed the FY2024 $800K cost shift.",
@@ -122,10 +129,55 @@ def build(json_path: Path, out_path: Path):
         s = src[f["source"]]
         frows.append(f'<tr><td>FY{f["fy"]}<div class="sub">{esc(f["date"])}</div></td><td>{esc(KIND_LABEL.get(f["kind"], f["kind"]))}{"<div class=sub>recurring</div>" if f.get("recurring") else ""}</td><td class="n">{money(f.get("amount"))}</td><td>{path}</td><td>{detail}</td><td><a href="{esc(s["url"])}">{esc(f["instrument"])}</a></td><td>{chip(f["confidence"])}</td></tr>')
 
+    # ---- assets: physical inventory and balance sheet ----
+    assets_html = ""
+    A = d.get("assets")
+    if A:
+        rows = "".join(f'<tr><td>{esc(c["name"])}</td><td>{esc(c["what"])}</td><td class="n">{money(c["unfunded_need"]) if c["unfunded_need"] is not None else "—"}</td></tr>' for c in A["classes"])
+        tot_need = sum(c["unfunded_need"] or 0 for c in A["classes"])
+        assets_html += f'<h3>What the fund has to maintain</h3><div class="tw"><table><thead><tr><th>Asset class</th><th>What it is</th><th>Unfunded need</th></tr></thead><tbody>{rows}<tr class="sub"><td>Total</td><td>{esc(A.get("also",""))}</td><td class="n">{money(tot_need)}</td></tr></tbody></table></div><div class="cap">Inventory from the May 2025 and September 2026 staff decks; unfunded need as of {esc(A["as_of"])}. {chip(A["confidence"])}</div>'
+    B = d.get("balance_sheet")
+    if B:
+        ar = "".join(f'<tr><td>{esc(a["line"])}</td><td class="n">{money(a["amount"])}</td><td class="note">{esc(a.get("note",""))}</td></tr>' for a in B["assets"])
+        lr = "".join(f'<tr><td>{esc(a["line"])}</td><td class="n">{money(a["amount"])}</td><td class="note">{esc(a.get("note",""))}</td></tr>' for a in B["liabilities"])
+        assets_html += f'<h3>What the fund owns on paper, {esc(B["as_of"])}</h3><div class="tw"><table><thead><tr><th>Assets</th><th>Amount</th><th>Note</th></tr></thead><tbody>{ar}</tbody><thead><tr><th>Liabilities</th><th>Amount</th><th>Note</th></tr></thead><tbody>{lr}<tr class="sub"><td>Net position</td><td class="n">{money(B["net_position"])}</td><td></td></tr></tbody></table></div><div class="cap">{esc(B.get("note",""))} {chip(B["confidence"])}</div>'
+
+    # ---- flow diagram: one audited year, inline SVG ----
+    flow_html = ""
+    F = d.get("flow_detail")
+    if F:
+        ins = sorted(F["inflows"], key=lambda x: -x["amount"])
+        outs = sorted(F["outflows"], key=lambda x: -x["amount"])
+        vmax = max(x["amount"] for x in ins + outs)
+        rowh = 46
+        n_rows = max(len(ins), len(outs))
+        H = 60 + rowh * n_rows + 30
+        W = 900
+        cx = W / 2
+        parts = []
+        parts.append(f'<rect x="{cx-80}" y="{60 + rowh*n_rows/2 - 40}" width="160" height="80" rx="10" fill="#002198"/><text x="{cx}" y="{60 + rowh*n_rows/2 - 8}" text-anchor="middle" class="fl fw">Marina Fund</text><text x="{cx}" y="{60 + rowh*n_rows/2 + 14}" text-anchor="middle" class="fs fw">cash at year end: $0</text>')
+        for i, x in enumerate(ins):
+            y = 60 + i * rowh + rowh / 2
+            w = 1 + 7 * x["amount"] / vmax
+            col = "#1f6b4a" if x["kind"] == "own" else "#a8322c"
+            parts.append(f'<line x1="300" y1="{y}" x2="{cx-82}" y2="{60 + rowh*n_rows/2}" stroke="{col}" stroke-width="{w:.1f}" stroke-linecap="round" opacity=".85"/>')
+            parts.append(f'<text x="292" y="{y+4}" text-anchor="end" class="fl">{esc(x["line"])}</text><text x="292" y="{y+18}" text-anchor="end" class="fs">{money(x["amount"], True)}</text>')
+        for i, x in enumerate(outs):
+            y = 60 + i * rowh + rowh / 2
+            w = 1 + 7 * x["amount"] / vmax
+            parts.append(f'<line x1="{cx+82}" y1="{60 + rowh*n_rows/2}" x2="600" y2="{y}" stroke="#4b5577" stroke-width="{w:.1f}" stroke-linecap="round" opacity=".8"/>')
+            parts.append(f'<text x="608" y="{y+4}" class="fl">{esc(x["line"])}</text><text x="608" y="{y+18}" class="fs">{money(x["amount"], True)}{(" · " + esc(x["note"])) if x.get("note") else ""}</text>')
+        parts.append(f'<text x="20" y="34" class="fl">Money in, FY{F["fy"]}</text><text x="608" y="34" class="fl">Money out, FY{F["fy"]}</text>')
+        own = sum(x["amount"] for x in ins if x["kind"] == "own"); rescue = sum(x["amount"] for x in ins if x["kind"] != "own")
+        flow_html = f'''<div class="chartwrap"><svg viewBox="0 0 {W} {H}" role="img" aria-label="Money in and out of the Marina Fund, FY{F["fy"]}"><style>.fl{{font:13px Jost,sans-serif;fill:#0b1540}} .fs{{font:11px Jost,sans-serif;fill:#4b5577}} .fw{{fill:#fff}}</style>{''.join(parts)}</svg>
+<div class="cap"><span class="sw" style="background:#1f6b4a"></span> own revenue {money(own, True)} &nbsp; <span class="sw" style="background:#a8322c"></span> rescue money {money(rescue, True)} &nbsp; line width = amount. Outflows are operating expenses plus debt service and transfers; depreciation is non-cash. {chip(F["confidence"])}</div></div>'''
+
     # ---- obligations ----
     orows = [f'<tr><td>{esc(o["kind"].replace("_"," "))}</td><td class="n">{money(o["amount"])}</td><td>{esc(o["as_of"])}</td><td>{esc(o["note"])}</td><td>{chip(o["confidence"])}</td></tr>' for o in d.get("obligations", [])]
 
     findings = "".join(f'<div class="prob"><div class="pn">Finding {i+1}</div><h3>{esc(t)}</h3><p>{esc(b)} {chip(c)}</p></div>' for i, (t, b, c) in enumerate(n.get("findings", [])))
+    tot_points = "".join(f'<div class="prob"><div class="pn">Reason {i+1}</div><h3>{esc(t)}</h3><p>{esc(b)} {chip(c)}</p></div>' for i, (t, b, c) in enumerate(n.get("tot_points", [])))
+    T = d.get("tot", {"waterfront_tot_per_year": [0, 0], "citywide_tot": {"fy2027_proposed": 0}, "pledge": "", "confidence": "Unknown"})
     openq = "".join(f"<li>{esc(q)}</li>" for q in d["status"].get("open_questions", []))
     nextq = "".join(f"<li>{esc(q)}</li>" for q in n.get("what_next", []))
     sources = "".join(f'<li><a href="{esc(s["url"])}">{esc(s["title"])}</a> <span class="tag">{esc(sid)}</span></li>' for sid, s in src.items())
@@ -194,7 +246,7 @@ def build(json_path: Path, out_path: Path):
     <div class="statrow">
       <div class="stat"><div class="v">{d["established"]["year"]}</div><div class="l">Established, to receive a $1.8M State loan</div></div>
       <div class="stat"><div class="v">{money(latest["revenue"]-latest["expenditure"], True)}</div><div class="l">FY{latest["fy"]} operating result, audited</div></div>
-      <div class="stat"><div class="v">{money(rescue_total, True)}</div><div class="l">Moved in from other pockets since FY2022 (ledger, section 03)</div></div>
+      <div class="stat"><div class="v">{money(rescue_total, True)}</div><div class="l">Moved in from other pockets since FY2022 (ledger, section 05)</div></div>
       <div class="stat"><div class="v">{money(unfunded["amount"], True)}</div><div class="l">Unfunded capital need, {esc(unfunded["as_of"][:7])}; no reserve</div></div>
     </div>
   </section>
@@ -207,29 +259,55 @@ def build(json_path: Path, out_path: Path):
   </section>
 
   <section>
-    <span class="sec-no">03</span><h2>The flow ledger: every dollar moved in or out</h2>
-    <p class="lead">Each row is one action that is not the fund's own revenue or ordinary spending, with the document that authorized it. Rows are recorded only against a primary source.</p>
-    <div class="tw"><table><thead><tr><th>FY</th><th>Kind</th><th>Amount</th><th>From → to</th><th>What and why</th><th>Instrument</th><th>Conf.</th></tr></thead><tbody>{''.join(frows)}</tbody></table></div>
-    <div class="cap">Kinds: transfer in, cost shift, loan, grant, indirect-cost reduction and charge holiday count as rescues (the {money(rescue_total, True)} above). Fee changes, reductions and revenue at risk are the fund's own measures and are listed for completeness.</div>
+    <span class="sec-no">03</span><h2>The assets</h2>
+    <p class="lead">Two views: the physical system the fund is charged with maintaining, with staff's unfunded need by class, and what the audited balance sheet says the fund owns.</p>
+    {assets_html}
   </section>
 
   <section>
-    <span class="sec-no">04</span><h2>What the fund owes</h2>
+    <span class="sec-no">04</span><h2>Where the money comes from and goes, FY{F["fy"] if F else ""}</h2>
+    <p class="lead">One audited year. In a normal year the fund's own revenue of about $7M runs close to its operating cost of about $7.3M, so the structural gap is roughly $1M. FY2025 looks worse because dock-project spending ran through operations, and a State grant and a General Fund loan covered it. The General Fund sits on both sides: it collects the central charges and it lends the money in.</p>
+    {flow_html}
+  </section>
+
+  <section>
+    <span class="sec-no">05</span><h2>The flow ledger: every dollar moved in or out</h2>
+    <p class="lead">Each row is one action that is not the fund's own revenue or ordinary spending, with the document that authorized it. Rows are recorded only against a primary source.</p>
+    <div class="tw"><table><thead><tr><th>FY</th><th>Kind</th><th>Amount</th><th>From → to</th><th>What and why</th><th>Instrument</th><th>Conf.</th></tr></thead><tbody>{''.join(frows)}</tbody></table></div>
+    <div class="cap">Kinds: transfer in, cost shift, loan, grant, indirect-cost reduction and charge holiday count as rescues (the {money(rescue_total, True)} in section 01). Fee changes, reductions and revenue at risk are the fund's own measures and are listed for completeness.</div>
+  </section>
+
+  <section>
+    <span class="sec-no">06</span><h2>What the fund owes</h2>
     <div class="tw"><table><thead><tr><th>Obligation</th><th>Amount</th><th>As of</th><th>Note</th><th>Conf.</th></tr></thead><tbody>{''.join(orows)}</tbody></table></div>
   </section>
 
   <section>
-    <span class="sec-no">05</span><h2>What the ledger shows</h2>
+    <span class="sec-no">07</span><h2>What about the hotel tax?</h2>
+    <p class="lead">{esc(n.get("tot_lead",""))}</p>
+    <div class="statrow">
+      <div class="stat"><div class="v">{money(T["waterfront_tot_per_year"][0], True)}–{money(T["waterfront_tot_per_year"][1], True)}</div><div class="l">Waterfront TOT per year (staff, 2023)</div></div>
+      <div class="stat"><div class="v">{money(T["citywide_tot"]["fy2027_proposed"], True)}</div><div class="l">Citywide TOT, FY2027 budget</div></div>
+      <div class="stat"><div class="v">~$1.0M</div><div class="l">Operating gap, staff forecast FY27–28</div></div>
+      <div class="stat"><div class="v">{money(unfunded["amount"], True)}</div><div class="l">Capital need the TOT would not touch</div></div>
+    </div>
+    {tot_points}
+    <div class="panel"><div class="pk">Where the idea is strongest</div><p>{esc(n.get("tot_close",""))} {chip("Moderate")}</p></div>
+    <div class="cap">Pledge: {esc(T["pledge"])}. Sources: Council Item 19, July 25, 2023; FY2027–28 proposed budget, General Fund revenue by category. {chip(T["confidence"])}</div>
+  </section>
+
+  <section>
+    <span class="sec-no">08</span><h2>What the ledger shows</h2>
     {findings}
   </section>
 
   <section>
-    <span class="sec-no">06</span><h2>The counterargument</h2>
+    <span class="sec-no">09</span><h2>The counterargument</h2>
     <div class="panel"><div class="pk">Strongest case against this page</div><p>{esc(n.get("counter",""))} {chip("Moderate")}</p></div>
   </section>
 
   <section>
-    <span class="sec-no">07</span><h2>Open questions and next entries</h2>
+    <span class="sec-no">10</span><h2>Open questions and next entries</h2>
     <h3>Open questions</h3><ul class="clean">{openq}</ul>
     <h3>Next entries</h3><ul class="clean">{nextq}</ul>
   </section>
