@@ -2,16 +2,28 @@
  "fund_number": "ACFR-park-tax",
  "name": "Park Tax",
  "type": "special_revenue",
- "department": "See budget",
+ "department": "Parks, Recreation & Waterfront",
  "established": {
-  "year": null,
-  "purpose": "Not yet researched",
-  "source": "acfr-2025"
+  "year": 1997,
+  "purpose": "Voter-approved parcel tax for parks, trees and landscaping maintenance (Measure F 1997; raised 2000, 2008, 2014 and by Measure Y in 2024)",
+  "source": "council-2024-09-24"
  },
- "legal_basis": "Not yet researched",
+ "legal_basis": "Special parcel tax (two-thirds vote); rate $0.2652 per square foot of improvements after Measure Y (Nov 2024), indexed annually",
  "restriction": "restricted",
  "self_supporting": false,
  "annual": [
+  {
+   "fy": 2024,
+   "basis": "audited",
+   "revenue": 18125115,
+   "expenditure": 15103645,
+   "transfers_in": 0,
+   "transfers_out": 45244,
+   "ending_balance": 10539343,
+   "source": "acfr-2024",
+   "confidence": "High",
+   "note": "Nonmajor combining statement, ACFR FY2024"
+  },
   {
    "fy": 2025,
    "basis": "audited",
@@ -25,7 +37,55 @@
    "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.243. Beginning balance 10,539,343"
   }
  ],
- "flows": [],
+ "flows": [
+  {
+   "id": "parktax-2024-11-05-measure-y",
+   "date": "2024-11-05",
+   "fy": 2026,
+   "kind": "fee_change",
+   "amount": 3800000,
+   "from_fund": "property owners",
+   "to_fund": "ACFR-park-tax",
+   "recurring": true,
+   "instrument": "Measure Y (November 2024, 75% yes); Council intent resolution Sept 24, 2024, Item 10",
+   "stated_reason": "Raise the Parks Tax from $0.221 to $0.2652 per square foot, about $3.8M a year, for park and landscape maintenance in the Waterfront including Cesar Chavez Park, the urban forest and park capital",
+   "source": "council-2024-09-24",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "The ballot question named parks, trees and landscaping generally; the Council's pre-election resolution named the Waterfront."
+  },
+  {
+   "id": "parktax-fy2026-marina-cost-shift",
+   "date": "2025-07-01",
+   "fy": 2026,
+   "kind": "cost_shift",
+   "amount": 1579000,
+   "from_fund": "608",
+   "to_fund": "ACFR-park-tax",
+   "recurring": true,
+   "instrument": "Measure Y; FY2026 budget",
+   "stated_reason": "Waterfront park and landscape maintenance moved from the Marina Fund to the Parks Tax",
+   "source": "prw-2026-09",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Staff: this shift alone covered the Marina Fund's $1.1M structural deficit. In FY2027-28 a further 5% of the Waterfront Deputy Director is shifted to the Parks Tax."
+  },
+  {
+   "id": "parktax-fy2025-transfers-out",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_out",
+   "amount": 115338,
+   "from_fund": "ACFR-park-tax",
+   "to_fund": "First Source Fund and Public Art Fund",
+   "recurring": false,
+   "instrument": "ACFR FY2025 combining statement; FY2026 AAO lists $26,925 and $68,119",
+   "stated_reason": "Percent-for-art and first-source hiring set-asides",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK"
+  }
+ ],
  "flow_detail": {
   "fy": 2025,
   "source": "acfr-2025",
@@ -91,13 +151,23 @@
    }
   ]
  },
- "obligations": [],
+ "obligations": [
+  {
+   "kind": "unfunded_capital",
+   "amount": 281500000,
+   "as_of": "2026-06-16",
+   "note": "Parks and camps unfunded need in the proposed FY2027-31 CIP; Measure Y contributes about $2.75M a year of park capital",
+   "source": "auditor-dashboard",
+   "confidence": "Moderate"
+  }
+ ],
  "status": {
   "structural_deficit": false,
-  "years_in_deficit": "one audited year loaded",
+  "years_in_deficit": "Surplus in FY2024 and FY2025; balance rising",
   "last_update": "2026-10-22",
   "open_questions": [
-   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+   "How much of the Measure Y uplift is consumed by the Marina cost shift and the Deputy Director shift versus new park maintenance capacity.",
+   "Whether park maintenance staffing rose after Measure Y (FY2026 budget by program)."
   ]
  },
  "sources": {
@@ -105,7 +175,31 @@
    "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.243",
    "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
    "date": "2026-01"
+  },
+  "acfr-2024": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2024 (governmental funds statement p.78; proprietary p.87-88; internal service p.311-312; nonmajor combining p.227-244)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "date": "2024-12"
+  },
+  "aao-fy26-nov2025": {
+   "title": "FY2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2): schedule of transfers",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+   "date": "2025-11-18"
+  },
+  "council-2024-09-24": {
+   "title": "Resolution Clarifying the Intent of Measure Y (2024), Council Item 10, September 24, 2024",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2024-09-24%20Item%2010%20Resolution%20Clarifying%20the%20Intent%20of%20Measure%20Y%20%282024%29%20-%20Rev.pdf",
+   "date": "2024-09-24"
+  },
+  "prw-2026-09": {
+   "title": "Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Suppl%20Communications%20-%20PRW%20Commission%20-%202026-09-09_0.pdf",
+   "date": "2026-09-09"
+  },
+  "auditor-dashboard": {
+   "title": "Berkeley City Auditor, Recommendation Dashboard (status of audit recommendations)",
+   "url": "https://dashboard.missionmark.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/",
+   "date": "2026-04-24"
   }
- },
- "generated_by": "tools/acfr_funds.py"
+ }
 }

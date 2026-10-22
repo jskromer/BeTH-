@@ -1,17 +1,29 @@
 {
  "fund_number": "ACFR-equipment-maintenance-replacement",
- "name": "Equipment Maintenance Replacement",
+ "name": "Equipment Maintenance & Replacement (Funds 671 and 672)",
  "type": "internal_service",
- "department": "Finance / Public Works / IT / HR",
+ "department": "Public Works (Fleet)",
  "established": {
   "year": null,
-  "purpose": "Not yet researched",
-  "source": "acfr-2025"
+  "purpose": "Internal service funds that bill departments for vehicle maintenance (672) and bank replacement charges to buy vehicles when they age out (671); the ACFR reports them as one fund",
+  "source": "fleet-audit-2025-02-27"
  },
- "legal_basis": "Not yet researched",
+ "legal_basis": "Internal service fund; charges set in the budget; Fleet Replacement Fund Short Millions audit (June 2, 2021) recommended an Administrative Regulation requiring documented justification before transfers out",
  "restriction": "enterprise",
  "self_supporting": true,
  "annual": [
+  {
+   "fy": 2024,
+   "basis": "audited",
+   "revenue": 19717617,
+   "expenditure": 14224342,
+   "transfers_in": 1581700,
+   "transfers_out": 500000,
+   "ending_balance": 34857480,
+   "source": "acfr-2024",
+   "confidence": "High",
+   "note": "Internal service combining statement, ACFR FY2024 p.311-312"
+  },
   {
    "fy": 2025,
    "basis": "audited",
@@ -26,7 +38,70 @@
    "nonoperating": 338318
   }
  ],
- "flows": [],
+ "flows": [
+  {
+   "id": "equip-fy2024-671-to-672",
+   "date": "FY2024",
+   "fy": 2024,
+   "kind": "transfer_out",
+   "amount": 500000,
+   "from_fund": "Fund 671 Equipment Replacement",
+   "to_fund": "Fund 672 Equipment Maintenance",
+   "recurring": false,
+   "instrument": "FY2024 budget / AAO (per Fleet Audit presentation, Feb 27, 2025)",
+   "stated_reason": "Operating expenses of the maintenance fund paid from the replacement fund",
+   "source": "fleet-audit-2025-02-27",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Shown in the combined ACFR fund as transfers out $500,000 in FY2024."
+  },
+  {
+   "id": "equip-fy2025-671-to-672",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_out",
+   "amount": 2000000,
+   "from_fund": "Fund 671 Equipment Replacement",
+   "to_fund": "Fund 672 Equipment Maintenance",
+   "recurring": false,
+   "instrument": "FY2025 budget / AAO (per Fleet Audit presentation, Feb 27, 2025)",
+   "stated_reason": "Operating expenses of the maintenance fund paid from the replacement fund",
+   "source": "fleet-audit-2025-02-27",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "The audit's recommendation 1.6, an Administrative Regulation requiring written justification before such transfers, was still 'partly implemented' in October 2025."
+  },
+  {
+   "id": "equip-fy2025-gf-in",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_in",
+   "amount": 1759380,
+   "from_fund": "011 ($1,631,358) and Capital Improvement Fund ($128,022)",
+   "to_fund": "ACFR-equipment-maintenance-replacement",
+   "recurring": false,
+   "instrument": "ACFR FY2025, Note B Transfers (p.79)",
+   "stated_reason": "General Fund and CIP contributions to equipment replacement",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK"
+  },
+  {
+   "id": "equip-2025-11-18-aao-in",
+   "date": "2025-11-18",
+   "fy": 2026,
+   "kind": "transfer_in",
+   "amount": 2437410,
+   "from_fund": "011 ($1,759,380) and Capital Improvement Fund ($678,030)",
+   "to_fund": "ACFR-equipment-maintenance-replacement",
+   "recurring": false,
+   "instrument": "FY2026 AAO Amendment, Consent Item 8, November 18, 2025",
+   "stated_reason": "Budgeted FY2026 contributions",
+   "source": "aao-fy26-nov2025",
+   "confidence": "High",
+   "reviewer": "SK"
+  }
+ ],
  "flow_detail": {
   "fy": 2025,
   "source": "acfr-2025",
@@ -104,13 +179,32 @@
    }
   ]
  },
- "obligations": [],
+ "obligations": [
+  {
+   "kind": "replacement_backlog",
+   "amount": null,
+   "as_of": "2025-02-27",
+   "note": "Fund 671 balance $7.43M (FY2019) to $19.74M (FY2025); $50.3M spent or encumbered on replacement since FY2019; 46 units a year replaced on average (7.4% of the fleet). The audit found the fund short by millions against a full replacement schedule; no dollar figure for the gap is published",
+   "source": "fleet-audit-2025-02-27",
+   "confidence": "High"
+  },
+  {
+   "kind": "future_cost",
+   "amount": 15500000,
+   "as_of": "2025-10-28",
+   "note": "Electric conversion of the Zero Waste fleet: about $9.0M of additional vehicle cost plus $6.5M of chargers (staff estimate)",
+   "source": "fleet-status-2025-10-28",
+   "confidence": "Moderate"
+  }
+ ],
  "status": {
   "structural_deficit": false,
-  "years_in_deficit": "one audited year loaded",
+  "years_in_deficit": "Operating surplus both years; the question is whether replacement charges are adequate and whether the balance stays in the fund",
   "last_update": "2026-10-22",
   "open_questions": [
-   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+   "Which fund the FY2025 $2.0M transfer in beyond the GF and CIP contributions came from (combined fund shows transfers in $3,759,380).",
+   "The new Equipment Maintenance rate model promised for the FY2027-28 mid-biennial update.",
+   "Status of the 11 partly implemented recommendations of the 2021 fleet audit."
   ]
  },
  "sources": {
@@ -118,7 +212,31 @@
    "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, p.321",
    "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
    "date": "2026-01"
+  },
+  "acfr-2024": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2024 (governmental funds statement p.78; proprietary p.87-88; internal service p.311-312; nonmajor combining p.227-244)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "date": "2024-12"
+  },
+  "aao-fy26-nov2025": {
+   "title": "FY2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2): schedule of transfers",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+   "date": "2025-11-18"
+  },
+  "fleet-audit-2025-02-27": {
+   "title": "Fleet Audit presentation, February 27, 2025, Item 2 (Equipment Replacement Fund 671 health; transfers to Fund 672)",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-02-27%20Item%2002%20Presentation%20Fleet%20Audit%20.pdf",
+   "date": "2025-02-27"
+  },
+  "fleet-status-2025-10-28": {
+   "title": "Audit Status Report: Fleet Replacement Fund Short Millions, Council Item 35, October 28, 2025",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2025-10-28%20Item%2035%20Audit%20Status%20Reports%20Fleet%20Replacement%20Fund%20Short%20Millions.pdf",
+   "date": "2025-10-28"
+  },
+  "auditor-dashboard": {
+   "title": "Berkeley City Auditor, Recommendation Dashboard (status of audit recommendations)",
+   "url": "https://dashboard.missionmark.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/",
+   "date": "2026-04-24"
   }
- },
- "generated_by": "tools/acfr_funds.py"
+ }
 }

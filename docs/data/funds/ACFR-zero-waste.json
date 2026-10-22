@@ -2,16 +2,28 @@
  "fund_number": "ACFR-zero-waste",
  "name": "Zero Waste",
  "type": "enterprise",
- "department": "Public Works / Parks / Planning",
+ "department": "Public Works (Zero Waste Division)",
  "established": {
   "year": null,
-  "purpose": "Not yet researched",
-  "source": "acfr-2025"
+  "purpose": "Enterprise fund for refuse, recycling and organics collection, the transfer station and street sweeping, funded by customer rates",
+  "source": "zw-rates-2023-06-27"
  },
- "legal_basis": "Not yet researched",
+ "legal_basis": "Enterprise fund; rates set by Council under Proposition 218 majority-protest procedures; current five-year schedule FY2024-2028 adopted June 27, 2023 (Resolution 70,932-N.S.)",
  "restriction": "enterprise",
  "self_supporting": true,
  "annual": [
+  {
+   "fy": 2024,
+   "basis": "audited",
+   "revenue": 51122638,
+   "expenditure": 56538745,
+   "transfers_in": 0,
+   "transfers_out": 110870,
+   "ending_balance": 769103,
+   "source": "acfr-2024",
+   "confidence": "High",
+   "note": "Proprietary funds statement, ACFR FY2024 p.87-88. Operating loss $5,416,107; change in net position -$3,974,790"
+  },
   {
    "fy": 2025,
    "basis": "audited",
@@ -22,11 +34,59 @@
    "ending_balance": -923233,
    "source": "acfr-2025",
    "confidence": "High",
-   "note": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, ACFR p.85. Beginning balance 349,593",
+   "note": "Proprietary funds statement, ACFR FY2025 p.85-86. Operating loss $1,471,134; change in net position -$1,272,826; net position $349,593 after restatement at year start",
    "nonoperating": 1044236
   }
  ],
- "flows": [],
+ "flows": [
+  {
+   "id": "zw-2023-06-27-rates",
+   "date": "2023-06-27",
+   "fy": 2024,
+   "kind": "fee_change",
+   "amount": null,
+   "from_fund": "ratepayers",
+   "to_fund": "ACFR-zero-waste",
+   "recurring": true,
+   "instrument": "Council Item 49, Resolution 70,932-N.S., five-year rate schedule FY2024-2028 (Proposition 218 hearing)",
+   "stated_reason": "Raise refuse, recycling and organics rates; staff projected the fund stays positive but its balance falls from $24.5M to $3.3M over the five years, and goes negative before the end of FY2025 without the increase",
+   "source": "zw-rates-2023-06-27",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Amount: the schedule gives rates by cart size, not a total; the revenue effect is not stated as one figure. Residential 20-gallon cart $33.30/month in FY2024."
+  },
+  {
+   "id": "zw-fy2025-transfers-out",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_out",
+   "amount": 845928,
+   "from_fund": "ACFR-zero-waste",
+   "to_fund": "Capital Improvement Fund $735,058 (capital project support); Catastrophic Insurance $110,870",
+   "recurring": false,
+   "instrument": "ACFR FY2025, Note B Transfers (p.79)",
+   "stated_reason": "Capital project support and catastrophic insurance",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK"
+  },
+  {
+   "id": "zw-audit-recs-dropped",
+   "date": "2020-03-10",
+   "fy": 2020,
+   "kind": "reduction",
+   "amount": null,
+   "from_fund": "ACFR-zero-waste",
+   "to_fund": "ACFR-zero-waste",
+   "recurring": false,
+   "instrument": "Audit Status Reports, Council Items 31 and 32, March 10, 2020; Auditor's dashboard",
+   "stated_reason": "18 of 27 recommendations from the 2014 and 2016 Zero Waste audits dropped, including a route audit to align billing with service, franchise-fee recovery on recyclables, and biweekly garbage collection (about $496K/yr, needing a state waiver)",
+   "source": "auditor-dashboard",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Amount: the one dropped item with a figure is $496,000 a year; the others were not sized."
+  }
+ ],
  "flow_detail": {
   "fy": 2025,
   "source": "acfr-2025",
@@ -99,13 +159,24 @@
    }
   ]
  },
- "obligations": [],
+ "obligations": [
+  {
+   "kind": "capital",
+   "amount": null,
+   "as_of": "2025-10-28",
+   "note": "Transfer Station replacement (pre-construction funded by the 2023 rates) and electric fleet conversion (about $9.0M vehicles plus $6.5M chargers, per the fleet audit status report)",
+   "source": "auditor-dashboard",
+   "confidence": "Moderate"
+  }
+ ],
  "status": {
   "structural_deficit": true,
-  "years_in_deficit": "one audited year loaded",
+  "years_in_deficit": "Operating losses in FY2024 and FY2025 despite the 2023 rate schedule; net position near zero",
   "last_update": "2026-10-22",
   "open_questions": [
-   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+   "Whether the 2023 rate schedule's balance projection ($3.3M by FY2028) still holds given losses of $4.0M and $1.3M in its first two years.",
+   "The timing and cost of the Transfer Station replacement.",
+   "Which of the 18 dropped audit recommendations the FY2027-28 budget revisits."
   ]
  },
  "sources": {
@@ -113,7 +184,26 @@
    "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds, p.85",
    "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
    "date": "2026-01"
+  },
+  "acfr-2024": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2024 (governmental funds statement p.78; proprietary p.87-88; internal service p.311-312; nonmajor combining p.227-244)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "date": "2024-12"
+  },
+  "zw-rates-2023-06-27": {
+   "title": "Public Hearing on Zero Waste rates FY2024-2028, Council Item 49, June 27, 2023 (Resolution 70,932-N.S.)",
+   "url": "https://www.berkeleyca.gov/sites/default/files/documents/2023-06-27%20Item%2049%20Public%20Hearing%20on%20Zero%20Waste.pdf",
+   "date": "2023-06-27"
+  },
+  "auditor-dashboard": {
+   "title": "Berkeley City Auditor, Recommendation Dashboard (status of audit recommendations)",
+   "url": "https://dashboard.missionmark.com/779a7d0a-a1b8-4c51-bdb1-bf81145bc76e/",
+   "date": "2026-04-24"
+  },
+  "aao-fy26-nov2025": {
+   "title": "FY2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2): schedule of transfers",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+   "date": "2025-11-18"
   }
- },
- "generated_by": "tools/acfr_funds.py"
+ }
 }
