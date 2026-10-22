@@ -88,9 +88,9 @@ FY2025 audited result: operating revenue $7.59M against operating expenses $13.5
 |---|---|---|---|---|---|
 | 2022 | transfer_in | $1.40M | ARPA → Marina | Budget | Federal one-time money |
 | 2023 | transfer_in | $1.15M | ARPA → Marina | Budget | Federal one-time money |
-| 2023 | loan | $5.5M | DBW (State) → Marina | Council 7/25/2023 Item 19 | D & E dock replacement; $585K tied to a Doubletree capital contribution |
+| 2024 | loan | $5.5M | **Workers' Compensation Fund** → Marina | Council 7/25/2023 Item 19, Res. 70,997 | Replaced a State DBW loan; repaid from Waterfront hotel tax (TOT) from FY25 plus $500K, costing the GF $1–1.5M/yr. Correction to the first draft of this table, which listed the DBW loan and the WC loan as two events; they are one. The ACFRs do not show the $5.5M as a loan to the fund (see 608.json open questions) |
 | 2024 | cost_shift | $0.80M | Marina → "other funds" | Budget | Funds not named in the slide (Unknown which) |
-| 2024 | transfer_in | $5.5M | **Workers' Compensation Fund** → Marina | Budget | An internal-service fund financed marina capital projects |
+| 2025 | loan | $2.48M | General Fund → Marina | FY2025 ACFR | "Receipt from interfund loans"; due to the GF at June 30, 2025; terms not disclosed |
 | 2025 | indirect_reduction + holiday | $0.85M | Marina (charges waived) | Budget | Reduced indirect cost charge and a WC contribution "holiday" |
 | 2025 | grant | $7.69M | State → Marina | ACFR | One-time capital |
 | 2025 | reduction | ~$0.70M | within Marina | Staff action, spring 2025 | Fund balance exhausted; South Cove dock repair unfunded; security cut 50%; all hourly staff cut |
