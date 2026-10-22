@@ -1,4 +1,7 @@
-# Extraction safety (PR #9)
+# Extraction safety (PR #10)
+
+GitHub assigned this extraction-safety change PR #10; the original work plan
+called it PR #9. Later phases are identified by scope below, not reserved numbers.
 
 Automated extraction must never destroy or silently alter reviewed evidence.
 This change handles FY2025 only. FY2024 ingestion, independent reconciliation,
@@ -87,8 +90,8 @@ the fixture). It preserves all 105 previously generated annual records, excludin
 free-text notes. Marina was skipped by the old extractor; the new extraction
 also compares its FY2025 financial values against the existing curated ledger.
 The fixture demonstrates equivalence, not independent reconciliation against the
-audited statements. That remains PR #10 work. Explicitly reading previously
-unrecognized beginning-balance labels can improve generated notes, while existing
+audited statements. That remains FY2024 extraction-pilot work. Explicitly reading
+previously unrecognized beginning-balance labels can improve generated notes, while existing
 notes and all financial records remain untouched.
 
 Local results on 2026-10-22: 14 tests passed; all 106 ledgers passed validation.
@@ -97,6 +100,9 @@ SHA-256 comparisons before and after confirmed all 106 ledger JSON files and all
 304 files under `docs` unchanged. Tests also run extraction updates twice against
 a temporary copy and check every existing ledger byte for byte. CI repeats the
 suite, validation, extraction and unchanged-content check on pull requests.
+The `docs` check only confirms that extraction leaves website files untouched;
+CI does not run the website builder or validate rendered financial content.
+The regression fixture covers annual records, not newly generated `flow_detail`.
 
 Protected-ledger SHA-256 values before and after the real extraction:
 
@@ -108,3 +114,47 @@ Protected-ledger SHA-256 values before and after the real extraction:
 | `ACFR-park-tax` | `d5733f22cd919ec86d6d770dd9dde6642c3cb095768196dd405c47dfd06f0551` |
 | `ACFR-workers-compensation` | `0c9cf8108eb392236cf6265240a6bfb4198806263cb5058e28d9cbd6f9e1fcda` |
 | `ACFR-zero-waste` | `d0304dd2be19fe6a5341221fd3f863a1292e6ab331cd0522f4b9ce825e7304fe` |
+
+## Independent review handoff: FY2024 extraction pilot
+
+The independent review reproduced the safety checks and recommended merging
+extraction safety. It identified the following requirements for the later pilot;
+they are recorded here as pending work, not implemented behavior. The pilot starts
+only after extraction safety is reviewed and merged. It must stage proposals and
+reports without publishing or overwriting existing ledger data.
+
+1. Distinguish an extracted-only field from an actual value disagreement. Report
+   the former as a review item and the latter as a conflict; neither may alter a
+   protected ledger. In particular, the reviewed FY2024 Equipment, Workers'
+   Compensation and Zero Waste records omit `nonoperating`; the current merge
+   rejects an extracted value for that missing field. Check all six ledgers for
+   other omitted fields rather than assuming these are the only cases.
+2. Add a staging/report mode that collects all review items, conflicts and errors
+   across the full run. Proposed rows for protected funds, including years absent
+   from those ledgers, belong in the report, never in the protected files. Keep
+   strict ledger-update failures separate from this read-only comparison workflow.
+3. Configure each source year explicitly: document provenance, pages, labels, URL
+   and source ID. Reconcile line items against totals, beginning balance plus
+   change against ending balance, and fund columns against statement total
+   columns. Preserve original and restated audited balances separately, with
+   explicit provenance; never infer values or silently resolve discrepancies.
+4. Establish historical fund identity mapping. Compare the extracted FY2024
+   values against all six curated ledgers to the dollar, and produce a discrepancy
+   and restatement report. Missing reviewed fields remain review items rather
+   than invented answer-key values. Any genuine disagreement requires review.
+5. Await Steve's decision before adding `series` tags. Marina's FY2015–FY2023
+   statistical-schedule rows must remain a distinct history from fund statements.
+   The review proposes leaving fund-statement rows untagged and manually tagging
+   those nine Marina rows `series: "government-wide-10yr"`. This convention is
+   pending approval; do not tag Marina or extractor output in advance. Adding a
+   series only to extracted rows would prevent matching existing FY2024/FY2025
+   rows and could append duplicate financial observations.
+
+Additional review follow-ups: cover `flow_detail` for fresh generated files;
+replace the FY2025 page-77 bare `restated` label dependency with explicit handling
+of wrapped labels in year configuration; consider a shared error module so the
+parser need not import the safety module solely for its exception type.
+
+Historical integration remains a separate reviewed phase after the FY2024 pilot.
+Prioritize FY2021–FY2025, defer FY2015–FY2020, and preserve reporting bases,
+existing URLs and curated findings.
