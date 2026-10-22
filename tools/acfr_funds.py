@@ -21,9 +21,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 import acfr_parse  # noqa: E402
 
 from ledger_safety import SafetyError, update_ledgers
+from acfr_config import load_year
 
-FY = 2025
-ACFR_URL = "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf"
+DEFAULT_CONFIG = load_year(2025)
+FY = DEFAULT_CONFIG["fiscal_year"]
+ACFR_URL = DEFAULT_CONFIG["source_url"]
 NUMBERS = {  # City fund numbers where known (budget documents); others get an ACFR slug id
     "General Fund": "011", "Marina Operations": "608", "Sanitary Sewer": "611", "Capital Improvement": "501",
     "Infrastructure & Facilities Measure T1": "511", "Measure O Housing Bond": "ACFR-measure-o-housing-bond",
@@ -61,7 +63,10 @@ def required(d, *labels):
     return found[0][1]
 
 
-def gov_record(name, d, ftype, page):
+def gov_record(name, d, ftype, page, config=None):
+    config = config or DEFAULT_CONFIG
+    labels = config["labels"]
+    major_page = config["statements"][0]["pairs"][0][0]
     rev = {k: d.get(k) for k in GOV_REV if d.get(k)}
     exp = {k: d.get(k) for k in GOV_EXP if d.get(k)}
     ti = required(d, "Transfers in")
@@ -73,13 +78,15 @@ def gov_record(name, d, ftype, page):
     return {
         "revenue": required(d, "Total revenues"), "expenditure": required(d, "Total expenditures"),
         "transfers_in": ti, "transfers_out": abs(to),
-        "ending_balance": required(d, "Fund balance, June 30, 2025", "Fund balances, June 30, 2025"),
-        "beginning_balance": required(d, "restated") if page == 77 else required(d, "Fund balance, July 1, 2024", "Fund balances, July 1, 2024"),
+        "ending_balance": required(d, *labels["governmental_ending"]),
+        "beginning_balance": required(d, *labels["governmental_major_beginning"]) if page == major_page else required(d, *labels["governmental_beginning"]),
         "inflows": inflows, "outflows": outflows,
     }
 
 
-def prop_record(name, d, page):
+def prop_record(name, d, page, config=None):
+    config = config or DEFAULT_CONFIG
+    labels = config["labels"]
     rev_keys = [k for k in d if k and not k.startswith("Total") and d.get(k) and k in (
         "Parking related revenues", "Marina operations and maintenance", "Sewer service fees", "Clean storm water fees",
         "Refuse service fees", "Building permits", "Other permits", "Plan checking fees", "Other fees",
@@ -101,77 +108,73 @@ def prop_record(name, d, page):
         "nonoperating": required(d, "Total nonoperating revenues (expenses)"),
         "transfers_in": required(d, "Transfers in"), "transfers_out": abs(required(d, "Transfers out")),
         "ending_balance": required(d, "Total net position - ending"),
-        "beginning_balance": required(d, "Total net position - beginning, as restated", "Total net position - beginning balance as restated") if any(k in d for k in ("Total net position - beginning, as restated", "Total net position - beginning balance as restated")) else required(d, "Total net position - beginning"),
+        "beginning_balance": required(d, *labels["proprietary_restated"]) if any(k in d for k in labels["proprietary_restated"]) else required(d, *labels["proprietary_beginning"]),
         "inflows": inflows, "outflows": outflows,
     }
 
 
-def make(name, rec, ftype, page, statement):
+def make(name, rec, ftype, page, statement, config=None):
+    config = config or DEFAULT_CONFIG
+    fy, sid = config["fiscal_year"], config["source_id"]
     fid = IDENTITIES.get((name, ftype), NUMBERS.get(name, "ACFR-" + slug(name)))
-    year = {"fy": FY, "basis": "audited", "revenue": rec["revenue"], "expenditure": rec["expenditure"],
+    year = {"fy": fy, "basis": "audited", "revenue": rec["revenue"], "expenditure": rec["expenditure"],
             "transfers_in": rec["transfers_in"], "transfers_out": rec["transfers_out"],
-            "ending_balance": rec["ending_balance"], "source": "acfr-2025", "confidence": "High",
+            "ending_balance": rec["ending_balance"], "source": sid, "confidence": "High",
             "note": f"{statement}, ACFR p.{page}. Beginning balance {rec['beginning_balance']:,}" if isinstance(rec.get("beginning_balance"), int) else f"{statement}, ACFR p.{page}"}
     if rec.get("nonoperating") is not None:
         year["nonoperating"] = rec["nonoperating"]
     return {
         "fund_number": fid, "name": name, "type": ftype,
         "department": DEPT.get(ftype, "See budget"),
-        "established": {"year": None, "purpose": "Not yet researched", "source": "acfr-2025"},
+        "established": {"year": None, "purpose": "Not yet researched", "source": sid},
         "legal_basis": "Not yet researched",
         "restriction": "enterprise" if ftype in ("enterprise", "internal_service") else "restricted",
         "self_supporting": ftype in ("enterprise", "internal_service"),
         "annual": [year],
         "flows": [],
-        "flow_detail": {"fy": FY, "source": "acfr-2025", "confidence": "High", "inflows": rec["inflows"], "outflows": rec["outflows"]},
+        "flow_detail": {"fy": fy, "source": sid, "confidence": "High", "inflows": rec["inflows"], "outflows": rec["outflows"]},
         "obligations": [],
         "status": {"structural_deficit": bool(rec["revenue"] is not None and rec["expenditure"] is not None and rec["revenue"] < rec["expenditure"]),
                    "years_in_deficit": "one audited year loaded", "last_update": "2026-10-22",
-                   "open_questions": ["Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."]},
-        "sources": {"acfr-2025": {"title": f"City of Berkeley, Annual Comprehensive Financial Report FY2025, {statement}, p.{page}", "url": ACFR_URL, "date": "2026-01"}},
+                   "open_questions": [f"Only FY{fy} is loaded; prior years and the event ledger are not yet read for this fund."]},
+        "sources": {sid: {"title": f"City of Berkeley, Annual Comprehensive Financial Report FY{fy}, {statement}, p.{page}", "url": config["source_url"], "date": config["source_date"]}},
         "generated_by": "tools/acfr_funds.py",
         "curation": {"status": "extracted", "policy": "append-only"},
     }
 
 
-def extract(pdf_path):
+def extract(pdf_path, year=2025):
+    config = load_year(year)
     with pdfplumber.open(pdf_path) as pdf:
-        records = []
-        identities = set()
-
-        def emit(name, rec, ftype, page, statement):
-            if not name or name.startswith("Total") or "Governmental Funds" in name or name in ("Internal Service Funds", "Total Nonmajor"):
-                return
-            r = make(name, rec, ftype, page, statement)
-            fid = r["fund_number"]
-            if fid in identities:
-                raise SafetyError(f"Duplicate extracted fund identity: {fid}")
-            identities.add(fid)
-            records.append(r)
-
-        # major governmental funds
-        names, out, labels = acfr_parse.parse_pair(pdf, 77, None)
-        for n in names:
-            ftype = "general" if n == "General Fund" else ("capital_project" if n == "Capital Improvement" else "special_revenue")
-            emit(n, gov_record(n, out[n], ftype, 77), ftype, 77, "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds")
-        # nonmajor governmental: type switches at the subtotal columns
+        records, identities = [], set()
         ftype = "special_revenue"
-        for left in range(237, 254, 2):
-            names, out, labels = acfr_parse.parse_pair(pdf, left, left + 1)
-            for n in names:
-                if n == "Total Special Revenue Funds":
-                    ftype = "capital_project"; continue
-                if n == "Total Capital Project Funds":
-                    ftype = "debt_service"; continue
-                emit(n, gov_record(n, out[n], ftype, left), ftype, left, "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds")
-        # enterprise
-        names, out, labels = acfr_parse.parse_pair(pdf, 85, 86)
-        for n in names:
-            emit(n, prop_record(n, out[n], 85), "enterprise", 85, "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds")
-        # internal service
-        names, out, labels = acfr_parse.parse_pair(pdf, 321, 322)
-        for n in names:
-            emit(n, prop_record(n, out[n], 321), "internal_service", 321, "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds")
+        for statement in config['statements']:
+            for left, right in statement['pairs']:
+                names, out, labels = acfr_parse.parse_pair(pdf, left, right)
+                for name in names:
+                    if statement['id'] == 'nonmajor_governmental':
+                        if name == 'Total Special Revenue Funds':
+                            ftype = 'capital_project'
+                        elif name == 'Total Capital Project Funds':
+                            ftype = 'debt_service'
+                    if not name or name.startswith('Total') or 'Governmental Funds' in name or name == 'Internal Service Funds':
+                        continue
+                    if statement['id'] == 'major_governmental':
+                        kind = 'general' if name == 'General Fund' else ('capital_project' if name == 'Capital Improvement' else 'special_revenue')
+                    elif statement['id'] == 'nonmajor_governmental':
+                        kind = ftype
+                    else:
+                        kind = statement['id']
+                    if statement['basis'] == 'modified_accrual':
+                        rec = gov_record(name, out[name], kind, left, config)
+                    else:
+                        rec = prop_record(name, out[name], left, config)
+                    record = make(name, rec, kind, left, statement['title'], config)
+                    fid = record['fund_number']
+                    if fid in identities:
+                        raise SafetyError(f'Duplicate extracted fund identity: {fid}')
+                    identities.add(fid)
+                    records.append(record)
         return records
 
 

@@ -1,0 +1,2307 @@
+[
+  {
+    "fund_number": "011",
+    "type": "general",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "major_governmental",
+      "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "pdf_pages": [
+        78
+      ],
+      "column_index": 0,
+      "column_name": "General Fund"
+    },
+    "observed_name": "General Fund",
+    "canonical_name": "General Fund",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "General Fund"
+  },
+  {
+    "fund_number": "ACFR-grants",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "major_governmental",
+      "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "pdf_pages": [
+        78
+      ],
+      "column_index": 1,
+      "column_name": "Grants"
+    },
+    "observed_name": "Grants",
+    "canonical_name": "Grants",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Grants"
+  },
+  {
+    "fund_number": "ACFR-library",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "major_governmental",
+      "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "pdf_pages": [
+        78
+      ],
+      "column_index": 2,
+      "column_name": "Library"
+    },
+    "observed_name": "Library",
+    "canonical_name": "Library",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Library"
+  },
+  {
+    "fund_number": "501",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "major_governmental",
+      "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "pdf_pages": [
+        78
+      ],
+      "column_index": 3,
+      "column_name": "Capital Improvement"
+    },
+    "observed_name": "Capital Improvement",
+    "canonical_name": "Capital Improvement",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Capital Improvement"
+  },
+  {
+    "fund_number": "ACFR-measure-o-housing-bond",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "major_governmental",
+      "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "pdf_pages": [
+        78
+      ],
+      "column_index": 4,
+      "column_name": "Measure O Housing Bond"
+    },
+    "observed_name": "Measure O Housing Bond",
+    "canonical_name": "Measure O Housing Bond",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure O Housing Bond"
+  },
+  {
+    "fund_number": "ACFR-asset-forfeiture",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 0,
+      "column_name": "Asset Forfeiture"
+    },
+    "observed_name": "Asset Forfeiture",
+    "canonical_name": "Asset Forfeiture",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Asset Forfeiture"
+  },
+  {
+    "fund_number": "ACFR-measure-e-special-tax-for-disabled",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 1,
+      "column_name": "Measure E: Special Tax for Disabled"
+    },
+    "observed_name": "Measure E: Special Tax for Disabled",
+    "canonical_name": "Measure E: Special Tax for Disabled",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure E: Special Tax for Disabled"
+  },
+  {
+    "fund_number": "ACFR-workforce-investment-act",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 2,
+      "column_name": "Workforce Investment Act"
+    },
+    "observed_name": "Workforce Investment Act",
+    "canonical_name": "Workforce Investment Act",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Workforce Investment Act"
+  },
+  {
+    "fund_number": "ACFR-community-workforce",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 3,
+      "column_name": "Community Workforce"
+    },
+    "observed_name": "Community Workforce",
+    "canonical_name": "Community Workforce",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Community Workforce"
+  },
+  {
+    "fund_number": "ACFR-sec-108-hud-loan-grant-assistance",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 4,
+      "column_name": "Sec 108 Hud Loan Grant Assistance"
+    },
+    "observed_name": "Sec 108 Hud Loan Grant Assistance",
+    "canonical_name": "Sec 108 Hud Loan Grant Assistance",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Sec 108 Hud Loan Grant Assistance"
+  },
+  {
+    "fund_number": "ACFR-fund-raising-activities",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 5,
+      "column_name": "Fund Raising Activities"
+    },
+    "observed_name": "Fund Raising Activities",
+    "canonical_name": "Fund Raising Activities",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Fund Raising Activities"
+  },
+  {
+    "fund_number": "ACFR-housing-finance-agency",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 6,
+      "column_name": "Housing Finance Agency"
+    },
+    "observed_name": "Housing Finance Agency",
+    "canonical_name": "Housing Finance Agency",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Housing Finance Agency"
+  },
+  {
+    "fund_number": "ACFR-gilman-sport-field",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 7,
+      "column_name": "Gilman Sport Field"
+    },
+    "observed_name": "Gilman Sport Field",
+    "canonical_name": "Gilman Sport Field",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Gilman Sport Field"
+  },
+  {
+    "fund_number": "ACFR-gilman-fields-reserve",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 8,
+      "column_name": "Gilman Fields Reserve"
+    },
+    "observed_name": "Gilman Fields Reserve",
+    "canonical_name": "Gilman Fields Reserve",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Gilman Fields Reserve"
+  },
+  {
+    "fund_number": "ACFR-animal-shelter",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        227,
+        228
+      ],
+      "column_index": 9,
+      "column_name": "Animal Shelter"
+    },
+    "observed_name": "Animal Shelter",
+    "canonical_name": "Animal Shelter",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Animal Shelter"
+  },
+  {
+    "fund_number": "ACFR-paramedic-assessment-district",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 0,
+      "column_name": "Paramedic Assessment District"
+    },
+    "observed_name": "Paramedic Assessment District",
+    "canonical_name": "Paramedic Assessment District",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Paramedic Assessment District"
+  },
+  {
+    "fund_number": "ACFR-energy-commission",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 1,
+      "column_name": "Energy Commission"
+    },
+    "observed_name": "Energy Commission",
+    "canonical_name": "Energy Commission",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Energy Commission"
+  },
+  {
+    "fund_number": "ACFR-tieback-mitigation-r-o-w",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 2,
+      "column_name": "Tieback Mitigation R-O-W"
+    },
+    "observed_name": "Tieback Mitigation R-O-W",
+    "canonical_name": "Tieback Mitigation R-O-W",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Tieback Mitigation R-O-W"
+  },
+  {
+    "fund_number": "ACFR-domestic-violence-prevention-vital-statistics",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 3,
+      "column_name": "Domestic Violence Prevention Vital Statistics"
+    },
+    "observed_name": "Domestic Violence Prevention Vital Statistics",
+    "canonical_name": "Domestic Violence Prevention Vital Statistics",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Domestic Violence Prevention Vital Statistics"
+  },
+  {
+    "fund_number": "ACFR-affordable-housing-mitigation-fee",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 4,
+      "column_name": "Affordable Housing Mitigation Fee"
+    },
+    "observed_name": "Affordable Housing Mitigation Fee",
+    "canonical_name": "Affordable Housing Mitigation Fee",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Affordable Housing Mitigation Fee"
+  },
+  {
+    "fund_number": "ACFR-affordable-child-care",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 5,
+      "column_name": "Affordable Child Care"
+    },
+    "observed_name": "Affordable Child Care",
+    "canonical_name": "Affordable Child Care",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Affordable Child Care"
+  },
+  {
+    "fund_number": "ACFR-inclusionary-housing-program",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 6,
+      "column_name": "Inclusionary Housing Program"
+    },
+    "observed_name": "Inclusionary Housing Program",
+    "canonical_name": "Inclusionary Housing Program",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Inclusionary Housing Program"
+  },
+  {
+    "fund_number": "ACFR-condo-conversion-program",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 7,
+      "column_name": "Condo Conversion Program"
+    },
+    "observed_name": "Condo Conversion Program",
+    "canonical_name": "Condo Conversion Program",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Condo Conversion Program"
+  },
+  {
+    "fund_number": "ACFR-parking-in-lieu-fee",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 8,
+      "column_name": "Parking In-Lieu Fee"
+    },
+    "observed_name": "Parking In-Lieu Fee",
+    "canonical_name": "Parking In-Lieu Fee",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Parking In-Lieu Fee"
+  },
+  {
+    "fund_number": "ACFR-playground-camp",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        229,
+        230
+      ],
+      "column_index": 9,
+      "column_name": "Playground Camp"
+    },
+    "observed_name": "Playground Camp",
+    "canonical_name": "Playground Camp",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Playground Camp"
+  },
+  {
+    "fund_number": "ACFR-state-proposition-172",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 0,
+      "column_name": "State Proposition 172"
+    },
+    "observed_name": "State Proposition 172",
+    "canonical_name": "State Proposition 172",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "State Proposition 172"
+  },
+  {
+    "fund_number": "ACFR-traffic-congestion-relief",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 1,
+      "column_name": "Traffic Congestion Relief"
+    },
+    "observed_name": "Traffic Congestion Relief",
+    "canonical_name": "Traffic Congestion Relief",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Traffic Congestion Relief"
+  },
+  {
+    "fund_number": "ACFR-state-transportation-tax",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 2,
+      "column_name": "State Transportation Tax"
+    },
+    "observed_name": "State Transportation Tax",
+    "canonical_name": "State Transportation Tax",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "State Transportation Tax"
+  },
+  {
+    "fund_number": "ACFR-cdbg",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 3,
+      "column_name": "CDBG"
+    },
+    "observed_name": "CDBG",
+    "canonical_name": "CDBG",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "CDBG"
+  },
+  {
+    "fund_number": "ACFR-rental-housing-safety-program",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 4,
+      "column_name": "Rental Housing Safety Program"
+    },
+    "observed_name": "Rental Housing Safety Program",
+    "canonical_name": "Rental Housing Safety Program",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Rental Housing Safety Program"
+  },
+  {
+    "fund_number": "ACFR-measure-b-local-streets-and-roads",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 5,
+      "column_name": "Measure B: Local Streets and Roads"
+    },
+    "observed_name": "Measure B: Local Streets and Roads",
+    "canonical_name": "Measure B: Local Streets and Roads",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure B: Local Streets and Roads"
+  },
+  {
+    "fund_number": "ACFR-measure-b-bike-and-pedestrian",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 6,
+      "column_name": "Measure B: Bike and Pedestrian"
+    },
+    "observed_name": "Measure B: Bike and Pedestrian",
+    "canonical_name": "Measure B: Bike and Pedestrian",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure B: Bike and Pedestrian"
+  },
+  {
+    "fund_number": "ACFR-measure-b-paratransit",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 7,
+      "column_name": "Measure B: Paratransit"
+    },
+    "observed_name": "Measure B: Paratransit",
+    "canonical_name": "Measure B: Paratransit",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure B: Paratransit"
+  },
+  {
+    "fund_number": "ACFR-measure-f-alameda-county-vrf-street-and-road",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 8,
+      "column_name": "Measure F: Alameda County VRF Street and Road"
+    },
+    "observed_name": "Measure F: Alameda County VRF Street and Road",
+    "canonical_name": "Measure F: Alameda County VRF Street and Road",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure F: Alameda County VRF Street and Road"
+  },
+  {
+    "fund_number": "ACFR-measure-bb-local-streets-and-roads",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        231,
+        232
+      ],
+      "column_index": 9,
+      "column_name": "Measure BB: Local Streets and Roads"
+    },
+    "observed_name": "Measure BB: Local Streets and Roads",
+    "canonical_name": "Measure BB: Local Streets and Roads",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure BB: Local Streets and Roads"
+  },
+  {
+    "fund_number": "ACFR-measure-bb-bike-and-pedestrian",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 0,
+      "column_name": "Measure BB: Bike and Pedestrian"
+    },
+    "observed_name": "Measure BB: Bike and Pedestrian",
+    "canonical_name": "Measure BB: Bike and Pedestrian",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure BB: Bike and Pedestrian"
+  },
+  {
+    "fund_number": "ACFR-measure-bb-paratransit",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 1,
+      "column_name": "Measure BB: Paratransit"
+    },
+    "observed_name": "Measure BB: Paratransit",
+    "canonical_name": "Measure BB: Paratransit",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure BB: Paratransit"
+  },
+  {
+    "fund_number": "ACFR-shelter-operations",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 2,
+      "column_name": "Shelter Operations"
+    },
+    "observed_name": "Shelter Operations",
+    "canonical_name": "Shelter Operations",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Shelter Operations"
+  },
+  {
+    "fund_number": "ACFR-one-time-funding",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 3,
+      "column_name": "One Time Funding"
+    },
+    "observed_name": "One Time Funding",
+    "canonical_name": "One Time Funding",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "One Time Funding"
+  },
+  {
+    "fund_number": "ACFR-park-tax",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 4,
+      "column_name": "Park Tax"
+    },
+    "observed_name": "Park Tax",
+    "canonical_name": "Park Tax",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Park Tax"
+  },
+  {
+    "fund_number": "ACFR-street-and-open-space-improvement",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 5,
+      "column_name": "Street and Open Space Improvement"
+    },
+    "observed_name": "Street and Open Space Improvement",
+    "canonical_name": "Street and Open Space Improvement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Street and Open Space Improvement"
+  },
+  {
+    "fund_number": "ACFR-measure-gg-fire-preparation-tax",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 6,
+      "column_name": "Measure GG: Fire Preparation Tax"
+    },
+    "observed_name": "Measure GG: Fire Preparation Tax",
+    "canonical_name": "Measure GG: Fire Preparation Tax",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure GG: Fire Preparation Tax"
+  },
+  {
+    "fund_number": "ACFR-1st-response-advanced-life-support-alsfr",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 7,
+      "column_name": "1st Response Advanced Life Support (ALSFR)"
+    },
+    "observed_name": "1st Response Advanced Life Support (ALSFR)",
+    "canonical_name": "1st Response Advanced Life Support (ALSFR)",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "1st Response Advanced Life Support (ALSFR)"
+  },
+  {
+    "fund_number": "ACFR-street-lighting",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 8,
+      "column_name": "Street Lighting"
+    },
+    "observed_name": "Street Lighting",
+    "canonical_name": "Street Lighting",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Street Lighting"
+  },
+  {
+    "fund_number": "ACFR-business-economic-development",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        233,
+        234
+      ],
+      "column_index": 9,
+      "column_name": "Business Economic Development"
+    },
+    "observed_name": "Business Economic Development",
+    "canonical_name": "Business Economic Development",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Business Economic Development"
+  },
+  {
+    "fund_number": "ACFR-citywide-rlf",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 0,
+      "column_name": "Citywide RLF"
+    },
+    "observed_name": "Citywide RLF",
+    "canonical_name": "Citywide RLF",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Citywide RLF"
+  },
+  {
+    "fund_number": "ACFR-legacy-fund",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 1,
+      "column_name": "Legacy Fund"
+    },
+    "observed_name": "Legacy Fund",
+    "canonical_name": "Legacy Fund",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Legacy Fund"
+  },
+  {
+    "fund_number": "ACFR-miles-lab",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 2,
+      "column_name": "Miles Lab"
+    },
+    "observed_name": "Miles Lab",
+    "canonical_name": "Miles Lab",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Miles Lab"
+  },
+  {
+    "fund_number": "ACFR-employee-training",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 3,
+      "column_name": "Employee Training"
+    },
+    "observed_name": "Employee Training",
+    "canonical_name": "Employee Training",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Employee Training"
+  },
+  {
+    "fund_number": "ACFR-uc-settlement",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 4,
+      "column_name": "UC Settlement"
+    },
+    "observed_name": "UC Settlement",
+    "canonical_name": "UC Settlement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "UC Settlement"
+  },
+  {
+    "fund_number": "ACFR-private-percent-art-fund",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 5,
+      "column_name": "Private Percent- Art Fund"
+    },
+    "observed_name": "Private Percent- Art Fund",
+    "canonical_name": "Private Percent- Art Fund",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Private Percent- Art Fund"
+  },
+  {
+    "fund_number": "ACFR-private-party-sidewalks",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 6,
+      "column_name": "Private Party Sidewalks"
+    },
+    "observed_name": "Private Party Sidewalks",
+    "canonical_name": "Private Party Sidewalks",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Private Party Sidewalks"
+  },
+  {
+    "fund_number": "ACFR-public-art",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 7,
+      "column_name": "Public Art"
+    },
+    "observed_name": "Public Art",
+    "canonical_name": "Public Art",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Public Art"
+  },
+  {
+    "fund_number": "ACFR-lillie-b-wall-memorial",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 8,
+      "column_name": "Lillie B� Wall Memorial"
+    },
+    "observed_name": "Lillie B� Wall Memorial",
+    "canonical_name": "Lillie B. Wall Memorial",
+    "alias_applied": true,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Lillie B. Wall Memorial"
+  },
+  {
+    "fund_number": "ACFR-vital-and-health-statistic",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        235,
+        236
+      ],
+      "column_index": 9,
+      "column_name": "Vital and Health Statistic"
+    },
+    "observed_name": "Vital and Health Statistic",
+    "canonical_name": "Vital and Health Statistic",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Vital and Health Statistic"
+  },
+  {
+    "fund_number": "ACFR-east-bay-public-utilities-commission",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 0,
+      "column_name": "East Bay Public Utilities Commission"
+    },
+    "observed_name": "East Bay Public Utilities Commission",
+    "canonical_name": "East Bay Public Utilities Commission",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "East Bay Public Utilities Commission"
+  },
+  {
+    "fund_number": "ACFR-pers-savings",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 1,
+      "column_name": "PERS Savings"
+    },
+    "observed_name": "PERS Savings",
+    "canonical_name": "PERS Savings",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "PERS Savings"
+  },
+  {
+    "fund_number": "ACFR-other-special-deposits",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 2,
+      "column_name": "Other Special Deposits"
+    },
+    "observed_name": "Other Special Deposits",
+    "canonical_name": "Other Special Deposits",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Other Special Deposits"
+  },
+  {
+    "fund_number": "ACFR-health-state-aid-realignment",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 3,
+      "column_name": "Health State Aid Realignment"
+    },
+    "observed_name": "Health State Aid Realignment",
+    "canonical_name": "Health State Aid Realignment",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Health State Aid Realignment"
+  },
+  {
+    "fund_number": "ACFR-tobacco-control",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 4,
+      "column_name": "Tobacco Control"
+    },
+    "observed_name": "Tobacco Control",
+    "canonical_name": "Tobacco Control",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Tobacco Control"
+  },
+  {
+    "fund_number": "ACFR-mental-health-state-aid-realignment",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 5,
+      "column_name": "Mental Health State Aid Realignment"
+    },
+    "observed_name": "Mental Health State Aid Realignment",
+    "canonical_name": "Mental Health State Aid Realignment",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Mental Health State Aid Realignment"
+  },
+  {
+    "fund_number": "ACFR-opt-public-safety",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 6,
+      "column_name": "Opt� Public Safety"
+    },
+    "observed_name": "Opt� Public Safety",
+    "canonical_name": "Opt. Public Safety",
+    "alias_applied": true,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Opt. Public Safety"
+  },
+  {
+    "fund_number": "ACFR-fund-for-impounded-and-unneutered",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 7,
+      "column_name": "Fund for Impounded and Unneutered"
+    },
+    "observed_name": "Fund for Impounded and Unneutered",
+    "canonical_name": "Fund for Impounded and Unneutered",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Fund for Impounded and Unneutered"
+  },
+  {
+    "fund_number": "ACFR-alameda-county-abandoned-vehicle-abatement-autho",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 8,
+      "column_name": "Alameda County Abandoned Vehicle Abatement Authority"
+    },
+    "observed_name": "Alameda County Abandoned Vehicle Abatement Authority",
+    "canonical_name": "Alameda County Abandoned Vehicle Abatement Authority",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Alameda County Abandoned Vehicle Abatement Authority"
+  },
+  {
+    "fund_number": "ACFR-measure-ff-public-safety",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 9,
+      "column_name": "Measure FF- Public Safety"
+    },
+    "observed_name": "Measure FF- Public Safety",
+    "canonical_name": "Measure FF- Public Safety",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure FF- Public Safety"
+  },
+  {
+    "fund_number": "ACFR-fair-elections",
+    "type": "special_revenue",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        237,
+        238
+      ],
+      "column_index": 10,
+      "column_name": "Fair Elections"
+    },
+    "observed_name": "Fair Elections",
+    "canonical_name": "Fair Elections",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Fair Elections"
+  },
+  {
+    "fund_number": "511",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 0,
+      "column_name": "Infrastructure & Facilities Measure T1"
+    },
+    "observed_name": "Infrastructure & Facilities Measure T1",
+    "canonical_name": "Infrastructure & Facilities Measure T1",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Infrastructure & Facilities Measure T1"
+  },
+  {
+    "fund_number": "ACFR-phone-system-replacement",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 1,
+      "column_name": "Phone System Replacement"
+    },
+    "observed_name": "Phone System Replacement",
+    "canonical_name": "Phone System Replacement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Phone System Replacement"
+  },
+  {
+    "fund_number": "ACFR-fund-replacement",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 2,
+      "column_name": "Fund$ Replacement"
+    },
+    "observed_name": "Fund$ Replacement",
+    "canonical_name": "Fund Replacement",
+    "alias_applied": true,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Fund Replacement"
+  },
+  {
+    "fund_number": "ACFR-public-education-and-government-access-facilitie",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 3,
+      "column_name": "Public, Education and Government Access Facilities"
+    },
+    "observed_name": "Public, Education and Government Access Facilities",
+    "canonical_name": "Public, Education and Government Access Facilities",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Public, Education and Government Access Facilities"
+  },
+  {
+    "fund_number": "ACFR-measure-g-fire-seismic-projects",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 4,
+      "column_name": "Measure G: Fire Seismic Projects"
+    },
+    "observed_name": "Measure G: Fire Seismic Projects",
+    "canonical_name": "Measure G: Fire Seismic Projects",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure G: Fire Seismic Projects"
+  },
+  {
+    "fund_number": "ACFR-measure-m-street-and-watershed-improvements",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 5,
+      "column_name": "Measure M: Street and Watershed Improvements"
+    },
+    "observed_name": "Measure M: Street and Watershed Improvements",
+    "canonical_name": "Measure M: Street and Watershed Improvements",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure M: Street and Watershed Improvements"
+  },
+  {
+    "fund_number": "ACFR-measure-g-public-safety-building",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 6,
+      "column_name": "Measure G: Public Safety Building"
+    },
+    "observed_name": "Measure G: Public Safety Building",
+    "canonical_name": "Measure G: Public Safety Building",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure G: Public Safety Building"
+  },
+  {
+    "fund_number": "ACFR-street-improvement",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 7,
+      "column_name": "Street Improvement"
+    },
+    "observed_name": "Street Improvement",
+    "canonical_name": "Street Improvement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Street Improvement"
+  },
+  {
+    "fund_number": "ACFR-park-acquisition-development",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 8,
+      "column_name": "Park Acquisition Development"
+    },
+    "observed_name": "Park Acquisition Development",
+    "canonical_name": "Park Acquisition Development",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Park Acquisition Development"
+  },
+  {
+    "fund_number": "ACFR-income-housing-fund-west-improvement-project",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        239,
+        240
+      ],
+      "column_index": 9,
+      "column_name": "Income Housing Fund: West Improvement Project"
+    },
+    "observed_name": "Income Housing Fund: West Improvement Project",
+    "canonical_name": "Income Housing Fund: West Improvement Project",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Income Housing Fund: West Improvement Project"
+  },
+  {
+    "fund_number": "ACFR-income-housing-fund-savo-island-project",
+    "type": "capital_project",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 0,
+      "column_name": "Income Housing Fund: Savo Island Project"
+    },
+    "observed_name": "Income Housing Fund: Savo Island Project",
+    "canonical_name": "Income Housing Fund: Savo Island Project",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Income Housing Fund: Savo Island Project"
+  },
+  {
+    "fund_number": "ACFR-pension-refunding-bonds",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 2,
+      "column_name": "Pension Refunding Bonds"
+    },
+    "observed_name": "Pension Refunding Bonds",
+    "canonical_name": "Pension Refunding Bonds",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Pension Refunding Bonds"
+  },
+  {
+    "fund_number": "ACFR-2009-measure-ff-library",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 3,
+      "column_name": "2009 Measure FF Library"
+    },
+    "observed_name": "2009 Measure FF Library",
+    "canonical_name": "2009 Measure FF Library",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "2009 Measure FF Library"
+  },
+  {
+    "fund_number": "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 4,
+      "column_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds"
+    },
+    "observed_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds",
+    "canonical_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds"
+  },
+  {
+    "fund_number": "ACFR-repertory-theatre",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 5,
+      "column_name": "Repertory Theatre"
+    },
+    "observed_name": "Repertory Theatre",
+    "canonical_name": "Repertory Theatre",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Repertory Theatre"
+  },
+  {
+    "fund_number": "ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 6,
+      "column_name": "GO 2015 Refunding Bonds for GO 2002 Refunding Bonds"
+    },
+    "observed_name": "GO 2015 Refunding Bonds for GO 2002 Refunding Bonds",
+    "canonical_name": "GO 2015 Refunding Bonds for GO 2002 Refunding Bonds",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "GO 2015 Refunding Bonds for GO 2002 Refunding Bonds"
+  },
+  {
+    "fund_number": "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 7,
+      "column_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds Series A"
+    },
+    "observed_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds Series A",
+    "canonical_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds Series A",
+    "alias_applied": false,
+    "method": "explicit IDENTITIES",
+    "review_status": "PENDING REVIEW",
+    "following_name": "GO 2015 Refunding Bonds for GO 2007 Refunding Bonds Series A"
+  },
+  {
+    "fund_number": "ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        241,
+        242
+      ],
+      "column_index": 8,
+      "column_name": "GO 2015 Refunding Bonds for GO 2008 Animal Shelter Measure I"
+    },
+    "observed_name": "GO 2015 Refunding Bonds for GO 2008 Animal Shelter Measure I",
+    "canonical_name": "GO 2015 Refunding Bonds for GO 2008 Animal Shelter Measure I",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "GO 2015 Refunding Bonds for GO 2008 Animal Shelter Measure I"
+  },
+  {
+    "fund_number": "ACFR-2010-cop-animal-shelter",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        243,
+        244
+      ],
+      "column_index": 0,
+      "column_name": "2010 COP Animal Shelter"
+    },
+    "observed_name": "2010 COP Animal Shelter",
+    "canonical_name": "2010 COP Animal Shelter",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "2010 COP Animal Shelter"
+  },
+  {
+    "fund_number": "ACFR-go-2014-measure-m-street-and-watershed-improveme",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        243,
+        244
+      ],
+      "column_index": 1,
+      "column_name": "GO 2014 Measure M Street and Watershed Improvement"
+    },
+    "observed_name": "GO 2014 Measure M Street and Watershed Improvement",
+    "canonical_name": "GO 2014 Measure M Street and Watershed Improvement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "GO 2014 Measure M Street and Watershed Improvement"
+  },
+  {
+    "fund_number": "511-debt-service",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        243,
+        244
+      ],
+      "column_index": 2,
+      "column_name": "Infrastructure & Facilities Measure T1"
+    },
+    "observed_name": "Infrastructure & Facilities Measure T1",
+    "canonical_name": "Infrastructure & Facilities Measure T1",
+    "alias_applied": false,
+    "method": "explicit IDENTITIES",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Infrastructure & Facilities Measure T1"
+  },
+  {
+    "fund_number": "ACFR-measure-o-housing-bond-debt-service",
+    "type": "debt_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "nonmajor_governmental",
+      "statement": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "pdf_pages": [
+        243,
+        244
+      ],
+      "column_index": 3,
+      "column_name": "Measure O Housing Bond"
+    },
+    "observed_name": "Measure O Housing Bond",
+    "canonical_name": "Measure O Housing Bond",
+    "alias_applied": false,
+    "method": "explicit IDENTITIES",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Measure O Housing Bond"
+  },
+  {
+    "fund_number": "ACFR-zero-waste",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 0,
+      "column_name": "Zero Waste"
+    },
+    "observed_name": "Zero Waste",
+    "canonical_name": "Zero Waste",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Zero Waste"
+  },
+  {
+    "fund_number": "608",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 1,
+      "column_name": "Marina Operations"
+    },
+    "observed_name": "Marina Operations",
+    "canonical_name": "Marina Operations",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Marina Operations"
+  },
+  {
+    "fund_number": "611",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 2,
+      "column_name": "Sanitary Sewer"
+    },
+    "observed_name": "Sanitary Sewer",
+    "canonical_name": "Sanitary Sewer",
+    "alias_applied": false,
+    "method": "City fund number",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Sanitary Sewer"
+  },
+  {
+    "fund_number": "ACFR-clean-storm-water",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 3,
+      "column_name": "Clean Storm Water"
+    },
+    "observed_name": "Clean Storm Water",
+    "canonical_name": "Clean Storm Water",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Clean Storm Water"
+  },
+  {
+    "fund_number": "ACFR-permit-service-center",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 4,
+      "column_name": "Permit Service Center"
+    },
+    "observed_name": "Permit Service Center",
+    "canonical_name": "Permit Service Center",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Permit Service Center"
+  },
+  {
+    "fund_number": "ACFR-off-street-parking",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 5,
+      "column_name": "Off-Street Parking"
+    },
+    "observed_name": "Off-Street Parking",
+    "canonical_name": "Off-Street Parking",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Off-Street Parking"
+  },
+  {
+    "fund_number": "ACFR-parking-meter",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 6,
+      "column_name": "Parking Meter"
+    },
+    "observed_name": "Parking Meter",
+    "canonical_name": "Parking Meter",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Parking Meter"
+  },
+  {
+    "fund_number": "ACFR-building-purchases-management",
+    "type": "enterprise",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "enterprise",
+      "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "pdf_pages": [
+        87,
+        88
+      ],
+      "column_index": 7,
+      "column_name": "Building Purchases & Management"
+    },
+    "observed_name": "Building Purchases & Management",
+    "canonical_name": "Building Purchases & Management",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Building Purchases & Management"
+  },
+  {
+    "fund_number": "ACFR-equipment-maintenance-replacement",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 0,
+      "column_name": "Equipment Maintenance Replacement"
+    },
+    "observed_name": "Equipment Maintenance Replacement",
+    "canonical_name": "Equipment Maintenance Replacement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Equipment Maintenance Replacement"
+  },
+  {
+    "fund_number": "ACFR-building-maintenance",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 1,
+      "column_name": "Building Maintenance"
+    },
+    "observed_name": "Building Maintenance",
+    "canonical_name": "Building Maintenance",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Building Maintenance"
+  },
+  {
+    "fund_number": "ACFR-central-services",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 2,
+      "column_name": "Central Services"
+    },
+    "observed_name": "Central Services",
+    "canonical_name": "Central Services",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Central Services"
+  },
+  {
+    "fund_number": "ACFR-computer-replacement",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 3,
+      "column_name": "Computer Replacement"
+    },
+    "observed_name": "Computer Replacement",
+    "canonical_name": "Computer Replacement",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Computer Replacement"
+  },
+  {
+    "fund_number": "ACFR-workers-compensation",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 4,
+      "column_name": "Workers’ Compensation"
+    },
+    "observed_name": "Workers’ Compensation",
+    "canonical_name": "Workers’ Compensation",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Workers’ Compensation"
+  },
+  {
+    "fund_number": "ACFR-sick-leave-vacation-payouts",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 5,
+      "column_name": "Sick Leave & Vacation Payouts"
+    },
+    "observed_name": "Sick Leave & Vacation Payouts",
+    "canonical_name": "Sick Leave & Vacation Payouts",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Sick Leave & Vacation Payouts"
+  },
+  {
+    "fund_number": "ACFR-public-liability",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 6,
+      "column_name": "Public Liability"
+    },
+    "observed_name": "Public Liability",
+    "canonical_name": "Public Liability",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Public Liability"
+  },
+  {
+    "fund_number": "ACFR-catastrophic-loss",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 7,
+      "column_name": "Catastrophic Loss"
+    },
+    "observed_name": "Catastrophic Loss",
+    "canonical_name": "Catastrophic Loss",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "Catastrophic Loss"
+  },
+  {
+    "fund_number": "ACFR-it-cost-allocation-plan",
+    "type": "internal_service",
+    "source": {
+      "source_id": "acfr-2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "statement_id": "internal_service",
+      "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "pdf_pages": [
+        311,
+        312
+      ],
+      "column_index": 8,
+      "column_name": "IT Cost Allocation Plan"
+    },
+    "observed_name": "IT Cost Allocation Plan",
+    "canonical_name": "IT Cost Allocation Plan",
+    "alias_applied": false,
+    "method": "FY2025-compatible slug",
+    "review_status": "PENDING REVIEW",
+    "following_name": "IT Cost Allocation Plan"
+  }
+]
