@@ -1,0 +1,92 @@
+/* Learn About Berkeley — site theme
+   Palette and type taken from the Kromer for Berkeley sign:
+   royal blue #002198, deep navy #000d6b, white; Copperplate Gothic wordmark,
+   wide-tracked caps. Loaded after each page's own styles; it only
+   re-points the page's CSS variables and a few shared components. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root{
+  /* brand */
+  --k-royal:#002198; --k-navy:#000d6b; --k-navy-deep:#000845; --k-sky:#7a90d9; --k-wash:#e8ecfa; --k-wash-2:#d6ddf6;
+  --k-paper:#f5f7fc; --k-ink:#0b1540; --k-muted:#4b5577; --k-rule:#d4daee; --k-rule-strong:#b8c2e4;
+  --k-flag:#b3261e; --k-ok:#1f6b4a; --k-warn:#8a5a00;
+
+  /* family 1: Playfair pages (budget-two-problems, index, deficit pages) */
+  --navy:var(--k-ink); --slate:var(--k-navy); --slate-2:var(--k-navy-deep);
+  --steel:var(--k-royal); --steel-deep:var(--k-navy);
+  --red:var(--k-flag); --paper:var(--k-paper); --card:#ffffff;
+  --rule:var(--k-rule); --rule-strong:var(--k-rule-strong); --muted:var(--k-muted);
+  --hi:var(--k-ok); --mod:var(--k-warn); --low:var(--k-flag); --unk:#5a6480;
+
+  /* family 2: #1f3864 pages (budget basics, measures, glossary, scans) */
+  --navy2:var(--k-royal); --ink:var(--k-ink); --line:var(--k-rule); --bg:var(--k-paper);
+  --accent:var(--k-royal); --good:var(--k-ok); --bar:var(--k-royal); --bar2:var(--k-sky); --warn:var(--k-warn);
+
+  /* family 3: green-accent pages (corridor, CIP hub, fund map) */
+  --mut:var(--k-muted); --green:var(--k-ok); --amber:var(--k-warn); --blue:var(--k-royal);
+  --accent-soft:var(--k-wash);
+}
+
+/* signature stripe at the top of every page (the sign's two-tone split) */
+body::before{ content:""; display:block; height:7px; background:linear-gradient(90deg, var(--k-royal) 0 50%, var(--k-navy) 50% 100%); }
+
+/* ---------- type ---------- */
+body{ font-family:"Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; }
+h1{ font-family:"Copperplate", "Copperplate Gothic Bold", "Copperplate Gothic Light", "Cinzel", serif !important;
+    font-weight:700 !important; letter-spacing:.06em !important; text-transform:uppercase; font-style:normal !important; color:var(--k-navy) !important; }
+h1 .q, h1 em{ font-style:normal !important; color:var(--k-royal) !important; }
+h2, h3, .cardlink .q, .kpi .v, .stat .v, .verdict .vt, .prob h3{ font-family:"Jost", sans-serif !important; font-weight:600 !important; letter-spacing:.005em; }
+.eyebrow, .sec-no, .hubbar a.back, .hubbar .stamp, .meta-row, .legend .lt, .chip, .c, .stat .l, .verdict .vk, .panel .pk, .prob .pn, .cap, figcaption, th, .tag, .role, .pill, .cardlink .ext, footer{
+  font-family:"Jost", sans-serif !important; letter-spacing:.08em; }
+.eyebrow, .sec-no, .hubbar a.back, .hubbar .stamp, .verdict .vk, .panel .pk{ text-transform:uppercase; font-weight:600; }
+
+/* ---------- the sign band: two-tone header on every family ---------- */
+.hubbar, header.hero, .masthead-band{
+  background:linear-gradient(90deg, var(--k-royal) 0 50%, var(--k-navy) 50% 100%) !important;
+  color:#fff !important; }
+.hubbar a.back{ color:#fff !important; font-family:"Copperplate","Copperplate Gothic Bold","Cinzel",serif !important; letter-spacing:.14em; font-size:12px; }
+.hubbar .stamp{ color:#dfe4ff !important; }
+header.hero, header.hero *{ color:#fff !important; }
+header.hero .tag, header.hero .toc a{ background:rgba(255,255,255,.14) !important; border-color:rgba(255,255,255,.35) !important; }
+header.hero .toc a:hover{ background:rgba(255,255,255,.26) !important; }
+header.hero h1{ border-bottom:2px solid #fff; display:inline-block; padding-bottom:.25em; }
+
+/* masthead rule + verdict/dark panels */
+.masthead{ border-bottom:3px solid var(--k-royal) !important; }
+.eyebrow{ color:var(--k-royal) !important; } .eyebrow .tick{ background:var(--k-royal) !important; }
+.verdict{ background:linear-gradient(90deg, var(--k-royal) 0 50%, var(--k-navy) 50% 100%) !important; }
+.verdict .vt{ color:#fff !important; } .verdict .vt em{ color:#cfd8ff !important; }
+.verdict p{ color:#e6eaff !important; }
+.verdict .vk{ color:#cfd8ff !important; }
+
+/* family 3 components (hard-coded greens → blues) */
+.tag{ color:var(--k-navy) !important; background:var(--k-wash) !important; border-color:var(--k-wash-2) !important; }
+.kpi .v{ color:var(--k-royal) !important; }
+.tl{ border-left-color:var(--k-royal) !important; } .tl b{ color:var(--k-royal) !important; }
+h2 .n{ color:var(--k-royal) !important; }
+.pill.c-High{ background:#e3efe9 !important; color:var(--k-ok) !important; }
+.pill.c-Moderate{ background:#fbf1dc !important; color:var(--k-warn) !important; }
+.pill.c-Low{ background:#fbe5e3 !important; color:var(--k-flag) !important; }
+.pill.c-Unknown{ background:var(--k-wash) !important; color:var(--k-muted) !important; }
+.disc{ background:var(--k-wash) !important; border-color:var(--k-wash-2) !important; color:var(--k-navy) !important; }
+code{ background:var(--k-wash) !important; }
+
+/* family 2 components */
+.cardlink:hover{ background:var(--k-wash) !important; }
+.cardlink .q{ color:var(--k-navy) !important; }
+a{ color:var(--k-royal); }
+a:hover{ color:var(--k-navy); }
+
+/* shared: boxes, tables, chips */
+.real{ background:var(--k-wash) !important; border-color:var(--k-wash-2) !important; border-left-color:var(--k-royal) !important; }
+.panel{ background:var(--k-wash) !important; border-color:var(--k-wash-2) !important; border-left-color:var(--k-royal) !important; }
+.fix{ background:var(--k-wash) !important; border-left-color:var(--k-royal) !important; } .fix b{ color:var(--k-royal) !important; }
+.warn{ background:#fbeeed !important; border-color:#efcfcc !important; border-left-color:var(--k-flag) !important; }
+th{ background:var(--k-wash) !important; color:var(--k-navy) !important; }
+tr.sub td{ background:var(--k-wash) !important; }
+td.tier{ color:var(--k-royal) !important; }
+.chip.hi,.c.hi{ background:var(--k-ok) !important; } .chip.mod,.c.mod{ background:var(--k-warn) !important; }
+.chip.low,.c.low{ background:var(--k-flag) !important; } .chip.unk,.c.unk{ background:#5a6480 !important; }
+.stat, .kpi, .card, .legend, .prob, .tw, .chartwrap{ border-color:var(--k-rule-strong) !important; }
+footer .bar{ background:var(--k-royal) !important; width:64px !important; }
