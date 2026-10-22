@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn About Berkeley — The UC Berkeley CIP Studio: A Complete Data Review</title>
+<meta name="description" content="Every source the UC Berkeley CIP studio cited, every dataset it loaded, and a line-by-line check of its 16 prototype projects against the adopted FY2025–2029 Capital Improvement Program.">
+<style>
+:root { color-scheme: light; --bg:#f7f8fa; --card:#ffffff; --ink:#1a2030; --mut:#5a6473; --line:#e4e8ee;
+  --green:#1f9d6b; --red:#d6453a; --amber:#e3a008; --blue:#3d6fd6; --accent:#15543f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 20px 72px; }
+h1 { font-size:25px; margin:0 0 4px; letter-spacing:-.02em; }
+.sub { color:var(--mut); margin:0 0 4px; }
+.tag { display:inline-block; font-size:11px; color:var(--accent); background:#e7f1ec; border:1px solid #cfe3d9; padding:2px 8px; border-radius:999px; margin-top:6px; }
+h2 { font-size:18px; margin:32px 0 6px; letter-spacing:-.01em; }
+h2 .n { color:var(--mut); font-weight:600; margin-right:8px; }
+h3 { font-size:14.5px; margin:16px 0 6px; }
+.lead { color:var(--mut); margin:0 0 14px; max-width:800px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(20,30,50,.03); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:14px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+.kpi .v { font-size:22px; font-weight:700; letter-spacing:-.02em; color:var(--accent); }
+.kpi .l { color:var(--mut); font-size:12.5px; margin-top:2px; }
+.pill { font-size:11px; padding:1px 7px; border-radius:999px; font-weight:600; display:inline-block; white-space:nowrap; }
+.c-High { background:#e7f1ec; color:#15543f; } .c-Moderate { background:#fff5d6; color:#8a6300; } .c-Low { background:#fde8e6; color:#8f2b23; } .c-Unknown { background:#f0f0f3; color:#6a7280; }
+a { color:var(--accent); }
+.disc { background:#fbf6e9; border:1px solid #ecdcb0; border-radius:10px; padding:12px 14px; font-size:13px; color:#6b551f; margin-top:10px; }
+.foot { color:var(--mut); font-size:12px; margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th,td { text-align:left; padding:7px 9px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--mut); font-weight:600; font-size:12px; white-space:nowrap; }
+.num2 { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:760px){ .two { grid-template-columns:1fr; } }
+.side { font-size:12.5px; color:var(--mut); }
+.role { font-size:11px; font-weight:600; padding:1px 6px; border-radius:6px; background:#eef1f5; color:#46505e; white-space:nowrap; }
+.ok { color:#15543f; font-weight:600; } .bad { color:#8f2b23; font-weight:600; }
+ul.tight { margin:6px 0 0 18px; padding:0; } ul.tight li { margin-bottom:4px; }
+code { font-size:12.5px; background:#eef1f5; padding:1px 5px; border-radius:4px; }
+.scroll { overflow-x:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The UC Berkeley CIP Studio: A Complete Data Review</h1>
+  <p class="sub">The September 29, 2026 referral asks City staff to build an infrastructure dashboard "akin to" a UC Berkeley student prototype. This page lists every source the students cited, separates the data they actually loaded from the material they only read, and checks each of their 16 project records against the adopted Capital Improvement Program.</p>
+  <span class="tag">Infrastructure</span> <span class="tag">Vision 2050</span> <span class="tag">Data audit</span>
+  <p class="side" style="margin-top:8px">Companion pages: <a href="berkeley-cip-hub-sources.html">the referral and the prototype</a> · <a href="berkeley-cip-hub-vs-vision-2050.html">the studio and the referral compared with Vision 2050</a></p>
+
+  <div class="disc"><strong>Acronyms used on this page.</strong> ACS = American Community Survey · CIP = Capital Improvement Program · CP 218 = UC Berkeley course number for the Transportation Planning Studio · EBMUD = East Bay Municipal Utility District · GIS = geographic information system · ISI = Institute for Sustainable Infrastructure · MTC = Metropolitan Transportation Commission · PCI = Pavement Condition Index · PMP = Pavement Management Program · REST = the web query interface ArcGIS layers expose · TF = Task Force (the Mayor's Vision 2050 Task Force).</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">2</div><div class="l">Datasets actually loaded into the prototype: the CIP PDF and the council-district layer</div></div>
+    <div class="kpi"><div class="v">16 / 16</div><div class="l">Budget figures that match the CIP's "Project Total" column</div></div>
+    <div class="kpi"><div class="v">6 / 16</div><div class="l">Timelines that do not match the fiscal years the CIP funds</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Sources behind the "On time?" and "On budget?" values</div></div>
+  </div>
+
+  <h2><span class="n">A</span>What was retrieved, and how</h2>
+  <div class="card">
+    <p>The previous version of this review could not open the report's appendices or the policy brief. Both are Google Docs and both export as plain text, so everything below comes from full text. <span class="pill c-High">High</span></p>
+    <ul class="tight">
+      <li><strong>Report.</strong> <em>Improving the CIP Prioritization and Tracking Process in Berkeley</em>, February 2026: full text including Appendices A–F and all 82 footnotes. <a href="https://docs.google.com/document/d/1CvVRIyoJWR2VIJHGlfbVjRjbzLb6aKdGTtOJXxcHlFU">Google Doc</a>.</li>
+      <li><strong>Policy brief.</strong> One page, no data, no figures. Two recommendations: adopt a unified scoring system, and keep developing the dashboard, including "integration with future capital planning." The referral uses almost the same words. <a href="https://docs.google.com/document/d/153B_rJWX9nY-oH7wYoasUu23FqIdv3NRmbZ1D5X8RZ8">Google Doc</a>.</li>
+      <li><strong>Studio website.</strong> Five pages (home, full report, policy recommendations, dashboard, team). They embed the two documents and the dashboard and hold no data of their own. <a href="https://sites.google.com/berkeley.edu/berkeley-cip-studio/home">Google Site</a>.</li>
+      <li><strong>ArcGIS account.</strong> A search for the owning account returns exactly 10 items: 1 dashboard, 1 web map, 1 uploaded shapefile, and 7 hosted feature services (3 project layers, 3 read-only views of them, 1 district layer). Every layer was queried through its REST endpoint on October 22, 2026.</li>
+      <li><strong>The adopted CIP.</strong> <a href="https://berkeleyca.gov/sites/default/files/documents/FY-2025-2029-Capital-Improvement-Program.pdf">FY2025–2029 CIP PDF</a>, downloaded and searched for each of the 16 projects in both the summary tables and the individual project sheets.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">B</span>Data the prototype actually uses</h2>
+  <p class="lead">Only two datasets feed the dashboard. Everything else in the report is literature: it shaped the design but put no numbers on the map.</p>
+  <div class="card scroll">
+    <table>
+      <thead><tr><th>Dataset</th><th>Publisher</th><th>What was taken</th><th>How</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>Adopted Capital Improvement Program, FY2025–2029</td><td>City Manager's Office, Budget &amp; Fiscal Management</td><td>Title, description, budget and fiscal-year range for 16 projects</td><td>Copied by hand from the PDF (report: "We copied over the descriptions, budget size, and timeline information"). Rows created December 16, 2025.</td><td><span class="pill c-High">High</span></td></tr>
+        <tr><td>Council Districts</td><td>City of Berkeley Open Data Portal</td><td>8 district polygons with 45 attribute fields of 2021 redistricting data (population by race, citizen voting-age population, ACS 2014–18 estimates, deviation from ideal size)</td><td>Uploaded as a shapefile December 15, 2025 and republished as a hosted layer. Used only as a map overlay: no project record carries a district field, so "which district is this in" is answered by eye, not by data.</td><td><span class="pill c-High">High</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="n">C</span>The 16 records checked against the CIP</h2>
+  <p class="lead">For each project, the value the students stored next to the CIP's own figures. The CIP's summary table runs Prior Years · FY2024 · FY2025 … FY2029 · Project Total · Five-Year Total.</p>
+  <div class="card scroll">
+    <table>
+      <thead><tr><th>Project</th><th class="num2">Stored budget</th><th>CIP Project Total</th><th>Stored timeline</th><th>Years the CIP funds</th><th>Timeline check</th></tr></thead>
+      <tbody>
+        <tr><td>South Berkeley Senior Center</td><td class="num2">$3,000,000</td><td class="ok">match</td><td>FY2024–FY2026</td><td>Prior, FY2024, FY2025</td><td class="bad">ends FY2025</td></tr>
+        <tr><td>CY Storage Room / Roof Repairs, Bldg H</td><td class="num2">$690,000</td><td class="ok">match</td><td>FY2024–FY2026</td><td>Prior, FY2024, FY2025</td><td class="bad">ends FY2025</td></tr>
+        <tr><td>Codornices Playground (Design)</td><td class="num2">N/A</td><td class="ok">$0 in all years</td><td>N/A</td><td>none</td><td class="ok">consistent</td></tr>
+        <tr><td>MLK Jr. Youth Services Center Seismic Retrofit</td><td class="num2">$11,731,400</td><td class="ok">match</td><td>FY2024–FY2026</td><td>Prior, FY2024, FY2025</td><td class="bad">ends FY2025</td></tr>
+        <tr><td>Codornices Creek Restoration at 9th Street</td><td class="num2">$650,000</td><td class="ok">match</td><td>FY2027–FY2028</td><td>FY2027, FY2028</td><td class="ok">match</td></tr>
+        <tr><td>University Ave Bus Stop (Acton)</td><td class="num2">$2,656,245</td><td class="ok">match (one project)</td><td>FY2024–FY2025</td><td>Prior, FY2024, FY2025</td><td class="ok">match</td></tr>
+        <tr><td>University Ave Bus Stop (Bonar)</td><td class="num2">$2,656,245</td><td class="bad">same project, counted twice</td><td>FY2024–FY2025</td><td>Prior, FY2024, FY2025</td><td class="ok">match</td></tr>
+        <tr><td>Woolsey–Fulton Bike Boulevard</td><td class="num2">$1,025,000</td><td class="ok">match</td><td>FY2024</td><td>Prior, FY2024</td><td class="ok">match</td></tr>
+        <tr><td>Southside Complete Streets</td><td class="num2">$16,571,541</td><td class="ok">match</td><td>FY2023–FY2024</td><td>Prior, FY2024, FY2025 ($628,700)</td><td class="bad">misses FY2025</td></tr>
+        <tr><td>Wildcat Canyon Road Repairs</td><td class="num2">$2,168,999</td><td class="ok">match</td><td>FY2023–FY2025</td><td>Prior, FY2024, FY2025</td><td class="ok">consistent</td></tr>
+        <tr><td>West Berkeley Aquatic Park Stormwater</td><td class="num2">$3,300,000</td><td class="ok">match</td><td>FY2025–2028</td><td>Prior, FY2025–FY2028</td><td class="ok">match</td></tr>
+        <tr><td>Adeline–Shattuck Sewer Rehab, Area 2</td><td class="num2">$11,835,800</td><td class="ok">match (one project)</td><td>FY2025–FY2026</td><td>FY2025, FY2026</td><td class="ok">match</td></tr>
+        <tr><td>Marina Capital</td><td class="num2">$1,050,000</td><td class="ok">match</td><td>FY2027–FY2029</td><td>FY2027–FY2029</td><td class="ok">match</td></tr>
+        <tr><td>Adeline/Alcatraz Right-of-Way Landscaping</td><td class="num2">$75,000</td><td class="ok">match</td><td>FY2024–FY2026</td><td>FY2024 only</td><td class="bad">ends FY2024</td></tr>
+        <tr><td>Santa Fe Right-of-Way</td><td class="num2">$1,307,156</td><td class="ok">match</td><td>FY2024–FY2026</td><td>Prior, FY2024</td><td class="bad">ends FY2024</td></tr>
+        <tr><td>Adeline–Shattuck Sewer Rehab, Area 1</td><td class="num2">$11,835,800</td><td class="bad">same project, counted twice</td><td>FY2025–FY2026</td><td>FY2025, FY2026</td><td class="ok">match</td></tr>
+      </tbody>
+    </table>
+    <p class="side" style="margin-top:10px">Budgets: all 16 stored figures equal the CIP's <em>Project Total</em>, a life-of-project figure that includes spending before FY2024. That is not the five-year CIP figure and not an annual budget, and the layer does not say which it is. Summing the 16 rows gives $70.6M; removing the two duplicates gives $56.1M. <span class="pill c-High">High</span></p>
+    <p class="side">Timelines: the CIP project sheets have no schedule, start-date or completion-date field. Each has a budget by phase (planning, design, construction) and by fiscal year. The stored "timeline" therefore had to be inferred, and 6 of 16 inferences do not match the years the CIP funds. "Prior" years are not broken out by year in the CIP, so a start year before FY2024 cannot be checked. <span class="pill c-High">High</span> on the comparison; <span class="pill c-Moderate">Moderate</span> that the students inferred the range rather than taking it from another document, since the report names no other source.</p>
+  </div>
+
+  <h2><span class="n">D</span>What the CIP holds that the prototype dropped</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Available in every CIP project sheet, not carried</h3>
+      <ul class="tight">
+        <li><strong>Project code</strong> (e.g. <code>PWT1CB2201</code>). Without it the layer cannot be joined back to City financial systems.</li>
+        <li><strong>Department</strong> and <strong>Department Priority</strong> (Critical, Upgrade, Maintain, Desirable, Mandated). The report criticizes these labels as unexplained, then leaves them out of the data.</li>
+        <li><strong>Project Status</strong> (New or Continuing).</li>
+        <li><strong>Funding by fund</strong> (e.g. 511 T1 Capital, 011 General Fund, 134 Measure BB, 611 Sanitary Sewer, 608 Marina). Several of the 16 are multi-fund. The report recommends a funding-status display; the layer has no funding field.</li>
+        <li><strong>Budget by phase</strong> (planning, design, construction) and by year.</li>
+        <li><strong>Location text</strong> and <strong>Linkage</strong> (the plan the project serves: Strategic Plan, Strategic Transportation Plan, Vision Zero).</li>
+        <li><strong>Impact on operating budget.</strong></li>
+      </ul>
+      <p class="side">Source: CIP project sheets, e.g. South Berkeley Senior Center and Southside Complete Streets. <span class="pill c-High">High</span></p>
+    </div>
+    <div class="card">
+      <h3>Fields in the prototype with no CIP source</h3>
+      <ul class="tight">
+        <li><code>ontime</code>, <code>onbudget</code>: Yes / No / N/A by hand. The CIP has no on-time or on-budget field and no schedule to measure against. On time: 9 Yes, 7 N/A. On budget: 12 Yes, 2 No, 2 N/A. Nothing in the report says how any of these were decided. <span class="pill c-High">High</span></li>
+        <li><code>cip_score</code>: empty for all 16. No Berkeley score exists to load: the report proposes metrics and deliberately sets no weights. <span class="pill c-High">High</span></li>
+        <li><code>contact</code>: empty for all 16. The CIP names departments, not people. <span class="pill c-High">High</span></li>
+        <li><code>proj_cat</code>: 7 categories used. The CIP has 12 program categories; the report says "ten" and lists nine. <span class="pill c-High">High</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="n">E</span>Every source the report cites</h2>
+  <p class="lead">82 footnotes collapse to about 45 distinct sources. Grouped by type, with what each one supplies. None of these, apart from the two datasets in section B, puts a number on the map.</p>
+
+  <div class="card scroll">
+    <h3>City of Berkeley documents and systems</h3>
+    <table>
+      <thead><tr><th>Source</th><th>Used for</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://berkeleyca.gov/sites/default/files/documents/FY-2025-2029-Capital-Improvement-Program.pdf">Adopted CIP FY2025–2029</a> (fn 1–4, 6, 7, 10, 12, 39, 41)</td><td>118 projects, $346M, $1.65B unfunded, the $1-saves-$7 claim, Department Priority labels, all 16 records</td><td>The CIP says 118 projects and $346.1M. The report's later "200+ CIP projects" has no source. <span class="pill c-High">High</span></td></tr>
+        <tr><td>Adopted Budget FY2025–26 (fn 8, 9)</td><td>The "criticality lens" and Budget Referral Tier 1/2/3 definitions</td><td>Quoted; not re-checked here. <span class="pill c-Moderate">Moderate</span></td></tr>
+        <tr><td>2022 Pavement Management Program Update (P-TAP Round 23), March 2023 (fn 5)</td><td>PCI 55 falling to 53 by 2028 at $15M/yr; $30.8M/yr to reach PCI 75 by 2037</td><td>Not retrieved here. MTC's published three-year average for Berkeley is 56 for 2022–2024, so 55 is a different series or year. <span class="pill c-Unknown">Unknown</span></td></tr>
+        <tr><td>2020 Pedestrian Plan, Appendix C; Bike Plan Update Draft, August 2025 (fn 11)</td><td>The two transportation prioritization rubrics (Appendix A figures)</td><td>Reproduced as images. <span class="pill c-High">High</span> that they are cited</td></tr>
+        <tr><td><a href="https://berkeleyca.gov/sites/default/files/documents/Vision-2050-Framework.pdf">Vision 2050 Framework</a> (fn 18)</td><td>"The City of Berkeley discusses adopting Envision"</td><td>The Framework recommends multi-criteria decision-making and names Envision as "an example." Fair summary. <span class="pill c-High">High</span></td></tr>
+        <tr><td>Council Special Meeting, December 2, 2025: packet and <a href="https://berkeley.granicus.com/player/clip/5556?publish_id=291fc796-d20c-11f0-bb28-005056a89546&amp;redirect=true">video</a> (fn 23–25, 38)</td><td>The TF's 60% Envision / 40% community scorecard; the 2026 ballot-measure criteria; project selection for the prototype</td><td>None of the 16 prototype projects is named as a project in the TF report PDF; the session video was not reviewed. <span class="pill c-Moderate">Moderate</span></td></tr>
+        <tr><td>Community Health Assessment, Council February 25, 2025 (fn 51)</td><td>Equity metric: "health priority areas"</td><td>Metric only; no data loaded. <span class="pill c-High">High</span></td></tr>
+        <tr><td><a href="https://berkeleyca.gov/city-services/community-gis-portal">Community GIS Portal</a> (fn 28)</td><td>Finding: shows existing assets only, no planned or ongoing projects</td><td>Reviewed, not used as data. <span class="pill c-High">High</span></td></tr>
+        <tr><td><a href="https://berkeley.buildingeye.com/planning">Planning &amp; Building Permits webmap (BuildingEye)</a> (fn 29)</td><td>Finding: no cost, timeline or responsible party</td><td>Reviewed, not used as data. <span class="pill c-High">High</span></td></tr>
+        <tr><td><a href="https://data.cityofberkeley.info/City-Government/Council-Districts/b2uf-vm3c">Open Data Portal: Council Districts</a> (fn 40)</td><td>District overlay</td><td>See section B. The report notes column names should follow the City's internal data dictionary, which was not public. <span class="pill c-High">High</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card scroll">
+    <h3>Peer agencies: prioritization frameworks (Part One)</h3>
+    <table>
+      <thead><tr><th>Agency</th><th>Document cited</th><th>What the report takes from it</th></tr></thead>
+      <tbody>
+        <tr><td>Oakland, CA</td><td><a href="https://www.oaklandca.gov/Government/Capital-Improvement-Program">CIP FY2025–27</a> (fn 13, 50)</td><td>Nine factors, 100 points: Health &amp; Safety 16, Equity 16, Existing Conditions 13, Economy 13, Environment 11, Required Work 10, Improvement 8, Collaboration 8, Readiness 5</td></tr>
+        <tr><td>EBMUD</td><td>"Who We Are"; <a href="https://www.ebmud.com/application/files/7617/4260/0666/03252025_Budget_Workshop_No._2_presentation.pdf">FY2026–27 Budget Workshop No. 2</a> (fn 14, 54, 55)</td><td>0–4 urgency scale, adopted near-verbatim as the report's Project Urgency Metrics</td></tr>
+        <tr><td>Minneapolis, MN</td><td><a href="https://www2.minneapolismn.gov/media/content-assets/www2-documents/departments/2024-CLIC-Report-(2025-2030).pdf">CLIC Report 2025–2030</a> (fn 53)</td><td>300-point comprehensive system</td></tr>
+        <tr><td>Chico, CA</td><td><a href="https://chicoca.gov/documents/12.-Implementation-Plan.pdf">Active Transportation Plan, Implementation</a> (fn 57)</td><td>Multi-step scoring</td></tr>
+        <tr><td>Ann Arbor, MI</td><td><a href="https://www.a2gov.org/media/j2bjubbc/tamp_ann-arbor_2023-final.pdf">2023 Transportation Asset Management Plan</a> (fn 59)</td><td>Street-construction criteria</td></tr>
+        <tr><td>MTA (New York)</td><td><a href="https://future.mta.info/documents/20-YearNeedsAssessment_ComparativeEvaluation.pdf">2025–2044 Needs Assessment</a> (fn 60, 61)</td><td>Transportation scoring</td></tr>
+        <tr><td>NJTPA</td><td><a href="https://www.njtpa.org/NJTPA/media/Documents/Projects-Programs/Transportation-Improvement-Program-(TIP)/Scoring-Criteria/TIP-Project-Scoring-Criteria.pdf">TIP Scoring Criteria</a> (fn 62)</td><td>800-point system</td></tr>
+        <tr><td>SJTPO</td><td><a href="https://www.sjtpo.org/wp-content/uploads/2025/01/Final-Draft-RTP-Forward-2050_January-2025.pdf">RTP 2050 draft</a> (fn 63)</td><td>125-point system</td></tr>
+        <tr><td>Somerville, MA</td><td><a href="https://s3.amazonaws.com/somervillema-live/s3fs-public/FY2024%20Pavement%20Management%20Program%20Detail%20Memo_0.pdf">FY2024 Pavement &amp; Sidewalk Program</a> (fn 64)</td><td>PCI-based prioritization</td></tr>
+        <tr><td>Athens-Clarke County, GA</td><td><a href="https://www.accgov.com/DocumentCenter/View/54756/Athens-in-Motion-Plan---Full-Plan">Athens in Motion Plan</a> (fn 66)</td><td>College-town comparison</td></tr>
+        <tr><td>U.S. Census Bureau</td><td>Unspecified table (fn 49, 52, 56, 58, 65, 67)</td><td>Population comparisons only (e.g. Berkeley about 120,000, Oakland about 444,000). No table, year or vintage given. <span class="pill c-Low">Low</span> on traceability</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card scroll">
+    <h3>Third-party frameworks</h3>
+    <table>
+      <thead><tr><th>Source</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>Institute for Sustainable Infrastructure: <a href="https://sustainableinfrastructure.org/about-isi/">about</a>, <a href="https://sustainableinfrastructure.org/envision/use-envision/">use Envision</a>, <a href="https://sustainableinfrastructure.org/wp-content/uploads/2020/10/WJH-Hatchery-Envision-Credit-Table.pdf">credit table</a> (fn 15–17)</td><td>Envision's 5 categories, 64 credits, 1,000 points, Platinum at 50%</td></tr>
+        <tr><td>ISI project awards: <a href="https://sustainableinfrastructure.org/project-awards/i-25university-ave-interchange-improvements/">NMDOT I-25</a>, <a href="https://sustainableinfrastructure.org/project-awards/us-101-managed-lanes-project/">US-101 Managed Lanes</a> (fn 19, 20)</td><td>Case-study verification</td></tr>
+        <tr><td>Caltrans: <a href="https://dot.ca.gov/-/media/dot-media/programs/transportation-planning/documents/division-transportation-planning/csis/2024-caltrans-system-investment-strategy-v2-a11y.pdf">CSIS 2024</a>, <a href="https://dot.ca.gov/-/media/dot-media/programs/transportation-planning/documents/division-transportation-planning/csis/2024-capti-alignment-metrics_a11y.pdf">CAPTI metrics</a> (fn 21, 22)</td><td>State prioritization criteria that Envision supplements</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card scroll">
+    <h3>Peer dashboards and engagement models (Part Two)</h3>
+    <table>
+      <thead><tr><th>Source</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>Ann Arbor: <a href="https://www.arcgis.com/apps/dashboards/e4c6e52dfa57452cb3ad470bf554f241">CIP FY2026–31 dashboard</a>, <a href="https://a2-mi.maps.arcgis.com/apps/dashboards/b40f1eeabb6e42829363ff5a2335d40e">Active Road &amp; Utility 2025</a>, <a href="https://a2-mi.maps.arcgis.com/apps/dashboards/99c7841b006b438caa5defec3790f6d4">Upcoming 2026–30</a>, <a href="https://www2.a2gov.org/gis/cipmaps/UT-WS-13-02.pdf">sample project sheet</a> (fn 43–46, 76–78)</td><td>The model tracker; CIP score in the pop-up</td></tr>
+        <tr><td>Seattle DOT <a href="https://capitalprojects.seattle.gov/projects?tab=home">Capital Projects Dashboard</a> (fn 79)</td><td>On-time / on-budget flags with an explanation for each; projected vs spent</td></tr>
+        <tr><td>NYC Parks <a href="https://www.nycgovparks.org/planning-and-building/capital-project-tracker">Capital Project Tracker</a> (fn 80)</td><td>Funding sources by amount; named project liaisons</td></tr>
+        <tr><td>Oakland <a href="https://www.arcgis.com/apps/dashboards/d2807f24a1194848b531b0b3a98ab53a">CIP Community Submissions</a>; OakDOT <a href="https://www.arcgis.com/apps/mapviewer/index.html?webmap=d17d586b9a5a4c529d3951a5d239e47f">Major Projects map</a> (fn 81, 82)</td><td>CIP score and funding measure in the pop-up</td></tr>
+        <tr><td>San Diego <a href="https://experience.arcgis.com/experience/fff631d17b574f1884bef0f75c5c4046">CIP Map Viewer</a> (fn 31)</td><td>Legend and color symbology</td></tr>
+        <tr><td><a href="https://allovance.com/products-services/software/overview/">Allovance</a> (fn 47)</td><td>Ann Arbor's capital-planning software and the export-and-join workflow</td></tr>
+        <tr><td>Seattle <a href="https://www.seattle.gov/documents/Departments/OPCD/SeattlePlan/OneSeattlePlanEngagementSummary.pdf">One Seattle engagement summary</a>; MTC <a href="https://planbayarea.org/sites/default/files/documents/2023_Public_Participation_Plan.pdf?cb=b43c0ed0">2023 Public Participation Plan</a> (fn 68, 69)</td><td>District-by-district engagement model (Appendix E)</td></tr>
+      </tbody>
+    </table>
+    <p class="side" style="margin-top:10px">Every peer dashboard the students praised shows something theirs does not: a score (Ann Arbor, Oakland), a funding source (OakDOT, NYC Parks), or a reason for each on-time and on-budget flag (Seattle). <span class="pill c-High">High</span> on the report's own descriptions.</p>
+  </div>
+
+  <div class="card scroll">
+    <h3>Interviews</h3>
+    <table>
+      <thead><tr><th>Person</th><th>Agency</th><th>Topic</th><th>Record</th></tr></thead>
+      <tbody>
+        <tr><td>Ethan Miller</td><td>City of Ann Arbor, Infrastructure &amp; Data Asset Manager</td><td>Tracker build and upkeep</td><td>Footnoted: December 10, 2025, interview by Bim-Ray Yau (fn 42, 48)</td></tr>
+        <tr><td>Antonio Griego</td><td>New Mexico DOT</td><td>Envision "buckets"</td><td>Acknowledged; no date</td></tr>
+        <tr><td>Mark Leong</td><td>Caltrans District 4</td><td>Envision alongside CSIS / CAPTI</td><td>Acknowledged; no date</td></tr>
+        <tr><td>Jessica Brown, Oliver Atkinson</td><td>Port of Seattle</td><td>Envision certification costs</td><td>Acknowledged; no date</td></tr>
+        <tr><td>Samuel Feldman</td><td>EBMUD</td><td>Urgency scoring (inferred from the report's use)</td><td>Acknowledged; no date</td></tr>
+      </tbody>
+    </table>
+    <p class="side" style="margin-top:10px">No City of Berkeley staff interview is cited. The report refers to "feedback from City of Berkeley staff" and "initial scope-setting meetings" with the City, unrecorded. Client: Matt Nichols, Mayor's Office. <span class="pill c-High">High</span></p>
+  </div>
+
+  <h2><span class="n">F</span>What this means for the referral</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Findings</h3>
+      <ul class="tight">
+        <li>The prototype's data is a hand transcription of a public PDF. The budget figures are accurate, but the field holds a life-of-project total and the layer doesn't label it as one.</li>
+        <li>The two status flags the dashboard actually displays rest on no source the report names. The CIP has nothing to measure on-time against.</li>
+        <li>The CIP already publishes the code, department, priority, status, fund split and plan linkage for every project. A real tracker could start from that, as structured data, without new collection.</li>
+        <li>The report's own peer review sets a higher bar than its prototype meets. That is normal for a proof of concept, and it is why "akin to" sets no standard.</li>
+      </ul>
+      <p class="side"><span class="pill c-High">High</span> on each fact; the reading is ours.</p>
+    </div>
+    <div class="card">
+      <h3>The counterargument</h3>
+      <p>This is a one-semester student studio, and it says plainly that the data layer is unbuilt. The students chose to show a working template rather than a complete dataset, and the hand-entered flags are placeholders that show what the display would do. Grading a template on its data misses the point of it. Any fair criticism belongs with the referral, which cites the template as a model without saying which data standard the City's version must meet. <span class="pill c-Moderate">Moderate</span></p>
+      <p class="side">Records to request: the CIP in native spreadsheet or database form, with project codes, so a tracker can be built from structured data rather than a PDF.</p>
+    </div>
+  </div>
+
+  <div class="disc"><strong>Acronyms.</strong> ACS = American Community Survey · CAPTI = Climate Action Plan for Transportation Infrastructure · CIP = Capital Improvement Program · CLIC = Capital Long-Range Improvement Committee (Minneapolis) · CSIS = Caltrans System Investment Strategy · EBMUD = East Bay Municipal Utility District · ISI = Institute for Sustainable Infrastructure · MTA = Metropolitan Transportation Authority · MTC = Metropolitan Transportation Commission · NJTPA = North Jersey Transportation Planning Authority · NMDOT = New Mexico Department of Transportation · PCI = Pavement Condition Index · RTP = Regional Transportation Plan · SJTPO = South Jersey Transportation Planning Organization · TF = Task Force · TIP = Transportation Improvement Program.</div>
+
+  <div class="foot">Confidence pills: <span class="pill c-High">High</span> = read directly from the cited primary document or queried from the live data layer · <span class="pill c-Moderate">Moderate</span> = inference from documents · <span class="pill c-Low">Low</span> = source not traceable · <span class="pill c-Unknown">Unknown</span> = not retrieved. Layers queried and documents retrieved October 22, 2026. The student authors are named as the report names them; the work was done for a public client and is public. Learn About Berkeley takes no position on the referral.</div>
+</div>
+</body>
+</html>
