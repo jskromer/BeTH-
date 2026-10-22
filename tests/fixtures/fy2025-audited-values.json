@@ -1,0 +1,1388 @@
+{
+  "baseline_commit": "e51951c",
+  "description": "Annual values from the unmodified FY2025 extractor; notes excluded. Marina was skipped by that extractor and is compared against curated evidence in the full extraction test. This is an equivalence regression, not independent audited reconciliation (PR #10).",
+  "pdf_sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+  "annual": {
+    "011": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 285841172,
+        "expenditure": 276941924,
+        "transfers_in": 8974480,
+        "transfers_out": 33919159,
+        "ending_balance": 154877665,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "501": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 161015,
+        "expenditure": 16085754,
+        "transfers_in": 14834267,
+        "transfers_out": 2251650,
+        "ending_balance": 23831669,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "511-debt-service": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 4283824,
+        "expenditure": 3760906,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 7668775,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "511": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 574517,
+        "expenditure": 8705903,
+        "transfers_in": 0,
+        "transfers_out": 430000,
+        "ending_balance": 18227952,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "611": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 25324299,
+        "expenditure": 17943570,
+        "transfers_in": 520501,
+        "transfers_out": 193023,
+        "ending_balance": 196335122,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 2303076
+      }
+    ],
+    "ACFR-1st-response-advanced-life-support-alsfr": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -5998,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-2009-measure-ff-library": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1434307,
+        "expenditure": 1334036,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 2109177,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-2010-cop-animal-shelter": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 139900,
+        "transfers_in": 402613,
+        "transfers_out": 536325,
+        "ending_balance": 45640,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-affordable-child-care": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 13274,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 541529,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-affordable-housing-mitigation-fee": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 831330,
+        "expenditure": 643933,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 55651797,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-alameda-county-abandoned-vehicle-abatement-autho": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 31764,
+        "expenditure": 90630,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 205131,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-animal-shelter": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 33941,
+        "expenditure": 30311,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 147549,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-asset-forfeiture": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2343,
+        "expenditure": 31493,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 89687,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-building-maintenance": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 3920174,
+        "expenditure": 5262019,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -4035236,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 53254
+      }
+    ],
+    "ACFR-building-purchases-management": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2559388,
+        "expenditure": 2569399,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -4432762,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": -235437
+      }
+    ],
+    "ACFR-business-economic-development": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 67811,
+        "expenditure": 31127,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1543585,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-catastrophic-loss": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 7720055,
+        "transfers_in": 7720657,
+        "transfers_out": 0,
+        "ending_balance": -468435,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 0
+      }
+    ],
+    "ACFR-cdbg": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 3654586,
+        "expenditure": 3940710,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 7169798,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-central-services": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 359180,
+        "expenditure": 403193,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -114118,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 0
+      }
+    ],
+    "ACFR-citywide-rlf": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 9910,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 811116,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-clean-storm-water": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 4685118,
+        "expenditure": 4622382,
+        "transfers_in": 29170,
+        "transfers_out": 25085,
+        "ending_balance": 28965135,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 567872
+      }
+    ],
+    "ACFR-community-workforce": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 10074,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-computer-replacement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 644,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 14
+      }
+    ],
+    "ACFR-condo-conversion-program": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2290,
+        "expenditure": 36112,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3909398,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-domestic-violence-prevention-vital-statistics": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 20696,
+        "expenditure": 12834,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 54334,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-east-bay-public-utilities-commission": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 122,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 4114,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-employee-training": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 645550,
+        "transfers_in": 750000,
+        "transfers_out": 0,
+        "ending_balance": 235967,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-energy-commission": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -87,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-equipment-maintenance-replacement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 19349244,
+        "expenditure": 16390504,
+        "transfers_in": 3759380,
+        "transfers_out": 2000000,
+        "ending_balance": 39849214,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 338318
+      }
+    ],
+    "ACFR-fair-elections": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 531883,
+        "transfers_in": 612210,
+        "transfers_out": 0,
+        "ending_balance": 1080147,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-fire-admin-training-building-bond": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 4748923,
+        "transfers_in": 7500000,
+        "transfers_out": 0,
+        "ending_balance": 13000000,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-fund-for-impounded-and-unneutered": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 220,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 7498,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-fund-raising-activities": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 176734,
+        "expenditure": 24325,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1024060,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-fund-replacement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 1144081,
+        "transfers_in": 3846400,
+        "transfers_out": 0,
+        "ending_balance": 758218,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-gilman-fields-reserve": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 75000,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1117277,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-gilman-sport-field": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 439352,
+        "expenditure": 302281,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 223057,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-go-2014-measure-m-street-and-watershed-improveme": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1912410,
+        "expenditure": 1634688,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3645153,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 418340,
+        "expenditure": 376172,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1444077,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 149407,
+        "expenditure": 141371,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 503645,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2241105,
+        "expenditure": 2041788,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3099996,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 507984,
+        "expenditure": 478207,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 611327,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-grants": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 56576664,
+        "expenditure": 47263088,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 70435919,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-health-state-aid-realignment": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2228639,
+        "expenditure": 1158797,
+        "transfers_in": 1953018,
+        "transfers_out": 2643280,
+        "ending_balance": 6291834,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-housing-finance-agency": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 193819,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-inclusionary-housing-program": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 246675,
+        "expenditure": 318699,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1938144,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-income-housing-fund-savo-island-project": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 441140,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-income-housing-fund-west-improvement-project": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3104864,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-it-cost-allocation-plan": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 16981907,
+        "expenditure": 16704509,
+        "transfers_in": 71335,
+        "transfers_out": 3396355,
+        "ending_balance": -5284045,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": -7118
+      }
+    ],
+    "ACFR-legacy-fund": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 79294,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-library": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 26904996,
+        "expenditure": 26186710,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 25054738,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-lillie-b-wall-memorial": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1048,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 16395,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-b-bike-and-pedestrian": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 10645,
+        "expenditure": 521384,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 66427,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-b-local-streets-and-roads": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 108514,
+        "expenditure": 1893445,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 2160634,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-b-paratransit": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 818,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 697,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-bb-bike-and-pedestrian": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 867748,
+        "expenditure": 609133,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1014885,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-bb-local-streets-and-roads": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 8099732,
+        "expenditure": 5118669,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 13231063,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-bb-paratransit": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 827913,
+        "expenditure": 1180226,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 254520,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-e-special-tax-for-disabled": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1774821,
+        "expenditure": 1734281,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 265260,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-f-alameda-county-vrf-street-and-road": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 748350,
+        "expenditure": 961305,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1194103,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-ff-public-safety": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 10309975,
+        "expenditure": 14117158,
+        "transfers_in": 0,
+        "transfers_out": 8257925,
+        "ending_balance": 4036365,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-g-fire-seismic-projects": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 58,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-g-public-safety-building": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 197,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 6654,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-gg-fire-preparation-tax": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 5957230,
+        "expenditure": 5507030,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3183254,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-m-street-and-watershed-improvements": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 24114,
+        "expenditure": 125365,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 734892,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-o-housing-bond-debt-service": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 7470351,
+        "expenditure": 4606736,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 8929540,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-measure-o-housing-bond": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1917950,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 81326861,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-mental-health-state-aid-realignment": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2881975,
+        "expenditure": 4039973,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 5277586,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-miles-lab": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 907,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 295995,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-off-street-parking": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 5022846,
+        "expenditure": 7322441,
+        "transfers_in": 1000000,
+        "transfers_out": 7920,
+        "ending_balance": 7050595,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": -900648
+      }
+    ],
+    "ACFR-one-time-funding": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 826328,
+        "expenditure": 50000,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 2411599,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-opt-public-safety": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 423976,
+        "expenditure": 357617,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1446942,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-other-special-deposits": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 0,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-paramedic-assessment-district": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 3967557,
+        "expenditure": 4343399,
+        "transfers_in": 757925,
+        "transfers_out": 10716,
+        "ending_balance": 314621,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-park-acquisition-development": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2417,
+        "expenditure": 242,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 41492,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-park-tax": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 19415084,
+        "expenditure": 17712400,
+        "transfers_in": 0,
+        "transfers_out": 115338,
+        "ending_balance": 12320424,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-parking-in-lieu-fee": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1290000,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-parking-meter": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 8814428,
+        "expenditure": 7918628,
+        "transfers_in": 0,
+        "transfers_out": 2050938,
+        "ending_balance": -2032090,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 130467
+      }
+    ],
+    "ACFR-pension-refunding-bonds": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 128660,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-permit-service-center": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 22513267,
+        "expenditure": 23048058,
+        "transfers_in": 0,
+        "transfers_out": 55637,
+        "ending_balance": 20397123,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 802268
+      }
+    ],
+    "ACFR-pers-savings": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1907185,
+        "expenditure": 63999,
+        "transfers_in": 5352059,
+        "transfers_out": 3000000,
+        "ending_balance": 30700754,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-phone-system-replacement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 528899,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 853317,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-playground-camp": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 4276759,
+        "expenditure": 4162255,
+        "transfers_in": 0,
+        "transfers_out": 3000,
+        "ending_balance": 638208,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-private-party-sidewalks": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 312355,
+        "expenditure": 548981,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1274786,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-private-percent-art-fund": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 552576,
+        "expenditure": 369259,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3329193,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-public-art": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 78084,
+        "transfers_in": 309927,
+        "transfers_out": 0,
+        "ending_balance": 418842,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-public-education-and-government-access-facilitie": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 117200,
+        "expenditure": 267210,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 2434285,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-public-liability": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 1707503,
+        "transfers_in": 2664292,
+        "transfers_out": 1792557,
+        "ending_balance": -5682317,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 65992
+      }
+    ],
+    "ACFR-rental-housing-safety-program": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2762419,
+        "expenditure": 2098141,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 5113603,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-repertory-theatre": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 335,
+        "expenditure": 500003,
+        "transfers_in": 499802,
+        "transfers_out": 0,
+        "ending_balance": -10088,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-sec-108-hud-loan-grant-assistance": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 129846,
+        "expenditure": 1149465,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 3234285,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-shelter-operations": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 81351,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-sick-leave-vacation-payouts": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 4145187,
+        "expenditure": 3262849,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 9941612,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 178208
+      }
+    ],
+    "ACFR-state-proposition-172": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 1165579,
+        "expenditure": 1011709,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1791357,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-state-transportation-tax": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 7266014,
+        "expenditure": 7024607,
+        "transfers_in": 0,
+        "transfers_out": 29170,
+        "ending_balance": 8881304,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-street-and-open-space-improvement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 2951402,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-street-improvement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2811,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 94814,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-street-lighting": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 2302410,
+        "expenditure": 2325734,
+        "transfers_in": 0,
+        "transfers_out": 12120,
+        "ending_balance": 2374321,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-tieback-mitigation-r-o-w": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 37800,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 1356529,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-tobacco-control": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 227359,
+        "expenditure": 351072,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -436,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-traffic-congestion-relief": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 0,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 12,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-uc-settlement": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 4480181,
+        "expenditure": 5354520,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 4846033,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-vital-and-health-statistic": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 28457,
+        "expenditure": 11475,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": 316419,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-workers-compensation": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 11983900,
+        "transfers_in": 0,
+        "transfers_out": 0,
+        "ending_balance": -9752938,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 1112676
+      }
+    ],
+    "ACFR-workforce-investment-act": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 0,
+        "expenditure": 55737,
+        "transfers_in": 35542,
+        "transfers_out": 0,
+        "ending_balance": 102705,
+        "source": "acfr-2025",
+        "confidence": "High"
+      }
+    ],
+    "ACFR-zero-waste": [
+      {
+        "fy": 2025,
+        "basis": "audited",
+        "revenue": 55824861,
+        "expenditure": 57295995,
+        "transfers_in": 0,
+        "transfers_out": 845928,
+        "ending_balance": -923233,
+        "source": "acfr-2025",
+        "confidence": "High",
+        "nonoperating": 1044236
+      }
+    ]
+  }
+}

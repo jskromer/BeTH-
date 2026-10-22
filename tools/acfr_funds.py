@@ -8,9 +8,9 @@ combining statements (pp.237-254), the proprietary funds statement
 (pp.85-86) and the internal service combining statement (pp.321-322),
 and writes data/funds/<id>.json with the FY2025 year, a flow_detail block
 for the money-flow diagram, and the page cited as source. Files that a
-person has already curated (listed in KEEP) are left alone.
+person has already curated are protected by data/curation/protected-ledgers.json.
+All existing evidence is preserved; conflicts abort before any writes.
 """
-import json
 import re
 import sys
 from pathlib import Path
@@ -20,12 +20,20 @@ import pdfplumber
 sys.path.insert(0, str(Path(__file__).parent))
 import acfr_parse  # noqa: E402
 
+from ledger_safety import SafetyError, update_ledgers
+
 FY = 2025
 ACFR_URL = "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf"
-KEEP = {"608"}  # hand-curated ledgers not to overwrite
 NUMBERS = {  # City fund numbers where known (budget documents); others get an ACFR slug id
     "General Fund": "011", "Marina Operations": "608", "Sanitary Sewer": "611", "Capital Improvement": "501",
     "Infrastructure & Facilities Measure T1": "511", "Measure O Housing Bond": "ACFR-measure-o-housing-bond",
+}
+# Explicit FY2025 identities retain existing URLs, including the legacy truncated slug.
+IDENTITIES = {
+    ("Infrastructure & Facilities Measure T1", "debt_service"): "511-debt-service",
+    ("Measure O Housing Bond", "debt_service"): "ACFR-measure-o-housing-bond-debt-service",
+    ("GO 2015 Refunding Bonds for GO 2007 Refunding Bonds Series A", "debt_service"):
+        "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service",
 }
 DEPT = {"enterprise": "Public Works / Parks / Planning", "internal_service": "Finance / Public Works / IT / HR"}
 GOV_REV = ["Taxes", "Licenses and permits", "Intergovernmental", "Charges for service", "Fines and penalties",
@@ -44,20 +52,29 @@ def slug(s):
     return s[:48]
 
 
+def required(d, *labels):
+    found = [(label, d[label]) for label in labels if label in d]
+    if not found or any(type(value) is not int for _, value in found):
+        raise SafetyError(f"Missing required financial statement label/value: {labels}")
+    if len({value for _, value in found}) != 1:
+        raise SafetyError(f"Conflicting financial statement labels: {found}")
+    return found[0][1]
+
+
 def gov_record(name, d, ftype, page):
     rev = {k: d.get(k) for k in GOV_REV if d.get(k)}
     exp = {k: d.get(k) for k in GOV_EXP if d.get(k)}
-    ti = d.get("Transfers in") or 0
-    to = d.get("Transfers out") or 0
+    ti = required(d, "Transfers in")
+    to = required(d, "Transfers out")
     inflows = [{"line": k.rstrip(":"), "amount": v, "kind": "own"} for k, v in rev.items()]
     inflows += [{"line": k, "amount": d[k], "kind": "rescue" if k == "Transfers in" else "financing"} for k in OTHER_IN if d.get(k)]
     outflows = [{"line": k.rstrip(":"), "amount": v} for k, v in exp.items()]
     outflows += [{"line": k, "amount": abs(d[k])} for k in OTHER_OUT if d.get(k)]
     return {
-        "revenue": d.get("Total revenues"), "expenditure": d.get("Total expenditures"),
+        "revenue": required(d, "Total revenues"), "expenditure": required(d, "Total expenditures"),
         "transfers_in": ti, "transfers_out": abs(to),
-        "ending_balance": d.get("Fund balance, June 30, 2025", d.get("Fund balances, June 30, 2025")),
-        "beginning_balance": d.get("Fund balance, July 1, 2024", d.get("Fund balances, July 1, 2024")),
+        "ending_balance": required(d, "Fund balance, June 30, 2025", "Fund balances, June 30, 2025"),
+        "beginning_balance": required(d, "restated") if page == 77 else required(d, "Fund balance, July 1, 2024", "Fund balances, July 1, 2024"),
         "inflows": inflows, "outflows": outflows,
     }
 
@@ -80,17 +97,17 @@ def prop_record(name, d, page):
         if d.get(k):
             outflows.append({"line": k, "amount": abs(d[k])})
     return {
-        "revenue": d.get("Total operating revenues"), "expenditure": d.get("Total operating expenses"),
-        "nonoperating": d.get("Total nonoperating revenues (expenses)"),
-        "transfers_in": d.get("Transfers in") or 0, "transfers_out": abs(d.get("Transfers out") or 0),
-        "ending_balance": d.get("Total net position - ending"),
-        "beginning_balance": d.get("Total net position - beginning, as restated", d.get("Total net position - beginning")),
+        "revenue": required(d, "Total operating revenues"), "expenditure": required(d, "Total operating expenses"),
+        "nonoperating": required(d, "Total nonoperating revenues (expenses)"),
+        "transfers_in": required(d, "Transfers in"), "transfers_out": abs(required(d, "Transfers out")),
+        "ending_balance": required(d, "Total net position - ending"),
+        "beginning_balance": required(d, "Total net position - beginning, as restated", "Total net position - beginning balance as restated") if any(k in d for k in ("Total net position - beginning, as restated", "Total net position - beginning balance as restated")) else required(d, "Total net position - beginning"),
         "inflows": inflows, "outflows": outflows,
     }
 
 
 def make(name, rec, ftype, page, statement):
-    fid = NUMBERS.get(name, "ACFR-" + slug(name))
+    fid = IDENTITIES.get((name, ftype), NUMBERS.get(name, "ACFR-" + slug(name)))
     year = {"fy": FY, "basis": "audited", "revenue": rec["revenue"], "expenditure": rec["expenditure"],
             "transfers_in": rec["transfers_in"], "transfers_out": rec["transfers_out"],
             "ending_balance": rec["ending_balance"], "source": "acfr-2025", "confidence": "High",
@@ -113,56 +130,60 @@ def make(name, rec, ftype, page, statement):
                    "open_questions": ["Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."]},
         "sources": {"acfr-2025": {"title": f"City of Berkeley, Annual Comprehensive Financial Report FY2025, {statement}, p.{page}", "url": ACFR_URL, "date": "2026-01"}},
         "generated_by": "tools/acfr_funds.py",
+        "curation": {"status": "extracted", "policy": "append-only"},
     }
 
 
-def main(pdf_path, out_dir):
-    pdf = pdfplumber.open(pdf_path)
-    out_dir = Path(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    written, skipped = [], []
+def extract(pdf_path):
+    with pdfplumber.open(pdf_path) as pdf:
+        records = []
+        identities = set()
 
-    def emit(name, rec, ftype, page, statement):
-        if not name or name.startswith("Total") or "Governmental Funds" in name or name in ("Internal Service Funds", "Total Nonmajor"):
-            return
-        r = make(name, rec, ftype, page, statement)
-        if r["fund_number"] in KEEP:
-            skipped.append(name)
-            return
-        if any(w[0] == r["fund_number"] for w in written):
-            r["fund_number"] = r["fund_number"] + "-" + ftype.replace("_", "-")
-        p = out_dir / f"{r['fund_number']}.json"
-        p.write_text(json.dumps(r, indent=1, ensure_ascii=False))
-        written.append((r["fund_number"], name, ftype))
+        def emit(name, rec, ftype, page, statement):
+            if not name or name.startswith("Total") or "Governmental Funds" in name or name in ("Internal Service Funds", "Total Nonmajor"):
+                return
+            r = make(name, rec, ftype, page, statement)
+            fid = r["fund_number"]
+            if fid in identities:
+                raise SafetyError(f"Duplicate extracted fund identity: {fid}")
+            identities.add(fid)
+            records.append(r)
 
-    # major governmental funds
-    names, out, labels = acfr_parse.parse_pair(pdf, 77, None)
-    for n in names:
-        ftype = "general" if n == "General Fund" else ("capital_project" if n == "Capital Improvement" else "special_revenue")
-        emit(n, gov_record(n, out[n], ftype, 77), ftype, 77, "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds")
-    # nonmajor governmental: type switches at the subtotal columns
-    ftype = "special_revenue"
-    for left in range(237, 254, 2):
-        names, out, labels = acfr_parse.parse_pair(pdf, left, left + 1)
+        # major governmental funds
+        names, out, labels = acfr_parse.parse_pair(pdf, 77, None)
         for n in names:
-            if n == "Total Special Revenue Funds":
-                ftype = "capital_project"; continue
-            if n == "Total Capital Project Funds":
-                ftype = "debt_service"; continue
-            emit(n, gov_record(n, out[n], ftype, left), ftype, left, "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds")
-    # enterprise
-    names, out, labels = acfr_parse.parse_pair(pdf, 85, 86)
-    for n in names:
-        emit(n, prop_record(n, out[n], 85), "enterprise", 85, "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds")
-    # internal service
-    names, out, labels = acfr_parse.parse_pair(pdf, 321, 322)
-    for n in names:
-        emit(n, prop_record(n, out[n], 321), "internal_service", 321, "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds")
-    print(f"wrote {len(written)} fund files; kept {skipped}")
-    from collections import Counter
-    print(Counter(t for _, _, t in written))
+            ftype = "general" if n == "General Fund" else ("capital_project" if n == "Capital Improvement" else "special_revenue")
+            emit(n, gov_record(n, out[n], ftype, 77), ftype, 77, "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds")
+        # nonmajor governmental: type switches at the subtotal columns
+        ftype = "special_revenue"
+        for left in range(237, 254, 2):
+            names, out, labels = acfr_parse.parse_pair(pdf, left, left + 1)
+            for n in names:
+                if n == "Total Special Revenue Funds":
+                    ftype = "capital_project"; continue
+                if n == "Total Capital Project Funds":
+                    ftype = "debt_service"; continue
+                emit(n, gov_record(n, out[n], ftype, left), ftype, left, "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds")
+        # enterprise
+        names, out, labels = acfr_parse.parse_pair(pdf, 85, 86)
+        for n in names:
+            emit(n, prop_record(n, out[n], 85), "enterprise", 85, "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds")
+        # internal service
+        names, out, labels = acfr_parse.parse_pair(pdf, 321, 322)
+        for n in names:
+            emit(n, prop_record(n, out[n], 321), "internal_service", 321, "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds")
+        return records
+
+
+def main(pdf_path, out_dir):
+    records = extract(pdf_path)
+    written = update_ledgers(records, out_dir)
+    print(f"Extracted {len(records)} funds; updated {len(written)} files; preserved existing evidence")
     return written
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    try:
+        main(sys.argv[1], sys.argv[2])
+    except SafetyError as exc:
+        sys.exit(f"EXTRACTION SAFETY ERROR: {exc}")
