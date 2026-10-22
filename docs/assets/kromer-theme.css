@@ -8,8 +8,8 @@
 
 :root{
   /* brand */
-  --k-royal:#002198; --k-navy:#000d6b; --k-navy-deep:#000845; --k-sky:#7a90d9; --k-wash:#e8ecfa; --k-wash-2:#d6ddf6;
-  --k-paper:#f5f7fc; --k-ink:#0b1540; --k-muted:#4b5577; --k-rule:#d4daee; --k-rule-strong:#b8c2e4;
+  --k-royal:#002198; --k-navy:#000d6b; --k-navy-deep:#000845; --k-sky:#7a90d9; --k-wash:#e4e7f3; --k-wash-2:#cdd3e8;
+  --k-paper:#ebecee; --k-ink:#0b1540; --k-muted:#4b5577; --k-rule:#d3d6db; --k-rule-strong:#bfc4cb;
   --k-flag:#b3261e; --k-ok:#1f6b4a; --k-warn:#8a5a00;
 
   /* family 1: Playfair pages (budget-two-problems, index, deficit pages) */
