@@ -1,0 +1,108 @@
+{
+ "fund_number": "ACFR-street-lighting",
+ "name": "Street Lighting",
+ "type": "special_revenue",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 2302410,
+   "expenditure": 2325734,
+   "transfers_in": 0,
+   "transfers_out": 12120,
+   "ending_balance": 2374321,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.243. Beginning balance 2,286,124"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Taxes",
+    "amount": 2233850,
+    "kind": "own"
+   },
+   {
+    "line": "Charges for service",
+    "amount": 612,
+    "kind": "own"
+   },
+   {
+    "line": "Investment income",
+    "amount": 67948,
+    "kind": "own"
+   },
+   {
+    "line": "Inception of leases and subscriptions",
+    "amount": 116241,
+    "kind": "financing"
+   },
+   {
+    "line": "Insurance Recoveries",
+    "amount": 7400,
+    "kind": "financing"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "General government",
+    "amount": 51692
+   },
+   {
+    "line": "Public safety",
+    "amount": 137906
+   },
+   {
+    "line": "Highway and streets",
+    "amount": 1763807
+   },
+   {
+    "line": "Principal repayment",
+    "amount": 238634
+   },
+   {
+    "line": "Interest and fiscal charges",
+    "amount": 3638
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 130057
+   },
+   {
+    "line": "Transfers out",
+    "amount": 12120
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.243",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

@@ -1,0 +1,111 @@
+{
+ "fund_number": "ACFR-park-tax",
+ "name": "Park Tax",
+ "type": "special_revenue",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 19415084,
+   "expenditure": 17712400,
+   "transfers_in": 0,
+   "transfers_out": 115338,
+   "ending_balance": 12320424,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.243. Beginning balance 10,539,343"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Taxes",
+    "amount": 18688092,
+    "kind": "own"
+   },
+   {
+    "line": "Licenses and permits",
+    "amount": 274978,
+    "kind": "own"
+   },
+   {
+    "line": "Charges for service",
+    "amount": 5703,
+    "kind": "own"
+   },
+   {
+    "line": "Rents and royalties",
+    "amount": 24709,
+    "kind": "own"
+   },
+   {
+    "line": "Private contributions and donations",
+    "amount": 16015,
+    "kind": "own"
+   },
+   {
+    "line": "Investment income",
+    "amount": 299416,
+    "kind": "own"
+   },
+   {
+    "line": "Miscellaneous",
+    "amount": 106171,
+    "kind": "own"
+   },
+   {
+    "line": "Inception of leases and subscriptions",
+    "amount": 193735,
+    "kind": "financing"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Culture-recreation",
+    "amount": 16652834
+   },
+   {
+    "line": "Principal repayment",
+    "amount": 36627
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 1022939
+   },
+   {
+    "line": "Transfers out",
+    "amount": 115338
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": false,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.243",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

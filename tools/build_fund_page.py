@@ -79,15 +79,39 @@ NARRATIVE = {
 }
 
 
+def generic_narrative(d):
+    aud = [y for y in d["annual"] if y["basis"] == "audited"]
+    y = aud[-1] if aud else d["annual"][-1]
+    rev, exp = y.get("revenue") or 0, y.get("expenditure") or 0
+    res = rev - exp
+    ti = y.get("transfers_in") or 0
+    kind = {"general": "the City's one discretionary fund", "special_revenue": "a special revenue fund: money earmarked by a tax measure, a grant or a fee for one purpose",
+            "capital_project": "a capital project fund", "debt_service": "a debt service fund, which exists to pay one bond issue",
+            "enterprise": "an enterprise fund, run like a business on its own charges", "internal_service": "an internal service fund that bills City departments"}.get(d["type"], "a City fund")
+    verdict = (f"In FY{y['fy']} it took in {money(rev, True)} and spent {money(exp, True)}, "
+               + (f"a {money(res, True)} surplus" if res >= 0 else f"a {money(-res, True)} shortfall")
+               + (f", with {money(ti, True)} transferred in from other funds" if ti else "")
+               + f". Year-end balance {money(y.get('ending_balance'), True)}.")
+    return {
+        "eyebrow": f"Fund ledger · {d['fund_number']}",
+        "title": esc(d["name"]),
+        "dek": f"{esc(d['name'])} is {kind}. This page is its ledger: the audited figures, where the money came from and went, and the dated events once they have been read from Council records.",
+        "verdict_title": "One year loaded, <em>events not yet read.</em>",
+        "verdict": verdict + " Only the FY2025 audit is loaded for this fund; prior years and the flow ledger are added as the agendas are read. Figures are the City's; the reading is ours.",
+        "setup": f"{esc(d['name'])}: {kind}. Establishment, legal basis and purpose have not yet been researched for this fund; the ACFR fund description pages are the next source.",
+        "findings": [], "what_next": ["Load FY2015–FY2024 from the earlier ACFRs.", "Read the fund's description page in the ACFR for its legal basis.", "Scan Council budget adoptions and AAO amendments for transfers, loans and cost shifts affecting this fund."],
+    }
+
+
 def build(json_path: Path, out_path: Path):
     d = json.loads(json_path.read_text())
-    n = NARRATIVE.get(d["fund_number"], {})
+    n = NARRATIVE.get(d["fund_number"]) or generic_narrative(d)
     src = d["sources"]
     flows = [f for f in d["flows"] if not str(f.get("reviewer", "")).startswith("agent:")]
 
     # ---- chart: revenue vs expenditure by FY (inline SVG, no scripts) ----
     years = [y for y in d["annual"] if y.get("revenue") is not None and y.get("expenditure") is not None]
-    vmax = max(max(y["revenue"], y["expenditure"]) for y in years)
+    vmax = max((max(y["revenue"], y["expenditure"]) for y in years), default=1) or 1
     W, H, L, B, T = 860, 300, 70, 40, 16
     plot_h = H - B - T
     bw = (W - L - 10) / len(years)
@@ -145,6 +169,9 @@ def build(json_path: Path, out_path: Path):
     # ---- flow diagram: one audited year, inline SVG ----
     flow_html = ""
     F = d.get("flow_detail")
+    if F and not (F.get("inflows") or F.get("outflows")):
+        flow_html = '<div class="cap">The statement shows no revenue and no spending for this fund in FY%d; only a balance.</div>' % F["fy"]
+        F = None
     if F:
         ins = sorted(F["inflows"], key=lambda x: -x["amount"])
         outs = sorted(F["outflows"], key=lambda x: -x["amount"])
@@ -184,7 +211,8 @@ def build(json_path: Path, out_path: Path):
     audited = [y for y in d["annual"] if y["basis"] == "audited"]
     latest = audited[-1]
     covered = sum(1 for y in audited if y["revenue"] >= y["expenditure"])
-    unfunded = max((o for o in d.get("obligations", []) if o["kind"] == "unfunded_capital"), key=lambda o: o["as_of"])
+    unf = [o for o in d.get("obligations", []) if o["kind"] == "unfunded_capital"]
+    unfunded = max(unf, key=lambda o: o["as_of"]) if unf else None
 
     page = f'''<!DOCTYPE html>
 <html lang="en">
@@ -244,45 +272,45 @@ def build(json_path: Path, out_path: Path):
     <span class="sec-no">01</span><h2>How the fund was set up</h2>
     <p class="lead">{esc(n.get("setup",""))} {chip("High")}</p>
     <div class="statrow">
-      <div class="stat"><div class="v">{d["established"]["year"]}</div><div class="l">Established, to receive a $1.8M State loan</div></div>
-      <div class="stat"><div class="v">{money(latest["revenue"]-latest["expenditure"], True)}</div><div class="l">FY{latest["fy"]} operating result, audited</div></div>
-      <div class="stat"><div class="v">{money(rescue_total, True)}</div><div class="l">Moved in from other pockets since FY2022 (ledger, section 05)</div></div>
-      <div class="stat"><div class="v">{money(unfunded["amount"], True)}</div><div class="l">Unfunded capital need, {esc(unfunded["as_of"][:7])}; no reserve</div></div>
+      <div class="stat"><div class="v">{d["established"]["year"] or "—"}</div><div class="l">{"Established, to receive a $1.8M State loan" if d["established"]["year"] else "Year established: not yet researched"}</div></div>
+      <div class="stat"><div class="v">{money((latest.get("revenue") or 0)-(latest.get("expenditure") or 0), True)}</div><div class="l">FY{latest["fy"]} result, audited</div></div>
+      <div class="stat"><div class="v">{money(rescue_total, True) if flows else money(latest.get("transfers_in") or 0, True)}</div><div class="l">{"Moved in from other pockets since FY2022 (ledger, section 05)" if flows else f"Transfers in, FY{latest['fy']}"}</div></div>
+      <div class="stat"><div class="v">{money(unfunded["amount"], True) if unfunded else money(latest.get("ending_balance"), True)}</div><div class="l">{("Unfunded capital need, " + esc(unfunded["as_of"][:7]) + "; no reserve") if unfunded else f"Balance, June 30, {latest['fy']}"}</div></div>
     </div>
   </section>
 
   <section>
     <span class="sec-no">02</span><h2>Every year, audited</h2>
-    <p class="lead">Revenue against expenses, FY2015 to the staff forecast for FY2028. The fund covered its costs in {covered} of the {len(audited)} audited years shown, and in none of the last three.</p>
+    <p class="lead">{"Revenue against expenses, FY2015 to the staff forecast for FY2028. The fund covered its costs in " + str(covered) + " of the " + str(len(audited)) + " audited years shown, and in none of the last three." if len(audited) > 1 else "Revenue against expenses for the one audited year loaded so far."}</p>
     <div class="chartwrap">{chart}</div>
     <div class="tw"><table><thead><tr><th>Year</th><th>Basis</th><th>Revenue</th><th>Expenses</th><th>Result</th><th>Balance / net position</th><th>Conf.</th><th>Note</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
   </section>
 
-  <section>
+  {'' if not assets_html else f"""<section>
     <span class="sec-no">03</span><h2>The assets</h2>
     <p class="lead">Two views: the physical system the fund is charged with maintaining, with staff's unfunded need by class, and what the audited balance sheet says the fund owns.</p>
     {assets_html}
-  </section>
+  </section>"""}
 
   <section>
-    <span class="sec-no">04</span><h2>Where the money comes from and goes, FY{F["fy"] if F else ""}</h2>
+    <span class="sec-no">04</span><h2>Where the money comes from and goes, FY{(F or d.get("flow_detail") or {}).get("fy", "")}</h2>
     <p class="lead">One audited year. In a normal year the fund's own revenue of about $7M runs close to its operating cost of about $7.3M, so the structural gap is roughly $1M. FY2025 looks worse because dock-project spending ran through operations, and a State grant and a General Fund loan covered it. The General Fund sits on both sides: it collects the central charges and it lends the money in.</p>
     {flow_html}
   </section>
 
-  <section>
+  {'' if not flows else f"""<section>
     <span class="sec-no">05</span><h2>The flow ledger: every dollar moved in or out</h2>
     <p class="lead">Each row is one action that is not the fund's own revenue or ordinary spending, with the document that authorized it. Rows are recorded only against a primary source.</p>
     <div class="tw"><table><thead><tr><th>FY</th><th>Kind</th><th>Amount</th><th>From → to</th><th>What and why</th><th>Instrument</th><th>Conf.</th></tr></thead><tbody>{''.join(frows)}</tbody></table></div>
     <div class="cap">Kinds: transfer in, cost shift, loan, grant, indirect-cost reduction and charge holiday count as rescues (the {money(rescue_total, True)} in section 01). Fee changes, reductions and revenue at risk are the fund's own measures and are listed for completeness.</div>
-  </section>
+  </section>"""}
 
-  <section>
+  {'' if not orows else f"""<section>
     <span class="sec-no">06</span><h2>What the fund owes</h2>
     <div class="tw"><table><thead><tr><th>Obligation</th><th>Amount</th><th>As of</th><th>Note</th><th>Conf.</th></tr></thead><tbody>{''.join(orows)}</tbody></table></div>
-  </section>
+  </section>"""}
 
-  <section>
+  {'' if "tot" not in d else f"""<section>
     <span class="sec-no">07</span><h2>What about the hotel tax?</h2>
     <p class="lead">{esc(n.get("tot_lead",""))}</p>
     <div class="statrow">
@@ -294,17 +322,17 @@ def build(json_path: Path, out_path: Path):
     {tot_points}
     <div class="panel"><div class="pk">Where the idea is strongest</div><p>{esc(n.get("tot_close",""))} {chip("Moderate")}</p></div>
     <div class="cap">Pledge: {esc(T["pledge"])}. Sources: Council Item 19, July 25, 2023; FY2027–28 proposed budget, General Fund revenue by category. {chip(T["confidence"])}</div>
-  </section>
+  </section>"""}
 
-  <section>
+  {'' if not findings else f"""<section>
     <span class="sec-no">08</span><h2>What the ledger shows</h2>
     {findings}
-  </section>
+  </section>"""}
 
-  <section>
+  {'' if not n.get("counter") else f"""<section>
     <span class="sec-no">09</span><h2>The counterargument</h2>
     <div class="panel"><div class="pk">Strongest case against this page</div><p>{esc(n.get("counter",""))} {chip("Moderate")}</p></div>
-  </section>
+  </section>"""}
 
   <section>
     <span class="sec-no">10</span><h2>Open questions and next entries</h2>
@@ -330,6 +358,13 @@ def build(json_path: Path, out_path: Path):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) == 3 and sys.argv[1] == "--all":
+        data_dir, docs = Path(sys.argv[2]), Path("docs")
+        for jp in sorted(data_dir.glob("*.json")):
+            fid = jp.stem
+            out = docs / ("fund-608-marina.html" if fid == "608" else f"fund-{fid}.html")
+            build(jp, out)
+        sys.exit(0)
     if len(sys.argv) != 3:
         print(__doc__)
         sys.exit(2)

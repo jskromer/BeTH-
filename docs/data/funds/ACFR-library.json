@@ -1,0 +1,93 @@
+{
+ "fund_number": "ACFR-library",
+ "name": "Library",
+ "type": "special_revenue",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 26904996,
+   "expenditure": 26186710,
+   "transfers_in": 0,
+   "transfers_out": 0,
+   "ending_balance": 25054738,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds, ACFR p.77"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Taxes",
+    "amount": 26473928,
+    "kind": "own"
+   },
+   {
+    "line": "Intergovernmental",
+    "amount": 185558,
+    "kind": "own"
+   },
+   {
+    "line": "Fines and penalties",
+    "amount": 11990,
+    "kind": "own"
+   },
+   {
+    "line": "donations",
+    "amount": 209597,
+    "kind": "own"
+   },
+   {
+    "line": "Investment income/ (loss)",
+    "amount": 18356,
+    "kind": "own"
+   },
+   {
+    "line": "Miscellaneous",
+    "amount": 5567,
+    "kind": "own"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Culture-recreation",
+    "amount": 25924974
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 261736
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": false,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds, p.77",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

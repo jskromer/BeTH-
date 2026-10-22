@@ -1,0 +1,74 @@
+{
+ "fund_number": "ACFR-sick-leave-vacation-payouts",
+ "name": "Sick Leave & Vacation Payouts",
+ "type": "internal_service",
+ "department": "Finance / Public Works / IT / HR",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "enterprise",
+ "self_supporting": true,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 4145187,
+   "expenditure": 3262849,
+   "transfers_in": 0,
+   "transfers_out": 0,
+   "ending_balance": 9941612,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, ACFR p.321",
+   "nonoperating": 178208
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Other revenues",
+    "amount": 4145187,
+    "kind": "own"
+   },
+   {
+    "line": "Investment earnings",
+    "amount": 178208,
+    "kind": "own"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Personnel services",
+    "amount": 3219719
+   },
+   {
+    "line": "Employee benefits",
+    "amount": 43130
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": false,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds, p.321",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

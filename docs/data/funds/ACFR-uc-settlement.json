@@ -1,0 +1,76 @@
+{
+ "fund_number": "ACFR-uc-settlement",
+ "name": "UC Settlement",
+ "type": "special_revenue",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 4480181,
+   "expenditure": 5354520,
+   "transfers_in": 0,
+   "transfers_out": 0,
+   "ending_balance": 4846033,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.245. Beginning balance 5,720,372"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Charges for service",
+    "amount": 4480181,
+    "kind": "own"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "Public safety",
+    "amount": 3356017
+   },
+   {
+    "line": "Highway and streets",
+    "amount": 45261
+   },
+   {
+    "line": "Community development and housing",
+    "amount": 312500
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 1640742
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.245",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}

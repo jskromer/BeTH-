@@ -1,0 +1,58 @@
+{
+ "fund_number": "ACFR-phone-system-replacement",
+ "name": "Phone System Replacement",
+ "type": "capital_project",
+ "department": "See budget",
+ "established": {
+  "year": null,
+  "purpose": "Not yet researched",
+  "source": "acfr-2025"
+ },
+ "legal_basis": "Not yet researched",
+ "restriction": "restricted",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 0,
+   "expenditure": 528899,
+   "transfers_in": 0,
+   "transfers_out": 0,
+   "ending_balance": 853317,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, ACFR p.249. Beginning balance 1,382,216"
+  }
+ ],
+ "flows": [],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [],
+  "outflows": [
+   {
+    "line": "General government",
+    "amount": 528899
+   }
+  ]
+ },
+ "obligations": [],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "one audited year loaded",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "Only FY2025 is loaded; prior years and the event ledger are not yet read for this fund."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds, p.249",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  }
+ },
+ "generated_by": "tools/acfr_funds.py"
+}
