@@ -62,6 +62,8 @@ NARRATIVE = {
             ("The problem is the charter, not the year.", "Every rescue restates the same mismatch: an enterprise fund that must cover streets, parks and a seawall for the general public out of boat slips and a hotel lease. Until the Waterfront's public-park costs are carried by the funds that carry every other park, the next rescue is already scheduled.", "Moderate"),
         ],
         "counter": "An enterprise fund with a 25-year structural deficit has two honest outcomes: subsidize it openly or close the service. Berkeley has chosen to subsidize, and every transfer on this page went through a public vote of the Council. Measure Y's park-maintenance purpose does cover Waterfront parks, which are parks, and the Council said so before the election. The Doubletree collapse is a Bay Area hotel-market event the City did not cause. Replacing a State loan with an internal one saved the fund up to $10M in interest. And letting the Waterfront fail would cost more than any of this. The ledger does not settle that argument; it makes it visible.",
+        "flow_lead": "One audited year. In a normal year the fund's own revenue of about $7M runs close to its operating cost of about $7.3M, so the structural gap is roughly $1M. FY2025 looks worse because dock-project spending ran through operations, and a State grant and a General Fund loan covered it. The General Fund sits on both sides: it collects the central charges and it lends the money in.",
+        "chart_cap": "FY2015–2023 from the government-wide ten-year schedule (charges for services vs expenses, FY2024 ACFR); FY2024–25 from the proprietary fund statements (operating revenue vs operating expenses, which include depreciation); FY2026–28 staff cash forecast. FY2025 expenses include dock-project spending; a $7.69M State grant that year is not in the revenue bar.",
         "tot_lead": "The Waterfront's hotel generates Transient Occupancy Tax, and the question comes up every time the Marina Fund is discussed: why not just give the Marina its own hotel tax? It is about the right size for the operating gap. It is not a fix, for three reasons.",
         "tot_points": [
             ("It is already pledged.", "Council's July 25, 2023 resolution directs the entire Waterfront TOT, from FY2025 until paid off, to repay the $5.5M Workers' Compensation loan plus $500,000. At $1.0–1.5M a year that runs four to six years, into roughly FY2029–2031. Whether any TOT has actually flowed to that repayment is an open question; the audits do not show it.", "High"),
@@ -131,7 +133,7 @@ def build(json_path: Path, out_path: Path):
 <style>.g{{stroke:#d8dce6;stroke-width:1}} .yl,.xl{{font:11px Jost,sans-serif;fill:#4b5577}} .rev{{fill:#002198}} .exp{{fill:#a8322c}} .proj{{opacity:.45}}</style>
 {''.join(grid)}{''.join(bars)}
 </svg>
-<div class="cap"><span class="sw rev"></span> Revenue &nbsp; <span class="sw exp"></span> Expenses &nbsp; faded = staff projection. FY2015–2023 from the government-wide ten-year schedule (charges for services vs expenses, FY2024 ACFR); FY2024–25 from the proprietary fund statements (operating revenue vs operating expenses, which include depreciation); FY2026–28 staff cash forecast. FY2025 expenses include dock-project spending; a $7.69M State grant that year is not in the revenue bar.</div>'''
+<div class="cap"><span class="sw rev"></span> Revenue &nbsp; <span class="sw exp"></span> Expenses &nbsp; faded = staff projection. {esc(n.get("chart_cap", "Revenue and spending as the ACFR statement reports them; transfers in and out are not included in either bar."))}</div>'''
 
     # ---- annual table ----
     arows = []
@@ -181,8 +183,10 @@ def build(json_path: Path, out_path: Path):
         H = 60 + rowh * n_rows + 30
         W = 900
         cx = W / 2
+        bal_year = next((y for y in d["annual"] if y["fy"] == F["fy"] and y["basis"] == "audited"), None)
+        centre_sub = (f"balance June 30, {F['fy']}: {money(bal_year.get('ending_balance'), True)}" if bal_year and bal_year.get("ending_balance") is not None else f"FY{F['fy']}")
         parts = []
-        parts.append(f'<rect x="{cx-80}" y="{60 + rowh*n_rows/2 - 40}" width="160" height="80" rx="10" fill="#002198"/><text x="{cx}" y="{60 + rowh*n_rows/2 - 8}" text-anchor="middle" class="fl fw">Marina Fund</text><text x="{cx}" y="{60 + rowh*n_rows/2 + 14}" text-anchor="middle" class="fs fw">cash at year end: $0</text>')
+        parts.append(f'<rect x="{cx-80}" y="{60 + rowh*n_rows/2 - 40}" width="160" height="80" rx="10" fill="#002198"/><text x="{cx}" y="{60 + rowh*n_rows/2 - 8}" text-anchor="middle" class="fl fw">{esc(d["name"][:26])}</text><text x="{cx}" y="{60 + rowh*n_rows/2 + 14}" text-anchor="middle" class="fs fw">{esc(centre_sub)}</text>')
         for i, x in enumerate(ins):
             y = 60 + i * rowh + rowh / 2
             w = 1 + 7 * x["amount"] / vmax
@@ -294,7 +298,7 @@ def build(json_path: Path, out_path: Path):
 
   <section>
     <span class="sec-no">04</span><h2>Where the money comes from and goes, FY{(F or d.get("flow_detail") or {}).get("fy", "")}</h2>
-    <p class="lead">One audited year. In a normal year the fund's own revenue of about $7M runs close to its operating cost of about $7.3M, so the structural gap is roughly $1M. FY2025 looks worse because dock-project spending ran through operations, and a State grant and a General Fund loan covered it. The General Fund sits on both sides: it collects the central charges and it lends the money in.</p>
+    <p class="lead">{esc(n.get("flow_lead", "One audited year, as the statement reports it: the fund's own revenue sources on the left, its spending by line on the right, and any transfers or loans in shown as rescue money."))}</p>
     {flow_html}
   </section>
 
