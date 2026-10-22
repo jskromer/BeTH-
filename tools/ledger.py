@@ -6,6 +6,7 @@ Exit 1 on any error. Warnings do not fail the run.
 """
 import json
 import sys
+from ledger_safety import SafetyError, validate_annual
 from pathlib import Path
 
 TYPES = {"general", "special_revenue", "capital_project", "debt_service",
@@ -38,6 +39,11 @@ def check(path: Path):
         for k in ("title", "url"):
             if not s.get(k):
                 err(f"source {sid}: missing {k}")
+
+    try:
+        validate_annual(d["annual"])
+    except SafetyError as exc:
+        err(str(exc))
 
     fys = []
     for i, y in enumerate(d["annual"]):

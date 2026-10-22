@@ -15,6 +15,7 @@ import sys
 from collections import defaultdict
 
 import pdfplumber
+from ledger_safety import SafetyError
 
 NUM = re.compile(r"^\(?[\d,]+\)?$")
 MONEY = re.compile(r"^\(?\d{1,3}(,\d{3})+\)?$|^\(?\d{1,3}\)?$")  # comma-grouped or < 1000
@@ -127,6 +128,10 @@ def parse_pair(pdf, left_no, right_no=None, verbose=False):
     ldata = [(y, lab, v) for y, lab, v in lrows if v is not None]
     rdata = [(y, v) for y, _, v in rrows if v is not None]
     names = ln + rn
+    if not ln or (right_no and not rn):
+        raise SafetyError(f"Missing statement columns on pages {left_no}/{right_no}")
+    if len(names) != len(set(names)):
+        raise SafetyError(f"Duplicate statement fund columns on pages {left_no}/{right_no}")
     out = {n: {} for n in names}
     labels = []
     # monotonic y-matching with drift tolerance: pages drift a few px by the bottom
@@ -145,6 +150,8 @@ def parse_pair(pdf, left_no, right_no=None, verbose=False):
                     print(f"  warn: no match for '{lab}' on page {right_no}", file=sys.stderr)
         labels.append(lab)
         for n, v in zip(names, lv + rv):
+            if lab and lab in out[n]:
+                raise SafetyError(f"Duplicate statement label {lab!r} for {n}, page {left_no}")
             out[n][lab] = v
     return names, out, labels
 

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "ledgers": {
+    "011": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    },
+    "608": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    },
+    "ACFR-park-tax": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    },
+    "ACFR-equipment-maintenance-replacement": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    },
+    "ACFR-workers-compensation": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    },
+    "ACFR-zero-waste": {
+      "status": "curated",
+      "policy": "immutable-to-extraction",
+      "reason": "Reviewed financial records, narratives and source evidence; manual review required for changes."
+    }
+  }
+}
