@@ -80,9 +80,10 @@ a{color:var(--steel-deep)}
 </div></header>
 
 <nav><div class="wrap">
-  <button data-v="money" class="on">Where the money is</button>
+  <button data-v="ask" class="on">Ask BeTH</button>
+  <button data-v="money">Where the money is</button>
   <button data-v="restrict">Legal restrictions</button>
-  <button data-v="pci">Pavement &amp; PCI 60</button>
+  <button data-v="pci">Pavement: average and worst streets</button>
   <button data-v="opex">Operating consequences</button>
   <button data-v="marina">Marina Fund</button>
   <button data-v="sources">Sources &amp; method</button>
@@ -90,31 +91,39 @@ a{color:var(--steel-deep)}
 
 <div class="wrap">
 
-<section class="view on" id="v-money">
-  <div class="note"><b>These are proposed budget figures, not cash.</b> They come from the City's
-  proposed FY2027–FY2031 CIP presentation. They are not adopted appropriations, not expenditures,
-  not encumbrances, and not money sitting in an account. The City states the five-year program
-  contains <b>149 projects</b>; this deck prints line-item tables for a subset, almost all FY2027–FY2028.</div>
+<section class="view on" id="v-ask">
+  <div class="note"><b>Questions answered only from cited City records.</b> Each answer shows the record it rests on,
+  the arithmetic (run by code, not typed), BeTH's reading with a counterargument, and what is still missing.
+  An answer is shown only if a verifier confirms every figure traces to a fact and every quote matches its source.</div>
+  <div id="ask-list"></div>
+  <p class="cap">Full evidence pages: <a href="ask/index.html">Ask index</a>.</p>
+</section>
+
+<section class="view" id="v-money">
+  <div class="note"><b>These are adopted budget appropriations and plans, not cash.</b> They come from Exhibit B of the
+  June 23, 2026 budget adoption (143 projects; every project, category and fund reconciled to the City's printed totals).
+  FY2029–FY2031 are planned, not appropriated. "Unfunded Need" rows carry no money. Spent, encumbered and remaining
+  amounts are not in the CIP.</div>
   <div class="grid" id="money-stats"></div>
-  <div class="card"><h3>Proposed two-year capital by restriction class</h3>
+  <div class="card"><h3>Adopted FY2027–FY2028 capital by restriction class (by funding line)</h3>
     <p class="cap">Bar colour shows whether the money could lawfully be redirected to street
     rehabilitation. Grey means the restriction has <b>not been researched</b> — which is the
     honest status of most of this program, not a finding that it is available.</p>
     <div class="bars" id="class-bars"></div></div>
-  <div class="card"><h3>Projects as printed in the source</h3>
+  <div class="card"><h3>Projects in the adopted CIP</h3>
     <div class="ctl">
-      <select id="f-dept"><option value="">all departments</option></select>
+      <select id="f-dept"><option value="">all funds</option></select>
       <select id="f-cat"><option value="">all categories</option></select>
       <select id="f-restr"><option value="">any restriction class</option></select>
       <span class="cap" id="count"></span>
     </div>
     <div class="tw"><table><thead><tr>
-      <th>Project</th><th>Department</th><th>Category</th><th>Funding source</th>
+      <th>Project</th><th>Funds</th><th>Category</th><th>New / continuing</th>
       <th class="n">FY2027</th><th class="n">FY2028</th><th>Restriction</th>
       <th>Spent / encumbered / status</th>
     </tr></thead><tbody id="proj-rows"></tbody></table></div>
-    <p class="cap" style="margin-top:10px">The final column is blank for every row because the source
-    document contains none of it. Those fields require the adopted budget and an encumbrance report.</p>
+    <p class="cap" style="margin-top:10px">The final column is blank for every row because the CIP contains none of it.
+    Those fields require the FY2026 year-end carryover and encumbrance report by project.</p>
   </div>
 </section>
 
@@ -128,13 +137,14 @@ a{color:var(--steel-deep)}
 </section>
 
 <section class="view" id="v-pci">
-  <div class="note"><b>Berkeley has already modelled this.</b> The projections below are the
-  <b>City's own</b> StreetSaver-based output, published July 7, 2026. BeTH reuses them rather than
-  building a rival model, and adds the funding-restriction test the City does not publish.</div>
+  <div class="note"><b>Two measures, side by side.</b> The network-average projections are the <b>City's own</b>
+  StreetSaver output (July 7, 2026). The condition distribution comes from the City's 2024 Pavement Management Program
+  Update. An average target and a failed-streets target are different goals; Measure FF names both.</div>
   <div class="grid" id="pci-stats"></div>
   <div class="card"><h3 id="pci-q"></h3>
     <p id="pci-finding"></p>
     <div class="alert" id="pci-70"></div>
+    <div class="card" id="pci-dist"></div>
     <div id="pci-scens"></div>
     <p class="cap"><b>Caveats that travel with every figure above:</b></p>
     <ul class="cap" id="pci-caveats"></ul>
@@ -217,63 +227,78 @@ $$('nav button').forEach(b => b.onclick = () => {
   window.scrollTo({top: 0});
 });
 
-let D = null;
+let D = null, A = null;
 
-fetch('data/phase2.json').then(r => r.json()).then(d => { D = d; render(); })
+Promise.all([fetch('data/phase2.json').then(r => r.json()),
+             fetch('data/answers.json').then(r => r.json()).catch(() => null)])
+  .then(([d, a]) => { D = d; A = a; render(); })
   .catch(e => { $('.wrap').insertAdjacentHTML('afterbegin',
     '<div class="alert">Could not load <code>data/phase2.json</code>: ' + esc(e.message) +
     '<br>Serve this directory over HTTP rather than opening the file directly.</div>'); });
 
-function render() { money(); restrict(); pci(); opex(); marina(); sources(); }
+function render() { ask(); money(); restrict(); pci(); opex(); marina(); sources(); }
 
 function money() {
   const c = D.capital, ps = c.projects;
-  const tot = ps.reduce((a, p) => a + (p.two_year_total || 0), 0);
+  const funded = ps.reduce((a, p) => a + (p.two_year_adopted || 0), 0);
+  const unfunded = ps.reduce((a, p) => a + (p.two_year_unfunded || 0), 0);
   const unk = c.by_restriction_class.find(e => e.class === 'unknown');
   $('#money-stats').innerHTML = [
-    ['<span class="v">' + c.project_count_stated_by_city + '</span>',
-     'Projects the City states are in the FY2027–31 program'],
-    ['<span class="v">' + c.project_rows_extracted + '</span>',
-     'Project rows actually printed in the source deck and extracted here'],
-    ['<span class="v">' + Ms(tot) + '</span>',
-     'Two-year proposed total of those printed rows <span class="chip k-budget">BUDGET PROPOSED</span>'],
-    ['<span class="v bad">' + Ms(unk ? unk.two_year_proposed : 0) + '</span>',
+    ['<span class="v">' + c.projects_extracted + '</span>',
+     'Projects in the adopted CIP tables (the City states ' + c.project_count_stated_by_city + ' including the vehicle schedule)'],
+    ['<span class="v">' + Ms(funded) + '</span>',
+     'FY2027 + FY2028 adopted, excluding Unfunded Need <span class="chip k-budget">BUDGET ADOPTED</span>'],
+    ['<span class="v bad">' + Ms(unk ? unk.two_year : 0) + '</span>',
      'Of that, in funding sources whose legal restriction is <b>not yet researched</b>'],
+    ['<span class="v">' + Ms(unfunded) + '</span>', 'Printed as "Unfunded Need" (no money identified)'],
   ].map(([v, l]) => '<div class="stat">' + v + '<div class="l">' + l + '</div></div>').join('');
 
-  const max = Math.max(...c.by_restriction_class.map(e => e.two_year_proposed), 1);
+  const max = Math.max(...c.by_restriction_class.map(e => e.two_year), 1);
   $('#class-bars').innerHTML = c.by_restriction_class.map(e => {
-    const cls = e.class === 'unknown' ? 'unknown' : (e.class === 'unrestricted' ? '' : 'restricted');
+    const cls = e.class === 'unknown' ? 'unknown' : (e.class === 'council_discretionary' ? '' : 'restricted');
     return '<div class="br"><span>' + esc(e.class.replace(/_/g, ' ')) +
-      ' <span class="cap">(' + e.projects + ')</span></span>' +
+      ' <span class="cap">(' + e.funding_lines + ' lines)</span></span>' +
       '<span class="bt"><span class="bf ' + cls + '" style="width:' +
-      (e.two_year_proposed / max * 100).toFixed(1) + '%"></span></span>' +
-      '<span class="bv">' + Ms(e.two_year_proposed) + '</span></div>';
+      (e.two_year / max * 100).toFixed(1) + '%"></span></span>' +
+      '<span class="bv">' + Ms(e.two_year) + '</span></div>';
   }).join('');
 
+  const fundsOf = p => [...new Set(p.funding.map(f => f.fund))];
+  const classesOf = p => [...new Set(p.funding.map(f => f.restriction_class))];
   const fill = (sel, vals) => { const s = $(sel);
     [...new Set(vals.filter(Boolean))].sort().forEach(v =>
       s.insertAdjacentHTML('beforeend', '<option>' + esc(v) + '</option>')); };
-  fill('#f-dept', ps.map(p => p.department));
+  fill('#f-dept', ps.flatMap(fundsOf));
   fill('#f-cat', ps.map(p => p.category));
-  fill('#f-restr', ps.map(p => p.restriction_class));
+  fill('#f-restr', ps.flatMap(classesOf));
   ['#f-dept', '#f-cat', '#f-restr'].forEach(s => $(s).onchange = rows);
   rows();
 
   function rows() {
     const d = $('#f-dept').value, ct = $('#f-cat').value, r = $('#f-restr').value;
-    const sel = ps.filter(p => (!d || p.department === d) && (!ct || p.category === ct) &&
-      (!r || p.restriction_class === r));
-    $('#count').textContent = sel.length + ' of ' + ps.length + ' rows · ' +
-      Ms(sel.reduce((a, p) => a + (p.two_year_total || 0), 0)) + ' two-year proposed';
+    const sel = ps.filter(p => (!d || fundsOf(p).includes(d)) && (!ct || p.category === ct) &&
+      (!r || classesOf(p).includes(r)));
+    const sum = (p, k) => p.funding.reduce((a, f) => a + (f.restriction_class === 'unfunded_need' ? 0 : f[k]), 0);
+    $('#count').textContent = sel.length + ' of ' + ps.length + ' projects · ' +
+      Ms(sel.reduce((a, p) => a + p.two_year_adopted, 0)) + ' FY2027–28 adopted';
     $('#proj-rows').innerHTML = sel.map(p =>
-      '<tr><td>' + esc(p.name) + '</td><td>' + esc(p.department) + '</td><td>' +
-      esc(p.category || '—') + '</td><td>' + esc(p.funding_source || '—') + '</td>' +
-      '<td class="n">' + M(p.fy2027) + '</td><td class="n">' + M(p.fy2028) + '</td>' +
-      '<td><span class="chip ' + (CHIP[p.restriction_class] || 'k-unknown') + '">' +
-      esc(p.restriction_class.replace(/_/g, ' ')) + '</span></td>' +
+      '<tr><td>' + esc(p.name) + '</td><td>' + esc(fundsOf(p).join(', ')) + '</td><td>' +
+      esc(p.category || '—') + '</td><td>' + esc(p.new_or_continuing || '—') + '</td>' +
+      '<td class="n">' + M(sum(p, 'fy2027')) + '</td><td class="n">' + M(sum(p, 'fy2028')) + '</td>' +
+      '<td>' + classesOf(p).map(c => '<span class="chip ' + (CHIP[c] || 'k-unknown') + '">' +
+      esc(c.replace(/_/g, ' ')) + '</span>').join(' ') + '</td>' +
       '<td class="miss">not in source</td></tr>').join('');
   }
+}
+
+function ask() {
+  const list = (A && A.answers) || [];
+  $('#ask-list').innerHTML = list.filter(a => a.verifier.passed).map(a =>
+    '<div class="card"><h3>' + esc(a.question) + ' <span class="chip k-city">VERIFIED</span></h3>' +
+    '<p>' + esc(a.short_answer) + '</p>' +
+    '<p class="cap">' + a.facts.length + ' cited facts · ' + a.calculations.length + ' calculations · ' +
+    a.missing_evidence.length + ' items still missing · <a href="ask/' + esc(a.slug) + '.html">see the evidence</a></p></div>'
+  ).join('') || '<p class="cap">No verified answers loaded.</p>';
 }
 
 function restrict() {
@@ -296,13 +321,24 @@ function pci() {
   $('#pci-stats').innerHTML = [
     ['<span class="v">' + p.current_pci.value + '</span>', 'Citywide PCI, 2025 assessment'],
     ['<span class="v">' + p.after_fy2026.value + '</span>', 'Projected after FY2026 paving work'],
-    ['<span class="v good">60+</span>', 'Reached by 2038 under Plan + Measure FF (about 62)'],
-    ['<span class="v bad">' + p.adopted_goal.value + '</span>',
-     "Berkeley's adopted goal (BMC 7.11.010(K)(1)) — <b>not</b> currently funded"],
+    ['<span class="v">≈62</span>', 'Network AVERAGE the City projects for 2038 under Plan + Measure FF <span class="chip k-city">CITY MODEL</span>'],
+    ['<span class="v bad">' + a.measure_2_condition_distribution.now_2024_inspection.miles_below_50 + ' mi</span>',
+     'Centerline miles below PCI 50 in the 2024 inspection (' +
+     (a.measure_2_condition_distribution.now_2024_inspection.share_below_50 * 100).toFixed(0) + '% of the network). No published projection for 2038.'],
   ].map(([v, l]) => '<div class="stat">' + v + '<div class="l">' + l + '</div></div>').join('');
-  $('#pci-q').innerHTML = esc(a.question) + ' <span class="chip k-city">CITY MODEL</span>';
-  $('#pci-finding').innerHTML = '<b>' + esc(a.answer_status) + '.</b> ' + esc(a.finding);
-  $('#pci-70').innerHTML = '<b>The gap is 70, not 60.</b> ' + esc(a.the_real_gap_is_70_not_60);
+  $('#pci-q').innerHTML = esc(a.question);
+  $('#pci-finding').innerHTML = '<b>Reaching PCI 60 is not eliminating failed streets.</b> ' + esc(a.finding) +
+    '<br><span class="cap">' + esc(a.tradeoff_the_city_published) + '</span>';
+  $('#pci-70').innerHTML = '<b>The adopted goal is 70 with no streets below 50.</b> ' + esc(a.the_adopted_goal_is_70);
+  const bands = p.network_condition.distribution.by_mtc_band, bmax = Math.max(...Object.values(bands).map(b => b.centerline_miles));
+  $('#pci-dist').innerHTML = '<h3>Measure 2: how much of the network is in each condition (2024 inspection)</h3>' +
+    Object.entries(bands).map(([k, b]) => '<div class="br"><span>' + esc(k) + '</span><span class="bt"><span class="bf ' +
+      (k.startsWith('failed') || k.startsWith('poor') ? 'unknown' : '') + '" style="width:' + (b.centerline_miles / bmax * 100).toFixed(1) +
+      '%"></span></span><span class="bv">' + b.centerline_miles + ' mi</span></div>').join('') +
+    '<p class="cap">' + esc(p.network_condition.source.title) + '; 1,216 street sections, validated to the report totals. ' +
+    'Adopted FY2027–31 plans treat ' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.both.miles_below_50 +
+    ' miles of currently-below-50 streets (' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.measure_ff_plan.miles_below_50 +
+    ' through Measure FF).</p>';
   $('#pci-scens').innerHTML = p.scenarios.map(s =>
     '<div class="scen ' + (s.pci_2038 >= 70 ? 'goal' : s.pci_2038 < 60 ? 'bad' : '') + '">' +
     '<b>' + esc(s.label) + '</b> — ' + M(s.annual_investment) + ' per year → <b>PCI ' + s.pci_2038 +
@@ -326,8 +362,8 @@ function pci() {
       Ms(v) + ' a year on top of the Plan + Measure FF scenario interpolates to about <b>PCI ' +
       (base.pci_2038 + gain).toFixed(1) + '</b> by 2038, up from ' + base.pci_2038 +
       '. Linear interpolation applied to a non-linear relationship. ' +
-      '<b>And the money must first be shown to be legally redirectable: no CIP funding source ' +
-      'currently is.</b></div>';
+      '<b>And the money must first be shown to be legally redirectable: Measure FF cannot move without voters; ' +
+      'CIP Fund 501 offers at most $2.9M over FY2027–28, and only by deferring every other project it funds.</b></div>';
   };
   $('#pci-indep').textContent = p.independent_model.purpose + ' Status: ' +
     p.independent_model.status + '.';
@@ -379,13 +415,13 @@ function sources() {
     '<tr><td><b>' + esc(k) + '</b></td><td>' + esc(v) + '</td></tr>').join('');
   const s = D.capital.source;
   $('#src-list').innerHTML = [
-    '<li><b>' + esc(s.title) + '</b> — ' + esc(s.body) + '. <a href="' + esc(s.url) +
-      '">source PDF</a>. Local copy: <code>' + esc(s.local_copy) + '</code>. ' + esc(s.document_states) + '</li>',
-    '<li><b>Five-Year Street Rehabilitation and Measure FF Plans for FY2027–2031</b> — Council Action ' +
-      'Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1). Local copy: ' +
-      '<code>phase2/sources/street-rehab-measure-ff-2026-07-07.pdf</code></li>',
-    '<li><b>Adoption of FY2027 and FY2028 Biennial Budget</b> — June 23, 2026. Local copy: ' +
-      '<code>phase2/sources/budget-adoption-2026-06-23.pdf</code> <i>(downloaded, not yet extracted)</i></li>',
+    '<li><b>' + esc(s.title) + '</b> — ' + esc(s.body) + '. ' + esc(s.pages) + '. Local copy: <code>' + esc(s.local_copy) + '</code></li>',
+    '<li><b>Five-Year Street Rehabilitation and Measure FF Plans for FY2027–2031</b> — Council Item 10, July 7, 2026 ' +
+      '(projections pp.11–13; street lists pp.21–62). Local copy: <code>phase2/sources/street-rehab-measure-ff-2026-07-07.pdf</code></li>',
+    '<li><b>Measure FF (SAFE STREETS) ordinance, BMC Chapter 7.11</b> — initiative text, Council July 9, 2024. Local copy and transcription: ' +
+      '<code>phase2/sources/measure-ff-initiative-council-2024-07-09.pdf</code>, <code>measure-ff-ordinance-transcription.md</code></li>',
+    '<li><b>2024 Pavement Management Program Update (P-TAP 25)</b> — April 2025. Local copy: <code>phase2/sources/pavement-management-update-ptap25-2025-04.pdf</code></li>',
+    '<li><b>FY2025 ACFR</b> — fund 501 balance sheet, fund balance definitions, encumbrances, budgetary basis (pages in <code>phase2/sources/acfr-fy2025-excerpts.txt</code>)</li>',
     '<li><b>BeTH Phase 1 audited ledger</b> — 106 funds reconciled to the FY2025 ACFR</li>',
   ].join('');
   $('#cap-caveats').innerHTML = D.capital.caveats.map(c => '<li>' + esc(c) + '</li>').join('');

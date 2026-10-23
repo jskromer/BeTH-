@@ -9,7 +9,10 @@ Working directory for Phase 2 research. **Nothing here is published.** No Phase 
 1. **`00-master-research-plan.md`** — what the phase is, what changed, what happens next
 2. **`01-marina-fund-case-study.md`** — the reconciliation that produced the phase's first real finding
 3. **`04-open-questions-and-missing-sources.md`** — what blocks publication
-4. `02-capital-project-database-spec.md` · `03-vision2050-integration-plan.md` · `06-pci60-financial-model.md` · `05-budget-choices-dashboard-structure.md`
+4. **`07-street-funding-legal-analysis.md`** — which capital money could lawfully go to paving (CIP Fund 501, Measure FF), with the verified answer
+5. **`flags/`** — items flagged to Codex for protected-ledger review (DoubleTree, ledger 608)
+6. `docs/budget-choices.html` (serve `phase2/docs` over HTTP) and `docs/ask/` — prototype interface; verified Ask answers
+7. `02-capital-project-database-spec.md` · `03-vision2050-integration-plan.md` · `06-pci60-financial-model.md` · `05-budget-choices-dashboard-structure.md`
 
 ## The headline finding
 

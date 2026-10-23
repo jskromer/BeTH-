@@ -1,0 +1,306 @@
+Excerpts (pdftotext -layout) from annual-comprehensive-financial-report-fy2025.pdf (repository root), SHA-256 d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3. Page markers give the PDF page number.
+
+===== ACFR PDF page 75 =====
+/City of Berkeley, California                                                                              Annual Comprehensive Financial Report
+
+
+
+
+Balance Sheet
+Governmental Funds
+June 30, 2025
+                                                                     Major Funds                                   
+                                                                                         Measure O    Other         Total
+                                     General                                   Capital    Housing  Governmental Governmental
+                                      Fund              Grants        Library Improvement   Bond       Funds        Funds
+Assets                                                                   
+   Cash and investments in
+   treasury                      $ 97,236,438$                  - $             -$ 16,199,095$          - $    79,363,681 $ 192,799,214
+   Restricted cash and
+   investments                       45,705,825     46,919,227         25,805,005            - 35,180,728     151,936,860    305,547,645
+   Receivables (net of
+   allowance                                                                                                         
+   where applicable):                                                                                                
+      Accounts                       5,902,477            -            -           -           -     6,866,869    12,769,346
+      Interest                       2,037,739            -            -           -           -       611,698     2,649,437
+      Taxes                       11,338,064              -     266,834            -           -     2,560,669    14,165,567
+      Subventions/grants         50,000 13,976,134                39,580           -           -     1,421,393    15,487,107
+   Due from other funds           21,361,319              -            -   1,831,976           -             -    23,193,295
+   Notes receivable               33,922,430 40,710,858                -   7,771,575 46,146,133     38,468,191  167,019,187
+   Other                                 4,812      156,082            -           -           -             -       160,894
+   Property held for resale                  -            -            -           -           -       713,313       713,313
+   Prepaid items                             -    1,881,627            -           -           -             -     1,881,627
+Total assets                     $ 217,559,104$ 103,643,928 $ 26,111,419$ 25,802,646$ 81,326,861$ 281,942,674 $ 736,386,632
+
+Liabilities                        
+   Accounts payable              $ 9,966,176$ 2,410,976 $ 482,150$ 1,390,427$ -$ 4,278,503 $ 18,528,232
+   Accrued salaries and
+   wages                              3,097,983        492,578           510,798       84,582           -       1,263,175      5,449,116
+   Accrued interest payable           1,764,833              -                 -            -           -               -      1,764,833
+   Due to other funds                         -     14,964,796                 -            -           -       1,379,604     16,344,400
+   Deposits held                      1,222,764              -                 -       12,933           -         142,247      1,377,944
+   Unearned revenues                          -      3,899,027            23,893            -           -         118,479      4,041,399
+   Taxes and revenue
+   anticipation note                 35,395,000              -                  -            -          -               -     35,395,000
+   Other liabilities                  6,576,519              -             14,717            -          -         345,491      6,936,727
+Total liabilities                    58,023,275     21,767,377          1,031,558    1,487,942          -      7,527,499     89,837,651
+Deferred Inflows of
+Resources                          
+   Unavailable revenue            4,658,164 11,440,633  25,123 483,035 - 8,027,023  24,633,978
+Total deferred inflows of
+resources                             4,658,164      11,440,633            25,123     483,035           -      8,027,023     24,633,978
+Fund Balances                      
+  Nonspendable                             -  1,881,627           -                                -    1,881,627
+  Restricted                      42,170,823 77,963,350  25,054,738 7,771,575 81,326,861 172,150,571  406,437,918
+   Committed                      58,314,770                                    -            -          -     94,253,754    152,568,524
+   Assigned                       22,721,191           -                        -   16,060,094          -              -     38,781,285
+   Unassigned                     31,670,881  (9,409,058)                       -            -          -        (16,173)    22,245,650
+Total fund balances               154,877,665 70,435,919               25,054,738   23,831,669 81,326,861    266,388,152    621,915,004
+Total liabilities, deferred
+inflows of                         
+resources, and fund
+balances                         $ 217,559,104$ 103,643,928 $ 26,111,419$ 25,802,646$ 81,326,861$ 281,942,674 $ 736,386,632
+
+The accompanying notes are an integral part of these financial statements
+
+
+
+
+40                                                                                                                    FOR YEAR ENDED JUNE 30, 2025
+
+===== ACFR PDF page 103 =====
+      INTRODUCTORY SECTION                      FINANCIAL SECTION
+                                                  FINANCIAL SECTION                        STATISTICAL SECTION
+
+
+
+
+       Net Position
+       In the government-wide and proprietary funds financial statements, net position is categorized in the following
+       categories:
+       Net Investment in Capital Assets is the portion of net position that relates to the City’s capital assets less
+       accumulated depreciation and any outstanding debt incurred to acquire, construct, or improve those assets,
+       excluding unexpended proceeds.
+       Restricted Net Position is the portion of net position that has been restricted for general use by external
+       parties (creditors, grantors, contributors, or laws or regulations of other governments) or imposed by law
+       through constitutional provisions or enabling legislation.
+       Unrestricted Net Position consists of all net position that does not meet the definition of either of the other
+       two components.
+       When an expense is incurred for purposes for which both restricted and unrestricted net position is available, the
+       City’s policy is to apply restricted net position first.
+   N.	 Fund Balances
+       The City follows the provisions of GASB Statement No. 54 Fund Balance and Governmental Fund Type Definitions.
+       GASB Statement No. 54 established Fund Balance classifications based largely upon the extent to which a
+       government is bound to observe constraints imposed upon the use of resources reported in governmental funds.
+       GASB Statement No.54 distinguishes fund balance between amounts that are considered non-spendable, such
+       as fund balance associated with inventories, and other amounts that are classified based on the relative strength
+       of the constraints that controls the purposes for which specific amounts can be spent. Beginning with the most
+       binding constraints, fund balance amounts is reported in the classifications listed on the following page.
+       Nonspendable Fund Balance are amounts that are not in a spendable form, such as inventories, prepaid
+       items, and long-term loans and notes receivable. It also includes amounts that are legally or contractually
+       required to be maintained intact or required to be retained in perpetuity, such as the principal of an endowment
+       fund.
+       Restricted Fund Balance are amounts reported as restricted when constraints placed on the use of resources
+       are either (1) externally imposed by creditors (e.g., through debt covenants), grantors, contributors, or laws
+       or regulations of other governments; or (2) imposed by law through constitutional provisions or enabling
+       legislation.
+       Committed Fund Balance are amounts that have been limited to specific purposes as defined in the City
+       Charter or through adoption of an ordinance by the City Council, the highest level of decision making authority
+       in the City. These commitments may be changed or lifted, but only by the same formal action that was used
+       to impose the constraint originally. City Council action to commit fund balance must occur within the fiscal
+       reporting period, while the amount committed may be subsequently determined.
+       Assigned Fund Balance are amounts that are intended to be used by the City for specific purposes that
+       are neither restricted nor committed through City Council budgetary action, which includes the approval of
+       appropriations and revenues pertaining to the next fiscal year’s budget. Intent is expressed by the City Council
+       or City Manager, to which the City Council has delegated the authority, to assign amounts to be used for
+       specific purposes.
+       Unassigned Fund Balance are amounts within the General Fund, the residual resources (either positive or
+       negative), in excess of what can properly be classified in one of the other four fund balance categories. Unassigned
+       amounts are technically available for any purpose. Other governmental funds may only report a negative unassigned
+       balance that was created after classification in one of the other four fund balance categories.
+       In circumstances where an expenditure is made for a purpose for which amounts are available in multiple fund
+       balance categories, fund balance is depleted in the order of restricted, committed, assigned, and unassigned.
+       Spending Policy
+       The City’s policy is to spend restricted fund balances first, before spending unrestricted fund balances, for
+       expenditures incurred for purposes for which both restricted and unrestricted fund balances are available, except
+       for instances wherein a City’s ordinance or resolution specifies the fund balance.
+
+
+
+FOR YEAR ENDED JUNE 30, 2025                                                                                          69
+
+===== ACFR PDF page 104 =====
+/City of Berkeley, California                                                                   Annual Comprehensive Financial Report
+
+NOTES TO THE FINANCIAL STATEMENTS
+
+
+         The City’s policy is that committed and assigned fund balances are considered to have been spent first before
+         unassigned fund balances have been spent, when expenditure are incurred for purposes for which amounts in any
+         of those unrestricted fund balance classifications could be used, except for instances where in a City ordinance
+         specifies the fund balance. For committed fund balance, the City Council is the highest level of decision making
+         authority. Commitments may be changed or lifted only by the City adopting a resolution that imposed the constraint
+         originally. For assigned fund balance, it comprises amounts intended to be used by the City for specific purposes
+         that are neither restricted nor committed. Intent is expressed by the City Council or City manager, to which the City
+         Council has delegated the authority, to assign amounts to be used for specific purposes.
+  O.	 Use of Estimates
+         A number of estimates and assumptions relating to the reporting of revenues, expenditure/expenses, assets,
+         deferred outflows of resources, liabilities, deferred inflows of resources, and the disclosure of contingent liabilities
+         were used to prepare these financial statements in conformity with accounting principles generally accepted in the
+         United States of America, actual results could differ from these results.
+  P.	 Other Post-Employment Benefits (OPEB)
+         For purposes of measuring the net OPEB liability, deferred outflows of resources and deferred inflows of resources
+         related to OPEB, and OPEB expense, information about the fiduciary net position of the City’s three Plans (Separate
+         ones for Miscellaneous, Fire and Police employees) and additions to/deductions from the OPEB Plans’ fiduciary
+         net position have been determined on the same basis. For this purpose, benefit payments are recognized when
+         currently due and payable in accordance with the benefit terms. Investments are reported at fair value.
+         Generally accepted accounting principles require that the reported results must pertain to liability and asset
+         information within certain defined timeframes. For this report, the following timeframes are used:
+                                            Valuation Date                 July 1, 2024
+                                            Measurement Date               June 30, 2025
+                                            Measurement Period             July 1, 2024 to June 30, 2025
+  Q.	 Pensions
+         For purposes of measuring the net pension liability and deferred outflows/inflows of resources related to pensions
+         and pension expense, the fiduciary net position of the City’s defined benefit retirement plans (Police Retiree Income
+         Plan, Safety Members Pension Plan and the California Public Employees’ Retirement System), and additions
+         to/deductions from the pension plans’ fiduciary net position have been determined on the same basis as they
+         are reported in the plans. For this purpose, benefit payments (including refunds of employee contributions) are
+         recognized when due and payable in accordance with the benefit terms. Investments are reported at fair value.
+2.	 CASH AND INVESTMENTS
+
+      Cash and investments as of June 30, 2025 are classified in the accompanying financials statements at fair
+      value as follows:
+
+                                                                                Unrestricted         Restricted           Total
+      Primary government except for fiduciary fund                         $       408,098,209 $      305,547,645 $    713,645,854
+      Fiduciary fund                                                                         -         68,767,030       68,767,030
+      Component unit: Rent Stabilization Board                                      10,879,233                  -       10,879,233
+      Total cash and investments                                           $       418,977,442 $      374,314,675 $    793,292,117
+
+      Cash and investments as of June 30, 2025 consist of the following:
+      Cash and deposits:
+        Cash on hand                                                                                                $            32,565
+        Deposits with financial insutitions in pooled cash account
+           Primary government                                                                                             23,287,841
+           Fiduciary funds                                                                                                11,936,859
+           Rent Stabilzation Board                                                                                        10,879,232
+
+
+
+
+70                                                                                                      FOR YEAR ENDED JUNE 30, 2025
+
+===== ACFR PDF page 142 =====
+/City of Berkeley, California                                                          Annual Comprehensive Financial Report
+
+NOTES TO THE FINANCIAL STATEMENTS
+
+
+       Changes in the balance of claim liabilities during the fiscal year for all self-insurance funds are as follows:
+
+                                                                             Public           Workers’
+                                                                            Liability       Compensation         Total
+       Balance, July 1, 2024                                           $      7,229,101 $   40,698,360 $    51,524,717
+       Incurred claims and changes in estimates                                 354,338     10,397,821      10,752,159
+       Claims and fee paid                                                   (1,873,685)     (6,711,926)     (8,585,611)
+       Balance, June 30, 2025                                          $      5,709,754 $   44,384,255 $    50,094,009
+
+
+       There were no significant reductions in insurance coverage from the prior year in public liability and there
+       were no settlements exceeding the limits of the City’s excess coverage for the past three years.
+
+  C.	 Construction Commitments
+       As of June 30, 2025, construction commitments totaled approximately $43.5 million. The major projects
+       comprising the bulk of the commitments are the FY 25 Sanitary Sewer Rehabilitation Projects, the FY 24/FY25
+       Street Rehabilitation Projects, FY 25 Sidewalk Repair and Replacement Project, FY 25 Storm Drain Repair,
+       and Transportation traffic improvement and safety projects including: Adeline/Shattuck Rehab, University
+       West Bus Stops, Telegraph/Channing Parking Garage Restroom Renovation, and Strawberry Creek Culvert
+       Maintenance Project.
+
+
+  D.	 Encumbrances
+
+       The City establishes encumbrances to record the amount of purchase orders, contracts, and other obligations,
+       which have not yet been fulfilled, cancelled or discharged, at June 30, 2025, total governmental funds
+       encumbrance balances for the City were:
+
+                            General fund                                               $      5,509,118
+                            Grant fund                                                        7,726,648
+                            Library fund                                                        685,164
+                            Capital improvement fund                                          4,491,447
+                            Non-major governmental funds                                      3,486,275
+                            Total governmental funds                                   $     21,898,652
+
+
+  E.	 Contingent Liabilities
+       i.	 General Grant Risks
+       Amounts received or receivable from grant agencies are subject to audit and adjustment by grantor agencies,
+       principally the federal government. Any disallowed claims, including amounts already collected, may constitute
+       a liability of the applicable funds. The amount, if any, of expenditures which may be disallowed by the grantor
+       cannot be determined at this time although City management expects such amounts, if any, to be immaterial.
+       ii.	 Federal Funding Risks
+       The City receives federal funding to support various City programs. Federal policies on the federal debt
+       ceiling, Affordable Care Act, taxes, foreign trade and tariffs, immigration, climate change, clean energy, and
+       other matters can shift dramatically from one administration to another. From time to time, such changes can
+       result in shifts in the level of federal funding for various priorities, leading to unpredictability in near-term and
+       future federal grant funding.
+       Recent executive orders, agency directives, notice of funding opportunities and grant agreements may
+       condition funding to requirements unacceptable to the City, such as cooperation with federal immigration
+       enforcement, and prohibition of diversity, equity and inclusion (DEI) programs.
+       The City cannot predict if federal grant funding in support of governmental services, whether direct grants
+       from the federal government or pass through grants from the State, will continue.
+
+
+
+
+108                                                                                           FOR YEAR ENDED JUNE 30, 2025
+
+===== ACFR PDF page 180 =====
+/City of Berkeley, California                                                       Annual Comprehensive Financial Report
+
+
+
+
+1.	 BUDGETS AND BUDGETARY ACCOUNTING
+    A.	 Budgetary Information
+       Prior to June 1, the City Manager submits to the City Council a proposed operating budget for the upcoming
+       fiscal year. The proposed budget includes a summary of the proposed expenditures and forecasted revenues,
+       and available cash balances (i.e. budget basis fund balance/net position for the City’s General Fund, Special
+       Revenue Funds; Capital Project Funds; all Enterprise Funds, and all Internal Service Funds. The City of
+       Berkeley adopts an annual appropriated budget for its General fund, capital project funds, debt service
+       funds, and special revenue funds except for Community Workforce (First Source), California Housing Finance
+       Agency, California Energy Commission, Tieback Mitigation R-O-W, Parking in-Lieu Fee, Traffic Congestion
+       Relief, Shelter Operations, Street and Open Space Improvement, 1st Response Advance Life Support,
+       Citywide RLF, Legacy, Lillie B. Wall Memorial, East Bay Public Utilities Commission, Other Special Deposit,
+       Impounded and Unneutered, Measure G - Fire Seismic Projects, Measure G - Public Safety Bldg, Street
+       improvement, Income Housing Fund WBIP, Income Housing Fund - Savo Island Project, Fire Admin Training
+       Building and Pension Refunding Bonds.
+       The City Council adopts an annual budget by resolution prior to July 1 of each fiscal year. The annual budget
+       indicates appropriations by fund. The Council may adopt supplemental appropriations during the year. At the
+       fund level, expenditures may not legally exceed appropriations. The City Manager is authorized to transfer
+       budgeted amounts between departments or programs within any fund. Any revisions or transfers that alter
+       the total appropriations of any fund must be approved by the City Council. The City utilizes a five-year capital
+       plan, which is updated annually. Capital Project Funds are appropriated annually as part of the regular budget
+       process. Any unused funds are re-appropriated to the following fiscal year until the project is completed.
+       The City Council approved an original annual appropriation ordinance of $686,125,119 for FY 2025 and made
+       supplementary budget appropriations totaling $272,582,115 (for a total of revised budget of $958,707,235)
+       during the year. The supplementary budget appropriations consisted of the following: (1) FY 2024 outstanding
+       encumbered rollovers of $100,876,953; (2) FY 2024 unencumbered carryovers of $130,537,377; (3)
+       reappropriations and other adjustments of $41,167,785. Encumbrance accounting, under which purchase
+       orders, contracts and other commitments for the expenditure of money are recorded in order to reserve
+       that portion of the applicable appropriation, is employed as an extension of formal budgetary integration in
+       governmental fund types.
+       Encumbrances outstanding at year-end are reported in assigned fund balance unless the purchase order
+       relates to restricted or committed resources. They do not constitute expenditures or liabilities because the
+       commitments will be honored during the subsequent year.
+  B.	 Budgetary Results Reconciled to Results in Accordance with GAAP
+       The adopted budget and actual results reported in the governmental funds’ budgetary schedules are on a
+       modified cash basis, which is inconsistent with generally accepted accounting principles (GAAP). Under this
+       budget basis, revenues are recorded when received, and interfund loans and repayments are recorded as
+       other financing sources/uses, instead of increases and decreases in the due to/due from accounts.
+
+
+
+
+146                                                                                        FOR YEAR ENDED JUNE 30, 2025
+

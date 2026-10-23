@@ -38,18 +38,25 @@ Phase 2 draws on sources of very different reliability. The hierarchy is fixed a
 
 Eric's work sits at level 5 and is treated accordingly, notwithstanding its high internal standard. His public repository is generated output from a private source repository, so his extraction cannot be re-executed — only his cited documents re-read. Where his findings are corroborated from primary sources, they are promoted and the verification is recorded.
 
+## Status update, 2026-10-23 (end of day)
+
+- **Street funding (B/D):** `07-street-funding-legal-analysis.md`. Measure FF: $0 more for paving without voters. CIP Fund 501: at most $2,946,000 of FY2027–28 money, only by deferring every other fund 501 project; one-time carryover unknown (ceiling $11,568,647 at June 30, 2025).
+- **Adopted CIP:** `data/cip-projects.json` (schema 3), reconciled to the dollar. The $139,356,147 figure is the five-year Streets budget (two-year: $58,211,462).
+- **Pavement (D):** two measures side by side. 2024 average 56, with 88.75 centerline miles (41.6%) below PCI 50. The adopted plans treat 22.6 such miles over FY2027–31.
+- **Flags:** DoubleTree entry in ledger 608 flagged to Codex (`flags/`). Not changed.
+
 ## Workstreams
 
 ### A. Marina / waterfront reconciliation — **substantially complete, two blockers**
 Deliverable 2. Every overlap between Eric's record and BeTH's ledger catalogued, with four exact agreements, five conflicts and one independently verified finding. Blocked on Q1 (the $5.5M destination) and Q3 (the FY2026 figure).
 
-### B. Capital portfolio — **specified, not loaded**
+### B. Capital portfolio — **loaded and reconciled (adopted CIP, 143 projects); restriction research 6 of 15 sources**
 Deliverable 3. Schema complete. The long pole is **restriction research across all 149 projects**: until `restriction_class` is established per project, no statement about redirectable money is supportable.
 
 ### C. Vision 2050 asset management — **specified, blocked on verification**
 Deliverable 4. Mapping complete. Blocked on Q9 (are NexGen/AssetWorks/AMCS still in use, and what do they cover) and Q8 (is the waterfront outside the implementation schedule).
 
-### D. PCI 60+ model — **framework only, gated**
+### D. PCI model — **City scenarios plus measured condition distribution; independent projection still gated**
 Plan item 7. Four-link chain specified; calibration requirements enumerated. **No model output until segment PCI, deterioration curves, treatment costs and service lives exist.** The honest Phase 2 output here is the framework plus the gap list.
 
 ### E. Payroll, benefits and recurring costs — **not started**
@@ -58,7 +65,7 @@ Base plan workstream 3. The Workers' Compensation finding gives it an obvious fi
 ### F. Paving delivery cost and legislative analysis — **not started**
 Base plan workstream 4. Requires contract-level cost decomposition. **Do not presume environmental review is the primary cost driver** — that is the hypothesis to test, and the politically convenient answer the data may not support.
 
-### G. Public interface — **specified**
+### G. Public interface — **prototype with four verified Ask answers (not published)**
 Deliverable 6. Build order deliberately ships the scenario and PCI views **last**.
 
 ## Safeguards (carried forward from the base plan, unchanged)

@@ -1,0 +1,749 @@
+{
+ "generated": "2026-10-23",
+ "status": "PROTOTYPE - not published",
+ "contract": "PR #17 plans/phase2-grounded-qa-architecture.md section 5",
+ "documents": {
+  "doc:acfr-fy2025": {
+   "title": "Annual Comprehensive Financial Report, FY ended June 30, 2025",
+   "text": "sources/acfr-fy2025-excerpts.txt",
+   "pdf": "../../../annual-comprehensive-financial-report-fy2025.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "basis": "audited"
+  },
+  "doc:budget-adoption-2026-06-23": {
+   "title": "Adoption of FY2027-28 Biennial Budget and FY2027-31 CIP, Council Special Meeting Item 01, June 23, 2026",
+   "text": "sources/budget-adoption-2026-06-23.txt",
+   "pdf": "../../sources/budget-adoption-2026-06-23.pdf",
+   "basis": "adopted"
+  },
+  "doc:street-plan-2026-07-07": {
+   "title": "Five-Year Street Rehabilitation and Measure FF Plans FY2027-2031, Council Item 10, July 7, 2026",
+   "text": "sources/street-rehab-measure-ff-2026-07-07.txt",
+   "pdf": "../../sources/street-rehab-measure-ff-2026-07-07.pdf",
+   "basis": "adopted"
+  },
+  "doc:measure-ff-ordinance": {
+   "title": "Measure FF (SAFE STREETS) initiative text, BMC Chapter 7.11 (Council agenda July 9, 2024, Item 22)",
+   "text": "sources/measure-ff-ordinance-transcription.md",
+   "pdf": "../../sources/measure-ff-initiative-council-2024-07-09.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2024-07-09%20Item%2022%20Initiative%20Petition%20%E2%80%93%20Ordinance%20to%20Establish%20a%20Parcel%20Tax%20to%20Fund%20Repairs%20and%20Improvements%20to%20%28SAFE%20STREETS%29.pdf",
+   "basis": "law",
+   "note": "scanned; quotes checked against BeTH transcription of the page images"
+  },
+  "doc:measure-ff-rate-fy2027": {
+   "title": "FY2027 Tax Rate: SAFE STREETS (Measure FF), Council Consent Item 15, June 16, 2026",
+   "text": "sources/measure-ff-fy2027-tax-rate-2026-06-16.txt",
+   "pdf": "../../sources/measure-ff-fy2027-tax-rate-2026-06-16.pdf",
+   "basis": "adopted"
+  },
+  "doc:ptap25": {
+   "title": "City of Berkeley 2024 Pavement Management Program Update (P-TAP 25), April 2025",
+   "text": "sources/pavement-management-update-ptap25-2025-04.txt",
+   "pdf": "../../sources/pavement-management-update-ptap25-2025-04.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf",
+   "basis": "city_assessment"
+  }
+ },
+ "answers": [
+  {
+   "slug": "capital-to-streets",
+   "question": "How much capital funding could Berkeley redirect to streets?",
+   "resolution": {
+    "entities": [
+     "fund:501",
+     "fund:166"
+    ],
+    "measures": [
+     "appropriation",
+     "fund_balance"
+    ],
+    "period": {
+     "fy_start": 2027,
+     "fy_end": 2028
+    },
+    "scope": "CIP Fund 501 and Measure FF only. Other capital funds (sewer, storm water, zero waste, parks tax, state and county transportation funds, internal service funds) are not yet assessed here."
+   },
+   "short_answer": "From Measure FF, nothing beyond the adopted plan without a vote of the people. From CIP Fund 501, at most $2,946,000 of FY2027-FY2028 money, and only by deferring or cancelling every other project the fund pays for; 88% of its FY2027 money ($10,412,200) already goes to paving. A one-time amount from unspent carried-over appropriations may exist but cannot be measured from public records; its ceiling at June 30, 2025 was $11,568,647.",
+   "facts": [
+    {
+     "fact_id": "fund:501/cip/fy2027/total",
+     "label": "Fund 501 (General Fund resources incl. CIP Fund) FY2027 capital program",
+     "value": 11885200,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "pp.172-173",
+      "quote": null,
+      "pdf_page": 172
+     }
+    },
+    {
+     "fact_id": "fund:501/cip/fy2027/paving",
+     "label": "Of which Streets (paving)",
+     "value": 10412200,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.173",
+      "quote": null,
+      "pdf_page": 173
+     }
+    },
+    {
+     "fact_id": "fund:501/cip/fy2027/other",
+     "label": "Of which all other fund 501 projects",
+     "value": 1473000,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "pp.172-173",
+      "quote": null,
+      "pdf_page": 172
+     }
+    },
+    {
+     "fact_id": "fund:501/cip/fy2028/other",
+     "label": "FY2028, all other fund 501 projects",
+     "value": 1473000,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "pp.172-173",
+      "quote": null,
+      "pdf_page": 172
+     }
+    },
+    {
+     "fact_id": "fund:501/acfr/2025/assigned",
+     "label": "Fund 501 assigned fund balance, June 30, 2025",
+     "value": 16060094,
+     "unit": "usd",
+     "basis": "audited",
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.75 (printed p.40)",
+      "quote": null,
+      "pdf_page": 75
+     }
+    },
+    {
+     "fact_id": "fund:501/acfr/2025/encumbrances",
+     "label": "Fund 501 encumbrances outstanding, June 30, 2025",
+     "value": 4491447,
+     "unit": "usd",
+     "basis": "audited",
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.142 (printed p.108)",
+      "quote": null,
+      "pdf_page": 142
+     }
+    },
+    {
+     "fact_id": "doc:acfr-fy2025/carryover-rule",
+     "label": "Capital appropriations carry forward",
+     "value": null,
+     "unit": "text",
+     "basis": "audited",
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.180 (printed p.146)",
+      "quote": "Any unused funds are re-appropriated to the following fiscal year until the project is completed.",
+      "pdf_page": 180
+     }
+    },
+    {
+     "fact_id": "doc:acfr-fy2025/assigned-definition",
+     "label": "Who controls assigned fund balance",
+     "value": null,
+     "unit": "text",
+     "basis": "audited",
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.103 (printed p.69)",
+      "quote": "Intent is expressed by the City Council or City Manager, to which the City Council has delegated the authority",
+      "pdf_page": 103
+     }
+    },
+    {
+     "fact_id": "doc:budget/cip-pre-allocated",
+     "label": "City statement on CIP Fund availability",
+     "value": null,
+     "unit": "text",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.239",
+      "quote": "there is no CIP funding available for IT in FY 2027 and FY 2028",
+      "pdf_page": 239
+     }
+    },
+    {
+     "fact_id": "law:bmc-7.11-section-7a3",
+     "label": "Council may not alter the Measure FF allocation without voters",
+     "value": null,
+     "unit": "text",
+     "basis": "law",
+     "cite": {
+      "doc_id": "doc:measure-ff-ordinance",
+      "pages": "PDF p.15",
+      "quote": "Alter the allocations of Section 7.11.020",
+      "pdf_page": 15
+     }
+    },
+    {
+     "fact_id": "ff:program/street-rehab-share",
+     "label": "Share of the five-year Measure FF program in street rehabilitation",
+     "value": 0.4564,
+     "unit": "ratio",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:street-plan-2026-07-07",
+      "pages": "p.4 (Table 1C); p.8 (Table 4)",
+      "quote": null,
+      "pdf_page": 4
+     }
+    }
+   ],
+   "calculations": [
+    {
+     "id": "c1",
+     "label": "Fund 501 non-paving appropriations, FY2027 + FY2028 (ceiling for new paving money)",
+     "expression": "fund:501/cip/fy2027/other + fund:501/cip/fy2028/other",
+     "inputs": [
+      "fund:501/cip/fy2027/other",
+      "fund:501/cip/fy2028/other"
+     ],
+     "result": 2946000,
+     "unit": "usd",
+     "note": null
+    },
+    {
+     "id": "c2",
+     "label": "Share of fund 501 FY2027 money already in paving",
+     "expression": "fund:501/cip/fy2027/paving / fund:501/cip/fy2027/total",
+     "inputs": [
+      "fund:501/cip/fy2027/paving",
+      "fund:501/cip/fy2027/total"
+     ],
+     "result": 0.8761,
+     "unit": "ratio",
+     "note": null
+    },
+    {
+     "id": "c3",
+     "label": "Unencumbered assigned fund balance, June 30, 2025 (ceiling for one-time carryover)",
+     "expression": "fund:501/acfr/2025/assigned - fund:501/acfr/2025/encumbrances",
+     "inputs": [
+      "fund:501/acfr/2025/assigned",
+      "fund:501/acfr/2025/encumbrances"
+     ],
+     "result": 11568647,
+     "unit": "usd",
+     "note": "Backs capital appropriations already carried forward, paving among them. Not free money."
+    }
+   ],
+   "interpretation": [
+    {
+     "claim_id": "claim:capital-to-streets-small",
+     "text": "The capital money Council could redirect to paving without voters is small relative to the paving gap: the City estimates PCI 70 needs about $8 million a year more, while fund 501's non-paving capital is $1,473,000 a year, mostly repairs to existing City buildings.",
+     "counterargument": "This covers only fund 501 and Measure FF. Other capital funds, unspent carryovers, the General Fund itself and delivery-cost savings are not assessed here and could change the total.",
+     "confidence": "Moderate"
+    }
+   ],
+   "scenario_assumptions": [],
+   "missing_evidence": [
+    {
+     "needed": "FY2026 year-end fund 501 carryover and encumbrance detail by project.",
+     "status": "not in record"
+    },
+    {
+     "needed": "The FY2027 Annual Appropriation Ordinance (controlling appropriation record, incl. any June 23 amendments).",
+     "status": "not in record"
+    },
+    {
+     "needed": "Public Works and Parks assessments of what deferring each fund 501 project would cost (condition, safety, legal, contracts).",
+     "status": "not in record"
+    },
+    {
+     "needed": "The City's Measure FF maintenance-of-effort calculation and whether FY2027 draws on the Stabilization Reserve.",
+     "status": "not in record"
+    },
+    {
+     "needed": "Restriction research for the other CIP funding sources.",
+     "status": "not in record"
+    }
+   ],
+   "more": [
+    "../../07-street-funding-legal-analysis.md",
+    "../data/phase2.json"
+   ],
+   "verifier": {
+    "numbers_traced": true,
+    "quotes_matched": true,
+    "counterarguments_present": true,
+    "passed": true,
+    "problems": []
+   }
+  },
+  {
+   "slug": "measure-ff-paving",
+   "question": "Could Measure FF money pay for more street paving?",
+   "resolution": {
+    "entities": [
+     "fund:166"
+    ],
+    "measures": [
+     "allocation",
+     "appropriation"
+    ],
+    "period": {
+     "fy_start": 2027,
+     "fy_end": 2031
+    }
+   },
+   "short_answer": "No, not without a vote. Voters fixed the split at approximately 45% streets, 15% sidewalks, 30% safety and 10% environmental, and the ordinance bars Council from altering it. The adopted program already puts 45.6% of Measure FF ($42,119,935 of $92,282,816) into street rehabilitation.",
+   "facts": [
+    {
+     "fact_id": "law:bmc-7.11.020C",
+     "label": "Allocation set by voters",
+     "value": null,
+     "unit": "text",
+     "basis": "law",
+     "cite": {
+      "doc_id": "doc:measure-ff-ordinance",
+      "pages": "PDF p.8",
+      "quote": "60% for streets and sidewalks, of which roughly three quarters (45%) will be for streets",
+      "pdf_page": 8
+     }
+    },
+    {
+     "fact_id": "law:bmc-7.11-section-7a3",
+     "label": "Council cannot change the allocation without voters",
+     "value": null,
+     "unit": "text",
+     "basis": "law",
+     "cite": {
+      "doc_id": "doc:measure-ff-ordinance",
+      "pages": "PDF p.15",
+      "quote": "Alter the allocations of Section 7.11.020",
+      "pdf_page": 15
+     }
+    },
+    {
+     "fact_id": "law:bmc-7.11.030B",
+     "label": "Maintenance of effort",
+     "value": null,
+     "unit": "text",
+     "basis": "law",
+     "cite": {
+      "doc_id": "doc:measure-ff-ordinance",
+      "pages": "PDF p.8",
+      "quote": "the City Council shall not be authorized to impose the special tax for the following two years",
+      "pdf_page": 8
+     }
+    },
+    {
+     "fact_id": "ff:program/total",
+     "label": "Five-year Measure FF program",
+     "value": 92282816,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:street-plan-2026-07-07",
+      "pages": "p.4 (Table 1C)",
+      "quote": null,
+      "pdf_page": 4
+     }
+    },
+    {
+     "fact_id": "ff:program/street-rehab",
+     "label": "Measure FF street rehabilitation, FY2027-FY2031",
+     "value": 42119935,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.215",
+      "quote": null,
+      "pdf_page": 215
+     }
+    },
+    {
+     "fact_id": "ff:revenue/fy2027",
+     "label": "FY2027 Measure FF revenue",
+     "value": 16651651,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:measure-ff-rate-fy2027",
+      "pages": "p.1",
+      "quote": "is projected to yield $16,651,651 in revenues",
+      "pdf_page": 1
+     }
+    }
+   ],
+   "calculations": [
+    {
+     "id": "c1",
+     "label": "Street rehabilitation share of the five-year Measure FF program",
+     "expression": "ff:program/street-rehab / ff:program/total",
+     "inputs": [
+      "ff:program/street-rehab",
+      "ff:program/total"
+     ],
+     "result": 0.4564,
+     "unit": "ratio",
+     "note": null
+    }
+   ],
+   "interpretation": [
+    {
+     "claim_id": "claim:ff-fully-allocated",
+     "text": "Measure FF is not a source of additional paving money; it is already allocated to paving at the share voters set.",
+     "counterargument": "The split is \"approximately\" 45%, so a modestly larger street share might be defensible; and once the citywide PCI reaches 70 the allocation stops being required. Neither changes the answer for FY2027-FY2028.",
+     "confidence": "High"
+    }
+   ],
+   "scenario_assumptions": [],
+   "missing_evidence": [
+    {
+     "needed": "June 30, 2026 Measure FF balance (the first rate covered 18 months of collections)",
+     "would_be_in": "FY2026 ACFR (expected early 2027)",
+     "status": "not in record"
+    }
+   ],
+   "more": [
+    "../../07-street-funding-legal-analysis.md"
+   ],
+   "verifier": {
+    "numbers_traced": true,
+    "quotes_matched": true,
+    "counterarguments_present": true,
+    "passed": true,
+    "problems": []
+   }
+  },
+  {
+   "slug": "street-condition",
+   "question": "How bad are Berkeley's streets, beyond the average PCI?",
+   "resolution": {
+    "entities": [
+     "network:streets"
+    ],
+    "measures": [
+     "pci_average",
+     "miles_below_50"
+    ],
+    "period": {
+     "as_of": "2024 inspection"
+    }
+   },
+   "short_answer": "The average hides most of it. In the 2024 inspection the network averaged PCI 56, but 88.75 centerline miles (42% of the network) were below PCI 50 and 33.99 miles were below 25. The City projects an average of about 62 by 2038 with Measure FF, but publishes no projection of how many streets will still be below 50. The adopted plans treat 22.61 miles of currently-below-50 streets over five years.",
+   "facts": [
+    {
+     "fact_id": "pave:network/2024/average-pci",
+     "label": "Network average PCI (2024 inspection)",
+     "value": 56,
+     "unit": "pci",
+     "basis": "city_assessment",
+     "cite": {
+      "doc_id": "doc:ptap25",
+      "pages": "Executive Summary p.2",
+      "quote": "The updated Pavement Management Program showed that the City's overall average PCI is 56.",
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:network/2024/poor-to-failed-share",
+     "label": "Share of pavement area in Poor to Failed condition (PTAP categories, PCI 50 and below)",
+     "value": 0.4193,
+     "unit": "ratio",
+     "basis": "city_assessment",
+     "cite": {
+      "doc_id": "doc:ptap25",
+      "pages": "Executive Summary p.3",
+      "quote": "41.93% are in Poor to Failed condition",
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:network/2024/miles-below-50",
+     "label": "Centerline miles below PCI 50 (BeTH sum of 1,216 sections, validated)",
+     "value": 88.75,
+     "unit": "miles",
+     "basis": "city_assessment",
+     "cite": {
+      "doc_id": "doc:ptap25",
+      "pages": "Section IV street list",
+      "quote": null,
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:network/2024/miles-below-25",
+     "label": "Centerline miles below PCI 25",
+     "value": 33.99,
+     "unit": "miles",
+     "basis": "city_assessment",
+     "cite": {
+      "doc_id": "doc:ptap25",
+      "pages": "Section IV street list",
+      "quote": null,
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:network/2024/centerline-miles",
+     "label": "Network centerline miles (sum of sections)",
+     "value": 213.48,
+     "unit": "miles",
+     "basis": "city_assessment",
+     "cite": {
+      "doc_id": "doc:ptap25",
+      "pages": "Section IV street list",
+      "quote": null,
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:plans/fy2027-2031/miles-below-50",
+     "label": "Currently-below-50 miles treated by both adopted plans, FY2027-FY2031",
+     "value": 22.61,
+     "unit": "miles",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:street-plan-2026-07-07",
+      "pages": "Attachments pp.21-62",
+      "quote": null,
+      "pdf_page": null
+     }
+    },
+    {
+     "fact_id": "pave:city-projection/2038/plan-plus-ff",
+     "label": "City projection, Five-Year Plan + Measure FF, 2038",
+     "value": 62,
+     "unit": "pci",
+     "basis": "city_model",
+     "cite": {
+      "doc_id": "doc:street-plan-2026-07-07",
+      "pages": "p.12",
+      "quote": "the citywide PCI is projected to improve to approximately 62 by 2038",
+      "pdf_page": 12
+     }
+    },
+    {
+     "fact_id": "law:bmc-7.11.010K1",
+     "label": "Measure FF goal",
+     "value": null,
+     "unit": "text",
+     "basis": "law",
+     "cite": {
+      "doc_id": "doc:measure-ff-ordinance",
+      "pages": "PDF p.7",
+      "quote": "ideally with no streets having a PCI below 50",
+      "pdf_page": 7
+     }
+    }
+   ],
+   "calculations": [
+    {
+     "id": "c1",
+     "label": "Share of centerline miles below PCI 50",
+     "expression": "miles-below-50 / centerline-miles",
+     "inputs": [
+      "pave:network/2024/miles-below-50",
+      "pave:network/2024/centerline-miles"
+     ],
+     "result": 0.4157,
+     "unit": "ratio",
+     "note": null
+    }
+   ],
+   "interpretation": [
+    {
+     "claim_id": "claim:average-not-failed-streets",
+     "text": "Reaching a network average of 60 or 62 is not the same as eliminating failed streets; the measure that matches Measure FF's goal is the mileage below PCI 50.",
+     "counterargument": "Treating the worst streets first costs more per point of average PCI (the City shows about one point lower in 2038), so a lower failed-street count can mean a lower average; both measures are needed.",
+     "confidence": "High"
+    }
+   ],
+   "scenario_assumptions": [],
+   "missing_evidence": [
+    {
+     "needed": "Projected miles below PCI 50 under each funding scenario",
+     "would_be_in": "StreetSaver output; the Measure FF annual report must include \"the PCI of all streets\" (BMC 7.11.050(B)(1))",
+     "status": "not published"
+    },
+    {
+     "needed": "Condition after FY2025-FY2026 paving",
+     "would_be_in": "next StreetSaver inspection update",
+     "status": "not published"
+    }
+   ],
+   "more": [
+    "../../06-pci60-financial-model.md"
+   ],
+   "verifier": {
+    "numbers_traced": true,
+    "quotes_matched": true,
+    "counterarguments_present": true,
+    "passed": true,
+    "problems": []
+   }
+  },
+  {
+   "slug": "streets-139m",
+   "question": "What does the $139.3 million streets figure include?",
+   "resolution": {
+    "entities": [
+     "cip:streets"
+    ],
+    "measures": [
+     "appropriation"
+    ],
+    "period": {
+     "fy_start": 2027,
+     "fy_end": 2031
+    }
+   },
+   "short_answer": "It is the five-year (FY2027-FY2031) Streets capital budget, not a two-year one: the paving plan ($96,336,212), Measure FF street rehabilitation ($42,119,935), bridge maintenance and Harold Way placemaking add to exactly $139,356,147. The two-year FY2027-FY2028 Streets amount is $58,211,462.",
+   "facts": [
+    {
+     "fact_id": "cip:streets/five-year/street-rehab-plan",
+     "label": "Five-Year Street Rehabilitation Plan (Exhibit B lines)",
+     "value": 96336212,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "pp.215-216",
+      "quote": null,
+      "pdf_page": 215
+     }
+    },
+    {
+     "fact_id": "cip:streets/five-year/measure-ff",
+     "label": "Measure FF Street Rehabilitation",
+     "value": 42119935,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.215",
+      "quote": null,
+      "pdf_page": 215
+     }
+    },
+    {
+     "fact_id": "cip:streets/five-year/bridge",
+     "label": "Bridge Preventive Maintenance",
+     "value": 750000,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.215",
+      "quote": null,
+      "pdf_page": 215
+     }
+    },
+    {
+     "fact_id": "cip:streets/five-year/harold-way",
+     "label": "Harold Way Placemaking",
+     "value": 150000,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.215",
+      "quote": null,
+      "pdf_page": 215
+     }
+    },
+    {
+     "fact_id": "cip:streets/five-year/printed-total",
+     "label": "Printed Streets five-year budget",
+     "value": 139356147,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:budget-adoption-2026-06-23",
+      "pages": "p.216",
+      "quote": "$139,356,147 in Five-Year CIP Budget",
+      "pdf_page": 216
+     }
+    },
+    {
+     "fact_id": "plan:tables-1a-1b/total",
+     "label": "Street plan five-year total",
+     "value": 96336212,
+     "unit": "usd",
+     "basis": "adopted",
+     "cite": {
+      "doc_id": "doc:street-plan-2026-07-07",
+      "pages": "p.3 (Table 1B)",
+      "quote": null,
+      "pdf_page": 3
+     }
+    }
+   ],
+   "calculations": [
+    {
+     "id": "c1",
+     "label": "Sum of the four Streets projects",
+     "expression": "plan + measure-ff + bridge + harold-way",
+     "inputs": [
+      "cip:streets/five-year/street-rehab-plan",
+      "cip:streets/five-year/measure-ff",
+      "cip:streets/five-year/bridge",
+      "cip:streets/five-year/harold-way"
+     ],
+     "result": 139356147,
+     "unit": "usd",
+     "note": null
+    },
+    {
+     "id": "c2",
+     "label": "Two-year (FY2027 + FY2028) Streets amount",
+     "expression": "sum of FY2027 and FY2028 Streets lines",
+     "inputs": [
+      "cip:streets"
+     ],
+     "result": 58211462,
+     "unit": "usd",
+     "note": null
+    }
+   ],
+   "interpretation": [
+    {
+     "claim_id": "claim:139m-is-five-year",
+     "text": "Comparisons that treat $139,356,147 as a biennial figure overstate two-year street spending by more than double. (It is often quoted as \"$139.3 million\"; the exact figure rounds to 139.4.)",
+     "counterargument": "FY2029-FY2031 are planned amounts and may change; the two-year figure is the only one with appropriations behind it.",
+     "confidence": "High"
+    }
+   ],
+   "scenario_assumptions": [],
+   "missing_evidence": [
+    {
+     "needed": "FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments)",
+     "status": "not in record"
+    }
+   ],
+   "more": [
+    "../data/phase2.json"
+   ],
+   "verifier": {
+    "numbers_traced": true,
+    "quotes_matched": true,
+    "counterarguments_present": true,
+    "passed": true,
+    "problems": []
+   }
+  }
+ ]
+}
