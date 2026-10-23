@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import CarryoverTracker from "./CarryoverTracker";
+import { Analytics } from "@vercel/analytics/react";
 
 /* ──────────────────── shared helpers ──────────────────── */
 const fmt = (n) => (n >= 1000 ? `$${(n / 1000).toFixed(1)}B` : `$${n}M`);
@@ -1168,6 +1169,7 @@ export default function App() {
           See also the neutral data hub: <a href="https://learn-about-berkeley.vercel.app/" target="_blank" rel="noopener" style={{ color: "#cfd8ff" }}>Berkeley Transparency Hub — Budget Basics &#8599;</a>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 }
