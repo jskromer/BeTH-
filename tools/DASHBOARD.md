@@ -57,9 +57,19 @@ A fund's money-flow lines (`flow_detail`) are compared with its audited totals. 
 
 When the extractor is fixed and a documented gap closes, the shared tests stay green. The dashboard check then reports the `known-gaps.json` entry as stale, and the next rebuild PR deletes it.
 
-### Current documented gap (FY2025)
+### Documented gaps (FY2025): none
 
-$36,598,654 of governmental expenditures is not itemized by function. On ACFR p.77, the row "Community development and housing" wraps onto two lines, so the extractor sees its values under the label "and housing", which its alias list lacks; "TRAN issuance costs" is also missing. By fund: General Fund $20,312,681, Grants $13,584,981, Capital Improvement $2,700,992. The statement's total for Community development and housing is $46,328,738. The fix is an extraction change (see `plans/dashboard-requests-to-extraction.md`). The General Fund ledger is protected, so it also needs a reviewed manual edit.
+All 106 funds now tie: every fund's captured lines add up to its audited totals, and `known-gaps.json` has no live entries.
+
+The one gap this page ever carried is closed. $36,598,654 of governmental expenditures was not itemized by function, because on ACFR p.77 the row "Community development and housing" wraps onto two lines and the extractor read its values under the label "and housing"; "TRAN issuance costs" was also missing. By fund: General Fund $20,312,681, Grants $13,584,981, Capital Improvement $2,700,992. The corrections were applied to the three ledgers in `af21d8c` (PR #13), from the patches proposed in PR #11. Community development and housing now shows the statement's full $46,328,738.
+
+The closure worked the way this document said it would: the shared tests stayed green, `build_dashboard.py --check` reported the three `known-gaps.json` entries as stale, and this rebuild retired them. The history is kept under the file's `resolved` key, which the builder does not read.
+
+### Lease and subscription inception is not cash spending
+
+The same corrections added the other-financing-source lines the ACFR reports against this activity: "Inception of leases and subscriptions", $24,560,677 across the governmental funds (General Fund $18,156,996, Grants $19,381, nonmajor $6,384,300). Under GASB 87 and 96 a fund records a lease or software subscription in full in the year it signs: as an expenditure inside capital outlay, and as an other financing source of the same amount. No cash moves and the fund takes on a liability.
+
+So capital outlay is not cash capital spending. Of FY2025's $61,222,721, $24,560,677 is inception and $36,662,044 is cash-funded. The General Fund is the extreme case: $18,156,996 of its $19,679,684 capital outlay is inception. Both the dashboard (section 2) and the fund pages say so, and the fund pages draw other financing sources in their own colour, so they are read neither as the fund's own revenue nor as rescue money from another fund.
 
 ## Accounting rules the page follows
 

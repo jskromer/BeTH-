@@ -23,6 +23,33 @@ KIND_LABEL = {
 }
 RESCUE_KINDS = {"transfer_in", "cost_shift", "loan_in", "grant", "indirect_reduction", "holiday"}
 
+# Inflow colours. "financing" is neither the fund's own revenue (green) nor money
+# another fund sent to rescue it (red): it is borrowing, an asset sale, or a lease
+# or subscription signed during the year. Shown in the page's steel blue.
+INFLOW_COLOUR = {"own": "#1f6b4a", "financing": "#43698f"}
+
+LEASE_INCEPTION = "Inception of leases and subscriptions"
+CAPITAL_OUTLAY = "Capital outlay"
+
+
+def lease_note(ins, outs):
+    """Say so when part of capital outlay is a lease or subscription signed, not cash spent.
+
+    GASB 87 and 96: at inception the fund records the whole multi-year commitment
+    at once, as an expenditure inside capital outlay and as an other financing
+    source of the same amount. No cash moves; a liability is taken on instead."""
+    inception = sum(x["amount"] for x in ins if x["line"] == LEASE_INCEPTION)
+    if not inception:
+        return ""
+    outlay = sum(x["amount"] for x in outs if x["line"] == CAPITAL_OUTLAY)
+    cash = f" That leaves {money(outlay - inception)} of capital outlay funded with cash." if outlay > inception else ""
+    scope = f" of the {money(outlay)} shown as capital outlay" if outlay else ""
+    return (f'<div class="cap"><b>{money(inception)}{scope} is a lease or subscription signed, not cash spent.</b> '
+            f'Under GASB 87 and 96 the City records the whole multi-year commitment in the year it signs: '
+            f'as an expenditure inside capital outlay, and as an other financing source of the same amount. '
+            f'No cash changes hands in that entry, and the City takes on a liability for the future payments.{cash} '
+            f'Both sides are shown above, on opposite sides of the diagram; neither total double-counts the other.</div>')
+
 
 def esc(s):
     return html.escape(str(s)) if s is not None else ""
@@ -275,7 +302,7 @@ def build(json_path: Path, out_path: Path):
         for i, x in enumerate(ins):
             y = 60 + i * rowh + rowh / 2
             w = 1 + 7 * x["amount"] / vmax
-            col = "#1f6b4a" if x["kind"] == "own" else "#a8322c"
+            col = INFLOW_COLOUR.get(x["kind"], "#a8322c")
             parts.append(f'<line x1="300" y1="{y}" x2="{cx-82}" y2="{60 + rowh*n_rows/2}" stroke="{col}" stroke-width="{w:.1f}" stroke-linecap="round" opacity=".85"/>')
             parts.append(f'<text x="292" y="{y+4}" text-anchor="end" class="fl">{esc(x["line"])}</text><text x="292" y="{y+18}" text-anchor="end" class="fs">{money(x["amount"], True)}</text>')
         for i, x in enumerate(outs):
@@ -284,9 +311,14 @@ def build(json_path: Path, out_path: Path):
             parts.append(f'<line x1="{cx+82}" y1="{60 + rowh*n_rows/2}" x2="600" y2="{y}" stroke="#4b5577" stroke-width="{w:.1f}" stroke-linecap="round" opacity=".8"/>')
             parts.append(f'<text x="608" y="{y+4}" class="fl">{esc(x["line"])}</text><text x="608" y="{y+18}" class="fs">{money(x["amount"], True)}{(" · " + esc(x["note"])) if x.get("note") else ""}</text>')
         parts.append(f'<text x="20" y="34" class="fl">Money in, FY{F["fy"]}</text><text x="608" y="34" class="fl">Money out, FY{F["fy"]}</text>')
-        own = sum(x["amount"] for x in ins if x["kind"] == "own"); rescue = sum(x["amount"] for x in ins if x["kind"] != "own")
+        own = sum(x["amount"] for x in ins if x["kind"] == "own")
+        fin = sum(x["amount"] for x in ins if x["kind"] == "financing")
+        rescue = sum(x["amount"] for x in ins if x["kind"] not in ("own", "financing"))
+        key = f'<span class="sw" style="background:#1f6b4a"></span> own revenue {money(own, True)} &nbsp; <span class="sw" style="background:#a8322c"></span> rescue money {money(rescue, True)}'
+        if fin:
+            key += f' &nbsp; <span class="sw" style="background:{INFLOW_COLOUR["financing"]}"></span> other financing sources {money(fin, True)}'
         flow_html = f'''<div class="chartwrap"><svg viewBox="0 0 {W} {H}" role="img" aria-label="Money in and out of the Marina Fund, FY{F["fy"]}"><style>.fl{{font:13px Jost,sans-serif;fill:#0b1540}} .fs{{font:11px Jost,sans-serif;fill:#4b5577}} .fw{{fill:#fff}}</style>{''.join(parts)}</svg>
-<div class="cap"><span class="sw" style="background:#1f6b4a"></span> own revenue {money(own, True)} &nbsp; <span class="sw" style="background:#a8322c"></span> rescue money {money(rescue, True)} &nbsp; line width = amount. Outflows are operating expenses plus debt service and transfers; depreciation is non-cash. {chip(F["confidence"])}</div></div>'''
+<div class="cap">{key} &nbsp; line width = amount. Outflows are operating expenses plus debt service and transfers; depreciation is non-cash. {chip(F["confidence"])}</div>{lease_note(ins, outs)}</div>'''
 
     # ---- obligations ----
     orows = [f'<tr><td>{esc(o["kind"].replace("_"," "))}</td><td class="n">{money(o["amount"])}</td><td>{esc(o["as_of"])}</td><td>{esc(o["note"])}</td><td>{chip(o["confidence"])}</td></tr>' for o in d.get("obligations", [])]

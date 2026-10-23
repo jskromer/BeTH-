@@ -61,6 +61,11 @@ REV_MERGE = {"donations": "Private contributions and donations", "Investment inc
 EXP_MERGE = {"Highway and streets": "Highways and streets", "Culture-recreation": "Culture and recreation",
              "Capital outlay:": "Capital outlay"}
 NOT_SPENDING = re.compile(r"^(Transfers out|Payment to refunded bond escrow agent|Interest expense|State loan interest)")
+# At inception of a lease or subscription (GASB 87/96) a governmental fund records an
+# expenditure, within capital outlay, and an other financing source of the same amount.
+# No cash moves. Reported separately so capital outlay is not read as cash spending.
+LEASE_INCEPTION = "Inception of leases and subscriptions"
+CAPITAL_OUTLAY = "Capital outlay"
 NOT_OPERATING_REVENUE = {"Investment earnings"}
 BOILERPLATE_Q = "Only FY2025 is loaded"
 MAG = [(1e6, "under $1M"), (1e7, "$1M–$10M"), (1e8, "$10M–$100M"), (float("inf"), "$100M or more")]
@@ -269,7 +274,21 @@ def flows_for(funds, fy, known=None):
             "cause": (known or {}).get("cause") if all_explained else None,
             "cause_page": (known or {}).get("source_page") if all_explained else None,
             "function_totals": (known or {}).get("function_totals", {}) if all_explained else {},
-            "financing": sorted(financing.items(), key=lambda kv: -kv[1])}
+            "financing": sorted(financing.items(), key=lambda kv: -kv[1]),
+            "noncash_capital": noncash_capital(exp, financing)}
+
+
+def noncash_capital(exp, financing):
+    """Capital outlay split into the lease/subscription inception part and the cash part.
+
+    None when nothing was recognized at inception. `inception` is taken from the
+    other-financing-source line, which the statement reports at the same amount as
+    the expenditure it is paired with."""
+    inception = financing.get(LEASE_INCEPTION, 0)
+    outlay = exp.get(CAPITAL_OUTLAY, 0)
+    if not inception:
+        return None
+    return {"inception": inception, "outlay": outlay, "cash": outlay - inception}
 
 
 # ---------------------------------------------------------------- rendering
@@ -352,13 +371,23 @@ def render_flows(fl, gov_total_exp, fy):
     else:
         gap_note = ""
     fin = ", ".join(f"{esc(k)} {money(v, True)}" for k, v in fl["financing"])
+    nc = fl.get("noncash_capital")
+    lease_note = ""
+    if nc and nc["outlay"]:
+        lease_note = (f'<p class="cap"><b>Capital outlay is not all cash.</b> Of the {money(nc["outlay"])} shown above as capital outlay, '
+                      f'{money(nc["inception"])} is the inception of leases and subscriptions: when the City signs a lease or a software '
+                      f'subscription, the accounting rules (GASB 87 and 96) record the whole multi-year commitment at once as an expenditure '
+                      f'and, in the same amount, as an other financing source. No cash moves, and the matching liability is on the City\'s books. '
+                      f'Capital spending actually funded in {"FY%d" % fy} was {money(nc["cash"])}. '
+                      f'The {money(nc["inception"])} appears in both the chart above and the financing line below; it is not counted twice '
+                      f'in any total, because expenditures and other financing sources are separate sections of the statement.</p>')
     return f'''
     <div class="flowgrid">
       <div class="fc"><h3>Money in: governmental revenue by source</h3><p class="sub">{money(rev_total)} {chip("audited")} Line items from each fund's statement column. Transfers in are not here.</p>
         <div class="bars">{bars(fl["revenue"], rev_total, "g-governmental")}</div></div>
       <div class="fc"><h3>Money out: governmental expenditures by function</h3><p class="sub">{money(gov_total_exp)} {chip("audited")} Includes capital outlay and debt service. Transfers out are not here.</p>
         <div class="bars">{bars(spend_items, gov_total_exp, "g-governmental", note)}</div>
-        {gap_note}</div>
+        {gap_note}{lease_note}</div>
     </div>
     <p class="cap">Other financing sources (not revenue, not shown above): {fin or "none"}. Proprietary funds are shown by fund in the table below, because their line items use different categories (operating revenue lines and expense objects; Marina's are hand-curated).</p>'''
 
@@ -534,7 +563,10 @@ def render_static(model):
         ("Group totals vs each statement's own Total column", "; ".join(f'{GROUPS[g]["label"].lower()}: ' + (f'largest difference ${max(abs(v) for v in e["check"]["diffs"].values()):,}' if any(e["check"]["diffs"].values()) else "exact") for g, e in d["groups"].items() if e.get("check")), "rounding" if any(e.get("check", {}).get("status") == "rounding" for e in d["groups"].values()) else "ties", f"FY{model['default_year']}; checked by tests/test_dashboard.py in CI"),
         ("Transfers in equal transfers out across all funds", money(d["transfers"]["diff"]) + " difference" if d["transfers"] else "—", "balanced" if d["transfers"] and d["transfers"]["diff"] == 0 else "mismatch", f"FY{model['default_year']}; an internal check, no statement total needed"),
         ("Each fund's figures match its audited statement column", f"{matched} of {n} funds (revenue, expenditures or expenses, transfers in and out, ending balance)", "ties" if matched == n else "mismatch", f"Read independently of the extractor; FY{model['fund_check']['fy']}; tests/test_dashboard_sources.py re-reads the PDF in CI"),
-        ("Fund line items add up to fund totals", f"{ties} of {n} funds tie; {len(ga['documented'])} gaps documented to the dollar ({money(sum(g['gap'] for g in ga['documented']))}); {len(ga['undocumented'])} undocumented", "documented" if not ga["undocumented"] and ga["documented"] else ("ties" if not ga["undocumented"] else "mismatch"), "Totals are audited either way. Any undocumented gap fails the test suite; see the note at the top and section 2"),
+        ("Fund line items add up to fund totals",
+         f"{ties} of {n} funds tie" + (f"; {len(ga['documented'])} gaps documented to the dollar ({money(sum(g['gap'] for g in ga['documented']))})" if ga["documented"] else "") + (f"; {len(ga['undocumented'])} undocumented" if ga["undocumented"] else ""),
+         "documented" if not ga["undocumented"] and ga["documented"] else ("ties" if not ga["undocumented"] else "mismatch"),
+         "Totals are audited either way. Any undocumented gap fails the test suite" + (", and any gap is called out at the top of the page and in section 2" if (ga["documented"] or ga["undocumented"]) else "")),
         ("Fund balance roll-forward (beginning + change = ending)", "not computed here", "pending", "Belongs to the extraction pipeline's reconciliation (FY2024 pilot)"),
         ("Cross-year continuity and restatements", "not computed here", "pending", "Needs a second complete year; FY2025 opening balances were restated for some funds"),
         ("Fund identity across years", "FY2025 names are the ids", "pending", "Historical identity table not yet built"),
@@ -653,6 +685,8 @@ def render_terms():
         ("Transfers", "Money moved from one City fund to another, as authorized in the budget or by Council. Not revenue for the fund that receives it, not spending for the fund that sends it."),
         ("Fund balance", "Governmental funds. Current financial resources at year end (mainly cash, investments and receivables) less the liabilities payable from them. Much of it is restricted or committed to set uses. Excludes buildings, roads and long-term debt."),
         ("Net position", "Enterprise and internal service funds. Everything the fund owns less everything it owes, including capital assets, long-term debt and pension liabilities. Not comparable to fund balance."),
+        ("Other financing sources", "Not revenue. Money or value a fund receives from borrowing, from selling an asset, or from signing a lease or subscription, shown in its own section of the statement below the revenue and expenditure totals. Transfers in are reported here too; this page shows them in section 3 instead."),
+        ("Inception of leases and subscriptions", "A lease or software subscription signed during the year (GASB 87 and 96). The whole multi-year commitment is recorded at once, as an expenditure within capital outlay and as an other financing source of the same amount. No cash changes hands in that entry, and the City takes on a liability for the future payments, so this part of capital outlay is not cash capital spending."),
     ]
     return '<div class="terms" aria-label="terms">' + "".join(f'<div class="term"><b>{esc(k)}</b>{esc(v)}</div>' for k, v in terms) + "</div>"
 

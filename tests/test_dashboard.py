@@ -120,6 +120,30 @@ class DashboardInvariants(unittest.TestCase):
         for f in self.model['funds']:
             self.assertEqual(f['reading'] is not None, f['id'] in protected, f['id'])
 
+    def test_lease_inception_is_financing_never_revenue(self):
+        """Lease/subscription inception is an other financing source, not revenue."""
+        for fy in self.complete_years():
+            fl = self.model['years'][fy]['flows']
+            self.assertNotIn(bd.LEASE_INCEPTION, dict(fl['revenue']), fy)
+            nc = fl['noncash_capital']
+            if nc is None:
+                continue
+            self.assertEqual(nc['inception'], dict(fl['financing'])[bd.LEASE_INCEPTION], fy)
+            self.assertEqual(nc['cash'], nc['outlay'] - nc['inception'], fy)
+            # The inception expenditure is reported inside capital outlay, so it
+            # can never exceed it; if it did, the split below would be wrong.
+            self.assertLessEqual(nc['inception'], nc['outlay'], fy)
+            self.assertEqual(nc['outlay'], dict(fl['spending'])[bd.CAPITAL_OUTLAY], fy)
+
+    def test_capital_outlay_is_not_presented_as_all_cash(self):
+        fl = self.model['years'][self.model['default_year']]['flows']
+        nc = fl['noncash_capital']
+        if not nc or not nc['outlay']:
+            self.skipTest('no lease or subscription inception in the default year')
+        self.assertIn('Capital outlay is not all cash', self.page)
+        for v in (nc['outlay'], nc['inception'], nc['cash']):
+            self.assertIn(bd.money(v), self.page)
+
     def test_build_is_deterministic(self):
         self.assertEqual(bd.render(bd.build_model()), self.page)
 
@@ -176,17 +200,55 @@ class DashboardOnChangedData(unittest.TestCase):
         self.assertTrue(any(g['id'] == 'ACFR-library' for g in model['gap_audit']['undocumented']))
         self.assertTrue(bd.integrity_problems(model))
 
+    LINE = 'Community development and housing'
+
+    def drop_line(self, fid, line):
+        """Remove one outflow line from a fund and return the gap it opens."""
+        amounts = []
+
+        def cut(d):
+            keep = [o for o in d['flow_detail']['outflows'] if o['line'] != line]
+            amounts.append(sum(o['amount'] for o in d['flow_detail']['outflows'] if o['line'] == line))
+            d['flow_detail']['outflows'] = keep
+        self.edit(fid, cut)
+        self.assertGreater(amounts[0], 0, f'{fid} has no {line!r} line to drop')
+        return amounts[0]
+
+    def gaps_file(self, fid, gap, line):
+        """A scratch known-gaps.json documenting exactly one gap."""
+        p = Path(self.temp.name) / 'known-gaps.json'
+        p.write_text(json.dumps({'schema_version': 1, 'years': {'2025': {
+            'source_page': '77', 'cause': 'Test fixture.',
+            'function_totals': {line: gap},
+            'funds': {fid: {'gap': gap, 'lines': {line: gap}}}}}}))
+        return p
+
+    def test_documented_gap_is_explained_not_flagged(self):
+        """While the line is missing and documented to the dollar, the page explains it."""
+        gap = self.drop_line('501', self.LINE)
+        model = bd.build_model(data_dir=self.dir, known_gaps_path=self.gaps_file('501', gap, self.LINE))
+        self.assertEqual(model['gap_audit']['undocumented'], [])
+        self.assertEqual(model['gap_audit']['stale'], [])
+        self.assertIn('501', {g['id'] for g in model['gap_audit']['documented']})
+        fl = model['years'][2025]['flows']
+        self.assertEqual(fl['not_itemized'], gap)
+        self.assertIn('501', {g['id'] for g in fl['gaps']})
+        self.assertEqual(sum(v for _, v in fl['explained']), fl['not_itemized'])
+        self.assertIn(f'Known gap in the detail: {bd.money(gap)}', bd.render(model))
+
     def test_fixed_gap_leaves_a_stale_note_but_no_undocumented_gap(self):
-        def fix(d):
-            d['flow_detail']['outflows'].append({'line': 'Community development and housing', 'amount': 2700992})
-        self.edit('501', fix)
-        model = bd.build_model(data_dir=self.dir)
+        """Once the line is captured (as the FY2025 p.77 corrections did), the entry must be retired."""
+        gap = self.drop_line('501', self.LINE)
+        gaps_path = self.gaps_file('501', gap, self.LINE)
+        self.edit('501', lambda d: d['flow_detail']['outflows'].append({'line': self.LINE, 'amount': gap}))
+        model = bd.build_model(data_dir=self.dir, known_gaps_path=gaps_path)
         self.assertEqual(model['gap_audit']['undocumented'], [])
         self.assertIn('501', {g['id'] for g in model['gap_audit']['stale']})
         self.assertTrue(any('stale entry' in p for p in bd.integrity_problems(model)))
         fl = model['years'][2025]['flows']
+        self.assertEqual(fl['not_itemized'], 0)
         self.assertNotIn('501', {g['id'] for g in fl['gaps']})
-        self.assertEqual(sum(v for _, v in fl['explained']), fl['not_itemized'])
+        self.assertNotIn('Known gap in the detail', bd.render(model))
 
     def test_changed_audited_figure_is_flagged(self):
         def bump(d):

@@ -21,7 +21,9 @@
 
 **Dashboard side, once the field exists:** read `beginning_balance` first and fall back to the note only for rows without it. The test `test_dashboard.py` will assert ending − beginning equals the statement's net change where both exist.
 
-## R2. Capture the two missing p.77 expenditure lines
+## R2. Capture the two missing p.77 expenditure lines — DONE
+
+**Resolved.** Applied to the three ledgers in `af21d8c` (PR #13), from the patches proposed in PR #11; the dashboard rebuild in this PR retires the `known-gaps.json` entries. All 106 funds tie. The record below is kept as the original request.
 
 **Finding.** On the FY2025 governmental funds statement (p.77) the row "Community development and housing" wraps; its values sit on a line labeled `and housing`, which is not in `GOV_EXP`. "TRAN issuance costs" is also not in `GOV_EXP`. Result: $36,598,654 of expenditures missing from `flow_detail` for General Fund (011) $20,312,681 (CD&H $20,221,797 + TRAN $90,884), Grants $13,584,981 and Capital Improvement (501) $2,700,992. Audited totals are unaffected. Confirmed in `pdftotext -layout` output of p.77.
 
