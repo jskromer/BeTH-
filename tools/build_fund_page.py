@@ -16,7 +16,7 @@ from pathlib import Path
 CONF_CLASS = {"High": "hi", "Moderate": "mod", "Low": "low", "Unknown": "unk"}
 KIND_LABEL = {
     "transfer_in": "Transfer in", "transfer_out": "Transfer out", "cost_shift": "Cost shift",
-    "loan_in": "Loan to the fund", "loan_repayment": "Loan repayment", "grant": "Grant",
+    "loan_in": "Loan to the fund", "loan_out": "Loan from the fund", "loan_repayment": "Loan repayment", "grant": "Grant",
     "holiday": "Charge holiday", "indirect_reduction": "Indirect-cost reduction / holiday",
     "fee_change": "Fee change", "reduction": "Spending reduction", "write_off": "Revenue at risk",
     "appropriation": "Appropriation",
@@ -32,8 +32,21 @@ LEASE_INCEPTION = "Inception of leases and subscriptions"
 CAPITAL_OUTLAY = "Capital outlay"
 
 
+def inflow_label(rows):
+    """Name the non-revenue, non-financing inflows by what they actually are.
+
+    Almost always transfers in. The Marina also has a State capital grant and a
+    General Fund loan, so the legend lists the lines present rather than
+    collapsing them under one word."""
+    seen = []
+    for x in sorted(rows, key=lambda r: -r["amount"]):
+        if x["line"] not in seen:
+            seen.append(x["line"])
+    return ", ".join(seen)
+
+
 def lease_note(ins, outs):
-    """Say so when part of capital outlay is a lease or subscription signed, not cash spent.
+    """Say so when part of capital outlay is a lease or subscription signed, not paid out.
 
     GASB 87 and 96: at inception the fund records the whole multi-year commitment
     at once, as an expenditure inside capital outlay and as an other financing
@@ -42,12 +55,13 @@ def lease_note(ins, outs):
     if not inception:
         return ""
     outlay = sum(x["amount"] for x in outs if x["line"] == CAPITAL_OUTLAY)
-    cash = f" That leaves {money(outlay - inception)} of capital outlay funded with cash." if outlay > inception else ""
+    rest = (f" That leaves {money(outlay - inception)} of capital outlay excluding this identified inception;"
+            f" the statement does not label that remainder as cash." if outlay > inception else "")
     scope = f" of the {money(outlay)} shown as capital outlay" if outlay else ""
-    return (f'<div class="cap"><b>{money(inception)}{scope} is a lease or subscription signed, not cash spent.</b> '
+    return (f'<div class="cap"><b>{money(inception)}{scope} is a lease or subscription signed, not spending paid out.</b> '
             f'Under GASB 87 and 96 the City records the whole multi-year commitment in the year it signs: '
             f'as an expenditure inside capital outlay, and as an other financing source of the same amount. '
-            f'No cash changes hands in that entry, and the City takes on a liability for the future payments.{cash} '
+            f'No cash changes hands in that entry, and the City takes on a liability for the future payments.{rest} '
             f'Both sides are shown above, on opposite sides of the diagram; neither total double-counts the other.</div>')
 
 
@@ -76,9 +90,9 @@ NARRATIVE = {
     "011": {
         "eyebrow": "Fund ledger · 011",
         "title": "The General Fund: <span class=\"q\">where the surplus went</span>",
-        "dek": "The one fund the Council controls. It has under-spent its budget and run a 'structural deficit' at the same time for seven years. The ledger shows how: money moved out to capital, reserves and the pension trust, then moved back in from internal-service balances to close the gap.",
-        "verdict_title": "Swept out one year, <em>borrowed back the next.</em>",
-        "verdict": "In FY2024 the General Fund transferred $41.1M out, more than budgeted, into capital, the pension trust and reserves, and its balance fell for the first time since 2018. In FY2025 it moved $33.9M out and $9.0M in. The FY2026 budget then draws $23.5M back in, including $5.2M from the Workers' Compensation fund and $6.5M from the IT cost-allocation fund, to close a gap the City calls structural. The surplus was real; the deficit is a forward projection; the transfers are the bridge between them.",
+        "dek": "The one fund the Council controls. For seven years its budget has projected a 'structural deficit' while the audited year came in under budget. Two different things: FY2024 and FY2025 below are audited actuals; the deficit and the balancing actions are budget projections. The ledger shows money transferred out to capital, reserves and the pension trust, and other money scheduled in from internal-service balances to close the projected gap.",
+        "verdict_title": "Transferred out to some funds, <em>scheduled back in from others.</em>",
+        "verdict": "Audited actuals: in FY2024 the General Fund transferred $41.1M out, more than budgeted, into capital, the pension trust and reserves, and its balance fell for the first time since 2018; in FY2025 it moved $33.9M out and $9.0M in. Budgeted, not yet actual: the FY2026 AAO schedules $23.5M of transfers in, including $5.2M from the Workers' Compensation fund and $6.5M from the IT cost-allocation fund, to close a gap the City calls structural. These are different funds from the FY2024 destinations, so this is not the same money coming back, and nothing here establishes that it is. They are transfers, which carry no obligation to repay, not borrowing. The General Fund did lend in FY2025, but separately and at a different scale: $2,477,099 due from the Marina Operations Fund at June 30, 2025, a receivable rather than a transfer. The surplus is audited history; the deficit is a forward projection; the transfers are what the budget uses to close the projected gap.",
         "setup": "The General Fund receives the taxes and fees that are not earmarked: property tax, sales tax, business license, transfer tax, and the City's share of fines and charges. It is about a third of the all-funds budget and the only fund the Council can redirect without a vote of the people. Its balance was $154.9M at June 30, 2025, of which $31.7M was unassigned.",
         "flow_lead": "FY2025 as the audit reports it. Transfers in and out are shown in the ledger below rather than the diagram; in FY2025 they were $9.0M in and $33.9M out.",
         "chart_cap": "Governmental funds statement: total revenues vs total expenditures, excluding transfers. FY2024 from the FY2024 ACFR; FY2025 from the FY2025 ACFR.",
@@ -313,8 +327,11 @@ def build(json_path: Path, out_path: Path):
         parts.append(f'<text x="20" y="34" class="fl">Money in, FY{F["fy"]}</text><text x="608" y="34" class="fl">Money out, FY{F["fy"]}</text>')
         own = sum(x["amount"] for x in ins if x["kind"] == "own")
         fin = sum(x["amount"] for x in ins if x["kind"] == "financing")
-        rescue = sum(x["amount"] for x in ins if x["kind"] not in ("own", "financing"))
-        key = f'<span class="sw" style="background:#1f6b4a"></span> own revenue {money(own, True)} &nbsp; <span class="sw" style="background:#a8322c"></span> rescue money {money(rescue, True)}'
+        other = [x for x in ins if x["kind"] not in ("own", "financing")]
+        key = f'<span class="sw" style="background:#1f6b4a"></span> own revenue {money(own, True)}'
+        if other:
+            key += (f' &nbsp; <span class="sw" style="background:#a8322c"></span> '
+                    f'{esc(inflow_label(other))} {money(sum(x["amount"] for x in other), True)}')
         if fin:
             key += f' &nbsp; <span class="sw" style="background:{INFLOW_COLOUR["financing"]}"></span> other financing sources {money(fin, True)}'
         flow_html = f'''<div class="chartwrap"><svg viewBox="0 0 {W} {H}" role="img" aria-label="Money in and out of the Marina Fund, FY{F["fy"]}"><style>.fl{{font:13px Jost,sans-serif;fill:#0b1540}} .fs{{font:11px Jost,sans-serif;fill:#4b5577}} .fw{{fill:#fff}}</style>{''.join(parts)}</svg>
@@ -415,7 +432,7 @@ def build(json_path: Path, out_path: Path):
 
   <section>
     <span class="sec-no">04</span><h2>Where the money comes from and goes, FY{(F or d.get("flow_detail") or {}).get("fy", "")}</h2>
-    <p class="lead">{esc(n.get("flow_lead", "One audited year, as the statement reports it: the fund's own revenue sources on the left, its spending by line on the right, and any transfers or loans in shown as rescue money."))}</p>
+    <p class="lead">{esc(n.get("flow_lead", "One audited year, as the statement reports it: the fund's own revenue sources on the left, its spending by line on the right. Money in from other funds, and other financing sources, are shown in their own colours and named in the key."))}</p>
     {flow_html}
   </section>
 

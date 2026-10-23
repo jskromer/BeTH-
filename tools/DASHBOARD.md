@@ -69,7 +69,7 @@ The closure worked the way this document said it would: the shared tests stayed 
 
 The same corrections added the other-financing-source lines the ACFR reports against this activity: "Inception of leases and subscriptions", $24,560,677 across the governmental funds (General Fund $18,156,996, Grants $19,381, nonmajor $6,384,300). Under GASB 87 and 96 a fund records a lease or software subscription in full in the year it signs: as an expenditure inside capital outlay, and as an other financing source of the same amount. No cash moves and the fund takes on a liability.
 
-So capital outlay is not cash capital spending. Of FY2025's $61,222,721, $24,560,677 is inception and $36,662,044 is cash-funded. The General Fund is the extreme case: $18,156,996 of its $19,679,684 capital outlay is inception. Both the dashboard (section 2) and the fund pages say so, and the fund pages draw other financing sources in their own colour, so they are read neither as the fund's own revenue nor as rescue money from another fund.
+So capital outlay is not all cash spending. Of FY2025's $61,222,721, $24,560,677 is inception; capital outlay excluding that identified inception is $36,662,044. The statement does not label that remainder as cash, and the pages do not call it cash: it is the total less the one non-cash item this page can identify from the other-financing-source line. The General Fund is the extreme case: $18,156,996 of its $19,679,684 capital outlay is inception. Both the dashboard (section 2) and the fund pages say so, and the fund pages draw other financing sources in their own colour, so they are read neither as the fund's own revenue nor as money another fund sent in.
 
 ## Accounting rules the page follows
 

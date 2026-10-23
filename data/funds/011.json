@@ -89,17 +89,18 @@
    "id": "011-fy2025-marina-loan",
    "date": "FY2025",
    "fy": 2025,
-   "kind": "transfer_out",
+   "kind": "loan_out",
    "amount": 2477099,
    "from_fund": "011",
    "to_fund": "608",
    "recurring": false,
-   "instrument": "ACFR FY2025, Note A Due To/From (p.79)",
-   "stated_reason": "Recorded as due from the Marina Operations Fund; terms not disclosed",
+   "instrument": "ACFR FY2025, Note 4.A Due To/From Other Funds (p.79)",
+   "stated_reason": "Interfund receivable, not a transfer: the ACFR reports $2,477,099 due to the General Fund from Marina Operations at June 30, 2025. The note describes these balances as reclassified temporary negative cash balances pending grant reimbursements or other receivables, expected to be repaid within the next fiscal year. Terms not disclosed.",
    "source": "acfr-2025",
    "confidence": "High",
    "reviewer": "SK",
-   "note": "Shown in the Marina ledger as a loan in. Not a transfer: a receivable the GF expects back."
+   "note": "Not included in the General Fund's audited transfers out of $33,919,159 (p.77); a due to/from balance is a receivable, not a transfer. Marina records the matching side as a loan in (608-fy2025-gf-interfund-loan) and its statement of cash flows shows it as a receipt from interfund loans.",
+   "terms": "Due to the General Fund at June 30, 2025; repayment expected within the next fiscal year, no terms disclosed"
   },
   {
    "id": "011-2025-06-24-u1-redirect",

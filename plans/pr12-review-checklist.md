@@ -17,10 +17,13 @@ For a reviewer who did not build it. Each item is checkable from the repository 
 
 ## Lease and subscription financing
 
-- [ ] Section 2's note "Capital outlay is not all cash": $61,222,721 outlay, $24,560,677 inception, $36,662,044 cash. The inception figure is the p.77 "Inception of leases and subscriptions" other-financing-source total; check the three components (General Fund $18,156,996, Grants $19,381, nonmajor $6,384,300).
+- [ ] Section 2's note "Capital outlay is not all cash spending": $61,222,721 outlay, $24,560,677 inception, $36,662,044 excluding that identified inception. The note must not call the remainder cash. The inception figure is the p.77 "Inception of leases and subscriptions" other-financing-source total; check the three components (General Fund $18,156,996, Grants $19,381, nonmajor $6,384,300).
 - [ ] The inception amount is an other financing source, never added to revenue, and the matching expenditure is inside capital outlay, so no total double-counts it.
-- [ ] `fund-011.html`: "rescue money" is $8.97M (transfers in), **not** $27.14M. The $18.16M of inception is in its own "other financing sources" colour, and the page carries the lease note.
-- [ ] The other 11 regenerated fund pages: inflows with `kind: "financing"` (lease inception, debt proceeds, bond premium, insurance recoveries, asset sales) are no longer drawn in the red "rescue money" colour. The largest is `fund-ACFR-fire-admin-training-building-bond.html`, $10.25M of bond proceeds.
+- [ ] `fund-011.html`: the diagram key reads "Transfers in $8.97M", **not** "rescue money $27.14M". The $18.16M of inception is in its own "other financing sources" colour, and the page carries the lease note.
+- [ ] Other fund pages: inflows with `kind: "financing"` (lease inception, debt proceeds, bond premium, insurance recoveries, asset sales) are no longer drawn in the red transfers colour. The largest is `fund-ACFR-fire-admin-training-building-bond.html`, $10.25M of bond proceeds.
+- [ ] The diagram key names the inflows present instead of calling them "rescue money". Every fund reads "Transfers in" except the Marina, whose red inflows are a State capital grant and a General Fund loan and are named as such. The `kind` values in the ledgers are unchanged.
+- [ ] `fund-011.html`: the $2,477,099 Marina item is "Loan from the fund", not "Transfer out", and cites ACFR Note 4.A (p.79). The General Fund's audited transfers out are still $33,919,159 and total transfers across 106 funds are still $61,593,578.
+- [ ] `fund-011.html` opening: the headline no longer says money was "borrowed back"; the text separates audited FY2024–FY2025 actuals from the FY2026 budget projection, says the FY2026 sources are different funds from the FY2024 destinations, and distinguishes transfers from the one actual loan.
 - [ ] Terms box defines "Other financing sources" and "Inception of leases and subscriptions".
 
 ## Accounting presentation

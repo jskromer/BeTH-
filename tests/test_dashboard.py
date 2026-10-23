@@ -129,7 +129,7 @@ class DashboardInvariants(unittest.TestCase):
             if nc is None:
                 continue
             self.assertEqual(nc['inception'], dict(fl['financing'])[bd.LEASE_INCEPTION], fy)
-            self.assertEqual(nc['cash'], nc['outlay'] - nc['inception'], fy)
+            self.assertEqual(nc['excluding_inception'], nc['outlay'] - nc['inception'], fy)
             # The inception expenditure is reported inside capital outlay, so it
             # can never exceed it; if it did, the split below would be wrong.
             self.assertLessEqual(nc['inception'], nc['outlay'], fy)
@@ -140,8 +140,8 @@ class DashboardInvariants(unittest.TestCase):
         nc = fl['noncash_capital']
         if not nc or not nc['outlay']:
             self.skipTest('no lease or subscription inception in the default year')
-        self.assertIn('Capital outlay is not all cash', self.page)
-        for v in (nc['outlay'], nc['inception'], nc['cash']):
+        self.assertIn('Capital outlay is not all cash spending', self.page)
+        for v in (nc['outlay'], nc['inception'], nc['excluding_inception']):
             self.assertIn(bd.money(v), self.page)
 
     def test_build_is_deterministic(self):

@@ -279,7 +279,7 @@ def flows_for(funds, fy, known=None):
 
 
 def noncash_capital(exp, financing):
-    """Capital outlay split into the lease/subscription inception part and the cash part.
+    """Capital outlay split into the identified lease/subscription inception and the rest.
 
     None when nothing was recognized at inception. `inception` is taken from the
     other-financing-source line, which the statement reports at the same amount as
@@ -288,7 +288,7 @@ def noncash_capital(exp, financing):
     outlay = exp.get(CAPITAL_OUTLAY, 0)
     if not inception:
         return None
-    return {"inception": inception, "outlay": outlay, "cash": outlay - inception}
+    return {"inception": inception, "outlay": outlay, "excluding_inception": outlay - inception}
 
 
 # ---------------------------------------------------------------- rendering
@@ -374,11 +374,12 @@ def render_flows(fl, gov_total_exp, fy):
     nc = fl.get("noncash_capital")
     lease_note = ""
     if nc and nc["outlay"]:
-        lease_note = (f'<p class="cap"><b>Capital outlay is not all cash.</b> Of the {money(nc["outlay"])} shown above as capital outlay, '
+        lease_note = (f'<p class="cap"><b>Capital outlay is not all cash spending.</b> Of the {money(nc["outlay"])} shown above as capital outlay, '
                       f'{money(nc["inception"])} is the inception of leases and subscriptions: when the City signs a lease or a software '
                       f'subscription, the accounting rules (GASB 87 and 96) record the whole multi-year commitment at once as an expenditure '
-                      f'and, in the same amount, as an other financing source. No cash moves, and the matching liability is on the City\'s books. '
-                      f'Capital spending actually funded in {"FY%d" % fy} was {money(nc["cash"])}. '
+                      f'and, in the same amount, as an other financing source. No cash moves in that entry, and the matching liability is on the City\'s books. '
+                      f'Capital outlay excluding this identified lease and subscription inception was {money(nc["excluding_inception"])} in FY{fy}; '
+                      f'the statement does not label that remainder as cash, and there may be other non-cash items in it that this page has not identified. '
                       f'The {money(nc["inception"])} appears in both the chart above and the financing line below; it is not counted twice '
                       f'in any total, because expenditures and other financing sources are separate sections of the statement.</p>')
     return f'''

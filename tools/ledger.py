@@ -13,7 +13,7 @@ TYPES = {"general", "special_revenue", "capital_project", "debt_service",
          "enterprise", "internal_service", "fiduciary"}
 RESTRICTIONS = {"restricted", "committed", "assigned", "unassigned", "enterprise"}
 BASES = {"audited", "adopted", "projected"}
-KINDS = {"transfer_in", "transfer_out", "cost_shift", "loan_in", "loan_repayment",
+KINDS = {"transfer_in", "transfer_out", "cost_shift", "loan_in", "loan_out", "loan_repayment",
          "grant", "holiday", "indirect_reduction", "fee_change", "reduction",
          "write_off", "appropriation"}
 CONF = {"High", "Moderate", "Low", "Unknown"}
@@ -86,7 +86,7 @@ def check(path: Path):
             err(f"{tag}: confidence {f.get('confidence')!r}")
         if not f.get("instrument"):
             err(f"{tag}: missing instrument")
-        if f.get("kind") in {"transfer_in", "loan_in", "grant", "cost_shift", "transfer_out", "loan_repayment"}:
+        if f.get("kind") in {"transfer_in", "loan_in", "loan_out", "grant", "cost_shift", "transfer_out", "loan_repayment"}:
             if not (f.get("from_fund") and f.get("to_fund")):
                 err(f"{tag}: {f['kind']} needs from_fund and to_fund")
         rv = f.get("reviewer")
