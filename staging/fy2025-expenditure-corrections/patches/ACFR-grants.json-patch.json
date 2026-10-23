@@ -1,0 +1,149 @@
+[
+  {
+    "op": "test",
+    "path": "/fund_number",
+    "value": "ACFR-grants"
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/fy",
+    "value": 2025
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/inflows",
+    "value": [
+      {
+        "line": "Intergovernmental",
+        "amount": 55283524,
+        "kind": "own"
+      },
+      {
+        "line": "Charges for service",
+        "amount": 211892,
+        "kind": "own"
+      },
+      {
+        "line": "Investment income/ (loss)",
+        "amount": 1081248,
+        "kind": "own"
+      },
+      {
+        "line": "Sale of capital assets",
+        "amount": 4841,
+        "kind": "financing"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/flow_detail/inflows",
+    "value": [
+      {
+        "line": "Intergovernmental",
+        "amount": 55283524,
+        "kind": "own"
+      },
+      {
+        "line": "Charges for service",
+        "amount": 211892,
+        "kind": "own"
+      },
+      {
+        "line": "Investment income/ (loss)",
+        "amount": 1081248,
+        "kind": "own"
+      },
+      {
+        "line": "Inception of leases and subscriptions",
+        "amount": 19381,
+        "kind": "financing"
+      },
+      {
+        "line": "Sale of capital assets",
+        "amount": 4841,
+        "kind": "financing"
+      }
+    ]
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 1772841
+      },
+      {
+        "line": "Public safety",
+        "amount": 1968701
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 1024467
+      },
+      {
+        "line": "Health and welfare",
+        "amount": 24028923
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 993674
+      },
+      {
+        "line": "Economic development",
+        "amount": 69000
+      },
+      {
+        "line": "Principal repayment",
+        "amount": 42053
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 3778448
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 1772841
+      },
+      {
+        "line": "Public safety",
+        "amount": 1968701
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 1024467
+      },
+      {
+        "line": "Health and welfare",
+        "amount": 24028923
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 993674
+      },
+      {
+        "line": "Community development and housing",
+        "amount": 13584981
+      },
+      {
+        "line": "Economic development",
+        "amount": 69000
+      },
+      {
+        "line": "Principal repayment",
+        "amount": 42053
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 3778448
+      }
+    ]
+  }
+]

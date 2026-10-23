@@ -1,0 +1,158 @@
+{
+  "fiscal_year": 2024,
+  "source_id": "acfr-2024",
+  "source_url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+  "source_date": "2025-01",
+  "statements": [
+    {
+      "id": "major_governmental",
+      "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+      "basis": "modified_accrual",
+      "pairs": [
+        [
+          78,
+          null
+        ]
+      ],
+      "printed_pages": [
+        42,
+        42
+      ]
+    },
+    {
+      "id": "nonmajor_governmental",
+      "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+      "basis": "modified_accrual",
+      "pairs": [
+        [
+          227,
+          228
+        ],
+        [
+          229,
+          230
+        ],
+        [
+          231,
+          232
+        ],
+        [
+          233,
+          234
+        ],
+        [
+          235,
+          236
+        ],
+        [
+          237,
+          238
+        ],
+        [
+          239,
+          240
+        ],
+        [
+          241,
+          242
+        ],
+        [
+          243,
+          244
+        ]
+      ],
+      "printed_pages": [
+        191,
+        208
+      ]
+    },
+    {
+      "id": "enterprise",
+      "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+      "basis": "accrual",
+      "pairs": [
+        [
+          87,
+          88
+        ]
+      ],
+      "printed_pages": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": "internal_service",
+      "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+      "basis": "accrual",
+      "pairs": [
+        [
+          311,
+          312
+        ]
+      ],
+      "printed_pages": [
+        275,
+        276
+      ]
+    }
+  ],
+  "labels": {
+    "governmental_beginning": [
+      "Fund balance, July 1, 2023",
+      "Fund balances, July 1, 2023"
+    ],
+    "governmental_ending": [
+      "Fund balance, June 30, 2024",
+      "Fund balances, June 30, 2024"
+    ],
+    "governmental_major_beginning": [
+      "Fund balance, July 1, 2023"
+    ],
+    "proprietary_beginning": [
+      "Total net position - beginning",
+      "Total net position - beginning balance"
+    ],
+    "proprietary_restated": [
+      "Total net position - beginning, as restated",
+      "Total net position - beginning balance as restated"
+    ],
+    "proprietary_original": [
+      "Total net beginning balance as previously reported"
+    ],
+    "governmental_original": [
+      "previously reported"
+    ],
+    "adjustment": [
+      "Adjustments - See Note 15",
+      "Adjustment - see note 15",
+      "Adjustment - See Note 15"
+    ]
+  },
+  "row_aliases": {
+    "donations": "Private contributions and donations",
+    "and housing": "Community development and housing",
+    "charges": "Interest and fiscal charges",
+    "subscriptions": "Inception of leases and subscriptions",
+    "(uses)": "Total other financing sources/(uses)",
+    "expenditures": "Revenues over/(under) expenditures",
+    "over/(under) expenditures": "Revenues over/(under) expenditures",
+    "Investment income/ (loss)": "Investment income",
+    "Insurance recoveries": "Insurance Recoveries",
+    "Total net position - beginning balance": "Total net position - beginning"
+  },
+  "fund_aliases": {
+    "Lillie B\ufffd Wall Memorial": "Lillie B. Wall Memorial",
+    "Opt\ufffd Public Safety": "Opt. Public Safety",
+    "Fund$ Replacement": "Fund Replacement"
+  },
+  "scope": "Governmental and proprietary fund operating/change statements matching the existing BeTH ledger universe; fiduciary trusts, custodial funds and component-unit statements are outside this pilot.",
+  "nonfinancial_labels": [
+    "Debt service:"
+  ],
+  "column_bridge_policy": {
+    "enterprise:Internal Service Funds": "common_rows_only"
+  },
+  "expected_sha256": "5f794ea95c15b6ba83e8d233a04081f3b8304381fc2172e37006a39a1a8003b5",
+  "discovery_url": "https://berkeleyca.gov/your-government/financial-information/financial-reports-and-policies/financial-reports-policy-documents"
+}

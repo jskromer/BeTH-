@@ -1,0 +1,885 @@
+{
+  "schema_version": 2,
+  "fiscal_year": 2024,
+  "provenance": [
+    {
+      "fiscal_year": 2024,
+      "source_id": "acfr-2024",
+      "source_url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "retrieval_date": "2026-10-22",
+      "discovery_url": "https://berkeleyca.gov/your-government/financial-information/financial-reports-and-policies/financial-reports-policy-documents",
+      "sha256": "5f794ea95c15b6ba83e8d233a04081f3b8304381fc2172e37006a39a1a8003b5",
+      "size_bytes": 14469968,
+      "filename": "annual-comprehensive-financial-report-fy2024.pdf",
+      "statements": [
+        {
+          "id": "major_governmental",
+          "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+          "basis": "modified_accrual",
+          "pairs": [
+            [
+              78,
+              null
+            ]
+          ],
+          "printed_pages": [
+            42,
+            42
+          ]
+        },
+        {
+          "id": "nonmajor_governmental",
+          "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+          "basis": "modified_accrual",
+          "pairs": [
+            [
+              227,
+              228
+            ],
+            [
+              229,
+              230
+            ],
+            [
+              231,
+              232
+            ],
+            [
+              233,
+              234
+            ],
+            [
+              235,
+              236
+            ],
+            [
+              237,
+              238
+            ],
+            [
+              239,
+              240
+            ],
+            [
+              241,
+              242
+            ],
+            [
+              243,
+              244
+            ]
+          ],
+          "printed_pages": [
+            191,
+            208
+          ]
+        },
+        {
+          "id": "enterprise",
+          "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+          "basis": "accrual",
+          "pairs": [
+            [
+              87,
+              88
+            ]
+          ],
+          "printed_pages": [
+            51,
+            52
+          ]
+        },
+        {
+          "id": "internal_service",
+          "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+          "basis": "accrual",
+          "pairs": [
+            [
+              311,
+              312
+            ]
+          ],
+          "printed_pages": [
+            275,
+            276
+          ]
+        }
+      ],
+      "role": "extraction source",
+      "restatement_note": null
+    },
+    {
+      "fiscal_year": 2025,
+      "source_id": "acfr-2025",
+      "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+      "retrieval_date": null,
+      "discovery_url": null,
+      "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+      "size_bytes": 9049904,
+      "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+      "statements": [
+        {
+          "id": "major_governmental",
+          "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+          "basis": "modified_accrual",
+          "pairs": [
+            [
+              77,
+              null
+            ]
+          ],
+          "printed_pages": [
+            42,
+            42
+          ]
+        },
+        {
+          "id": "nonmajor_governmental",
+          "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+          "basis": "modified_accrual",
+          "pairs": [
+            [
+              237,
+              238
+            ],
+            [
+              239,
+              240
+            ],
+            [
+              241,
+              242
+            ],
+            [
+              243,
+              244
+            ],
+            [
+              245,
+              246
+            ],
+            [
+              247,
+              248
+            ],
+            [
+              249,
+              250
+            ],
+            [
+              251,
+              252
+            ],
+            [
+              253,
+              254
+            ]
+          ],
+          "printed_pages": [
+            201,
+            218
+          ]
+        },
+        {
+          "id": "enterprise",
+          "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+          "basis": "accrual",
+          "pairs": [
+            [
+              85,
+              86
+            ]
+          ],
+          "printed_pages": [
+            51,
+            52
+          ]
+        },
+        {
+          "id": "internal_service",
+          "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+          "basis": "accrual",
+          "pairs": [
+            [
+              321,
+              322
+            ]
+          ],
+          "printed_pages": [
+            285,
+            286
+          ]
+        }
+      ],
+      "role": "opening-balance/restatement comparator",
+      "restatement_note": {
+        "note": "15",
+        "pdf_pages": [
+          171,
+          172,
+          173
+        ],
+        "printed_pages": [
+          137,
+          138,
+          139
+        ]
+      }
+    }
+  ],
+  "config_checksums": {
+    "2024": "093d33e212ee52ed102b74ef6be300a3f1931da373a0d0988074a52afacb174d",
+    "2025": "63310301a26595e2b053c2efedec53219c9c7ba976aaff3c5b7bd2e8f6df92a2"
+  },
+  "inputs": {
+    ".github/workflows/extraction-safety.yml": {
+      "role": "CI verification commands",
+      "sha256": "3d12fd5a886e2c9d91fdb863ea4bb4d51f9072af22020bddb28b2fd46c1e83f1",
+      "size_bytes": 754
+    },
+    "annual-comprehensive-financial-report-fy2025.pdf": {
+      "role": "FY2025 audited source PDF",
+      "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+      "size_bytes": 9049904
+    },
+    "data/curation/protected-ledgers.json": {
+      "role": "curated-ledger protection registry",
+      "sha256": "0e818d8318d1da11c338bd411c1e37bf00832178347930d408af2fed6564b8e8",
+      "size_bytes": 1348
+    },
+    "data/funds/011.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
+      "size_bytes": 12502
+    },
+    "data/funds/501.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "4c0ff1b49f7f57845cfb1d411658979069e84f3ec6f2dfdd0f5716e406782b1f",
+      "size_bytes": 2105
+    },
+    "data/funds/511-debt-service.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0da07e5be1d8b4f2dfda82c2814d9315b2f47950cf167904d00af5d7cfc326f1",
+      "size_bytes": 1840
+    },
+    "data/funds/511.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "35b252653091eb17229894c6bae2a7fb890ade442bb0ba289dbd2c4cd7070372",
+      "size_bytes": 2024
+    },
+    "data/funds/608.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "23a8d30daf45032924e5c949a0b4726550fd4af6f8b3149762cf1043af4483d0",
+      "size_bytes": 23174
+    },
+    "data/funds/611.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "7dddbb8079c850e304a181a286ff24bbcf8db4ce48e360bb2110eb62d23e5c2d",
+      "size_bytes": 2638
+    },
+    "data/funds/ACFR-1st-response-advanced-life-support-alsfr.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "c6254ed8e21e660d66a874c67b178490972dba53d53bcd238a24188e64e0bf9d",
+      "size_bytes": 1554
+    },
+    "data/funds/ACFR-2009-measure-ff-library.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d8074cc0efaacc9e1c588a8d99a7450b758dac0f5fc3e65c248ef548b7d0adcd",
+      "size_bytes": 1751
+    },
+    "data/funds/ACFR-2010-cop-animal-shelter.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "c6e58e7b19f2ee48f1e2b619d46b31fa5eec01c5732d2a4df35c033359a0570d",
+      "size_bytes": 1752
+    },
+    "data/funds/ACFR-affordable-child-care.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "a87f28788619461021046020893396a502c21ee895a53e03043a7098bf8b6adb",
+      "size_bytes": 1586
+    },
+    "data/funds/ACFR-affordable-housing-mitigation-fee.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "8cc1e2eb908026f807c275b9a89af5f2b1114453146581c07b5ca31744b35353",
+      "size_bytes": 1791
+    },
+    "data/funds/ACFR-alameda-county-abandoned-vehicle-abatement-autho.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "8bbb72433b4ef7ea488ae6354d05d3f359127bb47f05d2220071a34140a3bf05",
+      "size_bytes": 1797
+    },
+    "data/funds/ACFR-animal-shelter.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "f1433bbd523afec808cb20d9757baf47245b01709ea9146a6255c92d82f15fba",
+      "size_bytes": 1675
+    },
+    "data/funds/ACFR-asset-forfeiture.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "2d39ab62d348e1e37a4df88bbe17da267936ec020ed446585f1a961490d3561c",
+      "size_bytes": 1659
+    },
+    "data/funds/ACFR-building-maintenance.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "2d055815961279a055a1a531c5f08a29795ee66f30fd2b607710df66dc8bc678",
+      "size_bytes": 2510
+    },
+    "data/funds/ACFR-building-purchases-management.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "c7572eedb4c02dfe76828c86f86778271b522cfd70dc3ed33c79257a81934f31",
+      "size_bytes": 2462
+    },
+    "data/funds/ACFR-business-economic-development.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "160a18a68e4e6029a725c9cab9dc687f1e4ccda0225fbe5edcb3ab8befa0ad24",
+      "size_bytes": 1776
+    },
+    "data/funds/ACFR-catastrophic-loss.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "362caded0a39b86221079b45b7eb6703214f12227aaa06f42686a64b50c0ec33",
+      "size_bytes": 1673
+    },
+    "data/funds/ACFR-cdbg.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "882b5888a9c819386115fb17d2a0f9ba3fcf6a643929be873399ec2ec3818b4d",
+      "size_bytes": 1972
+    },
+    "data/funds/ACFR-central-services.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "79dc7d4e5150f85c1550a61cf355d891b43b827b95330f149e3c940e10f837a1",
+      "size_bytes": 2082
+    },
+    "data/funds/ACFR-citywide-rlf.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "df66caf9744ec68db0124a4753a2f04afa562772ec4a04fac1a6d2cf78d7bdb1",
+      "size_bytes": 1585
+    },
+    "data/funds/ACFR-clean-storm-water.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "4610dfb14ca2f165fa060f8fe03069f264b6cedefa9d6a189c116c1bca3a7292",
+      "size_bytes": 2571
+    },
+    "data/funds/ACFR-community-workforce.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "5bdc00f1a82f2e6d0b4ca5b0912b276b1fa85f95f50b6bc7b0f679de79ab4478",
+      "size_bytes": 1510
+    },
+    "data/funds/ACFR-computer-replacement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "6de3abf8fdc0e526371c8f9d5898feacad44635be79d73506d873d985532d224",
+      "size_bytes": 1593
+    },
+    "data/funds/ACFR-condo-conversion-program.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0d79948af148e363f46b93f08f2954d692f7f530803d2e7b98506e362bea065e",
+      "size_bytes": 1699
+    },
+    "data/funds/ACFR-domestic-violence-prevention-vital-statistics.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "e1e88604dc17c6f203b94c681a2fe809141b4f5dd8d8fa253282c73c7eb1f498",
+      "size_bytes": 1724
+    },
+    "data/funds/ACFR-east-bay-public-utilities-commission.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "1ab06c409ed83ade8606e837a9c37fcf77cfb79f5b69a7d701199a29dbcf758f",
+      "size_bytes": 1627
+    },
+    "data/funds/ACFR-employee-training.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "bcb00f99729b5e397baeafc9ac6de273e86f860c24bf342563e2e5fdba38a5f5",
+      "size_bytes": 1669
+    },
+    "data/funds/ACFR-energy-commission.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "91635a0952f4a29d1c26883141d0391f845bdc1c0ac7d928a48b92f8bd68df39",
+      "size_bytes": 1501
+    },
+    "data/funds/ACFR-equipment-maintenance-replacement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "f8dd7b295a84a2da14dde618bc0c4cbad51f13f90cfa57bf462fbed62a371878",
+      "size_bytes": 8384
+    },
+    "data/funds/ACFR-fair-elections.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "a9f28d9813f4ddc65d184079d8c229037f636c4fac994c7482bf66292b52ffa7",
+      "size_bytes": 1664
+    },
+    "data/funds/ACFR-fire-admin-training-building-bond.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "47f7e3d27127d6a092d4ffab8d31ea2b59b443578b7e83d927bb66ac20aeb59f",
+      "size_bytes": 1946
+    },
+    "data/funds/ACFR-fund-for-impounded-and-unneutered.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "835a3b106c4367305fd12a58c31348aff110e4faf8c6430d7a5b9d88fc3e8f71",
+      "size_bytes": 1623
+    },
+    "data/funds/ACFR-fund-raising-activities.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "a8c81ca4b54623371374777f7b4df399ccb63a4d330a53d291a65d0b139a6b35",
+      "size_bytes": 1716
+    },
+    "data/funds/ACFR-fund-replacement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "3d40dc747a58f63ef8d7c525e3a7b714d280d29bd99cbfe57a642a01375e359d",
+      "size_bytes": 1675
+    },
+    "data/funds/ACFR-gilman-fields-reserve.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "576cdcb988a9eb1b5af804a5ed06fa45def0d8dd73d329bc1564aa92f503b1db",
+      "size_bytes": 1608
+    },
+    "data/funds/ACFR-gilman-sport-field.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "e8e3bfdd460ed793ca0e98876e87bae77e9aad2d3af83ff96181f7465a9fc81f",
+      "size_bytes": 1675
+    },
+    "data/funds/ACFR-go-2014-measure-m-street-and-watershed-improveme.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "217435fe62c0db822c3172379acfdd7ee3c3da07768924284d751faca2b23ec7",
+      "size_bytes": 1803
+    },
+    "data/funds/ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "87ec24ed035fae4ed42958dc8b2cf2b683e52a70b5ef8683b2ea6699457a5af3",
+      "size_bytes": 1800
+    },
+    "data/funds/ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d6fbd51329c6c76ab59fd86658c3888f2d68a2168cf17bebac542bb289ea7d3b",
+      "size_bytes": 1819
+    },
+    "data/funds/ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "4e37de586710aaa62be4dfb6f20d547b5cab83646aaae2fa34a00d67473ab064",
+      "size_bytes": 1805
+    },
+    "data/funds/ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "80fedd6352a37d73df4317e2e4852e5afd04207ec372df9f84f1c29be2ca815b",
+      "size_bytes": 1806
+    },
+    "data/funds/ACFR-grants.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "f64d16ad70b1e5513069b3876484a48577223d935fb728922e987a894464ce87",
+      "size_bytes": 2324
+    },
+    "data/funds/ACFR-health-state-aid-realignment.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "29361ffee88a92cc8f53b95743165160e8ca3276331489fb50de2d2d501e586a",
+      "size_bytes": 1846
+    },
+    "data/funds/ACFR-housing-finance-agency.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "9f5c03b4da50dd35fa720da75af5965fdda9f87c312f125811f4379700866ac1",
+      "size_bytes": 1518
+    },
+    "data/funds/ACFR-inclusionary-housing-program.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "bdab3ce6cdea43fefc3765fb35c526630c0ce5cb4b5cc8796bddcbca09660ba6",
+      "size_bytes": 1779
+    },
+    "data/funds/ACFR-income-housing-fund-savo-island-project.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "ad555050d7e67a769c449ebbae34ea715472f161b047b811da9cdb8eb69ab41f",
+      "size_bytes": 1553
+    },
+    "data/funds/ACFR-income-housing-fund-west-improvement-project.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "ee227753790ce03af225d91f3c5fefa567b85576d192473c1bd9db1e403b838c",
+      "size_bytes": 1566
+    },
+    "data/funds/ACFR-it-cost-allocation-plan.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "e67d0abdecaaf2b3881b3731c05928db15170cc2524a3e1b0873019a0f33fb0f",
+      "size_bytes": 2318
+    },
+    "data/funds/ACFR-legacy-fund.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "dad6afc0c0fa18696f76a886c2c5e2ef0ec938380f21407432994f8720b54243",
+      "size_bytes": 1494
+    },
+    "data/funds/ACFR-library.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "575be0c0a2b7e24eb9616ccdb8f04880b1e6f0c2ec933f3aec69ca349f6bd786",
+      "size_bytes": 2059
+    },
+    "data/funds/ACFR-lillie-b-wall-memorial.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "bf7eadf4956fce1363cb0549935fdd8091630c953b4f675901068d9550bc33af",
+      "size_bytes": 1624
+    },
+    "data/funds/ACFR-measure-b-bike-and-pedestrian.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "ec9257f47943bcc1a67c2bb8820efa174c740900e952c4c072c9b5eb44931315",
+      "size_bytes": 1758
+    },
+    "data/funds/ACFR-measure-b-local-streets-and-roads.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0259c6e02da788c6e5c5ec8e613718df4ef1ef9414bd4ad2862498024979890b",
+      "size_bytes": 1920
+    },
+    "data/funds/ACFR-measure-b-paratransit.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "2dd70796ea7546b3d4015640255bb688278b45d1d7dc2ac4b2c4081c4a9c61fd",
+      "size_bytes": 1596
+    },
+    "data/funds/ACFR-measure-bb-bike-and-pedestrian.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "c904073b4c838409488b3e81fb2408883f1f64d1fd7ec54fd2afa4d6eb2b0d70",
+      "size_bytes": 1837
+    },
+    "data/funds/ACFR-measure-bb-local-streets-and-roads.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "3607a0b63fbef17587b7900aac4aefd2519ce6d1490309219a1e93044e1e4b5d",
+      "size_bytes": 2094
+    },
+    "data/funds/ACFR-measure-bb-paratransit.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "235467d74ec71628db5664460999b0bc30f9f63e86538583a1ba2341e58bdafc",
+      "size_bytes": 1769
+    },
+    "data/funds/ACFR-measure-e-special-tax-for-disabled.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "af96bc8a8a431c57a145d4db3e70e968ca541b67e3fce3e6c16fb6377d0c85c7",
+      "size_bytes": 1779
+    },
+    "data/funds/ACFR-measure-f-alameda-county-vrf-street-and-road.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "b8cdc7ba7baae4373549ed43fa7f87c3243832dda64976dacf6798eccb8377c2",
+      "size_bytes": 1927
+    },
+    "data/funds/ACFR-measure-ff-public-safety.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "55bacfa075189ce592ad3b6bd92ea70527bc8bbf48606ee15234a1c20229aaae",
+      "size_bytes": 2158
+    },
+    "data/funds/ACFR-measure-g-fire-seismic-projects.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "039b82944e04ee0db960ea2ecd85c38b8c01e96f7c124477b62f06dcc132ea77",
+      "size_bytes": 1528
+    },
+    "data/funds/ACFR-measure-g-public-safety-building.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "5db3a659716f772c4d4d12c8068ce5a577096a174e9dbb7170f0dba67bf2b969",
+      "size_bytes": 1620
+    },
+    "data/funds/ACFR-measure-gg-fire-preparation-tax.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "67917760046df9f953eae718676da5b8ff537a210562dd02d8a462643eabce75",
+      "size_bytes": 1823
+    },
+    "data/funds/ACFR-measure-m-street-and-watershed-improvements.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "71ed068ca65aa64d63a502933eb2201b8292282204598d0a5a076276c9c1224c",
+      "size_bytes": 1783
+    },
+    "data/funds/ACFR-measure-o-housing-bond-debt-service.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0f0891f852c6ff0bac18d853a879e43f0e2823b134bf5e808172692ff952693c",
+      "size_bytes": 1843
+    },
+    "data/funds/ACFR-measure-o-housing-bond.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "42e35e504cbc9446eee1c87d8bf5520f66c2c335e8f1d958c0bcb40c84f9d475",
+      "size_bytes": 1554
+    },
+    "data/funds/ACFR-mental-health-state-aid-realignment.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "92fb811f2aade21f2d0e80026d481a1db74f4444514d088b7205bddd9f203735",
+      "size_bytes": 1702
+    },
+    "data/funds/ACFR-miles-lab.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "6ab4ef5e836fc09914fc1c8ee1cc495ccea0905badb42c7f1e52486a9650e468",
+      "size_bytes": 1558
+    },
+    "data/funds/ACFR-off-street-parking.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "27346efc6d51df85212e978b38d2aa9603a3660330c2e6cf554583fcfdf4a016",
+      "size_bytes": 2736
+    },
+    "data/funds/ACFR-one-time-funding.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0d5b051fa91ed8ba978c87486867a837c02973bcb5d2cef160bc2d1415258b01",
+      "size_bytes": 1833
+    },
+    "data/funds/ACFR-opt-public-safety.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "04dca05e207be6c9f832d909e95b81ff686e8f0ac62b3dcc57b541e923ba74f1",
+      "size_bytes": 1817
+    },
+    "data/funds/ACFR-other-special-deposits.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "67a4cda744b7f906892a4e34a0483937ee50fda06a09bc97fe19dbdb259bf1c9",
+      "size_bytes": 1507
+    },
+    "data/funds/ACFR-paramedic-assessment-district.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "8af4a63265f87307558f816dfccbd9082a9aa112bfd80098b7d2ad43b0c562d9",
+      "size_bytes": 1898
+    },
+    "data/funds/ACFR-park-acquisition-development.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "f345f0054a70b9f042ee752700bd2c70d20a1d7006b68ec65db7b14c92cc193b",
+      "size_bytes": 1766
+    },
+    "data/funds/ACFR-park-tax.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d5733f22cd919ec86d6d770dd9dde6642c3cb095768196dd405c47dfd06f0551",
+      "size_bytes": 6948
+    },
+    "data/funds/ACFR-parking-in-lieu-fee.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d4dd0d25433d8e48d491192641df305edf395e38ef0fe9a9459ee50f09b21d76",
+      "size_bytes": 1515
+    },
+    "data/funds/ACFR-parking-meter.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "3932128c9e9d6962d9d35fd19aaea6f117c9d874806fd5f8beae8780ce6e6435",
+      "size_bytes": 2505
+    },
+    "data/funds/ACFR-pension-refunding-bonds.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "6f4b56117e7258fa5699864e2f5c59d81bdaae6dc860e968d8324acd39b0fed5",
+      "size_bytes": 1517
+    },
+    "data/funds/ACFR-permit-service-center.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "45f277c61d0468707228d1f422fa99336274f8d0a9a7fac89ab5ec021f7d8a13",
+      "size_bytes": 2766
+    },
+    "data/funds/ACFR-pers-savings.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0a1dedb181ca816125e24ee61f89f406be9c67503c81e3f459da24037e335387",
+      "size_bytes": 1824
+    },
+    "data/funds/ACFR-phone-system-replacement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "8d746be7f174d64ead3e516ddad6f6e3361d13c076babdd3bf7120f01c2cb546",
+      "size_bytes": 1596
+    },
+    "data/funds/ACFR-playground-camp.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "8cf5a1e66a4d156fc800d3e7b3cfc1251392ba57f833b3ed0de929658e8b27ba",
+      "size_bytes": 2155
+    },
+    "data/funds/ACFR-private-party-sidewalks.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "7d220a8c6b1c5b9b13dda8d3a15aad94003aaa230749b7004c87e8ae731cc7b1",
+      "size_bytes": 1750
+    },
+    "data/funds/ACFR-private-percent-art-fund.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "889bd46fb08787bc9d9e4487a1444a47a0d3343126404aa299903f7da887cf7f",
+      "size_bytes": 1695
+    },
+    "data/funds/ACFR-public-art.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "1ae6218e95ce9d7f761622cf906abc95bd008330be3c39aab40289bc0ec7eca8",
+      "size_bytes": 1655
+    },
+    "data/funds/ACFR-public-education-and-government-access-facilitie.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "a3529fbb2995b445c69f69625c6d224afb6178dbdefa0d2552cd664032262a55",
+      "size_bytes": 1730
+    },
+    "data/funds/ACFR-public-liability.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "b28c39c2bcdcdb43d72ec3948a9778a56865c21eaab3ced49c324e0e31765f03",
+      "size_bytes": 1911
+    },
+    "data/funds/ACFR-rental-housing-safety-program.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "daa0e2255844247b1ceab818d1afffabd83db746e36a25dc2a27979c24cad1ac",
+      "size_bytes": 2044
+    },
+    "data/funds/ACFR-repertory-theatre.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "f6cb00afd6daf9be96a8d5ca68ce998519047a7207d9122d54bfb238878eeda1",
+      "size_bytes": 1821
+    },
+    "data/funds/ACFR-sec-108-hud-loan-grant-assistance.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "dd34ec9c0488fa3688bac807ef42b0772415c2b2d632b4c12e3026054f72760b",
+      "size_bytes": 1783
+    },
+    "data/funds/ACFR-shelter-operations.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "9b5e76b97a8968d064cc269d97b5a7d75d4d6b6e9b1460e4c3db7aed68bf488b",
+      "size_bytes": 1508
+    },
+    "data/funds/ACFR-sick-leave-vacation-payouts.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "160089a31d1f202f82a531fc73bc419fcc4244d11e86e76c03c234501da5f8b3",
+      "size_bytes": 1848
+    },
+    "data/funds/ACFR-state-proposition-172.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "3eba7518e04cff46a87214ae7c104fb632ccd9d05fad72840d7a6211e313fd35",
+      "size_bytes": 1670
+    },
+    "data/funds/ACFR-state-transportation-tax.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "24ddf3b3c2c82bc958aeff20f3db8637d7cb008419f916c7c2cbd5116770d8a0",
+      "size_bytes": 2109
+    },
+    "data/funds/ACFR-street-and-open-space-improvement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "6369a8046008160e9af435192a262bf682443c8d1a6622ed6c0cdba6866c4a72",
+      "size_bytes": 1543
+    },
+    "data/funds/ACFR-street-improvement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "ccd8886fb9368aa0e224032c606d61846b93df011fc11a993d638dc0ccf78f84",
+      "size_bytes": 1595
+    },
+    "data/funds/ACFR-street-lighting.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "9e6143605929ab5a7afc38fe2d8237f380cd02f6fca3b0894ba933bf8b20b7cc",
+      "size_bytes": 2422
+    },
+    "data/funds/ACFR-tieback-mitigation-r-o-w.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "88442e889aa352bfc9d623bc228d822483e09898ae71e19522ac1f83e21788ff",
+      "size_bytes": 1616
+    },
+    "data/funds/ACFR-tobacco-control.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "2b3c3f194ad0b50d95970f684d5dc1df5b58cd947b34e5536ac49f93c4f19107",
+      "size_bytes": 1735
+    },
+    "data/funds/ACFR-traffic-congestion-relief.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d22d89878c85c3f61ea370ce75b5fb57f34bc0e9e6409b4259985efb8bac6e40",
+      "size_bytes": 1515
+    },
+    "data/funds/ACFR-uc-settlement.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "4e52256f931ce12487e0fd44dfc928494bfdfde398abbca582e1c0c2568e0681",
+      "size_bytes": 1877
+    },
+    "data/funds/ACFR-vital-and-health-statistic.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0ba8e1174d28522b740252d354cda8776f7020d9bf882892b1e85835205a637b",
+      "size_bytes": 1688
+    },
+    "data/funds/ACFR-workers-compensation.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "0c9cf8108eb392236cf6265240a6bfb4198806263cb5058e28d9cbd6f9e1fcda",
+      "size_bytes": 7469
+    },
+    "data/funds/ACFR-workforce-investment-act.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "646962091f9d15aacdd710b27db8d0a965877b1ceee4558f578ccdebf42a0a15",
+      "size_bytes": 1694
+    },
+    "data/funds/ACFR-zero-waste.json": {
+      "role": "existing ledger comparison and preservation evidence",
+      "sha256": "d0304dd2be19fe6a5341221fd3f863a1292e6ab331cd0522f4b9ce825e7304fe",
+      "size_bytes": 7196
+    },
+    "data/funds/SCHEMA.md": {
+      "role": "ledger verification schema",
+      "sha256": "c12082d580150c85b7d646151ac5f6d2f1987dc6ce0a6399cc458778d74ddef3",
+      "size_bytes": 4983
+    },
+    "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf": {
+      "role": "FY2024 audited source PDF",
+      "sha256": "5f794ea95c15b6ba83e8d233a04081f3b8304381fc2172e37006a39a1a8003b5",
+      "size_bytes": 14469968
+    },
+    "tests/fixtures/fy2025-audited-values.json": {
+      "role": "FY2025 annual financial regression baseline",
+      "sha256": "e3e174c4680bacbd9adbb53c10539dfcebb27cd0f99fd3d8a184ebc16e1456b4",
+      "size_bytes": 34226
+    },
+    "tests/fixtures/fy2025-full-extraction.json": {
+      "role": "FY2025 full extraction regression baseline",
+      "sha256": "f58a762b1f445c8d15b1cbcf6310d37a1131b85ce715855cfd1ee84295e4d453",
+      "size_bytes": 213981
+    },
+    "tests/requirements.txt": {
+      "role": "verification dependencies",
+      "sha256": "8c59dbcd20e063db9cfa7b78ade183e2e8c2d11131804e8a6cf45b4632b088ff",
+      "size_bytes": 40
+    },
+    "tests/test_expenditure_breakdown.py": {
+      "role": "audited page 77 category, protection and correction regression tests",
+      "sha256": "37128b8e6e6bf5c1dd8cb3c9c5c421e336015fbd837cd3862dae5d21e231200b",
+      "size_bytes": 10167
+    },
+    "tests/test_extraction_safety.py": {
+      "role": "extraction safety and FY2025 regression tests",
+      "sha256": "7185a6dd6d2d47f6600d49c9452221335d83c895768d0e97ad9f5b0be5ad5ee9",
+      "size_bytes": 8301
+    },
+    "tests/test_fy2024_reconciliation.py": {
+      "role": "pilot reconciliation and manifest regression tests",
+      "sha256": "2ed8c02c5576ca136ecdd243a32e4897a611fdaa83e30e9dfabe8218a66ce41b",
+      "size_bytes": 15745
+    },
+    "tools/acfr_config.py": {
+      "role": "year configuration loader",
+      "sha256": "04fc81259eb3b9e5834f79ce777bec455ccef611d5c11a4f39d941388ee9b320",
+      "size_bytes": 442
+    },
+    "tools/acfr_funds.py": {
+      "role": "shared fund identities and FY2025 compatibility extractor",
+      "sha256": "7ae56ffba7483628abc1f733e5272fb9434d68fd3127680bde7f77412c562dc2",
+      "size_bytes": 12302
+    },
+    "tools/acfr_parse.py": {
+      "role": "PDF statement parser",
+      "sha256": "4483cc81daf90c35f81fe830f5f0364cf71b84a9efa4c5bfadc4f7258a81c73a",
+      "size_bytes": 6511
+    },
+    "tools/acfr_pilot.py": {
+      "role": "staging and manifest implementation",
+      "sha256": "40a9102965cc9de5634ffff0875953e4495e6ea7ba5b5f6f0a9be26d6ac817fd",
+      "size_bytes": 16629
+    },
+    "tools/acfr_reconcile.py": {
+      "role": "extraction, identity mapping and arithmetic reconciliation",
+      "sha256": "7af3e6615c9f67c2983c7080a4a033cb1f992781a48f3eb7684a40babc01c491",
+      "size_bytes": 20779
+    },
+    "tools/acfr_years/2024.json": {
+      "role": "FY2024 source, labels and statement layout",
+      "sha256": "093d33e212ee52ed102b74ef6be300a3f1931da373a0d0988074a52afacb174d",
+      "size_bytes": 4160
+    },
+    "tools/acfr_years/2025.json": {
+      "role": "FY2025 comparator source, labels and statement layout",
+      "sha256": "63310301a26595e2b053c2efedec53219c9c7ba976aaff3c5b7bd2e8f6df92a2",
+      "size_bytes": 4157
+    },
+    "tools/acfr_years/pilot-inputs.json": {
+      "role": "explicit manifest input policy",
+      "sha256": "b9512ab79ad19423ddd6d464a0f198075a75840aecf31c6b652896153d2bb446",
+      "size_bytes": 6932
+    },
+    "tools/ledger.py": {
+      "role": "ledger validation",
+      "sha256": "ff07bd73bbf8656f226f30ec1f428f6a5c62bb1ef1fecbf5ccaba99dd750f433",
+      "size_bytes": 4917
+    },
+    "tools/ledger_safety.py": {
+      "role": "protected registry and annual identity rules",
+      "sha256": "c4dd5ab41fd89207fe66e129e88a9b6c11c1c66d7c2ec0e6beb0c339817aec0c",
+      "size_bytes": 4635
+    },
+    "tools/reconcile_expenditure_breakdown.py": {
+      "role": "source-to-ledger expenditure correction staging and verification",
+      "sha256": "384dac00736b7b20d3636829a174e2cefa00f5fc77cb9656dd0371ec5ea858ec",
+      "size_bytes": 19749
+    }
+  },
+  "preservation": {
+    "unchanged": true,
+    "coverage": [
+      "data/funds/**",
+      "docs/**"
+    ],
+    "method": "Full local snapshots compared in memory; website files are not extraction dependencies and are not inventoried."
+  },
+  "scope": "Governmental and proprietary fund operating/change statements matching the existing BeTH ledger universe; fiduciary trusts, custodial funds and component-unit statements are outside this pilot."
+}

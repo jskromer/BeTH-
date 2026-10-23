@@ -1,0 +1,249 @@
+[
+  {
+    "op": "test",
+    "path": "/fund_number",
+    "value": "011"
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/fy",
+    "value": 2025
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/inflows",
+    "value": [
+      {
+        "line": "Taxes",
+        "amount": 231017187,
+        "kind": "own"
+      },
+      {
+        "line": "Licenses and permits",
+        "amount": 3463091,
+        "kind": "own"
+      },
+      {
+        "line": "Intergovernmental",
+        "amount": 640337,
+        "kind": "own"
+      },
+      {
+        "line": "Charges for service",
+        "amount": 14499016,
+        "kind": "own"
+      },
+      {
+        "line": "Fines and penalties",
+        "amount": 6122208,
+        "kind": "own"
+      },
+      {
+        "line": "Rents and royalties",
+        "amount": 379828,
+        "kind": "own"
+      },
+      {
+        "line": "Franchise",
+        "amount": 1859413,
+        "kind": "own"
+      },
+      {
+        "line": "donations",
+        "amount": 113889,
+        "kind": "own"
+      },
+      {
+        "line": "Investment income/ (loss)",
+        "amount": 27228774,
+        "kind": "own"
+      },
+      {
+        "line": "Miscellaneous",
+        "amount": 517429,
+        "kind": "own"
+      },
+      {
+        "line": "Transfers in",
+        "amount": 8974480,
+        "kind": "rescue"
+      },
+      {
+        "line": "Sale of capital assets",
+        "amount": 13125,
+        "kind": "financing"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/flow_detail/inflows",
+    "value": [
+      {
+        "line": "Taxes",
+        "amount": 231017187,
+        "kind": "own"
+      },
+      {
+        "line": "Licenses and permits",
+        "amount": 3463091,
+        "kind": "own"
+      },
+      {
+        "line": "Intergovernmental",
+        "amount": 640337,
+        "kind": "own"
+      },
+      {
+        "line": "Charges for service",
+        "amount": 14499016,
+        "kind": "own"
+      },
+      {
+        "line": "Fines and penalties",
+        "amount": 6122208,
+        "kind": "own"
+      },
+      {
+        "line": "Rents and royalties",
+        "amount": 379828,
+        "kind": "own"
+      },
+      {
+        "line": "Franchise",
+        "amount": 1859413,
+        "kind": "own"
+      },
+      {
+        "line": "donations",
+        "amount": 113889,
+        "kind": "own"
+      },
+      {
+        "line": "Investment income/ (loss)",
+        "amount": 27228774,
+        "kind": "own"
+      },
+      {
+        "line": "Miscellaneous",
+        "amount": 517429,
+        "kind": "own"
+      },
+      {
+        "line": "Transfers in",
+        "amount": 8974480,
+        "kind": "rescue"
+      },
+      {
+        "line": "Inception of leases and subscriptions",
+        "amount": 18156996,
+        "kind": "financing"
+      },
+      {
+        "line": "Sale of capital assets",
+        "amount": 13125,
+        "kind": "financing"
+      }
+    ]
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 47249826
+      },
+      {
+        "line": "Public safety",
+        "amount": 147156901
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 2753578
+      },
+      {
+        "line": "Health and welfare",
+        "amount": 21147159
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 11561579
+      },
+      {
+        "line": "Economic development",
+        "amount": 4581909
+      },
+      {
+        "line": "Principal repayment",
+        "amount": 1392206
+      },
+      {
+        "line": "Interest and fiscal charges",
+        "amount": 1106401
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 19679684
+      },
+      {
+        "line": "Transfers out",
+        "amount": 33919159
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 47249826
+      },
+      {
+        "line": "Public safety",
+        "amount": 147156901
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 2753578
+      },
+      {
+        "line": "Health and welfare",
+        "amount": 21147159
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 11561579
+      },
+      {
+        "line": "Community development and housing",
+        "amount": 20221797
+      },
+      {
+        "line": "Economic development",
+        "amount": 4581909
+      },
+      {
+        "line": "Principal repayment",
+        "amount": 1392206
+      },
+      {
+        "line": "Interest and fiscal charges",
+        "amount": 1106401
+      },
+      {
+        "line": "TRAN issuance costs",
+        "amount": 90884
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 19679684
+      },
+      {
+        "line": "Transfers out",
+        "amount": 33919159
+      }
+    ]
+  }
+]
