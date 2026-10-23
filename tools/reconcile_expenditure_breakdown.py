@@ -15,15 +15,20 @@ from acfr_funds import NUMBERS, OTHER_OUT, gov_record, required, slug
 from acfr_pilot import ROOT, digest, protect_output, provenance, snapshot
 from ledger_safety import SafetyError, protected_ids
 
-DEFAULT_OUT = ROOT / 'staging/fy2025-expenditure-corrections'
+HISTORICAL_EVIDENCE = ROOT / 'staging/fy2025-expenditure-corrections'
+DEFAULT_OUT = ROOT / 'staging/fy2025-reconciliation'
 
 
 def expense_sum(outflows):
     return sum(row['amount'] for row in outflows if row['line'] not in OTHER_OUT)
 
 
-def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', out=DEFAULT_OUT):
-    out = protect_output(out, ROOT / 'data/funds')
+def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', out=DEFAULT_OUT,
+          ledger_dir=ROOT / 'data/funds'):
+    ledger_dir = Path(ledger_dir).resolve()
+    out = protect_output(out, ledger_dir)
+    if out == HISTORICAL_EVIDENCE or HISTORICAL_EVIDENCE in out.parents or out in HISTORICAL_EVIDENCE.parents:
+        raise SafetyError('Historical correction evidence is immutable; choose a separate output directory')
     names_to_write = ('proposals.json', 'RECONCILIATION.md')
     if any((out / name).is_symlink() for name in names_to_write):
         raise SafetyError('Refusing correction report symlink')
@@ -37,7 +42,8 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
     page = statement['pairs'][0][0]
     source.update(role='expenditure-breakdown extraction source', statement=statement['title'], pdf_page=page,
                   printed_page=statement['printed_pages'][0])
-    before = {p:snapshot(ROOT / p) for p in ('data/funds','docs')}
+    before = {p:snapshot(ROOT / p) for p in ('data/funds','data/curation','docs')}
+    input_before = snapshot(ledger_dir)
     protected = protected_ids()
     funds = []
     with pdfplumber.open(pdf_path) as pdf:
@@ -52,7 +58,7 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
             if name.startswith('Total') or name == 'Other Governmental Funds':
                 continue
             fid = NUMBERS.get(name, 'ACFR-' + slug(name))
-            path = ROOT / 'data/funds' / f'{fid}.json'
+            path = ledger_dir / f'{fid}.json'
             existing = json.loads(path.read_text())
             detail = existing['flow_detail']
             if detail['fy'] != 2025:
@@ -128,7 +134,7 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
                 and annual[0]['transfers_in'] == corrected['transfers_in']
                 and annual[0]['transfers_out'] == corrected['transfers_out'])
             funds.append(dict(fund_number=fid, name=name, protected=fid in protected,
-                ledger_path=path.relative_to(ROOT).as_posix(), ledger_sha256=digest(path),
+                ledger_path=f'data/funds/{fid}.json', ledger_sha256=digest(path),
                 source=source, categories=categories, proposed_corrections=corrections,
                 financing_categories=financing_categories,
                 existing_inflows=old_inflows, proposed_inflows=new_inflows,
@@ -147,20 +153,27 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
                 apply_automatically=False, approval_required=bool(corrections),
                 status=('PENDING REVIEW' if corrections else 'RECONCILED') if reconciled else 'CONFLICT'))
     after = {p:snapshot(ROOT / p) for p in before}
-    if before != after:
+    if before != after or input_before != snapshot(ledger_dir):
         raise SafetyError('Ledger or published website changed during correction staging')
     report = dict(fiscal_year=2025, source=source,
-        explanation='Annual totals already match the audit and remain unchanged. Only flow_detail categorization omitted these expenditures and lease/subscription financing inflows. Financing is kind=financing, separate from own revenue and transfers (kind=rescue). Transfers and other financing uses are excluded from expenditure sums.',
+        comparison_scope='current corrected ledgers' if ledger_dir == (ROOT/'data/funds').resolve() else 'supplied comparison ledgers (historical fixtures in regression tests)',
+        historical_evidence='staging/fy2025-expenditure-corrections',
+        explanation='PR #13 applied the six reviewed additions proposed at 2450d7a. The original evidence remains immutable in staging/fy2025-expenditure-corrections. This report independently reconciles its comparison inputs now. Annual totals remain unchanged. Financing is kind=financing, separate from own revenue and transfers (kind=rescue). Transfers and other financing uses are excluded from expenditure sums.',
         affected_funds=sum(bool(f['proposed_corrections']) for f in funds),
         omitted_expenditures=sum(f['omitted_expenditures'] for f in funds),
         omitted_financing=sum(f['omitted_financing'] for f in funds),
         funds=funds, protected_ledger_checksums={fid:digest(ROOT/'data/funds'/f'{fid}.json') for fid in sorted(protected)},
         preservation_verified=True, apply_automatically=False,
-        decisions=['Manually review the six category additions in three combined JSON patches: expenditures plus financing for General Fund and Grants; expenditures only for Capital Improvement. Do not apply these patches during the pilot.',
+        decisions=['Any newly proposed correction requires independent review and explicit manual approval. Historical corrections are already recorded in merged PR #13; do not reapply the archived patches.',
                    'General Fund is protected. No protected ledger may be edited automatically; approve a separate manual change before application.',
                    'Any published breakdown correction requires a separately authorized publication step. No page builder or dashboard changes are part of this report.'])
+    expected_patches = {f"{f['fund_number']}.json-patch.json" for f in funds if f['approval_required']}
+    expected_patch_files = expected_patches | ({'SHA256SUMS'} if expected_patches else set())
+    if patch_dir.exists() and {p.name for p in patch_dir.iterdir()} - expected_patch_files:
+        raise SafetyError('Existing patch evidence would become stale; preserve it and choose a separate output directory')
     out.mkdir(parents=True, exist_ok=True)
-    patch_dir.mkdir(exist_ok=True)
+    if expected_patches:
+        patch_dir.mkdir(exist_ok=True)
     patch_checksums = []
     for fund in funds:
         if not fund['approval_required']:
@@ -176,11 +189,17 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
         patch_path.write_text(json.dumps(operations, indent=2, ensure_ascii=False)+'\n')
         fund['patch'] = dict(path=patch_path.relative_to(out).as_posix(), sha256=digest(patch_path), format='RFC 6902 JSON Patch', applied=False)
         patch_checksums.append(f"{digest(patch_path)}  {patch_path.name}")
-    (patch_dir/'SHA256SUMS').write_text('\n'.join(sorted(patch_checksums))+'\n')
+    if patch_checksums:
+        (patch_dir/'SHA256SUMS').write_text('\n'.join(sorted(patch_checksums))+'\n')
     lines = ['# FY2025 page 77 expenditure and financing breakdown: source-to-ledger reconciliation', '',
-        '**Proposals only — manual approval required. No ledger or published content was changed.**', '',
+        '**Read-only reconciliation. No ledger or published content was changed.**', '',
         f"Source: [{source['filename']}]({source['source_url']}), FY2025, PDF p.{page}, printed p.{source['printed_page']}. SHA-256 `{source['sha256']}`.", '',
         report['explanation'], '',
+        f"Comparison scope: **{report['comparison_scope']}**. Original reviewed patches, checksums and reports: "
+        '[historical evidence](../fy2025-expenditure-corrections/RECONCILIATION.md). '
+        'That report describes the pre-correction state, not outstanding omissions in current ledgers.', '',
+        f"Current status: {'RECONCILED' if all(f['status']=='RECONCILED' for f in funds) else 'REVIEW REQUIRED'}; "
+        f"new correction patches proposed: {len(expected_patches)}.", '',
         f"Total omitted: **${report['omitted_expenditures']:,}**, across {report['affected_funds']} funds.", '',
         f"Separately, omitted lease/subscription financing: **${report['omitted_financing']:,}**. These inflows are not revenue or transfers.", '',
         '| Fund | Existing expense breakdown | Housing omitted | TRAN costs omitted | Total omitted | Audited / corrected sum |',
@@ -188,7 +207,7 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
     for f in funds:
         additions = {c['category']:c['source_amount'] for c in f['proposed_corrections']}
         lines.append(f"| {f['name']} ({f['fund_number']}) | {f['existing_breakdown_sum']:,} | {additions.get('Community development and housing',0):,} | {additions.get('TRAN issuance costs',0):,} | {f['omitted_expenditures']:,} | {f['audited_expenditure']:,} |")
-    lines += ['', '## Causes and scope', '',
+    lines += ['', '## Historical causes and scope', '',
         'The PDF wraps “Community development and housing” across two lines, with the numeric values on the “and housing” line. '
         'The parser retains that final label; the expense builder previously required the full label and did not apply the existing year-specific alias. '
         'Separately, its expenditure whitelist omitted the printed “TRAN issuance costs” row. '
@@ -230,13 +249,15 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
             p = f['patch']
             lines += [f"Proposed patch: [{p['path']}]({p['path']}); SHA-256 `{p['sha256']}`. **Not applied.**", '']
     lines += ['## Patch format and preservation', '',
-        'The three files in `patches/` are RFC 6902 JSON Patch proposals, not replacement ledgers. '
+        f'This run proposes {len(expected_patches)} RFC 6902 JSON Patch files. '
+        'When corrections are needed these files are proposals, not replacement ledgers. '
         'Each checks the fund, fiscal year and original array before replacing only changed flow_detail arrays. '
         'Check the baseline ledger SHA-256 above before any separately approved manual edit. '
-        'All original rows remain identical; the six audited additions are the only differences. '
+        'All original rows remain identical. '
         'Annual records, revenue, transfers, balances, flows, obligations, narratives, findings and source references remain untouched. '
         'General Fund is protected and requires explicit manual approval. No patch application command is provided. '
-        'Patch byte checksums are also listed in `patches/SHA256SUMS`.', '']
+        'When patches are proposed, byte checksums are listed in `patches/SHA256SUMS`. '
+        'A reconciled run produces no patch files or checksum file. The original three patches and their checksum file remain in the historical evidence directory.', '']
     lines += ['## Manual decisions', ''] + [f'{i}. {d}' for i,d in enumerate(report['decisions'],1)]
     lines += ['', 'Reproduce with `python tools/reconcile_expenditure_breakdown.py`. The machine-readable proposals contain full existing/proposed inflow and outflow arrays, exact patches and hashes. No apply command is provided.', '']
     out.mkdir(parents=True, exist_ok=True)
@@ -248,6 +269,7 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, default=DEFAULT_OUT)
+    parser.add_argument('--ledger-dir', type=Path, default=ROOT/'data/funds')
     args = parser.parse_args()
-    result = stage(out=args.out)
+    result = stage(out=args.out, ledger_dir=args.ledger_dir)
     print(f"Staged {result['affected_funds']} fund proposals; ${result['omitted_expenditures']:,} omitted; all ledgers unchanged")

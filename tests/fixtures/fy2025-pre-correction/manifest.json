@@ -1,0 +1,32 @@
+{
+  "baseline_commit": "2450d7aad152883a8428255801a49edbd3d85f3d",
+  "proposal_pr": 11,
+  "application_pr": 13,
+  "purpose": "Frozen original reviewed ledgers; never regenerate from current data/funds. All correction artifacts remain byte-identical historical evidence.",
+  "ledgers": {
+    "011": {
+      "fixture": "tests/fixtures/fy2025-pre-correction/011.json",
+      "source_path": "data/funds/011.json",
+      "sha256": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162"
+    },
+    "ACFR-grants": {
+      "fixture": "tests/fixtures/fy2025-pre-correction/ACFR-grants.json",
+      "source_path": "data/funds/ACFR-grants.json",
+      "sha256": "f64d16ad70b1e5513069b3876484a48577223d935fb728922e987a894464ce87"
+    },
+    "501": {
+      "fixture": "tests/fixtures/fy2025-pre-correction/501.json",
+      "source_path": "data/funds/501.json",
+      "sha256": "4c0ff1b49f7f57845cfb1d411658979069e84f3ec6f2dfdd0f5716e406782b1f"
+    }
+  },
+  "historical_artifacts": {
+    "staging/fy2025-expenditure-corrections/RECONCILIATION.md": "b3ae174320bfa13a16d4cfa9c40830c73445491a394cd4307e6b4afe56fe181d",
+    "staging/fy2025-expenditure-corrections/VALIDATION.md": "968e8504a2205ce8ee1a96cd95c9b98aad05d9e2488bfcd9ca5b56e424ecd729",
+    "staging/fy2025-expenditure-corrections/patches/011.json-patch.json": "fe50f8d20c30f1352c94542ac1c6c4137b33f88f27fac02c499fce6c916bf7c7",
+    "staging/fy2025-expenditure-corrections/patches/501.json-patch.json": "1dac164a6bd1f05f66643d6f4a7b75e1ae4f711024c25798ed9cbbb707068e1f",
+    "staging/fy2025-expenditure-corrections/patches/ACFR-grants.json-patch.json": "ace23269e16bcbbc6217ee21a70a045ac79fc74de1d2a64386cff074b84a4c86",
+    "staging/fy2025-expenditure-corrections/patches/SHA256SUMS": "b46ed6b7cef550fe7c4d9e3ddfdec9027c8a85945fa492bce1210cc6c8787381",
+    "staging/fy2025-expenditure-corrections/proposals.json": "76a631e387b0c3c7676ced3d8f4400e67d220a780fc435aa3032d0d9835bd094"
+  }
+}
