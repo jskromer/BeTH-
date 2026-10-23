@@ -232,6 +232,8 @@ A 16-month window produced three totals spanning $32M. The scope definitions alm
 
 ## 9. The DoubleTree $890,000: outstanding rent, not a write-off
 
+> **2026-10-23: flagged to Codex with page-verified sources** in `flags/2026-10-23-doubletree-608-ledger-event.md` (proposal JSON alongside). Re-reading the City's decks shows **two episodes**, not one. Arrears of $680,299 through June 2025 (May 22, 2025 deck p.7) were cleared by the **full-balance** payment of $964,680 in September 2025 (Sept 9, 2026 packet p.11). The ~$890,000 is a second episode, January–September 2026, as of September 2026 (FY2027). The same packet states the FY2027–28 budget assumption as 30% (p.11) and as at least 35% (p.15). The ledger entry is unchanged pending authorization.
+
 Both records carry roughly $890,000 against the DoubleTree hotel. Neither should call it a write-off,
 and BeTH's ledger currently does.
 
