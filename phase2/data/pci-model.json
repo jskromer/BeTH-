@@ -24,11 +24,11 @@
   "measure_2_condition_distribution": {
    "what": "How much of the network is below PCI 50 and below PCI 25 (MTC \"failed\"), the measure Measure FF's goal names: PCI 70 \"ideally with no streets having a PCI below 50\" by December 31, 2036.",
    "now_2024_inspection": {
-    "miles_below_50": 88.75,
-    "share_below_50": 0.4157,
-    "miles_below_25": 33.99,
-    "share_below_25": 0.1592,
-    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json"
+    "miles_below_50": 88.5,
+    "share_below_50": 0.4158,
+    "miles_below_25": 33.9,
+    "share_below_25": 0.1593,
+    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary p.2 (PDF p.5: totals, average PCI 56), Executive Summary p.4 (PDF p.7: Condition Category Breakdown) and Section IV street list; see phase2/data/network-condition.json"
    },
    "treated_by_adopted_plans_fy2027_2031": {
     "five_year_plan": {
@@ -51,7 +51,7 @@
     "needed_from": "StreetSaver output of the condition distribution (or miles below PCI 50) under each funding scenario. The Measure FF annual report must include \"the PCI of all streets\" (BMC 7.11.050(B)(1))."
    }
   },
-  "finding": "Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the 2024 inspection the average was 56 while 88.8 centerline miles (42%) were below PCI 50 and 34.0 miles (16%) were below 25. The two adopted plans treat 22.6 miles of currently-below-50 streets over FY2027-FY2031 (9.4 through Measure FF, 13.2 through the Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not shown by any published projection.",
+  "finding": "Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the 2024 inspection the average was 56 while 88.5 centerline miles (42%) were below PCI 50 and 33.9 miles (16%) were below 25. The two adopted plans treat 22.6 miles of currently-below-50 streets over FY2027-FY2031 (9.4 through Measure FF, 13.2 through the Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not shown by any published projection.",
   "tradeoff_the_city_published": "Selecting Measure FF streets below PCI 50 instead of by cost-effectiveness lowers the 2038 network average by about one point (62 instead of 63) while treating the worst streets first (City Figure 2). The average and the distribution move in different directions.",
   "the_adopted_goal_is_70": "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, paired with the below-50 condition. The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan plus Measure FF.",
   "critical_caveats": [
@@ -153,15 +153,15 @@
    },
    "total_lane_miles": {
     "value": 446.1,
-    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json",
+    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary p.2 (PDF p.5: totals, average PCI 56), Executive Summary p.4 (PDF p.7: Condition Category Breakdown) and Section IV street list; see phase2/data/network-condition.json",
     "confidence": "High",
     "note": "212.77 centerline miles; 39,363,218 sq ft of pavement."
    },
    "pci_distribution": {
     "value": "phase2/data/network-condition.json",
-    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json",
+    "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary p.2 (PDF p.5: totals, average PCI 56), Executive Summary p.4 (PDF p.7: Condition Category Breakdown) and Section IV street list; see phase2/data/network-condition.json",
     "confidence": "High",
-    "note": "1,216 street sections with 2024 PCI, validated to the report totals. 88.75 centerline miles (41.6%) below PCI 50; 33.99 miles (15.9%) below PCI 25. As of 2024 inspection, before FY2025-FY2026 paving."
+    "note": "1,216 street sections with 2024 PCI, validated to the report totals. 88.5 centerline miles (41.6%) below PCI 50; 33.9 miles (15.9%) below PCI 25, from section lengths in feet. As of 2024 inspection, before FY2025-FY2026 paving."
    }
   },
   "deterioration": {
@@ -204,7 +204,7 @@
     "value": "phase2/data/street-funding-sources.json",
     "source": "BeTH research, 07-street-funding-legal-analysis.md",
     "confidence": "High",
-    "note": "Measure FF: $0 more for paving without voters. CIP Fund 501: at most $2,946,000 of FY2027-28 appropriations, only by deferring every other fund 501 project; one-time carryover unknown. Other sources not yet researched."
+    "note": "Measure FF: whether more could go to paving without voters is unresolved; no amount stated. CIP Fund 501: gross conditional deferral ceiling $2,946,000 of FY2027-28 appropriations ($2,916,000 excluding the contractual JPA contribution), only by deferring every other fund 501 project; not verified available cash; one-time carryover unknown. Other sources not yet researched."
    },
    "recurring_operating_savings": {
     "value": null,

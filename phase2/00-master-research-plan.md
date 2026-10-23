@@ -40,9 +40,9 @@ Eric's work sits at level 5 and is treated accordingly, notwithstanding its high
 
 ## Status update, 2026-10-23 (end of day)
 
-- **Street funding (B/D):** `07-street-funding-legal-analysis.md`. Measure FF: $0 more for paving without voters. CIP Fund 501: at most $2,946,000 of FY2027–28 money, only by deferring every other fund 501 project; one-time carryover unknown (ceiling $11,568,647 at June 30, 2025).
+- **Street funding (B/D):** `07-street-funding-legal-analysis.md`. Measure FF: allocation fixed by voters; whether more could go to paving without a vote is unresolved. CIP Fund 501: gross conditional deferral ceiling $2,946,000 of FY2027–28 appropriations ($2,916,000 excluding the contractual JPA contribution), only by deferring every other fund 501 project; not verified available cash; one-time carryover unknown (ceiling $11,568,647 at June 30, 2025).
 - **Adopted CIP:** `data/cip-projects.json` (schema 3), reconciled to the dollar. The $139,356,147 figure is the five-year Streets budget (two-year: $58,211,462).
-- **Pavement (D):** two measures side by side. 2024 average 56, with 88.75 centerline miles (41.6%) below PCI 50. The adopted plans treat 22.6 such miles over FY2027–31.
+- **Pavement (D):** two measures side by side. 2024 average 56, with 88.5 centerline miles (41.6%) below PCI 50. The adopted plans treat 22.6 such miles over FY2027–31.
 - **Flags:** DoubleTree entry in ledger 608 flagged to Codex (`flags/`). Not changed.
 
 ## Workstreams
@@ -65,7 +65,7 @@ Base plan workstream 3. The Workers' Compensation finding gives it an obvious fi
 ### F. Paving delivery cost and legislative analysis — **not started**
 Base plan workstream 4. Requires contract-level cost decomposition. **Do not presume environmental review is the primary cost driver** — that is the hypothesis to test, and the politically convenient answer the data may not support.
 
-### G. Public interface — **prototype with four verified Ask answers (not published)**
+### G. Public interface — **prototype with four Ask answers that pass automated structural checks; not independently source-verified; not published**
 Deliverable 6. Build order deliberately ships the scenario and PCI views **last**.
 
 ## Safeguards (carried forward from the base plan, unchanged)

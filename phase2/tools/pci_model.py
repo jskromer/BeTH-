@@ -27,7 +27,8 @@ SRC_PLAN_FIG2 = _PLAN + ', p.13 (Figure 2, selection methods)'
 SRC_PLAN_BG = _PLAN + ', p.16 (Background)'
 SRC_PLAN_METHOD = _PLAN + ', p.8 (selection methods) and pp.11-12'
 SRC_PTAP = ('City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., '
-            'April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json')
+            'April 2025, Executive Summary p.2 (PDF p.5: totals, average PCI 56), Executive Summary p.4 (PDF p.7: Condition '
+            'Category Breakdown) and Section IV street list; see phase2/data/network-condition.json')
 SRC_ORD = 'BMC 7.11.010(K)(1), Measure FF initiative text, PDF p.7 (phase2/sources/measure-ff-ordinance-transcription.md)'
 SRC_CIP = ('City of Berkeley, Proposed FY2027-FY2031 Capital Improvement Program presentation, Item 02')
 
@@ -86,8 +87,9 @@ INPUTS = {
         'total_lane_miles': {'value': 446.10, 'source': SRC_PTAP, 'confidence': 'High',
                              'note': '212.77 centerline miles; 39,363,218 sq ft of pavement.'},
         'pci_distribution': {'value': 'phase2/data/network-condition.json', 'source': SRC_PTAP, 'confidence': 'High',
-                             'note': '1,216 street sections with 2024 PCI, validated to the report totals. 88.75 '
-                                     'centerline miles (41.6%) below PCI 50; 33.99 miles (15.9%) below PCI 25. As of '
+                             'note': '1,216 street sections with 2024 PCI, validated to the report totals. 88.5 '
+                                     'centerline miles (41.6%) below PCI 50; 33.9 miles (15.9%) below PCI 25, from '
+                                     'section lengths in feet. As of '
                                      '2024 inspection, before FY2025-FY2026 paving.'},
     },
     'deterioration': {
@@ -123,10 +125,12 @@ INPUTS = {
         'redirectable_from_capital': {'value': 'phase2/data/street-funding-sources.json',
                                       'source': 'BeTH research, 07-street-funding-legal-analysis.md',
                                       'confidence': 'High',
-                                      'note': 'Measure FF: $0 more for paving without voters. CIP Fund 501: at most '
-                                              '$2,946,000 of FY2027-28 appropriations, only by deferring every other '
-                                              'fund 501 project; one-time carryover unknown. Other sources not yet '
-                                              'researched.'},
+                                      'note': 'Measure FF: whether more could go to paving without voters is '
+                                              'unresolved; no amount stated. CIP Fund 501: gross conditional deferral '
+                                              'ceiling $2,946,000 of FY2027-28 appropriations ($2,916,000 excluding the '
+                                              'contractual JPA contribution), only by deferring every other fund 501 '
+                                              'project; not verified available cash; one-time carryover unknown. Other '
+                                              'sources not yet researched.'},
         'recurring_operating_savings': {'value': None, 'source': None,
                                         'needed_from': 'Payroll and benefit baseline workstream'},
     },

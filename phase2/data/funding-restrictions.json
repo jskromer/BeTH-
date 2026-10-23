@@ -62,7 +62,7 @@
    "evidence": "BMC Chapter 7.11 (citizens' initiative, Nov 5, 2024; Ordinance 7,952-N.S., Dec 10, 2024). Proceeds in a special fund \"to be used only for\" street, sidewalk and path repair, safety and environmental enhancements (7.11.010(E)); allocation approximately 45% streets / 15% sidewalks / 30% safety / 10% environmental (7.11.020(C)); Council cannot alter the allocation or the non-FF street funding floor without voters (Section 7(a)(3)-(4)). Not the same as fund 164 \"Measure FF - Public Safety\" (2020) or the 2008 library bond.",
    "redirectable": false,
    "confidence": "High",
-   "note": "Already ~45.6% street rehabilitation in the adopted five-year program. No further Measure FF money can move to paving without a vote. See phase2/07-street-funding-legal-analysis.md.",
+   "note": "Cannot be redirected outside its voter-approved purposes. The adopted five-year program puts ~45.6% into street rehabilitation against an allocation of \"approximately\" 45%. Whether Council could put more Measure FF money into paving without a vote is an unresolved legal question; BeTH states no amount. See phase2/07-street-funding-legal-analysis.md.",
    "city_fund_number": "166",
    "sources": [
     "phase2/sources/measure-ff-initiative-council-2024-07-09.pdf (PDF pp.5-15)",
@@ -113,7 +113,7 @@
    "evidence": "FY2025 ACFR balance sheet (PDF p.75): fund balance $23,831,669 = restricted $7,771,575 (equal to notes receivable, not cash) + assigned $16,060,094 (incl. $4,491,447 encumbered). Assigned = intent by Council or City Manager, changeable by Council. Funded by a discretionary General Fund transfer (budget-adoption p.167).",
    "redirectable": true,
    "confidence": "High",
-   "note": "Redirectable by Council, but 88% of FY2027 fund 501 appropriations ($10,412,200 of $11,885,200) is already paving. The rest is $1,473,000 a year of facility, sidewalk and park repairs. See phase2/data/street-funding-sources.json."
+   "note": "Redirectable by Council, but 88% of FY2027 fund 501 appropriations ($10,412,200 of $11,885,200) is already paving. The rest is $1,473,000 a year of facility, sidewalk and park repairs: a gross conditional deferral ceiling of $2,946,000 over FY2027-28 ($2,916,000 excluding a contractual JPA contribution). Appropriations, not verified available cash. See phase2/data/street-funding-sources.json."
   },
   {
    "cip_label": "Camps Fund",
@@ -176,6 +176,6 @@
   "with_researched_legal_basis": 6,
   "restriction_unknown": 9,
   "confirmed_redirectable": 1,
-  "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 6. One (CIP Fund 501) is redirectable by Council, and 88% of its FY2027 money is already paving. Measure FF is voter-restricted and fully allocated. The other 9 sources are not yet researched and are treated as not redirectable."
+  "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 6. One (CIP Fund 501) is redirectable by Council, and 88% of its FY2027 money is already paving. Measure FF is voter-restricted; its allocation is fixed by the ordinance, and whether more of it could go to paving is unresolved. The other 9 sources are not yet researched and are treated as not redirectable."
  }
 }

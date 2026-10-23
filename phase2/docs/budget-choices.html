@@ -94,14 +94,19 @@ a{color:var(--steel-deep)}
 <section class="view on" id="v-ask">
   <div class="note"><b>Questions answered only from cited City records.</b> Each answer shows the record it rests on,
   the arithmetic (run by code, not typed), BeTH's reading with a counterargument, and what is still missing.
-  An answer is shown only if a verifier confirms every figure traces to a fact and every quote matches its source.</div>
+  An answer is shown only if automated structural checks pass: cited pages exist, figures match a data record or the
+  cited page, quotes appear on the cited page, and arithmetic recomputes. <b>These checks are not independent source
+  verification</b>: no one has yet confirmed that each cited page supports the claim made from it.</div>
   <div id="ask-list"></div>
   <p class="cap">Full evidence pages: <a href="ask/index.html">Ask index</a>.</p>
 </section>
 
 <section class="view" id="v-money">
   <div class="note"><b>These are adopted budget appropriations and plans, not cash.</b> They come from Exhibit B of the
-  June 23, 2026 budget adoption (143 projects; every project, category and fund reconciled to the City's printed totals).
+  June 23, 2026 budget adoption (143 projects; every project, category and funding-source row reconciled year by year to
+  the City's printed tables). The City prints two five-year totals that differ by $150,000: $410,618,590 by category and
+  $410,468,590 by funding source. Fund 621's Clariti project ($150,000) is in the first and missing from the second; which
+  the City intends is unresolved. Equipment &amp; Fleet vehicles ($33,331,116) are a schedule, not project rows.
   FY2029–FY2031 are planned, not appropriated. "Unfunded Need" rows carry no money. Spent, encumbered and remaining
   amounts are not in the CIP.</div>
   <div class="grid" id="money-stats"></div>
@@ -294,11 +299,11 @@ function money() {
 function ask() {
   const list = (A && A.answers) || [];
   $('#ask-list').innerHTML = list.filter(a => a.verifier.passed).map(a =>
-    '<div class="card"><h3>' + esc(a.question) + ' <span class="chip k-city">VERIFIED</span></h3>' +
+    '<div class="card"><h3>' + esc(a.question) + ' <span class="chip k-unknown" title="Automated structural checks passed. Not independently source-verified.">AUTOMATED CHECKS PASSED · NOT INDEPENDENTLY VERIFIED</span></h3>' +
     '<p>' + esc(a.short_answer) + '</p>' +
     '<p class="cap">' + a.facts.length + ' cited facts · ' + a.calculations.length + ' calculations · ' +
     a.missing_evidence.length + ' items still missing · <a href="ask/' + esc(a.slug) + '.html">see the evidence</a></p></div>'
-  ).join('') || '<p class="cap">No verified answers loaded.</p>';
+  ).join('') || '<p class="cap">No answers passed the automated checks.</p>';
 }
 
 function restrict() {
@@ -335,9 +340,10 @@ function pci() {
     Object.entries(bands).map(([k, b]) => '<div class="br"><span>' + esc(k) + '</span><span class="bt"><span class="bf ' +
       (k.startsWith('failed') || k.startsWith('poor') ? 'unknown' : '') + '" style="width:' + (b.centerline_miles / bmax * 100).toFixed(1) +
       '%"></span></span><span class="bv">' + b.centerline_miles + ' mi</span></div>').join('') +
-    '<p class="cap">' + esc(p.network_condition.source.title) + '; 1,216 street sections, validated to the report totals. ' +
-    'Adopted FY2027–31 plans treat ' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.both.miles_below_50 +
-    ' miles of currently-below-50 streets (' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.measure_ff_plan.miles_below_50 +
+    '<p class="cap">' + esc(p.network_condition.source.title) + '; 1,216 street sections, validated to the report totals. Miles are section lengths in feet ÷ 5,280, ' +
+    'shown to 0.1 mi; one uninspected section (Tevlin St, 155 ft, no inspection date) is excluded, as in the report\'s totals table. ' +
+    'Adopted FY2027–31 plans treat ' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.both.miles_below_50.toFixed(1) +
+    ' miles of currently-below-50 streets (' + a.measure_2_condition_distribution.treated_by_adopted_plans_fy2027_2031.measure_ff_plan.miles_below_50.toFixed(1) +
     ' through Measure FF).</p>';
   $('#pci-scens').innerHTML = p.scenarios.map(s =>
     '<div class="scen ' + (s.pci_2038 >= 70 ? 'goal' : s.pci_2038 < 60 ? 'bad' : '') + '">' +
@@ -362,8 +368,10 @@ function pci() {
       Ms(v) + ' a year on top of the Plan + Measure FF scenario interpolates to about <b>PCI ' +
       (base.pci_2038 + gain).toFixed(1) + '</b> by 2038, up from ' + base.pci_2038 +
       '. Linear interpolation applied to a non-linear relationship. ' +
-      '<b>And the money must first be shown to be legally redirectable: Measure FF cannot move without voters; ' +
-      'CIP Fund 501 offers at most $2.9M over FY2027–28, and only by deferring every other project it funds.</b></div>';
+      '<b>And the money must first be shown to be legally available. Measure FF: its voter-set allocation cannot be ' +
+      'altered without a vote, and whether more of it could go to paving is unresolved. CIP Fund 501: a gross ' +
+      'conditional deferral ceiling of $2.9M over FY2027–28, reached only by deferring every other project it funds; ' +
+      'appropriations, not verified available cash.</b></div>';
   };
   $('#pci-indep').textContent = p.independent_model.purpose + ' Status: ' +
     p.independent_model.status + '.';

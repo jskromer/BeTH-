@@ -212,12 +212,18 @@ def build():
         'available_for_paving': {
             'already_paving_fy2027': tot(paving, 'fy2027'),
             'already_paving_fy2028': tot(paving, 'fy2028'),
-            'upper_bound_new_appropriations_fy2027_fy2028': fy27_other + fy28_other,
-            'upper_bound_excluding_contractual': fy27_other + fy28_other - contractual,
-            'upper_bound_meaning': 'Only if Council deferred or cancelled every other project funded by fund 501 in FY2027 and '
-                                   'FY2028: building roofs and envelopes, the Public Safety Building server room, King Pool, the '
-                                   'MLK Youth Services Center, sidewalk repair and others. It is a ceiling, not a finding that '
-                                   'any of these should be cut.',
+            'gross_conditional_deferral_ceiling_fy2027_fy2028': fy27_other + fy28_other,
+            'deferral_ceiling_excluding_contractual_jpa': fy27_other + fy28_other - contractual,
+            'contractual_jpa_excluded': contractual,
+            'ceiling_meaning': 'Both figures are appropriations, not cash. They are the sum of every non-paving fund 501 '
+                               'appropriation in FY2027 and FY2028, and would become paving money only if Council deferred or '
+                               'cancelled every one of those projects: building roofs and envelopes, the Public Safety Building '
+                               'server room, King Pool, the MLK Youth Services Center, sidewalk repair and others. The second '
+                               f'figure leaves out the ${contractual:,} Tom Bates turf Joint Powers Agreement contribution, which '
+                               'is contractual. Neither is verified available cash: no public document shows how much of these '
+                               'appropriations is already encumbered, spent, or backed by cash on hand. They are ceilings, not '
+                               'a finding that any project should be cut.',
+            'not_verified_available_cash': True,
             'planned_fy2029_2031_other': tot(other, 'fy2029') + tot(other, 'fy2030') + tot(other, 'fy2031'),
             'one_time_carryover': {'status': 'UNKNOWN',
                                    'ceiling_june_30_2025': unencumbered_assigned,
@@ -267,11 +273,23 @@ def build():
                     'plan draws on FY2026 collections. Revenue was revised up $1,351,651 at adoption (Exhibit C) without a '
                     'printed change to Measure FF appropriations.'},
         'available_for_paving': {
-            'additional_beyond_adopted_plan': 0,
-            'meaning': 'The adopted program already puts ~45.6% of Measure FF into street rehabilitation, at the ordinance\'s '
-                       'approximately-45% street share. Safety, sidewalk and environmental shares cannot be moved to paving '
-                       'without voter approval. The unprogrammed $1.35M FY2027 revenue increase is still bound by the same '
-                       'allocation: about 45% of it (~$0.6M) could go to streets, and only by Council appropriation.',
+            'additional_beyond_adopted_plan': {'value': None, 'status': 'UNRESOLVED LEGAL QUESTION'},
+            'what_is_established': 'The ordinance allocates "approximately" 45% to streets, 15% to sidewalks and paths, 30% '
+                                   'to safety and 10% to environmental enhancements and other uses (7.11.020(C)). Council may '
+                                   'not alter those allocations or reduce the 7.11.030 budgeting requirement without the voters '
+                                   '(Section 7(a)(3)-(4)). The adopted five-year program puts 45.64% into street rehabilitation.',
+            'what_is_not_established': 'Whether Council could appropriate more Measure FF money to paving than the adopted '
+                                       'plan does without a vote. That depends on the unresolved questions below. BeTH states '
+                                       'no dollar amount and does not conclude that additional paving funding requires a vote.',
+            'unresolved_questions': [
+                'How far "approximately" 45% allows the streets share to vary, and who decides.',
+                'Whether the percentages apply year by year, over the five-year program, or over the 14-year life of the tax.',
+                'Whether the "streets" share (repair, repaving and reconstruction) is the same as the CIP "street rehabilitation" '
+                'line, or also covers street work budgeted under the safety or environmental shares.',
+                'How the unprogrammed $1,351,651 FY2027 revenue increase and unappropriated FY2026 collections may be used.',
+                '7.11.020(D) releases the allocations at PCI 70 but cross-references 7.11.030(C), which concerns external '
+                'funding; it is probably a drafting error, and its effect is not settled.',
+                'No City Attorney opinion or Council interpretation of these provisions is in BeTH\'s sources.'],
             'paving_conditions': 'Every Measure FF paving project must include concurrent safety improvements unless Council '
                                  'makes a written substantial-evidence finding (7.11.060(B)).'},
     }
@@ -293,6 +311,10 @@ def build():
         'confidence': 'Moderate',
         'implication': 'Redirecting non-FF street money elsewhere beyond the headroom would risk about $16.7 million a year of '
                        'Measure FF. Redirecting other capital INTO streets only adds to the floor.',
+        'unresolved_questions': ['The base year and inflation index of the $15.3 million floor (not stated in the ordinance).',
+                                 'Which funds and budget lines count as "street maintenance" from other sources.',
+                                 'Whether the FY2027 budget draws $1M or more from the Stabilization Reserve, which would '
+                                 'suspend the floor (7.11.030(D)).'],
         **cite('measure-ff-initiative', 'PDF pp.8-9')}
 
     answer = {
@@ -300,12 +322,16 @@ def build():
         'scope': 'CIP Fund 501 and Measure FF only. Other capital funds (sewer, storm water, zero waste, parks tax, '
                  'state and county transportation funds, internal service funds) are not yet assessed here.',
         'short_answer': (
-            f'From Measure FF: nothing beyond the adopted plan, without a vote of the people. From CIP Fund 501: at most '
-            f'${fy27_other + fy28_other:,} of new FY2027-FY2028 appropriations, and only by deferring or cancelling every '
-            f'other project the fund pays for; ${tot(paving, "fy2027"):,} of fund 501\'s FY2027 money '
+            f'From CIP Fund 501: a gross conditional ceiling of ${fy27_other + fy28_other:,} of FY2027-FY2028 '
+            f'appropriations (${fy27_other + fy28_other - contractual:,} excluding a contractual JPA contribution), reached '
+            f'only by deferring or cancelling every other project the fund pays for; neither figure is verified available '
+            f'cash. ${tot(paving, "fy2027"):,} of fund 501\'s FY2027 money '
             f'({tot(paving, "fy2027") / tot(lines, "fy2027"):.0%}) already goes to paving. A one-time amount from unspent '
             f'carried-over appropriations is possible but cannot be measured from public documents (ceiling at June 30, '
-            f'2025: ${unencumbered_assigned:,}, which also funds paving and other projects already under way).'),
+            f'2025: ${unencumbered_assigned:,}, which also funds paving and other projects already under way). From Measure '
+            f'FF: the adopted program already puts 45.6% into street rehabilitation, against an ordinance allocation of '
+            f'"approximately" 45% that Council cannot alter without voters. Whether more could go to paving without a vote '
+            f'is an unresolved legal question; BeTH states no amount.'),
         'what_would_complete_it': [
             'FY2026 year-end fund 501 carryover and encumbrance detail by project.',
             'The FY2027 Annual Appropriation Ordinance (controlling appropriation record, incl. any June 23 amendments).',
@@ -314,7 +340,7 @@ def build():
             "The City's Measure FF maintenance-of-effort calculation and whether FY2027 draws on the Stabilization Reserve.",
             'Restriction research for the other CIP funding sources.'],
     }
-    return {'schema_version': 1, 'generated': '2026-10-23', 'status': 'VERIFIED FROM CITED DOCUMENTS; NOT PUBLISHED',
+    return {'schema_version': 1, 'generated': '2026-10-23', 'status': 'EXTRACTED FROM CITED DOCUMENTS WITH AUTOMATED ARITHMETIC CHECKS; NOT INDEPENDENTLY SOURCE-VERIFIED; NOT PUBLISHED',
             'evidence_rules': 'Appropriations are not cash. Planned years are not appropriations. Audited balances are '
                               'June 30, 2025. Upper bounds name what they would cost.',
             'answer': answer, 'funding_sources': [fund501, measure_ff], 'maintenance_of_effort': moe, 'sources': SOURCES}
@@ -324,8 +350,8 @@ def main(argv):
     d = build()
     a = d['funding_sources'][0]['available_for_paving']
     print(d['answer']['short_answer'])
-    print('fund 501 upper bound FY27-28:', f"{a['upper_bound_new_appropriations_fy2027_fy2028']:,}",
-          '| excl. contractual', f"{a['upper_bound_excluding_contractual']:,}")
+    print('fund 501 gross conditional deferral ceiling FY27-28:', f"{a['gross_conditional_deferral_ceiling_fy2027_fy2028']:,}",
+          '| excl. contractual JPA', f"{a['deferral_ceiling_excluding_contractual_jpa']:,}")
     m = d['maintenance_of_effort']
     print('MOE floor est', f"{m['fy2027_floor_estimate']:,}", 'headroom', m['fy2027_headroom_estimate'])
     if '--write' in argv:

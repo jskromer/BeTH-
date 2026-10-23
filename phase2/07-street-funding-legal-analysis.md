@@ -1,6 +1,6 @@
 # 07 — Which capital money could lawfully go to street paving: CIP Fund 501 and Measure FF
 
-**Status:** verified from the cited documents; not published. **Prepared:** 2026-10-23. **Machine-readable record:** `data/street-funding-sources.json` (built by `tools/street_funding.py` from the reconciled adopted CIP in `data/cip-projects.json`).
+**Status:** extracted from the cited documents with automated arithmetic checks; not independently source-verified; not published. **Prepared:** 2026-10-23. **Machine-readable record:** `data/street-funding-sources.json` (built by `tools/street_funding.py` from the reconciled adopted CIP in `data/cip-projects.json`).
 
 **Evidence classes used:** AUDITED (FY2025 ACFR) · BUDGET_ADOPTED (June 23, 2026 adoption packet; July 7, 2026 street plan) · LAW (BMC Chapter 7.11 as filed). Appropriations are budget authority, not cash. "Planned" FY2029–FY2031 amounts are not appropriated.
 
@@ -8,8 +8,8 @@
 
 | Source | Already paving | Could additionally go to paving | Who decides | Confidence |
 |---|---|---|---|---|
-| **Measure FF** (fund 166) | ~45.6% of the five-year program ($42,119,935 of $92,282,816) | **$0** beyond the adopted plan without a vote of the people. Of the unprogrammed FY2027 revenue increase of $1,351,651, about 45% (~$0.6M) could go to streets by Council appropriation, under the same allocation. | Voters (allocation is fixed by the ordinance) | High |
-| **CIP Fund 501**, new money FY2027–28 | $10,412,200 in FY2027 (88% of the fund's $11,885,200); $10,666,816 in FY2028 | **At most $2,946,000** over FY2027–28 ($1,473,000 a year), and only by deferring or cancelling **every** other project the fund pays for (building roofs and envelopes, the Public Safety Building server room, King Pool, the MLK Youth Services Center, sidewalk repair). $30,000 of it is a Joint Powers Agreement contribution. | Council (budget amendment) | High on the amounts; the cost of each deferral is **not assessed** |
+| **Measure FF** (fund 166) | ~45.6% of the five-year program ($42,119,935 of $92,282,816) | **Unresolved; no amount stated.** The ordinance fixes an allocation of "approximately" 45% streets that Council cannot alter without voters. Whether Council could appropriate more to paving than the adopted plan does depends on open legal questions (§1, below), including how the unprogrammed $1,351,651 FY2027 revenue increase may be used. | Council within the allocation; voters to change it | High on the provisions; the paving question is **unresolved** |
+| **CIP Fund 501**, new money FY2027–28 | $10,412,200 in FY2027 (88% of the fund's $11,885,200); $10,666,816 in FY2028 | **Gross conditional deferral ceiling: $2,946,000** over FY2027–28 ($1,473,000 a year); **$2,916,000** after excluding the $30,000 contractual Joint Powers Agreement contribution. Reached only by deferring or cancelling **every** other project the fund pays for (building roofs and envelopes, the Public Safety Building server room, King Pool, the MLK Youth Services Center, sidewalk repair). These are appropriations; **neither figure is verified available cash.** | Council (budget amendment) | High on the amounts; the cost of each deferral is **not assessed** |
 | **CIP Fund 501**, one-time carryover | — | **Unknown.** Ceiling at June 30, 2025: $11,568,647 of unencumbered assigned fund balance, which also backs paving and other projects carried forward. | Council | Cannot be measured from public documents |
 
 **What this does not cover:** sewer, storm water, zero waste, parks tax, state and county transportation funds and internal service funds. Their restrictions are not yet researched (see `data/funding-restrictions.json`). Most of them are enterprise or voter-restricted funds; none is assumed redirectable.
@@ -47,9 +47,23 @@ It may not fund bicycle-specific safety improvements on Hopkins Street between M
 
 FY2027 appropriations exceed FY2027 revenue, so the plan relies on FY2026 collections. Adoption raised revenue by $1,351,651 without a printed change to Measure FF appropriations.
 
-**Projects that could be deferred to free money for paving.** None. Deferring a Measure FF safety, sidewalk or environmental project does not make that money available for paving, because the allocation binds it.
+**Projects that could be deferred to free money for paving.** Not established. If the allocation binds each year's appropriations, deferring a Measure FF safety, sidewalk or environmental project would not free that money for paving. If it applies over a longer period, a temporary shift might be possible. The ordinance does not say which.
 
-**Amount potentially available for paving.** **$0** beyond the adopted plan. The streets share is already at the ordinance's approximately-45%. The only increment is the streets share of revenue not yet appropriated (~45% of the $1.35M FY2027 increase), plus any unprogrammed FY2026 receipts. That second amount is unknown.
+**Amount potentially available for paving.** **Not stated: an unresolved legal question.** An earlier draft concluded "$0 beyond the adopted plan without a vote of the people". That conclusion is withdrawn: the ordinance text does not support it on its own.
+
+What is established:
+- The allocation is "approximately" 45% streets, 15% sidewalks and paths, 30% safety, 10% environmental and other uses (7.11.020(C)).
+- Council may not alter those allocations, or reduce the 7.11.030 budgeting requirement, without the voters (Section 7(a)(3)–(4)).
+- The maintenance-of-effort floor applies (§3).
+- The adopted program puts 45.64% into street rehabilitation.
+
+Unresolved legal questions:
+1. How far "approximately" 45% allows the streets share to vary, and who decides.
+2. Whether the percentages apply year by year, over the five-year program, or over the 14-year life of the tax.
+3. Whether the "streets" share (repair, repaving, reconstruction) is the same as the CIP "street rehabilitation" line, or also covers street work under the safety or environmental shares.
+4. How the unprogrammed $1,351,651 FY2027 revenue increase and unappropriated FY2026 collections (amount unknown) may be used.
+5. The effect of 7.11.020(D), which releases the allocations at PCI 70 but cross-references 7.11.030(C), probably a drafting error.
+6. No City Attorney opinion or Council interpretation of these provisions is in BeTH's sources.
 
 ## 2. CIP Fund 501 (Capital Improvement Fund)
 
@@ -104,7 +118,7 @@ The City's own description: "current CIP funding is entirely pre-allocated for h
 BeTH has **not** assessed what deferring any of these would cost in condition, safety, legal exposure or contracts, and this list is not a recommendation. Most are repairs to existing City buildings.
 
 **Amount potentially available for paving.**
-- New money, FY2027–28: **at most $2,946,000**, the sum of every non-paving fund 501 appropriation in those two years ($2,916,000 excluding the JPA contribution). It is a ceiling.
+- New money, FY2027–28: a **gross conditional deferral ceiling of $2,946,000**, the sum of every non-paving fund 501 appropriation in those two years; **$2,916,000** after excluding the $30,000 contractual JPA contribution. Both are appropriations, reached only if every one of those projects were deferred or cancelled. Neither is verified available cash: no public document shows how much is encumbered, spent, or backed by cash.
 - Planned FY2029–31 non-paving: $4,433,000 (not appropriated).
 - One-time carryover: **unknown**, at most $11,568,647 at June 30, 2025.
 
@@ -116,8 +130,9 @@ BMC 7.11.030(B): "If the City Council fails to adopt a budget with at least $15.
 - **FY2027 non-FF street funding:** $18,742,503 in the street plan (Table 1A, p.2), or $17,742,503 excluding the $1M Clean Storm drainage allocation.
 - **Headroom:** about $1.5–2.5 million.
 - **Unknown:** whether FY2027 draws on the Stabilization Reserve.
+- **Unresolved:** the base year and index of the floor, and which funds and budget lines count as "street maintenance" from other sources.
 
-**Implication.** Moving money *into* paving only raises the floor-counted total. Moving more than the headroom *out* of non-FF paving (most of which is fund 501) would risk about $16.7 million a year of Measure FF for two years. Fund 501's paving money is therefore effectively locked in place.
+**Implication.** Moving money *into* paving only raises the floor-counted total. Moving more than the headroom *out* of non-FF paving (most of which is fund 501) would risk about $16.7 million a year of Measure FF for two years. On BeTH's estimate, most of fund 501's paving money is therefore held in place by the floor; only the estimated headroom could move out.
 
 ## 4. What would complete the answer
 

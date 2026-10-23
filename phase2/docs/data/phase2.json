@@ -33,57 +33,909 @@
    "categories_sum_to_printed_grand_totals": true,
    "category_project_counts_match_document": "yes, except: Storm Water: The Storm Water tables (pp.210-212) print 13 project titles; p.212 states \"14 Projects in Five-Year CIP\". Dollar totals tie exactly to the printed Grand Total, so no amount is missing; the stated count is not reproducible.",
    "projects_extracted": 143,
-   "fund_five_year_totals_vs_p170": {
-    "501": {
-     "expected_p170": 62063697,
-     "parsed": 62063697,
-     "difference": 0
+   "city_summary_tables": {
+    "categories_p169": {
+     "Camps": {
+      "city_p169": [
+       585000,
+       800000,
+       100000,
+       100000,
+       100000,
+       1685000
+      ],
+      "parsed_funded": [
+       585000,
+       800000,
+       100000,
+       100000,
+       100000,
+       1685000
+      ],
+      "match": true
+     },
+     "Equipment & Fleet": {
+      "city_p169": [
+       9563532,
+       4886614,
+       8418345,
+       6933222,
+       3529403,
+       33331116
+      ],
+      "parsed": null,
+      "note": "Vehicle replacement schedule (pp.231-247), not project rows; value taken from p.169."
+     },
+     "Facilities": {
+      "city_p169": [
+       3123000,
+       1788000,
+       1298000,
+       897000,
+       883000,
+       7989000
+      ],
+      "parsed_funded": [
+       3123000,
+       1788000,
+       1298000,
+       897000,
+       883000,
+       7989000
+      ],
+      "match": true
+     },
+     "Information Technology": {
+      "city_p169": [
+       485000,
+       685000,
+       0,
+       0,
+       0,
+       1170000
+      ],
+      "parsed_funded": [
+       485000,
+       685000,
+       0,
+       0,
+       0,
+       1170000
+      ],
+      "match": true
+     },
+     "Other Infrastructure": {
+      "city_p169": [
+       631900,
+       1258100,
+       2580300,
+       2186100,
+       1444600,
+       8101000
+      ],
+      "parsed_funded": [
+       631900,
+       1258100,
+       2580300,
+       2186100,
+       1444600,
+       8101000
+      ],
+      "match": true
+     },
+     "Parks": {
+      "city_p169": [
+       5990000,
+       2765000,
+       3175000,
+       3175000,
+       3175000,
+       18280000
+      ],
+      "parsed_funded": [
+       5990000,
+       2765000,
+       3175000,
+       3175000,
+       3175000,
+       18280000
+      ],
+      "match": true
+     },
+     "Sanitary Sewer": {
+      "city_p169": [
+       25150000,
+       22920000,
+       24050000,
+       25250000,
+       22550000,
+       119920000
+      ],
+      "parsed_funded": [
+       25150000,
+       22920000,
+       24050000,
+       25250000,
+       22550000,
+       119920000
+      ],
+      "match": true
+     },
+     "Sidewalks": {
+      "city_p169": [
+       2894224,
+       2770517,
+       2493579,
+       4035000,
+       3535000,
+       15728320
+      ],
+      "parsed_funded": [
+       2894224,
+       2770517,
+       2493579,
+       4035000,
+       3535000,
+       15728320
+      ],
+      "match": true
+     },
+     "Storm Water": {
+      "city_p169": [
+       5665000,
+       7290000,
+       2470000,
+       2300000,
+       2015000,
+       19740000
+      ],
+      "parsed_funded": [
+       5665000,
+       7290000,
+       2470000,
+       2300000,
+       2015000,
+       19740000
+      ],
+      "match": true
+     },
+     "Streets": {
+      "city_p169": [
+       32241345,
+       25970117,
+       27214629,
+       25204402,
+       28725654,
+       139356147
+      ],
+      "parsed_funded": [
+       32241345,
+       25970117,
+       27214629,
+       25204402,
+       28725654,
+       139356147
+      ],
+      "match": true
+     },
+     "Transportation": {
+      "city_p169": [
+       13387067,
+       12223960,
+       10203038,
+       6203942,
+       1550000,
+       43568007
+      ],
+      "parsed_funded": [
+       13387067,
+       12223960,
+       10203038,
+       6203942,
+       1550000,
+       43568007
+      ],
+      "match": true
+     },
+     "Waterfront": {
+      "city_p169": [
+       350000,
+       350000,
+       350000,
+       350000,
+       350000,
+       1750000
+      ],
+      "parsed_funded": [
+       350000,
+       350000,
+       350000,
+       350000,
+       350000,
+       1750000
+      ],
+      "match": true
+     }
     },
-    "166": {
-     "expected_p170": 77615255,
-     "parsed": 77615255,
-     "difference": 0
+    "funding_sources_p170": {
+     "Capital Improvements": {
+      "funds": [
+       "501"
+      ],
+      "city_p170": [
+       11885200,
+       12139816,
+       12412070,
+       12681193,
+       12945418,
+       62063697
+      ],
+      "parsed": [
+       11885200,
+       12139816,
+       12412070,
+       12681193,
+       12945418,
+       62063697
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas T1 - Infrstr And Fac": {
+      "funds": [
+       "511"
+      ],
+      "city_p170": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "parsed": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "match": true,
+      "note": null
+     },
+     "Clean Storm Water": {
+      "funds": [
+       "616"
+      ],
+      "city_p170": [
+       4465000,
+       6390000,
+       3470000,
+       3300000,
+       3015000,
+       20640000
+      ],
+      "parsed": [
+       4465000,
+       6390000,
+       3470000,
+       3300000,
+       3015000,
+       20640000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Marina Operations/Maint": {
+      "funds": [
+       "608"
+      ],
+      "city_p170": [
+       350000,
+       350000,
+       350000,
+       350000,
+       350000,
+       1750000
+      ],
+      "parsed": [
+       350000,
+       350000,
+       350000,
+       350000,
+       350000,
+       1750000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Sanitary Sewer Operation": {
+      "funds": [
+       "611",
+       "NOT_PRINTED"
+      ],
+      "city_p170": [
+       25150000,
+       22920000,
+       24050000,
+       25250000,
+       22550000,
+       119920000
+      ],
+      "parsed": [
+       25150000,
+       22920000,
+       24050000,
+       25250000,
+       22550000,
+       119920000
+      ],
+      "match": true,
+      "note": "Includes four Sanitary Sewer rows that print no funding source (kept as NOT_PRINTED in the project data)."
+     },
+     "Zero Waste": {
+      "funds": [
+       "601"
+      ],
+      "city_p170": [
+       3750000,
+       2900000,
+       2400000,
+       2000000,
+       2000000,
+       13050000
+      ],
+      "parsed": [
+       3750000,
+       2900000,
+       2400000,
+       2000000,
+       2000000,
+       13050000
+      ],
+      "match": true,
+      "note": null
+     },
+     "GF Discretionary": {
+      "funds": [
+       "011"
+      ],
+      "city_p170": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "parsed": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "match": true,
+      "note": null
+     },
+     "Capital Grants - Federal": {
+      "funds": [
+       "305"
+      ],
+      "city_p170": [
+       500000,
+       0,
+       0,
+       0,
+       0,
+       500000
+      ],
+      "parsed": [
+       500000,
+       0,
+       0,
+       0,
+       0,
+       500000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Capital Grants - Local": {
+      "funds": [
+       "307"
+      ],
+      "city_p170": [
+       758250,
+       1026250,
+       773500,
+       0,
+       0,
+       2558000
+      ],
+      "parsed": [
+       758250,
+       1026250,
+       773500,
+       0,
+       0,
+       2558000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Capital Grants - State": {
+      "funds": [
+       "306"
+      ],
+      "city_p170": [
+       1447000,
+       4681900,
+       4693200,
+       3710900,
+       0,
+       14533000
+      ],
+      "parsed": [
+       1447000,
+       4681900,
+       4693200,
+       3710900,
+       0,
+       14533000
+      ],
+      "match": true,
+      "note": null
+     },
+     "FEMA": {
+      "funds": [
+       "340"
+      ],
+      "city_p170": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "parsed": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "match": true,
+      "note": null
+     },
+     "MTC": {
+      "funds": [
+       "339"
+      ],
+      "city_p170": [
+       1122000,
+       150000,
+       0,
+       0,
+       0,
+       1272000
+      ],
+      "parsed": [
+       1122000,
+       150000,
+       0,
+       0,
+       0,
+       1272000
+      ],
+      "match": true,
+      "note": null
+     },
+     "One-Time Grant:No Cap Exp": {
+      "funds": [
+       "336"
+      ],
+      "city_p170": [
+       1200000,
+       0,
+       0,
+       0,
+       0,
+       1200000
+      ],
+      "parsed": [
+       1200000,
+       0,
+       0,
+       0,
+       0,
+       1200000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Equipment Replacement": {
+      "funds": [
+       "671"
+      ],
+      "city_p170": [
+       9995432,
+       5464714,
+       9798645,
+       9119322,
+       4974003,
+       39352116
+      ],
+      "parsed": [
+       9995432,
+       5464714,
+       9798645,
+       9119322,
+       4974003,
+       39352116
+      ],
+      "match": true,
+      "note": "Project lines of fund 671 (four Fleet EV Charger projects, $6,021,000, Other Infrastructure) plus the Equipment & Fleet vehicle schedule ($33,331,116, p.169)."
+     },
+     "It Cost Allocation": {
+      "funds": [
+       "680"
+      ],
+      "city_p170": [
+       485000,
+       535000,
+       0,
+       0,
+       0,
+       1020000
+      ],
+      "parsed": [
+       485000,
+       535000,
+       0,
+       0,
+       0,
+       1020000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas B - Bike And Pedestrian": {
+      "funds": [
+       "131"
+      ],
+      "city_p170": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "parsed": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas B - Local Streets and RDS": {
+      "funds": [
+       "130"
+      ],
+      "city_p170": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "parsed": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas BB - Bike and Pedestrian": {
+      "funds": [
+       "135"
+      ],
+      "city_p170": [
+       0,
+       258000,
+       258000,
+       0,
+       0,
+       516000
+      ],
+      "parsed": [
+       0,
+       258000,
+       258000,
+       0,
+       0,
+       516000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas BB - Local Streets and RD": {
+      "funds": [
+       "134"
+      ],
+      "city_p170": [
+       3380000,
+       3280000,
+       3280000,
+       3280000,
+       3280000,
+       16500000
+      ],
+      "parsed": [
+       3380000,
+       3280000,
+       3280000,
+       3280000,
+       3280000,
+       16500000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Meas F - ALA CT VRF ST and RD": {
+      "funds": [
+       "133"
+      ],
+      "city_p170": [
+       255000,
+       255000,
+       255000,
+       255000,
+       255000,
+       1275000
+      ],
+      "parsed": [
+       255000,
+       255000,
+       255000,
+       255000,
+       255000,
+       1275000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Measure FF - Street Repair": {
+      "funds": [
+       "166"
+      ],
+      "city_p170": [
+       24328066,
+       14676515,
+       14342835,
+       11199906,
+       13067933,
+       77615255
+      ],
+      "parsed": [
+       24328066,
+       14676515,
+       14342835,
+       11199906,
+       13067933,
+       77615255
+      ],
+      "match": true,
+      "note": null
+     },
+     "Miles Lab": {
+      "funds": [
+       "145"
+      ],
+      "city_p170": [
+       100000,
+       0,
+       0,
+       0,
+       0,
+       100000
+      ],
+      "parsed": [
+       100000,
+       0,
+       0,
+       0,
+       0,
+       100000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Park Tax": {
+      "funds": [
+       "138"
+      ],
+      "city_p170": [
+       5975000,
+       2750000,
+       2775000,
+       2775000,
+       2775000,
+       17050000
+      ],
+      "parsed": [
+       5975000,
+       2750000,
+       2775000,
+       2775000,
+       2775000,
+       17050000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Playground Camp": {
+      "funds": [
+       "125"
+      ],
+      "city_p170": [
+       585000,
+       415000,
+       100000,
+       100000,
+       100000,
+       1300000
+      ],
+      "parsed": [
+       585000,
+       415000,
+       100000,
+       100000,
+       100000,
+       1300000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Private Party Sidewalks": {
+      "funds": [
+       "149"
+      ],
+      "city_p170": [
+       100000,
+       100000,
+       100000,
+       100000,
+       100000,
+       500000
+      ],
+      "parsed": [
+       100000,
+       100000,
+       100000,
+       100000,
+       100000,
+       500000
+      ],
+      "match": true,
+      "note": null
+     },
+     "State Transportation Tax": {
+      "funds": [
+       "127"
+      ],
+      "city_p170": [
+       3435120,
+       3835113,
+       3094641,
+       2513345,
+       2445303,
+       15323522
+      ],
+      "parsed": [
+       3435120,
+       3835113,
+       3094641,
+       2513345,
+       2445303,
+       15323522
+      ],
+      "match": true,
+      "note": null
+     },
+     "Street And Open Space Impr": {
+      "funds": [
+       "139"
+      ],
+      "city_p170": [
+       150000,
+       0,
+       0,
+       0,
+       0,
+       150000
+      ],
+      "parsed": [
+       150000,
+       0,
+       0,
+       0,
+       0,
+       150000
+      ],
+      "match": true,
+      "note": null
+     },
+     "Street Lighting": {
+      "funds": [
+       "142"
+      ],
+      "city_p170": [
+       200000,
+       680000,
+       200000,
+       0,
+       0,
+       1080000
+      ],
+      "parsed": [
+       200000,
+       680000,
+       200000,
+       0,
+       0,
+       1080000
+      ],
+      "match": true,
+      "note": null
+     },
+     "UC Settlement": {
+      "funds": [
+       "147"
+      ],
+      "city_p170": [
+       450000,
+       750000,
+       0,
+       0,
+       0,
+       1200000
+      ],
+      "parsed": [
+       450000,
+       750000,
+       0,
+       0,
+       0,
+       1200000
+      ],
+      "match": true,
+      "note": null
+     }
     },
-    "611": {
-     "expected_p170": 119920000,
-     "parsed": 119920000,
-     "difference": 0,
-     "note": "Includes 38,660,000 on four Sanitary Sewer rows that print no funding source. The p.170 table attributes all Sanitary Sewer CIP to fund 611; the rows themselves are kept as fund NOT_PRINTED."
-    },
-    "616": {
-     "expected_p170": 20640000,
-     "parsed": 20640000,
-     "difference": 0
-    },
-    "601": {
-     "expected_p170": 13050000,
-     "parsed": 13050000,
-     "difference": 0
-    },
-    "608": {
-     "expected_p170": 1750000,
-     "parsed": 1750000,
-     "difference": 0
-    },
-    "138": {
-     "expected_p170": 17050000,
-     "parsed": 17050000,
-     "difference": 0
-    },
-    "127": {
-     "expected_p170": 15323522,
-     "parsed": 15323522,
-     "difference": 0
-    },
-    "134": {
-     "expected_p170": 16500000,
-     "parsed": 16500000,
-     "difference": 0
-    },
-    "133": {
-     "expected_p170": 1275000,
-     "parsed": 1275000,
-     "difference": 0
+    "city_totals": {
+     "by_category_p169": 410618590,
+     "by_funding_source_p170_sum_of_group_totals": 410468590,
+     "difference": 150000,
+     "project_funding_absent_from_p170": {
+      "621": 150000
+     },
+     "explanation": "Fund 621 (Permit Service Center) funds one project, \"Clariti Integration With Erma\" ($150,000, FY2028, Information Technology). The project and the p.169 category table include it; the p.170 funding-source table has no row for fund 621. Its group totals sum to $410,468,590, $150,000 less than the p.169 category total of $410,618,590. The p.171 chart labels Enterprise Funds $155,510,000 against the table's $155,360,000, the same $150,000. Unresolved: which total the City intends.",
+     "unfunded_need_excluded_from_city_totals": 22075000
     }
    },
    "printed_total_rounding_differences": [
@@ -6377,12 +7229,12 @@
  "street_funding": {
   "schema_version": 1,
   "generated": "2026-10-23",
-  "status": "VERIFIED FROM CITED DOCUMENTS; NOT PUBLISHED",
+  "status": "EXTRACTED FROM CITED DOCUMENTS WITH AUTOMATED ARITHMETIC CHECKS; NOT INDEPENDENTLY SOURCE-VERIFIED; NOT PUBLISHED",
   "evidence_rules": "Appropriations are not cash. Planned years are not appropriations. Audited balances are June 30, 2025. Upper bounds name what they would cost.",
   "answer": {
    "question": "How much capital funding could Berkeley redirect to streets?",
    "scope": "CIP Fund 501 and Measure FF only. Other capital funds (sewer, storm water, zero waste, parks tax, state and county transportation funds, internal service funds) are not yet assessed here.",
-   "short_answer": "From Measure FF: nothing beyond the adopted plan, without a vote of the people. From CIP Fund 501: at most $2,946,000 of new FY2027-FY2028 appropriations, and only by deferring or cancelling every other project the fund pays for; $10,412,200 of fund 501's FY2027 money (88%) already goes to paving. A one-time amount from unspent carried-over appropriations is possible but cannot be measured from public documents (ceiling at June 30, 2025: $11,568,647, which also funds paving and other projects already under way).",
+   "short_answer": "From CIP Fund 501: a gross conditional ceiling of $2,946,000 of FY2027-FY2028 appropriations ($2,916,000 excluding a contractual JPA contribution), reached only by deferring or cancelling every other project the fund pays for; neither figure is verified available cash. $10,412,200 of fund 501's FY2027 money (88%) already goes to paving. A one-time amount from unspent carried-over appropriations is possible but cannot be measured from public documents (ceiling at June 30, 2025: $11,568,647, which also funds paving and other projects already under way). From Measure FF: the adopted program already puts 45.6% into street rehabilitation, against an ordinance allocation of \"approximately\" 45% that Council cannot alter without voters. Whether more could go to paving without a vote is an unresolved legal question; BeTH states no amount.",
    "what_would_complete_it": [
     "FY2026 year-end fund 501 carryover and encumbrance detail by project.",
     "The FY2027 Annual Appropriation Ordinance (controlling appropriation record, incl. any June 23 amendments).",
@@ -6969,9 +7821,11 @@
     "available_for_paving": {
      "already_paving_fy2027": 10412200,
      "already_paving_fy2028": 10666816,
-     "upper_bound_new_appropriations_fy2027_fy2028": 2946000,
-     "upper_bound_excluding_contractual": 2916000,
-     "upper_bound_meaning": "Only if Council deferred or cancelled every other project funded by fund 501 in FY2027 and FY2028: building roofs and envelopes, the Public Safety Building server room, King Pool, the MLK Youth Services Center, sidewalk repair and others. It is a ceiling, not a finding that any of these should be cut.",
+     "gross_conditional_deferral_ceiling_fy2027_fy2028": 2946000,
+     "deferral_ceiling_excluding_contractual_jpa": 2916000,
+     "contractual_jpa_excluded": 30000,
+     "ceiling_meaning": "Both figures are appropriations, not cash. They are the sum of every non-paving fund 501 appropriation in FY2027 and FY2028, and would become paving money only if Council deferred or cancelled every one of those projects: building roofs and envelopes, the Public Safety Building server room, King Pool, the MLK Youth Services Center, sidewalk repair and others. The second figure leaves out the $30,000 Tom Bates turf Joint Powers Agreement contribution, which is contractual. Neither is verified available cash: no public document shows how much of these appropriations is already encumbered, spent, or backed by cash on hand. They are ceilings, not a finding that any project should be cut.",
+     "not_verified_available_cash": true,
      "planned_fy2029_2031_other": 4433000,
      "one_time_carryover": {
       "status": "UNKNOWN",
@@ -7021,8 +7875,20 @@
      "note": "FY2027 Measure FF CIP ($24,328,066, budget-adoption p.170) exceeds FY2027 revenue ($16,651,651), so the plan draws on FY2026 collections. Revenue was revised up $1,351,651 at adoption (Exhibit C) without a printed change to Measure FF appropriations."
     },
     "available_for_paving": {
-     "additional_beyond_adopted_plan": 0,
-     "meaning": "The adopted program already puts ~45.6% of Measure FF into street rehabilitation, at the ordinance's approximately-45% street share. Safety, sidewalk and environmental shares cannot be moved to paving without voter approval. The unprogrammed $1.35M FY2027 revenue increase is still bound by the same allocation: about 45% of it (~$0.6M) could go to streets, and only by Council appropriation.",
+     "additional_beyond_adopted_plan": {
+      "value": null,
+      "status": "UNRESOLVED LEGAL QUESTION"
+     },
+     "what_is_established": "The ordinance allocates \"approximately\" 45% to streets, 15% to sidewalks and paths, 30% to safety and 10% to environmental enhancements and other uses (7.11.020(C)). Council may not alter those allocations or reduce the 7.11.030 budgeting requirement without the voters (Section 7(a)(3)-(4)). The adopted five-year program puts 45.64% into street rehabilitation.",
+     "what_is_not_established": "Whether Council could appropriate more Measure FF money to paving than the adopted plan does without a vote. That depends on the unresolved questions below. BeTH states no dollar amount and does not conclude that additional paving funding requires a vote.",
+     "unresolved_questions": [
+      "How far \"approximately\" 45% allows the streets share to vary, and who decides.",
+      "Whether the percentages apply year by year, over the five-year program, or over the 14-year life of the tax.",
+      "Whether the \"streets\" share (repair, repaving and reconstruction) is the same as the CIP \"street rehabilitation\" line, or also covers street work budgeted under the safety or environmental shares.",
+      "How the unprogrammed $1,351,651 FY2027 revenue increase and unappropriated FY2026 collections may be used.",
+      "7.11.020(D) releases the allocations at PCI 70 but cross-references 7.11.030(C), which concerns external funding; it is probably a drafting error, and its effect is not settled.",
+      "No City Attorney opinion or Council interpretation of these provisions is in BeTH's sources."
+     ],
      "paving_conditions": "Every Measure FF paving project must include concurrent safety improvements unless Council makes a written substantial-evidence finding (7.11.060(B))."
     }
    }
@@ -7042,6 +7908,11 @@
    "stabilization_reserve_exception_fy2027": "UNKNOWN: whether the FY2027 budget draws $1M+ from the Stabilization (Stability) Reserve is not stated in the adoption packet.",
    "confidence": "Moderate",
    "implication": "Redirecting non-FF street money elsewhere beyond the headroom would risk about $16.7 million a year of Measure FF. Redirecting other capital INTO streets only adds to the floor.",
+   "unresolved_questions": [
+    "The base year and inflation index of the $15.3 million floor (not stated in the ordinance).",
+    "Which funds and budget lines count as \"street maintenance\" from other sources.",
+    "Whether the FY2027 budget draws $1M or more from the Stabilization Reserve, which would suspend the floor (7.11.030(D))."
+   ],
    "source": "measure-ff-initiative",
    "pages": "PDF pp.8-9"
   },
@@ -7132,7 +8003,7 @@
     "evidence": "BMC Chapter 7.11 (citizens' initiative, Nov 5, 2024; Ordinance 7,952-N.S., Dec 10, 2024). Proceeds in a special fund \"to be used only for\" street, sidewalk and path repair, safety and environmental enhancements (7.11.010(E)); allocation approximately 45% streets / 15% sidewalks / 30% safety / 10% environmental (7.11.020(C)); Council cannot alter the allocation or the non-FF street funding floor without voters (Section 7(a)(3)-(4)). Not the same as fund 164 \"Measure FF - Public Safety\" (2020) or the 2008 library bond.",
     "redirectable": false,
     "confidence": "High",
-    "note": "Already ~45.6% street rehabilitation in the adopted five-year program. No further Measure FF money can move to paving without a vote. See phase2/07-street-funding-legal-analysis.md.",
+    "note": "Cannot be redirected outside its voter-approved purposes. The adopted five-year program puts ~45.6% into street rehabilitation against an allocation of \"approximately\" 45%. Whether Council could put more Measure FF money into paving without a vote is an unresolved legal question; BeTH states no amount. See phase2/07-street-funding-legal-analysis.md.",
     "city_fund_number": "166",
     "sources": [
      "phase2/sources/measure-ff-initiative-council-2024-07-09.pdf (PDF pp.5-15)",
@@ -7183,7 +8054,7 @@
     "evidence": "FY2025 ACFR balance sheet (PDF p.75): fund balance $23,831,669 = restricted $7,771,575 (equal to notes receivable, not cash) + assigned $16,060,094 (incl. $4,491,447 encumbered). Assigned = intent by Council or City Manager, changeable by Council. Funded by a discretionary General Fund transfer (budget-adoption p.167).",
     "redirectable": true,
     "confidence": "High",
-    "note": "Redirectable by Council, but 88% of FY2027 fund 501 appropriations ($10,412,200 of $11,885,200) is already paving. The rest is $1,473,000 a year of facility, sidewalk and park repairs. See phase2/data/street-funding-sources.json."
+    "note": "Redirectable by Council, but 88% of FY2027 fund 501 appropriations ($10,412,200 of $11,885,200) is already paving. The rest is $1,473,000 a year of facility, sidewalk and park repairs: a gross conditional deferral ceiling of $2,946,000 over FY2027-28 ($2,916,000 excluding a contractual JPA contribution). Appropriations, not verified available cash. See phase2/data/street-funding-sources.json."
    },
    {
     "cip_label": "Camps Fund",
@@ -7246,7 +8117,7 @@
    "with_researched_legal_basis": 6,
    "restriction_unknown": 9,
    "confirmed_redirectable": 1,
-   "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 6. One (CIP Fund 501) is redirectable by Council, and 88% of its FY2027 money is already paving. Measure FF is voter-restricted and fully allocated. The other 9 sources are not yet researched and are treated as not redirectable."
+   "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 6. One (CIP Fund 501) is redirectable by Council, and 88% of its FY2027 money is already paving. Measure FF is voter-restricted; its allocation is fixed by the ordinance, and whether more of it could go to paving is unresolved. The other 9 sources are not yet researched and are treated as not redirectable."
   }
  },
  "pci": {
@@ -7268,11 +8139,11 @@
    "measure_2_condition_distribution": {
     "what": "How much of the network is below PCI 50 and below PCI 25 (MTC \"failed\"), the measure Measure FF's goal names: PCI 70 \"ideally with no streets having a PCI below 50\" by December 31, 2036.",
     "now_2024_inspection": {
-     "miles_below_50": 88.75,
-     "share_below_50": 0.4157,
-     "miles_below_25": 33.99,
-     "share_below_25": 0.1592,
-     "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json"
+     "miles_below_50": 88.5,
+     "share_below_50": 0.4158,
+     "miles_below_25": 33.9,
+     "share_below_25": 0.1593,
+     "source": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., April 2025, Executive Summary p.2 (PDF p.5: totals, average PCI 56), Executive Summary p.4 (PDF p.7: Condition Category Breakdown) and Section IV street list; see phase2/data/network-condition.json"
     },
     "treated_by_adopted_plans_fy2027_2031": {
      "five_year_plan": {
@@ -7295,7 +8166,7 @@
      "needed_from": "StreetSaver output of the condition distribution (or miles below PCI 50) under each funding scenario. The Measure FF annual report must include \"the PCI of all streets\" (BMC 7.11.050(B)(1))."
     }
    },
-   "finding": "Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the 2024 inspection the average was 56 while 88.8 centerline miles (42%) were below PCI 50 and 34.0 miles (16%) were below 25. The two adopted plans treat 22.6 miles of currently-below-50 streets over FY2027-FY2031 (9.4 through Measure FF, 13.2 through the Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not shown by any published projection.",
+   "finding": "Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the 2024 inspection the average was 56 while 88.5 centerline miles (42%) were below PCI 50 and 33.9 miles (16%) were below 25. The two adopted plans treat 22.6 miles of currently-below-50 streets over FY2027-FY2031 (9.4 through Measure FF, 13.2 through the Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not shown by any published projection.",
    "tradeoff_the_city_published": "Selecting Measure FF streets below PCI 50 instead of by cost-effectiveness lowers the 2038 network average by about one point (62 instead of 63) while treating the worst streets first (City Figure 2). The average and the distribution move in different directions.",
    "the_adopted_goal_is_70": "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, paired with the below-50 condition. The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan plus Measure FF.",
    "critical_caveats": [
@@ -7314,13 +8185,18 @@
     "url": "https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf",
     "local": "phase2/sources/pavement-management-update-ptap25-2025-04.pdf",
     "sha256": "5e431b32fca3e2dcd96bb3698e19f14df6be734a9256bfdeb38d62472269e420",
-    "pages": "Executive Summary pp.2-3 (totals, condition breakdown); Section IV Reference Reports (street sections alphabetical)"
+    "pages": "Executive Summary p.2 / PDF p.5 (average PCI 56, totals by functional class); Executive Summary p.4 / PDF p.7 (Condition Category Breakdown); Section IV Reference Reports (street sections alphabetical)",
+    "pdf_pages": {
+     "totals": 5,
+     "condition_breakdown": 7
+    }
    },
    "as_of": "Inspections in 2024 (report dated 02/14/2025). Before FY2025-FY2026 paving. The July 7, 2026 plan cites PCI 57 (2025) and 59 after FY2026 planned work; no newer segment list is public.",
    "validation": {
     "parsed": {
      "sections": 1216,
-     "centerline_miles": 213.48,
+     "centerline_miles_from_feet": 212.778,
+     "centerline_miles_sum_of_rounded_section_miles": 213.48,
      "lane_miles": 446.13,
      "area_sqft": 39363218,
      "area_weighted_pci": 56.43,
@@ -7357,70 +8233,103 @@
      }
     },
     "result": "all checks passed",
-    "report_inconsistency": "Printed Condition Category areas sum to 39,367,093 sq ft, 3,875 more than the printed total of 39,363,218; the segment list matches the total, so the printed Failed area (9,292,667) is overstated by that amount."
+    "mileage_method": "Section lengths in feet / 5,280 = 212.778 mi, against the printed 212.77. The sum of the rounded section miles is 213.48 mi: 1,216 short sections each rounded to 0.01 mi accumulate about 0.7 mi of rounding. BeTH uses feet and reports miles to 0.1 mi.",
+    "uninspected_section": {
+     "sections": [
+      {
+       "line": 2623,
+       "text": "TEVLIN ST 040 GILMAN ST END",
+       "length_ft": 155,
+       "width_ft": 25,
+       "area_sqft": 3875,
+       "pci_printed": 0,
+       "pci_date": null,
+       "ptap_category": "Failed"
+      }
+     ],
+     "explanation": "The Condition Category areas (p.4) sum to 39,367,093 sq ft, 3,875 more than the totals table (p.2, 39,363,218). The difference is exactly this one section, which prints PCI 0 with no inspection date: the category table counts it as Failed, the totals table leaves it out. BeTH follows the totals table and excludes it from every distribution below."
+    }
    },
    "distribution": {
     "below_pci_50": {
      "sections": 502,
-     "centerline_miles": 88.75,
-     "share_of_centerline_miles": 0.4157,
+     "centerline_miles": 88.5,
+     "centerline_miles_unrounded": 88.466,
+     "centerline_miles_sum_of_rounded_section_miles": 88.75,
+     "share_of_centerline_miles": 0.4158,
      "area_sqft": 16060510,
      "share_of_area": 0.408
     },
     "below_pci_25": {
      "sections": 205,
-     "centerline_miles": 33.99,
-     "share_of_centerline_miles": 0.1592,
+     "centerline_miles": 33.9,
+     "centerline_miles_unrounded": 33.903,
+     "centerline_miles_sum_of_rounded_section_miles": 33.99,
+     "share_of_centerline_miles": 0.1593,
      "area_sqft": 6143274,
      "share_of_area": 0.1561
     },
     "pci_50_or_above": {
      "sections": 714,
-     "centerline_miles": 124.73,
-     "share_of_centerline_miles": 0.5843,
+     "centerline_miles": 124.3,
+     "centerline_miles_unrounded": 124.312,
+     "centerline_miles_sum_of_rounded_section_miles": 124.73,
+     "share_of_centerline_miles": 0.5842,
      "area_sqft": 23302708,
      "share_of_area": 0.592
     },
     "by_mtc_band": {
      "failed (0-24)": {
       "sections": 205,
-      "centerline_miles": 33.99,
-      "share_of_centerline_miles": 0.1592,
+      "centerline_miles": 33.9,
+      "centerline_miles_unrounded": 33.903,
+      "centerline_miles_sum_of_rounded_section_miles": 33.99,
+      "share_of_centerline_miles": 0.1593,
       "area_sqft": 6143274,
       "share_of_area": 0.1561
      },
      "poor (25-49)": {
       "sections": 297,
-      "centerline_miles": 54.76,
-      "share_of_centerline_miles": 0.2565,
+      "centerline_miles": 54.6,
+      "centerline_miles_unrounded": 54.563,
+      "centerline_miles_sum_of_rounded_section_miles": 54.76,
+      "share_of_centerline_miles": 0.2564,
       "area_sqft": 9917236,
       "share_of_area": 0.2519
      },
      "at risk (50-59)": {
       "sections": 87,
-      "centerline_miles": 17.43,
+      "centerline_miles": 17.4,
+      "centerline_miles_unrounded": 17.362,
+      "centerline_miles_sum_of_rounded_section_miles": 17.43,
       "share_of_centerline_miles": 0.0816,
       "area_sqft": 3236905,
       "share_of_area": 0.0822
      },
      "fair (60-69)": {
       "sections": 157,
-      "centerline_miles": 29.49,
-      "share_of_centerline_miles": 0.1381,
+      "centerline_miles": 29.4,
+      "centerline_miles_unrounded": 29.421,
+      "centerline_miles_sum_of_rounded_section_miles": 29.49,
+      "share_of_centerline_miles": 0.1383,
       "area_sqft": 5679077,
       "share_of_area": 0.1443
      },
      "good (70-79)": {
       "sections": 178,
-      "centerline_miles": 32.03,
-      "share_of_centerline_miles": 0.15,
+      "centerline_miles": 31.9,
+      "centerline_miles_unrounded": 31.946,
+      "centerline_miles_sum_of_rounded_section_miles": 32.03,
+      "share_of_centerline_miles": 0.1501,
       "area_sqft": 5957765,
       "share_of_area": 0.1514
      },
      "very good (80-100)": {
       "sections": 292,
-      "centerline_miles": 45.78,
-      "share_of_centerline_miles": 0.2144,
+      "centerline_miles": 45.6,
+      "centerline_miles_unrounded": 45.583,
+      "centerline_miles_sum_of_rounded_section_miles": 45.78,
+      "share_of_centerline_miles": 0.2142,
       "area_sqft": 8428961,
       "share_of_area": 0.2141
      }
@@ -7428,36 +8337,46 @@
     "by_ptap_category": {
      "Excellent": {
       "sections": 131,
-      "centerline_miles": 21.72,
-      "share_of_centerline_miles": 0.1017,
+      "centerline_miles": 21.6,
+      "centerline_miles_unrounded": 21.618,
+      "centerline_miles_sum_of_rounded_section_miles": 21.72,
+      "share_of_centerline_miles": 0.1016,
       "area_sqft": 4182818,
       "share_of_area": 0.1063
      },
      "Good": {
       "sections": 309,
-      "centerline_miles": 50.3,
-      "share_of_centerline_miles": 0.2356,
+      "centerline_miles": 50.1,
+      "centerline_miles_unrounded": 50.147,
+      "centerline_miles_sum_of_rounded_section_miles": 50.3,
+      "share_of_centerline_miles": 0.2357,
       "area_sqft": 9078245,
       "share_of_area": 0.2306
      },
      "Fair": {
       "sections": 262,
-      "centerline_miles": 50.05,
-      "share_of_centerline_miles": 0.2344,
+      "centerline_miles": 49.9,
+      "centerline_miles_unrounded": 49.89,
+      "centerline_miles_sum_of_rounded_section_miles": 50.05,
+      "share_of_centerline_miles": 0.2345,
       "area_sqft": 9597800,
       "share_of_area": 0.2438
      },
      "Poor": {
       "sections": 226,
-      "centerline_miles": 41.26,
-      "share_of_centerline_miles": 0.1933,
+      "centerline_miles": 41.2,
+      "centerline_miles_unrounded": 41.159,
+      "centerline_miles_sum_of_rounded_section_miles": 41.26,
+      "share_of_centerline_miles": 0.1934,
       "area_sqft": 7215563,
       "share_of_area": 0.1833
      },
      "Failed": {
       "sections": 288,
-      "centerline_miles": 50.15,
-      "share_of_centerline_miles": 0.2349,
+      "centerline_miles": 50.0,
+      "centerline_miles_unrounded": 49.965,
+      "centerline_miles_sum_of_rounded_section_miles": 50.15,
+      "share_of_centerline_miles": 0.2348,
       "area_sqft": 9288792,
       "share_of_area": 0.236
      }
@@ -7465,22 +8384,28 @@
     "by_functional_class_below_50": {
      "A": {
       "sections": 37,
-      "centerline_miles": 8.8,
-      "share_of_centerline_miles": 0.0412,
+      "centerline_miles": 8.7,
+      "centerline_miles_unrounded": 8.741,
+      "centerline_miles_sum_of_rounded_section_miles": 8.8,
+      "share_of_centerline_miles": 0.0411,
       "area_sqft": 2246660,
       "share_of_area": 0.0571
      },
      "C": {
       "sections": 37,
-      "centerline_miles": 8.74,
-      "share_of_centerline_miles": 0.0409,
+      "centerline_miles": 8.7,
+      "centerline_miles_unrounded": 8.725,
+      "centerline_miles_sum_of_rounded_section_miles": 8.74,
+      "share_of_centerline_miles": 0.041,
       "area_sqft": 1783259,
       "share_of_area": 0.0453
      },
      "R": {
       "sections": 428,
-      "centerline_miles": 71.21,
-      "share_of_centerline_miles": 0.3336,
+      "centerline_miles": 71.0,
+      "centerline_miles_unrounded": 71.0,
+      "centerline_miles_sum_of_rounded_section_miles": 71.21,
+      "share_of_centerline_miles": 0.3337,
       "area_sqft": 12030591,
       "share_of_area": 0.3056
      }

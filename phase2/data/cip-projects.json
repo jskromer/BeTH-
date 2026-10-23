@@ -21,57 +21,909 @@
   "categories_sum_to_printed_grand_totals": true,
   "category_project_counts_match_document": "yes, except: Storm Water: The Storm Water tables (pp.210-212) print 13 project titles; p.212 states \"14 Projects in Five-Year CIP\". Dollar totals tie exactly to the printed Grand Total, so no amount is missing; the stated count is not reproducible.",
   "projects_extracted": 143,
-  "fund_five_year_totals_vs_p170": {
-   "501": {
-    "expected_p170": 62063697,
-    "parsed": 62063697,
-    "difference": 0
+  "city_summary_tables": {
+   "categories_p169": {
+    "Camps": {
+     "city_p169": [
+      585000,
+      800000,
+      100000,
+      100000,
+      100000,
+      1685000
+     ],
+     "parsed_funded": [
+      585000,
+      800000,
+      100000,
+      100000,
+      100000,
+      1685000
+     ],
+     "match": true
+    },
+    "Equipment & Fleet": {
+     "city_p169": [
+      9563532,
+      4886614,
+      8418345,
+      6933222,
+      3529403,
+      33331116
+     ],
+     "parsed": null,
+     "note": "Vehicle replacement schedule (pp.231-247), not project rows; value taken from p.169."
+    },
+    "Facilities": {
+     "city_p169": [
+      3123000,
+      1788000,
+      1298000,
+      897000,
+      883000,
+      7989000
+     ],
+     "parsed_funded": [
+      3123000,
+      1788000,
+      1298000,
+      897000,
+      883000,
+      7989000
+     ],
+     "match": true
+    },
+    "Information Technology": {
+     "city_p169": [
+      485000,
+      685000,
+      0,
+      0,
+      0,
+      1170000
+     ],
+     "parsed_funded": [
+      485000,
+      685000,
+      0,
+      0,
+      0,
+      1170000
+     ],
+     "match": true
+    },
+    "Other Infrastructure": {
+     "city_p169": [
+      631900,
+      1258100,
+      2580300,
+      2186100,
+      1444600,
+      8101000
+     ],
+     "parsed_funded": [
+      631900,
+      1258100,
+      2580300,
+      2186100,
+      1444600,
+      8101000
+     ],
+     "match": true
+    },
+    "Parks": {
+     "city_p169": [
+      5990000,
+      2765000,
+      3175000,
+      3175000,
+      3175000,
+      18280000
+     ],
+     "parsed_funded": [
+      5990000,
+      2765000,
+      3175000,
+      3175000,
+      3175000,
+      18280000
+     ],
+     "match": true
+    },
+    "Sanitary Sewer": {
+     "city_p169": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "parsed_funded": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "match": true
+    },
+    "Sidewalks": {
+     "city_p169": [
+      2894224,
+      2770517,
+      2493579,
+      4035000,
+      3535000,
+      15728320
+     ],
+     "parsed_funded": [
+      2894224,
+      2770517,
+      2493579,
+      4035000,
+      3535000,
+      15728320
+     ],
+     "match": true
+    },
+    "Storm Water": {
+     "city_p169": [
+      5665000,
+      7290000,
+      2470000,
+      2300000,
+      2015000,
+      19740000
+     ],
+     "parsed_funded": [
+      5665000,
+      7290000,
+      2470000,
+      2300000,
+      2015000,
+      19740000
+     ],
+     "match": true
+    },
+    "Streets": {
+     "city_p169": [
+      32241345,
+      25970117,
+      27214629,
+      25204402,
+      28725654,
+      139356147
+     ],
+     "parsed_funded": [
+      32241345,
+      25970117,
+      27214629,
+      25204402,
+      28725654,
+      139356147
+     ],
+     "match": true
+    },
+    "Transportation": {
+     "city_p169": [
+      13387067,
+      12223960,
+      10203038,
+      6203942,
+      1550000,
+      43568007
+     ],
+     "parsed_funded": [
+      13387067,
+      12223960,
+      10203038,
+      6203942,
+      1550000,
+      43568007
+     ],
+     "match": true
+    },
+    "Waterfront": {
+     "city_p169": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "parsed_funded": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "match": true
+    }
    },
-   "166": {
-    "expected_p170": 77615255,
-    "parsed": 77615255,
-    "difference": 0
+   "funding_sources_p170": {
+    "Capital Improvements": {
+     "funds": [
+      "501"
+     ],
+     "city_p170": [
+      11885200,
+      12139816,
+      12412070,
+      12681193,
+      12945418,
+      62063697
+     ],
+     "parsed": [
+      11885200,
+      12139816,
+      12412070,
+      12681193,
+      12945418,
+      62063697
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas T1 - Infrstr And Fac": {
+     "funds": [
+      "511"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Clean Storm Water": {
+     "funds": [
+      "616"
+     ],
+     "city_p170": [
+      4465000,
+      6390000,
+      3470000,
+      3300000,
+      3015000,
+      20640000
+     ],
+     "parsed": [
+      4465000,
+      6390000,
+      3470000,
+      3300000,
+      3015000,
+      20640000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Marina Operations/Maint": {
+     "funds": [
+      "608"
+     ],
+     "city_p170": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "parsed": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Sanitary Sewer Operation": {
+     "funds": [
+      "611",
+      "NOT_PRINTED"
+     ],
+     "city_p170": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "parsed": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "match": true,
+     "note": "Includes four Sanitary Sewer rows that print no funding source (kept as NOT_PRINTED in the project data)."
+    },
+    "Zero Waste": {
+     "funds": [
+      "601"
+     ],
+     "city_p170": [
+      3750000,
+      2900000,
+      2400000,
+      2000000,
+      2000000,
+      13050000
+     ],
+     "parsed": [
+      3750000,
+      2900000,
+      2400000,
+      2000000,
+      2000000,
+      13050000
+     ],
+     "match": true,
+     "note": null
+    },
+    "GF Discretionary": {
+     "funds": [
+      "011"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - Federal": {
+     "funds": [
+      "305"
+     ],
+     "city_p170": [
+      500000,
+      0,
+      0,
+      0,
+      0,
+      500000
+     ],
+     "parsed": [
+      500000,
+      0,
+      0,
+      0,
+      0,
+      500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - Local": {
+     "funds": [
+      "307"
+     ],
+     "city_p170": [
+      758250,
+      1026250,
+      773500,
+      0,
+      0,
+      2558000
+     ],
+     "parsed": [
+      758250,
+      1026250,
+      773500,
+      0,
+      0,
+      2558000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - State": {
+     "funds": [
+      "306"
+     ],
+     "city_p170": [
+      1447000,
+      4681900,
+      4693200,
+      3710900,
+      0,
+      14533000
+     ],
+     "parsed": [
+      1447000,
+      4681900,
+      4693200,
+      3710900,
+      0,
+      14533000
+     ],
+     "match": true,
+     "note": null
+    },
+    "FEMA": {
+     "funds": [
+      "340"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "MTC": {
+     "funds": [
+      "339"
+     ],
+     "city_p170": [
+      1122000,
+      150000,
+      0,
+      0,
+      0,
+      1272000
+     ],
+     "parsed": [
+      1122000,
+      150000,
+      0,
+      0,
+      0,
+      1272000
+     ],
+     "match": true,
+     "note": null
+    },
+    "One-Time Grant:No Cap Exp": {
+     "funds": [
+      "336"
+     ],
+     "city_p170": [
+      1200000,
+      0,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "parsed": [
+      1200000,
+      0,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Equipment Replacement": {
+     "funds": [
+      "671"
+     ],
+     "city_p170": [
+      9995432,
+      5464714,
+      9798645,
+      9119322,
+      4974003,
+      39352116
+     ],
+     "parsed": [
+      9995432,
+      5464714,
+      9798645,
+      9119322,
+      4974003,
+      39352116
+     ],
+     "match": true,
+     "note": "Project lines of fund 671 (four Fleet EV Charger projects, $6,021,000, Other Infrastructure) plus the Equipment & Fleet vehicle schedule ($33,331,116, p.169)."
+    },
+    "It Cost Allocation": {
+     "funds": [
+      "680"
+     ],
+     "city_p170": [
+      485000,
+      535000,
+      0,
+      0,
+      0,
+      1020000
+     ],
+     "parsed": [
+      485000,
+      535000,
+      0,
+      0,
+      0,
+      1020000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas B - Bike And Pedestrian": {
+     "funds": [
+      "131"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas B - Local Streets and RDS": {
+     "funds": [
+      "130"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas BB - Bike and Pedestrian": {
+     "funds": [
+      "135"
+     ],
+     "city_p170": [
+      0,
+      258000,
+      258000,
+      0,
+      0,
+      516000
+     ],
+     "parsed": [
+      0,
+      258000,
+      258000,
+      0,
+      0,
+      516000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas BB - Local Streets and RD": {
+     "funds": [
+      "134"
+     ],
+     "city_p170": [
+      3380000,
+      3280000,
+      3280000,
+      3280000,
+      3280000,
+      16500000
+     ],
+     "parsed": [
+      3380000,
+      3280000,
+      3280000,
+      3280000,
+      3280000,
+      16500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas F - ALA CT VRF ST and RD": {
+     "funds": [
+      "133"
+     ],
+     "city_p170": [
+      255000,
+      255000,
+      255000,
+      255000,
+      255000,
+      1275000
+     ],
+     "parsed": [
+      255000,
+      255000,
+      255000,
+      255000,
+      255000,
+      1275000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Measure FF - Street Repair": {
+     "funds": [
+      "166"
+     ],
+     "city_p170": [
+      24328066,
+      14676515,
+      14342835,
+      11199906,
+      13067933,
+      77615255
+     ],
+     "parsed": [
+      24328066,
+      14676515,
+      14342835,
+      11199906,
+      13067933,
+      77615255
+     ],
+     "match": true,
+     "note": null
+    },
+    "Miles Lab": {
+     "funds": [
+      "145"
+     ],
+     "city_p170": [
+      100000,
+      0,
+      0,
+      0,
+      0,
+      100000
+     ],
+     "parsed": [
+      100000,
+      0,
+      0,
+      0,
+      0,
+      100000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Park Tax": {
+     "funds": [
+      "138"
+     ],
+     "city_p170": [
+      5975000,
+      2750000,
+      2775000,
+      2775000,
+      2775000,
+      17050000
+     ],
+     "parsed": [
+      5975000,
+      2750000,
+      2775000,
+      2775000,
+      2775000,
+      17050000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Playground Camp": {
+     "funds": [
+      "125"
+     ],
+     "city_p170": [
+      585000,
+      415000,
+      100000,
+      100000,
+      100000,
+      1300000
+     ],
+     "parsed": [
+      585000,
+      415000,
+      100000,
+      100000,
+      100000,
+      1300000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Private Party Sidewalks": {
+     "funds": [
+      "149"
+     ],
+     "city_p170": [
+      100000,
+      100000,
+      100000,
+      100000,
+      100000,
+      500000
+     ],
+     "parsed": [
+      100000,
+      100000,
+      100000,
+      100000,
+      100000,
+      500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "State Transportation Tax": {
+     "funds": [
+      "127"
+     ],
+     "city_p170": [
+      3435120,
+      3835113,
+      3094641,
+      2513345,
+      2445303,
+      15323522
+     ],
+     "parsed": [
+      3435120,
+      3835113,
+      3094641,
+      2513345,
+      2445303,
+      15323522
+     ],
+     "match": true,
+     "note": null
+    },
+    "Street And Open Space Impr": {
+     "funds": [
+      "139"
+     ],
+     "city_p170": [
+      150000,
+      0,
+      0,
+      0,
+      0,
+      150000
+     ],
+     "parsed": [
+      150000,
+      0,
+      0,
+      0,
+      0,
+      150000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Street Lighting": {
+     "funds": [
+      "142"
+     ],
+     "city_p170": [
+      200000,
+      680000,
+      200000,
+      0,
+      0,
+      1080000
+     ],
+     "parsed": [
+      200000,
+      680000,
+      200000,
+      0,
+      0,
+      1080000
+     ],
+     "match": true,
+     "note": null
+    },
+    "UC Settlement": {
+     "funds": [
+      "147"
+     ],
+     "city_p170": [
+      450000,
+      750000,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "parsed": [
+      450000,
+      750000,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "match": true,
+     "note": null
+    }
    },
-   "611": {
-    "expected_p170": 119920000,
-    "parsed": 119920000,
-    "difference": 0,
-    "note": "Includes 38,660,000 on four Sanitary Sewer rows that print no funding source. The p.170 table attributes all Sanitary Sewer CIP to fund 611; the rows themselves are kept as fund NOT_PRINTED."
-   },
-   "616": {
-    "expected_p170": 20640000,
-    "parsed": 20640000,
-    "difference": 0
-   },
-   "601": {
-    "expected_p170": 13050000,
-    "parsed": 13050000,
-    "difference": 0
-   },
-   "608": {
-    "expected_p170": 1750000,
-    "parsed": 1750000,
-    "difference": 0
-   },
-   "138": {
-    "expected_p170": 17050000,
-    "parsed": 17050000,
-    "difference": 0
-   },
-   "127": {
-    "expected_p170": 15323522,
-    "parsed": 15323522,
-    "difference": 0
-   },
-   "134": {
-    "expected_p170": 16500000,
-    "parsed": 16500000,
-    "difference": 0
-   },
-   "133": {
-    "expected_p170": 1275000,
-    "parsed": 1275000,
-    "difference": 0
+   "city_totals": {
+    "by_category_p169": 410618590,
+    "by_funding_source_p170_sum_of_group_totals": 410468590,
+    "difference": 150000,
+    "project_funding_absent_from_p170": {
+     "621": 150000
+    },
+    "explanation": "Fund 621 (Permit Service Center) funds one project, \"Clariti Integration With Erma\" ($150,000, FY2028, Information Technology). The project and the p.169 category table include it; the p.170 funding-source table has no row for fund 621. Its group totals sum to $410,468,590, $150,000 less than the p.169 category total of $410,618,590. The p.171 chart labels Enterprise Funds $155,510,000 against the table's $155,360,000, the same $150,000. Unresolved: which total the City intends.",
+    "unfunded_need_excluded_from_city_totals": 22075000
    }
   },
   "printed_total_rounding_differences": [
@@ -228,12 +1080,17 @@
  "excluded_categories": [
   {
    "category": "Equipment & Fleet",
-   "fund": "Equipment Replacement (internal service)",
-   "fy2027": 9995432,
-   "fy2028": 5464714,
-   "five_year": 39352116,
-   "source": "p.170 funding-source table, Equipment Replacement row",
-   "note": "p.174 prints Equipment & Fleet FY2027 as $9,563,532 and p.232 as \"$9.56 million\" for 49 vehicles; the p.170 Equipment Replacement row ($9,995,432) is larger. Difference not explained in the document."
+   "fund": "671 Equipment Replacement (internal service)",
+   "by_year": {
+    "fy2027": 9563532,
+    "fy2028": 4886614,
+    "fy2029": 8418345,
+    "fy2030": 6933222,
+    "fy2031": 3529403,
+    "five_year": 33331116
+   },
+   "source": "p.169 category table, Equipment & Fleet row; vehicle schedule pp.231-247",
+   "note": "Fleet vehicles only. The p.170 Equipment Replacement row ($39,352,116) also includes the four Fleet EV Charger projects ($6,021,000, fund 671) that are already in the Other Infrastructure project table; counting both would double-count them."
   }
  ],
  "categories": {

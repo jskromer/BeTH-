@@ -9,10 +9,40 @@ Working directory for Phase 2 research. **Nothing here is published.** No Phase 
 1. **`00-master-research-plan.md`** — what the phase is, what changed, what happens next
 2. **`01-marina-fund-case-study.md`** — the reconciliation that produced the phase's first real finding
 3. **`04-open-questions-and-missing-sources.md`** — what blocks publication
-4. **`07-street-funding-legal-analysis.md`** — which capital money could lawfully go to paving (CIP Fund 501, Measure FF), with the verified answer
+4. **`07-street-funding-legal-analysis.md`** — which capital money could lawfully go to paving (CIP Fund 501, Measure FF), with the open legal questions
 5. **`flags/`** — items flagged to Codex for protected-ledger review (DoubleTree, ledger 608)
-6. `docs/budget-choices.html` (serve `phase2/docs` over HTTP) and `docs/ask/` — prototype interface; verified Ask answers
+6. `docs/budget-choices.html` and `docs/ask/` — prototype interface; Ask answers that pass automated structural checks (not independently source-verified). See **Local preview** below.
 7. `02-capital-project-database-spec.md` · `03-vision2050-integration-plan.md` · `06-pci60-financial-model.md` · `05-budget-choices-dashboard-structure.md`
+
+## Local preview
+
+Serve the **repository root**, not `phase2/docs`. The evidence links point up the tree to `phase2/sources/*.pdf` and to the
+ACFR PDF at the repository root; a server rooted at `phase2/docs` cannot reach them and every source link returns 404.
+
+```
+cd <repository root>            # the directory that holds annual-comprehensive-financial-report-fy2025.pdf
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/phase2/docs/budget-choices.html` (seven tabs) and
+`http://localhost:8000/phase2/docs/ask/index.html` (four Ask pages). Opening the HTML file directly (`file://`) does
+not work: the page fetches `data/phase2.json` and `data/answers.json`.
+
+## Rebuild and test
+
+```
+python3 phase2/tools/extract_adopted_cip.py --write     # CIP projects; reconciles p.169 and p.170 year by year
+python3 phase2/tools/network_condition.py --write       # PTAP-25 segment list
+python3 phase2/tools/street_plan_conditions.py --write
+python3 phase2/tools/street_funding.py --write
+python3 phase2/tools/pci_model.py --emit
+python3 phase2/tools/build_answers.py --write           # Ask answers; refuses any answer that fails a check
+python3 phase2/tools/build_dashboard_data.py            # docs/data/phase2.json
+python3 -m unittest discover -s phase2/tests -v         # needs pdftotext and pdfinfo (poppler)
+```
+
+The Ask verifier runs automated structural checks only (citations exist, figures match records or cited pages, quotes
+are on the cited page, arithmetic recomputes). It is not independent source verification.
 
 ## The headline finding
 
