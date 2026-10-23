@@ -121,9 +121,10 @@
     "pdf_page": 77,
     "printed_page": 42
   },
-  "explanation": "Annual expenditure totals already include these amounts. Only the flow_detail/outflows categorization omitted them. Transfers and other financing uses are excluded from expenditure sums.",
+  "explanation": "Annual totals already match the audit and remain unchanged. Only flow_detail categorization omitted these expenditures and lease/subscription financing inflows. Financing is kind=financing, separate from own revenue and transfers (kind=rescue). Transfers and other financing uses are excluded from expenditure sums.",
   "affected_funds": 3,
   "omitted_expenditures": 36598654,
+  "omitted_financing": 18176377,
   "funds": [
     {
       "fund_number": "011",
@@ -374,8 +375,219 @@
           "cause": "Printed TRAN issuance costs row was absent from the expenditure whitelist.",
           "change": "add",
           "path": "/flow_detail/outflows"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 18156996,
+          "ledger_amount": null,
+          "proposed_amount": 18156996,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped financing label is parsed as \"subscriptions\"; inflow builder did not apply the configured alias.",
+          "change": "add",
+          "path": "/flow_detail/inflows",
+          "kind": "financing"
         }
       ],
+      "financing_categories": [
+        {
+          "source_label": "Transfers in",
+          "category": "Transfers in",
+          "source_amount": 8974480,
+          "ledger_amount": 8974480,
+          "proposed_amount": 8974480,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Transfers out",
+          "category": "Transfers out",
+          "source_amount": -33919159,
+          "ledger_amount": -33919159,
+          "proposed_amount": -33919159,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance",
+          "category": "Debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Premium on debt issuance",
+          "category": "Premium on debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 18156996,
+          "ledger_amount": null,
+          "proposed_amount": 18156996,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped financing label is parsed as \"subscriptions\"; inflow builder did not apply the configured alias."
+        },
+        {
+          "source_label": "Insurance recoveries",
+          "category": "Insurance Recoveries",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Sale of capital assets",
+          "category": "Sale of capital assets",
+          "source_amount": 13125,
+          "ledger_amount": 13125,
+          "proposed_amount": 13125,
+          "status": "RECONCILED"
+        }
+      ],
+      "existing_inflows": [
+        {
+          "line": "Taxes",
+          "amount": 231017187,
+          "kind": "own"
+        },
+        {
+          "line": "Licenses and permits",
+          "amount": 3463091,
+          "kind": "own"
+        },
+        {
+          "line": "Intergovernmental",
+          "amount": 640337,
+          "kind": "own"
+        },
+        {
+          "line": "Charges for service",
+          "amount": 14499016,
+          "kind": "own"
+        },
+        {
+          "line": "Fines and penalties",
+          "amount": 6122208,
+          "kind": "own"
+        },
+        {
+          "line": "Rents and royalties",
+          "amount": 379828,
+          "kind": "own"
+        },
+        {
+          "line": "Franchise",
+          "amount": 1859413,
+          "kind": "own"
+        },
+        {
+          "line": "donations",
+          "amount": 113889,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 27228774,
+          "kind": "own"
+        },
+        {
+          "line": "Miscellaneous",
+          "amount": 517429,
+          "kind": "own"
+        },
+        {
+          "line": "Transfers in",
+          "amount": 8974480,
+          "kind": "rescue"
+        },
+        {
+          "line": "Sale of capital assets",
+          "amount": 13125,
+          "kind": "financing"
+        }
+      ],
+      "proposed_inflows": [
+        {
+          "line": "Taxes",
+          "amount": 231017187,
+          "kind": "own"
+        },
+        {
+          "line": "Licenses and permits",
+          "amount": 3463091,
+          "kind": "own"
+        },
+        {
+          "line": "Intergovernmental",
+          "amount": 640337,
+          "kind": "own"
+        },
+        {
+          "line": "Charges for service",
+          "amount": 14499016,
+          "kind": "own"
+        },
+        {
+          "line": "Fines and penalties",
+          "amount": 6122208,
+          "kind": "own"
+        },
+        {
+          "line": "Rents and royalties",
+          "amount": 379828,
+          "kind": "own"
+        },
+        {
+          "line": "Franchise",
+          "amount": 1859413,
+          "kind": "own"
+        },
+        {
+          "line": "donations",
+          "amount": 113889,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 27228774,
+          "kind": "own"
+        },
+        {
+          "line": "Miscellaneous",
+          "amount": 517429,
+          "kind": "own"
+        },
+        {
+          "line": "Transfers in",
+          "amount": 8974480,
+          "kind": "rescue"
+        },
+        {
+          "line": "Inception of leases and subscriptions",
+          "amount": 18156996,
+          "kind": "financing"
+        },
+        {
+          "line": "Sale of capital assets",
+          "amount": 13125,
+          "kind": "financing"
+        }
+      ],
+      "audited_net_financing": -6774558,
+      "source_financing_sum": -6774558,
+      "existing_net_financing": -24931554,
+      "proposed_net_financing": -6774558,
+      "omitted_financing": 18156996,
+      "audited_revenue": 285841172,
+      "audited_net_change": 2124690,
+      "proposed_net_change": 2124690,
+      "beginning_balance": 152752975,
+      "ending_balance": 154877665,
+      "balances_reconcile": true,
       "annual_expenditure": 276941924,
       "audited_expenditure": 276941924,
       "source_category_sum": 276941924,
@@ -478,7 +690,13 @@
       ],
       "apply_automatically": false,
       "approval_required": true,
-      "status": "PENDING REVIEW"
+      "status": "PENDING REVIEW",
+      "patch": {
+        "path": "patches/011.json-patch.json",
+        "sha256": "fe50f8d20c30f1352c94542ac1c6c4137b33f88f27fac02c499fce6c916bf7c7",
+        "format": "RFC 6902 JSON Patch",
+        "applied": false
+      }
     },
     {
       "fund_number": "ACFR-grants",
@@ -717,8 +935,139 @@
           "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias.",
           "change": "add",
           "path": "/flow_detail/outflows"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 19381,
+          "ledger_amount": null,
+          "proposed_amount": 19381,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped financing label is parsed as \"subscriptions\"; inflow builder did not apply the configured alias.",
+          "change": "add",
+          "path": "/flow_detail/inflows",
+          "kind": "financing"
         }
       ],
+      "financing_categories": [
+        {
+          "source_label": "Transfers in",
+          "category": "Transfers in",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Transfers out",
+          "category": "Transfers out",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance",
+          "category": "Debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Premium on debt issuance",
+          "category": "Premium on debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 19381,
+          "ledger_amount": null,
+          "proposed_amount": 19381,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped financing label is parsed as \"subscriptions\"; inflow builder did not apply the configured alias."
+        },
+        {
+          "source_label": "Insurance recoveries",
+          "category": "Insurance Recoveries",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Sale of capital assets",
+          "category": "Sale of capital assets",
+          "source_amount": 4841,
+          "ledger_amount": 4841,
+          "proposed_amount": 4841,
+          "status": "RECONCILED"
+        }
+      ],
+      "existing_inflows": [
+        {
+          "line": "Intergovernmental",
+          "amount": 55283524,
+          "kind": "own"
+        },
+        {
+          "line": "Charges for service",
+          "amount": 211892,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 1081248,
+          "kind": "own"
+        },
+        {
+          "line": "Sale of capital assets",
+          "amount": 4841,
+          "kind": "financing"
+        }
+      ],
+      "proposed_inflows": [
+        {
+          "line": "Intergovernmental",
+          "amount": 55283524,
+          "kind": "own"
+        },
+        {
+          "line": "Charges for service",
+          "amount": 211892,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 1081248,
+          "kind": "own"
+        },
+        {
+          "line": "Inception of leases and subscriptions",
+          "amount": 19381,
+          "kind": "financing"
+        },
+        {
+          "line": "Sale of capital assets",
+          "amount": 4841,
+          "kind": "financing"
+        }
+      ],
+      "audited_net_financing": 24222,
+      "source_financing_sum": 24222,
+      "existing_net_financing": 4841,
+      "proposed_net_financing": 24222,
+      "omitted_financing": 19381,
+      "audited_revenue": 56576664,
+      "audited_net_change": 9337798,
+      "proposed_net_change": 9337798,
+      "beginning_balance": 61098121,
+      "ending_balance": 70435919,
+      "balances_reconcile": true,
       "annual_expenditure": 47263088,
       "audited_expenditure": 47263088,
       "source_category_sum": 47263088,
@@ -801,7 +1150,13 @@
       ],
       "apply_automatically": false,
       "approval_required": true,
-      "status": "PENDING REVIEW"
+      "status": "PENDING REVIEW",
+      "patch": {
+        "path": "patches/ACFR-grants.json-patch.json",
+        "sha256": "ace23269e16bcbbc6217ee21a70a045ac79fc74de1d2a64386cff074b84a4c86",
+        "format": "RFC 6902 JSON Patch",
+        "applied": false
+      }
     },
     {
       "fund_number": "ACFR-library",
@@ -1029,6 +1384,139 @@
         }
       ],
       "proposed_corrections": [],
+      "financing_categories": [
+        {
+          "source_label": "Transfers in",
+          "category": "Transfers in",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Transfers out",
+          "category": "Transfers out",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance",
+          "category": "Debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Premium on debt issuance",
+          "category": "Premium on debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Insurance recoveries",
+          "category": "Insurance Recoveries",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Sale of capital assets",
+          "category": "Sale of capital assets",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        }
+      ],
+      "existing_inflows": [
+        {
+          "line": "Taxes",
+          "amount": 26473928,
+          "kind": "own"
+        },
+        {
+          "line": "Intergovernmental",
+          "amount": 185558,
+          "kind": "own"
+        },
+        {
+          "line": "Fines and penalties",
+          "amount": 11990,
+          "kind": "own"
+        },
+        {
+          "line": "donations",
+          "amount": 209597,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 18356,
+          "kind": "own"
+        },
+        {
+          "line": "Miscellaneous",
+          "amount": 5567,
+          "kind": "own"
+        }
+      ],
+      "proposed_inflows": [
+        {
+          "line": "Taxes",
+          "amount": 26473928,
+          "kind": "own"
+        },
+        {
+          "line": "Intergovernmental",
+          "amount": 185558,
+          "kind": "own"
+        },
+        {
+          "line": "Fines and penalties",
+          "amount": 11990,
+          "kind": "own"
+        },
+        {
+          "line": "donations",
+          "amount": 209597,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 18356,
+          "kind": "own"
+        },
+        {
+          "line": "Miscellaneous",
+          "amount": 5567,
+          "kind": "own"
+        }
+      ],
+      "audited_net_financing": 0,
+      "source_financing_sum": 0,
+      "existing_net_financing": 0,
+      "proposed_net_financing": 0,
+      "omitted_financing": 0,
+      "audited_revenue": 26904996,
+      "audited_net_change": 718286,
+      "proposed_net_change": 718286,
+      "beginning_balance": 24336452,
+      "ending_balance": 25054738,
+      "balances_reconcile": true,
       "annual_expenditure": 26186710,
       "audited_expenditure": 26186710,
       "source_category_sum": 26186710,
@@ -1300,6 +1788,109 @@
           "path": "/flow_detail/outflows"
         }
       ],
+      "financing_categories": [
+        {
+          "source_label": "Transfers in",
+          "category": "Transfers in",
+          "source_amount": 14834267,
+          "ledger_amount": 14834267,
+          "proposed_amount": 14834267,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Transfers out",
+          "category": "Transfers out",
+          "source_amount": -2251650,
+          "ledger_amount": -2251650,
+          "proposed_amount": -2251650,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance",
+          "category": "Debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Premium on debt issuance",
+          "category": "Premium on debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Insurance recoveries",
+          "category": "Insurance Recoveries",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Sale of capital assets",
+          "category": "Sale of capital assets",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        }
+      ],
+      "existing_inflows": [
+        {
+          "line": "Charges for service",
+          "amount": 142500,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 18515,
+          "kind": "own"
+        },
+        {
+          "line": "Transfers in",
+          "amount": 14834267,
+          "kind": "rescue"
+        }
+      ],
+      "proposed_inflows": [
+        {
+          "line": "Charges for service",
+          "amount": 142500,
+          "kind": "own"
+        },
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 18515,
+          "kind": "own"
+        },
+        {
+          "line": "Transfers in",
+          "amount": 14834267,
+          "kind": "rescue"
+        }
+      ],
+      "audited_net_financing": 12582617,
+      "source_financing_sum": 12582617,
+      "existing_net_financing": 12582617,
+      "proposed_net_financing": 12582617,
+      "omitted_financing": 0,
+      "audited_revenue": 161015,
+      "audited_net_change": -3342122,
+      "proposed_net_change": -3342122,
+      "beginning_balance": 27173791,
+      "ending_balance": 23831669,
+      "balances_reconcile": true,
       "annual_expenditure": 16085754,
       "audited_expenditure": 16085754,
       "source_category_sum": 16085754,
@@ -1366,7 +1957,13 @@
       ],
       "apply_automatically": false,
       "approval_required": true,
-      "status": "PENDING REVIEW"
+      "status": "PENDING REVIEW",
+      "patch": {
+        "path": "patches/501.json-patch.json",
+        "sha256": "1dac164a6bd1f05f66643d6f4a7b75e1ae4f711024c25798ed9cbbb707068e1f",
+        "format": "RFC 6902 JSON Patch",
+        "applied": false
+      }
     },
     {
       "fund_number": "ACFR-measure-o-housing-bond",
@@ -1594,6 +2191,89 @@
         }
       ],
       "proposed_corrections": [],
+      "financing_categories": [
+        {
+          "source_label": "Transfers in",
+          "category": "Transfers in",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Transfers out",
+          "category": "Transfers out",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance",
+          "category": "Debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Premium on debt issuance",
+          "category": "Premium on debt issuance",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "subscriptions",
+          "category": "Inception of leases and subscriptions",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Insurance recoveries",
+          "category": "Insurance Recoveries",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Sale of capital assets",
+          "category": "Sale of capital assets",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        }
+      ],
+      "existing_inflows": [
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 1917950,
+          "kind": "own"
+        }
+      ],
+      "proposed_inflows": [
+        {
+          "line": "Investment income/ (loss)",
+          "amount": 1917950,
+          "kind": "own"
+        }
+      ],
+      "audited_net_financing": 0,
+      "source_financing_sum": 0,
+      "existing_net_financing": 0,
+      "proposed_net_financing": 0,
+      "omitted_financing": 0,
+      "audited_revenue": 1917950,
+      "audited_net_change": 1917950,
+      "proposed_net_change": 1917950,
+      "beginning_balance": 79408911,
+      "ending_balance": 81326861,
+      "balances_reconcile": true,
       "annual_expenditure": 0,
       "audited_expenditure": 0,
       "source_category_sum": 0,
@@ -1620,7 +2300,7 @@
   "preservation_verified": true,
   "apply_automatically": false,
   "decisions": [
-    "Manually review and approve the four category additions for General Fund, Grants and Capital Improvement.",
+    "Manually review the six category additions in three combined JSON patches: expenditures plus financing for General Fund and Grants; expenditures only for Capital Improvement. Do not apply these patches during the pilot.",
     "General Fund is protected. No protected ledger may be edited automatically; approve a separate manual change before application.",
     "Any published breakdown correction requires a separately authorized publication step. No page builder or dashboard changes are part of this report."
   ]

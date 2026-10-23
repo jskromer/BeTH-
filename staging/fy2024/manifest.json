@@ -804,8 +804,8 @@
     },
     "tests/test_expenditure_breakdown.py": {
       "role": "audited page 77 category, protection and correction regression tests",
-      "sha256": "c74b1bc1982b0b8234b0651208f3d5dbe6c7c33f521a019e0ad75e258a75268f",
-      "size_bytes": 5609
+      "sha256": "37128b8e6e6bf5c1dd8cb3c9c5c421e336015fbd837cd3862dae5d21e231200b",
+      "size_bytes": 10167
     },
     "tests/test_extraction_safety.py": {
       "role": "extraction safety and FY2025 regression tests",
@@ -814,8 +814,8 @@
     },
     "tests/test_fy2024_reconciliation.py": {
       "role": "pilot reconciliation and manifest regression tests",
-      "sha256": "7d9d390f30ef167d1805ba04abf0732d2b2c14848a2c5961932917e7d7856edc",
-      "size_bytes": 15328
+      "sha256": "2ed8c02c5576ca136ecdd243a32e4897a611fdaa83e30e9dfabe8218a66ce41b",
+      "size_bytes": 15745
     },
     "tools/acfr_config.py": {
       "role": "year configuration loader",
@@ -824,8 +824,8 @@
     },
     "tools/acfr_funds.py": {
       "role": "shared fund identities and FY2025 compatibility extractor",
-      "sha256": "b915128ac5726fc5ef94870e1190640bd0b3b01fff0e3b7c7e0eb35fca84efdb",
-      "size_bytes": 11655
+      "sha256": "7ae56ffba7483628abc1f733e5272fb9434d68fd3127680bde7f77412c562dc2",
+      "size_bytes": 12302
     },
     "tools/acfr_parse.py": {
       "role": "PDF statement parser",
@@ -869,8 +869,8 @@
     },
     "tools/reconcile_expenditure_breakdown.py": {
       "role": "source-to-ledger expenditure correction staging and verification",
-      "sha256": "3afca1b40e914837b2009d60f86a1e214f3d6a17188e7e9253004b9547d2df30",
-      "size_bytes": 11502
+      "sha256": "384dac00736b7b20d3636829a174e2cefa00f5fc77cb9656dd0371ec5ea858ec",
+      "size_bytes": 19749
     }
   },
   "preservation": {

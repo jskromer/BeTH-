@@ -77,6 +77,20 @@ def governmental_expense_items(rows, config):
     return {label: values[label] for label in GOV_EXP if values.get(label)}
 
 
+def governmental_financing_items(rows, config):
+    """Normalize financing labels once; aliases must never duplicate a category."""
+    values, observed = {}, {}
+    for raw_label, amount in rows.items():
+        label = config['row_aliases'].get(raw_label, raw_label)
+        if label not in OTHER_IN:
+            continue
+        if label in observed:
+            raise SafetyError(f'Duplicate financing label aliases: {observed[label]!r}, {raw_label!r}')
+        observed[label] = raw_label
+        values[label] = amount
+    return {label: values[label] for label in OTHER_IN if values.get(label)}
+
+
 def gov_record(name, d, ftype, page, config=None):
     config = config or DEFAULT_CONFIG
     labels = config["labels"]
@@ -86,7 +100,8 @@ def gov_record(name, d, ftype, page, config=None):
     ti = required(d, "Transfers in")
     to = required(d, "Transfers out")
     inflows = [{"line": k.rstrip(":"), "amount": v, "kind": "own"} for k, v in rev.items()]
-    inflows += [{"line": k, "amount": d[k], "kind": "rescue" if k == "Transfers in" else "financing"} for k in OTHER_IN if d.get(k)]
+    inflows += [{"line": k, "amount": v, "kind": "rescue" if k == "Transfers in" else "financing"}
+                for k, v in governmental_financing_items(d, config).items()]
     outflows = [{"line": k.rstrip(":"), "amount": v} for k, v in exp.items()]
     outflows += [{"line": k, "amount": abs(d[k])} for k in OTHER_OUT if d.get(k)]
     return {

@@ -16,6 +16,21 @@ import reconcile_expenditure_breakdown as breakdown
 
 
 class CategoryTests(unittest.TestCase):
+    def test_financing_wrapped_and_full_labels_are_recognized_once(self):
+        for year in (2024,2025):
+            for label in ('subscriptions','Inception of leases and subscriptions'):
+                rows = {label:18156996,'Transfers in':8974480,'Sale of capital assets':13125}
+                before = copy.deepcopy(rows)
+                self.assertEqual(acfr_funds.governmental_financing_items(rows,load_year(year)),
+                    {'Transfers in':8974480,'Inception of leases and subscriptions':18156996,'Sale of capital assets':13125})
+                self.assertEqual(rows,before)
+
+    def test_duplicate_financing_aliases_fail_even_if_equal_or_zero(self):
+        for wrapped, full in ((19,19),(19,20),(0,0)):
+            with self.subTest(values=(wrapped,full)), self.assertRaisesRegex(SafetyError,'Duplicate financing label aliases'):
+                acfr_funds.governmental_financing_items(
+                    {'subscriptions':wrapped,'Inception of leases and subscriptions':full},load_year(2025))
+
     def test_wrapped_and_unwrapped_labels_match_without_changing_input(self):
         for year in (2024,2025):
             for label in ('and housing','Community development and housing'):
@@ -69,7 +84,68 @@ class SourceToLedgerTests(unittest.TestCase):
         self.assertEqual(self.report['source']['pdf_page'],77)
         self.assertEqual(self.report['omitted_expenditures'],36598654)
         self.assertEqual(self.report['affected_funds'],3)
-        self.assertEqual(sum(len(f['proposed_corrections']) for f in self.report['funds']),4)
+        self.assertEqual(sum(len(f['proposed_corrections']) for f in self.report['funds']),6)
+
+    def test_audited_financing_values_and_rollforwards(self):
+        # Independent visual reading: FY2025 PDF p.77 / printed p.42.
+        for fid,lease,net,change in (('011',18156996,-6774558,2124690),
+                                  ('ACFR-grants',19381,24222,9337798),
+                                  ('501',0,12582617,-3342122)):
+            f = self.funds[fid]
+            row = next(c for c in f['financing_categories'] if c['source_label']=='subscriptions')
+            self.assertEqual(row['source_amount'],lease)
+            self.assertEqual(f['omitted_financing'],lease)
+            self.assertEqual(f['audited_net_financing'],net)
+            self.assertEqual(f['source_financing_sum'],net)
+            self.assertEqual(f['proposed_net_financing'],net)
+            self.assertEqual(f['proposed_net_change'],change)
+            self.assertEqual(f['audited_net_change'],change)
+            self.assertTrue(f['balances_reconcile'])
+        self.assertEqual(self.report['omitted_financing'],18176377)
+
+    def test_financing_is_separate_from_unchanged_revenue_and_transfers(self):
+        for f in self.funds.values():
+            old, proposed = f['existing_inflows'], f['proposed_inflows']
+            for kind in ('own','rescue'):
+                self.assertEqual([r for r in old if r['kind']==kind], [r for r in proposed if r['kind']==kind])
+            rows = [r for r in proposed if r['line']=='Inception of leases and subscriptions']
+            if f['fund_number'] in ('011','ACFR-grants'):
+                self.assertEqual(len(rows),1)
+                self.assertEqual(rows[0]['kind'],'financing')
+            else:
+                self.assertEqual(rows,[])
+
+    def test_three_combined_patches_preserve_all_other_evidence_in_memory(self):
+        self.assertEqual(len(list((self.out/'patches').glob('*.json'))),3)
+        sums = (self.out/'patches/SHA256SUMS').read_text()
+        for fid in ('011','ACFR-grants','501'):
+            f = self.funds[fid]
+            patch = self.out/f['patch']['path']
+            self.assertEqual(breakdown.digest(patch),f['patch']['sha256'])
+            self.assertIn(f"{f['patch']['sha256']}  {patch.name}",sums)
+            original = json.loads((ROOT/f['ledger_path']).read_text())
+            proposed = copy.deepcopy(original)
+            # Evaluate the standard JSON Patch on an in-memory copy only.
+            changed_paths = []
+            for op in json.loads(patch.read_text()):
+                parts = op['path'].strip('/').split('/')
+                parent = proposed
+                for key in parts[:-1]:
+                    parent = parent[key]
+                if op['op']=='test':
+                    self.assertEqual(parent[parts[-1]],op['value'])
+                else:
+                    self.assertEqual(op['op'],'replace')
+                    changed_paths.append(op['path'])
+                    parent[parts[-1]] = copy.deepcopy(op['value'])
+            self.assertEqual(changed_paths,['/flow_detail/inflows','/flow_detail/outflows'] if fid!='501' else ['/flow_detail/outflows'])
+            for key in ('inflows','outflows'):
+                self.assertEqual(proposed['flow_detail'][key],f[f'proposed_{key}'])
+                old = original['flow_detail'][key]
+                self.assertEqual([r for r in proposed['flow_detail'][key] if r in old],old)
+                proposed['flow_detail'][key] = copy.deepcopy(old)
+            self.assertEqual(proposed,original)
+            self.assertEqual(breakdown.digest(ROOT/f['ledger_path']),f['ledger_sha256'])
 
     def test_all_five_major_fund_breakdowns_reconcile_to_source_totals(self):
         self.assertEqual(len(self.funds),5)
