@@ -1,0 +1,1292 @@
+{
+ "fy": 2025,
+ "pdf_sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+ "method": "plain-text statement columns; see tools/verify_fund_statements.py",
+ "fields": [
+  "revenue",
+  "expenditure",
+  "transfers_in",
+  "transfers_out (negative as printed)",
+  "ending_balance"
+ ],
+ "funds": {
+  "011": {
+   "status": "matched",
+   "pages": "77",
+   "values": [
+    285841172,
+    276941924,
+    8974480,
+    -33919159,
+    154877665
+   ],
+   "candidate_columns": 1
+  },
+  "501": {
+   "status": "matched",
+   "pages": "77",
+   "values": [
+    161015,
+    16085754,
+    14834267,
+    -2251650,
+    23831669
+   ],
+   "candidate_columns": 1
+  },
+  "511": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    574517,
+    8705903,
+    0,
+    -430000,
+    18227952
+   ],
+   "candidate_columns": 1
+  },
+  "511-debt-service": {
+   "status": "matched",
+   "pages": "253-254",
+   "values": [
+    4283824,
+    3760906,
+    0,
+    0,
+    7668775
+   ],
+   "candidate_columns": 1
+  },
+  "608": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    7594812,
+    13573896,
+    0,
+    -17452,
+    2743673
+   ],
+   "candidate_columns": 1
+  },
+  "611": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    25324299,
+    17943570,
+    520501,
+    -193023,
+    196335122
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-1st-response-advanced-life-support-alsfr": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    -5998
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-2009-measure-ff-library": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    1434307,
+    1334036,
+    0,
+    0,
+    2109177
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-2010-cop-animal-shelter": {
+   "status": "matched",
+   "pages": "253-254",
+   "values": [
+    0,
+    139900,
+    402613,
+    -536325,
+    45640
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-affordable-child-care": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    0,
+    13274,
+    0,
+    0,
+    541529
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-affordable-housing-mitigation-fee": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    831330,
+    643933,
+    0,
+    0,
+    55651797
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-alameda-county-abandoned-vehicle-abatement-autho": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    31764,
+    90630,
+    0,
+    0,
+    205131
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-animal-shelter": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    33941,
+    30311,
+    0,
+    0,
+    147549
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-asset-forfeiture": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    2343,
+    31493,
+    0,
+    0,
+    89687
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-building-maintenance": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    3920174,
+    5262019,
+    0,
+    0,
+    -4035236
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-building-purchases-management": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    2559388,
+    2569399,
+    0,
+    0,
+    -4432762
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-business-economic-development": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    67811,
+    31127,
+    0,
+    0,
+    1543585
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-catastrophic-loss": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    0,
+    7720055,
+    7720657,
+    0,
+    -468435
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-cdbg": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    3654586,
+    3940710,
+    0,
+    0,
+    7169798
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-central-services": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    359180,
+    403193,
+    0,
+    0,
+    -114118
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-citywide-rlf": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    9910,
+    0,
+    0,
+    0,
+    811116
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-clean-storm-water": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    4685118,
+    4622382,
+    29170,
+    -25085,
+    28965135
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-community-workforce": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    10074
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-computer-replacement": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    644
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-condo-conversion-program": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    2290,
+    36112,
+    0,
+    0,
+    3909398
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-domestic-violence-prevention-vital-statistics": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    20696,
+    12834,
+    0,
+    0,
+    54334
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-east-bay-public-utilities-commission": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    122,
+    0,
+    0,
+    0,
+    4114
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-employee-training": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    0,
+    645550,
+    750000,
+    0,
+    235967
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-energy-commission": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    -87
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-equipment-maintenance-replacement": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    19349244,
+    16390504,
+    3759380,
+    -2000000,
+    39849214
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-fair-elections": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    0,
+    531883,
+    612210,
+    0,
+    1080147
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-fire-admin-training-building-bond": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    0,
+    4748923,
+    7500000,
+    0,
+    13000000
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-fund-for-impounded-and-unneutered": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    220,
+    0,
+    0,
+    0,
+    7498
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-fund-raising-activities": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    176734,
+    24325,
+    0,
+    0,
+    1024060
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-fund-replacement": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    0,
+    1144081,
+    3846400,
+    0,
+    758218
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-gilman-fields-reserve": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    75000,
+    0,
+    0,
+    0,
+    1117277
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-gilman-sport-field": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    439352,
+    302281,
+    0,
+    0,
+    223057
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-go-2014-measure-m-street-and-watershed-improveme": {
+   "status": "matched",
+   "pages": "253-254",
+   "values": [
+    1912410,
+    1634688,
+    0,
+    0,
+    3645153
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    418340,
+    376172,
+    0,
+    0,
+    1444077
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    2241105,
+    2041788,
+    0,
+    0,
+    3099996
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    149407,
+    141371,
+    0,
+    0,
+    503645
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    507984,
+    478207,
+    0,
+    0,
+    611327
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-grants": {
+   "status": "matched",
+   "pages": "77",
+   "values": [
+    56576664,
+    47263088,
+    0,
+    0,
+    70435919
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-health-state-aid-realignment": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    2228639,
+    1158797,
+    1953018,
+    -2643280,
+    6291834
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-housing-finance-agency": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    193819
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-inclusionary-housing-program": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    246675,
+    318699,
+    0,
+    0,
+    1938144
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-income-housing-fund-savo-island-project": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    441140
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-income-housing-fund-west-improvement-project": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    3104864
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-it-cost-allocation-plan": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    16981907,
+    16704509,
+    71335,
+    -3396355,
+    -5284045
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-legacy-fund": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    79294
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-library": {
+   "status": "matched",
+   "pages": "77",
+   "values": [
+    26904996,
+    26186710,
+    0,
+    0,
+    25054738
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-lillie-b-wall-memorial": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    1048,
+    0,
+    0,
+    0,
+    16395
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-b-bike-and-pedestrian": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    10645,
+    521384,
+    0,
+    0,
+    66427
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-b-local-streets-and-roads": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    108514,
+    1893445,
+    0,
+    0,
+    2160634
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-b-paratransit": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    818,
+    0,
+    0,
+    0,
+    697
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-bb-bike-and-pedestrian": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    867748,
+    609133,
+    0,
+    0,
+    1014885
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-bb-local-streets-and-roads": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    8099732,
+    5118669,
+    0,
+    0,
+    13231063
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-bb-paratransit": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    827913,
+    1180226,
+    0,
+    0,
+    254520
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-e-special-tax-for-disabled": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    1774821,
+    1734281,
+    0,
+    0,
+    265260
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-f-alameda-county-vrf-street-and-road": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    748350,
+    961305,
+    0,
+    0,
+    1194103
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-ff-public-safety": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    10309975,
+    14117158,
+    0,
+    -8257925,
+    4036365
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-g-fire-seismic-projects": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    58
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-g-public-safety-building": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    197,
+    0,
+    0,
+    0,
+    6654
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-gg-fire-preparation-tax": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    5957230,
+    5507030,
+    0,
+    0,
+    3183254
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-m-street-and-watershed-improvements": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    24114,
+    125365,
+    0,
+    0,
+    734892
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-o-housing-bond": {
+   "status": "matched",
+   "pages": "77",
+   "values": [
+    1917950,
+    0,
+    0,
+    0,
+    81326861
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-measure-o-housing-bond-debt-service": {
+   "status": "matched",
+   "pages": "253-254",
+   "values": [
+    7470351,
+    4606736,
+    0,
+    0,
+    8929540
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-mental-health-state-aid-realignment": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    2881975,
+    4039973,
+    0,
+    0,
+    5277586
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-miles-lab": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    0,
+    907,
+    0,
+    0,
+    295995
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-off-street-parking": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    5022846,
+    7322441,
+    1000000,
+    -7920,
+    7050595
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-one-time-funding": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    826328,
+    50000,
+    0,
+    0,
+    2411599
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-opt-public-safety": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    423976,
+    357617,
+    0,
+    0,
+    1446942
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-other-special-deposits": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "candidate_columns": 33
+  },
+  "ACFR-paramedic-assessment-district": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    3967557,
+    4343399,
+    757925,
+    -10716,
+    314621
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-park-acquisition-development": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    2417,
+    242,
+    0,
+    0,
+    41492
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-park-tax": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    19415084,
+    17712400,
+    0,
+    -115338,
+    12320424
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-parking-in-lieu-fee": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    1290000
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-parking-meter": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    8814428,
+    7918628,
+    0,
+    -2050938,
+    -2032090
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-pension-refunding-bonds": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    128660
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-permit-service-center": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    22513267,
+    23048058,
+    0,
+    -55637,
+    20397123
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-pers-savings": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    1907185,
+    63999,
+    5352059,
+    -3000000,
+    30700754
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-phone-system-replacement": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    0,
+    528899,
+    0,
+    0,
+    853317
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-playground-camp": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    4276759,
+    4162255,
+    0,
+    -3000,
+    638208
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-private-party-sidewalks": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    312355,
+    548981,
+    0,
+    0,
+    1274786
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-private-percent-art-fund": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    552576,
+    369259,
+    0,
+    0,
+    3329193
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-public-art": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    0,
+    78084,
+    309927,
+    0,
+    418842
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-public-education-and-government-access-facilitie": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    117200,
+    267210,
+    0,
+    0,
+    2434285
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-public-liability": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    0,
+    1707503,
+    2664292,
+    -1792557,
+    -5682317
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-rental-housing-safety-program": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    2762419,
+    2098141,
+    0,
+    0,
+    5113603
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-repertory-theatre": {
+   "status": "matched",
+   "pages": "251-252",
+   "values": [
+    335,
+    500003,
+    499802,
+    0,
+    -10088
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-sec-108-hud-loan-grant-assistance": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    129846,
+    1149465,
+    0,
+    0,
+    3234285
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-shelter-operations": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    81351
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-sick-leave-vacation-payouts": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    4145187,
+    3262849,
+    0,
+    0,
+    9941612
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-state-proposition-172": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    1165579,
+    1011709,
+    0,
+    0,
+    1791357
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-state-transportation-tax": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    7266014,
+    7024607,
+    0,
+    -29170,
+    8881304
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-street-and-open-space-improvement": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    2951402
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-street-improvement": {
+   "status": "matched",
+   "pages": "249-250",
+   "values": [
+    2811,
+    0,
+    0,
+    0,
+    94814
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-street-lighting": {
+   "status": "matched",
+   "pages": "243-244",
+   "values": [
+    2302410,
+    2325734,
+    0,
+    -12120,
+    2374321
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-tieback-mitigation-r-o-w": {
+   "status": "matched",
+   "pages": "239-240",
+   "values": [
+    37800,
+    0,
+    0,
+    0,
+    1356529
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-tobacco-control": {
+   "status": "matched",
+   "pages": "247-248",
+   "values": [
+    227359,
+    351072,
+    0,
+    0,
+    -436
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-traffic-congestion-relief": {
+   "status": "matched",
+   "pages": "241-242",
+   "values": [
+    0,
+    0,
+    0,
+    0,
+    12
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-uc-settlement": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    4480181,
+    5354520,
+    0,
+    0,
+    4846033
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-vital-and-health-statistic": {
+   "status": "matched",
+   "pages": "245-246",
+   "values": [
+    28457,
+    11475,
+    0,
+    0,
+    316419
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-workers-compensation": {
+   "status": "matched",
+   "pages": "321-322",
+   "values": [
+    0,
+    11983900,
+    0,
+    0,
+    -9752938
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-workforce-investment-act": {
+   "status": "matched",
+   "pages": "237-238",
+   "values": [
+    0,
+    55737,
+    35542,
+    0,
+    102705
+   ],
+   "candidate_columns": 1
+  },
+  "ACFR-zero-waste": {
+   "status": "matched",
+   "pages": "85-86",
+   "values": [
+    55824861,
+    57295995,
+    0,
+    -845928,
+    -923233
+   ],
+   "candidate_columns": 1
+  }
+ },
+ "matched": 106,
+ "columns_without_a_fund": {
+  "governmental": 6,
+  "enterprise": 2,
+  "internal_service": 1
+ }
+}

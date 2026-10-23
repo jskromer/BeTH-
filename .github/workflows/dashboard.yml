@@ -1,0 +1,59 @@
+name: Dashboard
+# Two jobs, chosen by which files a pull request touches (see tools/DASHBOARD.md):
+#  - dashboard-reproducible: blocking, for PRs that change the dashboard or its inputs it owns.
+#    The committed docs/dashboard.html must equal a fresh build and have no integrity problems.
+#  - dashboard-freshness: advisory, for PRs that change ledgers only. Reports whether the
+#    dashboard needs a rebuild; never fails the PR.
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      dashboard: ${{ steps.filter.outputs.dashboard }}
+      ledgers: ${{ steps.filter.outputs.ledgers }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: filter
+        run: |
+          files=$(git diff --name-only "origin/${{ github.base_ref || 'main' }}...HEAD")
+          echo "$files"
+          if echo "$files" | grep -qE '^(tools/build_dashboard\.py|tools/verify_fund_statements\.py|docs/dashboard\.html|data/dashboard/|tests/test_dashboard|\.github/workflows/dashboard\.yml)'; then
+            echo "dashboard=true" >> "$GITHUB_OUTPUT"; else echo "dashboard=false" >> "$GITHUB_OUTPUT"; fi
+          if echo "$files" | grep -qE '^data/funds/'; then
+            echo "ledgers=true" >> "$GITHUB_OUTPUT"; else echo "ledgers=false" >> "$GITHUB_OUTPUT"; fi
+
+  dashboard-reproducible:
+    needs: changes
+    if: needs.changes.outputs.dashboard == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tests/requirements.txt
+      - run: python -m unittest tests.test_dashboard tests.test_dashboard_sources -v
+      - run: python tools/verify_fund_statements.py
+      - run: python tools/build_dashboard.py --check
+
+  dashboard-freshness:
+    needs: changes
+    if: needs.changes.outputs.ledgers == 'true' && needs.changes.outputs.dashboard != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Report whether docs/dashboard.html needs a rebuild (advisory)
+        run: |
+          if python tools/build_dashboard.py --check; then
+            echo "Dashboard is current for these ledgers."
+          else
+            echo "::warning title=Dashboard rebuild needed::Ledger data changed. After this PR merges, open a dashboard rebuild PR (tools/DASHBOARD.md). This does not block the PR."
+          fi

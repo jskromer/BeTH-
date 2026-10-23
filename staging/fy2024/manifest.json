@@ -249,8 +249,8 @@
     },
     "data/funds/011.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "a5ca14c01eafb349f9731c567c7c51340973ae5c0d5ba94f26d0c39ea7bc60c2",
-      "size_bytes": 12763
+      "sha256": "b03799b1b1ce067ce16a1ad3385f0c30a072dbcf5cd959cc746ca415f4b04984",
+      "size_bytes": 13362
     },
     "data/funds/501.json": {
       "role": "existing ledger comparison and preservation evidence",
@@ -859,8 +859,8 @@
     },
     "tests/test_expenditure_breakdown.py": {
       "role": "historical omission, immutable evidence and corrected-ledger regression tests",
-      "sha256": "e0c90383a97e4e3233ad8134d55895e61b752356556f277b3b364d4fedc5e79e",
-      "size_bytes": 15446
+      "sha256": "9a9e6d6c7fa56750e402f607ca172ca4ccc510659d300f777954124b228832ce",
+      "size_bytes": 17169
     },
     "tests/test_extraction_safety.py": {
       "role": "extraction safety and FY2025 regression tests",
@@ -914,8 +914,8 @@
     },
     "tools/ledger.py": {
       "role": "ledger validation",
-      "sha256": "ff07bd73bbf8656f226f30ec1f428f6a5c62bb1ef1fecbf5ccaba99dd750f433",
-      "size_bytes": 4917
+      "sha256": "d752a84e0bcdacb905fc5a147062048477b73a8fdc3edc4f4fe4e2405133071e",
+      "size_bytes": 4941
     },
     "tools/ledger_safety.py": {
       "role": "protected registry and annual identity rules",

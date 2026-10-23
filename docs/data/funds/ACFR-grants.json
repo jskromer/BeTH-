@@ -47,6 +47,11 @@
     "kind": "own"
    },
    {
+    "line": "Inception of leases and subscriptions",
+    "amount": 19381,
+    "kind": "financing"
+   },
+   {
     "line": "Sale of capital assets",
     "amount": 4841,
     "kind": "financing"
@@ -72,6 +77,10 @@
    {
     "line": "Culture-recreation",
     "amount": 993674
+   },
+   {
+    "line": "Community development and housing",
+    "amount": 13584981
    },
    {
     "line": "Economic development",

@@ -34,7 +34,7 @@ Year configurations already permit the corresponding FY2024 wrapped labels. The 
 
 ## General Fund (011)
 
-Status: RECONCILED; protected: True; approval required: False. Baseline ledger SHA-256 `a5ca14c01eafb349f9731c567c7c51340973ae5c0d5ba94f26d0c39ea7bc60c2`.
+Status: RECONCILED; protected: True; approval required: False. Baseline ledger SHA-256 `b03799b1b1ce067ce16a1ad3385f0c30a072dbcf5cd959cc746ca415f4b04984`.
 
 | Source row label | Canonical category | Audited amount | Stored category amount | Proposed category amount |
 |---|---|---:|---:|---:|
