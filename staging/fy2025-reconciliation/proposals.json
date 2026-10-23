@@ -133,7 +133,7 @@
       "name": "General Fund",
       "protected": true,
       "ledger_path": "data/funds/011.json",
-      "ledger_sha256": "a5ca14c01eafb349f9731c567c7c51340973ae5c0d5ba94f26d0c39ea7bc60c2",
+      "ledger_sha256": "b03799b1b1ce067ce16a1ad3385f0c30a072dbcf5cd959cc746ca415f4b04984",
       "source": {
         "fiscal_year": 2025,
         "source_id": "acfr-2025",
@@ -2223,7 +2223,7 @@
     }
   ],
   "protected_ledger_checksums": {
-    "011": "a5ca14c01eafb349f9731c567c7c51340973ae5c0d5ba94f26d0c39ea7bc60c2",
+    "011": "b03799b1b1ce067ce16a1ad3385f0c30a072dbcf5cd959cc746ca415f4b04984",
     "608": "23a8d30daf45032924e5c949a0b4726550fd4af6f8b3149762cf1043af4483d0",
     "ACFR-equipment-maintenance-replacement": "f8dd7b295a84a2da14dde618bc0c4cbad51f13f90cfa57bf462fbed62a371878",
     "ACFR-park-tax": "d5733f22cd919ec86d6d770dd9dde6642c3cb095768196dd405c47dfd06f0551",
