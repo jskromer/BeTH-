@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / 'sources' / 'cip-fy27-31-presentation.txt'
-OUT = ROOT / 'data' / 'cip-projects.json'
+OUT = ROOT / 'data' / 'cip-presentation.json'
 
 BANNER = re.compile(r'^\s*(PRW|PUBLIC WORKS|IT)\s+FY27-28 CIP BUDGET\s*(.*?)\s*$', re.I)
 DEPT = {'PRW': 'Parks, Recreation & Waterfront', 'PUBLIC WORKS': 'Public Works',

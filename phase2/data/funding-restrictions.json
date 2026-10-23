@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "compiled": "2026-10-23",
+ "compiled": "2026-10-23 (fund 501 and Measure FF researched)",
  "purpose": "Crosswalk from CIP funding-source labels to BeTH ledger funds and to a legal restriction class. Determines whether money in a CIP line could lawfully be redirected to street rehabilitation.",
  "method": "restriction_class is taken ONLY from a researched legal_basis in BeTH's 106-fund ledger or a cited statute/measure. Where BeTH's ledger records 'Not yet researched', the class here is 'unknown' and the amount is NOT redirectable for dashboard purposes. Fund type (enterprise, special revenue) is recorded as a signal but is NOT by itself treated as proof of restriction.",
  "classes": {
@@ -10,95 +10,172 @@
   "grant_condition": "External grant with conditions and clawback risk.",
   "state_restricted": "State-allocated revenue with statutory use limits (for example gas tax, vehicle registration fee).",
   "unrestricted": "No identified legal restriction. Requires an affirmative citation, never an absence of evidence.",
-  "unknown": "Not yet researched. DEFAULT. Treated as not redirectable."
+  "unknown": "Not yet researched. DEFAULT. Treated as not redirectable.",
+  "council_discretionary": "General Fund money appropriated to a capital fund. Council can redirect it by budget action, but encumbered amounts are contracts and paving amounts are bound by the Measure FF maintenance-of-effort floor."
  },
  "sources": [
-  {"id": "beth-ledger", "title": "BeTH 106-fund reconciled ledger, legal_basis field", "note": "Phase 1, FY2025 ACFR-based"},
-  {"id": "cip-fy27-31", "title": "Proposed FY2027-FY2031 CIP presentation, Item 02"}
+  {
+   "id": "beth-ledger",
+   "title": "BeTH 106-fund reconciled ledger, legal_basis field",
+   "note": "Phase 1, FY2025 ACFR-based"
+  },
+  {
+   "id": "cip-fy27-31",
+   "title": "Proposed FY2027-FY2031 CIP presentation, Item 02"
+  }
  ],
  "mappings": [
-  {"cip_label": "Sanitary Sewer Fund", "beth_fund_id": null, "fund_type": "enterprise",
-   "restriction_class": "unknown", "evidence": "BeTH ledger legal_basis not yet researched for the sewer fund. Sewer charges are ratepayer revenue and Proposition 218 almost certainly applies, but BeTH has not cited the authority.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Marina Fund", "beth_fund_id": "608", "fund_type": "enterprise",
+  {
+   "cip_label": "Sanitary Sewer Fund",
+   "beth_fund_id": null,
+   "fund_type": "enterprise",
+   "restriction_class": "unknown",
+   "evidence": "BeTH ledger legal_basis not yet researched for the sewer fund. Sewer charges are ratepayer revenue and Proposition 218 almost certainly applies, but BeTH has not cited the authority.",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Marina Fund",
+   "beth_fund_id": "608",
+   "fund_type": "enterprise",
    "restriction_class": "enterprise_fund",
    "evidence": "BeTH ledger, researched: 'Enterprise fund; four State DBW loans (1964, 1971, 1985, 2001)'. The 2001 Harbor Construction 5 loan has $5,415,120 outstanding at 2025-06-30 through FY2041. The California Division of Boating and Waterways reviewed fund use in June 2023.",
-   "redirectable": false, "confidence": "High",
-   "note": "The Marina Fund is a net recipient of support, not a source. Its FY2028 projected balance is negative."},
-
-  {"cip_label": "Parks Tax", "beth_fund_id": "ACFR-park-tax", "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "High",
+   "note": "The Marina Fund is a net recipient of support, not a source. Its FY2028 projected balance is negative."
+  },
+  {
+   "cip_label": "Parks Tax",
+   "beth_fund_id": "ACFR-park-tax",
+   "fund_type": "special_revenue",
    "restriction_class": "voter_approved_tax",
    "evidence": "BeTH ledger, researched: 'Special parcel tax (two-thirds vote); rate $0.2652 per square foot of improvements' after the Measure Y increase.",
-   "redirectable": false, "confidence": "High",
-   "note": "Two-thirds voter approval for a stated purpose. Redirection to streets would require another vote. The fund also carries $281,500,000 of unfunded parks and camps capital need."},
-
-  {"cip_label": "Measure FF", "beth_fund_id": null, "fund_type": "special_revenue",
-   "restriction_class": "unknown",
-   "evidence": "Measure FF is described by the City as a long-term investment strategy for streets, sidewalks, safety and environment, about $15M a year. BeTH has not cited the ballot language or its use restrictions. ACFR-measure-ff-public-safety in the ledger is 'Not yet researched' and may be a different measure.",
-   "redirectable": false, "confidence": "Low",
-   "note": "HIGH PRIORITY to research: Measure FF is the largest street-related funding source in the CIP and its restrictions directly determine how much of the paving question is already answered."},
-
-  {"cip_label": "Measure BB Local Streets & Roads", "beth_fund_id": "ACFR-measure-bb-local-streets-and-roads", "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "High",
+   "note": "Two-thirds voter approval for a stated purpose. Redirection to streets would require another vote. The fund also carries $281,500,000 of unfunded parks and camps capital need."
+  },
+  {
+   "cip_label": "Measure FF",
+   "beth_fund_id": null,
+   "fund_type": "special_revenue",
+   "restriction_class": "voter_approved_tax",
+   "evidence": "BMC Chapter 7.11 (citizens' initiative, Nov 5, 2024; Ordinance 7,952-N.S., Dec 10, 2024). Proceeds in a special fund \"to be used only for\" street, sidewalk and path repair, safety and environmental enhancements (7.11.010(E)); allocation approximately 45% streets / 15% sidewalks / 30% safety / 10% environmental (7.11.020(C)); Council cannot alter the allocation or the non-FF street funding floor without voters (Section 7(a)(3)-(4)). Not the same as fund 164 \"Measure FF - Public Safety\" (2020) or the 2008 library bond.",
+   "redirectable": false,
+   "confidence": "High",
+   "note": "Already ~45.6% street rehabilitation in the adopted five-year program. No further Measure FF money can move to paving without a vote. See phase2/07-street-funding-legal-analysis.md.",
+   "city_fund_number": "166",
+   "sources": [
+    "phase2/sources/measure-ff-initiative-council-2024-07-09.pdf (PDF pp.5-15)",
+    "phase2/sources/measure-ff-ordinance-transcription.md"
+   ]
+  },
+  {
+   "cip_label": "Measure BB Local Streets & Roads",
+   "beth_fund_id": "ACFR-measure-bb-local-streets-and-roads",
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
    "evidence": "BeTH ledger legal_basis 'Not yet researched'. Alameda County transportation sales tax; the local streets and roads category name implies street use, which would make it already committed to the purpose in question.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "State Transportation Tax", "beth_fund_id": "ACFR-state-transportation-tax", "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "State Transportation Tax",
+   "beth_fund_id": "ACFR-state-transportation-tax",
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
    "evidence": "BeTH ledger legal_basis 'Not yet researched'. Likely gas tax or SB1 subject to statutory street and road use limits.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Measure F-AC VRF", "beth_fund_id": null, "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Measure F-AC VRF",
+   "beth_fund_id": null,
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
    "evidence": "Alameda County vehicle registration fee. BeTH has not cited the enabling measure or its use limits.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Private Sidewalks", "beth_fund_id": "ACFR-private-party-sidewalks", "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Private Sidewalks",
+   "beth_fund_id": "ACFR-private-party-sidewalks",
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
    "evidence": "BeTH ledger legal_basis 'Not yet researched'. Property-owner contributions for sidewalk repair; almost certainly restricted to that purpose.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "CIP Fund", "beth_fund_id": "501", "fund_type": "capital_project",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "CIP Fund",
+   "beth_fund_id": "501",
+   "fund_type": "capital_project",
+   "restriction_class": "council_discretionary",
+   "evidence": "FY2025 ACFR balance sheet (PDF p.75): fund balance $23,831,669 = restricted $7,771,575 (equal to notes receivable, not cash) + assigned $16,060,094 (incl. $4,491,447 encumbered). Assigned = intent by Council or City Manager, changeable by Council. Funded by a discretionary General Fund transfer (budget-adoption p.167).",
+   "redirectable": true,
+   "confidence": "High",
+   "note": "Redirectable by Council, but 88% of FY2027 fund 501 appropriations ($10,412,200 of $11,885,200) is already paving. The rest is $1,473,000 a year of facility, sidewalk and park repairs. See phase2/data/street-funding-sources.json."
+  },
+  {
+   "cip_label": "Camps Fund",
+   "beth_fund_id": "ACFR-playground-camp",
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
-   "evidence": "BeTH ledger legal_basis for fund 501 is 'Not yet researched'. The CIP Fund is largely fed by General Fund transfers ($14,099,209 in FY2025; $16,553,180 budgeted FY2026), which suggests discretion, but individual appropriations within it may be committed by Council action, contract or grant match.",
-   "redirectable": null, "confidence": "Low",
-   "note": "MOST IMPORTANT SOURCE TO RESEARCH. If anything in the capital program is redirectable it is most likely here. 'redirectable: null' means undetermined, not yes."},
-
-  {"cip_label": "Camps Fund", "beth_fund_id": "ACFR-playground-camp", "fund_type": "special_revenue",
-   "restriction_class": "unknown",
-   "evidence": "BeTH ledger legal_basis 'Not yet researched'.", "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Bayer Aquatic Park Fund", "beth_fund_id": null, "fund_type": "special_revenue",
+   "evidence": "BeTH ledger legal_basis 'Not yet researched'.",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Bayer Aquatic Park Fund",
+   "beth_fund_id": null,
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
    "evidence": "Not in BeTH's ledger under this label. Appears to be a negotiated developer or corporate contribution, which would carry donor conditions.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Stormwater", "beth_fund_id": "ACFR-clean-storm-water", "fund_type": "enterprise",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Stormwater",
+   "beth_fund_id": "ACFR-clean-storm-water",
+   "fund_type": "enterprise",
    "restriction_class": "unknown",
    "evidence": "BeTH ledger legal_basis 'Not yet researched'. Clean Storm Water is an enterprise fund; a Proposition 218 assessment is likely.",
-   "redirectable": false, "confidence": "Low"},
-
-  {"cip_label": "Equipment Replacement", "beth_fund_id": "ACFR-equipment-maintenance-replacement", "fund_type": "internal_service",
+   "redirectable": false,
+   "confidence": "Low"
+  },
+  {
+   "cip_label": "Equipment Replacement",
+   "beth_fund_id": "ACFR-equipment-maintenance-replacement",
+   "fund_type": "internal_service",
    "restriction_class": "internal_service",
    "evidence": "BeTH ledger, researched: 'Internal service fund; charges set in the budget; Fleet Replacement Fund Short Millions'.",
-   "redirectable": false, "confidence": "Moderate",
-   "note": "Internal service balances have been used as one-time General Fund support elsewhere in Berkeley. The Workers' Compensation Fund shows the consequence: net position of -$9,752,938 at FY2025. Treat any proposal to redirect replacement reserves as creating a deferred liability, not as free money."},
-
-  {"cip_label": "Zero Waste", "beth_fund_id": "ACFR-zero-waste", "fund_type": "enterprise",
+   "redirectable": false,
+   "confidence": "Moderate",
+   "note": "Internal service balances have been used as one-time General Fund support elsewhere in Berkeley. The Workers' Compensation Fund shows the consequence: net position of -$9,752,938 at FY2025. Treat any proposal to redirect replacement reserves as creating a deferred liability, not as free money."
+  },
+  {
+   "cip_label": "Zero Waste",
+   "beth_fund_id": "ACFR-zero-waste",
+   "fund_type": "enterprise",
    "restriction_class": "enterprise_fund",
    "evidence": "BeTH ledger, researched: 'Enterprise fund; rates set by Council under Proposition 218 majority-protest procedures'.",
-   "redirectable": false, "confidence": "High"},
-
-  {"cip_label": "Street Lighting", "beth_fund_id": "ACFR-street-lighting", "fund_type": "special_revenue",
+   "redirectable": false,
+   "confidence": "High"
+  },
+  {
+   "cip_label": "Street Lighting",
+   "beth_fund_id": "ACFR-street-lighting",
+   "fund_type": "special_revenue",
    "restriction_class": "unknown",
-   "evidence": "BeTH ledger legal_basis 'Not yet researched'.", "redirectable": false, "confidence": "Low"}
+   "evidence": "BeTH ledger legal_basis 'Not yet researched'.",
+   "redirectable": false,
+   "confidence": "Low"
+  }
  ],
  "summary": {
   "sources_mapped": 15,
-  "with_researched_legal_basis": 4,
-  "restriction_unknown": 11,
-  "confirmed_redirectable": 0,
-  "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 4. None is confirmed redirectable to street rehabilitation. The honest current answer to 'how much could move to streets' is: not established, and no figure should be published until the restriction research is done."
+  "with_researched_legal_basis": 6,
+  "restriction_unknown": 9,
+  "confirmed_redirectable": 1,
+  "headline": "Of 15 CIP funding sources, BeTH has a researched legal basis for 6. One (CIP Fund 501) is redirectable by Council, and 88% of its FY2027 money is already paving. Measure FF is voter-restricted and fully allocated. The other 9 sources are not yet researched and are treated as not redirectable."
  }
 }

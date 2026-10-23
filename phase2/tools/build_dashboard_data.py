@@ -29,45 +29,49 @@ def main():
     pci = load(ROOT / 'data' / 'pci-model.json')
     rmap = {m['cip_label']: m for m in restr['mappings']}
 
-    # Join each project row to its restriction class, by printed funding source.
+    # Join each adopted funding line to its restriction class through the City fund number.
+    FUND_TO_LABEL = {'166': 'Measure FF', '501': 'CIP Fund', '611': 'Sanitary Sewer Fund', '616': 'Stormwater',
+                     '138': 'Parks Tax', '127': 'State Transportation Tax', '134': 'Measure BB Local Streets & Roads',
+                     '601': 'Zero Waste', '133': 'Measure F-AC VRF', '608': 'Marina Fund', '671': 'Equipment Replacement',
+                     '125': 'Camps Fund', '142': 'Street Lighting', '149': 'Private Sidewalks', '145': 'Bayer Aquatic Park Fund'}
+    GRANTS = {'305', '306', '307', '336', '339', '340'}
     projects = []
     for p in cip['projects']:
-        label = p.get('funding_source_as_printed')
-        m = rmap.get(label) if label else None
-        fy27, fy28 = p['fy2027_proposed'], p['fy2028_proposed']
+        lines = []
+        for f in p['funding']:
+            m = rmap.get(FUND_TO_LABEL.get(f['fund']))
+            if f['fund'] == 'UNFUNDED':
+                rc, ev, red, conf = 'unfunded_need', 'Printed as "Unfunded Need": no money is identified.', False, 'High'
+            elif f['fund'] == 'NOT_PRINTED':
+                rc, ev, red, conf = 'unknown', 'The document prints no funding source on this row.', False, 'Low'
+            elif f['fund'] in GRANTS and not m:
+                rc, ev, red, conf = 'grant_condition', 'Capital grant fund; grant agreements not reviewed.', False, 'Moderate'
+            elif m:
+                rc, ev, red, conf = m['restriction_class'], m['evidence'], m['redirectable'], m['confidence']
+            else:
+                rc, ev, red, conf = 'unknown', 'Not yet researched.', False, 'Low'
+            lines.append({'fund': f['fund'], 'fund_label': f['fund_label'], 'fy2027': f['fy2027'], 'fy2028': f['fy2028'],
+                          'prior_years': f['prior_years'], 'fy2026_budget': f['fy2026_budget'],
+                          'planned_fy2029_2031': f['fy2029'] + f['fy2030'] + f['fy2031'],
+                          'restriction_class': rc, 'restriction_evidence': ev, 'redirectable': red, 'confidence': conf})
         projects.append({
-            'name': p['label'],
-            'department': p['department'],
-            'category': p['category'],
-            'funding_source': label,
-            'fy2027': fy27,
-            'fy2028': fy28,
-            'two_year_total': (fy27 or 0) + (fy28 or 0) if (fy27 or fy28) else None,
-            'restriction_class': m['restriction_class'] if m else 'unknown',
-            'restriction_evidence': m['evidence'] if m else
-                'No funding source printed for this row in the source document.',
-            'redirectable': m['redirectable'] if m else False,
-            'confidence': m['confidence'] if m else 'Low',
-            # Fields the source does not contain. Explicitly null, never zero.
-            'expenditures_to_date': None,
-            'encumbrances': None,
-            'remaining_authorization': None,
-            'status': None,
-            'schedule': None,
-            'can_defer': None,
-            'annual_operating_cost': None,
-            'missing': ['expenditures_to_date', 'encumbrances', 'remaining_authorization',
-                        'status', 'schedule', 'can_defer', 'annual_operating_cost'],
+            'name': p['title'], 'project_number': p['project_number'], 'new_or_continuing': p['new_or_continuing'],
+            'category': p['category'], 'funding': lines,
+            'two_year_adopted': sum(l['fy2027'] + l['fy2028'] for l in lines if l['restriction_class'] != 'unfunded_need'),
+            'two_year_unfunded': sum(l['fy2027'] + l['fy2028'] for l in lines if l['restriction_class'] == 'unfunded_need'),
+            # Fields the adopted CIP does not contain. Explicitly null, never zero.
+            'expenditures_to_date': None, 'encumbrances': None, 'can_defer': None, 'annual_operating_cost': None,
+            'missing': ['expenditures_to_date', 'encumbrances', 'can_defer', 'annual_operating_cost'],
             'source_line': p['source_line'],
         })
 
-    # Restriction roll-up: two-year proposed totals by class. Budget class only.
+    # Restriction roll-up: FY2027+FY2028 adopted amounts by class, by funding line. Budget class only.
     byclass = {}
     for p in projects:
-        c = p['restriction_class']
-        e = byclass.setdefault(c, {'class': c, 'projects': 0, 'two_year_proposed': 0})
-        e['projects'] += 1
-        e['two_year_proposed'] += p['two_year_total'] or 0
+        for l in p['funding']:
+            e = byclass.setdefault(l['restriction_class'], {'class': l['restriction_class'], 'funding_lines': 0, 'two_year': 0})
+            e['funding_lines'] += 1
+            e['two_year'] += l['fy2027'] + l['fy2028']
 
     marina, wc, gf, parks = fund('608'), fund('ACFR-workers-compensation'), fund('011'), fund('ACFR-park-tax')
 
@@ -88,14 +92,17 @@ def main():
             'THIRD_PARTY': 'Independent analysis, attributed',
         },
         'capital': {
-            'evidence_class': 'BUDGET_PROPOSED',
+            'evidence_class': 'BUDGET_ADOPTED',
             'source': cip['source'],
+            'adoption_status': cip['adoption_status'],
             'caveats': cip['caveats'],
             'project_count_stated_by_city': cip['project_count_stated_by_city'],
-            'project_rows_extracted': len(projects),
+            'projects_extracted': len(projects),
+            'reconciliation': cip['reconciliation'],
             'projects': projects,
-            'by_restriction_class': sorted(byclass.values(), key=lambda e: -e['two_year_proposed']),
+            'by_restriction_class': sorted(byclass.values(), key=lambda e: -e['two_year']),
         },
+        'street_funding': load(ROOT / 'data' / 'street-funding-sources.json'),
         'restrictions': {
             'evidence_class': 'AUDITED/RESEARCH',
             'method': restr['method'],
@@ -161,7 +168,7 @@ def main():
     print(f"  capital projects: {len(projects)}")
     print(f"  restriction classes: {len(byclass)}")
     for e in doc['capital']['by_restriction_class']:
-        print(f"    {e['class']:20s} {e['projects']:>3} projects  ${e['two_year_proposed']:>12,}")
+        print(f"    {e['class']:24s} {e['funding_lines']:>3} lines  ${e['two_year']:>12,}")
     return 0
 
 
