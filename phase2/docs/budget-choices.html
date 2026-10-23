@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Choices — Berkeley Capital &amp; Pavement — BeTH Phase 2 prototype</title>
+<style>
+:root{--navy:#2a3340;--slate:#3f4f63;--steel:#43698f;--steel-deep:#33567a;--red:#a8322c;
+  --paper:#f5f7f9;--card:#fff;--rule:#dde3ea;--rule-strong:#c3ccd6;--muted:#5d6b7a;
+  --hi:#2f6f57;--mod:#956613;--low:#a8322c;--unk:#6b7280;--maxw:1080px;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--navy);
+  font:16px/1.55 "Source Serif 4",Georgia,serif;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:Jost,"Helvetica Neue",Arial,sans-serif;font-weight:600;line-height:1.2;margin:0 0 .4em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#eef1f5;padding:26px 0 22px}
+header h1{font-size:1.85rem;margin-bottom:6px}
+header .dek{color:#b9c4d2;max-width:72ch;font-size:.97rem}
+.proto{display:inline-block;background:var(--red);color:#fff;font:600 11px/1 Jost,sans-serif;
+  letter-spacing:.08em;padding:5px 9px;border-radius:3px;margin-bottom:10px}
+nav{background:var(--slate);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--steel-deep)}
+nav .wrap{display:flex;gap:2px;overflow-x:auto}
+nav button{background:none;border:0;color:#cfd8e3;font:500 13px/1 Jost,sans-serif;
+  padding:12px 13px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent}
+nav button:hover{color:#fff}
+nav button.on{color:#fff;border-bottom-color:var(--red);background:rgba(255,255,255,.07)}
+section.view{display:none;padding:26px 0 56px}
+section.view.on{display:block}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;margin:0 0 16px}
+.card h3{font-size:1.08rem}
+.note{background:#fff8ea;border:1px solid #e3c98f;border-left:4px solid var(--mod);
+  padding:12px 15px;border-radius:4px;font-size:.92rem;margin:0 0 16px}
+.alert{background:#fdf1f0;border:1px solid #e2b3af;border-left:4px solid var(--red);
+  padding:12px 15px;border-radius:4px;font-size:.92rem;margin:0 0 16px}
+.cap{color:var(--muted);font-size:.86rem;max-width:88ch}
+.chip{display:inline-block;font:600 10px/1 Jost,sans-serif;letter-spacing:.05em;
+  padding:4px 7px;border-radius:3px;vertical-align:1px;white-space:nowrap}
+.k-audited{background:#e4f0ea;color:var(--hi)} .k-budget{background:#eef1f5;color:var(--slate)}
+.k-projection{background:#fdf3e2;color:var(--mod)} .k-city{background:#e8eff7;color:var(--steel-deep)}
+.k-derived{background:#f1ecf7;color:#5b3f86} .k-third{background:#f2f0ec;color:#6b5d44}
+.k-unknown{background:#f0f1f2;color:var(--unk)} .k-restricted{background:#fdf1f0;color:var(--red)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--rule)}
+th{font:600 11px/1.3 Jost,sans-serif;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1.5px solid var(--rule-strong);position:sticky;top:44px;background:var(--card)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--card)}
+.miss{color:var(--unk);font-style:italic;font-size:.85em}
+.bars{margin:12px 0}
+.br{display:grid;grid-template-columns:minmax(120px,1.4fr) 3fr minmax(74px,auto);
+  gap:10px;align-items:center;margin-bottom:7px;font-size:.88rem}
+.bt{background:#eef1f5;border-radius:3px;height:17px;overflow:hidden}
+.bf{display:block;height:100%;background:var(--steel)}
+.bf.restricted{background:var(--red)} .bf.unknown{background:var(--unk)}
+.bv{text-align:right;font-variant-numeric:tabular-nums;font-size:.86rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.stat .v{font:600 1.5rem/1 Jost,sans-serif;color:var(--steel-deep)}
+.stat .v.bad{color:var(--red)} .stat .v.good{color:var(--hi)}
+.stat .l{font-size:.8rem;color:var(--muted);margin-top:5px;line-height:1.35}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+select,input[type=range]{font:inherit;font-size:.88rem}
+select{padding:6px 9px;border:1px solid var(--rule-strong);border-radius:4px;background:#fff;color:var(--navy)}
+.scen{border-left:3px solid var(--steel);padding:10px 0 10px 14px;margin:0 0 12px}
+.scen.goal{border-left-color:var(--hi)} .scen.bad{border-left-color:var(--red)}
+.scen b{font-family:Jost,sans-serif}
+a{color:var(--steel-deep)}
+.srcs{font-size:.83rem;color:var(--muted)}
+.srcs li{margin-bottom:5px}
+@media(max-width:600px){.br{grid-template-columns:1fr;gap:3px}header h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="proto">PHASE 2 PROTOTYPE · NOT PUBLISHED · FIGURES NOT VERIFIED FOR PUBLICATION</div>
+  <h1>Budget Choices</h1>
+  <div class="dek">Where Berkeley's capital money is committed, which of it is legally movable,
+    and what moving it would buy on the streets. Every figure carries its evidence class and source.
+    Nothing here changes BeTH's audited Phase 1 ledger.</div>
+</div></header>
+
+<nav><div class="wrap">
+  <button data-v="money" class="on">Where the money is</button>
+  <button data-v="restrict">Legal restrictions</button>
+  <button data-v="pci">Pavement &amp; PCI 60</button>
+  <button data-v="opex">Operating consequences</button>
+  <button data-v="marina">Marina Fund</button>
+  <button data-v="sources">Sources &amp; method</button>
+</div></nav>
+
+<div class="wrap">
+
+<section class="view on" id="v-money">
+  <div class="note"><b>These are proposed budget figures, not cash.</b> They come from the City's
+  proposed FY2027–FY2031 CIP presentation. They are not adopted appropriations, not expenditures,
+  not encumbrances, and not money sitting in an account. The City states the five-year program
+  contains <b>149 projects</b>; this deck prints line-item tables for a subset, almost all FY2027–FY2028.</div>
+  <div class="grid" id="money-stats"></div>
+  <div class="card"><h3>Proposed two-year capital by restriction class</h3>
+    <p class="cap">Bar colour shows whether the money could lawfully be redirected to street
+    rehabilitation. Grey means the restriction has <b>not been researched</b> — which is the
+    honest status of most of this program, not a finding that it is available.</p>
+    <div class="bars" id="class-bars"></div></div>
+  <div class="card"><h3>Projects as printed in the source</h3>
+    <div class="ctl">
+      <select id="f-dept"><option value="">all departments</option></select>
+      <select id="f-cat"><option value="">all categories</option></select>
+      <select id="f-restr"><option value="">any restriction class</option></select>
+      <span class="cap" id="count"></span>
+    </div>
+    <div class="tw"><table><thead><tr>
+      <th>Project</th><th>Department</th><th>Category</th><th>Funding source</th>
+      <th class="n">FY2027</th><th class="n">FY2028</th><th>Restriction</th>
+      <th>Spent / encumbered / status</th>
+    </tr></thead><tbody id="proj-rows"></tbody></table></div>
+    <p class="cap" style="margin-top:10px">The final column is blank for every row because the source
+    document contains none of it. Those fields require the adopted budget and an encumbrance report.</p>
+  </div>
+</section>
+
+<section class="view" id="v-restrict">
+  <div class="alert"><b>The headline finding of this pass.</b> <span id="restr-head"></span></div>
+  <div class="card"><h3>How a restriction class is assigned</h3><p class="cap" id="restr-method"></p></div>
+  <div class="card"><h3>Funding sources</h3>
+    <div class="tw"><table><thead><tr><th>CIP funding label</th><th>BeTH fund</th><th>Type</th>
+      <th>Restriction class</th><th>Redirectable</th><th>Confidence</th><th>Evidence</th>
+    </tr></thead><tbody id="restr-rows"></tbody></table></div></div>
+</section>
+
+<section class="view" id="v-pci">
+  <div class="note"><b>Berkeley has already modelled this.</b> The projections below are the
+  <b>City's own</b> StreetSaver-based output, published July 7, 2026. BeTH reuses them rather than
+  building a rival model, and adds the funding-restriction test the City does not publish.</div>
+  <div class="grid" id="pci-stats"></div>
+  <div class="card"><h3 id="pci-q"></h3>
+    <p id="pci-finding"></p>
+    <div class="alert" id="pci-70"></div>
+    <div id="pci-scens"></div>
+    <p class="cap"><b>Caveats that travel with every figure above:</b></p>
+    <ul class="cap" id="pci-caveats"></ul>
+  </div>
+  <div class="card"><h3>What an extra dollar buys <span class="chip k-derived">BETH DERIVED</span></h3>
+    <p class="cap">Marginal cost per PCI point, computed by BeTH from two adjacent City scenarios.
+    Coarse: the real relationship is non-linear, these are 12-year endpoints, and the scenarios also
+    differ in how streets are selected.</p>
+    <div class="tw"><table><thead><tr><th>From</th><th>To</th><th class="n">Extra per year</th>
+      <th class="n">PCI gained</th><th class="n">$ per PCI point per year</th>
+    </tr></thead><tbody id="marg-rows"></tbody></table></div>
+    <div class="ctl" style="margin-top:16px">
+      <label for="extra">Test extra annual paving funding:</label>
+      <input type="range" id="extra" min="0" max="12000000" step="500000" value="0" style="flex:1;min-width:180px">
+      <output id="extra-out" style="font-variant-numeric:tabular-nums;font-weight:600">$0</output>
+    </div>
+    <div id="extra-res"></div>
+  </div>
+  <div class="card"><h3>What BeTH still cannot do</h3><p class="cap" id="pci-indep"></p>
+    <ul class="cap" id="pci-missing"></ul></div>
+</section>
+
+<section class="view" id="v-opex">
+  <div class="note">Capital decisions create recurring costs. A capital dashboard that ignores them
+  scores a finished project as a win regardless of what it costs to run forever.</div>
+  <div class="alert" id="wc-alert"></div>
+  <div class="card"><h3>Workers' Compensation Fund <span class="chip k-audited">AUDITED</span></h3>
+    <div class="tw"><table><thead><tr><th>Measure</th><th class="n">FY2024</th><th class="n">FY2025</th>
+    </tr></thead><tbody id="wc-rows"></tbody></table></div>
+    <p class="cap" style="margin-top:10px" id="wc-why"></p></div>
+  <div class="grid" id="opex-stats"></div>
+</section>
+
+<section class="view" id="v-marina">
+  <div class="note">The Marina Fund is where Berkeley's capital, operating and interfund questions
+  meet. It is a <b>net recipient</b> of support, not a source of redirectable money.</div>
+  <div class="card"><h3>Audited results and projections</h3>
+    <div class="tw"><table><thead><tr><th>Fiscal year</th><th>Basis</th><th class="n">Revenue</th>
+      <th class="n">Expenditure</th><th class="n">Ending balance</th></tr></thead>
+      <tbody id="marina-rows"></tbody></table></div>
+    <p class="cap" style="margin-top:10px" id="marina-note"></p></div>
+  <div class="card"><h3>Obligations <span class="chip k-audited">AUDITED</span></h3>
+    <div class="tw"><table><thead><tr><th>Kind</th><th class="n">Amount</th><th>As of</th><th>Note</th>
+    </tr></thead><tbody id="marina-obl"></tbody></table></div></div>
+  <p class="cap">Full reconciliation against the Berkeley Decision Project's waterfront analysis is in
+  <code>phase2/01-marina-fund-case-study.md</code>.</p>
+</section>
+
+<section class="view" id="v-sources">
+  <div class="card"><h3>Evidence classes</h3>
+    <p class="cap">Every figure on this page carries one. <b>A total may only sum figures of one
+    class.</b> Mixed classes are shown side by side, never added.</p>
+    <div class="tw"><table><thead><tr><th>Class</th><th>Meaning</th></tr></thead>
+      <tbody id="ec-rows"></tbody></table></div></div>
+  <div class="card"><h3>Primary sources</h3><ul class="srcs" id="src-list"></ul></div>
+  <div class="card"><h3>Caveats on the capital data</h3><ul class="cap" id="cap-caveats"></ul></div>
+  <div class="card"><h3>Attribution</h3>
+    <p class="cap">Waterfront research: Eric Fredericks, <b>Berkeley Decision Project</b> —
+    <a href="https://ericdf.github.io/berkeley-decision-project/">ericdf.github.io/berkeley-decision-project</a>.
+    Treated as an important research source, not as independently verified accounting evidence.
+    Per-item verification status is in <code>phase2/data/eric-waterfront-catalog.json</code>.</p></div>
+</section>
+
+</div>
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const M = n => n == null ? '—' : (n < 0 ? '−$' : '$') + Math.abs(n).toLocaleString();
+const Ms = n => n == null ? '—' : (n < 0 ? '−$' : '$') + (Math.abs(n) >= 1e6
+  ? (Math.abs(n) / 1e6).toFixed(Math.abs(n) >= 1e7 ? 1 : 2) + 'M'
+  : Math.round(Math.abs(n) / 1e3) + 'K');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c =>
+  ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const CHIP = {unknown: 'k-unknown', voter_approved_tax: 'k-restricted', enterprise_fund: 'k-restricted',
+  internal_service: 'k-restricted', unrestricted: 'k-audited', grant_condition: 'k-restricted',
+  state_restricted: 'k-restricted'};
+
+$$('nav button').forEach(b => b.onclick = () => {
+  $$('nav button').forEach(x => x.classList.toggle('on', x === b));
+  $$('section.view').forEach(s => s.classList.toggle('on', s.id === 'v-' + b.dataset.v));
+  window.scrollTo({top: 0});
+});
+
+let D = null;
+
+fetch('data/phase2.json').then(r => r.json()).then(d => { D = d; render(); })
+  .catch(e => { $('.wrap').insertAdjacentHTML('afterbegin',
+    '<div class="alert">Could not load <code>data/phase2.json</code>: ' + esc(e.message) +
+    '<br>Serve this directory over HTTP rather than opening the file directly.</div>'); });
+
+function render() { money(); restrict(); pci(); opex(); marina(); sources(); }
+
+function money() {
+  const c = D.capital, ps = c.projects;
+  const tot = ps.reduce((a, p) => a + (p.two_year_total || 0), 0);
+  const unk = c.by_restriction_class.find(e => e.class === 'unknown');
+  $('#money-stats').innerHTML = [
+    ['<span class="v">' + c.project_count_stated_by_city + '</span>',
+     'Projects the City states are in the FY2027–31 program'],
+    ['<span class="v">' + c.project_rows_extracted + '</span>',
+     'Project rows actually printed in the source deck and extracted here'],
+    ['<span class="v">' + Ms(tot) + '</span>',
+     'Two-year proposed total of those printed rows <span class="chip k-budget">BUDGET PROPOSED</span>'],
+    ['<span class="v bad">' + Ms(unk ? unk.two_year_proposed : 0) + '</span>',
+     'Of that, in funding sources whose legal restriction is <b>not yet researched</b>'],
+  ].map(([v, l]) => '<div class="stat">' + v + '<div class="l">' + l + '</div></div>').join('');
+
+  const max = Math.max(...c.by_restriction_class.map(e => e.two_year_proposed), 1);
+  $('#class-bars').innerHTML = c.by_restriction_class.map(e => {
+    const cls = e.class === 'unknown' ? 'unknown' : (e.class === 'unrestricted' ? '' : 'restricted');
+    return '<div class="br"><span>' + esc(e.class.replace(/_/g, ' ')) +
+      ' <span class="cap">(' + e.projects + ')</span></span>' +
+      '<span class="bt"><span class="bf ' + cls + '" style="width:' +
+      (e.two_year_proposed / max * 100).toFixed(1) + '%"></span></span>' +
+      '<span class="bv">' + Ms(e.two_year_proposed) + '</span></div>';
+  }).join('');
+
+  const fill = (sel, vals) => { const s = $(sel);
+    [...new Set(vals.filter(Boolean))].sort().forEach(v =>
+      s.insertAdjacentHTML('beforeend', '<option>' + esc(v) + '</option>')); };
+  fill('#f-dept', ps.map(p => p.department));
+  fill('#f-cat', ps.map(p => p.category));
+  fill('#f-restr', ps.map(p => p.restriction_class));
+  ['#f-dept', '#f-cat', '#f-restr'].forEach(s => $(s).onchange = rows);
+  rows();
+
+  function rows() {
+    const d = $('#f-dept').value, ct = $('#f-cat').value, r = $('#f-restr').value;
+    const sel = ps.filter(p => (!d || p.department === d) && (!ct || p.category === ct) &&
+      (!r || p.restriction_class === r));
+    $('#count').textContent = sel.length + ' of ' + ps.length + ' rows · ' +
+      Ms(sel.reduce((a, p) => a + (p.two_year_total || 0), 0)) + ' two-year proposed';
+    $('#proj-rows').innerHTML = sel.map(p =>
+      '<tr><td>' + esc(p.name) + '</td><td>' + esc(p.department) + '</td><td>' +
+      esc(p.category || '—') + '</td><td>' + esc(p.funding_source || '—') + '</td>' +
+      '<td class="n">' + M(p.fy2027) + '</td><td class="n">' + M(p.fy2028) + '</td>' +
+      '<td><span class="chip ' + (CHIP[p.restriction_class] || 'k-unknown') + '">' +
+      esc(p.restriction_class.replace(/_/g, ' ')) + '</span></td>' +
+      '<td class="miss">not in source</td></tr>').join('');
+  }
+}
+
+function restrict() {
+  const r = D.restrictions;
+  $('#restr-head').textContent = r.summary.headline;
+  $('#restr-method').textContent = r.method;
+  $('#restr-rows').innerHTML = r.mappings.map(m =>
+    '<tr><td><b>' + esc(m.cip_label) + '</b></td><td>' + esc(m.beth_fund_id || '—') + '</td>' +
+    '<td>' + esc(m.fund_type) + '</td>' +
+    '<td><span class="chip ' + (CHIP[m.restriction_class] || 'k-unknown') + '">' +
+    esc(m.restriction_class.replace(/_/g, ' ')) + '</span></td>' +
+    '<td>' + (m.redirectable === true ? 'yes' : m.redirectable === false ? 'no'
+      : '<span class="miss">undetermined</span>') + '</td>' +
+    '<td>' + esc(m.confidence) + '</td><td class="cap">' + esc(m.evidence) +
+    (m.note ? '<br><b>' + esc(m.note) + '</b>' : '') + '</td></tr>').join('');
+}
+
+function pci() {
+  const p = D.pci, a = p.assessment;
+  $('#pci-stats').innerHTML = [
+    ['<span class="v">' + p.current_pci.value + '</span>', 'Citywide PCI, 2025 assessment'],
+    ['<span class="v">' + p.after_fy2026.value + '</span>', 'Projected after FY2026 paving work'],
+    ['<span class="v good">60+</span>', 'Reached by 2038 under Plan + Measure FF (about 62)'],
+    ['<span class="v bad">' + p.adopted_goal.value + '</span>',
+     "Berkeley's adopted goal (BMC 7.11.010(K)(1)) — <b>not</b> currently funded"],
+  ].map(([v, l]) => '<div class="stat">' + v + '<div class="l">' + l + '</div></div>').join('');
+  $('#pci-q').innerHTML = esc(a.question) + ' <span class="chip k-city">CITY MODEL</span>';
+  $('#pci-finding').innerHTML = '<b>' + esc(a.answer_status) + '.</b> ' + esc(a.finding);
+  $('#pci-70').innerHTML = '<b>The gap is 70, not 60.</b> ' + esc(a.the_real_gap_is_70_not_60);
+  $('#pci-scens').innerHTML = p.scenarios.map(s =>
+    '<div class="scen ' + (s.pci_2038 >= 70 ? 'goal' : s.pci_2038 < 60 ? 'bad' : '') + '">' +
+    '<b>' + esc(s.label) + '</b> — ' + M(s.annual_investment) + ' per year → <b>PCI ' + s.pci_2038 +
+    '</b> by 2038 (' + esc(s.direction) + ')<br><span class="cap">' + esc(s.description) +
+    '</span></div>').join('');
+  $('#pci-caveats').innerHTML = a.critical_caveats.map(c => '<li>' + esc(c) + '</li>').join('');
+  $('#marg-rows').innerHTML = p.marginal.map(m =>
+    '<tr><td>' + esc(m.from) + '</td><td>' + esc(m.to) + '</td>' +
+    '<td class="n">' + M(m.extra_annual_investment) + '</td>' +
+    '<td class="n">+' + m.pci_2038_gain + '</td>' +
+    '<td class="n">' + M(m.annual_dollars_per_pci_point) + '</td></tr>').join('');
+  const rate = p.marginal.find(m => m.annual_dollars_per_pci_point);
+  const sl = $('#extra');
+  sl.oninput = () => {
+    const v = +sl.value;
+    $('#extra-out').textContent = Ms(v);
+    if (!v) { $('#extra-res').innerHTML = ''; return; }
+    const base = p.scenarios.find(s => s.id === 'plan_plus_ff');
+    const gain = v / rate.annual_dollars_per_pci_point;
+    $('#extra-res').innerHTML = '<div class="note"><b>Indicative only — not a forecast.</b> ' +
+      Ms(v) + ' a year on top of the Plan + Measure FF scenario interpolates to about <b>PCI ' +
+      (base.pci_2038 + gain).toFixed(1) + '</b> by 2038, up from ' + base.pci_2038 +
+      '. Linear interpolation applied to a non-linear relationship. ' +
+      '<b>And the money must first be shown to be legally redirectable: no CIP funding source ' +
+      'currently is.</b></div>';
+  };
+  $('#pci-indep').textContent = p.independent_model.purpose + ' Status: ' +
+    p.independent_model.status + '.';
+  $('#pci-missing').innerHTML = p.independent_model.missing_inputs.map(m =>
+    '<li><code>' + esc(m.input) + '</code> — needed from ' + esc(m.needed_from) + '</li>').join('');
+}
+
+function opex() {
+  const w = D.operating_consequences.workers_compensation;
+  $('#wc-alert').innerHTML = '<b>Open and under independent investigation.</b> ' + esc(w.open);
+  const rows = [['Operating revenue', 'revenue'], ['Operating expenses', 'expenditure'],
+    ['Transfers in', 'transfers_in'], ['Transfers out', 'transfers_out'],
+    ['Ending net position', 'ending_balance']];
+  $('#wc-rows').innerHTML = rows.map(([l, k]) => {
+    const a = w.fy2024[k], b = w.fy2025[k];
+    const bad = k === 'ending_balance' && b < 0;
+    return '<tr><td>' + l + '</td><td class="n">' + M(a) + '</td><td class="n"' +
+      (bad ? ' style="color:var(--red);font-weight:600"' : '') + '>' + M(b) + '</td></tr>';
+  }).join('');
+  $('#wc-why').innerHTML = '<b>' + esc(w.finding) + '</b> ' + esc(w.why_it_matters);
+  const g = D.operating_consequences.general_fund, pk = D.operating_consequences.park_tax;
+  $('#opex-stats').innerHTML = [
+    ['<span class="v bad">' + Ms(g.structural_deficit_obligation ?
+      g.structural_deficit_obligation.amount : null) + '</span>',
+     'FY2027 projected General Fund structural deficit <span class="chip k-projection">PROJECTION</span>'],
+    ['<span class="v bad">' + Ms(pk.unfunded_capital ? pk.unfunded_capital.amount : null) + '</span>',
+     'Parks and camps unfunded capital need in the proposed FY2027–31 CIP'],
+    ['<span class="v bad">' + Ms(w.fy2025.ending_balance) + '</span>',
+     "Workers' Compensation net position, FY2025 <span class=\"chip k-audited\">AUDITED</span>"],
+  ].map(([v, l]) => '<div class="stat">' + v + '<div class="l">' + l + '</div></div>').join('');
+}
+
+function marina() {
+  const m = D.marina;
+  $('#marina-rows').innerHTML = m.audited.map(y =>
+    '<tr><td>FY' + y.fy + '</td><td><span class="chip ' +
+    (y.basis === 'audited' ? 'k-audited">AUDITED' : 'k-projection">PROJECTION') + '</span></td>' +
+    '<td class="n">' + M(y.revenue) + '</td><td class="n">' + M(y.expenditure) + '</td>' +
+    '<td class="n"' + (y.ending_balance < 0 ? ' style="color:var(--red);font-weight:600"' : '') +
+    '>' + M(y.ending_balance) + '</td></tr>').join('');
+  $('#marina-note').textContent = m.note;
+  $('#marina-obl').innerHTML = m.obligations.map(o =>
+    '<tr><td>' + esc(o.kind.replace(/_/g, ' ')) + '</td><td class="n">' + M(o.amount) + '</td>' +
+    '<td>' + esc(o.as_of) + '</td><td class="cap">' + esc(o.note) + '</td></tr>').join('');
+}
+
+function sources() {
+  $('#ec-rows').innerHTML = Object.entries(D.evidence_classes).map(([k, v]) =>
+    '<tr><td><b>' + esc(k) + '</b></td><td>' + esc(v) + '</td></tr>').join('');
+  const s = D.capital.source;
+  $('#src-list').innerHTML = [
+    '<li><b>' + esc(s.title) + '</b> — ' + esc(s.body) + '. <a href="' + esc(s.url) +
+      '">source PDF</a>. Local copy: <code>' + esc(s.local_copy) + '</code>. ' + esc(s.document_states) + '</li>',
+    '<li><b>Five-Year Street Rehabilitation and Measure FF Plans for FY2027–2031</b> — Council Action ' +
+      'Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1). Local copy: ' +
+      '<code>phase2/sources/street-rehab-measure-ff-2026-07-07.pdf</code></li>',
+    '<li><b>Adoption of FY2027 and FY2028 Biennial Budget</b> — June 23, 2026. Local copy: ' +
+      '<code>phase2/sources/budget-adoption-2026-06-23.pdf</code> <i>(downloaded, not yet extracted)</i></li>',
+    '<li><b>BeTH Phase 1 audited ledger</b> — 106 funds reconciled to the FY2025 ACFR</li>',
+  ].join('');
+  $('#cap-caveats').innerHTML = D.capital.caveats.map(c => '<li>' + esc(c) + '</li>').join('');
+}
+</script>
+</body>
+</html>

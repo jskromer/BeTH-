@@ -15,6 +15,82 @@ This document catalogs every overlap, states which are consistent, which conflic
 
 ---
 
+## 0. Five distinctions this document holds open
+
+Most confusion about the Marina Fund comes from collapsing one of these pairs. Each row is a
+distinction the rest of this document maintains, and each has already produced at least one
+mislabelled entry in a real ledger.
+
+### A. Council authorization vs actual accounting transaction
+
+An authorization is permission to act. A transaction is money moving and being recorded.
+They have different dates, and sometimes the second never happens.
+
+| | Authorization | Transaction |
+|---|---|---|
+| Evidence | Council item, resolution, minutes | ACFR statement line, interfund note, fund balance |
+| Date | When Council voted | When the entry was booked |
+| Marina example | $5,500,000 Workers' Compensation loan, **authorized 2023-07-25** | **No receivable for it appears in the FY2025 ACFR** |
+
+**Rule.** A BeTH entry sourced to a Council item records an authorization. Only an ACFR line
+records a transaction. A stated *purpose* ("for D and E dock replacement") is never evidence of a
+*destination*.
+
+### B. Loans vs transfers vs receivables vs repayments
+
+Four mechanisms, four different balance-sheet consequences:
+
+| Mechanism | Creates an obligation to repay? | Where it appears |
+|---|---|---|
+| **Transfer** | No | Transfers in / transfers out on the operating statement |
+| **Loan** | Yes | A liability in the borrowing fund, a receivable in the lending fund |
+| **Receivable** | Yes, owed to the holder | Due to/from other funds (ACFR Note 4.A) |
+| **Repayment** | Extinguishes one | Reduces both sides |
+
+Berkeley has produced at least two ledger entries where the `kind` field contradicts the
+evidence in the same record:
+
+- **$2,477,099 Marina item** — recorded as `transfer_out` while its own note said "a receivable
+  the GF expects back." **Corrected in Phase 1** to `loan_out` after confirming ACFR Note 4.A.
+- **$890,000 DoubleTree item** — recorded as `write_off` while its own `terms` field says
+  *"Not written off; recorded here as revenue at risk."* See §9.
+
+### C. Audited actuals vs adopted budgets vs projections
+
+| Class | Source | Marina example |
+|---|---|---|
+| **Audited actual** | ACFR, tied to a statement column | FY2025 revenue $7,594,812 |
+| **Adopted budget** | Adopted budget or AAO | FY2026 General Fund transfer (four competing figures, §4) |
+| **Projection** | Forecast for an unaudited year | FY2028 ending balance −$545,586 |
+
+FY2025 is the latest audited year. **Every FY2026 Marina figure in circulation is a projection or
+a budget figure, including ones published as "actual."**
+
+### D. Boating vs non-boating expense
+
+A cost-allocation *estimate*, not an accounting classification. It exists only in the State's June
+2023 report, which the State itself called *"an informal report prepared at DBW's request"* based on
+*"estimated workloads."* The ACFR has no such dimension and neither does BeTH's ledger. It is the
+most analytically useful frame available and the least auditable. Both things are true.
+
+### E. Cash expenditure vs capital contribution vs non-cash entry
+
+Not every dollar in the expense column left the City's bank:
+
+| Type | FY2025 Marina example | Cash moved? |
+|---|---|---|
+| Cash operating expenditure | Staff and benefits $4,179,607 | Yes |
+| Internal charge | City central charges (indirect) $706,259 | Yes, to another City fund |
+| **Non-cash entry** | **Depreciation $594,125** | **No** |
+| Debt service | State loan interest and principal $485,719 | Yes |
+| Capital funded by grant | State capital grant $7,689,069 inflow | Yes, but restricted to capital |
+
+FY2025 audited expense of $13,573,896 is nearly double FY2024 because of grant-funded dock and pile
+capital work. **Reading that as an operating blowout would be wrong.** Of the FY2025 outflows,
+$594,125 is depreciation, which never moved.
+
+---
+
 ## 1. The headline finding: a $5.5M loan that no statement records as owed
 
 This is the most consequential thing in Eric's analysis, and **BeTH can independently corroborate it.**
@@ -36,7 +112,11 @@ So $5.5M demonstrably left the Workers' Compensation Fund in FY2024, the Marina 
 
 **Where BeTH's own ledger is now in question.** BeTH records this as `loan_in $5,500,000` from Workers' Compensation **to the Marina (608)**, and the Workers' Compensation ledger describes its matching `transfer_out` as *"Waterfront D and E dock replacement (Marina)."* That is the Council's stated **purpose**, which BeTH appears to have recorded as the **destination**. BeTH's own supporting evidence is weak on this point: the 608 obligation entry is dated `as_of 2023-07-25` — the authorization date — not a balance-sheet date, unlike the $2,477,099 entry which is properly dated `2025-06-30`.
 
-> **Action: do not publish either figure until resolved.** This is exactly the loan/transfer confusion Phase 1 corrected for the $2,477,099 Marina item. The same class of error may be present here at more than twice the size. Resolving it requires the FY2024 ACFR interfund note and the FY2024/FY2025 Workers' Compensation fund statements. **No data has been changed.**
+> **Status: under independent investigation by Codex. NOT resolved, and nothing in this document assumes an outcome.**
+>
+> This is exactly the loan/transfer confusion of distinction B, at more than twice the size of the $2,477,099 item Phase 1 corrected. Resolving it requires the FY2024 ACFR interfund note and the FY2024/FY2025 Workers' Compensation fund statements. **BeTH's approved ledgers have not been changed and must not be until that investigation reports.**
+>
+> What can be said now, and no more: $5.5M left the Workers' Compensation Fund in FY2024; the Marina recorded no transfer in that year; and no receivable for it exists at 2025-06-30. Which of the two destination accounts is correct is an open question, not a finding.
 
 **Why it compounds.** The Workers' Compensation Fund is not healthy enough to absorb this:
 
@@ -150,6 +230,44 @@ A 16-month window produced three totals spanning $32M. The scope definitions alm
 
 ---
 
+## 9. The DoubleTree $890,000: outstanding rent, not a write-off
+
+Both records carry roughly $890,000 against the DoubleTree hotel. Neither should call it a write-off,
+and BeTH's ledger currently does.
+
+**What the lease and the arrears are.** A 60-year ground lease running to 2080, base rent about
+$82,000 a month plus percentage rent. The hotel stopped paying regular rent in early 2025 — January
+per the May 2025 deck, March per the September 2026 deck, a discrepancy BeTH carries without
+resolving. It paid $964,680 in September 2025 and nothing since December 2025. About **$890,000 was
+owed as of September 2026**: nine months of base rent plus three quarters of percentage rent.
+
+**The three things it could be, and which it is:**
+
+| Treatment | Meaning | Applies here? |
+|---|---|---|
+| **Outstanding rent (receivable)** | Billed, unpaid, still owed and still collectible | **Yes.** This is what the $890,000 is. |
+| **Allowance for doubtful accounts** | A contra-asset reducing the receivable's carrying value for the part not expected to be collected | **Policy exists; no Marina-specific amount located.** The FY2025 ACFR states *"All trade accounts receivable are presented net of allowance for doubtful accounts."* Whether any allowance was booked against this tenant, and how much, is **not established**. |
+| **Write-off** | The receivable is removed; the City has stopped expecting payment | **No.** Nothing in either record says the City wrote this off. |
+
+**BeTH's ledger contradicts itself.** The entry `608-doubletree-arrears` has `kind: "write_off"`,
+while its own `terms` field reads: *"Not written off; recorded here as revenue at risk. Budget assumed
+35% of rent for FY27-28; actual zero. Staff: potential loss $840K through FY28."* The field is right
+and the kind is wrong — the same pattern as §0B.
+
+**Three different numbers, three different meanings**, which must never be used interchangeably:
+
+- **$890,000** — amount owed as of September 2026. A receivable.
+- **$964,680** — amount actually paid in September 2025. Cash received.
+- **$840,000** — staff's estimate of *potential loss through FY28*. A forecast, not a booked amount.
+
+**Also note the fiscal-year label.** BeTH dates this entry `fy: 2026`, but the $890,000 balance is
+stated as of September 2026, which falls in **FY2027**. The arrears began in FY2025 and accumulated
+across three fiscal years. A single-year tag cannot represent it correctly.
+
+**Unresolved:** whether any allowance for doubtful accounts was recorded against this tenant in
+FY2025 or FY2026; the correct start date of non-payment; and whether the City has initiated lease
+enforcement. **Flagged, not changed.**
+
 ## 8. Publication rules for this case study
 
 1. Label every figure: `audited` | `budget` | `projection` | `planning estimate` | `third-party analysis`.
@@ -158,3 +276,6 @@ A 16-month window produced three totals spanning $32M. The scope definitions alm
 4. Hold the $5.5M Workers' Compensation item entirely until its destination is resolved.
 5. Attribute Eric's findings to the Berkeley Decision Project by name, with his source citation, every time.
 6. Keep loans, transfers, cost shifts, and indirect-cost reductions in distinct categories. Four mechanisms moved money toward the Marina between FY2022 and FY2026 and collapsing them into "General Fund support" destroys the distinction that matters.
+7. Never cite an authorization as evidence that a transaction occurred (§0A).
+8. Never describe the DoubleTree $890,000 as a write-off (§9).
+9. Separate non-cash entries from cash expenditure whenever a total is shown. FY2025's $13,573,896 includes $594,125 of depreciation and is inflated by grant-funded capital work (§0E).

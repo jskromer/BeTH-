@@ -1,0 +1,266 @@
+{
+ "schema_version": 2,
+ "generated": "2026-10-23",
+ "status": "CALIBRATED_TO_CITY_SCENARIOS",
+ "headline": "Berkeley has already modelled this. BeTH reuses the City's StreetSaver-based projections rather than building a rival model, and adds the funding-restriction test the City does not publish.",
+ "chain": [
+  "capital reallocations + recurring operating savings",
+  "funds available for paving",
+  "treatments purchased (StreetSaver WER selection)",
+  "network PCI over time (City deterioration model)"
+ ],
+ "pci60_assessment": {
+  "question": "What would it take to bring Berkeley pavement to PCI 60 or better and hold it there?",
+  "answer_status": "ANSWERABLE FROM CITY DATA, with limits stated",
+  "finding": "The City's own 12-year projections bracket PCI 60. The Five-Year Plan alone is projected to DECLINE to about 56 by 2038. Adding Measure FF is projected to reach about 62 by 2038. So PCI 60+ is, on the City's own modelling, roughly the outcome already purchased by the Plan plus Measure FF, at about $29.6 million a year.",
+  "the_real_gap_is_70_not_60": "Berkeley's adopted goal is PCI 70 (BMC 7.11.010(K)(1)), not 60. The City estimates PCI 70 by 2036 requires about $37.6 million a year, roughly $8 million a year more than current plans provide. The funding question Berkeley actually faces is the 62-to-70 gap.",
+  "scenarios_below_60": [
+   {
+    "id": "five_year_plan",
+    "label": "Five-Year Plan baseline",
+    "annual_investment": 20300000,
+    "pci_2038": 56,
+    "direction": "declines",
+    "description": "Only the funding in the proposed Five-Year Street Rehabilitation Plan. PCI falls from 59 to about 56 by 2038 as construction cost escalation outpaces revenue growth.",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+   }
+  ],
+  "scenarios_at_or_above_60": [
+   {
+    "id": "plan_plus_ff",
+    "label": "Five-Year Plan + Measure FF",
+    "annual_investment": 29600000,
+    "pci_2038": 62,
+    "direction": "improves",
+    "description": "Adds Measure FF funding. PCI improves from 59 to about 62 by 2038. Measure FF accounts for the entire difference between this and the baseline.",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+   },
+   {
+    "id": "reach_70",
+    "label": "Reach 70 by 2036, then maintain",
+    "annual_investment": 37600000,
+    "pci_2038": 70,
+    "direction": "reaches goal",
+    "description": "The investment level the City estimates is needed to reach PCI 70 by 2036 and hold it through 2038. About $8M a year more than the Plan and Measure FF currently provide.",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+   }
+  ],
+  "critical_caveats": [
+   "These are the CITY's projections, not BeTH's. BeTH has not independently verified them and cannot, without the StreetSaver segment data.",
+   "PCI 60 as a network AVERAGE can coexist with many streets in failed condition. The City's own goal pairs PCI 70 with \"no streets having a PCI below 50\". A network average target without a distribution floor can be met while the worst streets decay further.",
+   "All figures assume 3% annual construction cost escalation and the Council/Measure FF revenue escalation formulas. The City notes the net effect is a modest real increase in costs relative to funding.",
+   "Annual figures are 12-year averages accounting for projected revenue growth, NOT flat annual amounts.",
+   "Reaching a level and holding it are different problems with different funding profiles."
+  ],
+  "what_beth_adds": "Not a rival forecast. BeTH's contribution is to show what the City's own model implies under alternative funding, and to test whether any capital reallocation could close the roughly $8M/yr gap to PCI 70. That test is currently blocked: 0 of 15 CIP funding sources are confirmed redirectable."
+ },
+ "city_scenarios": [
+  {
+   "id": "five_year_plan",
+   "label": "Five-Year Plan baseline",
+   "annual_investment": 20300000,
+   "pci_2038": 56,
+   "direction": "declines",
+   "description": "Only the funding in the proposed Five-Year Street Rehabilitation Plan. PCI falls from 59 to about 56 by 2038 as construction cost escalation outpaces revenue growth.",
+   "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+  },
+  {
+   "id": "plan_plus_ff",
+   "label": "Five-Year Plan + Measure FF",
+   "annual_investment": 29600000,
+   "pci_2038": 62,
+   "direction": "improves",
+   "description": "Adds Measure FF funding. PCI improves from 59 to about 62 by 2038. Measure FF accounts for the entire difference between this and the baseline.",
+   "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+  },
+  {
+   "id": "reach_70",
+   "label": "Reach 70 by 2036, then maintain",
+   "annual_investment": 37600000,
+   "pci_2038": 70,
+   "direction": "reaches goal",
+   "description": "The investment level the City estimates is needed to reach PCI 70 by 2036 and hold it through 2038. About $8M a year more than the Plan and Measure FF currently provide.",
+   "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+  }
+ ],
+ "city_selection_methods": [
+  {
+   "id": "critical_point",
+   "label": "Critical Point (WER-driven)",
+   "pci_2038": 63,
+   "description": "Selects Measure FF streets using the same WER methodology as the Five-Year Plan.",
+   "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+  },
+  {
+   "id": "pci_under_50",
+   "label": "PCI Under 50 targeting",
+   "pci_2038": 62,
+   "description": "Targets streets below PCI 50, consistent with Measure FF's stated goal of addressing long-deferred repairs.",
+   "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)"
+  }
+ ],
+ "marginal_cost_per_pci_point": [
+  {
+   "from": "Five-Year Plan baseline",
+   "to": "Five-Year Plan + Measure FF",
+   "extra_annual_investment": 9300000,
+   "pci_2038_gain": 6,
+   "annual_dollars_per_pci_point": 1550000,
+   "derivation": "BeTH arithmetic on two published City scenarios",
+   "caveat": "Coarse. Non-linear relationship, 12-year endpoints, differing selection methods."
+  },
+  {
+   "from": "Five-Year Plan + Measure FF",
+   "to": "Reach 70 by 2036, then maintain",
+   "extra_annual_investment": 8000000,
+   "pci_2038_gain": 8,
+   "annual_dollars_per_pci_point": 1000000,
+   "derivation": "BeTH arithmetic on two published City scenarios",
+   "caveat": "Coarse. Non-linear relationship, 12-year endpoints, differing selection methods."
+  }
+ ],
+ "inputs": {
+  "network": {
+   "current_network_pci": {
+    "value": 57,
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High",
+    "note": "Citywide PCI as of the most recent condition assessment (2025)."
+   },
+   "pci_after_fy2026_work": {
+    "value": 59,
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High"
+   },
+   "assessment_cycle": {
+    "value": "biennial",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High",
+    "note": "PCI scored per street section from observed surface distresses, fed into StreetSaver."
+   },
+   "adopted_goal": {
+    "value": 70,
+    "source": "BMC 7.11.010(K)(1), via City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High",
+    "note": "Goal of citywide PCI 70 \"ideally with no streets having a PCI below 50\". Measure FF prioritises streets below PCI 50."
+   },
+   "total_lane_miles": {
+    "value": null,
+    "source": null,
+    "needed_from": "StreetSaver network summary. Not required for the City-scenario comparison, only for independent segment modelling."
+   },
+   "pci_distribution": {
+    "value": null,
+    "source": null,
+    "needed_from": "StreetSaver segment export. Needed to report miles below PCI 25 and the condition distribution."
+   }
+  },
+  "deterioration": {
+   "curves_by_pavement_type": {
+    "value": null,
+    "source": null,
+    "needed_from": "Berkeley's adopted StreetSaver deterioration curves"
+   },
+   "note": "Deterioration is non-linear. Below roughly PCI 40 the required treatment escalates from surface seal to full reconstruction at several times the cost. A linear assumption makes PCI 60 look far cheaper to reach than it is, so no linear fallback is provided."
+  },
+  "treatments": {
+   "catalog": {
+    "value": null,
+    "source": null,
+    "needed_from": "StreetSaver treatment catalog: eligibility PCI band, unit cost per square foot, service life, post-treatment PCI"
+   },
+   "note": "Treatment eligibility depends on current PCI. A treatment valid at PCI 70 is usually invalid at PCI 35."
+  },
+  "delivery_cost": {
+   "cost_per_lane_mile_by_treatment": {
+    "value": null,
+    "source": null,
+    "needed_from": "Recent Berkeley paving contracts"
+   },
+   "cost_decomposition": {
+    "value": null,
+    "source": null,
+    "needed_from": "Contract bid tabs, broken into pavement treatment, design, construction management, ADA, utilities, drainage, traffic safety, environmental work, green infrastructure, discretionary scope"
+   },
+   "note": "Whether delivery reform frees real money can only be answered from this decomposition. Do not presume environmental review is the primary driver; that is the hypothesis to test."
+  },
+  "funding": {
+   "measure_ff_annual_estimate": {
+    "value": 15000000,
+    "source": "City of Berkeley, Proposed FY2027-FY2031 Capital Improvement Program presentation, Item 02",
+    "confidence": "Low",
+    "note": "NOT all pavement: the same sentence covers sidewalks, safety and environment. Not usable as a paving budget without the split."
+   },
+   "redirectable_from_capital": {
+    "value": null,
+    "source": null,
+    "needed_from": "Restriction research across CIP funding sources. 0 of 15 sources currently confirmed redirectable."
+   },
+   "recurring_operating_savings": {
+    "value": null,
+    "source": null,
+    "needed_from": "Payroll and benefit baseline workstream"
+   }
+  },
+  "escalation": {
+   "construction_cost_pct_per_year": {
+    "value": 3.0,
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High",
+    "note": "Reflects recent asphalt and paving material trends."
+   },
+   "revenue_escalation": {
+    "value": "greater of SF Bay Area cost of living or California per capita personal income growth",
+    "source": "Council Resolution No. 70,456-N.S. and the Measure FF ordinance, via City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High"
+   },
+   "net_effect_stated_by_city": {
+    "value": "a modest real increase in construction costs relative to available funding over the projection period",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High"
+   }
+  },
+  "methodology": {
+   "software": {
+    "value": "StreetSaver",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High"
+   },
+   "ranking": {
+    "value": "Weighted Economic Ranking (WER)",
+    "source": "City of Berkeley, \"Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031\", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)",
+    "confidence": "High",
+    "note": "WER ranks every street section and treatment option."
+   }
+  }
+ },
+ "independent_model_status": {
+  "status": "BLOCKED",
+  "purpose": "Segment-level modelling would let BeTH test the City's projections rather than only restate them, and report the condition DISTRIBUTION the City's headline average hides.",
+  "missing_inputs": [
+   {
+    "input": "network.total_lane_miles",
+    "needed_from": "StreetSaver network summary. Not required for the City-scenario comparison, only for independent segment modelling."
+   },
+   {
+    "input": "network.pci_distribution",
+    "needed_from": "StreetSaver segment export. Needed to report miles below PCI 25 and the condition distribution."
+   },
+   {
+    "input": "deterioration.curves_by_pavement_type",
+    "needed_from": "Berkeley's adopted StreetSaver deterioration curves"
+   },
+   {
+    "input": "treatments.catalog",
+    "needed_from": "StreetSaver treatment catalog: eligibility PCI band, unit cost per square foot, service life, post-treatment PCI"
+   },
+   {
+    "input": "delivery_cost.cost_per_lane_mile_by_treatment",
+    "needed_from": "Recent Berkeley paving contracts"
+   }
+  ],
+  "missing_count": 5,
+  "rule": "No default, literature or assumed value is ever substituted for a missing input."
+ },
+ "reconciliation_requirement": "BeTH figures must reconcile to the City's adopted paving plan and StreetSaver output, with differences explained."
+}
