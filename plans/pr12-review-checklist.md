@@ -12,6 +12,7 @@ For a reviewer who did not build it. Each item is checkable from the repository 
 - [ ] Section 1 control totals against the printed Total columns: p.77 (governmental), p.86 (enterprise Total), p.322 (internal service Total). Differences shown: governmental expenditures +$1, fund balance −$2; enterprise net position −$1, non-operating +$1; internal service none.
 - [ ] Pick three funds outside the six curated ones and compare the table row with the fund's statement column, including at least one facing (even-numbered) page.
 - [ ] Transfers: $61,593,578 in and out across 106 funds.
+- [ ] **Category split (not automated):** for two funds, compare their section 2 category lines (e.g. Taxes, Public safety) with the statement rows. The automated checks verify each fund's totals and that its lines add up to them, not which category each dollar is filed under.
 - [ ] The $36,598,654 gap: confirm the p.77 "Community development and housing" ("and housing") and "TRAN issuance costs" values for the General Fund, Grants and Capital Improvement.
 
 ## Accounting presentation

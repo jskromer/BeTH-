@@ -53,6 +53,8 @@ A fund's money-flow lines (`flow_detail`) are compared with its audited totals. 
 2. **Any gap between lines and totals fails the tests unless it is documented to the dollar** in `known-gaps.json` (`test_no_line_item_gap_is_undocumented`). A regeneration that drops a line therefore fails CI in the extraction PR itself.
 3. **The page computes "not itemized" as total minus captured lines**, so a gap is always drawn, never absorbed. A documented gap also gets a prominent note at the top of the page.
 
+**Limit:** these checks prove each fund's totals and that its lines sum to them. They do not prove the split between categories: a line filed under the wrong function with the right amount would pass. The review checklist includes a manual spot-check, and a per-line check against the statement rows is a candidate for the extraction pipeline's reconciliation.
+
 When the extractor is fixed and a documented gap closes, the shared tests stay green. The dashboard check then reports the `known-gaps.json` entry as stale, and the next rebuild PR deletes it.
 
 ### Current documented gap (FY2025)
