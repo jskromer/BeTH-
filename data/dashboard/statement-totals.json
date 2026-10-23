@@ -1,0 +1,58 @@
+{
+ "schema_version": 1,
+ "description": "Control totals for the financial dashboard: each statement's own Total column, used to check that the dashboard's sums of individual fund columns reproduce what the ACFR prints. Dashboard-owned; not a fund ledger. Transfers out are stored as positive amounts (the statements print them in parentheses). One year per key; add a year when its fund rows are loaded.",
+ "years": {
+  "2025": {
+   "source": {
+    "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025",
+    "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+    "date": "2026-01",
+    "pdf_sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3"
+   },
+   "verified": "2026-10-22: read with tools/acfr_parse.py (Total columns, which the fund extractor does not use) and each figure confirmed present in `pdftotext -layout` output of the cited page.",
+   "groups": {
+    "governmental": {
+     "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+     "pages": "77",
+     "column": "Total Governmental Funds",
+     "values": {
+      "revenue": 480033183,
+      "expenditure": 487575829,
+      "transfers_in": 45828243,
+      "transfers_out": 51208683,
+      "ending_balance": 621915004
+     }
+    },
+    "enterprise": {
+     "statement": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+     "pages": "85-86",
+     "column": "Total (business-type activities, enterprise funds)",
+     "values": {
+      "revenue": 132339019,
+      "expenditure": 134294369,
+      "nonoperating": 11273612,
+      "transfers_in": 1549671,
+      "transfers_out": 3195983,
+      "ending_balance": 248103564
+     }
+    },
+    "internal_service": {
+     "statement": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+     "pages": "321-322",
+     "column": "Total",
+     "values": {
+      "revenue": 44755692,
+      "expenditure": 63434532,
+      "nonoperating": 1741344,
+      "transfers_in": 14215664,
+      "transfers_out": 7188912,
+      "ending_balance": 24454381
+     },
+     "note": "The proprietary funds statement (p.86) prints internal service operating expenses as 63,434,531, one dollar below this combining statement's total. The combining statement is the source of the fund columns, so it is the control."
+    }
+   },
+   "rounding_tolerance": 2,
+   "rounding_note": "Published statement totals are rounded independently of their columns. A difference of up to $2 between the sum of fund columns and the printed total is reported, not hidden."
+  }
+ }
+}

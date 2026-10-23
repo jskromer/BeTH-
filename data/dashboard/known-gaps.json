@@ -1,0 +1,16 @@
+{
+ "schema_version": 1,
+ "description": "Documented causes of line-item gaps in fund flow_detail blocks (fund total minus captured lines). Dashboard-owned annotation, not ledger data. An entry is shown only while the fund's gap for that year equals `gap` exactly; once the extractor captures the lines, or the gap changes, the entry stops applying and the page falls back to the generic note. Values read from the ACFR page cited and confirmed in `pdftotext -layout` output.",
+ "years": {
+  "2025": {
+   "source_page": "77",
+   "cause": "On the governmental funds statement the row 'Community development and housing' wraps onto two lines, so its values sit on a line labeled 'and housing', which the extractor's expenditure list does not include; the General Fund's 'TRAN issuance costs' row is also not in the list.",
+   "function_totals": {"Community development and housing": 46328738},
+   "funds": {
+    "011": {"gap": 20312681, "lines": {"Community development and housing": 20221797, "TRAN issuance costs": 90884}},
+    "ACFR-grants": {"gap": 13584981, "lines": {"Community development and housing": 13584981}},
+    "501": {"gap": 2700992, "lines": {"Community development and housing": 2700992}}
+   }
+  }
+ }
+}

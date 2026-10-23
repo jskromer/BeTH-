@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "description": "The 17 fiduciary funds in the FY2025 ACFR that are counted on the Fund Map (123 = 106 + 17) but have no record in data/funds. Names are the statement column headings. No amounts are recorded here: extracting fiduciary figures belongs to the extraction pipeline and needs its own statement conventions (additions and deductions, fiduciary net position).",
+ "fy": 2025,
+ "source": {
+  "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, fiduciary fund statements",
+  "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+  "date": "2026-01"
+ },
+ "groups": {
+  "trust": {
+   "label": "Pension and OPEB (retiree health) trust funds",
+   "statement_pages": "327-330",
+   "description_page": "326",
+   "funds": [
+    {"name": "Safety Members Pension Fund", "kind": "Pension trust", "description_name": "Safety Member Pension Fund"},
+    {"name": "Police Retirement Income Benefit Plan", "kind": "Pension trust", "description_name": "Police Retirement Fund"},
+    {"name": "Miscellaneous Retiree Health Premium Assistance Plan", "kind": "OPEB trust", "description_name": "Miscellaneous Retiree Medical Fund"},
+    {"name": "Police Retiree Premium Assistance Plan", "kind": "OPEB trust", "description_name": "Police Medical Fund"},
+    {"name": "Fire Employees Retiree Health Plan", "kind": "OPEB trust", "description_name": "Fire Medical Fund"}
+   ]
+  },
+  "custodial": {
+   "label": "Custodial funds",
+   "statement_pages": "333-336",
+   "description_page": "332",
+   "funds": [
+    {"name": "District 47 Underground/Miller", "kind": "Custodial"},
+    {"name": "Sustainable Energy", "kind": "Custodial"},
+    {"name": "Solano Avenue Bid", "kind": "Custodial"},
+    {"name": "Telegraph Business Improvement District", "kind": "Custodial"},
+    {"name": "Thousand Oaks Undergrounding", "kind": "Custodial"},
+    {"name": "Measure H School Tax", "kind": "Custodial"},
+    {"name": "CFD No. 1 Disaster Fire Protection Mello-Roos", "kind": "Custodial"},
+    {"name": "Sick Leave Entitlement", "kind": "Custodial"},
+    {"name": "Berkeley Tourism BID", "kind": "Custodial"},
+    {"name": "Elmwood Business Improvement District", "kind": "Custodial"},
+    {"name": "North Shattuck Business Improvement District", "kind": "Custodial"},
+    {"name": "DT Berkeley Property and Improvement District", "kind": "Custodial"}
+   ]
+  }
+ }
+}
