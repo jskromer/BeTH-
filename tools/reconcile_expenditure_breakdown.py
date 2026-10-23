@@ -31,7 +31,7 @@ def stage(pdf_path=ROOT / 'annual-comprehensive-financial-report-fy2025.pdf', ou
     source = provenance(pdf_path, 2025)
     statement = config['statements'][0]
     page = statement['pairs'][0][0]
-    source.update(statement=statement['title'], pdf_page=page,
+    source.update(role='expenditure-breakdown extraction source', statement=statement['title'], pdf_page=page,
                   printed_page=statement['printed_pages'][0])
     before = {p:snapshot(ROOT / p) for p in ('data/funds','docs')}
     protected = protected_ids()

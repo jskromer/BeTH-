@@ -65,6 +65,8 @@ class SourceToLedgerTests(unittest.TestCase):
                 self.assertEqual(f['proposed_breakdown_sum'],total)
                 self.assertEqual(f['proposed_difference_from_audit'],0)
                 self.assertTrue(f['annual_total_unchanged'])
+        self.assertEqual(self.report['source']['role'],'expenditure-breakdown extraction source')
+        self.assertEqual(self.report['source']['pdf_page'],77)
         self.assertEqual(self.report['omitted_expenditures'],36598654)
         self.assertEqual(self.report['affected_funds'],3)
         self.assertEqual(sum(len(f['proposed_corrections']) for f in self.report['funds']),4)

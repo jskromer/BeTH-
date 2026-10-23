@@ -103,7 +103,7 @@
         ]
       }
     ],
-    "role": "opening-balance/restatement comparator",
+    "role": "expenditure-breakdown extraction source",
     "restatement_note": {
       "note": "15",
       "pdf_pages": [
@@ -234,7 +234,7 @@
             ]
           }
         ],
-        "role": "opening-balance/restatement comparator",
+        "role": "expenditure-breakdown extraction source",
         "restatement_note": {
           "note": "15",
           "pdf_pages": [
@@ -589,7 +589,7 @@
             ]
           }
         ],
-        "role": "opening-balance/restatement comparator",
+        "role": "expenditure-breakdown extraction source",
         "restatement_note": {
           "note": "15",
           "pdf_pages": [
@@ -912,7 +912,7 @@
             ]
           }
         ],
-        "role": "opening-balance/restatement comparator",
+        "role": "expenditure-breakdown extraction source",
         "restatement_note": {
           "note": "15",
           "pdf_pages": [
@@ -1170,7 +1170,7 @@
             ]
           }
         ],
-        "role": "opening-balance/restatement comparator",
+        "role": "expenditure-breakdown extraction source",
         "restatement_note": {
           "note": "15",
           "pdf_pages": [
@@ -1477,7 +1477,7 @@
             ]
           }
         ],
-        "role": "opening-balance/restatement comparator",
+        "role": "expenditure-breakdown extraction source",
         "restatement_note": {
           "note": "15",
           "pdf_pages": [

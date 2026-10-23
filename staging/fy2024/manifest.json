@@ -804,8 +804,8 @@
     },
     "tests/test_expenditure_breakdown.py": {
       "role": "audited page 77 category, protection and correction regression tests",
-      "sha256": "4210b3f69b4eaa1edc2fa7cc7501e6b675680e7776dbecfd55c9b782f02f802c",
-      "size_bytes": 5448
+      "sha256": "c74b1bc1982b0b8234b0651208f3d5dbe6c7c33f521a019e0ad75e258a75268f",
+      "size_bytes": 5609
     },
     "tests/test_extraction_safety.py": {
       "role": "extraction safety and FY2025 regression tests",
@@ -869,8 +869,8 @@
     },
     "tools/reconcile_expenditure_breakdown.py": {
       "role": "source-to-ledger expenditure correction staging and verification",
-      "sha256": "fa693ded72a4b7755eed1664f297fceace9a9d22144e54a10ecafbf35480a917",
-      "size_bytes": 11454
+      "sha256": "3afca1b40e914837b2009d60f86a1e214f3d6a17188e7e9253004b9547d2df30",
+      "size_bytes": 11502
     }
   },
   "preservation": {
