@@ -1,0 +1,76 @@
+[
+  {
+    "op": "test",
+    "path": "/fund_number",
+    "value": "501"
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/fy",
+    "value": 2025
+  },
+  {
+    "op": "test",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 51188
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 3449801
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 588816
+      },
+      {
+        "line": "Economic development",
+        "amount": 8539
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 9286418
+      },
+      {
+        "line": "Transfers out",
+        "amount": 2251650
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/flow_detail/outflows",
+    "value": [
+      {
+        "line": "General government",
+        "amount": 51188
+      },
+      {
+        "line": "Highway and streets",
+        "amount": 3449801
+      },
+      {
+        "line": "Culture-recreation",
+        "amount": 588816
+      },
+      {
+        "line": "Community development and housing",
+        "amount": 2700992
+      },
+      {
+        "line": "Economic development",
+        "amount": 8539
+      },
+      {
+        "line": "Capital outlay",
+        "amount": 9286418
+      },
+      {
+        "line": "Transfers out",
+        "amount": 2251650
+      }
+    ]
+  }
+]

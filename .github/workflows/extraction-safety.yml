@@ -15,4 +15,6 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python tools/ledger.py data/funds/*.json
       - run: python tools/acfr_funds.py annual-comprehensive-financial-report-fy2025.pdf data/funds
-      - run: git diff --exit-code -- data/funds docs
+      - run: python tools/acfr_pilot.py --out staging/fy2024
+      - run: python tools/reconcile_expenditure_breakdown.py
+      - run: git diff --exit-code -- data/funds docs staging/fy2024 staging/fy2025-expenditure-corrections

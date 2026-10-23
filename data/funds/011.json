@@ -240,6 +240,11 @@
     "kind": "rescue"
    },
    {
+    "line": "Inception of leases and subscriptions",
+    "amount": 18156996,
+    "kind": "financing"
+   },
+   {
     "line": "Sale of capital assets",
     "amount": 13125,
     "kind": "financing"
@@ -267,6 +272,10 @@
     "amount": 11561579
    },
    {
+    "line": "Community development and housing",
+    "amount": 20221797
+   },
+   {
     "line": "Economic development",
     "amount": 4581909
    },
@@ -277,6 +286,10 @@
    {
     "line": "Interest and fiscal charges",
     "amount": 1106401
+   },
+   {
+    "line": "TRAN issuance costs",
+    "amount": 90884
    },
    {
     "line": "Capital outlay",
