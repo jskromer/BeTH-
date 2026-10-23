@@ -1,4 +1,11 @@
-"""Dashboard integrity tests: totals, scope rules and year handling for tools/build_dashboard.py."""
+"""Dashboard integrity tests for tools/build_dashboard.py.
+
+These run in every PR (the extraction-safety workflow discovers tests/). They
+check invariants that must hold for any valid ledger data, so legitimate data
+growth (new years, new funds, a fixed extraction gap) does not fail them.
+Whether docs/dashboard.html has been rebuilt is checked only by the dashboard
+workflow (tools/DASHBOARD.md).
+"""
 import itertools
 import json
 from pathlib import Path
@@ -12,67 +19,80 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import build_dashboard as bd
 
 
-class DashboardTotals(unittest.TestCase):
+class DashboardInvariants(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.model = bd.build_model()
         cls.page = bd.render(cls.model)
-        cls.fy = cls.model['default_year']
-        cls.year = cls.model['years'][cls.fy]
+        cls.controls = json.loads(bd.CONTROLS.read_text())['years']
 
-    def test_default_year_is_complete_fy2025(self):
-        self.assertEqual(self.fy, 2025)
-        self.assertTrue(self.year['complete'])
-        self.assertEqual(len(self.model['funds']), 106)
+    def complete_years(self):
+        return [fy for fy, y in self.model['years'].items() if y['complete']]
+
+    def test_default_year_is_the_latest_complete_year(self):
+        self.assertTrue(self.complete_years())
+        self.assertEqual(self.model['default_year'], max(self.complete_years()))
 
     def test_group_totals_tie_to_statement_total_columns(self):
-        controls = json.loads(bd.CONTROLS.read_text())['years'][str(self.fy)]
-        for group, entry in self.year['groups'].items():
-            with self.subTest(group=group):
-                check = entry['check']
-                self.assertIn(check['status'], ('ties', 'rounding'))
-                for field, diff in check['diffs'].items():
-                    self.assertLessEqual(abs(diff), controls['rounding_tolerance'], field)
+        for fy in self.complete_years():
+            for group, entry in self.model['years'][fy]['groups'].items():
+                with self.subTest(fy=fy, group=group):
+                    if str(fy) not in self.controls:
+                        self.assertEqual(entry['check']['status'], 'unreconciled')
+                        continue
+                    self.assertIn(entry['check']['status'], ('ties', 'rounding'))
+                    tol = self.controls[str(fy)]['rounding_tolerance']
+                    for field, diff in entry['check']['diffs'].items():
+                        self.assertLessEqual(abs(diff), tol, field)
 
     def test_transfers_balance_and_are_not_revenue(self):
-        self.assertEqual(self.year['transfers']['diff'], 0)
-        flows = self.year['flows']
-        gov = self.year['groups']['governmental']['totals']
-        self.assertEqual(sum(v for _, v in flows['revenue']), gov['rev'])
-        self.assertNotIn('Transfers in', dict(flows['revenue']))
-        self.assertEqual(gov['rev'], sum(f['years'][self.fy]['rev'] for f in self.model['funds'] if f['group'] == 'governmental'))
+        for fy in self.complete_years():
+            yr = self.model['years'][fy]
+            self.assertEqual(yr['transfers']['diff'], 0, fy)
+            gov = yr['groups']['governmental']['totals']
+            self.assertEqual(sum(v for _, v in yr['flows']['revenue']), gov['rev'])
+            self.assertNotIn('Transfers in', dict(yr['flows']['revenue']))
+            self.assertNotIn('Transfers out', dict(yr['flows']['spending']))
 
-    def test_spending_flow_accounts_for_every_dollar(self):
-        flows = self.year['flows']
-        gov = self.year['groups']['governmental']['totals']
-        self.assertEqual(sum(v for _, v in flows['spending']) + flows['not_itemized'], gov['exp'])
-        self.assertNotIn('Transfers out', dict(flows['spending']))
+    def test_every_expenditure_dollar_is_itemized_or_shown_as_not_itemized(self):
+        for fy in self.complete_years():
+            yr = self.model['years'][fy]
+            fl = yr['flows']
+            self.assertEqual(sum(v for _, v in fl['spending']) + fl['not_itemized'],
+                             yr['groups']['governmental']['totals']['exp'], fy)
 
-    def test_known_gaps_explain_the_not_itemized_amount(self):
-        flows = self.year['flows']
-        self.assertIsNotNone(flows['explained'])
-        self.assertEqual(sum(v for _, v in flows['explained']), flows['not_itemized'])
+    def test_no_line_item_gap_is_undocumented(self):
+        """Line items lost in a regeneration fail here; a documented gap must match to the dollar."""
+        self.assertEqual(self.model['gap_audit']['undocumented'], [])
+
+    def test_not_itemized_amount_is_on_the_page(self):
+        fl = self.model['years'][self.model['default_year']]['flows']
+        if fl['not_itemized']:
+            self.assertIn(f'Known gap in the detail: {bd.money(fl["not_itemized"])}', self.page)
+            self.assertIn("Not itemized in BeTH", self.page)
 
     def test_balances_of_different_bases_are_never_summed(self):
-        bal = {g: e['totals']['bal'] for g, e in self.year['groups'].items()}
-        for r in (2, 3):
-            for combo in itertools.combinations(bal, r):
-                if 'governmental' not in combo:
-                    continue
-                total = sum(bal[g] for g in combo)
-                for text in (bd.money(total), bd.money(total, True)):
-                    self.assertNotIn(text, self.page, f'combined balance {combo} rendered as {text}')
+        for fy in self.complete_years():
+            bal = {g: e['totals']['bal'] for g, e in self.model['years'][fy]['groups'].items()}
+            for r in (2, 3):
+                for combo in itertools.combinations(bal, r):
+                    if 'governmental' in combo:
+                        total = sum(bal[g] for g in combo)
+                        self.assertNotIn(bd.money(total), self.page, combo)
+                        self.assertNotIn(bd.money(total, True), self.page, combo)
 
     def test_internal_service_revenue_not_added_to_other_groups(self):
-        rev = {g: e['totals']['rev'] for g, e in self.year['groups'].items()}
-        for combo in (('governmental', 'internal_service'), ('enterprise', 'internal_service'),
-                      ('governmental', 'enterprise', 'internal_service')):
-            total = sum(rev[g] for g in combo)
-            self.assertNotIn(bd.money(total), self.page)
-            self.assertNotIn(bd.money(total, True), self.page)
+        for fy in self.complete_years():
+            rev = {g: e['totals']['rev'] for g, e in self.model['years'][fy]['groups'].items()}
+            for combo in (('governmental', 'internal_service'), ('enterprise', 'internal_service'),
+                          ('governmental', 'enterprise', 'internal_service')):
+                total = sum(rev[g] for g in combo)
+                self.assertNotIn(bd.money(total), self.page)
+                self.assertNotIn(bd.money(total, True), self.page)
 
-    def test_scope_and_status_labels_present(self):
-        for text in ('not City-wide totals', 'Ties within rounding', 'Not yet checked', 'BeTH reading'):
+    def test_terms_and_scope_labels_present(self):
+        for text in ('not City-wide totals', 'Expenditures', 'Operating expenses', 'Fund balance', 'Net position',
+                     'Transfers', 'How internal service funds are handled', 'Not yet checked', 'BeTH reading'):
             self.assertIn(text, self.page)
 
     def test_every_fund_links_to_an_existing_ledger_page(self):
@@ -81,25 +101,19 @@ class DashboardTotals(unittest.TestCase):
                 self.assertTrue((ROOT / 'docs' / f['page']).exists())
                 self.assertIn(f'href="{f["page"]}"', self.page)
 
-    def test_fiduciary_roster_is_the_seventeen_without_records(self):
+    def test_fiduciary_roster(self):
         groups = self.model['fiduciary']['groups']
         self.assertEqual(len(groups['trust']['funds']), 5)
         self.assertEqual(len(groups['custodial']['funds']), 12)
-        ledger_names = {f['name'].lower() for f in self.model['funds']}
         for g in groups.values():
             for x in g['funds']:
-                self.assertNotIn(x['name'].lower(), ledger_names)
                 self.assertIn(bd.esc(x['name']), self.page)
-        fund_map = (ROOT / 'docs/berkeley-fund-map.html').read_text()
-        self.assertIn('123', fund_map)
-        self.assertEqual(len(self.model['funds']) + 17, 123)
 
-    def test_history_excludes_non_statement_series(self):
-        hist = {f['id']: f for f in self.model['history']}
-        self.assertEqual(set(hist), {f['id'] for f in self.model['funds'] if len(f['years']) > 1 or f['other_series_years']})
-        marina = hist['608']
-        self.assertEqual(sorted(marina['years']), [2024, 2025])
-        self.assertEqual(marina['other_series_years'], list(range(2015, 2024)))
+    def test_statement_years_exclude_other_series(self):
+        for f in self.model['funds']:
+            self.assertFalse(set(f['years']) & set(f['other_series_years']), f['id'])
+        marina = next(f for f in self.model['funds'] if f['id'] == '608')
+        self.assertTrue(set(range(2015, 2024)) <= set(marina['other_series_years']) | set(marina['years']))
 
     def test_interpretations_only_for_curated_ledgers(self):
         protected = set(json.loads(bd.REGISTRY.read_text())['ledgers'])
@@ -110,8 +124,8 @@ class DashboardTotals(unittest.TestCase):
         self.assertEqual(bd.render(bd.build_model()), self.page)
 
 
-class DashboardYears(unittest.TestCase):
-    """New audited years must appear on their own, with totals withheld until complete."""
+class DashboardOnChangedData(unittest.TestCase):
+    """What the dashboard does when the ledgers change under it (temporary copies only)."""
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -121,14 +135,18 @@ class DashboardYears(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
+    def edit(self, fid, fn):
+        p = self.dir / f'{fid}.json'
+        d = json.loads(p.read_text())
+        fn(d)
+        p.write_text(json.dumps(d))
+
     def add_year(self, fy, only=None):
         for p in sorted(self.dir.glob('*.json')):
             d = json.loads(p.read_text())
-            if only is not None and d['fund_number'] not in only:
-                continue
-            y = dict(next(r for r in d['annual'] if r['fy'] == 2025 and r['basis'] == 'audited'), fy=fy, note='test row')
-            d['annual'].append(y)
-            p.write_text(json.dumps(d))
+            if only is None or d['fund_number'] in only:
+                d['annual'].append(dict(next(r for r in d['annual'] if r['fy'] == 2025 and r['basis'] == 'audited'), fy=fy, note='test row'))
+                p.write_text(json.dumps(d))
 
     def test_partial_year_is_listed_but_totals_withheld(self):
         self.add_year(2023, only={'501', '611'})
@@ -137,34 +155,51 @@ class DashboardYears(unittest.TestCase):
         self.assertFalse(yr['complete'])
         self.assertTrue(all('totals' not in e for e in yr['groups'].values()))
         self.assertIsNone(yr['transfers'])
-        self.assertEqual(model['default_year'], 2025)
         page = bd.render(model)
         self.assertIn('data-year="2023"', page)
         self.assertIn('Incomplete: withheld', page)
 
-    def test_complete_year_without_controls_is_marked_unreconciled(self):
+    def test_complete_year_without_controls_is_unreconciled(self):
         self.add_year(2023)
-        model = bd.build_model(data_dir=self.dir)
-        yr = model['years'][2023]
+        yr = bd.build_model(data_dir=self.dir)['years'][2023]
         self.assertTrue(yr['complete'])
         self.assertTrue(all(e['check']['status'] == 'unreconciled' for e in yr['groups'].values()))
-        self.assertEqual(model['default_year'], 2025)
 
-    def test_known_gap_note_applies_only_on_exact_amount(self):
-        p = self.dir / '011.json'
-        d = json.loads(p.read_text())
-        d['flow_detail']['outflows'].append({'line': 'General government', 'amount': 1})
-        p.write_text(json.dumps(d))
-        flows = bd.build_model(data_dir=self.dir)['years'][2025]['flows']
-        self.assertIsNone(flows['explained'])
-        self.assertTrue(any(g['id'] == '011' and g['lines'] is None for g in flows['gaps']))
+    def test_lost_line_item_is_caught(self):
+        def drop(d):
+            spend = [o for o in d['flow_detail']['outflows'] if not bd.NOT_SPENDING.match(o['line'])]
+            biggest = max(spend, key=lambda o: o['amount'])
+            self.assertGreater(biggest['amount'], 0)
+            d['flow_detail']['outflows'].remove(biggest)
+        self.edit('ACFR-library', drop)
+        model = bd.build_model(data_dir=self.dir)
+        self.assertTrue(any(g['id'] == 'ACFR-library' for g in model['gap_audit']['undocumented']))
+        self.assertTrue(bd.integrity_problems(model))
+
+    def test_fixed_gap_leaves_a_stale_note_but_no_undocumented_gap(self):
+        def fix(d):
+            d['flow_detail']['outflows'].append({'line': 'Community development and housing', 'amount': 2700992})
+        self.edit('501', fix)
+        model = bd.build_model(data_dir=self.dir)
+        self.assertEqual(model['gap_audit']['undocumented'], [])
+        self.assertIn('501', {g['id'] for g in model['gap_audit']['stale']})
+        self.assertTrue(any('stale entry' in p for p in bd.integrity_problems(model)))
+        fl = model['years'][2025]['flows']
+        self.assertNotIn('501', {g['id'] for g in fl['gaps']})
+        self.assertEqual(sum(v for _, v in fl['explained']), fl['not_itemized'])
+
+    def test_changed_audited_figure_is_flagged(self):
+        def bump(d):
+            next(r for r in d['annual'] if r['fy'] == 2025)['revenue'] += 1
+        self.edit('ACFR-library', bump)
+        model = bd.build_model(data_dir=self.dir)
+        lib = next(f for f in model['funds'] if f['id'] == 'ACFR-library')
+        self.assertEqual(lib['audit_match']['status'], 'changed')
+        self.assertTrue(any('ACFR-library' in p for p in bd.integrity_problems(model)))
 
     def test_rows_without_balance_are_not_statement_rows(self):
-        p = self.dir / '611.json'
-        d = json.loads(p.read_text())
-        d['annual'].append({'fy': 2019, 'basis': 'audited', 'revenue': 1, 'expenditure': 1, 'ending_balance': None,
-                            'source': 'acfr-2025', 'confidence': 'High'})
-        p.write_text(json.dumps(d))
+        self.edit('611', lambda d: d['annual'].append({'fy': 2019, 'basis': 'audited', 'revenue': 1, 'expenditure': 1,
+                                                       'ending_balance': None, 'source': 'acfr-2025', 'confidence': 'High'}))
         model = bd.build_model(data_dir=self.dir)
         self.assertNotIn(2019, model['years'])
         self.assertEqual(next(f for f in model['funds'] if f['id'] == '611')['other_series_years'], [2019])

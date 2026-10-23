@@ -51,6 +51,24 @@
      "note": "The proprietary funds statement (p.86) prints internal service operating expenses as 63,434,531, one dollar below this combining statement's total. The combining statement is the source of the fund columns, so it is the control."
     }
    },
+   "fund_statements": {
+    "pdf": "annual-comprehensive-financial-report-fy2025.pdf",
+    "note": "Pages and row labels for the fund-level check in tools/verify_fund_statements.py. Each pair is [left page, facing page or null]; labels are listed in the order revenue, expenditure, transfers in, transfers out, ending balance, with alternatives.",
+    "groups": {
+     "governmental": {
+      "pages": [[77, null], [237, 238], [239, 240], [241, 242], [243, 244], [245, 246], [247, 248], [249, 250], [251, 252], [253, 254]],
+      "labels": [["Total revenues"], ["Total expenditures"], ["Transfers in"], ["Transfers out"], ["Fund balance, June 30, 2025", "Fund balances, June 30, 2025"]]
+     },
+     "enterprise": {
+      "pages": [[85, 86]],
+      "labels": [["Total operating revenues"], ["Total operating expenses"], ["Transfers in"], ["Transfers out"], ["Total net position - ending"]]
+     },
+     "internal_service": {
+      "pages": [[321, 322]],
+      "labels": [["Total operating revenues"], ["Total operating expenses"], ["Transfers in"], ["Transfers out"], ["Total net position - ending"]]
+     }
+    }
+   },
    "rounding_tolerance": 2,
    "rounding_note": "Published statement totals are rounded independently of their columns. A difference of up to $2 between the sum of fund columns and the printed total is reported, not hidden."
   }

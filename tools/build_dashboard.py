@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Build the financial dashboard (docs/dashboard.html) from every ledger in data/funds.
 
-Usage:  python3 tools/build_dashboard.py                     # writes docs/dashboard.html
-        python3 tools/build_dashboard.py --check             # exit 1 if docs/dashboard.html is stale
+Usage:  python3 tools/build_dashboard.py           # writes docs/dashboard.html
+        python3 tools/build_dashboard.py --check   # exit 1 if the page is stale or an integrity problem exists
+
+When and how the page is regenerated, and what CI checks: tools/DASHBOARD.md.
 
 Read-only over the ledgers. Every figure on the page is either an audited value
 from a fund file, a sum of such values, or arithmetic on them (labeled
@@ -35,6 +37,7 @@ DATA_DIR = ROOT / "data/funds"
 CONTROLS = ROOT / "data/dashboard/statement-totals.json"
 FIDUCIARY = ROOT / "data/dashboard/fiduciary-funds.json"
 KNOWN_GAPS = ROOT / "data/dashboard/known-gaps.json"
+FUND_CHECK = ROOT / "data/dashboard/fund-statement-check.json"
 REGISTRY = ROOT / "data/curation/protected-ledgers.json"
 OUT = ROOT / "docs/dashboard.html"
 
@@ -141,12 +144,15 @@ def fund_model(d, protected):
 
 
 def build_model(data_dir=DATA_DIR, controls_path=CONTROLS, fiduciary_path=FIDUCIARY, registry_path=REGISTRY,
-                known_gaps_path=KNOWN_GAPS):
+                known_gaps_path=KNOWN_GAPS, fund_check_path=FUND_CHECK):
     protected = set(json.loads(Path(registry_path).read_text())["ledgers"])
     funds = [fund_model(json.loads(p.read_text()), protected) for p in sorted(Path(data_dir).glob("*.json"))]
     controls = json.loads(Path(controls_path).read_text())["years"]
     fiduciary = json.loads(Path(fiduciary_path).read_text())
     known_gaps = json.loads(Path(known_gaps_path).read_text())["years"]
+    fund_check = json.loads(Path(fund_check_path).read_text())
+    for f in funds:
+        f["audit_match"] = audit_match(f, fund_check)
     members = {g: [f for f in funds if f["group"] == g] for g in GROUPS}
     all_years = sorted({fy for f in funds for fy in f["years"]})
     years = {}
@@ -182,7 +188,49 @@ def build_model(data_dir=DATA_DIR, controls_path=CONTROLS, fiduciary_path=FIDUCI
     default = max((fy for fy, y in years.items() if y["complete"]), default=max(all_years))
     history = [f for f in funds if len(f["years"]) > 1 or f["other_series_years"]]
     return {"funds": funds, "years": years, "default_year": default, "history": history,
-            "fiduciary": fiduciary, "controls": controls}
+            "fiduciary": fiduciary, "controls": controls, "fund_check": fund_check,
+            "gap_audit": gap_audit(funds, known_gaps)}
+
+
+def audit_match(f, check):
+    """Whether the fund's figures still equal the column the independent statement check found."""
+    fy = check["fy"]
+    rec = check["funds"].get(f["id"])
+    y = f["years"].get(fy)
+    if y is None:
+        return {"fy": fy, "status": "no row"}
+    if rec is None or rec["status"] != "matched":
+        return {"fy": fy, "status": "unmatched"}
+    current = [y["rev"], y["exp"], y["ti"], -y["to"], y["bal"]]
+    return {"fy": fy, "status": "matched" if current == rec["values"] else "changed", "pages": rec["pages"]}
+
+
+def gap_audit(funds, known_gaps):
+    """Line-item gaps that are not documented to the dollar, and documented gaps that no longer exist.
+
+    An undocumented gap means captured line items no longer add up to an audited
+    total; it fails the tests so lost lines cannot pass unnoticed. A stale entry
+    means the extractor now captures the lines; it fails only the dashboard's
+    own check, so the note is removed in the next dashboard rebuild."""
+    undocumented, stale, documented = [], [], []
+    for f in funds:
+        li = f["line_items"]
+        if not li:
+            continue
+        doc = (known_gaps.get(str(li["fy"])) or {}).get("funds", {}).get(f["id"])
+        if li["rev_gap"]:
+            undocumented.append({"id": f["id"], "fy": li["fy"], "kind": "revenue", "gap": li["rev_gap"]})
+        if li["exp_gap"]:
+            if doc and doc["gap"] == li["exp_gap"]:
+                documented.append({"id": f["id"], "fy": li["fy"], "gap": li["exp_gap"]})
+            else:
+                undocumented.append({"id": f["id"], "fy": li["fy"], "kind": "expenditure", "gap": li["exp_gap"]})
+    present = {(g["id"], g["fy"]) for g in documented}
+    for fy, entry in known_gaps.items():
+        for fid, doc in entry.get("funds", {}).items():
+            if (fid, int(fy)) not in present:
+                stale.append({"id": fid, "fy": int(fy), "documented_gap": doc["gap"]})
+    return {"undocumented": undocumented, "stale": stale, "documented": documented}
 
 
 def flows_for(funds, fy, known=None):
@@ -240,7 +288,7 @@ def money(n, short=False):
 
 def chip(kind, text=None):
     labels = {"audited": "Audited", "derived": "Derived", "reading": "BeTH reading", "open": "Open question",
-              "ties": "Ties to statement", "rounding": "Ties within rounding", "balanced": "Balanced", "mismatch": "Does not tie",
+              "ties": "Ties to statement", "rounding": "Ties within rounding", "balanced": "Balanced", "documented": "Gap documented", "mismatch": "Does not tie",
               "unreconciled": "Not reconciled", "withheld": "Incomplete: withheld", "pending": "Not yet checked"}
     return f'<span class="chip k-{kind}">{esc(text or labels[kind])}</span>'
 
@@ -283,7 +331,7 @@ def render_group_panel(g, entry, fy):
     if "nonop" in t:
         tiles.insert(2, ("Non-operating, net", t["nonop"], "audited"))
     tl = "".join(f'<div class="tile"><div class="tv">{money(v, True)}</div><div class="tk">{esc(k)}</div></div>' for k, v, _ in tiles)
-    return head + f'<div class="tiles">{tl}</div><p class="cap">Spending {G["exp_note"]}. Sums of the fund columns, before the statement\'s own eliminations.</p><p class="chk">{check_text(entry)}</p></div>'
+    return head + f'<div class="tiles">{tl}</div><p class="cap">{"Expenditures" if g == "governmental" else "Operating expenses"} {G["exp_note"]}. Sums of the fund columns, before the statement\'s own eliminations.</p><p class="chk">{check_text(entry)}</p></div>'
 
 
 def render_flows(fl, gov_total_exp, fy):
@@ -308,7 +356,7 @@ def render_flows(fl, gov_total_exp, fy):
     <div class="flowgrid">
       <div class="fc"><h3>Money in: governmental revenue by source</h3><p class="sub">{money(rev_total)} {chip("audited")} Line items from each fund's statement column. Transfers in are not here.</p>
         <div class="bars">{bars(fl["revenue"], rev_total, "g-governmental")}</div></div>
-      <div class="fc"><h3>Money out: governmental spending by function</h3><p class="sub">{money(gov_total_exp)} {chip("audited")} Includes capital outlay and debt service. Transfers out are not here.</p>
+      <div class="fc"><h3>Money out: governmental expenditures by function</h3><p class="sub">{money(gov_total_exp)} {chip("audited")} Includes capital outlay and debt service. Transfers out are not here.</p>
         <div class="bars">{bars(spend_items, gov_total_exp, "g-governmental", note)}</div>
         {gap_note}</div>
     </div>
@@ -333,6 +381,25 @@ def render_transfers(model, fy):
     <p class="cap">Which fund paid which is in the ACFR's interfund transfers note, not yet extracted; this view shows each group's side of the ledger only.</p>'''
 
 
+def render_isf(model, fy):
+    yr = model["years"][fy]
+    e = yr["groups"]["internal_service"]
+    if not e["complete"]:
+        return f'<p class="withheld">{chip("withheld")} Needs every internal service fund loaded for FY{fy}.</p>'
+    t = e["totals"]
+    isfs = [f for f in model["funds"] if f["group"] == "internal_service" and fy in f["years"]]
+    unbilled = [f for f in isfs if f["years"][fy]["rev"] == 0 and (f["years"][fy]["exp"] or 0) > 0]
+    ub = "; ".join(f'<a href="{f["page"]}">{esc(f["name"])}</a>: operating revenue $0, operating expenses {money(f["years"][fy]["exp"])}, transfers in {money(f["years"][fy]["ti"])}' for f in unbilled)
+    return f'''<div class="isf"><p>Internal service funds (fleet, building maintenance, central services, IT, workers' compensation, liability, catastrophic loss, leave payouts, computer replacement) are the City billing itself. A department pays the fund a charge, which the department's fund records as an expenditure or expense; the internal service fund records the same dollars as operating revenue. This page handles them in four ways:</p>
+  <ol>
+    <li><b>Never added to the other groups.</b> The {money(t["rev"], True)} of internal service operating revenue {chip("audited")} is mostly charges already inside the governmental and enterprise figures; adding it would count those dollars twice. It has its own panel in section 1, and no figure on this page sums it with another group.</li>
+    <li><b>Their costs are shown as their own.</b> Internal service operating expenses ({money(t["exp"], True)}) are what fleet, IT, claims and the rest actually cost. When charges equal costs, the departments' expenditures already carry them. When they differ, the fund's net position absorbs the difference.</li>
+    <li><b>Charges and costs can diverge.</b> {("In FY" + str(fy) + " these funds billed no charges while incurring costs: " + ub + ". Their costs that year were met by transfers in or from their own balances, not by charges to the funds whose departments incurred them " + chip("derived") + ".") if unbilled else "In FY" + str(fy) + " every internal service fund billed some charges."}</li>
+    <li><b>Transfers are transfers.</b> Money moved into or out of an internal service fund (in {money(t["ti"], True)}, out {money(t["to"], True)}) is in section 3 with every other transfer, never in revenue or expenses.</li>
+  </ol>
+  <p class="cap">The government-wide statements fold most internal service activity into governmental activities and eliminate the internal charges; this page reads the fund statements, where they are reported separately.</p></div>'''
+
+
 def render_table(model, fy):
     rows = []
     for f in model["funds"]:
@@ -349,6 +416,14 @@ def render_table(model, fy):
             status.append("rev-below")
         if y["bal"] < 0:
             status.append("neg-bal")
+        am = f["audit_match"]
+        if am["fy"] == fy:
+            status.append("audit-" + am["status"])
+            amc = {"matched": f'<span class="ok" title="Revenue, expenditure, both transfers and the ending balance match one column of ACFR p.{esc(am.get("pages"))}, read independently">matches p.{esc(am.get("pages"))}</span>',
+                   "changed": '<span class="bad">changed since check</span>', "unmatched": '<span class="bad">no matching column</span>'}.get(am["status"], "—")
+        else:
+            amc = '<span class="dim">not checked</span>'
+            status.append("audit-unchecked")
         badges = (' <span class="bdg cur">ledger</span>' if f["curated"] else "") + \
                  (f' <span class="bdg his">{len(f["years"])} yrs</span>' if len(f["years"]) > 1 else "")
         if li is None or li["fy"] != fy:
@@ -370,11 +445,11 @@ def render_table(model, fy):
             f'<td class="n">{money(y["net_transfers"]) if y["net_transfers"] else "—"}</td>'
             f'<td class="n {"neg" if y["bal"] < 0 else ""}">{money(y["bal"])}<div class="st">{G["balance"].lower()}</div></td>'
             f'<td class="n">{money(y["change"]) if y["change"] is not None else "<span class=dim>—</span>"}</td>'
-            f'<td>{lis}</td></tr>')
+            f'<td>{amc}</td><td>{lis}</td></tr>')
     return f'''<div class="tw"><table class="ft"><thead><tr><th class="cx" aria-label="compare"></th><th data-k="name">Fund</th>
-      <th data-k="rev" data-num>Revenue</th><th data-k="exp" data-num>Spending</th><th data-k="res" data-num title="Revenue minus spending, before transfers">Result</th>
+      <th data-k="rev" data-num>Revenue</th><th data-k="exp" data-num title="Governmental: expenditures. Proprietary: operating expenses">Expenditures / expenses</th><th data-k="res" data-num title="Revenue minus expenditures or expenses, before transfers">Result</th>
       <th data-k="net" data-num title="Transfers in minus transfers out">Net transfers</th><th data-k="bal" data-num>Balance, June 30, {fy}</th>
-      <th data-k="chg" data-num title="Ending minus beginning balance, where the beginning balance was recorded">Change</th><th>Line items</th></tr></thead>
+      <th data-k="chg" data-num title="Ending minus beginning balance, where the beginning balance was recorded">Change</th><th title="Independent check against the statement page">Audit match</th><th>Line items</th></tr></thead>
       <tbody>{"".join(rows)}</tbody></table></div>'''
 
 
@@ -391,24 +466,26 @@ def render_year(model, fy):
     covered = sum(1 for f in model["funds"] if fy in f["years"])
     return f'''<section class="yr" data-year="{fy}"{"" if fy == model["default_year"] else " hidden"}>
   <h2 id="totals-{fy}"><span class="no">1</span>What the FY{fy} audit reports, by accounting basis</h2>
-  <p class="lede">Three groups, kept apart. Governmental funds measure spendable resources (fund balance); enterprise and internal service funds measure everything they own and owe, including capital assets and long-term debt (net position). Those balances are different quantities, so this page never adds them together. Internal service revenue is mostly what other City funds pay for fleet, IT, insurance and buildings; adding it to the other groups would count the same dollars twice.</p>
+  <p class="lede">Three groups, kept apart. Governmental funds measure current financial resources (fund balance); enterprise and internal service funds measure everything they own and owe, including capital assets and long-term debt (net position). Those balances are different quantities, so this page never adds them together. Internal service revenue is mostly what other City funds pay for fleet, IT, insurance and buildings; adding it to the other groups would count the same dollars twice.</p>
   <div class="gpw">{panels}</div>
   <h2 id="flows-{fy}"><span class="no">2</span>Where governmental money came from and went</h2>
   {flows}
   <h2 id="transfers-{fy}"><span class="no">3</span>Transfers between funds</h2>
   {transfers}
-  <h2 id="funds-{fy}"><span class="no">4</span>Every fund, FY{fy}</h2>
-  <p class="lede">{covered} of {len(model["funds"])} funds have an audited FY{fy} statement row. Each name links to the fund's ledger page. Revenue and spending follow the fund's basis (see section 1); result is revenue minus spending before transfers {chip("derived")}; change is ending minus beginning balance where the beginning balance was recorded {chip("derived")}. Tick up to four funds to compare them.</p>
+  <h2 id="isf-{fy}"><span class="no">4</span>How internal service funds are handled</h2>
+  {render_isf(model, fy)}
+  <h2 id="funds-{fy}"><span class="no">5</span>Every fund, FY{fy}</h2>
+  <p class="lede">{covered} of {len(model["funds"])} funds have an audited FY{fy} statement row. Each name links to the fund's ledger page. Revenue and expenditures/expenses follow the fund's basis (see the terms above); result is revenue minus expenditures or expenses, before transfers {chip("derived")}; change is ending minus beginning balance where the beginning balance was recorded {chip("derived")}. Tick up to four funds to compare them.</p>
   <div class="controls" role="group" aria-label="filter funds">
     <input type="search" class="f-q" placeholder="fund name" aria-label="filter by name">
     <select class="f-g" aria-label="category"><option value="">all categories</option>{"".join(f'<option value="g:{g}">{G["label"]}</option>' for g, G in GROUPS.items())}{"".join(f'<option value="t:{k}">· {v}</option>' for k, v in TYPE_LABEL.items())}</select>
     <select class="f-m" aria-label="size"><option value="">any size</option>{"".join(f'<option>{l}</option>' for _, l in MAG)}</select>
-    <select class="f-s" aria-label="reporting status"><option value="">any status</option><option value="curated">curated ledger</option><option value="extracted">extracted figures only</option><option value="history">more than one audited year</option><option value="single">one audited year</option><option value="lines-gap">line items do not tie</option><option value="rev-below">revenue below spending</option><option value="neg-bal">negative balance</option></select>
+    <select class="f-s" aria-label="reporting status"><option value="">any status</option><option value="curated">curated ledger</option><option value="extracted">extracted figures only</option><option value="history">more than one audited year</option><option value="single">one audited year</option><option value="lines-gap">line items do not tie</option><option value="audit-matched">matches its statement column</option><option value="audit-changed">changed since the statement check</option><option value="audit-unchecked">not checked against a statement</option><option value="rev-below">revenue below spending</option><option value="neg-bal">negative balance</option></select>
     <span class="count" aria-live="polite"></span>
   </div>
   <div class="cmpbox" hidden></div>
   {render_table(model, fy)}
-  <p class="cap">Size is the larger of revenue and spending. "Line items" compares the itemized lines on the fund's money-flow page with its audited totals: "ties" means they add up exactly; a gap means some statement lines were not captured (the audited total is still correct). Governmental fund balance and proprietary net position appear in one column for navigation only; the column is not summed.</p>
+  <p class="cap">Size is the larger of revenue and expenditures/expenses. "Audit match": the fund's revenue, expenditures or expenses, transfers in, transfers out and ending balance were found together in one column of the statement page, by a check that reads the PDF independently of the extractor (<code>tools/verify_fund_statements.py</code>). "Line items" compares the itemized lines on the fund's money-flow page with its audited totals: "ties" means they add up exactly; a gap means some statement lines were not captured (the audited total is still correct). Governmental fund balance and proprietary net position appear in one column for navigation only; the column is not summed.</p>
 </section>'''
 
 
@@ -430,6 +507,8 @@ def render_static(model):
     n = len(funds)
     single = sum(1 for f in funds if len(f["years"]) == 1)
     ties = sum(1 for f in funds if f["line_items"] and f["line_items"]["rev_gap"] == 0 and f["line_items"]["exp_gap"] == 0)
+    matched = sum(1 for f in funds if f["audit_match"]["status"] == "matched")
+    ga = model["gap_audit"]
     known = sum(1 for f in funds if f["legal_basis_known"])
     ledgers = sum(1 for f in funds if f["flows_reviewed"])
     curated = [f for f in funds if f["curated"]]
@@ -454,17 +533,18 @@ def render_static(model):
     recon = [
         ("Group totals vs each statement's own Total column", "; ".join(f'{GROUPS[g]["label"].lower()}: ' + (f'largest difference ${max(abs(v) for v in e["check"]["diffs"].values()):,}' if any(e["check"]["diffs"].values()) else "exact") for g, e in d["groups"].items() if e.get("check")), "rounding" if any(e.get("check", {}).get("status") == "rounding" for e in d["groups"].values()) else "ties", f"FY{model['default_year']}; checked by tests/test_dashboard.py in CI"),
         ("Transfers in equal transfers out across all funds", money(d["transfers"]["diff"]) + " difference" if d["transfers"] else "—", "balanced" if d["transfers"] and d["transfers"]["diff"] == 0 else "mismatch", f"FY{model['default_year']}; an internal check, no statement total needed"),
-        ("Fund line items add up to fund totals", f"{ties} of {n} funds", "ties" if ties == n else "mismatch", "Totals are audited either way; gaps are lines the extractor missed, listed in section 2 and the table's last column"),
+        ("Each fund's figures match its audited statement column", f"{matched} of {n} funds (revenue, expenditures or expenses, transfers in and out, ending balance)", "ties" if matched == n else "mismatch", f"Read independently of the extractor; FY{model['fund_check']['fy']}; tests/test_dashboard_sources.py re-reads the PDF in CI"),
+        ("Fund line items add up to fund totals", f"{ties} of {n} funds tie; {len(ga['documented'])} gaps documented to the dollar ({money(sum(g['gap'] for g in ga['documented']))}); {len(ga['undocumented'])} undocumented", "documented" if not ga["undocumented"] and ga["documented"] else ("ties" if not ga["undocumented"] else "mismatch"), "Totals are audited either way. Any undocumented gap fails the test suite; see the note at the top and section 2"),
         ("Fund balance roll-forward (beginning + change = ending)", "not computed here", "pending", "Belongs to the extraction pipeline's reconciliation (FY2024 pilot)"),
         ("Cross-year continuity and restatements", "not computed here", "pending", "Needs a second complete year; FY2025 opening balances were restated for some funds"),
         ("Fund identity across years", "FY2025 names are the ids", "pending", "Historical identity table not yet built"),
     ]
     rrows = "".join(f'<tr><td>{esc(a)}</td><td>{chip(c)}</td><td>{esc(b)}</td><td class="dim">{esc(e)}</td></tr>' for a, b, c, e in recon)
     return f'''
-  <h2 id="facts"><span class="no">5</span>Fact, reading, open question</h2>
+  <h2 id="facts"><span class="no">6</span>Fact, reading, open question</h2>
   <p class="lede">Every number above is {chip("audited")} (read from the ACFR fund statements) or {chip("derived")} (arithmetic on audited numbers: sums, revenue minus spending, net transfers, change in balance). BeTH's interpretations appear only for the {len(curated)} funds whose ledgers a person has read and reviewed, and are labeled {chip("reading")}. What the records do not yet answer is labeled {chip("open")}. For the other {n - len(curated)} funds there is no reading: the page shows the audited figures and nothing else.</p>
   <div class="rdw">{"".join(readings)}</div>
-  <h2 id="coverage"><span class="no">6</span>Coverage and completeness</h2>
+  <h2 id="coverage"><span class="no">7</span>Coverage and completeness</h2>
   <div class="tw"><table class="cov"><thead><tr><th>Year</th>{"".join(f"<th>{G['label']}</th>" for G in GROUPS.values())}<th>Status</th></tr></thead><tbody>{"".join(coverage_rows)}</tbody></table></div>
   <p class="cap">Funds with an audited statement row for each year. A year's totals and flows appear when every fund in a group is loaded; until then the fund rows show but the totals are withheld.</p>
   <div class="stats">
@@ -476,7 +556,7 @@ def render_static(model):
   <h3>Funds with history</h3><ul class="hist">{"".join(hist)}</ul>
   <h3>Reconciliation status</h3>
   <div class="tw"><table class="rec"><thead><tr><th>Check</th><th>Status</th><th>Result</th><th>Note</th></tr></thead><tbody>{rrows}</tbody></table></div>
-  <h2 id="fiduciary"><span class="no">7</span>The {n_fid} funds without records yet: fiduciary</h2>
+  <h2 id="fiduciary"><span class="no">8</span>The {n_fid} funds without records yet: fiduciary</h2>
   <p class="lede">The Fund Map counts {n + n_fid} funds: the {n} above plus {n_fid} fiduciary funds. Fiduciary funds hold money for others (retirees, special districts, business improvement districts, the school district's Measure H tax), report on their own statements, and are left out of the government-wide totals. None has a record in BeTH's data yet, so none is in any figure on this page. Names are as the statement column headings print them.</p>
   <div class="fgw">{"".join(fgroups)}</div>'''
 
@@ -499,7 +579,7 @@ CSS = """
   .chip{ display:inline-block; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:1px 6px; border:1px solid currentColor; border-radius:2px; white-space:nowrap; vertical-align:1px; font-weight:600; }
   .k-audited{ color:var(--navy); } .k-derived{ color:var(--steel-deep); border-style:dotted; } .k-reading{ color:#6a3d9a; } .k-open{ color:var(--mod); }
   .k-ties{ color:var(--hi); } .k-balanced{ color:var(--hi); } .k-ties::before, .k-rounding::before, .k-balanced::before{ content:"✓ "; } .k-rounding{ color:var(--hi); } .k-mismatch{ color:var(--low); } .k-mismatch::before{ content:"✕ "; }
-  .k-unreconciled, .k-withheld, .k-pending{ color:var(--mod); } .k-unreconciled::before, .k-withheld::before, .k-pending::before{ content:"◷ "; }
+  .k-unreconciled, .k-withheld, .k-pending, .k-documented{ color:var(--mod); } .k-documented::before{ content:"! "; } .k-unreconciled::before, .k-withheld::before, .k-pending::before{ content:"◷ "; }
   .gpw{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
   .gp{ background:var(--card); border:1px solid var(--rule-strong); padding:14px 16px; } .gh{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:10px; } .gh h3{ margin:0; }
   .sw{ width:12px; height:12px; border-radius:2px; display:inline-block; flex:none; } .g-governmental .sw, .bf.g-governmental{ background:var(--s-gov); } .g-enterprise .sw, .bf.g-enterprise{ background:var(--s-ent); } .g-internal_service .sw, .bf.g-internal_service{ background:var(--s-isf); }
@@ -519,17 +599,21 @@ CSS = """
   td.n{ text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; } td.neg{ color:var(--red); } td.fn{ min-width:220px; } .st{ font-size:11px; color:var(--muted); } td.cx, th.cx{ width:28px; padding-right:0; }
   .ft td:nth-child(2){ position:sticky; left:0; background:var(--card); } .ft th:nth-child(2){ position:sticky; left:0; z-index:1; }
   .bdg{ font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; border:1px solid; padding:0 4px; margin-left:4px; vertical-align:1px; } .bdg.cur{ color:var(--hi); } .bdg.his{ color:var(--steel-deep); }
-  .ok{ color:var(--hi); } .warn{ color:var(--mod); font-size:12px; }
+  .ok{ color:var(--hi); font-size:12px; } .warn{ color:var(--mod); font-size:12px; } .bad{ color:var(--low); font-size:12px; font-weight:600; }
   .cmpbox{ background:var(--card); border:1px solid var(--steel); padding:12px 14px; margin:0 0 10px; } .cmpbox h4{ margin:0 0 8px; } .cmpgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; } .cmpc{ border-top:3px solid var(--rule-strong); padding-top:6px; font-size:13px; } .cmpc.g-governmental{ border-color:var(--s-gov); } .cmpc.g-enterprise{ border-color:var(--s-ent); } .cmpc.g-internal_service{ border-color:var(--s-isf); }
   .cmpc dl{ margin:4px 0 0; display:grid; grid-template-columns:auto 1fr; gap:2px 8px; } .cmpc dt{ color:var(--muted); font-size:11.5px; } .cmpc dd{ margin:0; text-align:right; font-variant-numeric:tabular-nums; }
   .rdw{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; } .rd{ background:var(--card); border:1px solid var(--rule-strong); padding:12px 14px; font-size:.9rem; } .rd p{ margin:4px 0; } details summary{ cursor:pointer; margin-top:6px; } details ul{ margin:6px 0 0; padding-left:18px; font-size:.86rem; }
   .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:14px 0; } .stat{ background:var(--card); border:1px solid var(--rule-strong); padding:10px 12px; } .stat .v{ font-size:1.35rem; font-weight:600; } .stat .l{ font-size:11px; text-transform:uppercase; color:var(--muted); letter-spacing:.03em; }
+  .isf{ background:var(--card); border:1px solid var(--rule-strong); padding:12px 18px; font-size:.95rem; max-width:96ch; } .isf ol{ padding-left:20px; margin:8px 0; } .isf li{ margin:6px 0; }
+  .terms{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 0; } .term{ background:var(--card); border:1px solid var(--rule-strong); padding:10px 12px; font-size:.86rem; } .term b{ display:block; font-size:.95rem; margin-bottom:2px; }
+  .gapbox{ background:#fff8ea; border:1px solid #e3c98f; border-left:4px solid var(--mod); padding:12px 16px; margin:14px 0 0; font-size:.92rem; max-width:96ch; }
   .hist{ margin:0; padding-left:18px; font-size:.92rem; } .fgw{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; } .fg{ background:var(--card); border:1px solid var(--rule-strong); padding:12px 14px; } .fg ul{ margin:6px 0 0; padding-left:18px; font-size:.9rem; } .fg p{ margin:0; font-size:12.5px; }
   footer{ padding:28px 0 64px; font-size:11.5px; color:var(--muted); line-height:1.7; } footer .bar{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }
+  @media (max-width:900px){ .terms{ grid-template-columns:1fr 1fr; } }
   @media (max-width:640px){
     body{ font-size:16px; } .tr{ grid-template-columns:1fr; gap:4px; } .net{ text-align:left; }
     .br{ grid-template-columns:1fr 60px; } .br .bl{ grid-column:1 / -1; } .tiles{ grid-template-columns:1fr 1fr; }
-    .flowgrid, .gpw, .rdw, .fgw{ grid-template-columns:1fr; }
+    .flowgrid, .gpw, .rdw, .fgw, .terms{ grid-template-columns:1fr; }
   }
 """
 
@@ -561,6 +645,32 @@ JS = """
 """
 
 
+def render_terms():
+    terms = [
+        ("Revenue", "Money a fund earns or is given: taxes, fees, grants, charges, interest. For enterprise and internal service funds, operating revenue only; non-operating items are shown separately."),
+        ("Expenditures", "Governmental funds. Money spent in the year, including capital purchases and debt principal (modified accrual). No depreciation."),
+        ("Operating expenses", "Enterprise and internal service funds. The cost of running the service, including depreciation of assets; capital purchases and debt principal are not expenses (full accrual)."),
+        ("Transfers", "Money moved from one City fund to another, as authorized in the budget or by Council. Not revenue for the fund that receives it, not spending for the fund that sends it."),
+        ("Fund balance", "Governmental funds. Current financial resources at year end (mainly cash, investments and receivables) less the liabilities payable from them. Much of it is restricted or committed to set uses. Excludes buildings, roads and long-term debt."),
+        ("Net position", "Enterprise and internal service funds. Everything the fund owns less everything it owes, including capital assets, long-term debt and pension liabilities. Not comparable to fund balance."),
+    ]
+    return '<div class="terms" aria-label="terms">' + "".join(f'<div class="term"><b>{esc(k)}</b>{esc(v)}</div>' for k, v in terms) + "</div>"
+
+
+def render_gap_callout(model):
+    yr = model["years"][model["default_year"]]
+    fl = yr.get("flows") or {}
+    gap = fl.get("not_itemized")
+    if not gap:
+        return ""
+    total = yr["groups"]["governmental"]["totals"]["exp"]
+    funds = ", ".join(f'{esc(g["name"])} {money(g["gap"], True)}' for g in fl["gaps"])
+    cause = (" The missing lines, read from ACFR p." + esc(fl["cause_page"]) + ": " + "; ".join(f"{esc(k)} {money(v, True)}" for k, v in fl["explained"]) + ". Section 2 gives the cause.") if fl.get("explained") else ""
+    return (f'<div class="gapbox"><b>Known gap in the detail: {money(gap)} of governmental expenditures ({gap/total*100:.1f}% of {money(total, True)}) is not broken out by function.</b> '
+            f'The totals are audited and correct; the breakdown in section 2 is short by this amount, shown there as "not itemized". Funds: {funds}.{cause} '
+            f'A fix belongs to the extraction pipeline; until then every chart and table on this page shows the gap rather than hiding it. {chip("documented")}</div>')
+
+
 def render(model):
     years = sorted(model["years"])
     opts = "".join(f'<option value="{fy}"{" selected" if fy == model["default_year"] else ""}>FY{fy}{"" if model["years"][fy]["complete"] else " (partial)"}</option>' for fy in reversed(years))
@@ -586,6 +696,8 @@ def render(model):
     <div class="scope"><b>Scope.</b> These are sums of the fund columns on four statements in the ACFR (governmental funds, nonmajor combining, proprietary funds, internal service combining). They are <b>not City-wide totals</b>: they leave out the {n_fid} fiduciary funds, they are added before the statements' own eliminations, and the governmental figures are on the fund basis, which excludes capital assets, long-term debt and pension liabilities that the government-wide statements include.</div>
     <div class="yearbar"><label for="year">Audited year</label> <select id="year">{opts}</select>
       <span class="dim">Years appear here as their audited fund rows are loaded.</span></div>
+    {render_gap_callout(model)}
+    {render_terms()}
     <div class="legend">Labels: {chip("audited")} read from the audit {chip("derived")} arithmetic on audited figures {chip("reading")} BeTH's interpretation {chip("open")} not yet answered {chip("ties")} checked {chip("pending")} not yet checked</div>
   </header>
   {"".join(render_year(model, fy) for fy in reversed(years))}
@@ -599,20 +711,39 @@ def render(model):
 '''
 
 
+def integrity_problems(model):
+    """Problems that make the published page wrong or stale even if it was rebuilt."""
+    ga = model["gap_audit"]
+    out = [f'undocumented {g["kind"]} line-item gap: {g["id"]} FY{g["fy"]} {g["gap"]:,}' for g in ga["undocumented"]]
+    out += [f'stale entry in known-gaps.json: {g["id"]} FY{g["fy"]} (documented {g["documented_gap"]:,}; remove it)' for g in ga["stale"]]
+    out += [f'{f["id"]}: FY{f["audit_match"]["fy"]} figures {f["audit_match"]["status"]} since tools/verify_fund_statements.py --write'
+            for f in model["funds"] if f["audit_match"]["status"] in ("changed", "unmatched")]
+    names = {f["name"].lower() for f in model["funds"]}
+    out += [f'fiduciary roster lists "{x["name"]}", which now has a ledger record; update data/dashboard/fiduciary-funds.json'
+            for g in model["fiduciary"]["groups"].values() for x in g["funds"] if x["name"].lower() in names]
+    return out
+
+
 def main(argv):
     model = build_model()
     page = render(model)
+    problems = integrity_problems(model)
     if "--check" in argv:
-        if not OUT.exists() or OUT.read_text() != page:
-            print(f"{OUT.relative_to(ROOT)} is stale: run python3 tools/build_dashboard.py")
-            return 1
-        print(f"{OUT.relative_to(ROOT)} is current")
-        return 0
+        for msg in problems:
+            print(f"PROBLEM {msg}")
+        stale = not OUT.exists() or OUT.read_text() != page
+        if stale:
+            print(f"{OUT.relative_to(ROOT)} is stale: run python3 tools/build_dashboard.py and commit the result")
+        if not stale and not problems:
+            print(f"{OUT.relative_to(ROOT)} is current; no integrity problems")
+        return 1 if stale or problems else 0
     OUT.write_text(page)
     d = model["years"][model["default_year"]]
     checks = ", ".join(f'{g}={e["check"]["status"]}' for g, e in d["groups"].items() if e.get("check"))
     print(f"wrote {OUT.relative_to(ROOT)}: {len(model['funds'])} funds, years {sorted(model['years'])}, default FY{model['default_year']}; {checks}")
-    return 0
+    for msg in problems:
+        print(f"PROBLEM {msg}")
+    return 1 if problems else 0
 
 
 if __name__ == "__main__":
