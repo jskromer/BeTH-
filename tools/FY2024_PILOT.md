@@ -66,7 +66,9 @@ and never renamed or silently overwritten.
 ## Outputs
 
 - `manifest.json`: source provenance, configuration checksums, and before/after
-  ledger and website SHA-256 snapshots.
+  Git-tracked ledger and website SHA-256 snapshots. Full local snapshots,
+  including ignored files, are still compared in memory; ignored local paths are
+  excluded from committed provenance for clean-checkout reproducibility.
 - `funds.json`: all 105 FY2024 fund-column proposals, statement evidence, values,
   signed transfers, source labels, existing reviewed records, checks and issues.
 - `identity-map.json`: FY2024 observed names and stable BeTH IDs, with corresponding

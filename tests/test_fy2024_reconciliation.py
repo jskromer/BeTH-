@@ -119,6 +119,15 @@ class AccountingTests(unittest.TestCase):
                 acfr_pilot.run(path, NEXT_PDF, Path(temp)/'out')
             self.assertFalse((Path(temp)/'out').exists())
 
+    def test_committed_manifest_omits_ignored_local_files(self):
+        hashes = {'index.html':'tracked', '.DS_Store':'local-editor-file'}
+        class GitResult:
+            stdout = 'docs/index.html\0'
+        with patch.object(acfr_pilot.subprocess, 'run', return_value=GitResult()):
+            durable = acfr_pilot.tracked_subset(hashes, ROOT/'docs')
+        self.assertEqual(durable, {'index.html':'tracked'})
+        self.assertEqual(hashes['.DS_Store'], 'local-editor-file')
+
     def test_cross_page_identity_collisions_and_batch_errors(self):
         config = load_year(2024)
         config['statements'] = [copy.deepcopy(config['statements'][0])]

@@ -8,6 +8,7 @@ Use --require-reconciled for a nonzero exit when review items remain.
 import argparse
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 from acfr_config import load_year
@@ -32,6 +33,24 @@ def digest(path):
 
 def snapshot(root):
     return {p.relative_to(root).as_posix(): digest(p) for p in sorted(root.rglob('*')) if p.is_file()}
+
+
+def tracked_subset(hashes, root):
+    """Keep durable provenance independent of ignored local/editor artifacts.
+
+    The full snapshots are still compared in memory, including ignored files.
+    Only Git-tracked paths belong in a reproducible committed manifest.
+    """
+    root = Path(root).resolve()
+    try:
+        relative = root.relative_to(ROOT)
+    except ValueError:
+        return hashes  # synthetic ledger directories outside this checkout
+    result = subprocess.run(['git', 'ls-files', '-z', '--', relative.as_posix()],
+                            cwd=ROOT, check=True, capture_output=True, text=True)
+    tracked = {Path(name).relative_to(relative).as_posix()
+               for name in result.stdout.split('\0') if name}
+    return {name: value for name, value in hashes.items() if name in tracked}
 
 
 def protect_output(out, ledger_dir):
@@ -160,7 +179,9 @@ def run(pdf_path, next_pdf, out, ledger_dir=ROOT / 'data/funds', retrieval_date=
     report['summary']['reviewed_value_conflicts'] = sum(i['code'] == 'reviewed_value_conflict' for f in report['funds'] for i in f['issues'])
     report['summary']['restated_funds'] = sum(bool(f['continuity'] and f['continuity']['balances']['reported_adjustment']) for f in report['funds'])
     manifest = dict(schema_version=1, fiscal_year=2024, provenance=sources, config_checksums={str(y):digest(ROOT / f'tools/acfr_years/{y}.json') for y in (2024,2025)},
-                    preservation={'unchanged':True, 'before':before, 'after':after}, scope=report['scope'])
+                    preservation={'unchanged':True, 'snapshot_scope':'Git-tracked files; full local snapshots compared in memory',
+                                  'before':{'ledgers':tracked_subset(before['ledgers'], ledger_dir), 'website':tracked_subset(before['website'], ROOT / 'docs')},
+                                  'after':{'ledgers':tracked_subset(after['ledgers'], ledger_dir), 'website':tracked_subset(after['website'], ROOT / 'docs')}}, scope=report['scope'])
     out.mkdir(parents=True, exist_ok=True)
     artifacts = {'manifest.json':manifest, 'funds.json':report['funds'],
                  'identity-map.json':[dict(fund_number=f['fund_number'], type=f['type'], source=f['source'], **f['mapping']) for f in report['funds']],

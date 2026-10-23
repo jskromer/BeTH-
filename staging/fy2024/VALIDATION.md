@@ -3,8 +3,8 @@
 - Branch: `codex/fy2024-reconciliation`, based on merged `origin/main` at `350f1cd`.
 - Official FY2024 source: 373 PDF pages; SHA-256 and acquisition provenance are in
   `manifest.json`. Financial statement pages: 78, 87–88, 227–244, 311–312.
-- `python -m unittest discover -s tests -v`: **29 tests passed** (28.473 seconds
-  locally, Python 3.13, pdfplumber 0.11.9). CI uses Python 3.12.
+- `python -m unittest discover -s tests -v`: **30 tests passed**
+  locally (Python 3.13, pdfplumber 0.11.9). CI uses Python 3.12.
 - `python tools/ledger.py data/funds/*.json`: **106 OK**, no errors or warnings.
 - Default FY2025 extraction: **106 funds, zero files updated**. The full-output
   regression also matches all 106 pre-pilot records, including `flow_detail`.
@@ -33,3 +33,8 @@
 
 No website builders ran. No historical years before FY2024 were extracted.
 Independent review by Claude Code and Steve's listed decisions remain pending.
+
+CI initially passed all 29 accounting/safety tests but caught local ignored files
+in the committed website hash manifest. Durable manifests now include only
+Git-tracked paths; all local files remain covered by the in-memory preservation
+check. A regression test verifies the separation without exposing local paths.

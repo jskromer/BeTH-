@@ -233,6 +233,7 @@
   },
   "preservation": {
     "unchanged": true,
+    "snapshot_scope": "Git-tracked files; full local snapshots compared in memory",
     "before": {
       "ledgers": {
         "011.json": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
@@ -344,15 +345,8 @@
         "SCHEMA.md": "c12082d580150c85b7d646151ac5f6d2f1987dc6ce0a6399cc458778d74ddef3"
       },
       "website": {
-        ".DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
         ".gitignore": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
-        ".vercel/README.txt": "f5d1ed0f5032ae128931f46459b5faa1af6319fc2dfb3e7a5fe54a84bf93dbd6",
-        ".vercel/project.json": "b8938684790a05e5198c21f04fdbcee27ecc7ab7ed3d9ee6d210425c86704dc3",
         ".vercelignore": "0bb6a901680d0af0e40038d8a5a3c699a132e7327baeb0557949efc1800961dd",
-        ".~lock.Berkeley_Asset_Service_KnowledgeBase.xlsx#": "dc99055756443002976ee00d35aca19ebf67001f619d3c3595c2066a2c8a8811",
-        ".~lock.Berkeley_Benchmarking_FTE_Assets.xlsx#": "27b22fd9b8af3329f32d74ac947c97ed81b0db4a7875af897904b1f8bcd9f2ae",
-        ".~lock.Berkeley_Outcomes_Performance.xlsx#": "6267c04385e5343a946fa56869155f1a1c68f62bf94248d7e6e4af349f22a652",
-        ".~lock.Berkeley_Revenue_Sources_FY27-28.xlsx#": "b07a1be6eed8afc6e3ea36a0192bc705401e113b4fe247a7a086af7478e1f120",
         "2026-06-09 Agenda - Council.pdf": "24d3999714c9cf18c06af957c492088c929afe7ef26eb31d2c977d1da177253a",
         "2026-06-09 Item 02 Ordinance 8010.pdf": "6b77b2e5dd7c4ffc5826a2b8089f0c0ad88450679ad96b60348d63e25f36b9b5",
         "BeTH_FY2027_tax_verification.xlsx": "aa854a768c9014ba9def2ec4254cd28851a6b8432e3484a9a0be95b585ca9eef",
@@ -360,7 +354,6 @@
         "Berkeley_Asset_Service_KnowledgeBase.xlsx": "6242510bd5524121969907f5ea8cbe598f68e855a14069cdcf081ef4329372a6",
         "Berkeley_Benchmarking_FTE_Assets.xlsx": "c3efe217fb2f6d7a0702e5446134e82e5bf2535800576360a86d72e564f9c284",
         "Berkeley_Capital_Prioritization_Brief.docx": "2f637c147a482bc5c5027f8b8b501e27903f2e1a36e0584a232abdfe2e57a901",
-        "Berkeley_Efficiency_Bargaining_Strategy.docx": "e246d213ae63ba5dae8dc47805e91c819ccd79ef83b1f3ab136aac5544c2e9e7",
         "Berkeley_Event_Value_Twin_v1.xlsx": "9374ac66902942cbbccef4015e9287d3e551821bba6b522fb4767ea1b0860ba2",
         "Berkeley_Event_Value_Twin_v1_preview.pdf": "e47251031abe9f28e273e35bb384b9002bcc4e3e14d8223ba290372eb22a15b9",
         "Berkeley_Homeless_Regional_Comparison.xlsx": "d030918dac6ba604d5fb45aea4feaa0328ebfd68a0e93591bc3b133b1db30874",
@@ -761,15 +754,8 @@
         "SCHEMA.md": "c12082d580150c85b7d646151ac5f6d2f1987dc6ce0a6399cc458778d74ddef3"
       },
       "website": {
-        ".DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
         ".gitignore": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
-        ".vercel/README.txt": "f5d1ed0f5032ae128931f46459b5faa1af6319fc2dfb3e7a5fe54a84bf93dbd6",
-        ".vercel/project.json": "b8938684790a05e5198c21f04fdbcee27ecc7ab7ed3d9ee6d210425c86704dc3",
         ".vercelignore": "0bb6a901680d0af0e40038d8a5a3c699a132e7327baeb0557949efc1800961dd",
-        ".~lock.Berkeley_Asset_Service_KnowledgeBase.xlsx#": "dc99055756443002976ee00d35aca19ebf67001f619d3c3595c2066a2c8a8811",
-        ".~lock.Berkeley_Benchmarking_FTE_Assets.xlsx#": "27b22fd9b8af3329f32d74ac947c97ed81b0db4a7875af897904b1f8bcd9f2ae",
-        ".~lock.Berkeley_Outcomes_Performance.xlsx#": "6267c04385e5343a946fa56869155f1a1c68f62bf94248d7e6e4af349f22a652",
-        ".~lock.Berkeley_Revenue_Sources_FY27-28.xlsx#": "b07a1be6eed8afc6e3ea36a0192bc705401e113b4fe247a7a086af7478e1f120",
         "2026-06-09 Agenda - Council.pdf": "24d3999714c9cf18c06af957c492088c929afe7ef26eb31d2c977d1da177253a",
         "2026-06-09 Item 02 Ordinance 8010.pdf": "6b77b2e5dd7c4ffc5826a2b8089f0c0ad88450679ad96b60348d63e25f36b9b5",
         "BeTH_FY2027_tax_verification.xlsx": "aa854a768c9014ba9def2ec4254cd28851a6b8432e3484a9a0be95b585ca9eef",
@@ -777,7 +763,6 @@
         "Berkeley_Asset_Service_KnowledgeBase.xlsx": "6242510bd5524121969907f5ea8cbe598f68e855a14069cdcf081ef4329372a6",
         "Berkeley_Benchmarking_FTE_Assets.xlsx": "c3efe217fb2f6d7a0702e5446134e82e5bf2535800576360a86d72e564f9c284",
         "Berkeley_Capital_Prioritization_Brief.docx": "2f637c147a482bc5c5027f8b8b501e27903f2e1a36e0584a232abdfe2e57a901",
-        "Berkeley_Efficiency_Bargaining_Strategy.docx": "e246d213ae63ba5dae8dc47805e91c819ccd79ef83b1f3ab136aac5544c2e9e7",
         "Berkeley_Event_Value_Twin_v1.xlsx": "9374ac66902942cbbccef4015e9287d3e551821bba6b522fb4767ea1b0860ba2",
         "Berkeley_Event_Value_Twin_v1_preview.pdf": "e47251031abe9f28e273e35bb384b9002bcc4e3e14d8223ba290372eb22a15b9",
         "Berkeley_Homeless_Regional_Comparison.xlsx": "d030918dac6ba604d5fb45aea4feaa0328ebfd68a0e93591bc3b133b1db30874",
