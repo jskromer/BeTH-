@@ -3,6 +3,15 @@
 **Phase 2 deliverable (plan item 7) — draft, 2026-10-23**
 **Status:** Framework and calibration-data requirements. **No model is calibrated. No PCI outcome is projected. No deterioration rate, unit cost or available balance has been invented.**
 
+> **Update 2026-10-23: two performance measures, kept side by side.** Data: `data/pci-model.json` → `performance_assessment`, `data/network-condition.json`, `data/street-plan-conditions.json`.
+>
+> 1. **Network-average PCI.** The City's StreetSaver projections, unchanged (July 7, 2026 plan, pp.11–12, Figure 1). Five-Year Plan alone: about 56 by 2038. Plan + Measure FF: about 62. PCI 70 by 2036: about $37.6M a year, roughly $8M a year more.
+> 2. **Distribution of conditions.** From the City's 2024 Pavement Management Program Update (PTAP-25), 1,216 street sections validated to the report's totals. In 2024 the average was 56, while **88.75 centerline miles (41.6%) were below PCI 50** and **33.99 miles (15.9%) were below 25**. The adopted FY2027–31 plans treat **22.6 miles** of currently-below-50 streets: 9.4 through Measure FF and 13.2 through the Five-Year Plan.
+>
+> **Reaching PCI 60 is not eliminating failed streets.** The City publishes no projection of the below-50 mileage. Its own Figure 2 (p.13) shows the trade-off: targeting below-50 streets with Measure FF lowers the 2038 average by about one point while fixing the worst streets first. Measure FF's goal names both measures: PCI 70 "ideally with no streets having a PCI below 50" by December 31, 2036 (BMC 7.11.010(K)(1)).
+>
+> Rows 1 and 4 of the calibration table below are now partly held: the network size and current distribution come from PTAP-25. Deterioration curves, the treatment catalog and unit costs are still missing.
+
 ## The chain the model must represent
 
 ```

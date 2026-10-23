@@ -1,0 +1,187 @@
+{
+ "schema_version": 1,
+ "generated": "2026-10-23",
+ "evidence_class": "CITY_ASSESSMENT",
+ "source": {
+  "title": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Final Report, Pavement Engineering Inc., April 2025",
+  "url": "https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf",
+  "local": "phase2/sources/pavement-management-update-ptap25-2025-04.pdf",
+  "sha256": "5e431b32fca3e2dcd96bb3698e19f14df6be734a9256bfdeb38d62472269e420",
+  "pages": "Executive Summary pp.2-3 (totals, condition breakdown); Section IV Reference Reports (street sections alphabetical)"
+ },
+ "as_of": "Inspections in 2024 (report dated 02/14/2025). Before FY2025-FY2026 paving. The July 7, 2026 plan cites PCI 57 (2025) and 59 after FY2026 planned work; no newer segment list is public.",
+ "validation": {
+  "parsed": {
+   "sections": 1216,
+   "centerline_miles": 213.48,
+   "lane_miles": 446.13,
+   "area_sqft": 39363218,
+   "area_weighted_pci": 56.43,
+   "centerline_weighted_pci": 56.19
+  },
+  "printed": {
+   "centerline_miles": 212.77,
+   "lane_miles": 446.1,
+   "area_sqft": 39363218,
+   "average_pci": 56,
+   "by_functional_class": {
+    "A": {
+     "centerline_miles": 21.87,
+     "area_sqft": 5866756,
+     "average_pci": 57
+    },
+    "C": {
+     "centerline_miles": 36.7,
+     "area_sqft": 7200161,
+     "average_pci": 64
+    },
+    "R": {
+     "centerline_miles": 154.2,
+     "area_sqft": 26296301,
+     "average_pci": 53
+    }
+   },
+   "condition_by_area": {
+    "Excellent": 4182818,
+    "Good": 9078245,
+    "Fair": 9597800,
+    "Poor": 7215563,
+    "Failed": 9292667
+   }
+  },
+  "result": "all checks passed",
+  "report_inconsistency": "Printed Condition Category areas sum to 39,367,093 sq ft, 3,875 more than the printed total of 39,363,218; the segment list matches the total, so the printed Failed area (9,292,667) is overstated by that amount."
+ },
+ "distribution": {
+  "below_pci_50": {
+   "sections": 502,
+   "centerline_miles": 88.75,
+   "share_of_centerline_miles": 0.4157,
+   "area_sqft": 16060510,
+   "share_of_area": 0.408
+  },
+  "below_pci_25": {
+   "sections": 205,
+   "centerline_miles": 33.99,
+   "share_of_centerline_miles": 0.1592,
+   "area_sqft": 6143274,
+   "share_of_area": 0.1561
+  },
+  "pci_50_or_above": {
+   "sections": 714,
+   "centerline_miles": 124.73,
+   "share_of_centerline_miles": 0.5843,
+   "area_sqft": 23302708,
+   "share_of_area": 0.592
+  },
+  "by_mtc_band": {
+   "failed (0-24)": {
+    "sections": 205,
+    "centerline_miles": 33.99,
+    "share_of_centerline_miles": 0.1592,
+    "area_sqft": 6143274,
+    "share_of_area": 0.1561
+   },
+   "poor (25-49)": {
+    "sections": 297,
+    "centerline_miles": 54.76,
+    "share_of_centerline_miles": 0.2565,
+    "area_sqft": 9917236,
+    "share_of_area": 0.2519
+   },
+   "at risk (50-59)": {
+    "sections": 87,
+    "centerline_miles": 17.43,
+    "share_of_centerline_miles": 0.0816,
+    "area_sqft": 3236905,
+    "share_of_area": 0.0822
+   },
+   "fair (60-69)": {
+    "sections": 157,
+    "centerline_miles": 29.49,
+    "share_of_centerline_miles": 0.1381,
+    "area_sqft": 5679077,
+    "share_of_area": 0.1443
+   },
+   "good (70-79)": {
+    "sections": 178,
+    "centerline_miles": 32.03,
+    "share_of_centerline_miles": 0.15,
+    "area_sqft": 5957765,
+    "share_of_area": 0.1514
+   },
+   "very good (80-100)": {
+    "sections": 292,
+    "centerline_miles": 45.78,
+    "share_of_centerline_miles": 0.2144,
+    "area_sqft": 8428961,
+    "share_of_area": 0.2141
+   }
+  },
+  "by_ptap_category": {
+   "Excellent": {
+    "sections": 131,
+    "centerline_miles": 21.72,
+    "share_of_centerline_miles": 0.1017,
+    "area_sqft": 4182818,
+    "share_of_area": 0.1063
+   },
+   "Good": {
+    "sections": 309,
+    "centerline_miles": 50.3,
+    "share_of_centerline_miles": 0.2356,
+    "area_sqft": 9078245,
+    "share_of_area": 0.2306
+   },
+   "Fair": {
+    "sections": 262,
+    "centerline_miles": 50.05,
+    "share_of_centerline_miles": 0.2344,
+    "area_sqft": 9597800,
+    "share_of_area": 0.2438
+   },
+   "Poor": {
+    "sections": 226,
+    "centerline_miles": 41.26,
+    "share_of_centerline_miles": 0.1933,
+    "area_sqft": 7215563,
+    "share_of_area": 0.1833
+   },
+   "Failed": {
+    "sections": 288,
+    "centerline_miles": 50.15,
+    "share_of_centerline_miles": 0.2349,
+    "area_sqft": 9288792,
+    "share_of_area": 0.236
+   }
+  },
+  "by_functional_class_below_50": {
+   "A": {
+    "sections": 37,
+    "centerline_miles": 8.8,
+    "share_of_centerline_miles": 0.0412,
+    "area_sqft": 2246660,
+    "share_of_area": 0.0571
+   },
+   "C": {
+    "sections": 37,
+    "centerline_miles": 8.74,
+    "share_of_centerline_miles": 0.0409,
+    "area_sqft": 1783259,
+    "share_of_area": 0.0453
+   },
+   "R": {
+    "sections": 428,
+    "centerline_miles": 71.21,
+    "share_of_centerline_miles": 0.3336,
+    "area_sqft": 12030591,
+    "share_of_area": 0.3056
+   }
+  }
+ },
+ "notes": [
+  "PTAP categories (as printed by the City's consultant): Excellent 91-100, Good 71-90, Fair 51-70, Poor 31-50, Failed 0-30.",
+  "MTC bands (regional standard): very good 80-100, good 70-79, fair 60-69, at risk 50-59, poor 25-49, failed 0-24.",
+  "Measure FF's goal is PCI 70 \"ideally with no streets having a PCI below 50\" (BMC 7.11.010(K)(1)); the below-50 measure here matches that wording."
+ ]
+}

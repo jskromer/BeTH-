@@ -20,8 +20,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'data' / 'pci-model.json'
 
-SRC_PLAN = ('City of Berkeley, "Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years '
-            '2027-2031", Council Action Calendar, July 7, 2026, p.12 (PCI Projections, Figure 1)')
+_PLAN = ('City of Berkeley, "Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years '
+         '2027-2031", Council Action Calendar, July 7, 2026')
+SRC_PLAN = _PLAN + ', pp.11-12 (PCI projections, Figure 1)'
+SRC_PLAN_FIG2 = _PLAN + ', p.13 (Figure 2, selection methods)'
+SRC_PLAN_BG = _PLAN + ', p.16 (Background)'
+SRC_PLAN_METHOD = _PLAN + ', p.8 (selection methods) and pp.11-12'
+SRC_PTAP = ('City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Pavement Engineering Inc., '
+            'April 2025, Executive Summary pp.2-3 and Section IV street list; see phase2/data/network-condition.json')
+SRC_ORD = 'BMC 7.11.010(K)(1), Measure FF initiative text, PDF p.7 (phase2/sources/measure-ff-ordinance-transcription.md)'
 SRC_CIP = ('City of Berkeley, Proposed FY2027-FY2031 Capital Improvement Program presentation, Item 02')
 
 # The City's own 12-year projections, after FY2026 planned work, with 3% construction
@@ -51,11 +58,11 @@ CITY_SCENARIOS = [
 CITY_SELECTION_METHODS = [
     {'id': 'critical_point', 'label': 'Critical Point (WER-driven)', 'pci_2038': 63,
      'description': "Selects Measure FF streets using the same WER methodology as the Five-Year Plan.",
-     'source': SRC_PLAN},
+     'source': SRC_PLAN_FIG2},
     {'id': 'pci_under_50', 'label': 'PCI Under 50 targeting', 'pci_2038': 62,
      'description': "Targets streets below PCI 50, consistent with Measure FF's stated goal of "
                     'addressing long-deferred repairs.',
-     'source': SRC_PLAN},
+     'source': SRC_PLAN_FIG2},
 ]
 
 # ---------------------------------------------------------------- inputs
@@ -64,22 +71,24 @@ CITY_SELECTION_METHODS = [
 
 INPUTS = {
     'network': {
-        'current_network_pci': {'value': 57, 'source': SRC_PLAN, 'confidence': 'High',
-                                'note': 'Citywide PCI as of the most recent condition assessment (2025).'},
+        'current_network_pci': {'value': 57, 'source': SRC_PLAN_BG, 'confidence': 'High',
+                                'note': 'Citywide PCI cited by the City in July 2026. The 2024 inspection (PTAP-25) '
+                                        'reports 56; the July 2026 plan starts its projections at 59 "after planned '
+                                        'work" in 2026.'},
         'pci_after_fy2026_work': {'value': 59, 'source': SRC_PLAN, 'confidence': 'High'},
-        'assessment_cycle': {'value': 'biennial', 'source': SRC_PLAN, 'confidence': 'High',
+        'assessment_cycle': {'value': 'biennial', 'source': SRC_PLAN_METHOD, 'confidence': 'Moderate',
                              'note': 'PCI scored per street section from observed surface distresses, '
                                      'fed into StreetSaver.'},
-        'adopted_goal': {'value': 70, 'source': 'BMC 7.11.010(K)(1), via ' + SRC_PLAN,
+        'adopted_goal': {'value': 70, 'source': SRC_ORD,
                          'confidence': 'High',
                          'note': 'Goal of citywide PCI 70 "ideally with no streets having a PCI below 50". '
                                  'Measure FF prioritises streets below PCI 50.'},
-        'total_lane_miles': {'value': None, 'source': None,
-                             'needed_from': 'StreetSaver network summary. Not required for the City-'
-                                            'scenario comparison, only for independent segment modelling.'},
-        'pci_distribution': {'value': None, 'source': None,
-                             'needed_from': 'StreetSaver segment export. Needed to report miles below '
-                                            'PCI 25 and the condition distribution.'},
+        'total_lane_miles': {'value': 446.10, 'source': SRC_PTAP, 'confidence': 'High',
+                             'note': '212.77 centerline miles; 39,363,218 sq ft of pavement.'},
+        'pci_distribution': {'value': 'phase2/data/network-condition.json', 'source': SRC_PTAP, 'confidence': 'High',
+                             'note': '1,216 street sections with 2024 PCI, validated to the report totals. 88.75 '
+                                     'centerline miles (41.6%) below PCI 50; 33.99 miles (15.9%) below PCI 25. As of '
+                                     '2024 inspection, before FY2025-FY2026 paving.'},
     },
     'deterioration': {
         'curves_by_pavement_type': {'value': None, 'source': None,
@@ -107,30 +116,34 @@ INPUTS = {
                 'Do not presume environmental review is the primary driver; that is the hypothesis to test.',
     },
     'funding': {
-        'measure_ff_annual_estimate': {'value': 15000000, 'source': SRC_CIP, 'confidence': 'Low',
-                                       'note': 'NOT all pavement: the same sentence covers sidewalks, '
-                                               'safety and environment. Not usable as a paving budget '
-                                               'without the split.'},
-        'redirectable_from_capital': {'value': None, 'source': None,
-                                      'needed_from': 'Restriction research across CIP funding sources. '
-                                                     '0 of 15 sources currently confirmed redirectable.'},
+        'measure_ff_fy2027_revenue': {'value': 16651651, 'source': 'FY2027 adopted budget, Exhibit C p.254; FY2027 '
+                                                                  'tax rate report p.1', 'confidence': 'High',
+                                      'note': 'Approximately 45% is for streets by ordinance (BMC 7.11.020(C)); the '
+                                              'adopted program puts 45.6% into street rehabilitation.'},
+        'redirectable_from_capital': {'value': 'phase2/data/street-funding-sources.json',
+                                      'source': 'BeTH research, 07-street-funding-legal-analysis.md',
+                                      'confidence': 'High',
+                                      'note': 'Measure FF: $0 more for paving without voters. CIP Fund 501: at most '
+                                              '$2,946,000 of FY2027-28 appropriations, only by deferring every other '
+                                              'fund 501 project; one-time carryover unknown. Other sources not yet '
+                                              'researched.'},
         'recurring_operating_savings': {'value': None, 'source': None,
                                         'needed_from': 'Payroll and benefit baseline workstream'},
     },
     'escalation': {
-        'construction_cost_pct_per_year': {'value': 3.0, 'source': SRC_PLAN, 'confidence': 'High',
+        'construction_cost_pct_per_year': {'value': 3.0, 'source': _PLAN + ', p.12', 'confidence': 'High',
                                            'note': 'Reflects recent asphalt and paving material trends.'},
         'revenue_escalation': {'value': 'greater of SF Bay Area cost of living or California per capita '
                                         'personal income growth',
                                'source': 'Council Resolution No. 70,456-N.S. and the Measure FF '
-                                         'ordinance, via ' + SRC_PLAN, 'confidence': 'High'},
+                                         'ordinance, via ' + _PLAN + ', p.12', 'confidence': 'High'},
         'net_effect_stated_by_city': {'value': 'a modest real increase in construction costs relative to '
                                                'available funding over the projection period',
-                                      'source': SRC_PLAN, 'confidence': 'High'},
+                                      'source': _PLAN + ', p.12', 'confidence': 'High'},
     },
     'methodology': {
-        'software': {'value': 'StreetSaver', 'source': SRC_PLAN, 'confidence': 'High'},
-        'ranking': {'value': 'Weighted Economic Ranking (WER)', 'source': SRC_PLAN, 'confidence': 'High',
+        'software': {'value': 'StreetSaver', 'source': SRC_PLAN_METHOD, 'confidence': 'High'},
+        'ranking': {'value': 'Weighted Economic Ranking (WER)', 'source': SRC_PLAN_METHOD, 'confidence': 'High',
                     'note': 'WER ranks every street section and treatment option.'},
     },
 }
@@ -195,40 +208,68 @@ def marginal_cost_per_pci_point():
     return out
 
 
-def pci60_assessment():
-    """What it would take to reach and hold PCI 60+, from the City's published scenarios."""
-    below = [s for s in CITY_SCENARIOS if s['pci_2038'] < 60]
-    at_or_above = [s for s in CITY_SCENARIOS if s['pci_2038'] >= 60]
+def load(name):
+    return json.loads((ROOT / 'data' / name).read_text())
+
+
+def performance_assessment():
+    """Two measures, side by side, never substituted for each other:
+    1. network-average PCI (the City's projections), and
+    2. the distribution of conditions, including streets below PCI 50."""
+    net = load('network-condition.json')['distribution']
+    plans = load('street-plan-conditions.json')['plans']
+    five, ff, both = plans['five_year_plan']['all_years'], plans['measure_ff']['all_years'], plans['both_plans_fy2027_2031']
+    below50, below25 = net['below_pci_50'], net['below_pci_25']
     return {
-        'question': 'What would it take to bring Berkeley pavement to PCI 60 or better and hold it there?',
-        'answer_status': 'ANSWERABLE FROM CITY DATA, with limits stated',
-        'finding': "The City's own 12-year projections bracket PCI 60. The Five-Year Plan alone is "
-                   'projected to DECLINE to about 56 by 2038. Adding Measure FF is projected to reach '
-                   'about 62 by 2038. So PCI 60+ is, on the City\'s own modelling, roughly the outcome '
-                   'already purchased by the Plan plus Measure FF, at about $29.6 million a year.',
-        'the_real_gap_is_70_not_60': "Berkeley's adopted goal is PCI 70 (BMC 7.11.010(K)(1)), not 60. "
-                                     'The City estimates PCI 70 by 2036 requires about $37.6 million a '
-                                     'year, roughly $8 million a year more than current plans provide. '
-                                     'The funding question Berkeley actually faces is the 62-to-70 gap.',
-        'scenarios_below_60': below,
-        'scenarios_at_or_above_60': at_or_above,
+        'question': 'What would it take to bring Berkeley pavement to PCI 60 or better, and what would that mean for '
+                    'the worst streets?',
+        'measure_1_network_average': {
+            'what': 'Network-average PCI, the measure the City projects.',
+            'city_projection_2038': {s['label']: s['pci_2038'] for s in CITY_SCENARIOS},
+            'reading': 'On the City\'s projections the Five-Year Plan alone falls to about 56 by 2038; adding Measure FF '
+                       '(about $29.6M a year, 12-year average) reaches about 62; reaching 70 by 2036 needs about $37.6M a '
+                       'year. These are averages over 213 centerline miles.',
+            'source': SRC_PLAN},
+        'measure_2_condition_distribution': {
+            'what': 'How much of the network is below PCI 50 and below PCI 25 (MTC "failed"), the measure Measure FF\'s '
+                    'goal names: PCI 70 "ideally with no streets having a PCI below 50" by December 31, 2036.',
+            'now_2024_inspection': {'miles_below_50': below50['centerline_miles'],
+                                    'share_below_50': below50['share_of_centerline_miles'],
+                                    'miles_below_25': below25['centerline_miles'],
+                                    'share_below_25': below25['share_of_centerline_miles'],
+                                    'source': SRC_PTAP},
+            'treated_by_adopted_plans_fy2027_2031': {
+                'five_year_plan': {'miles': five['centerline_miles'], 'miles_below_50': five['miles_below_pci_50']},
+                'measure_ff_plan': {'miles': ff['centerline_miles'], 'miles_below_50': ff['miles_below_pci_50']},
+                'both': {'miles': both['centerline_miles'], 'miles_below_50': both['miles_below_pci_50']},
+                'source': 'July 7, 2026 plan attachments, validated per year; phase2/data/street-plan-conditions.json'},
+            'projected_2038': {'value': None,
+                               'status': 'NOT PUBLISHED BY THE CITY',
+                               'needed_from': 'StreetSaver output of the condition distribution (or miles below PCI 50) '
+                                              'under each funding scenario. The Measure FF annual report must include '
+                                              '"the PCI of all streets" (BMC 7.11.050(B)(1)).'}},
+        'finding': (f'Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the '
+                    f'2024 inspection the average was 56 while {below50["centerline_miles"]:.1f} centerline miles '
+                    f'({below50["share_of_centerline_miles"]:.0%}) were below PCI 50 and {below25["centerline_miles"]:.1f} '
+                    f'miles ({below25["share_of_centerline_miles"]:.0%}) were below 25. The two adopted plans treat '
+                    f'{both["miles_below_pci_50"]:.1f} miles of currently-below-50 streets over FY2027-FY2031 '
+                    f'({ff["miles_below_pci_50"]:.1f} through Measure FF, {five["miles_below_pci_50"]:.1f} through the '
+                    f'Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not '
+                    f'shown by any published projection.'),
+        'tradeoff_the_city_published': 'Selecting Measure FF streets below PCI 50 instead of by cost-effectiveness lowers '
+                                       'the 2038 network average by about one point (62 instead of 63) while treating the '
+                                       'worst streets first (City Figure 2). The average and the distribution move in '
+                                       'different directions.',
+        'the_adopted_goal_is_70': "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, paired with the below-50 "
+                                  'condition. The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan '
+                                  'plus Measure FF.',
         'critical_caveats': [
-            'These are the CITY\'s projections, not BeTH\'s. BeTH has not independently verified them '
-            'and cannot, without the StreetSaver segment data.',
-            'PCI 60 as a network AVERAGE can coexist with many streets in failed condition. The City\'s '
-            'own goal pairs PCI 70 with "no streets having a PCI below 50". A network average target '
-            'without a distribution floor can be met while the worst streets decay further.',
-            'All figures assume 3% annual construction cost escalation and the Council/Measure FF '
-            'revenue escalation formulas. The City notes the net effect is a modest real increase in '
-            'costs relative to funding.',
-            'Annual figures are 12-year averages accounting for projected revenue growth, NOT flat '
-            'annual amounts.',
-            'Reaching a level and holding it are different problems with different funding profiles.',
-        ],
-        'what_beth_adds': 'Not a rival forecast. BeTH\'s contribution is to show what the City\'s own '
-                          'model implies under alternative funding, and to test whether any capital '
-                          'reallocation could close the roughly $8M/yr gap to PCI 70. That test is '
-                          'currently blocked: 0 of 15 CIP funding sources are confirmed redirectable.',
+            'Scenario values are the City\'s projections. BeTH restates them; it cannot test them without the City\'s '
+            'deterioration curves and treatment catalog.',
+            'The distribution is from 2024 inspections, before FY2025-FY2026 paving (about 18.7 centerline miles). '
+            'Plan-attachment PCIs are the values printed in July 2026 and will be lower when streets are treated.',
+            'Annual investment figures are 12-year averages including revenue growth, not flat annual amounts.',
+            'Reaching a level and holding it are different problems with different funding profiles.'],
     }
 
 
@@ -276,24 +317,24 @@ def state():
     return {
         'schema_version': 2,
         'generated': '2026-10-23',
-        'status': 'CALIBRATED_TO_CITY_SCENARIOS',
-        'headline': "Berkeley has already modelled this. BeTH reuses the City's StreetSaver-based "
-                    'projections rather than building a rival model, and adds the funding-restriction '
-                    'test the City does not publish.',
+        'status': 'CITY_SCENARIOS_PLUS_MEASURED_DISTRIBUTION',
+        'headline': "BeTH reuses the City's StreetSaver projections of the network average and sets beside them the "
+                    'measured condition distribution: 41.6% of the network below PCI 50 in the 2024 inspection. An '
+                    'average target is not a failed-streets target.',
         'chain': ['capital reallocations + recurring operating savings',
                   'funds available for paving',
                   'treatments purchased (StreetSaver WER selection)',
                   'network PCI over time (City deterioration model)'],
-        'pci60_assessment': pci60_assessment(),
+        'performance_assessment': performance_assessment(),
         'city_scenarios': CITY_SCENARIOS,
         'city_selection_methods': CITY_SELECTION_METHODS,
         'marginal_cost_per_pci_point': marginal_cost_per_pci_point(),
         'inputs': INPUTS,
         'independent_model_status': {
             'status': 'BLOCKED' if gaps else 'READY',
-            'purpose': 'Segment-level modelling would let BeTH test the City\'s projections rather than '
-                       'only restate them, and report the condition DISTRIBUTION the City\'s headline '
-                       'average hides.',
+            'purpose': 'Segment-level modelling would let BeTH project the condition distribution under each '
+                       'funding scenario, which the City does not publish. The current distribution is now held '
+                       '(PTAP-25); deterioration curves, treatment catalog and unit costs are not.',
             'missing_inputs': gaps,
             'missing_count': len(gaps),
             'rule': 'No default, literature or assumed value is ever substituted for a missing input.',
@@ -317,10 +358,9 @@ def main():
     for m in st['marginal_cost_per_pci_point']:
         print(f"  {m['from']:30s} -> {m['to']:34s} +${m['extra_annual_investment']:>10,}/yr "
               f"for +{m['pci_2038_gain']} PCI  (${m['annual_dollars_per_pci_point']:,}/pt/yr)")
-    a = st['pci60_assessment']
-    print(f"\nPCI 60 question: {a['answer_status']}")
-    print(f"  {a['finding']}")
-    print(f"\n  {a['the_real_gap_is_70_not_60']}")
+    a = st['performance_assessment']
+    print(f"\n{a['finding']}")
+    print(f"\n  {a['tradeoff_the_city_published']}")
     print(f"\nIndependent segment model: {st['independent_model_status']['status']} "
           f"({st['independent_model_status']['missing_count']} inputs missing)")
     return 0
