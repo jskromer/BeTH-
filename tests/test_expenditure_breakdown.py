@@ -1,6 +1,7 @@
 """Independent audited expectations for the p.77 omitted expenditure categories."""
 import copy
 import json
+import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -13,6 +14,10 @@ from acfr_config import load_year
 from acfr_pilot import snapshot
 from ledger_safety import SafetyError
 import reconcile_expenditure_breakdown as breakdown
+import ledger
+
+FIXTURES = ROOT/'tests/fixtures/fy2025-pre-correction'
+HISTORY_MANIFEST_SHA256 = '70f4d6393f05d9d037b3980b4edaa2f5ce4a137d458bf37d261c071ec36f7001'
 
 
 class CategoryTests(unittest.TestCase):
@@ -49,13 +54,17 @@ class CategoryTests(unittest.TestCase):
                          {'Interest and fiscal charges':749523})
 
 
-class SourceToLedgerTests(unittest.TestCase):
+class HistoricalOmissionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.temp = tempfile.TemporaryDirectory()
         cls.out = Path(cls.temp.name)/'proposals'
-        cls.before = {p:snapshot(ROOT/p) for p in ('data/funds','docs')}
-        cls.report = breakdown.stage(out=cls.out)
+        cls.before = {p:snapshot(ROOT/p) for p in ('data/funds','data/curation','docs')}
+        cls.ledger_dir = Path(cls.temp.name)/'ledgers'
+        shutil.copytree(ROOT/'data/funds',cls.ledger_dir)
+        for fid in ('011','ACFR-grants','501'):
+            shutil.copyfile(FIXTURES/f'{fid}.json',cls.ledger_dir/f'{fid}.json')
+        cls.report = breakdown.stage(out=cls.out,ledger_dir=cls.ledger_dir)
         cls.funds = {f['fund_number']:f for f in cls.report['funds']}
 
     @classmethod
@@ -123,7 +132,7 @@ class SourceToLedgerTests(unittest.TestCase):
             patch = self.out/f['patch']['path']
             self.assertEqual(breakdown.digest(patch),f['patch']['sha256'])
             self.assertIn(f"{f['patch']['sha256']}  {patch.name}",sums)
-            original = json.loads((ROOT/f['ledger_path']).read_text())
+            original = json.loads((self.ledger_dir/f'{fid}.json').read_text())
             proposed = copy.deepcopy(original)
             # Evaluate the standard JSON Patch on an in-memory copy only.
             changed_paths = []
@@ -145,7 +154,10 @@ class SourceToLedgerTests(unittest.TestCase):
                 self.assertEqual([r for r in proposed['flow_detail'][key] if r in old],old)
                 proposed['flow_detail'][key] = copy.deepcopy(old)
             self.assertEqual(proposed,original)
-            self.assertEqual(breakdown.digest(ROOT/f['ledger_path']),f['ledger_sha256'])
+            self.assertEqual(breakdown.digest(self.ledger_dir/f'{fid}.json'),f['ledger_sha256'])
+            # Reproducing a historical omission must recreate the reviewed patch bytes.
+            archived = breakdown.HISTORICAL_EVIDENCE/f['patch']['path']
+            self.assertEqual(patch.read_bytes(),archived.read_bytes())
 
     def test_all_five_major_fund_breakdowns_reconcile_to_source_totals(self):
         self.assertEqual(len(self.funds),5)
@@ -161,7 +173,7 @@ class SourceToLedgerTests(unittest.TestCase):
         self.assertFalse(self.report['apply_automatically'])
         self.assertEqual(len(self.report['protected_ledger_checksums']),6)
         self.assertEqual({p:snapshot(ROOT/p) for p in self.before},self.before)
-        stored = json.loads((ROOT/'data/funds/011.json').read_text())
+        stored = json.loads((self.ledger_dir/'011.json').read_text())
         self.assertNotIn('Community development and housing', {r['line'] for r in stored['flow_detail']['outflows']})
         self.assertTrue(all(not f['apply_automatically'] for f in self.report['funds']))
 
@@ -175,10 +187,97 @@ class SourceToLedgerTests(unittest.TestCase):
 
     def test_staging_is_idempotent_and_cannot_target_ledgers(self):
         before = snapshot(self.out)
-        breakdown.stage(out=self.out)
+        breakdown.stage(out=self.out,ledger_dir=self.ledger_dir)
         self.assertEqual(snapshot(self.out), before)
         with self.assertRaises(ValueError):
             breakdown.stage(out=ROOT/'data/funds')
+
+
+class CurrentLedgerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory()
+        cls.out = Path(cls.temp.name)/'current'
+        cls.before = {p:snapshot(ROOT/p) for p in ('data/funds','data/curation','docs','staging/fy2025-expenditure-corrections')}
+        cls.report = breakdown.stage(out=cls.out)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp.cleanup()
+
+    def test_all_five_current_major_funds_have_zero_omissions_or_proposals(self):
+        self.assertEqual(self.report['comparison_scope'],'current corrected ledgers')
+        self.assertEqual(self.report['omitted_expenditures'],0)
+        self.assertEqual(self.report['omitted_financing'],0)
+        self.assertEqual(self.report['affected_funds'],0)
+        self.assertEqual(len(self.report['funds']),5)
+        for f in self.report['funds']:
+            self.assertEqual(f['status'],'RECONCILED')
+            self.assertEqual(f['omitted_expenditures'],0)
+            self.assertEqual(f['omitted_financing'],0)
+            self.assertEqual(f['proposed_corrections'],[])
+            self.assertNotIn('patch',f)
+            self.assertFalse(f['approval_required'])
+            self.assertEqual(f['existing_inflows'],f['proposed_inflows'])
+            self.assertEqual(f['existing_outflows'],f['proposed_outflows'])
+        self.assertFalse((self.out/'patches').exists())
+
+    def test_all_106_current_ledgers_validate(self):
+        paths = sorted((ROOT/'data/funds').glob('*.json'))
+        self.assertEqual(len(paths),106)
+        for path in paths:
+            with self.subTest(ledger=path.name):
+                errors,_ = ledger.check(path)
+                self.assertEqual(errors,[])
+
+    def test_corrections_preserve_annual_figures_and_all_other_evidence(self):
+        expected_additions = {'011':(2,1),'ACFR-grants':(1,1),'501':(1,0)}
+        for fid,(expenses,financing) in expected_additions.items():
+            old = json.loads((FIXTURES/f'{fid}.json').read_text())
+            current = json.loads((ROOT/f'data/funds/{fid}.json').read_text())
+            self.assertEqual(current['annual'],old['annual'])
+            for key,count in (('outflows',expenses),('inflows',financing)):
+                original = old['flow_detail'][key]
+                corrected = current['flow_detail'][key]
+                self.assertEqual(len(corrected)-len(original),count)
+                self.assertEqual([r for r in corrected if r in original],original)
+                self.assertEqual(len({r['line'] for r in corrected}),len(corrected))
+                current['flow_detail'][key] = original
+            self.assertEqual(current,old)
+
+    def test_current_reconciliation_is_idempotent_and_preserves_every_input(self):
+        before = snapshot(self.out)
+        breakdown.stage(out=self.out)
+        self.assertEqual(snapshot(self.out),before)
+        self.assertEqual({p:snapshot(ROOT/p) for p in self.before},self.before)
+
+    def test_historical_artifacts_and_fixtures_are_pinned_byte_for_byte(self):
+        manifest = FIXTURES/'manifest.json'
+        self.assertEqual(breakdown.digest(manifest),HISTORY_MANIFEST_SHA256)
+        evidence = json.loads(manifest.read_text())
+        self.assertEqual(len(evidence['ledgers']),3)
+        self.assertEqual(len(evidence['historical_artifacts']),7)
+        for item in evidence['ledgers'].values():
+            self.assertEqual(breakdown.digest(ROOT/item['fixture']),item['sha256'])
+        for path,sha in evidence['historical_artifacts'].items():
+            self.assertEqual(breakdown.digest(ROOT/path),sha,path)
+
+    def test_historical_output_paths_are_refused_without_writing(self):
+        for out in (breakdown.HISTORICAL_EVIDENCE,breakdown.HISTORICAL_EVIDENCE/'nested'):
+            with self.subTest(out=out), self.assertRaisesRegex(SafetyError,'immutable'):
+                breakdown.stage(out=out)
+        self.assertEqual(snapshot(breakdown.HISTORICAL_EVIDENCE),self.before['staging/fy2025-expenditure-corrections'])
+
+    def test_stale_patch_evidence_is_refused_and_preserved(self):
+        out = Path(self.temp.name)/'stale'
+        patches = out/'patches'
+        patches.mkdir(parents=True)
+        evidence = patches/'011.json-patch.json'
+        evidence.write_text('prior proposal must not be overwritten or deleted\n')
+        before = snapshot(out)
+        with self.assertRaisesRegex(SafetyError,'Existing patch evidence would become stale'):
+            breakdown.stage(out=out)
+        self.assertEqual(snapshot(out),before)
 
 
 if __name__ == '__main__':

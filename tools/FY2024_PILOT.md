@@ -177,11 +177,15 @@ input inventory must remain identical. Other tests ensure required inputs cannot
 disappear and newly consumed ledger inputs cannot be silently omitted.
 
 
-## FY2025 page-77 line-item correction proposals
+## FY2025 page-77 historical corrections and current status
 
-The source-to-ledger investigation is staged separately at
+The original source-to-ledger investigation is preserved unchanged at
 `staging/fy2025-expenditure-corrections/RECONCILIATION.md` and `proposals.json`.
-Reproduce it with `python tools/reconcile_expenditure_breakdown.py`.
+It is immutable historical evidence from `2450d7a`, before PR #13 applied the
+six reviewed corrections. Current reconciliation is generated separately by
+`python tools/reconcile_expenditure_breakdown.py` into
+`staging/fy2025-reconciliation/`. That output reports zero omissions and no new
+patches against corrected main. Do not regenerate or reapply the archived proposal.
 The wrapped `and housing` label was omitted from the legacy expense whitelist
 because expense extraction did not apply the existing year-specific alias.
 `TRAN issuance costs` was separately missing from the expense whitelist. The fix
@@ -193,8 +197,11 @@ FY2024 financial values change.
 Four FY2025 expense rows were absent from the stored breakdowns: General Fund
 housing $20,221,797 and TRAN costs $90,884; Grants housing $13,584,981; Capital
 Improvement housing $2,700,992. Total omitted: $36,598,654. The annual expenditure
-totals were already correct. Only proposed outflow arrays are staged; all existing
-ledgers, including protected General Fund, remain unchanged. No apply command is
-provided. All four additions require manual review before any ledger correction
-or publication. The new script and regression test are declared verification
-inputs, bringing the manifest's explicit dependency inventory to 128 files.
+totals were already correct. Two financing rows were also absent: General Fund
+$18,156,996 and Grants $19,381, totaling $18,176,377. All six additions received
+independent review and were applied in PR #13; the historical evidence still
+records their original proposed status. This maintenance changes no ledgers or
+published files. The test suite reproduces all three original patches from frozen
+pre-correction ledger fixtures and separately checks the corrected current ledgers.
+The manifest now includes those frozen inputs and immutable correction evidence
+as explicit verification dependencies. See `tools/POST_CORRECTION_MAINTENANCE.md`.
