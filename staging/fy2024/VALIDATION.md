@@ -3,11 +3,12 @@
 - Branch: `codex/fy2024-reconciliation`, based on merged `origin/main` at `350f1cd`.
 - Official FY2024 source: 373 PDF pages; SHA-256 and acquisition provenance are in
   `manifest.json`. Financial statement pages: 78, 87–88, 227–244, 311–312.
-- `python -m unittest discover -s tests -v`: **32 tests passed**
+- `python -m unittest discover -s tests -v`: **40 tests passed**
   locally (Python 3.13, pdfplumber 0.11.9). CI uses Python 3.12.
 - `python tools/ledger.py data/funds/*.json`: **106 OK**, no errors or warnings.
 - Default FY2025 extraction: **106 funds, zero files updated**. The full-output
-  regression also matches all 106 pre-pilot records, including `flow_detail`.
+  regression matches all 106 pre-pilot records except four explicit audited
+  page-77 expense additions; annual totals remain unchanged.
 - FY2024 report: **105 funds**, all six curated funds compared, **zero differing
   comparable reviewed financial fields**. Final fund status: **103 PENDING REVIEW,
   2 INCOMPLETE**. These statuses do not approve publication.
@@ -43,7 +44,7 @@ Git-tracked filter passed run `39875626766`, but still inventoried unrelated
 published files. The final rule is an explicit extraction/verification dependency
 allowlist in `tools/acfr_years/pilot-inputs.json`.
 
-Manifest schema version 2 records 126 required inputs (including the policy
+Manifest schema version 2 records 128 required inputs (including the policy
 itself), with canonical paths, roles, byte sizes and SHA-256 values. No website
 files, operating-system metadata, temporary files, locks or machine configuration
 are inventoried. Full local ledger and website preservation checks still run in
@@ -55,8 +56,13 @@ Runtime preservation may still hash it in memory. Its Git-ignored status and
 nondependency decision are documented explicitly in the policy and pilot guide.
 The document itself was not modified or published by this correction.
 
-The updated 32-test suite passed locally in 30.496 seconds. Tests add and mutate
+The expanded 40-test suite passed locally in 31.624 seconds. Tests add and mutate
 actual irrelevant files in a temporary directory and require an identical input
 inventory; missing required dependencies and unlisted ledger JSON files fail.
 Regeneration followed by a second pilot run produced identical staged artifacts.
 Financial staging data, existing ledgers and website files remained unchanged.
+
+The supplemental FY2025 page-77 breakdown correction proposals are staged in
+`staging/fy2025-expenditure-corrections/`. They explain $36,598,654 of omitted
+categories. No existing ledger, website file or FY2024 financial staging data
+was changed; the manifest dependency inventory includes the new verification files.

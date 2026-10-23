@@ -245,8 +245,21 @@ class RealPilotTests(unittest.TestCase):
         self.assertEqual(acfr_pilot.snapshot(self.out), before)
         self.assertEqual(acfr_pilot.snapshot(ROOT/'data/funds'), self.before)
 
-    def test_fy2025_full_records_remain_backward_compatible(self):
+    def test_fy2025_only_documented_expenditure_additions_change(self):
         expected = json.loads((ROOT/'tests/fixtures/fy2025-full-extraction.json').read_text())
+        # Keep the pre-fix baseline frozen. Only these four audited missing lines
+        # may change; annual totals, metadata and all other flow details must match.
+        additions = {
+            '011':[('Community development and housing',20221797,'Economic development'),
+                   ('TRAN issuance costs',90884,'Capital outlay')],
+            'ACFR-grants':[('Community development and housing',13584981,'Economic development')],
+            '501':[('Community development and housing',2700992,'Economic development')],
+        }
+        for record in expected:
+            rows = record['flow_detail']['outflows']
+            for label, amount, before in additions.get(record['fund_number'], []):
+                index = next(i for i,row in enumerate(rows) if row['line']==before)
+                rows.insert(index, {'line':label,'amount':amount})
         self.assertEqual(acfr_funds.extract(NEXT_PDF), expected)
 
 

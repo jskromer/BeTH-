@@ -22,7 +22,9 @@
     "tests/test_fy2024_reconciliation.py": "pilot reconciliation and manifest regression tests",
     "tests/fixtures/fy2025-audited-values.json": "FY2025 annual financial regression baseline",
     "tests/fixtures/fy2025-full-extraction.json": "FY2025 full extraction regression baseline",
-    ".github/workflows/extraction-safety.yml": "CI verification commands"
+    ".github/workflows/extraction-safety.yml": "CI verification commands",
+    "tools/reconcile_expenditure_breakdown.py": "source-to-ledger expenditure correction staging and verification",
+    "tests/test_expenditure_breakdown.py": "audited page 77 category, protection and correction regression tests"
   },
   "ledger_files": [
     "011.json",

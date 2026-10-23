@@ -234,8 +234,8 @@
   "inputs": {
     ".github/workflows/extraction-safety.yml": {
       "role": "CI verification commands",
-      "sha256": "01712cea129eb937ed29cf385d2bde45956e47b6f723ee2ef26b27c35b24582a",
-      "size_bytes": 654
+      "sha256": "3d12fd5a886e2c9d91fdb863ea4bb4d51f9072af22020bddb28b2fd46c1e83f1",
+      "size_bytes": 754
     },
     "annual-comprehensive-financial-report-fy2025.pdf": {
       "role": "FY2025 audited source PDF",
@@ -802,6 +802,11 @@
       "sha256": "8c59dbcd20e063db9cfa7b78ade183e2e8c2d11131804e8a6cf45b4632b088ff",
       "size_bytes": 40
     },
+    "tests/test_expenditure_breakdown.py": {
+      "role": "audited page 77 category, protection and correction regression tests",
+      "sha256": "4210b3f69b4eaa1edc2fa7cc7501e6b675680e7776dbecfd55c9b782f02f802c",
+      "size_bytes": 5448
+    },
     "tests/test_extraction_safety.py": {
       "role": "extraction safety and FY2025 regression tests",
       "sha256": "7185a6dd6d2d47f6600d49c9452221335d83c895768d0e97ad9f5b0be5ad5ee9",
@@ -809,8 +814,8 @@
     },
     "tests/test_fy2024_reconciliation.py": {
       "role": "pilot reconciliation and manifest regression tests",
-      "sha256": "5f6076b3119e6118c93a0ba6df6883837caf60e859d8b055c06d85e181236e71",
-      "size_bytes": 14458
+      "sha256": "7d9d390f30ef167d1805ba04abf0732d2b2c14848a2c5961932917e7d7856edc",
+      "size_bytes": 15328
     },
     "tools/acfr_config.py": {
       "role": "year configuration loader",
@@ -819,8 +824,8 @@
     },
     "tools/acfr_funds.py": {
       "role": "shared fund identities and FY2025 compatibility extractor",
-      "sha256": "dfac7b85e581ba203641913789e91b9aaabc3c07f36d7aa2c87d02545fc12c5c",
-      "size_bytes": 11033
+      "sha256": "b915128ac5726fc5ef94870e1190640bd0b3b01fff0e3b7c7e0eb35fca84efdb",
+      "size_bytes": 11655
     },
     "tools/acfr_parse.py": {
       "role": "PDF statement parser",
@@ -849,8 +854,8 @@
     },
     "tools/acfr_years/pilot-inputs.json": {
       "role": "explicit manifest input policy",
-      "sha256": "79e18b6efa2111abb005aade4098d811f4b9c5396fbb6a83990afbbb0565e831",
-      "size_bytes": 6701
+      "sha256": "b9512ab79ad19423ddd6d464a0f198075a75840aecf31c6b652896153d2bb446",
+      "size_bytes": 6932
     },
     "tools/ledger.py": {
       "role": "ledger validation",
@@ -861,6 +866,11 @@
       "role": "protected registry and annual identity rules",
       "sha256": "c4dd5ab41fd89207fe66e129e88a9b6c11c1c66d7c2ec0e6beb0c339817aec0c",
       "size_bytes": 4635
+    },
+    "tools/reconcile_expenditure_breakdown.py": {
+      "role": "source-to-ledger expenditure correction staging and verification",
+      "sha256": "fa693ded72a4b7755eed1664f297fceace9a9d22144e54a10ecafbf35480a917",
+      "size_bytes": 11454
     }
   },
   "preservation": {

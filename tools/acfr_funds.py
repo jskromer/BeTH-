@@ -43,7 +43,7 @@ GOV_REV = ["Taxes", "Licenses and permits", "Intergovernmental", "Charges for se
            "Investment income", "Investment income/ (loss)", "Miscellaneous"]
 GOV_EXP = ["General government", "Public safety", "Highway and streets", "Highways and streets", "Health and welfare",
            "Culture-recreation", "Culture and recreation", "Community development and housing", "Economic development",
-           "Principal repayment", "Interest and fiscal charges", "Debt issuance costs", "Capital outlay:", "Capital outlay"]
+           "Principal repayment", "Interest and fiscal charges", "Debt issuance costs", "TRAN issuance costs", "Capital outlay:", "Capital outlay"]
 OTHER_IN = ["Transfers in", "Debt proceeds", "Face value of refunding bonds issued", "Premium on bond issued",
             "Inception of leases and subscriptions", "Insurance Recoveries", "Sale of capital assets"]
 OTHER_OUT = ["Transfers out", "Payment to refunded bond escrow agent"]
@@ -63,12 +63,26 @@ def required(d, *labels):
     return found[0][1]
 
 
+def governmental_expense_items(rows, config):
+    """Recognize configured wrapped labels without losing or double-counting rows."""
+    values, observed = {}, {}
+    for raw_label, amount in rows.items():
+        label = config['row_aliases'].get(raw_label, raw_label)
+        if label not in GOV_EXP:
+            continue
+        if label in observed:
+            raise SafetyError(f'Duplicate expenditure label aliases: {observed[label]!r}, {raw_label!r}')
+        observed[label] = raw_label
+        values[label] = amount
+    return {label: values[label] for label in GOV_EXP if values.get(label)}
+
+
 def gov_record(name, d, ftype, page, config=None):
     config = config or DEFAULT_CONFIG
     labels = config["labels"]
     major_page = config["statements"][0]["pairs"][0][0]
     rev = {k: d.get(k) for k in GOV_REV if d.get(k)}
-    exp = {k: d.get(k) for k in GOV_EXP if d.get(k)}
+    exp = governmental_expense_items(d, config)
     ti = required(d, "Transfers in")
     to = required(d, "Transfers out")
     inflows = [{"line": k.rstrip(":"), "amount": v, "kind": "own"} for k, v in rev.items()]

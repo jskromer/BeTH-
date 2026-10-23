@@ -1,0 +1,1627 @@
+{
+  "fiscal_year": 2025,
+  "source": {
+    "fiscal_year": 2025,
+    "source_id": "acfr-2025",
+    "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+    "retrieval_date": null,
+    "discovery_url": null,
+    "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+    "size_bytes": 9049904,
+    "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+    "statements": [
+      {
+        "id": "major_governmental",
+        "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "basis": "modified_accrual",
+        "pairs": [
+          [
+            77,
+            null
+          ]
+        ],
+        "printed_pages": [
+          42,
+          42
+        ]
+      },
+      {
+        "id": "nonmajor_governmental",
+        "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+        "basis": "modified_accrual",
+        "pairs": [
+          [
+            237,
+            238
+          ],
+          [
+            239,
+            240
+          ],
+          [
+            241,
+            242
+          ],
+          [
+            243,
+            244
+          ],
+          [
+            245,
+            246
+          ],
+          [
+            247,
+            248
+          ],
+          [
+            249,
+            250
+          ],
+          [
+            251,
+            252
+          ],
+          [
+            253,
+            254
+          ]
+        ],
+        "printed_pages": [
+          201,
+          218
+        ]
+      },
+      {
+        "id": "enterprise",
+        "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+        "basis": "accrual",
+        "pairs": [
+          [
+            85,
+            86
+          ]
+        ],
+        "printed_pages": [
+          51,
+          52
+        ]
+      },
+      {
+        "id": "internal_service",
+        "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+        "basis": "accrual",
+        "pairs": [
+          [
+            321,
+            322
+          ]
+        ],
+        "printed_pages": [
+          285,
+          286
+        ]
+      }
+    ],
+    "role": "opening-balance/restatement comparator",
+    "restatement_note": {
+      "note": "15",
+      "pdf_pages": [
+        171,
+        172,
+        173
+      ],
+      "printed_pages": [
+        137,
+        138,
+        139
+      ]
+    },
+    "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+    "pdf_page": 77,
+    "printed_page": 42
+  },
+  "explanation": "Annual expenditure totals already include these amounts. Only the flow_detail/outflows categorization omitted them. Transfers and other financing uses are excluded from expenditure sums.",
+  "affected_funds": 3,
+  "omitted_expenditures": 36598654,
+  "funds": [
+    {
+      "fund_number": "011",
+      "name": "General Fund",
+      "protected": true,
+      "ledger_path": "data/funds/011.json",
+      "ledger_sha256": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
+      "source": {
+        "fiscal_year": 2025,
+        "source_id": "acfr-2025",
+        "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+        "retrieval_date": null,
+        "discovery_url": null,
+        "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+        "size_bytes": 9049904,
+        "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+        "statements": [
+          {
+            "id": "major_governmental",
+            "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                77,
+                null
+              ]
+            ],
+            "printed_pages": [
+              42,
+              42
+            ]
+          },
+          {
+            "id": "nonmajor_governmental",
+            "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                237,
+                238
+              ],
+              [
+                239,
+                240
+              ],
+              [
+                241,
+                242
+              ],
+              [
+                243,
+                244
+              ],
+              [
+                245,
+                246
+              ],
+              [
+                247,
+                248
+              ],
+              [
+                249,
+                250
+              ],
+              [
+                251,
+                252
+              ],
+              [
+                253,
+                254
+              ]
+            ],
+            "printed_pages": [
+              201,
+              218
+            ]
+          },
+          {
+            "id": "enterprise",
+            "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                85,
+                86
+              ]
+            ],
+            "printed_pages": [
+              51,
+              52
+            ]
+          },
+          {
+            "id": "internal_service",
+            "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                321,
+                322
+              ]
+            ],
+            "printed_pages": [
+              285,
+              286
+            ]
+          }
+        ],
+        "role": "opening-balance/restatement comparator",
+        "restatement_note": {
+          "note": "15",
+          "pdf_pages": [
+            171,
+            172,
+            173
+          ],
+          "printed_pages": [
+            137,
+            138,
+            139
+          ]
+        },
+        "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "pdf_page": 77,
+        "printed_page": 42
+      },
+      "categories": [
+        {
+          "source_label": "General government",
+          "category": "General government",
+          "source_amount": 47249826,
+          "ledger_amount": 47249826,
+          "proposed_amount": 47249826,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Public safety",
+          "category": "Public safety",
+          "source_amount": 147156901,
+          "ledger_amount": 147156901,
+          "proposed_amount": 147156901,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Highway and streets",
+          "category": "Highway and streets",
+          "source_amount": 2753578,
+          "ledger_amount": 2753578,
+          "proposed_amount": 2753578,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Health and welfare",
+          "category": "Health and welfare",
+          "source_amount": 21147159,
+          "ledger_amount": 21147159,
+          "proposed_amount": 21147159,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Culture-recreation",
+          "category": "Culture-recreation",
+          "source_amount": 11561579,
+          "ledger_amount": 11561579,
+          "proposed_amount": 11561579,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 20221797,
+          "ledger_amount": null,
+          "proposed_amount": 20221797,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias."
+        },
+        {
+          "source_label": "Economic development",
+          "category": "Economic development",
+          "source_amount": 4581909,
+          "ledger_amount": 4581909,
+          "proposed_amount": 4581909,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Principal repayment",
+          "category": "Principal repayment",
+          "source_amount": 1392206,
+          "ledger_amount": 1392206,
+          "proposed_amount": 1392206,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Interest and fiscal charges",
+          "category": "Interest and fiscal charges",
+          "source_amount": 1106401,
+          "ledger_amount": 1106401,
+          "proposed_amount": 1106401,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance costs",
+          "category": "Debt issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 90884,
+          "ledger_amount": null,
+          "proposed_amount": 90884,
+          "status": "PENDING REVIEW",
+          "cause": "Printed TRAN issuance costs row was absent from the expenditure whitelist."
+        },
+        {
+          "source_label": "Capital outlay:",
+          "category": "Capital outlay",
+          "source_amount": 19679684,
+          "ledger_amount": 19679684,
+          "proposed_amount": 19679684,
+          "status": "RECONCILED"
+        }
+      ],
+      "proposed_corrections": [
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 20221797,
+          "ledger_amount": null,
+          "proposed_amount": 20221797,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias.",
+          "change": "add",
+          "path": "/flow_detail/outflows"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 90884,
+          "ledger_amount": null,
+          "proposed_amount": 90884,
+          "status": "PENDING REVIEW",
+          "cause": "Printed TRAN issuance costs row was absent from the expenditure whitelist.",
+          "change": "add",
+          "path": "/flow_detail/outflows"
+        }
+      ],
+      "annual_expenditure": 276941924,
+      "audited_expenditure": 276941924,
+      "source_category_sum": 276941924,
+      "existing_breakdown_sum": 256629243,
+      "omitted_expenditures": 20312681,
+      "proposed_breakdown_sum": 276941924,
+      "proposed_difference_from_audit": 0,
+      "annual_total_unchanged": true,
+      "existing_outflows": [
+        {
+          "line": "General government",
+          "amount": 47249826
+        },
+        {
+          "line": "Public safety",
+          "amount": 147156901
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 2753578
+        },
+        {
+          "line": "Health and welfare",
+          "amount": 21147159
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 11561579
+        },
+        {
+          "line": "Economic development",
+          "amount": 4581909
+        },
+        {
+          "line": "Principal repayment",
+          "amount": 1392206
+        },
+        {
+          "line": "Interest and fiscal charges",
+          "amount": 1106401
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 19679684
+        },
+        {
+          "line": "Transfers out",
+          "amount": 33919159
+        }
+      ],
+      "proposed_outflows": [
+        {
+          "line": "General government",
+          "amount": 47249826
+        },
+        {
+          "line": "Public safety",
+          "amount": 147156901
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 2753578
+        },
+        {
+          "line": "Health and welfare",
+          "amount": 21147159
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 11561579
+        },
+        {
+          "line": "Community development and housing",
+          "amount": 20221797
+        },
+        {
+          "line": "Economic development",
+          "amount": 4581909
+        },
+        {
+          "line": "Principal repayment",
+          "amount": 1392206
+        },
+        {
+          "line": "Interest and fiscal charges",
+          "amount": 1106401
+        },
+        {
+          "line": "TRAN issuance costs",
+          "amount": 90884
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 19679684
+        },
+        {
+          "line": "Transfers out",
+          "amount": 33919159
+        }
+      ],
+      "apply_automatically": false,
+      "approval_required": true,
+      "status": "PENDING REVIEW"
+    },
+    {
+      "fund_number": "ACFR-grants",
+      "name": "Grants",
+      "protected": false,
+      "ledger_path": "data/funds/ACFR-grants.json",
+      "ledger_sha256": "f64d16ad70b1e5513069b3876484a48577223d935fb728922e987a894464ce87",
+      "source": {
+        "fiscal_year": 2025,
+        "source_id": "acfr-2025",
+        "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+        "retrieval_date": null,
+        "discovery_url": null,
+        "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+        "size_bytes": 9049904,
+        "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+        "statements": [
+          {
+            "id": "major_governmental",
+            "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                77,
+                null
+              ]
+            ],
+            "printed_pages": [
+              42,
+              42
+            ]
+          },
+          {
+            "id": "nonmajor_governmental",
+            "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                237,
+                238
+              ],
+              [
+                239,
+                240
+              ],
+              [
+                241,
+                242
+              ],
+              [
+                243,
+                244
+              ],
+              [
+                245,
+                246
+              ],
+              [
+                247,
+                248
+              ],
+              [
+                249,
+                250
+              ],
+              [
+                251,
+                252
+              ],
+              [
+                253,
+                254
+              ]
+            ],
+            "printed_pages": [
+              201,
+              218
+            ]
+          },
+          {
+            "id": "enterprise",
+            "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                85,
+                86
+              ]
+            ],
+            "printed_pages": [
+              51,
+              52
+            ]
+          },
+          {
+            "id": "internal_service",
+            "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                321,
+                322
+              ]
+            ],
+            "printed_pages": [
+              285,
+              286
+            ]
+          }
+        ],
+        "role": "opening-balance/restatement comparator",
+        "restatement_note": {
+          "note": "15",
+          "pdf_pages": [
+            171,
+            172,
+            173
+          ],
+          "printed_pages": [
+            137,
+            138,
+            139
+          ]
+        },
+        "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "pdf_page": 77,
+        "printed_page": 42
+      },
+      "categories": [
+        {
+          "source_label": "General government",
+          "category": "General government",
+          "source_amount": 1772841,
+          "ledger_amount": 1772841,
+          "proposed_amount": 1772841,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Public safety",
+          "category": "Public safety",
+          "source_amount": 1968701,
+          "ledger_amount": 1968701,
+          "proposed_amount": 1968701,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Highway and streets",
+          "category": "Highway and streets",
+          "source_amount": 1024467,
+          "ledger_amount": 1024467,
+          "proposed_amount": 1024467,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Health and welfare",
+          "category": "Health and welfare",
+          "source_amount": 24028923,
+          "ledger_amount": 24028923,
+          "proposed_amount": 24028923,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Culture-recreation",
+          "category": "Culture-recreation",
+          "source_amount": 993674,
+          "ledger_amount": 993674,
+          "proposed_amount": 993674,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 13584981,
+          "ledger_amount": null,
+          "proposed_amount": 13584981,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias."
+        },
+        {
+          "source_label": "Economic development",
+          "category": "Economic development",
+          "source_amount": 69000,
+          "ledger_amount": 69000,
+          "proposed_amount": 69000,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Principal repayment",
+          "category": "Principal repayment",
+          "source_amount": 42053,
+          "ledger_amount": 42053,
+          "proposed_amount": 42053,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Interest and fiscal charges",
+          "category": "Interest and fiscal charges",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance costs",
+          "category": "Debt issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Capital outlay:",
+          "category": "Capital outlay",
+          "source_amount": 3778448,
+          "ledger_amount": 3778448,
+          "proposed_amount": 3778448,
+          "status": "RECONCILED"
+        }
+      ],
+      "proposed_corrections": [
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 13584981,
+          "ledger_amount": null,
+          "proposed_amount": 13584981,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias.",
+          "change": "add",
+          "path": "/flow_detail/outflows"
+        }
+      ],
+      "annual_expenditure": 47263088,
+      "audited_expenditure": 47263088,
+      "source_category_sum": 47263088,
+      "existing_breakdown_sum": 33678107,
+      "omitted_expenditures": 13584981,
+      "proposed_breakdown_sum": 47263088,
+      "proposed_difference_from_audit": 0,
+      "annual_total_unchanged": true,
+      "existing_outflows": [
+        {
+          "line": "General government",
+          "amount": 1772841
+        },
+        {
+          "line": "Public safety",
+          "amount": 1968701
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 1024467
+        },
+        {
+          "line": "Health and welfare",
+          "amount": 24028923
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 993674
+        },
+        {
+          "line": "Economic development",
+          "amount": 69000
+        },
+        {
+          "line": "Principal repayment",
+          "amount": 42053
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 3778448
+        }
+      ],
+      "proposed_outflows": [
+        {
+          "line": "General government",
+          "amount": 1772841
+        },
+        {
+          "line": "Public safety",
+          "amount": 1968701
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 1024467
+        },
+        {
+          "line": "Health and welfare",
+          "amount": 24028923
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 993674
+        },
+        {
+          "line": "Community development and housing",
+          "amount": 13584981
+        },
+        {
+          "line": "Economic development",
+          "amount": 69000
+        },
+        {
+          "line": "Principal repayment",
+          "amount": 42053
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 3778448
+        }
+      ],
+      "apply_automatically": false,
+      "approval_required": true,
+      "status": "PENDING REVIEW"
+    },
+    {
+      "fund_number": "ACFR-library",
+      "name": "Library",
+      "protected": false,
+      "ledger_path": "data/funds/ACFR-library.json",
+      "ledger_sha256": "575be0c0a2b7e24eb9616ccdb8f04880b1e6f0c2ec933f3aec69ca349f6bd786",
+      "source": {
+        "fiscal_year": 2025,
+        "source_id": "acfr-2025",
+        "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+        "retrieval_date": null,
+        "discovery_url": null,
+        "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+        "size_bytes": 9049904,
+        "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+        "statements": [
+          {
+            "id": "major_governmental",
+            "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                77,
+                null
+              ]
+            ],
+            "printed_pages": [
+              42,
+              42
+            ]
+          },
+          {
+            "id": "nonmajor_governmental",
+            "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                237,
+                238
+              ],
+              [
+                239,
+                240
+              ],
+              [
+                241,
+                242
+              ],
+              [
+                243,
+                244
+              ],
+              [
+                245,
+                246
+              ],
+              [
+                247,
+                248
+              ],
+              [
+                249,
+                250
+              ],
+              [
+                251,
+                252
+              ],
+              [
+                253,
+                254
+              ]
+            ],
+            "printed_pages": [
+              201,
+              218
+            ]
+          },
+          {
+            "id": "enterprise",
+            "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                85,
+                86
+              ]
+            ],
+            "printed_pages": [
+              51,
+              52
+            ]
+          },
+          {
+            "id": "internal_service",
+            "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                321,
+                322
+              ]
+            ],
+            "printed_pages": [
+              285,
+              286
+            ]
+          }
+        ],
+        "role": "opening-balance/restatement comparator",
+        "restatement_note": {
+          "note": "15",
+          "pdf_pages": [
+            171,
+            172,
+            173
+          ],
+          "printed_pages": [
+            137,
+            138,
+            139
+          ]
+        },
+        "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "pdf_page": 77,
+        "printed_page": 42
+      },
+      "categories": [
+        {
+          "source_label": "General government",
+          "category": "General government",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Public safety",
+          "category": "Public safety",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Highway and streets",
+          "category": "Highway and streets",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Health and welfare",
+          "category": "Health and welfare",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Culture-recreation",
+          "category": "Culture-recreation",
+          "source_amount": 25924974,
+          "ledger_amount": 25924974,
+          "proposed_amount": 25924974,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Economic development",
+          "category": "Economic development",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Principal repayment",
+          "category": "Principal repayment",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Interest and fiscal charges",
+          "category": "Interest and fiscal charges",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance costs",
+          "category": "Debt issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Capital outlay:",
+          "category": "Capital outlay",
+          "source_amount": 261736,
+          "ledger_amount": 261736,
+          "proposed_amount": 261736,
+          "status": "RECONCILED"
+        }
+      ],
+      "proposed_corrections": [],
+      "annual_expenditure": 26186710,
+      "audited_expenditure": 26186710,
+      "source_category_sum": 26186710,
+      "existing_breakdown_sum": 26186710,
+      "omitted_expenditures": 0,
+      "proposed_breakdown_sum": 26186710,
+      "proposed_difference_from_audit": 0,
+      "annual_total_unchanged": true,
+      "existing_outflows": [
+        {
+          "line": "Culture-recreation",
+          "amount": 25924974
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 261736
+        }
+      ],
+      "proposed_outflows": [
+        {
+          "line": "Culture-recreation",
+          "amount": 25924974
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 261736
+        }
+      ],
+      "apply_automatically": false,
+      "approval_required": false,
+      "status": "RECONCILED"
+    },
+    {
+      "fund_number": "501",
+      "name": "Capital Improvement",
+      "protected": false,
+      "ledger_path": "data/funds/501.json",
+      "ledger_sha256": "4c0ff1b49f7f57845cfb1d411658979069e84f3ec6f2dfdd0f5716e406782b1f",
+      "source": {
+        "fiscal_year": 2025,
+        "source_id": "acfr-2025",
+        "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+        "retrieval_date": null,
+        "discovery_url": null,
+        "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+        "size_bytes": 9049904,
+        "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+        "statements": [
+          {
+            "id": "major_governmental",
+            "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                77,
+                null
+              ]
+            ],
+            "printed_pages": [
+              42,
+              42
+            ]
+          },
+          {
+            "id": "nonmajor_governmental",
+            "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                237,
+                238
+              ],
+              [
+                239,
+                240
+              ],
+              [
+                241,
+                242
+              ],
+              [
+                243,
+                244
+              ],
+              [
+                245,
+                246
+              ],
+              [
+                247,
+                248
+              ],
+              [
+                249,
+                250
+              ],
+              [
+                251,
+                252
+              ],
+              [
+                253,
+                254
+              ]
+            ],
+            "printed_pages": [
+              201,
+              218
+            ]
+          },
+          {
+            "id": "enterprise",
+            "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                85,
+                86
+              ]
+            ],
+            "printed_pages": [
+              51,
+              52
+            ]
+          },
+          {
+            "id": "internal_service",
+            "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                321,
+                322
+              ]
+            ],
+            "printed_pages": [
+              285,
+              286
+            ]
+          }
+        ],
+        "role": "opening-balance/restatement comparator",
+        "restatement_note": {
+          "note": "15",
+          "pdf_pages": [
+            171,
+            172,
+            173
+          ],
+          "printed_pages": [
+            137,
+            138,
+            139
+          ]
+        },
+        "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "pdf_page": 77,
+        "printed_page": 42
+      },
+      "categories": [
+        {
+          "source_label": "General government",
+          "category": "General government",
+          "source_amount": 51188,
+          "ledger_amount": 51188,
+          "proposed_amount": 51188,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Public safety",
+          "category": "Public safety",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Highway and streets",
+          "category": "Highway and streets",
+          "source_amount": 3449801,
+          "ledger_amount": 3449801,
+          "proposed_amount": 3449801,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Health and welfare",
+          "category": "Health and welfare",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Culture-recreation",
+          "category": "Culture-recreation",
+          "source_amount": 588816,
+          "ledger_amount": 588816,
+          "proposed_amount": 588816,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 2700992,
+          "ledger_amount": null,
+          "proposed_amount": 2700992,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias."
+        },
+        {
+          "source_label": "Economic development",
+          "category": "Economic development",
+          "source_amount": 8539,
+          "ledger_amount": 8539,
+          "proposed_amount": 8539,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Principal repayment",
+          "category": "Principal repayment",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Interest and fiscal charges",
+          "category": "Interest and fiscal charges",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance costs",
+          "category": "Debt issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Capital outlay:",
+          "category": "Capital outlay",
+          "source_amount": 9286418,
+          "ledger_amount": 9286418,
+          "proposed_amount": 9286418,
+          "status": "RECONCILED"
+        }
+      ],
+      "proposed_corrections": [
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 2700992,
+          "ledger_amount": null,
+          "proposed_amount": 2700992,
+          "status": "PENDING REVIEW",
+          "cause": "Wrapped label is parsed as \"and housing\"; expense builder did not apply the configured alias.",
+          "change": "add",
+          "path": "/flow_detail/outflows"
+        }
+      ],
+      "annual_expenditure": 16085754,
+      "audited_expenditure": 16085754,
+      "source_category_sum": 16085754,
+      "existing_breakdown_sum": 13384762,
+      "omitted_expenditures": 2700992,
+      "proposed_breakdown_sum": 16085754,
+      "proposed_difference_from_audit": 0,
+      "annual_total_unchanged": true,
+      "existing_outflows": [
+        {
+          "line": "General government",
+          "amount": 51188
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 3449801
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 588816
+        },
+        {
+          "line": "Economic development",
+          "amount": 8539
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 9286418
+        },
+        {
+          "line": "Transfers out",
+          "amount": 2251650
+        }
+      ],
+      "proposed_outflows": [
+        {
+          "line": "General government",
+          "amount": 51188
+        },
+        {
+          "line": "Highway and streets",
+          "amount": 3449801
+        },
+        {
+          "line": "Culture-recreation",
+          "amount": 588816
+        },
+        {
+          "line": "Community development and housing",
+          "amount": 2700992
+        },
+        {
+          "line": "Economic development",
+          "amount": 8539
+        },
+        {
+          "line": "Capital outlay",
+          "amount": 9286418
+        },
+        {
+          "line": "Transfers out",
+          "amount": 2251650
+        }
+      ],
+      "apply_automatically": false,
+      "approval_required": true,
+      "status": "PENDING REVIEW"
+    },
+    {
+      "fund_number": "ACFR-measure-o-housing-bond",
+      "name": "Measure O Housing Bond",
+      "protected": false,
+      "ledger_path": "data/funds/ACFR-measure-o-housing-bond.json",
+      "ledger_sha256": "42e35e504cbc9446eee1c87d8bf5520f66c2c335e8f1d958c0bcb40c84f9d475",
+      "source": {
+        "fiscal_year": 2025,
+        "source_id": "acfr-2025",
+        "source_url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+        "retrieval_date": null,
+        "discovery_url": null,
+        "sha256": "d6f54821affa11c04fcd1e6c4dd1a47715558ff2c2452d2321bc5884745ff7b3",
+        "size_bytes": 9049904,
+        "filename": "annual-comprehensive-financial-report-fy2025.pdf",
+        "statements": [
+          {
+            "id": "major_governmental",
+            "title": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                77,
+                null
+              ]
+            ],
+            "printed_pages": [
+              42,
+              42
+            ]
+          },
+          {
+            "id": "nonmajor_governmental",
+            "title": "Combining Statement of Revenues, Expenditures and Changes in Fund Balances, Nonmajor Governmental Funds",
+            "basis": "modified_accrual",
+            "pairs": [
+              [
+                237,
+                238
+              ],
+              [
+                239,
+                240
+              ],
+              [
+                241,
+                242
+              ],
+              [
+                243,
+                244
+              ],
+              [
+                245,
+                246
+              ],
+              [
+                247,
+                248
+              ],
+              [
+                249,
+                250
+              ],
+              [
+                251,
+                252
+              ],
+              [
+                253,
+                254
+              ]
+            ],
+            "printed_pages": [
+              201,
+              218
+            ]
+          },
+          {
+            "id": "enterprise",
+            "title": "Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                85,
+                86
+              ]
+            ],
+            "printed_pages": [
+              51,
+              52
+            ]
+          },
+          {
+            "id": "internal_service",
+            "title": "Combining Statement of Revenues, Expenses and Changes in Net Position, Internal Service Funds",
+            "basis": "accrual",
+            "pairs": [
+              [
+                321,
+                322
+              ]
+            ],
+            "printed_pages": [
+              285,
+              286
+            ]
+          }
+        ],
+        "role": "opening-balance/restatement comparator",
+        "restatement_note": {
+          "note": "15",
+          "pdf_pages": [
+            171,
+            172,
+            173
+          ],
+          "printed_pages": [
+            137,
+            138,
+            139
+          ]
+        },
+        "statement": "Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds",
+        "pdf_page": 77,
+        "printed_page": 42
+      },
+      "categories": [
+        {
+          "source_label": "General government",
+          "category": "General government",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Public safety",
+          "category": "Public safety",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Highway and streets",
+          "category": "Highway and streets",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Health and welfare",
+          "category": "Health and welfare",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Culture-recreation",
+          "category": "Culture-recreation",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "and housing",
+          "category": "Community development and housing",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Economic development",
+          "category": "Economic development",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Principal repayment",
+          "category": "Principal repayment",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Interest and fiscal charges",
+          "category": "Interest and fiscal charges",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Debt issuance costs",
+          "category": "Debt issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "TRAN issuance costs",
+          "category": "TRAN issuance costs",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        },
+        {
+          "source_label": "Capital outlay:",
+          "category": "Capital outlay",
+          "source_amount": 0,
+          "ledger_amount": null,
+          "proposed_amount": null,
+          "status": "RECONCILED"
+        }
+      ],
+      "proposed_corrections": [],
+      "annual_expenditure": 0,
+      "audited_expenditure": 0,
+      "source_category_sum": 0,
+      "existing_breakdown_sum": 0,
+      "omitted_expenditures": 0,
+      "proposed_breakdown_sum": 0,
+      "proposed_difference_from_audit": 0,
+      "annual_total_unchanged": true,
+      "existing_outflows": [],
+      "proposed_outflows": [],
+      "apply_automatically": false,
+      "approval_required": false,
+      "status": "RECONCILED"
+    }
+  ],
+  "protected_ledger_checksums": {
+    "011": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
+    "608": "23a8d30daf45032924e5c949a0b4726550fd4af6f8b3149762cf1043af4483d0",
+    "ACFR-equipment-maintenance-replacement": "f8dd7b295a84a2da14dde618bc0c4cbad51f13f90cfa57bf462fbed62a371878",
+    "ACFR-park-tax": "d5733f22cd919ec86d6d770dd9dde6642c3cb095768196dd405c47dfd06f0551",
+    "ACFR-workers-compensation": "0c9cf8108eb392236cf6265240a6bfb4198806263cb5058e28d9cbd6f9e1fcda",
+    "ACFR-zero-waste": "d0304dd2be19fe6a5341221fd3f863a1292e6ab331cd0522f4b9ce825e7304fe"
+  },
+  "preservation_verified": true,
+  "apply_automatically": false,
+  "decisions": [
+    "Manually review and approve the four category additions for General Fund, Grants and Capital Improvement.",
+    "General Fund is protected. No protected ledger may be edited automatically; approve a separate manual change before application.",
+    "Any published breakdown correction requires a separately authorized publication step. No page builder or dashboard changes are part of this report."
+  ]
+}

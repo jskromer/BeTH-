@@ -51,8 +51,11 @@ Its default CLI still performs the same FY2025 safety update and the strict
 
 `tests/fixtures/fy2025-full-extraction.json` captures all 106 complete records from
 the merged pre-pilot extractor at `350f1cd`, including generated `flow_detail`,
-notes and metadata. The new full-output test supplements the original 105-fund
-annual-value fixture. Neither equivalence fixture substitutes for independent
+notes and metadata. The full-output test supplements the original 105-fund annual-value fixture.
+The baseline remains frozen; after the page-77 investigation, only four audited
+expense-line additions (housing in General Fund/Grants/Capital Improvement and
+General Fund TRAN costs) are allowed to differ. Annual values and all other
+record fields still match. Neither equivalence fixture substitutes for independent
 arithmetic reconciliation.
 
 The pilot uses the existing position-based parser, with explicit label/name
@@ -144,8 +147,8 @@ repository-relative paths, SHA-256 and byte sizes:
   comparisons and the existing-fund inventory. Newly added or missing ledger JSON
   files fail until the allowlist is explicitly reviewed and updated.
 - Both year configurations, the protection registry and the ledger schema.
-- The seven Python modules used for extraction, staging, reconciliation, safety
-  and ledger verification, plus the dependency requirements, two test modules,
+- The eight Python modules used for extraction, staging, reconciliation, safety
+  and ledger verification, plus the dependency requirements, three test modules,
   two regression fixtures and CI workflow used to verify the pilot.
 
 Every listed input is required. No file is selected merely because it exists or
@@ -172,3 +175,26 @@ A regression adds and changes actual macOS/Windows metadata, deployment settings
 lock files, website content and the DOCX in a temporary checkout; the resulting
 input inventory must remain identical. Other tests ensure required inputs cannot
 disappear and newly consumed ledger inputs cannot be silently omitted.
+
+
+## FY2025 page-77 line-item correction proposals
+
+The source-to-ledger investigation is staged separately at
+`staging/fy2025-expenditure-corrections/RECONCILIATION.md` and `proposals.json`.
+Reproduce it with `python tools/reconcile_expenditure_breakdown.py`.
+The wrapped `and housing` label was omitted from the legacy expense whitelist
+because expense extraction did not apply the existing year-specific alias.
+`TRAN issuance costs` was separately missing from the expense whitelist. The fix
+normalizes expense labels, includes TRAN costs and rejects duplicate aliases.
+It also recognizes the configured FY2024 wrapped interest label when generating
+records; the FY2024 pilot already reconciles the full source section, so no staged
+FY2024 financial values change.
+
+Four FY2025 expense rows were absent from the stored breakdowns: General Fund
+housing $20,221,797 and TRAN costs $90,884; Grants housing $13,584,981; Capital
+Improvement housing $2,700,992. Total omitted: $36,598,654. The annual expenditure
+totals were already correct. Only proposed outflow arrays are staged; all existing
+ledgers, including protected General Fund, remain unchanged. No apply command is
+provided. All four additions require manual review before any ledger correction
+or publication. The new script and regression test are declared verification
+inputs, bringing the manifest's explicit dependency inventory to 128 files.
