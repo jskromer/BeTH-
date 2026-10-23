@@ -23,8 +23,19 @@
     "tests/fixtures/fy2025-audited-values.json": "FY2025 annual financial regression baseline",
     "tests/fixtures/fy2025-full-extraction.json": "FY2025 full extraction regression baseline",
     ".github/workflows/extraction-safety.yml": "CI verification commands",
-    "tools/reconcile_expenditure_breakdown.py": "source-to-ledger expenditure correction staging and verification",
-    "tests/test_expenditure_breakdown.py": "audited page 77 category, protection and correction regression tests"
+    "tools/reconcile_expenditure_breakdown.py": "current reconciliation and separate historical-fixture verification",
+    "tests/test_expenditure_breakdown.py": "historical omission, immutable evidence and corrected-ledger regression tests",
+    "tests/fixtures/fy2025-pre-correction/manifest.json": "pinned historical ledger and correction evidence checksums",
+    "tests/fixtures/fy2025-pre-correction/011.json": "frozen pre-correction ledger from reviewed commit 2450d7a",
+    "tests/fixtures/fy2025-pre-correction/ACFR-grants.json": "frozen pre-correction ledger from reviewed commit 2450d7a",
+    "tests/fixtures/fy2025-pre-correction/501.json": "frozen pre-correction ledger from reviewed commit 2450d7a",
+    "staging/fy2025-expenditure-corrections/RECONCILIATION.md": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/VALIDATION.md": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/patches/011.json-patch.json": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/patches/501.json-patch.json": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/patches/ACFR-grants.json-patch.json": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/patches/SHA256SUMS": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+    "staging/fy2025-expenditure-corrections/proposals.json": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated"
   },
   "ledger_files": [
     "011.json",

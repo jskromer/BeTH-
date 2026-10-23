@@ -66,3 +66,23 @@ The supplemental FY2025 page-77 breakdown correction proposals are staged in
 `staging/fy2025-expenditure-corrections/`. They explain $36,598,654 of omitted
 categories. No existing ledger, website file or FY2024 financial staging data
 was changed; the manifest dependency inventory includes the new verification files.
+
+## Post-correction maintenance
+
+The preceding sections record the original pilot validations. PR #13 subsequently
+applied the six reviewed FY2025 line-item corrections without changing annual
+figures. Current reconciliation is separate at `staging/fy2025-reconciliation/`:
+all five major funds reconcile, with zero expenditure and financing omissions
+and no proposed patches. The original FY2025 correction package remains unchanged.
+
+The maintenance suite adds frozen pre-correction ledgers and seven current-state
+tests; all **52 tests passed** locally. Historical omission tests still detect $36,598,654 of expenditures and
+$18,176,377 of financing, reproducing the three reviewed patches byte for byte.
+Current checks validate all 106 ledgers and preserve every annual record and
+field outside the six reviewed additions. The dependency manifest is refreshed
+for these verification inputs and corrected ledger checksums; all FY2024 financial
+staging values, source provenance and audit PDF bytes remain unchanged.
+
+See `tools/POST_CORRECTION_MAINTENANCE.md` for reproduction and remaining FY2024
+review items. This maintenance does not authorize historical integration or
+dashboard publication.

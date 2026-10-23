@@ -234,8 +234,8 @@
   "inputs": {
     ".github/workflows/extraction-safety.yml": {
       "role": "CI verification commands",
-      "sha256": "3d12fd5a886e2c9d91fdb863ea4bb4d51f9072af22020bddb28b2fd46c1e83f1",
-      "size_bytes": 754
+      "sha256": "4cabe3dec9cebe352077ad9c657b72e605a8d8d098de07d157c5c5ff237f87d0",
+      "size_bytes": 835
     },
     "annual-comprehensive-financial-report-fy2025.pdf": {
       "role": "FY2025 audited source PDF",
@@ -249,13 +249,13 @@
     },
     "data/funds/011.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
-      "size_bytes": 12502
+      "sha256": "a5ca14c01eafb349f9731c567c7c51340973ae5c0d5ba94f26d0c39ea7bc60c2",
+      "size_bytes": 12763
     },
     "data/funds/501.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "4c0ff1b49f7f57845cfb1d411658979069e84f3ec6f2dfdd0f5716e406782b1f",
-      "size_bytes": 2105
+      "sha256": "6f8034f43b01b6f3e3b8fc21e4ad761d38ab6d6c7e38f0567e926d2f13128dd5",
+      "size_bytes": 2187
     },
     "data/funds/511-debt-service.json": {
       "role": "existing ledger comparison and preservation evidence",
@@ -459,8 +459,8 @@
     },
     "data/funds/ACFR-grants.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "f64d16ad70b1e5513069b3876484a48577223d935fb728922e987a894464ce87",
-      "size_bytes": 2324
+      "sha256": "2f8e82ee4392ce6149678fbb83cd4dd5aa93114aac40fc95f5f26d74eedc78fa",
+      "size_bytes": 2516
     },
     "data/funds/ACFR-health-state-aid-realignment.json": {
       "role": "existing ledger comparison and preservation evidence",
@@ -787,6 +787,41 @@
       "sha256": "5f794ea95c15b6ba83e8d233a04081f3b8304381fc2172e37006a39a1a8003b5",
       "size_bytes": 14469968
     },
+    "staging/fy2025-expenditure-corrections/RECONCILIATION.md": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "b3ae174320bfa13a16d4cfa9c40830c73445491a394cd4307e6b4afe56fe181d",
+      "size_bytes": 18197
+    },
+    "staging/fy2025-expenditure-corrections/VALIDATION.md": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "968e8504a2205ce8ee1a96cd95c9b98aad05d9e2488bfcd9ca5b56e424ecd729",
+      "size_bytes": 3243
+    },
+    "staging/fy2025-expenditure-corrections/patches/011.json-patch.json": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "fe50f8d20c30f1352c94542ac1c6c4137b33f88f27fac02c499fce6c916bf7c7",
+      "size_bytes": 4888
+    },
+    "staging/fy2025-expenditure-corrections/patches/501.json-patch.json": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "1dac164a6bd1f05f66643d6f4a7b75e1ae4f711024c25798ed9cbbb707068e1f",
+      "size_bytes": 1368
+    },
+    "staging/fy2025-expenditure-corrections/patches/ACFR-grants.json-patch.json": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "ace23269e16bcbbc6217ee21a70a045ac79fc74de1d2a64386cff074b84a4c86",
+      "size_bytes": 2863
+    },
+    "staging/fy2025-expenditure-corrections/patches/SHA256SUMS": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "b46ed6b7cef550fe7c4d9e3ddfdec9027c8a85945fa492bce1210cc6c8787381",
+      "size_bytes": 266
+    },
+    "staging/fy2025-expenditure-corrections/proposals.json": {
+      "role": "immutable reviewed FY2025 correction evidence; verified by tests, never regenerated",
+      "sha256": "76a631e387b0c3c7676ced3d8f4400e67d220a780fc435aa3032d0d9835bd094",
+      "size_bytes": 65876
+    },
     "tests/fixtures/fy2025-audited-values.json": {
       "role": "FY2025 annual financial regression baseline",
       "sha256": "e3e174c4680bacbd9adbb53c10539dfcebb27cd0f99fd3d8a184ebc16e1456b4",
@@ -797,15 +832,35 @@
       "sha256": "f58a762b1f445c8d15b1cbcf6310d37a1131b85ce715855cfd1ee84295e4d453",
       "size_bytes": 213981
     },
+    "tests/fixtures/fy2025-pre-correction/011.json": {
+      "role": "frozen pre-correction ledger from reviewed commit 2450d7a",
+      "sha256": "46128217f6fb7557d46d7148854ab3fd3a38e129f3aae71ab90ffdb8c8ddb162",
+      "size_bytes": 12502
+    },
+    "tests/fixtures/fy2025-pre-correction/501.json": {
+      "role": "frozen pre-correction ledger from reviewed commit 2450d7a",
+      "sha256": "4c0ff1b49f7f57845cfb1d411658979069e84f3ec6f2dfdd0f5716e406782b1f",
+      "size_bytes": 2105
+    },
+    "tests/fixtures/fy2025-pre-correction/ACFR-grants.json": {
+      "role": "frozen pre-correction ledger from reviewed commit 2450d7a",
+      "sha256": "f64d16ad70b1e5513069b3876484a48577223d935fb728922e987a894464ce87",
+      "size_bytes": 2324
+    },
+    "tests/fixtures/fy2025-pre-correction/manifest.json": {
+      "role": "pinned historical ledger and correction evidence checksums",
+      "sha256": "70f4d6393f05d9d037b3980b4edaa2f5ce4a137d458bf37d261c071ec36f7001",
+      "size_bytes": 1943
+    },
     "tests/requirements.txt": {
       "role": "verification dependencies",
       "sha256": "8c59dbcd20e063db9cfa7b78ade183e2e8c2d11131804e8a6cf45b4632b088ff",
       "size_bytes": 40
     },
     "tests/test_expenditure_breakdown.py": {
-      "role": "audited page 77 category, protection and correction regression tests",
-      "sha256": "37128b8e6e6bf5c1dd8cb3c9c5c421e336015fbd837cd3862dae5d21e231200b",
-      "size_bytes": 10167
+      "role": "historical omission, immutable evidence and corrected-ledger regression tests",
+      "sha256": "e0c90383a97e4e3233ad8134d55895e61b752356556f277b3b364d4fedc5e79e",
+      "size_bytes": 15446
     },
     "tests/test_extraction_safety.py": {
       "role": "extraction safety and FY2025 regression tests",
@@ -854,8 +909,8 @@
     },
     "tools/acfr_years/pilot-inputs.json": {
       "role": "explicit manifest input policy",
-      "sha256": "b9512ab79ad19423ddd6d464a0f198075a75840aecf31c6b652896153d2bb446",
-      "size_bytes": 6932
+      "sha256": "b17edb7daa6a497622b292052cd75c0043124d483958b0e9445281d8442bad6f",
+      "size_bytes": 8503
     },
     "tools/ledger.py": {
       "role": "ledger validation",
@@ -868,9 +923,9 @@
       "size_bytes": 4635
     },
     "tools/reconcile_expenditure_breakdown.py": {
-      "role": "source-to-ledger expenditure correction staging and verification",
-      "sha256": "384dac00736b7b20d3636829a174e2cefa00f5fc77cb9656dd0371ec5ea858ec",
-      "size_bytes": 19749
+      "role": "current reconciliation and separate historical-fixture verification",
+      "sha256": "f0c54ccb53199a2d385960cfa3d6fc67e29aad8595945b366ae99b18f80bb4bf",
+      "size_bytes": 21751
     }
   },
   "preservation": {

@@ -1,0 +1,351 @@
+{
+ "fund_number": "011",
+ "name": "General Fund",
+ "type": "general",
+ "department": "All departments; the Council's one discretionary fund",
+ "established": {
+  "year": null,
+  "purpose": "The City's general operating fund: property, sales, business and transfer taxes and fees not earmarked elsewhere; about a third of the all-funds budget",
+  "source": "budget-fy27-28"
+ },
+ "legal_basis": "City Charter; Annual Appropriations Ordinance (two-thirds Council vote); General Fund reserve policy (Stability and Catastrophic reserves)",
+ "restriction": "unassigned",
+ "self_supporting": false,
+ "annual": [
+  {
+   "fy": 2024,
+   "basis": "audited",
+   "revenue": 261782686,
+   "expenditure": 241803092,
+   "transfers_in": 13591924,
+   "transfers_out": 41100950,
+   "ending_balance": 153029258,
+   "source": "acfr-2024",
+   "confidence": "High",
+   "note": "Statement of Revenues, Expenditures and Changes in Fund Balances, ACFR FY2024 p.78. Net change -$5,437,886: the first fall in fund balance since 2018"
+  },
+  {
+   "fy": 2025,
+   "basis": "audited",
+   "revenue": 285841172,
+   "expenditure": 276941924,
+   "transfers_in": 8974480,
+   "transfers_out": 33919159,
+   "ending_balance": 154877665,
+   "source": "acfr-2025",
+   "confidence": "High",
+   "note": "Statement of Revenues, Expenditures and Changes in Fund Balances, ACFR FY2025 p.77. Transfers out $33,919,159; net change +$2,124,690"
+  }
+ ],
+ "flows": [
+  {
+   "id": "011-fy2024-transfers-out",
+   "date": "FY2024",
+   "fy": 2024,
+   "kind": "transfer_out",
+   "amount": 41100950,
+   "from_fund": "011",
+   "to_fund": "Capital Improvement Fund, Section 115 pension trust, Catastrophic Reserve, Public Liability fund and others",
+   "recurring": false,
+   "instrument": "FY2024 AAO and year-end actuals (ACFR FY2024)",
+   "stated_reason": "Transfers out exceeded the adopted budget; the GF under-spent its own budget and swept the difference into capital, the pension trust and reserves",
+   "source": "acfr-2024",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Destinations named in the FY2024 budget narrative: Capital Improvement $18.37M, Section 115 Pension Trust $1.9M (discretionary), Catastrophic Reserve $1.25M, Public Liability $1.0M. The GF's unassigned balance fell from $70M (2023) to $29.6M (2024) by reclassification, not spending."
+  },
+  {
+   "id": "011-fy2025-transfers-out",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_out",
+   "amount": 33919159,
+   "from_fund": "011",
+   "to_fund": "Capital Improvement Fund $14,099,209; Catastrophic Insurance $7,322,003; PERS Savings $4,815,734; Public Liability $2,664,292; Health State Aid $1,953,018; Equipment Replacement $1,631,358; Employee Training $750,000; Fair Elections $612,210; IT $71,335",
+   "recurring": false,
+   "instrument": "ACFR FY2025, Note B Transfers (p.79)",
+   "stated_reason": "Capital project support, reserves and internal-service funding",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Nothing went to the Workers' Compensation Fund in FY2025, the year that fund recorded zero revenue."
+  },
+  {
+   "id": "011-fy2025-transfers-in",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_in",
+   "amount": 8974480,
+   "from_fund": "Health State Aid Realignment $2,643,280; Payroll Trust $3,000,000; Parking Meter Fund $1,042,288 (homeless program); others",
+   "to_fund": "011",
+   "recurring": false,
+   "instrument": "ACFR FY2025, Note B Transfers (p.79)",
+   "stated_reason": "Operating support",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK"
+  },
+  {
+   "id": "011-fy2025-marina-loan",
+   "date": "FY2025",
+   "fy": 2025,
+   "kind": "transfer_out",
+   "amount": 2477099,
+   "from_fund": "011",
+   "to_fund": "608",
+   "recurring": false,
+   "instrument": "ACFR FY2025, Note A Due To/From (p.79)",
+   "stated_reason": "Recorded as due from the Marina Operations Fund; terms not disclosed",
+   "source": "acfr-2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Shown in the Marina ledger as a loan in. Not a transfer: a receivable the GF expects back."
+  },
+  {
+   "id": "011-2025-06-24-u1-redirect",
+   "date": "2025-06-24",
+   "fy": 2026,
+   "kind": "transfer_in",
+   "amount": 2500000,
+   "from_fund": "Measure U1 Fund (Small Sites housing program allocation)",
+   "to_fund": "011",
+   "recurring": false,
+   "instrument": "FY2026 Budget Update Adoption, Item 24",
+   "stated_reason": "Offset General Fund and Marina Fund expenditures; staff report: 'not sustainable long-term solutions'",
+   "source": "budget-fy26-adoption",
+   "confidence": "High",
+   "reviewer": "SK"
+  },
+  {
+   "id": "011-2025-06-24-marina-transfer",
+   "date": "2025-06-24",
+   "fy": 2026,
+   "kind": "transfer_out",
+   "amount": 1300000,
+   "from_fund": "011",
+   "to_fund": "608",
+   "recurring": false,
+   "instrument": "FY2026 Budget Update Adoption, Item 24",
+   "stated_reason": "Transfer to Marina Fund to offset projected deficit",
+   "source": "budget-fy26-adoption",
+   "confidence": "High",
+   "reviewer": "SK"
+  },
+  {
+   "id": "011-2025-11-18-aao-out",
+   "date": "2025-11-18",
+   "fy": 2026,
+   "kind": "transfer_out",
+   "amount": 51000000,
+   "from_fund": "011",
+   "to_fund": "Capital Improvement $16,553,180; Catastrophic Loss $8,216,345; Measure U1 $6,500,000; Operating Reserves $4,177,541; Public Liability $3,446,161; Stabilization Reserve $3,299,963; PERS Savings $2,822,392; Catastrophic Reserve $2,699,970; Health State Aid $1,953,018; Equipment Replacement $1,759,380; Marina $1,409,886; Fair Elections $612,210; others",
+   "recurring": false,
+   "instrument": "FY2026 AAO Amendment, Consent Item 8, November 18, 2025",
+   "stated_reason": "Budgeted FY2026 transfers out of the General Fund",
+   "source": "aao-fy26-nov2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Sum of the listed lines, rounded; the AAO schedule is the budgeted figure, not the audited actual, which the FY2026 ACFR will give in early 2027."
+  },
+  {
+   "id": "011-2025-11-18-aao-in",
+   "date": "2025-11-18",
+   "fy": 2026,
+   "kind": "transfer_in",
+   "amount": 23500000,
+   "from_fund": "IT Cost Allocation Fund $6,466,414; Payroll Deduction Trust $6,000,000; Workers' Compensation Fund $5,187,019; Health State Aid $2,643,280; Measure U1 $2,500,000; Parking Meter $1,042,288",
+   "to_fund": "011",
+   "recurring": false,
+   "instrument": "FY2026 AAO Amendment, Consent Item 8, November 18, 2025",
+   "stated_reason": "Budgeted FY2026 transfers into the General Fund: the one-time money closing the FY2026 gap",
+   "source": "aao-fy26-nov2025",
+   "confidence": "High",
+   "reviewer": "SK",
+   "note": "Internal-service balances (IT cost allocation, Workers' Compensation) and a payroll trust are being drawn into operations. See the Workers' Compensation ledger."
+  },
+  {
+   "id": "011-fy2027-one-time",
+   "date": "2026-06-16",
+   "fy": 2027,
+   "kind": "transfer_in",
+   "amount": 12055113,
+   "from_fund": "Operating Reserve (2025 AAO#1) $4,177,541; dissolution of the Successor Agency $7,877,572",
+   "to_fund": "011",
+   "recurring": false,
+   "instrument": "FY2027-28 Adopted Budget; B&F Committee April 16, 2026",
+   "stated_reason": "One-time resources: $9,443,000 standing in for the proposed sales tax, $2,100,000 to smooth FY27 vs FY28, $500,000 carrying costs for affected employees",
+   "source": "bf-2026-04-16",
+   "confidence": "High",
+   "reviewer": "SK"
+  }
+ ],
+ "flow_detail": {
+  "fy": 2025,
+  "source": "acfr-2025",
+  "confidence": "High",
+  "inflows": [
+   {
+    "line": "Taxes",
+    "amount": 231017187,
+    "kind": "own"
+   },
+   {
+    "line": "Licenses and permits",
+    "amount": 3463091,
+    "kind": "own"
+   },
+   {
+    "line": "Intergovernmental",
+    "amount": 640337,
+    "kind": "own"
+   },
+   {
+    "line": "Charges for service",
+    "amount": 14499016,
+    "kind": "own"
+   },
+   {
+    "line": "Fines and penalties",
+    "amount": 6122208,
+    "kind": "own"
+   },
+   {
+    "line": "Rents and royalties",
+    "amount": 379828,
+    "kind": "own"
+   },
+   {
+    "line": "Franchise",
+    "amount": 1859413,
+    "kind": "own"
+   },
+   {
+    "line": "donations",
+    "amount": 113889,
+    "kind": "own"
+   },
+   {
+    "line": "Investment income/ (loss)",
+    "amount": 27228774,
+    "kind": "own"
+   },
+   {
+    "line": "Miscellaneous",
+    "amount": 517429,
+    "kind": "own"
+   },
+   {
+    "line": "Transfers in",
+    "amount": 8974480,
+    "kind": "rescue"
+   },
+   {
+    "line": "Sale of capital assets",
+    "amount": 13125,
+    "kind": "financing"
+   }
+  ],
+  "outflows": [
+   {
+    "line": "General government",
+    "amount": 47249826
+   },
+   {
+    "line": "Public safety",
+    "amount": 147156901
+   },
+   {
+    "line": "Highway and streets",
+    "amount": 2753578
+   },
+   {
+    "line": "Health and welfare",
+    "amount": 21147159
+   },
+   {
+    "line": "Culture-recreation",
+    "amount": 11561579
+   },
+   {
+    "line": "Economic development",
+    "amount": 4581909
+   },
+   {
+    "line": "Principal repayment",
+    "amount": 1392206
+   },
+   {
+    "line": "Interest and fiscal charges",
+    "amount": 1106401
+   },
+   {
+    "line": "Capital outlay",
+    "amount": 19679684
+   },
+   {
+    "line": "Transfers out",
+    "amount": 33919159
+   }
+  ]
+ },
+ "obligations": [
+  {
+   "kind": "structural_deficit",
+   "amount": 29249339,
+   "as_of": "2026-06-16",
+   "note": "FY2027 General Fund deficit after revenue and expenditure adjustments; FY2028 $29,532,958. Closed with $29.25M of ongoing cuts plus one-time money pending the November 2026 sales tax",
+   "source": "bf-2026-04-16",
+   "confidence": "High"
+  },
+  {
+   "kind": "reserves",
+   "amount": 80800000,
+   "as_of": "2024-06-30",
+   "note": "Stability Reserve $30.6M, Catastrophic Reserve $23.7M, Section 115 pension trust $26.5M: the banked surpluses the deficit sits beside",
+   "source": "budget-fy27-28",
+   "confidence": "High"
+  }
+ ],
+ "status": {
+  "structural_deficit": true,
+  "years_in_deficit": "Closed with one-time money every year since FY2019: $10M, $40M, $27M, $22M, $12M, $17M, $29M, $29M",
+  "last_update": "2026-10-22",
+  "open_questions": [
+   "The FY2026 audited transfers (ACFR, early 2027) against the AAO schedule above.",
+   "Whether the Workers' Compensation and IT cost-allocation draws of FY2026 are repaid or are permanent.",
+   "The full list of FY2024 transfer destinations by fund from the FY2024 ACFR transfers note."
+  ]
+ },
+ "sources": {
+  "acfr-2025": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2025, Statement of Revenues, Expenditures and Changes in Fund Balances, Governmental Funds, p.77",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+   "date": "2026-01"
+  },
+  "acfr-2024": {
+   "title": "City of Berkeley, Annual Comprehensive Financial Report FY2024 (governmental funds statement p.78; proprietary p.87-88; internal service p.311-312; nonmajor combining p.227-244)",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "date": "2024-12"
+  },
+  "aao-fy26-nov2025": {
+   "title": "FY2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2): schedule of transfers",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+   "date": "2025-11-18"
+  },
+  "budget-fy26-adoption": {
+   "title": "FY 2026 Proposed Budget Update Adoption, Council Item 24, June 24, 2025",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2025-06-24%20Item%2024%20FY%202026%20Proposed%20Budget%20Update%20Adoption.pdf",
+   "date": "2025-06-24"
+  },
+  "budget-fy27-28": {
+   "title": "Proposed FY 2027 and FY 2028 Biennial Budget, Item 21, May 19, 2026 (deficit history; balancing plan; one-time resources)",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf",
+   "date": "2026-05-19"
+  },
+  "bf-2026-04-16": {
+   "title": "Budget & Finance Policy Committee, FY27-28 Budget Update, April 16, 2026 (one-time resources: Operating Reserve $4.18M, Successor Agency $7.88M)",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20Budget&Finance-FY2728%20Budget%20Update__04.16.26%20(3).pdf",
+   "date": "2026-04-16"
+  }
+ }
+}
