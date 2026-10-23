@@ -15,7 +15,7 @@ RESTRICTIONS = {"restricted", "committed", "assigned", "unassigned", "enterprise
 BASES = {"audited", "adopted", "projected"}
 KINDS = {"transfer_in", "transfer_out", "cost_shift", "loan_in", "loan_out", "loan_repayment",
          "grant", "holiday", "indirect_reduction", "fee_change", "reduction",
-         "write_off", "appropriation"}
+         "write_off", "appropriation", "authorization"}
 CONF = {"High", "Moderate", "Low", "Unknown"}
 
 

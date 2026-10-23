@@ -269,8 +269,8 @@
     },
     "data/funds/608.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "23a8d30daf45032924e5c949a0b4726550fd4af6f8b3149762cf1043af4483d0",
-      "size_bytes": 23174
+      "sha256": "62da8dfcf3b3a994beb3825dbd72bf49b8964c86330a2b092e2dda6de45afac7",
+      "size_bytes": 24668
     },
     "data/funds/611.json": {
       "role": "existing ledger comparison and preservation evidence",
@@ -779,8 +779,8 @@
     },
     "data/funds/SCHEMA.md": {
       "role": "ledger verification schema",
-      "sha256": "c12082d580150c85b7d646151ac5f6d2f1987dc6ce0a6399cc458778d74ddef3",
-      "size_bytes": 4983
+      "sha256": "9342479c7222760637621c5ad8ca3c1c3a4df1a0e8ef751462cbffc021194b12",
+      "size_bytes": 5497
     },
     "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf": {
       "role": "FY2024 audited source PDF",
@@ -852,6 +852,11 @@
       "sha256": "70f4d6393f05d9d037b3980b4edaa2f5ce4a137d458bf37d261c071ec36f7001",
       "size_bytes": 1943
     },
+    "tests/fixtures/marina-authorization-baseline.json": {
+      "role": "pre-repair Marina authorization, sources and unchanged financial-block checksums",
+      "sha256": "38ca0df9b2143ce3f57ff1f9139ddbda20c83edfb6caa92c511bd61b212e339b",
+      "size_bytes": 4994
+    },
     "tests/requirements.txt": {
       "role": "verification dependencies",
       "sha256": "8c59dbcd20e063db9cfa7b78ade183e2e8c2d11131804e8a6cf45b4632b088ff",
@@ -871,6 +876,11 @@
       "role": "pilot reconciliation and manifest regression tests",
       "sha256": "2ed8c02c5576ca136ecdd243a32e4897a611fdaa83e30e9dfabe8218a66ce41b",
       "size_bytes": 15745
+    },
+    "tests/test_marina_authorization.py": {
+      "role": "Marina authorization versus receipt and preserved annual evidence regression tests",
+      "sha256": "3583c6acaea757428d94ca7611c385fb23f876c8a6e04781823885a428075799",
+      "size_bytes": 4792
     },
     "tools/acfr_config.py": {
       "role": "year configuration loader",
@@ -909,13 +919,13 @@
     },
     "tools/acfr_years/pilot-inputs.json": {
       "role": "explicit manifest input policy",
-      "sha256": "b17edb7daa6a497622b292052cd75c0043124d483958b0e9445281d8442bad6f",
-      "size_bytes": 8503
+      "sha256": "4fc9491c1e1237c9808260fbdcf66ef3d49854f35fb4249bf5737c97d10904e2",
+      "size_bytes": 8772
     },
     "tools/ledger.py": {
       "role": "ledger validation",
-      "sha256": "d752a84e0bcdacb905fc5a147062048477b73a8fdc3edc4f4fe4e2405133071e",
-      "size_bytes": 4941
+      "sha256": "1683901104c7e701f48c15f1788f1ceba54c305b62003e7e81722481d119cb3e",
+      "size_bytes": 4958
     },
     "tools/ledger_safety.py": {
       "role": "protected registry and annual identity rules",

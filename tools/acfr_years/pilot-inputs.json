@@ -19,6 +19,8 @@
     "data/funds/SCHEMA.md": "ledger verification schema",
     "tests/requirements.txt": "verification dependencies",
     "tests/test_extraction_safety.py": "extraction safety and FY2025 regression tests",
+    "tests/test_marina_authorization.py": "Marina authorization versus receipt and preserved annual evidence regression tests",
+    "tests/fixtures/marina-authorization-baseline.json": "pre-repair Marina authorization, sources and unchanged financial-block checksums",
     "tests/test_fy2024_reconciliation.py": "pilot reconciliation and manifest regression tests",
     "tests/fixtures/fy2025-audited-values.json": "FY2025 annual financial regression baseline",
     "tests/fixtures/fy2025-full-extraction.json": "FY2025 full extraction regression baseline",
