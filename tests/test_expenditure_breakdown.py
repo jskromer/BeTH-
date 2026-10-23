@@ -230,6 +230,19 @@ class CurrentLedgerTests(unittest.TestCase):
                 errors,_ = ledger.check(path)
                 self.assertEqual(errors,[])
 
+    # Reviewed ledger edits made after the p.77 corrections, each authorized by Steve.
+    # The fixtures are pinned byte for byte, so an authorized edit is declared here
+    # instead. Only the fields named in `free` may differ; everything else about the
+    # flow, and every other byte of the ledger, must still match the fixture.
+    REVIEWED_FLOW_EDITS = {
+        # ACFR FY2025 Note 4.A Due To/From Other Funds (p.79) reports $2,477,099 due to
+        # the General Fund from Marina Operations: an interfund receivable, not a
+        # transfer. Reclassified from transfer_out to loan_out; the amount, the two
+        # funds and the source are unchanged, and audited transfer totals are untouched.
+        '011': {'011-fy2025-marina-loan': {'kind': ('transfer_out', 'loan_out'),
+                                           'free': {'instrument', 'stated_reason', 'note', 'terms'}}},
+    }
+
     def test_corrections_preserve_annual_figures_and_all_other_evidence(self):
         expected_additions = {'011':(2,1),'ACFR-grants':(1,1),'501':(1,0)}
         for fid,(expenses,financing) in expected_additions.items():
@@ -243,6 +256,18 @@ class CurrentLedgerTests(unittest.TestCase):
                 self.assertEqual([r for r in corrected if r in original],original)
                 self.assertEqual(len({r['line'] for r in corrected}),len(corrected))
                 current['flow_detail'][key] = original
+            for fl_id,rule in self.REVIEWED_FLOW_EDITS.get(fid,{}).items():
+                with self.subTest(fund=fid,flow=fl_id):
+                    was = next(f for f in old['flows'] if f['id'] == fl_id)
+                    now = next(f for f in current['flows'] if f['id'] == fl_id)
+                    self.assertEqual((was['kind'],now['kind']),rule['kind'])
+                    changed = {k for k in set(was) | set(now) if was.get(k) != now.get(k)}
+                    self.assertEqual(changed - {'kind'},
+                                     {k for k in rule['free'] if was.get(k) != now.get(k)})
+                    now.update({k: was.get(k) for k in rule['free'] if k in was})
+                    for k in rule['free'] - set(was):
+                        now.pop(k,None)
+                    now['kind'] = was['kind']
             self.assertEqual(current,old)
 
     def test_current_reconciliation_is_idempotent_and_preserves_every_input(self):
