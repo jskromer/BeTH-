@@ -8,7 +8,6 @@ Use --require-reconciled for a nonzero exit when review items remain.
 import argparse
 import hashlib
 import json
-import subprocess
 from pathlib import Path
 
 from acfr_config import load_year
@@ -35,22 +34,44 @@ def snapshot(root):
     return {p.relative_to(root).as_posix(): digest(p) for p in sorted(root.rglob('*')) if p.is_file()}
 
 
-def tracked_subset(hashes, root):
-    """Keep durable provenance independent of ignored local/editor artifacts.
+INPUT_POLICY = Path('tools/acfr_years/pilot-inputs.json')
 
-    The full snapshots are still compared in memory, including ignored files.
-    Only Git-tracked paths belong in a reproducible committed manifest.
+
+def manifest_inputs(pdf_path, next_pdf, ledger_dir, root=ROOT):
+    """Inventory an explicit dependency set, independent of OS and Git status.
+
+    Source overrides keep canonical manifest keys; provenance still records the
+    supplied source filenames and verifies their pinned audit checksums.
     """
-    root = Path(root).resolve()
-    try:
-        relative = root.relative_to(ROOT)
-    except ValueError:
-        return hashes  # synthetic ledger directories outside this checkout
-    result = subprocess.run(['git', 'ls-files', '-z', '--', relative.as_posix()],
-                            cwd=ROOT, check=True, capture_output=True, text=True)
-    tracked = {Path(name).relative_to(relative).as_posix()
-               for name in result.stdout.split('\0') if name}
-    return {name: value for name, value in hashes.items() if name in tracked}
+    root, ledger_dir = Path(root), Path(ledger_dir)
+    policy = json.loads((root / INPUT_POLICY).read_text())
+    expected = set(policy['ledger_files'])
+    observed = {p.name for p in ledger_dir.glob('*.json')}
+    if expected != observed:
+        raise ValueError(f'Ledger input policy mismatch: missing={sorted(expected-observed)}, unlisted={sorted(observed-expected)}')
+    inputs = {}
+
+    def include(relative, path, role):
+        relative = Path(relative)
+        if relative.is_absolute() or '..' in relative.parts:
+            raise ValueError(f'Invalid manifest input path: {relative}')
+        key = relative.as_posix()
+        if key in inputs:
+            raise ValueError(f'Duplicate manifest input: {key}')
+        if not Path(path).is_file():
+            raise ValueError(f'Missing required manifest input: {key}')
+        inputs[key] = dict(role=role, sha256=digest(path), size_bytes=Path(path).stat().st_size)
+
+    include(INPUT_POLICY, root / INPUT_POLICY, 'explicit manifest input policy')
+    for relative, role in policy['repository_files'].items():
+        include(relative, root / relative, role)
+    for year, path in (('2024', pdf_path), ('2025', next_pdf)):
+        include(policy['audit_files'][year], path, f'FY{year} audited source PDF')
+    for name in sorted(expected):
+        if Path(name).name != name:
+            raise ValueError(f'Invalid ledger input name: {name}')
+        include(Path('data/funds') / name, ledger_dir / name, 'existing ledger comparison and preservation evidence')
+    return dict(sorted(inputs.items()))
 
 
 def protect_output(out, ledger_dir):
@@ -161,7 +182,8 @@ def markdown(report):
               'Run `python tools/acfr_pilot.py --out staging/fy2024`. Source PDFs must match the pinned checksums. '
               'No network calls occur during extraction. Use `--require-reconciled` to return exit 1 when any report review items remain. '
               'Exit 0 without that flag means report generation succeeded, not that the pilot passed financial review.', '',
-              'The run snapshots `data/funds` and `docs` before and after extraction and records hashes in the manifest. '
+              'The run compares full local snapshots of `data/funds` and `docs` before and after extraction. '
+              'The manifest records only explicitly listed extraction and verification inputs from `tools/acfr_years/pilot-inputs.json`; website files are not inventoried. '
               'Tests rerun extraction to verify deterministic reports and test ledger preservation, identity collisions, exact-dollar arithmetic, '
               'missing fields, explicit restatement bridges and collection of multiple problems.', '']
     return '\n'.join(lines)
@@ -170,6 +192,7 @@ def markdown(report):
 def run(pdf_path, next_pdf, out, ledger_dir=ROOT / 'data/funds', retrieval_date='2026-10-22'):
     out = protect_output(out, ledger_dir)
     sources = [provenance(pdf_path, 2024, retrieval_date), provenance(next_pdf, 2025)]
+    inputs = manifest_inputs(pdf_path, next_pdf, ledger_dir)
     before = {'ledgers': snapshot(Path(ledger_dir)), 'website': snapshot(ROOT / 'docs')}
     report = reconcile(pdf_path, next_pdf, ledger_dir)
     after = {'ledgers': snapshot(Path(ledger_dir)), 'website': snapshot(ROOT / 'docs')}
@@ -178,10 +201,12 @@ def run(pdf_path, next_pdf, out, ledger_dir=ROOT / 'data/funds', retrieval_date=
     report['provenance'], report['decisions'] = sources, DECISIONS
     report['summary']['reviewed_value_conflicts'] = sum(i['code'] == 'reviewed_value_conflict' for f in report['funds'] for i in f['issues'])
     report['summary']['restated_funds'] = sum(bool(f['continuity'] and f['continuity']['balances']['reported_adjustment']) for f in report['funds'])
-    manifest = dict(schema_version=1, fiscal_year=2024, provenance=sources, config_checksums={str(y):digest(ROOT / f'tools/acfr_years/{y}.json') for y in (2024,2025)},
-                    preservation={'unchanged':True, 'snapshot_scope':'Git-tracked files; full local snapshots compared in memory',
-                                  'before':{'ledgers':tracked_subset(before['ledgers'], ledger_dir), 'website':tracked_subset(before['website'], ROOT / 'docs')},
-                                  'after':{'ledgers':tracked_subset(after['ledgers'], ledger_dir), 'website':tracked_subset(after['website'], ROOT / 'docs')}}, scope=report['scope'])
+    manifest = dict(schema_version=2, fiscal_year=2024, provenance=sources,
+                    config_checksums={str(y):digest(ROOT / f'tools/acfr_years/{y}.json') for y in (2024,2025)},
+                    inputs=inputs,
+                    preservation={'unchanged':True, 'coverage':['data/funds/**', 'docs/**'],
+                                  'method':'Full local snapshots compared in memory; website files are not extraction dependencies and are not inventoried.'},
+                    scope=report['scope'])
     out.mkdir(parents=True, exist_ok=True)
     artifacts = {'manifest.json':manifest, 'funds.json':report['funds'],
                  'identity-map.json':[dict(fund_number=f['fund_number'], type=f['type'], source=f['source'], **f['mapping']) for f in report['funds']],

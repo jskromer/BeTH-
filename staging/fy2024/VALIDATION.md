@@ -3,7 +3,7 @@
 - Branch: `codex/fy2024-reconciliation`, based on merged `origin/main` at `350f1cd`.
 - Official FY2024 source: 373 PDF pages; SHA-256 and acquisition provenance are in
   `manifest.json`. Financial statement pages: 78, 87–88, 227–244, 311–312.
-- `python -m unittest discover -s tests -v`: **30 tests passed**
+- `python -m unittest discover -s tests -v`: **32 tests passed**
   locally (Python 3.13, pdfplumber 0.11.9). CI uses Python 3.12.
 - `python tools/ledger.py data/funds/*.json`: **106 OK**, no errors or warnings.
 - Default FY2025 extraction: **106 funds, zero files updated**. The full-output
@@ -34,7 +34,29 @@
 No website builders ran. No historical years before FY2024 were extracted.
 Independent review by Claude Code and Steve's listed decisions remain pending.
 
-CI initially passed all 29 accounting/safety tests but caught local ignored files
-in the committed website hash manifest. Durable manifests now include only
-Git-tracked paths; all local files remain covered by the in-memory preservation
-check. A regression test verifies the separation without exposing local paths.
+## Manifest reproducibility correction
+
+Run `39874567805` failed because the original code serialized a recursive website
+preservation inventory into `manifest.json`. Ignored local metadata, deployment
+configuration, locks and an unrelated DOCX were absent in Linux CI. The interim
+Git-tracked filter passed run `39875626766`, but still inventoried unrelated
+published files. The final rule is an explicit extraction/verification dependency
+allowlist in `tools/acfr_years/pilot-inputs.json`.
+
+Manifest schema version 2 records 126 required inputs (including the policy
+itself), with canonical paths, roles, byte sizes and SHA-256 values. No website
+files, operating-system metadata, temporary files, locks or machine configuration
+are inventoried. Full local ledger and website preservation checks still run in
+memory. The two original audit provenance records and pinned checksums are intact.
+
+`Berkeley_Efficiency_Bargaining_Strategy.docx` is not an extraction or test input;
+it entered the manifest only through the former recursive website inventory.
+Runtime preservation may still hash it in memory. Its Git-ignored status and
+nondependency decision are documented explicitly in the policy and pilot guide.
+The document itself was not modified or published by this correction.
+
+The updated 32-test suite passed locally in 30.496 seconds. Tests add and mutate
+actual irrelevant files in a temporary directory and require an identical input
+inventory; missing required dependencies and unlisted ledger JSON files fail.
+Regeneration followed by a second pilot run produced identical staged artifacts.
+Financial staging data, existing ledgers and website files remained unchanged.

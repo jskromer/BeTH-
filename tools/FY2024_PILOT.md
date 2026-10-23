@@ -65,10 +65,10 @@ and never renamed or silently overwritten.
 
 ## Outputs
 
-- `manifest.json`: source provenance, configuration checksums, and before/after
-  Git-tracked ledger and website SHA-256 snapshots. Full local snapshots,
-  including ignored files, are still compared in memory; ignored local paths are
-  excluded from committed provenance for clean-checkout reproducibility.
+- `manifest.json`: source provenance, audit/configuration checksums and the exact
+  extraction/verification dependency inventory defined below. Full ledger and
+  website preservation snapshots remain in memory; website inventories are not
+  extraction provenance.
 - `funds.json`: all 105 FY2024 fund-column proposals, statement evidence, values,
   signed transfers, source labels, existing reviewed records, checks and issues.
 - `identity-map.json`: FY2024 observed names and stable BeTH IDs, with corresponding
@@ -129,3 +129,46 @@ Staging output cannot overlap `data/`, `docs/` or the input ledger directory;
 repository output must be under `staging/`. Symlinked output files are refused.
 The pipeline snapshots the full ledger directory and website before and after
 reading them. The pilot has no ledger updater or page-builder call.
+
+
+## Explicit manifest dependency policy
+
+`tools/acfr_years/pilot-inputs.json` is the reviewed allowlist. Manifest schema
+version 2 hashes this policy itself plus exactly these inputs, using sorted
+repository-relative paths, SHA-256 and byte sizes:
+
+- Both original FY2024/FY2025 audit PDFs: extraction source and opening-balance
+  comparator. Provenance still contains the original URLs, acquisition dates,
+  fiscal years, statement pages and independently pinned audit checksums.
+- The 106 explicitly named `data/funds/*.json` files consumed for reviewed-value
+  comparisons and the existing-fund inventory. Newly added or missing ledger JSON
+  files fail until the allowlist is explicitly reviewed and updated.
+- Both year configurations, the protection registry and the ledger schema.
+- The seven Python modules used for extraction, staging, reconciliation, safety
+  and ledger verification, plus the dependency requirements, two test modules,
+  two regression fixtures and CI workflow used to verify the pilot.
+
+Every listed input is required. No file is selected merely because it exists or
+is tracked by Git. OS metadata (`.DS_Store`, AppleDouble files, `Thumbs.db`), editor
+backups, LibreOffice/Office locks, scratch files and machine deployment settings
+are not allowlisted. Neither is any published website file. This applies equally
+to tracked and untracked files and does not depend on a `.git` directory or an
+operating-system-specific ignore configuration.
+
+The incident's `docs/Berkeley_Efficiency_Bargaining_Strategy.docx` is **not a source
+dependency**: it is Git-ignored, and no extraction/reconciliation reader, year
+configuration or verification test consumes it. It appeared only because the
+original preservation snapshot recursively walked `docs/`. Its exclusion and
+reason are recorded explicitly in the policy; the local document is left intact.
+If a later pipeline needs that document, adding it requires an explicit dependency
+policy change and appropriate source provenance, not a silent omission.
+
+Preservation and provenance serve separate purposes. The run still compares full
+local `data/funds` and `docs` snapshots before/after extraction in memory, including
+ignored files. The durable manifest records the unchanged-result attestation and
+coverage, without serializing those incidental local paths or their checksums.
+Only declared extraction/verification inputs receive durable inventory entries.
+A regression adds and changes actual macOS/Windows metadata, deployment settings,
+lock files, website content and the DOCX in a temporary checkout; the resulting
+input inventory must remain identical. Other tests ensure required inputs cannot
+disappear and newly consumed ledger inputs cannot be silently omitted.

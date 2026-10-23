@@ -119,14 +119,66 @@ class AccountingTests(unittest.TestCase):
                 acfr_pilot.run(path, NEXT_PDF, Path(temp)/'out')
             self.assertFalse((Path(temp)/'out').exists())
 
-    def test_committed_manifest_omits_ignored_local_files(self):
-        hashes = {'index.html':'tracked', '.DS_Store':'local-editor-file'}
-        class GitResult:
-            stdout = 'docs/index.html\0'
-        with patch.object(acfr_pilot.subprocess, 'run', return_value=GitResult()):
-            durable = acfr_pilot.tracked_subset(hashes, ROOT/'docs')
-        self.assertEqual(durable, {'index.html':'tracked'})
-        self.assertEqual(hashes['.DS_Store'], 'local-editor-file')
+    def manifest_fixture(self, root):
+        policy = {'audit_files':{'2024':'source/2024.pdf','2025':'source/2025.pdf'},
+                  'repository_files':{'tools/parser.py':'extraction code'},
+                  'ledger_files':['test.json']}
+        paths = {'source/2024.pdf':b'FY2024 audited source',
+                 'source/2025.pdf':b'FY2025 audited source',
+                 'tools/parser.py':b'parser', 'data/funds/test.json':b'{}',
+                 'tools/acfr_years/pilot-inputs.json':json.dumps(policy).encode()}
+        for name, payload in paths.items():
+            path = root/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payload)
+        return root/'source/2024.pdf', root/'source/2025.pdf', root/'data/funds'
+
+    def test_manifest_is_independent_of_irrelevant_local_files(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            inputs = self.manifest_fixture(root)
+            baseline = acfr_pilot.manifest_inputs(*inputs, root=root)
+            irrelevant = ['.DS_Store','data/funds/.DS_Store','source/._2024.pdf',
+                          'docs/.DS_Store','docs/.vercel/project.json',
+                          'docs/.~lock.book.xlsx#','docs/~$working.docx',
+                          'docs/notes.tmp','docs/file.swp','docs/Thumbs.db',
+                          '.git/config','docs/index.html',
+                          'docs/Berkeley_Efficiency_Bargaining_Strategy.docx']
+            for name in irrelevant:
+                path = root/name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('machine-local contents')
+            self.assertEqual(acfr_pilot.manifest_inputs(*inputs, root=root), baseline)
+            for name in irrelevant:
+                (root/name).write_text('different machine-local contents')
+            self.assertEqual(acfr_pilot.manifest_inputs(*inputs, root=root), baseline)
+            self.assertEqual(set(baseline), {'source/2024.pdf','source/2025.pdf',
+                'tools/parser.py','data/funds/test.json','tools/acfr_years/pilot-inputs.json'})
+            self.assertEqual(baseline['source/2024.pdf']['sha256'], acfr_pilot.digest(inputs[0]))
+
+    def test_manifest_requires_every_explicit_dependency(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            inputs = self.manifest_fixture(root)
+            baseline = acfr_pilot.manifest_inputs(*inputs, root=root)
+            (root/'tools/parser.py').write_text('changed parser')
+            changed = acfr_pilot.manifest_inputs(*inputs, root=root)
+            self.assertNotEqual(changed['tools/parser.py']['sha256'], baseline['tools/parser.py']['sha256'])
+            (root/'tools/parser.py').unlink()
+            with self.assertRaisesRegex(ValueError, 'Missing required manifest input'):
+                acfr_pilot.manifest_inputs(*inputs, root=root)
+
+    def test_unlisted_or_missing_consumed_ledger_is_an_error(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            inputs = self.manifest_fixture(root)
+            (root/'data/funds/unlisted.json').write_text('{}')
+            with self.assertRaisesRegex(ValueError, 'unlisted=.*unlisted.json'):
+                acfr_pilot.manifest_inputs(*inputs, root=root)
+            (root/'data/funds/unlisted.json').unlink()
+            (root/'data/funds/test.json').unlink()
+            with self.assertRaisesRegex(ValueError, 'missing=.*test.json'):
+                acfr_pilot.manifest_inputs(*inputs, root=root)
 
     def test_cross_page_identity_collisions_and_batch_errors(self):
         config = load_year(2024)

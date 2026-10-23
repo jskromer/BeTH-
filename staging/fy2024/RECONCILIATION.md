@@ -2751,4 +2751,4 @@ following_year_parse_errors: []
 
 Run `python tools/acfr_pilot.py --out staging/fy2024`. Source PDFs must match the pinned checksums. No network calls occur during extraction. Use `--require-reconciled` to return exit 1 when any report review items remain. Exit 0 without that flag means report generation succeeded, not that the pilot passed financial review.
 
-The run snapshots `data/funds` and `docs` before and after extraction and records hashes in the manifest. Tests rerun extraction to verify deterministic reports and test ledger preservation, identity collisions, exact-dollar arithmetic, missing fields, explicit restatement bridges and collection of multiple problems.
+The run compares full local snapshots of `data/funds` and `docs` before and after extraction. The manifest records only explicitly listed extraction and verification inputs from `tools/acfr_years/pilot-inputs.json`; website files are not inventoried. Tests rerun extraction to verify deterministic reports and test ledger preservation, identity collisions, exact-dollar arithmetic, missing fields, explicit restatement bridges and collection of multiple problems.
