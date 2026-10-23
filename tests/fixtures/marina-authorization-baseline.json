@@ -1,0 +1,75 @@
+{
+  "base_commit": "774569224be1ae59958b500e26f05b9fc6c13b9d",
+  "purpose": "Pre-repair Marina evidence preserved by regression tests; hashes use canonical JSON with sorted keys and compact separators.",
+  "unchanged_blocks": {
+    "annual": "97bc7af896c1fa6b473496985fa72950a9abcd50884a9ed133c6142dac38222e",
+    "balance_sheet": "6cd733af1d7bf9f5cdd687459646399493ce296dabc502ca691b01c52e3a20b1",
+    "flow_detail": "78e2326d81edf39acdd1131a4921a942237f9f9e7be3b223bc2213d15b3295ea",
+    "tot": "4c312d0a4f9ec6002f65ae02a4791759026f68525a2bffa07362e7aaa346962c",
+    "assets": "cefe3825ae9acba8d7a932b6e78b47596564a71a324026f9496c5251260a1c2a"
+  },
+  "authorization": {
+    "id": "608-2023-07-25-wc-loan",
+    "date": "2023-07-25",
+    "fy": 2024,
+    "kind": "loan_in",
+    "amount": 5500000,
+    "from_fund": "Workers' Compensation Fund (internal service)",
+    "to_fund": "608",
+    "recurring": false,
+    "instrument": "Council Item 19, Resolution No. 70,997-N.S.",
+    "stated_reason": "D and E dock replacement ($8.26M project) in place of a State DBW loan that would have cost ~$4.5M in interest over 30 years",
+    "terms": "Repaid from the total Transient Occupancy Tax generated in the Waterfront starting FY2025 until paid off, plus a one-time $500,000 interest payment from TOT. Staff estimated the General Fund loses $1.0-1.5M/yr of TOT revenue until repayment is complete.",
+    "source": "council-2023-07-25",
+    "confidence": "High",
+    "reviewer": "SK",
+    "note": "The May 2025 staff deck lists '$5.5M from Workers Comp fund for capital projects' under FY24. The FY2024 ACFR records no interfund loan receipt by the Marina Operations fund and no amount due from it at June 30, 2024. The FY2025 ACFR records a $2,477,099 interfund loan receipt, shown as due to the General Fund. How the $5.5M was booked is an open question (see status)."
+  },
+  "original_sources": {
+    "acfr-2025": {
+      "title": "City of Berkeley, Annual Comprehensive Financial Report, FY ended June 30, 2025 (proprietary fund statements; notes on interfund balances and long-term debt; statistical section)",
+      "url": "https://berkeleyca.gov/sites/default/files/2026-01/annual-comprehensive-financial-report-fy2025.pdf",
+      "date": "2026-01"
+    },
+    "acfr-2024": {
+      "title": "City of Berkeley, Annual Comprehensive Financial Report, FY ended June 30, 2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+      "date": "2024-12"
+    },
+    "bf-2025-05": {
+      "title": "Marina Fund Update, Budget & Finance Policy Committee, May 22, 2025 (presentation)",
+      "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/2025-05-22%20Item%2001%20Presentation%20-%20Marina%20Fund%20Update.pdf",
+      "date": "2025-05-22"
+    },
+    "prw-2026-09": {
+      "title": "Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026 (supplemental communications packet)",
+      "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Suppl%20Communications%20-%20PRW%20Commission%20-%202026-09-09_0.pdf",
+      "date": "2026-09-09"
+    },
+    "council-2023-07-25": {
+      "title": "Council Item 19, $5.5M Loan for D and E Dock Replacement Project, July 25, 2023 (staff report, revised; annotated agenda action)",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2019%205.5M%20Loan%20for%20D%20and%20E%20Dock%20Replacement%20-%20REV%20PRW.pdf",
+      "date": "2023-07-25"
+    },
+    "council-2025-06-24": {
+      "title": "FY 2026 Proposed Budget Update Adoption, Council Item 24, June 24, 2025",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/2025-06-24%20Item%2024%20FY%202026%20Proposed%20Budget%20Update%20Adoption.pdf",
+      "date": "2025-06-24"
+    },
+    "council-2025-11-18": {
+      "title": "FY 2026 Amendment to the Annual Appropriations Ordinance, Council Consent Item 8, November 18, 2025 (Supplemental 2)",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/Supp%202-Rev%20Agenda%20Material%20Cover%20Memo-%20Consent%20Item%208_FY%2026%20Amendment%20to%20AAO_111825%20Council%20Meeting.pdf",
+      "date": "2025-11-18"
+    },
+    "budget-fy27-28": {
+      "title": "Proposed FY 2027 and FY 2028 Biennial Budget, Item 21, May 19, 2026 (General Fund revenue by category: Transient Occupancy Taxes)",
+      "url": "https://berkeleyca.gov/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028%20-%20Supp%202.pdf",
+      "date": "2026-05-19"
+    },
+    "council-2024-09-24": {
+      "title": "Resolution Clarifying the Intent of Measure Y (2024), Council Item 10, September 24, 2024",
+      "url": "https://berkeleyca.gov/sites/default/files/documents/2024-09-24%20Item%2010%20Resolution%20Clarifying%20the%20Intent%20of%20Measure%20Y%20%282024%29%20-%20Rev.pdf",
+      "date": "2024-09-24"
+    }
+  }
+}

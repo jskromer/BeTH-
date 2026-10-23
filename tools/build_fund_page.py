@@ -19,9 +19,20 @@ KIND_LABEL = {
     "loan_in": "Loan to the fund", "loan_out": "Loan from the fund", "loan_repayment": "Loan repayment", "grant": "Grant",
     "holiday": "Charge holiday", "indirect_reduction": "Indirect-cost reduction / holiday",
     "fee_change": "Fee change", "reduction": "Spending reduction", "write_off": "Revenue at risk",
-    "appropriation": "Appropriation",
+    "appropriation": "Appropriation", "authorization": "Loan authorization (not a receipt)",
 }
 RESCUE_KINDS = {"transfer_in", "cost_shift", "loan_in", "grant", "indirect_reduction", "holiday"}
+
+
+def support_total(flows, since=2022):
+    """Sum reviewed support events, including noncash relief and budget actions.
+
+    Authorizations are deliberately outside the allowlist: approval is not a
+    receipt. This mixed support tally must not be described as audited cash in.
+    """
+    return sum(f.get("amount") or 0 for f in flows
+               if f["kind"] in RESCUE_KINDS and f["fy"] >= since
+               and not str(f.get("reviewer", "")).startswith("agent:"))
 
 # Inflow colours. "financing" is neither the fund's own revenue (green) nor money
 # another fund sent to rescue it (red): it is borrowing, an asset sale, or a lease
@@ -174,17 +185,20 @@ NARRATIVE = {
     },
     "608": {
         "eyebrow": "Fund ledger · 608",
+        "support_label": "Recorded support since FY2022; includes budgets and cost relief (section 05)",
+        "ledger_title": "The flow ledger: receipts, support actions and authorizations",
+        "support_note": "The $17,831,168 support tally includes audited receipts, staff-reported funding, budget actions and noncash cost relief; it is not a verified cash-receipt total. The $5,500,000 loan authorization is excluded. FY2026 budget entries may overlap, and the funds absorbing the FY2024 $800,000 cost shift and the split of indirect-cost relief remain unverified.",
         "title": "The Marina Fund: <span class=\"q\">one enterprise, six rescues</span>",
         "dek": "Berkeley set the Marina Fund up in 1964 to pay for the whole Waterfront out of berth rents and hotel and restaurant leases. It has run a structural deficit for 25 years. This page is the fund's ledger: every audited year, every dollar moved in from somewhere else, and what it owes.",
         "verdict_title": "Six pockets, one fund, <em>no fix.</em>",
-        "verdict": "Since FY2022 the Marina Fund has been kept solvent with federal ARPA money, a State grant, a loan from the Workers' Compensation fund repaid out of hotel tax, a General Fund loan, General Fund transfers, and a cost shift to the Parks Tax. Every one went through Council. Every one was one-time, or shifted the cost to another fund. Staff's own forecast has the fund negative by FY2028, with $163 million of unfunded capital and no reserve.",
+        "verdict": "Since FY2022 the Marina Fund has been kept solvent with federal ARPA money, a State grant, dock-project support authorized from Workers' Compensation with repayment directed from hotel tax, a General Fund loan, General Fund transfers, and a cost shift to the Parks Tax. The Workers' Compensation authorization is not counted as a Marina Fund receipt. Every one went through Council. Every one was one-time, or shifted the cost to another fund. Staff's own forecast has the fund negative by FY2028, with $163 million of unfunded capital and no reserve.",
         "setup": "Staff's words, September 2026: the fund was \"established in 1964 to receive a $1.8M State loan to build the Waterfront,\" and \"revenue from slips and hotel/restaurant leases was expected to cover the costs of debt service, maintenance and operations of the entire Waterfront.\" The entire Waterfront means 1.8 miles of streets, 11 parking lots, 5 miles of pathways, three parks including Cesar Chavez, 1,000 berths, the public docks and launch ramp, the office buildings, the restrooms, the Nature Center, Adventure Playground, 13 leases, and all the utilities. A berth-fee enterprise was asked to maintain a public park system.",
         "findings": [
             ("Six different pockets in five years.", "Federal ARPA (FY22–23), the Workers' Compensation internal-service fund (loan authorized 2023), a State capital grant (FY25), the General Fund (loan FY25; transfers FY26), the Parks Tax (cost shift from FY26), and waived indirect charges and Workers' Comp 'holidays' (FY25–26). None was the fund's own revenue.", "High"),
             ("The fixes were one-time; the deficit is recurring.", "The FY26 budget staff report says of its own fix: 'not sustainable long-term solutions.' Staff's September 2026 forecast shows the fund negative by FY28 and names a $1.045M gap with 'No General Fund available to bail out the Marina Fund.'", "High"),
             ("The largest permanent fix came from a voter measure for parks.", "Measure Y (Nov 2024) raised the Parks Tax; its first-year effect includes $1.579M of Waterfront park and landscape costs moved off the Marina Fund. The ballot question named parks, trees and landscaping generally. The Council's September 24, 2024 resolution, adopted before the vote, stated the intent to cover 'park and landscape maintenance in the Waterfront including Cesar Chavez.' The shift was disclosed, in a Council resolution rather than on the ballot.", "High"),
-            ("The 2023 loan is repaid by the General Fund, not the Marina.", "Council's resolution of July 25, 2023 directs the $5.5M Workers' Compensation loan to be repaid from the Waterfront's Transient Occupancy Tax, which is General Fund revenue, plus a one-time $500,000. Staff estimated the General Fund loses $1.0–1.5M a year until it is paid. That subsidy does not appear on any Marina Fund slide.", "High"),
-            ("The two audits do not show the loan the way staff describe it.", "Staff's May 2025 deck lists '$5.5M from Workers Comp fund for capital projects' under FY24. The FY2024 ACFR records no interfund loan receipt by the Marina fund and nothing due from it at June 30, 2024. The FY2025 ACFR records a $2,477,099 interfund loan receipt, shown as due to the General Fund. How the $5.5M was booked is an open question.", "High"),
+            ("The 2023 authorization directs repayment from hotel tax.", "Council's resolution of July 25, 2023 directs the $5.5M Workers' Compensation loan to be repaid from the Waterfront's Transient Occupancy Tax, which is General Fund revenue, plus a one-time $500,000. Staff estimated the General Fund loses $1.0–1.5M a year until it is paid. Actual repayment and outstanding principal remain unverified.", "High"),
+            ("Project support is not a Marina Fund receipt.", "FY2024 audited statements report a $5,500,000 Workers' Compensation transfer out. The May 14, 2024 appropriations amendment identifies General Fund 011 and dock project PRWT122013; the interfund transfer note supports this route but has a misleading heading. Marina reports no FY2024 interfund-loan receipt or transfers in. Its separate $2,477,099 FY2025 financing is due to the General Fund; no examined source connects it to the 2023 authorization.", "High"),
             ("The problem is the charter, not the year.", "Every rescue restates the same mismatch: an enterprise fund that must cover streets, parks and a seawall for the general public out of boat slips and a hotel lease. Until the Waterfront's public-park costs are carried by the funds that carry every other park, the next rescue is already scheduled.", "Moderate"),
         ],
         "counter": "An enterprise fund with a 25-year structural deficit has two honest outcomes: subsidize it openly or close the service. Berkeley has chosen to subsidize, and every transfer on this page went through a public vote of the Council. Measure Y's park-maintenance purpose does cover Waterfront parks, which are parks, and the Council said so before the election. The Doubletree collapse is a Bay Area hotel-market event the City did not cause. Replacing a State loan with an internal one saved the fund up to $10M in interest. And letting the Waterfront fail would cost more than any of this. The ledger does not settle that argument; it makes it visible.",
@@ -192,13 +206,13 @@ NARRATIVE = {
         "chart_cap": "FY2015–2023 from the government-wide ten-year schedule (charges for services vs expenses, FY2024 ACFR); FY2024–25 from the proprietary fund statements (operating revenue vs operating expenses, which include depreciation); FY2026–28 staff cash forecast. FY2025 expenses include dock-project spending; a $7.69M State grant that year is not in the revenue bar.",
         "tot_lead": "The Waterfront's hotel generates Transient Occupancy Tax, and the question comes up every time the Marina Fund is discussed: why not just give the Marina its own hotel tax? It is about the right size for the operating gap. It is not a fix, for three reasons.",
         "tot_points": [
-            ("It is already pledged.", "Council's July 25, 2023 resolution directs the entire Waterfront TOT, from FY2025 until paid off, to repay the $5.5M Workers' Compensation loan plus $500,000. At $1.0–1.5M a year that runs four to six years, into roughly FY2029–2031. Whether any TOT has actually flowed to that repayment is an open question; the audits do not show it.", "High"),
+            ("It is already pledged.", "Council's July 25, 2023 resolution directs the entire Waterfront TOT, from FY2025 until paid off, to repay the $5.5M Workers' Compensation loan plus $500,000. Staff estimated Waterfront TOT at $1.0–1.5M a year. Actual repayments, outstanding principal and the payoff date remain unverified; the audits do not identify TOT repayments.", "High"),
             ("It comes from the same hotel.", "TOT is a percentage of room revenue at the Doubletree, which has lost money every year since 2020, is in special servicing, and has paid no rent since December 2025. When a hotel's lease income fails its tax yield is falling too; if the lender takes it or closes it, TOT goes to zero. Pledging TOT to the Marina swaps one bet on this hotel for a larger bet on the same hotel.", "High"),
             ("It is General Fund money.", "TOT is a general tax. Sending it to the Marina needs no vote, only a budget line, but it is a $1.0–1.5M annual General Fund subsidy with a label, in a year the General Fund is cutting $29M. It makes the sixth pocket permanent; it does not make the fund self-supporting. And at $1.5M a year, a capital reserve would reach the $163M need in about a century.", "High"),
         ],
         "tot_close": "Where the idea is strongest: 'revenue the Waterfront generates should stay at the Waterfront' is the charter fix this page points at, done properly. Waterfront parks to the Parks Tax (done, via Measure Y), Waterfront streets to the street funds, and Waterfront TOT to a Marina capital reserve once the loan is repaid, with the operating fund sized to berths and leases only. That would be a re-chartering, which is what the fund has needed for 25 years. It would still not be 'everything.'",
         "what_next": [
-            "Ask Finance how the July 2023 $5.5M authorization was booked, how much has been drawn, and how much Waterfront TOT has gone to repay it since FY2025.",
+            "Request the journals and project ledger for the Workers' Compensation transfer through General Fund 011, and the Waterfront TOT repayment schedule; neither actual repayment nor outstanding principal is established.",
             "Ask which 'other funds' absorbed the FY2024 $800K cost shift.",
             "Add the FY2026 audited year when the ACFR is published (early 2027).",
             "Log every FY27–28 balancing action the PRW Commission and Council take against staff's $1.045M target.",
@@ -268,10 +282,8 @@ def build(json_path: Path, out_path: Path):
 
     # ---- flow ledger ----
     frows = []
-    rescue_total = 0
+    rescue_total = support_total(flows)
     for f in sorted(flows, key=lambda f: (f["fy"], f["date"])):
-        if f["kind"] in RESCUE_KINDS and f.get("amount") and f["fy"] >= 2022:
-            rescue_total += f["amount"]
         path = f'{esc(f.get("from_fund",""))} → {esc(f.get("to_fund",""))}' if f.get("from_fund") else ""
         detail = esc(f.get("stated_reason", ""))
         if f.get("terms"):
@@ -412,7 +424,7 @@ def build(json_path: Path, out_path: Path):
     <div class="statrow">
       <div class="stat"><div class="v">{d["established"]["year"] or "—"}</div><div class="l">{"Established, to receive a $1.8M State loan" if d["established"]["year"] else "Year established: not yet researched"}</div></div>
       <div class="stat"><div class="v">{money((latest.get("revenue") or 0)-(latest.get("expenditure") or 0), True)}</div><div class="l">FY{latest["fy"]} result, audited</div></div>
-      <div class="stat"><div class="v">{money(rescue_total, True) if flows else money(latest.get("transfers_in") or 0, True)}</div><div class="l">{"Moved in from other pockets since FY2022 (ledger, section 05)" if flows else f"Transfers in, FY{latest['fy']}"}</div></div>
+      <div class="stat"><div class="v">{money(rescue_total, True) if flows else money(latest.get("transfers_in") or 0, True)}</div><div class="l">{esc(n.get("support_label", "Moved in from other pockets since FY2022 (ledger, section 05)")) if flows else f"Transfers in, FY{latest['fy']}"}</div></div>
       <div class="stat"><div class="v">{money(unfunded["amount"], True) if unfunded else money(latest.get("ending_balance"), True)}</div><div class="l">{("Unfunded capital need, " + esc(unfunded["as_of"][:7]) + "; no reserve") if unfunded else f"Balance, June 30, {latest['fy']}"}</div></div>
     </div>
   </section>
@@ -437,10 +449,10 @@ def build(json_path: Path, out_path: Path):
   </section>
 
   {'' if not flows else f"""<section>
-    <span class="sec-no">05</span><h2>The flow ledger: every dollar moved in or out</h2>
+    <span class="sec-no">05</span><h2>{esc(n.get("ledger_title", "The flow ledger: every dollar moved in or out"))}</h2>
     <p class="lead">Each row is one action that is not the fund's own revenue or ordinary spending, with the document that authorized it. Rows are recorded only against a primary source.</p>
     <div class="tw"><table><thead><tr><th>FY</th><th>Kind</th><th>Amount</th><th>From → to</th><th>What and why</th><th>Instrument</th><th>Conf.</th></tr></thead><tbody>{''.join(frows)}</tbody></table></div>
-    <div class="cap">Kinds: transfer in, cost shift, loan, grant, indirect-cost reduction and charge holiday count as rescues (the {money(rescue_total, True)} in section 01). Fee changes, reductions and revenue at risk are the fund's own measures and are listed for completeness.</div>
+    <div class="cap">{esc(n["support_note"]) if "support_note" in n else "Kinds: transfer in, cost shift, loan, grant, indirect-cost reduction and charge holiday count as rescues (the " + money(rescue_total, True) + " in section 01). Fee changes, reductions and revenue at risk are the fund's own measures and are listed for completeness."}</div>
   </section>"""}
 
   {'' if not orows else f"""<section>
