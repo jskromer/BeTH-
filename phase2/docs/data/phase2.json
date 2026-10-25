@@ -8168,7 +8168,7 @@
    },
    "finding": "Reaching a network average of 60, or even 62, is not the same as eliminating failed streets. In the 2024 inspection the average was 56 while 88.5 centerline miles (42%) were below PCI 50 and 33.9 miles (16%) were below 25. The two adopted plans treat 22.6 miles of currently-below-50 streets over FY2027-FY2031 (9.4 through Measure FF, 13.2 through the Five-Year Plan), while other streets deteriorate past 50. Whether the below-50 total shrinks is not shown by any published projection.",
    "tradeoff_the_city_published": "Selecting Measure FF streets below PCI 50 instead of by cost-effectiveness lowers the 2038 network average by about one point (62 instead of 63) while treating the worst streets first (City Figure 2). The average and the distribution move in different directions.",
-   "the_adopted_goal_is_70": "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, paired with the below-50 condition. The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan plus Measure FF.",
+   "the_adopted_goal_is_70": "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, \"ideally with no streets having a PCI below 50\". The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan plus Measure FF.",
    "critical_caveats": [
     "Scenario values are the City's projections. BeTH restates them; it cannot test them without the City's deterioration curves and treatment catalog.",
     "The distribution is from 2024 inspections, before FY2025-FY2026 paving (about 18.7 centerline miles). Plan-attachment PCIs are the values printed in July 2026 and will be lower when streets are treated.",

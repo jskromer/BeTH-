@@ -284,8 +284,14 @@ function money() {
     const sel = ps.filter(p => (!d || fundsOf(p).includes(d)) && (!ct || p.category === ct) &&
       (!r || classesOf(p).includes(r)));
     const sum = (p, k) => p.funding.reduce((a, f) => a + (f.restriction_class === 'unfunded_need' ? 0 : f[k]), 0);
+    // A project matches a fund or class filter if ANY of its funding lines does, so the project total is funding
+    // from all sources; the filtered fund's or class's own lines are shown separately.
+    const own = sel.reduce((a, p) => a + p.funding.reduce((b, f) => b + ((d && f.fund !== d) || (r && f.restriction_class !== r) ||
+      f.restriction_class === 'unfunded_need' ? 0 : f.fy2027 + f.fy2028), 0), 0);
+    const filt = [d && 'fund ' + d, r && r.replace(/_/g, ' ')].filter(Boolean).join(' and ');
     $('#count').textContent = sel.length + ' of ' + ps.length + ' projects · ' +
-      Ms(sel.reduce((a, p) => a + p.two_year_adopted, 0)) + ' FY2027–28 adopted';
+      M(sel.reduce((a, p) => a + p.two_year_adopted, 0)) + ' FY2027–28 adopted, total project funding from all sources' +
+      (filt ? ' · of which ' + filt + ' itself: ' + M(own) : '');
     $('#proj-rows').innerHTML = sel.map(p =>
       '<tr><td>' + esc(p.name) + '</td><td>' + esc(fundsOf(p).join(', ')) + '</td><td>' +
       esc(p.category || '—') + '</td><td>' + esc(p.new_or_continuing || '—') + '</td>' +
@@ -334,7 +340,7 @@ function pci() {
   $('#pci-q').innerHTML = esc(a.question);
   $('#pci-finding').innerHTML = '<b>Reaching PCI 60 is not eliminating failed streets.</b> ' + esc(a.finding) +
     '<br><span class="cap">' + esc(a.tradeoff_the_city_published) + '</span>';
-  $('#pci-70').innerHTML = '<b>The adopted goal is 70 with no streets below 50.</b> ' + esc(a.the_adopted_goal_is_70);
+  $('#pci-70').innerHTML = '<b>The adopted goal is PCI 70, &ldquo;ideally with no streets having a PCI below 50&rdquo;.</b> ' + esc(a.the_adopted_goal_is_70);
   const bands = p.network_condition.distribution.by_mtc_band, bmax = Math.max(...Object.values(bands).map(b => b.centerline_miles));
   $('#pci-dist').innerHTML = '<h3>Measure 2: how much of the network is in each condition (2024 inspection)</h3>' +
     Object.entries(bands).map(([k, b]) => '<div class="br"><span>' + esc(k) + '</span><span class="bt"><span class="bf ' +

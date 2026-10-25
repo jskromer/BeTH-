@@ -264,8 +264,8 @@ def performance_assessment():
                                        'the 2038 network average by about one point (62 instead of 63) while treating the '
                                        'worst streets first (City Figure 2). The average and the distribution move in '
                                        'different directions.',
-        'the_adopted_goal_is_70': "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, paired with the below-50 "
-                                  'condition. The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan '
+        'the_adopted_goal_is_70': "Berkeley's goal is PCI 70 (BMC 7.11.010(K)(1)), not 60, \"ideally with no streets "
+                                  'having a PCI below 50\". The City estimates PCI 70 by 2036 needs about $8M a year more than the Plan '
                                   'plus Measure FF.',
         'critical_caveats': [
             'Scenario values are the City\'s projections. BeTH restates them; it cannot test them without the City\'s '

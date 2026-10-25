@@ -1,0 +1,38 @@
+{
+ "purpose": "Independent human approval of each Ask answer. Edited by hand by the reviewer; no tool writes this file. An answer may be published only with status APPROVED or APPROVED WITH CHANGES (changes made and re-reviewed).",
+ "allowed_status": [
+  "NOT APPROVED",
+  "APPROVED WITH CHANGES",
+  "APPROVED"
+ ],
+ "answers": {
+  "capital-to-streets": {
+   "status": "NOT APPROVED",
+   "reviewer": null,
+   "date": null,
+   "changes_required": [],
+   "notes": null
+  },
+  "measure-ff-paving": {
+   "status": "NOT APPROVED",
+   "reviewer": null,
+   "date": null,
+   "changes_required": [],
+   "notes": null
+  },
+  "street-condition": {
+   "status": "NOT APPROVED",
+   "reviewer": null,
+   "date": null,
+   "changes_required": [],
+   "notes": null
+  },
+  "streets-139m": {
+   "status": "NOT APPROVED",
+   "reviewer": null,
+   "date": null,
+   "changes_required": [],
+   "notes": null
+  }
+ }
+}

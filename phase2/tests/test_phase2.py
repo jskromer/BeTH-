@@ -134,6 +134,35 @@ class VerifierRejects(unittest.TestCase):
         self.assertTrue(any("'73%'" in p for p in ps))
         self.assertTrue(any('101.2 miles' in p for p in ps))
 
+    def test_quoted_dollar_amount_not_exempt(self):
+        # 079d23d skipped any dollar figure preceded by a quotation mark
+        ans = built('streets-139m')
+        ans['interpretation'][0]['text'] += ' It is often quoted as "$999.9 million".'
+        self.assertTrue(any("'$999.9 million'" in p for p in problems(ans)))
+
+    def test_arithmetic_rendered_from_recomputation(self):
+        # the displayed arithmetic must come from the verifier's recomputation, not the stated result or expression
+        ans = ba.verify(built('capital-to-streets'))
+        c = ans['calculations'][0]
+        c['result'], c['expression'] = 1, 'TYPED-IN EXPRESSION'
+        html = ba.render(ans)
+        self.assertIn('$1,473,000 + $1,473,000 = <b>$2,946,000</b>', html)
+        self.assertNotIn('TYPED-IN EXPRESSION', html)
+
+    def test_render_refuses_failed_answer(self):
+        ans = built('capital-to-streets')
+        ans['calculations'][0]['result'] += 1
+        with self.assertRaises(ValueError):
+            ba.render(ba.verify(ans))
+
+    def test_verifier_states_its_limits(self):
+        v = ba.verify(built('measure-ff-paving'))['verifier']
+        self.assertEqual(v['kind'], 'automated structural checks')
+        text = ' '.join(v['does_not_establish'])
+        for k in ('legal interpretation', 'calculation method', 'consistent with one another', 'human source verification'):
+            self.assertIn(k, text)
+        self.assertEqual(v['independent_source_verification']['status'], 'NOT PERFORMED')
+
     def test_counterargument_required(self):
         ans = built('streets-139m')
         ans['interpretation'][0]['counterargument'] = ''
@@ -163,6 +192,16 @@ class Wording(unittest.TestCase):
         self.assertIsNone(pat.search((ROOT / '07-street-funding-legal-analysis.md').read_text().replace(
             'concluded "$0 beyond the adopted plan without a vote of the people"', '')))
 
+    def test_dashboard_filter_and_goal_wording(self):
+        page = (ROOT / 'docs' / 'budget-choices.html').read_text()
+        self.assertIn('total project funding from all sources', page)
+        self.assertIn('itself: ', page)
+        self.assertIn('ideally with no streets having a PCI below 50', page)
+        ps = json.loads((ROOT / 'docs' / 'data' / 'phase2.json').read_text())['capital']['projects']
+        sel = [p for p in ps if any(f['fund'] == '501' for f in p['funding'])]
+        self.assertEqual(sum(p['two_year_adopted'] for p in sel), 46165622)  # all sources
+        self.assertEqual(sum(f['fy2027'] + f['fy2028'] for p in sel for f in p['funding'] if f['fund'] == '501'), 24025016)
+
     def test_fund_501_ceilings(self):
         a = load('street-funding-sources.json')['funding_sources'][0]['available_for_paving']
         self.assertEqual(a['gross_conditional_deferral_ceiling_fy2027_fy2028'], 2946000)
@@ -175,6 +214,28 @@ class Wording(unittest.TestCase):
         self.assertEqual(ff['available_for_paving']['additional_beyond_adopted_plan']['status'], 'UNRESOLVED LEGAL QUESTION')
         self.assertGreaterEqual(len(ff['available_for_paving']['unresolved_questions']), 5)
         self.assertIn('Alter the allocations', ff['allocation_fixed_by_voters']['council_cannot_without_voters'])
+
+
+class ReviewChecklist(unittest.TestCase):
+    def test_approvals_recorded_by_hand_with_allowed_status(self):
+        ap = json.loads((ROOT / 'review' / 'human-approvals.json').read_text())
+        self.assertEqual(set(ap['answers']), {f().get('slug') for f in ba.ANSWERS})
+        for slug, a in ap['answers'].items():
+            self.assertIn(a['status'], ap['allowed_status'], slug)
+            if a['status'] != 'NOT APPROVED':
+                self.assertTrue(a['reviewer'] and a['date'], f'{slug}: approval without reviewer and date')
+
+    def test_checklist_covers_each_answer(self):
+        md = (ROOT / 'review' / 'human-review-checklist.md').read_text()
+        for f in ba.ANSWERS:
+            a = ba.verify(f())
+            self.assertIn(a['short_answer'], md)
+            self.assertTrue(a['open_interpretations'])
+            for x in a['open_interpretations']:
+                self.assertIn(x, md)
+            for fct in a['facts']:
+                self.assertIn(fct['label'].replace('|', '\\|'), md)
+        self.assertEqual(md.count('### Independent human approval'), 4)
 
 
 class CapitalInventory(unittest.TestCase):

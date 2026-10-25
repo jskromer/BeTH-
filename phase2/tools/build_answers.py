@@ -16,7 +16,12 @@ The verifier runs AUTOMATED STRUCTURAL CHECKS. An answer that fails any of them 
      rounding shown) or appears in a quote cited by the answer;
   6. every interpretation carries a counterargument; missing_evidence is present.
 
-These checks are NOT independent source verification. A page that exists, or that contains the cited number or
+The rendered Arithmetic section is generated from the verifier's own recomputation (input fact values and the
+recomputed result), never from the stated result or expression text; an answer that fails is never rendered.
+
+These checks are NOT independent source verification, and they do not establish that a legal interpretation is
+right, that a calculation method is the appropriate one for the question, or that answers are consistent with one
+another. A page that exists, or that contains the cited number or
 quote, does not by itself establish that the page supports the claim made from it. Each answer records
 independent_source_verification separately; it stays NOT PERFORMED until a person has read each cited page.
 
@@ -76,6 +81,10 @@ INDEPENDENT_NOT_PERFORMED = {
     'meaning': 'No person has yet read each cited page and confirmed that it supports the claim made from it. The '
                'automated checks establish that citations exist and that numbers and quotes appear where cited; a '
                'valid page, or a matching number on it, does not by itself establish support.'}
+DOES_NOT_ESTABLISH = ['that the cited page supports the claim made from it (human source verification)',
+                      'that any legal interpretation is correct',
+                      'that the calculation method is the appropriate one for the question',
+                      'that answers are consistent with one another']
 
 
 def norm(s):
@@ -197,7 +206,8 @@ def answer_capital_to_streets():
         law_no_alteration(),
         fact('ff:program/street-rehab-share', ff['allocation_fixed_by_voters']['adopted_five_year_program']['street_rehabilitation_share'],
              'adopted', PLAN, 'p.4 (Table 1C); budget-adoption p.215', 'Share of the five-year Measure FF program in street '
-             'rehabilitation (BeTH ratio of the two printed figures)', 4, unit='ratio',
+             'rehabilitation (BeTH ratio: $42,119,935 printed on budget p.215, over the program total, BeTH\'s sum of the '
+             'Table 1C category totals)', 4, unit='ratio',
              record=FF + '/allocation_fixed_by_voters/adopted_five_year_program/street_rehabilitation_share'),
     ]
     gross = a['fy2027']['other'] + a['fy2028']['other']
@@ -242,6 +252,18 @@ def answer_capital_to_streets():
                            'scope': sf['answer']['scope']},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
             'scenario_assumptions': [], 'missing_evidence': missing,
+            'open_interpretations': [
+                'Whether any non-paving fund 501 project could be deferred without legal, contractual, safety or condition '
+                'consequences. Not assessed.',
+                'Whether the FY2027-28 appropriations are still uncommitted: encumbrance and spending status is not public, '
+                'so the ceilings are appropriations, not available cash.',
+                'Whether the June 30, 2025 unencumbered assigned balance ($11,568,647) is still uncommitted; it is sixteen '
+                'months old and backs carried-forward projects.',
+                'The Measure FF allocation questions (see the Measure FF page): BeTH states no Measure FF amount.',
+                'The maintenance-of-effort floor is a BeTH estimate (base year and inflation index not stated in the '
+                'ordinance); it limits moving paving money out, not in.',
+                'Amendments made from the dais on June 23, 2026 are not in the packet; the FY2027 Annual Appropriation '
+                'Ordinance is the controlling record and is not in BeTH\'s sources.'],
             'more': ['../../07-street-funding-legal-analysis.md', '../data/phase2.json']}
 
 
@@ -291,7 +313,13 @@ def answer_measure_ff_paving():
             'resolution': {'entities': ['fund:166'], 'measures': ['allocation', 'appropriation'],
                            'period': {'fy_start': 2027, 'fy_end': 2031}},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
-            'scenario_assumptions': [], 'missing_evidence': missing, 'more': ['../../07-street-funding-legal-analysis.md']}
+            'scenario_assumptions': [], 'missing_evidence': missing,
+            'open_interpretations': ff['available_for_paving']['unresolved_questions'] + [
+                'The ordinance is a scanned document; quotes are checked against BeTH\'s transcription, not the page '
+                'images. The transcription of PDF pp.8 and 15 must be checked against the scans.',
+                'The adopted program total ($92,282,816) is BeTH\'s sum of the printed Table 1C category totals; the '
+                'table prints no single grand total.'],
+            'more': ['../../07-street-funding-legal-analysis.md']}
 
 
 def answer_street_condition():
@@ -358,7 +386,19 @@ def answer_street_condition():
                                     'uninspected 155-foot section (Tevlin St, PCI 0, no inspection date) is excluded, as in '
                                     'the report\'s totals table.'},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
-            'scenario_assumptions': [], 'missing_evidence': missing, 'more': ['../../06-pci60-financial-model.md']}
+            'scenario_assumptions': [], 'missing_evidence': missing,
+            'open_interpretations': [
+                'Two different measures appear side by side and must not be read as one: the City\'s 41.93% is pavement '
+                'AREA in the consultant\'s Poor and Failed categories (PCI 50 and below); BeTH\'s 88.5 miles is centerline '
+                'LENGTH with PCI below 50.',
+                'Mileage is BeTH\'s sum of section lengths in feet; summing the report\'s rounded section miles gives '
+                '88.75. Whether 0.1-mile precision is appropriate for publication.',
+                'One uninspected Tevlin St section (PCI 0, no inspection date) is excluded, following the report\'s '
+                'totals table; the report\'s category table counts it as Failed.',
+                'The condition data are from 2024 inspections, before FY2025-FY2026 paving.',
+                'Plan PCIs are the values printed at planning time; streets will be lower when treated. The 22.6 miles '
+                'are sections currently below 50 that the plans list, not miles that will end above 50.'],
+            'more': ['../../06-pci60-financial-model.md']}
 
 
 def answer_streets_139m():
@@ -398,8 +438,8 @@ def answer_streets_139m():
              f'(${idn["measure_ff_street_rehabilitation"]:,}), bridge maintenance and Harold Way placemaking add to exactly '
              f'${total:,}. The two-year FY2027-FY2028 Streets amount is ${two:,}.')
     interp = [{'claim_id': 'claim:139m-is-five-year', 'text': f'Comparisons that treat ${total:,} as a biennial figure '
-               'overstate two-year street spending by more than double. (It is often quoted as "$139.3 million"; the exact '
-               'figure rounds to 139.4.)',
+               'overstate two-year street spending by more than double. (The figure in the question is slightly low: the '
+               'exact amount rounds to $139.4 million.)',
                'counterargument': 'FY2029-FY2031 are planned amounts and may change; the two-year figure is the only one '
                                   'with appropriations behind it.', 'confidence': 'High'}]
     missing = [{'needed': 'FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments)',
@@ -407,7 +447,16 @@ def answer_streets_139m():
     return {'slug': 'streets-139m', 'question': 'What does the $139.3 million streets figure include?',
             'resolution': {'entities': ['cip:streets'], 'measures': ['appropriation'], 'period': {'fy_start': 2027, 'fy_end': 2031}},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
-            'scenario_assumptions': [], 'missing_evidence': missing, 'more': ['../data/phase2.json']}
+            'scenario_assumptions': [], 'missing_evidence': missing,
+            'open_interpretations': [
+                'The origin of the "$139.3 million" figure in the question is not identified in BeTH\'s sources; the '
+                'street plan says "over $139 million".',
+                'FY2029-FY2031 amounts are planned, not appropriated.',
+                'The Mayor\'s recommendations adopted with the budget (Exhibit D) add $2.9M of one-time SOSIP money in '
+                'FY2027, including $2.5M for Oxford for All, outside the Exhibit B Streets table. Whether a resident\'s '
+                '"streets figure" should include it.',
+                'Dais amendments of June 23, 2026 and the FY2027 Annual Appropriation Ordinance are not in BeTH\'s sources.'],
+            'more': ['../data/phase2.json']}
 
 
 ANSWERS = (answer_capital_to_streets, answer_measure_ff_paving, answer_street_condition, answer_streets_139m)
@@ -500,7 +549,7 @@ def verify(ans):
         if not numeric and not cite.get('quote'):
             problems.append(f'fact {fid}: text fact without a quote')
         support[fid] = '; '.join(how) or 'none'
-    results = {}
+    results, arithmetic = {}, []
     for c in ans['calculations']:
         vals = []
         for i in c['inputs']:
@@ -523,14 +572,17 @@ def verify(ans):
             got = round(got, c['digits'])
         if not (isinstance(c['result'], (int, float)) and abs(got - c['result']) < 1e-9):
             problems.append(f'calculation {c["id"]}: stated result {c["result"]!r} != recomputed {got!r}')
-        results[c['id']] = c['result']
+        results[c['id']] = got
+        unit_of = {**{f: facts[f]['unit'] for f in facts}, **{a['id']: a['unit'] for a in arithmetic}}
+        arithmetic.append({'id': c['id'], 'label': c['label'], 'op': c['op'], 'unit': c['unit'], 'note': c.get('note'),
+                           'inputs': [{'ref': i, 'value': v, 'unit': unit_of.get(i, c['unit'])}
+                                      for i, v in zip(c['inputs'], vals)],
+                           'recomputed': got})
     vals = [(f['value'], f['unit']) for f in ans['facts'] if isinstance(f['value'], (int, float))] + \
            [(c['result'], c['unit']) for c in ans['calculations'] if isinstance(c['result'], (int, float))]
     quoted = ' '.join(f['cite']['quote'] for f in ans['facts'] if f['cite'].get('quote'))
     prose = ans['short_answer'] + ' ' + ' '.join(i['text'] + ' ' + i['counterargument'] for i in ans['interpretation'])
     for m in MONEY.finditer(prose):
-        if prose[max(0, m.start() - 1):m.start()] == '"':
-            continue  # a figure inside quotation marks is the commonly quoted form, flagged in the same sentence
         tok, n = m.group(1), float(m.group(1).replace(',', ''))
         if m.group(2):
             ok = any(u == 'usd' and abs(round(v / 1e6, _decimals(tok)) - n) < 1e-9 for v, u in vals)
@@ -571,6 +623,8 @@ def verify(ans):
         'passed': not problems,
         'problems': problems,
         'fact_support': support,
+        'arithmetic': arithmetic,
+        'does_not_establish': list(DOES_NOT_ESTABLISH),
         'independent_source_verification': dict(INDEPENDENT_NOT_PERFORMED)}
     return ans
 
@@ -606,9 +660,14 @@ def render(ans):
                    f'<div class="note">{e(v["fact_support"].get(f["fact_id"], ""))}</div></td>'
                    f'<td>{link(f["cite"])}{"<blockquote>" + e(f["cite"]["quote"]) + "</blockquote>" if f["cite"]["quote"] else ""}</td></tr>'
                    for f in ans['facts'])
-    calcs = ''.join(f'<li><b>{e(c["label"])}</b>: <code>{e(c["expression"])}</code> = '
-                    f'<b>{fmt({"value": c["result"], "unit": c["unit"]})}</b>'
-                    f'{" <span class=note>" + e(c["note"]) + "</span>" if c.get("note") else ""}</li>' for c in ans['calculations'])
+    if not v['passed'] or len(v['arithmetic']) != len(ans['calculations']):
+        raise ValueError(f'{ans["slug"]}: refusing to render an answer that did not pass the automated checks')
+    sym = {'sum': ' + ', 'sub': ' − ', 'div': ' ÷ '}
+    calcs = ''.join(f'<li><b>{e(a["label"])}</b>: '
+                    + e(sym[a['op']].join(fmt({'value': i['value'], 'unit': i['unit']}) for i in a['inputs']))
+                    + f' = <b>{e(fmt({"value": a["recomputed"], "unit": a["unit"]}))}</b>'
+                    f'<br><code>{e(sym[a["op"]].join(i["ref"] for i in a["inputs"]))}</code>'
+                    f'{" <span class=note>" + e(a["note"]) + "</span>" if a.get("note") else ""}</li>' for a in v['arithmetic'])
     interp = ''.join(f'<li>{e(i["text"])} <span class="conf">({e(i["confidence"])})</span><br><span class="counter">Counterargument: '
                      f'{e(i["counterargument"])}</span></li>' for i in ans['interpretation'])
     miss = ''.join(f'<li>{e(m["needed"])}{" — would be in: " + e(m["would_be_in"]) if m.get("would_be_in") else ""}</li>'
@@ -616,7 +675,8 @@ def render(ans):
     badge = ('<span class="ok">Automated structural checks passed</span>: cited pages exist; every figure matches a data '
              'record or is printed on its cited page; every quote appears on its cited page; arithmetic recomputes. '
              '<span class="bad">Not independently source-verified</span>: no one has yet confirmed that each cited page '
-             'supports the claim made from it.' if v['passed']
+             'supports the claim made from it. The checks also do not establish that a legal interpretation is right, '
+             'that a calculation method is appropriate, or that answers agree with one another.' if v['passed']
              else '<span class="bad">Automated checks failed: ' + e('; '.join(v['problems'])) + '</span>')
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(ans["question"])} — BeTH Ask (prototype)</title>

@@ -31,18 +31,24 @@ not work: the page fetches `data/phase2.json` and `data/answers.json`.
 ## Rebuild and test
 
 ```
-python3 phase2/tools/extract_adopted_cip.py --write     # CIP projects; reconciles p.169 and p.170 year by year
-python3 phase2/tools/network_condition.py --write       # PTAP-25 segment list
-python3 phase2/tools/street_plan_conditions.py --write
-python3 phase2/tools/street_funding.py --write
-python3 phase2/tools/pci_model.py --emit
-python3 phase2/tools/build_answers.py --write           # Ask answers; refuses any answer that fails a check
-python3 phase2/tools/build_dashboard_data.py            # docs/data/phase2.json
+sh phase2/tools/rebuild.sh                              # every generated output, in dependency order
 python3 -m unittest discover -s phase2/tests -v         # needs pdftotext and pdfinfo (poppler)
 ```
 
-The Ask verifier runs automated structural checks only (citations exist, figures match records or cited pages, quotes
-are on the cited page, arithmetic recomputes). It is not independent source verification.
+CI (`.github/workflows/phase2.yml`, separate from Phase 1 CI) runs the tests on Python 3.12 with poppler-utils,
+rebuilds every output and fails if any committed file changes, and fails if the branch touches `data/funds`,
+`data/curation` or `docs/`.
+
+The Ask verifier runs automated structural checks only: citations exist, figures match records or cited pages,
+quotes are on the cited page, arithmetic recomputes, and the displayed arithmetic is generated from that
+recomputation. It is not human source verification, and it does not establish that a legal interpretation is
+right, that a calculation method is appropriate, or that answers agree with one another.
+
+## Human review
+
+`review/human-review-checklist.md` (generated) lists, for each Ask page, the central claim, the calculations, every
+cited document and page, and the open legal and accounting questions. Decisions are recorded by hand in
+`review/human-approvals.json`. **No answer is approved.**
 
 ## The headline finding
 

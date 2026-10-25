@@ -276,7 +276,7 @@
     },
     {
      "fact_id": "ff:program/street-rehab-share",
-     "label": "Share of the five-year Measure FF program in street rehabilitation (BeTH ratio of the two printed figures)",
+     "label": "Share of the five-year Measure FF program in street rehabilitation (BeTH ratio: $42,119,935 printed on budget p.215, over the program total, BeTH's sum of the Table 1C category totals)",
      "value": 0.4564,
      "unit": "ratio",
      "basis": "adopted",
@@ -384,6 +384,14 @@
      "status": "not in record"
     }
    ],
+   "open_interpretations": [
+    "Whether any non-paving fund 501 project could be deferred without legal, contractual, safety or condition consequences. Not assessed.",
+    "Whether the FY2027-28 appropriations are still uncommitted: encumbrance and spending status is not public, so the ceilings are appropriations, not available cash.",
+    "Whether the June 30, 2025 unencumbered assigned balance ($11,568,647) is still uncommitted; it is sixteen months old and backs carried-forward projects.",
+    "The Measure FF allocation questions (see the Measure FF page): BeTH states no Measure FF amount.",
+    "The maintenance-of-effort floor is a BeTH estimate (base year and inflation index not stated in the ordinance); it limits moving paving money out, not in.",
+    "Amendments made from the dais on June 23, 2026 are not in the packet; the FY2027 Annual Appropriation Ordinance is the controlling record and is not in BeTH's sources."
+   ],
    "more": [
     "../../07-street-funding-legal-analysis.md",
     "../data/phase2.json"
@@ -418,6 +426,94 @@
      "law:bmc-7.11-section-7a3": "quote found on cited page",
      "ff:program/street-rehab-share": "matches data record"
     },
+    "arithmetic": [
+     {
+      "id": "c1",
+      "label": "Gross conditional deferral ceiling: fund 501 non-paving appropriations, FY2027 + FY2028",
+      "op": "sum",
+      "unit": "usd",
+      "note": "Appropriations, not verified available cash. Reached only by deferring or cancelling every one of them.",
+      "inputs": [
+       {
+        "ref": "fund:501/cip/fy2027/other",
+        "value": 1473000,
+        "unit": "usd"
+       },
+       {
+        "ref": "fund:501/cip/fy2028/other",
+        "value": 1473000,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 2946000
+     },
+     {
+      "id": "c2",
+      "label": "Deferral ceiling excluding the contractual JPA contribution",
+      "op": "sub",
+      "unit": "usd",
+      "note": "Not verified available cash.",
+      "inputs": [
+       {
+        "ref": "c1",
+        "value": 2946000,
+        "unit": "usd"
+       },
+       {
+        "ref": "fund:501/cip/fy2027-28/contractual-jpa",
+        "value": 30000,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 2916000
+     },
+     {
+      "id": "c3",
+      "label": "Share of fund 501 FY2027 money already in paving",
+      "op": "div",
+      "unit": "ratio",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "fund:501/cip/fy2027/paving",
+        "value": 10412200,
+        "unit": "usd"
+       },
+       {
+        "ref": "fund:501/cip/fy2027/total",
+        "value": 11885200,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 0.8761
+     },
+     {
+      "id": "c4",
+      "label": "Unencumbered assigned fund balance, June 30, 2025 (ceiling for one-time carryover)",
+      "op": "sub",
+      "unit": "usd",
+      "note": "Backs capital appropriations already carried forward, paving among them. Not free money.",
+      "inputs": [
+       {
+        "ref": "fund:501/acfr/2025/assigned",
+        "value": 16060094,
+        "unit": "usd"
+       },
+       {
+        "ref": "fund:501/acfr/2025/encumbrances",
+        "value": 4491447,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 11568647
+     }
+    ],
+    "does_not_establish": [
+     "that the cited page supports the claim made from it (human source verification)",
+     "that any legal interpretation is correct",
+     "that the calculation method is the appropriate one for the question",
+     "that answers are consistent with one another"
+    ],
     "independent_source_verification": {
      "status": "NOT PERFORMED",
      "meaning": "No person has yet read each cited page and confirmed that it supports the claim made from it. The automated checks establish that citations exist and that numbers and quotes appear where cited; a valid page, or a matching number on it, does not by itself establish support."
@@ -580,6 +676,16 @@
      "status": "not in record"
     }
    ],
+   "open_interpretations": [
+    "How far \"approximately\" 45% allows the streets share to vary, and who decides.",
+    "Whether the percentages apply year by year, over the five-year program, or over the 14-year life of the tax.",
+    "Whether the \"streets\" share (repair, repaving and reconstruction) is the same as the CIP \"street rehabilitation\" line, or also covers street work budgeted under the safety or environmental shares.",
+    "How the unprogrammed $1,351,651 FY2027 revenue increase and unappropriated FY2026 collections may be used.",
+    "7.11.020(D) releases the allocations at PCI 70 but cross-references 7.11.030(C), which concerns external funding; it is probably a drafting error, and its effect is not settled.",
+    "No City Attorney opinion or Council interpretation of these provisions is in BeTH's sources.",
+    "The ordinance is a scanned document; quotes are checked against BeTH's transcription, not the page images. The transcription of PDF pp.8 and 15 must be checked against the scans.",
+    "The adopted program total ($92,282,816) is BeTH's sum of the printed Table 1C category totals; the table prints no single grand total."
+   ],
    "more": [
     "../../07-street-funding-legal-analysis.md"
    ],
@@ -605,6 +711,34 @@
      "ff:program/street-rehab": "matches data record; value printed on cited page",
      "ff:revenue/fy2027": "matches data record; value printed in the quoted passage; quote found on cited page"
     },
+    "arithmetic": [
+     {
+      "id": "c1",
+      "label": "Street rehabilitation share of the five-year Measure FF program",
+      "op": "div",
+      "unit": "ratio",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "ff:program/street-rehab",
+        "value": 42119935,
+        "unit": "usd"
+       },
+       {
+        "ref": "ff:program/total",
+        "value": 92282816,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 0.4564
+     }
+    ],
+    "does_not_establish": [
+     "that the cited page supports the claim made from it (human source verification)",
+     "that any legal interpretation is correct",
+     "that the calculation method is the appropriate one for the question",
+     "that answers are consistent with one another"
+    ],
     "independent_source_verification": {
      "status": "NOT PERFORMED",
      "meaning": "No person has yet read each cited page and confirmed that it supports the claim made from it. The automated checks establish that citations exist and that numbers and quotes appear where cited; a valid page, or a matching number on it, does not by itself establish support."
@@ -795,6 +929,13 @@
      "status": "not published"
     }
    ],
+   "open_interpretations": [
+    "Two different measures appear side by side and must not be read as one: the City's 41.93% is pavement AREA in the consultant's Poor and Failed categories (PCI 50 and below); BeTH's 88.5 miles is centerline LENGTH with PCI below 50.",
+    "Mileage is BeTH's sum of section lengths in feet; summing the report's rounded section miles gives 88.75. Whether 0.1-mile precision is appropriate for publication.",
+    "One uninspected Tevlin St section (PCI 0, no inspection date) is excluded, following the report's totals table; the report's category table counts it as Failed.",
+    "The condition data are from 2024 inspections, before FY2025-FY2026 paving.",
+    "Plan PCIs are the values printed at planning time; streets will be lower when treated. The 22.6 miles are sections currently below 50 that the plans list, not miles that will end above 50."
+   ],
    "more": [
     "../../06-pci60-financial-model.md"
    ],
@@ -822,6 +963,34 @@
      "pave:city-projection/2038/plan-plus-ff": "value printed in the quoted passage; quote found on cited page",
      "law:bmc-7.11.010K1": "quote found on cited page"
     },
+    "arithmetic": [
+     {
+      "id": "c1",
+      "label": "Share of centerline miles below PCI 50",
+      "op": "div",
+      "unit": "ratio",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "pave:network/2024/miles-below-50",
+        "value": 88.466,
+        "unit": "miles"
+       },
+       {
+        "ref": "pave:network/2024/centerline-miles",
+        "value": 212.778,
+        "unit": "miles"
+       }
+      ],
+      "recomputed": 0.4158
+     }
+    ],
+    "does_not_establish": [
+     "that the cited page supports the claim made from it (human source verification)",
+     "that any legal interpretation is correct",
+     "that the calculation method is the appropriate one for the question",
+     "that answers are consistent with one another"
+    ],
     "independent_source_verification": {
      "status": "NOT PERFORMED",
      "meaning": "No person has yet read each cited page and confirmed that it supports the claim made from it. The automated checks establish that citations exist and that numbers and quotes appear where cited; a valid page, or a matching number on it, does not by itself establish support."
@@ -1009,7 +1178,7 @@
    "interpretation": [
     {
      "claim_id": "claim:139m-is-five-year",
-     "text": "Comparisons that treat $139,356,147 as a biennial figure overstate two-year street spending by more than double. (It is often quoted as \"$139.3 million\"; the exact figure rounds to 139.4.)",
+     "text": "Comparisons that treat $139,356,147 as a biennial figure overstate two-year street spending by more than double. (The figure in the question is slightly low: the exact amount rounds to $139.4 million.)",
      "counterargument": "FY2029-FY2031 are planned amounts and may change; the two-year figure is the only one with appropriations behind it.",
      "confidence": "High"
     }
@@ -1020,6 +1189,12 @@
      "needed": "FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments)",
      "status": "not in record"
     }
+   ],
+   "open_interpretations": [
+    "The origin of the \"$139.3 million\" figure in the question is not identified in BeTH's sources; the street plan says \"over $139 million\".",
+    "FY2029-FY2031 amounts are planned, not appropriated.",
+    "The Mayor's recommendations adopted with the budget (Exhibit D) add $2.9M of one-time SOSIP money in FY2027, including $2.5M for Oxford for All, outside the Exhibit B Streets table. Whether a resident's \"streets figure\" should include it.",
+    "Dais amendments of June 23, 2026 and the FY2027 Annual Appropriation Ordinance are not in BeTH's sources."
    ],
    "more": [
     "../data/phase2.json"
@@ -1048,6 +1223,64 @@
      "cip:streets/fy2028": "matches data record; value printed on cited page",
      "plan:table-1b/five-year-plan": "value printed on cited page"
     },
+    "arithmetic": [
+     {
+      "id": "c1",
+      "label": "Sum of the four Streets projects",
+      "op": "sum",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "cip:streets/five-year/street-rehab-plan",
+        "value": 96336212,
+        "unit": "usd"
+       },
+       {
+        "ref": "cip:streets/five-year/measure-ff",
+        "value": 42119935,
+        "unit": "usd"
+       },
+       {
+        "ref": "cip:streets/five-year/bridge",
+        "value": 750000,
+        "unit": "usd"
+       },
+       {
+        "ref": "cip:streets/five-year/harold-way",
+        "value": 150000,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 139356147
+     },
+     {
+      "id": "c2",
+      "label": "Two-year (FY2027 + FY2028) Streets amount",
+      "op": "sum",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "cip:streets/fy2027",
+        "value": 32241345,
+        "unit": "usd"
+       },
+       {
+        "ref": "cip:streets/fy2028",
+        "value": 25970117,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 58211462
+     }
+    ],
+    "does_not_establish": [
+     "that the cited page supports the claim made from it (human source verification)",
+     "that any legal interpretation is correct",
+     "that the calculation method is the appropriate one for the question",
+     "that answers are consistent with one another"
+    ],
     "independent_source_verification": {
      "status": "NOT PERFORMED",
      "meaning": "No person has yet read each cited page and confirmed that it supports the claim made from it. The automated checks establish that citations exist and that numbers and quotes appear where cited; a valid page, or a matching number on it, does not by itself establish support."
