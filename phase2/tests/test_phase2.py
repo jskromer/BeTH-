@@ -7,6 +7,7 @@ its inputs, and a quote that appeared in the document but not on the cited page.
 Run:  python3 -m unittest discover -s phase2/tests -v
 """
 import copy
+from html.parser import HTMLParser
 import json
 import re
 import sys
@@ -18,6 +19,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import build_answers as ba  # noqa: E402
 
 DATA = ROOT / 'data'
+APPROVAL = {'status': 'NOT APPROVED'}
 
 
 def load(name):
@@ -145,7 +147,7 @@ class VerifierRejects(unittest.TestCase):
         ans = ba.verify(built('capital-to-streets'))
         c = ans['calculations'][0]
         c['result'], c['expression'] = 1, 'TYPED-IN EXPRESSION'
-        html = ba.render(ans)
+        html = ba.render(ans, APPROVAL)
         self.assertIn('$1,473,000 + $1,473,000 = <b>$2,946,000</b>', html)
         self.assertNotIn('TYPED-IN EXPRESSION', html)
 
@@ -153,7 +155,7 @@ class VerifierRejects(unittest.TestCase):
         ans = built('capital-to-streets')
         ans['calculations'][0]['result'] += 1
         with self.assertRaises(ValueError):
-            ba.render(ba.verify(ans))
+            ba.render(ba.verify(ans), APPROVAL)
 
     def test_verifier_states_its_limits(self):
         v = ba.verify(built('measure-ff-paving'))['verifier']
@@ -177,10 +179,10 @@ class VerifierRejects(unittest.TestCase):
 class Wording(unittest.TestCase):
     def test_no_verified_badge(self):
         for f in ba.ANSWERS:
-            html = ba.render(ba.verify(f()))
+            html = ba.render(ba.verify(f()), APPROVAL)
             self.assertNotIn('>Verified', html)
-            self.assertIn('Not independently source-verified', html)
-        self.assertNotIn('>verified<', ba.render_index([ba.verify(f()) for f in ba.ANSWERS]))
+            self.assertIn('Not yet confirmed by a person', html)
+        self.assertNotIn('>verified<', ba.render_index([ba.verify(f()) for f in ba.ANSWERS], ba.load_approvals()))
 
     def test_no_measure_ff_vote_conclusion(self):
         pat = re.compile(r'nothing beyond the adopted plan|\$0 (more|beyond)|No, not without a vote|No further Measure FF',
@@ -214,6 +216,117 @@ class Wording(unittest.TestCase):
         self.assertEqual(ff['available_for_paving']['additional_beyond_adopted_plan']['status'], 'UNRESOLVED LEGAL QUESTION')
         self.assertGreaterEqual(len(ff['available_for_paving']['unresolved_questions']), 5)
         self.assertIn('Alter the allocations', ff['allocation_fixed_by_voters']['council_cannot_without_voters'])
+
+
+class _Visible(HTMLParser):
+    """Text a reader sees by default: skips <style>, <script> and anything inside class="tech"."""
+    VOID = {'br', 'img', 'input', 'meta', 'link', 'hr'}
+
+    def __init__(self):
+        super().__init__()
+        self.stack, self.out = [], []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.VOID:
+            return
+        hidden = tag in ('style', 'script') or 'tech' in (dict(attrs).get('class') or '').split()
+        self.stack.append(hidden or (self.stack[-1] if self.stack else False))
+
+    def handle_endtag(self, tag):
+        if tag not in self.VOID and self.stack:
+            self.stack.pop()
+
+    def handle_data(self, data):
+        if not (self.stack and self.stack[-1]):
+            self.out.append(data)
+
+
+def visible(html):
+    v = _Visible()
+    v.feed(html)
+    return ' '.join(' '.join(v.out).split())
+
+
+def pages():
+    ap = ba.load_approvals()
+    return {a['slug']: (a, ba.render(a, ap[a['slug']])) for a in (ba.verify(f()) for f in ba.ANSWERS)}
+
+
+class Presentation(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.pages = pages()
+
+    def test_one_template(self):
+        heads = None
+        for slug, (a, h) in self.pages.items():
+            got = re.findall(r'<summary>([^<]+)', h)
+            heads = heads or got
+            self.assertEqual(got, heads, slug)
+            for k in ('Short answer', 'What you should know', 'Show technical references', 'id="tech"'):
+                self.assertIn(k, h, slug)
+
+    def test_short_conclusion_first(self):
+        for slug, (a, h) in self.pages.items():
+            self.assertLessEqual(len(a['headline']), 260, slug)
+            self.assertLess(h.index(html_escape(a['headline'])), h.index('<details>'), slug)
+
+    def test_uncertainties_visible_and_complete(self):
+        for slug, (a, h) in self.pages.items():
+            vis = visible(h)
+            for x in a['key_uncertainties']:
+                self.assertIn(' '.join(x.split()), vis, slug)
+            for x in a['open_interpretations']:
+                self.assertIn(' '.join(x.split()), vis, slug)
+            self.assertIn(f'Open questions ({len(a["open_interpretations"])})', vis)
+
+    def test_technical_ids_hidden_but_kept(self):
+        idpat = re.compile(r'\b(fund:501/|ff:program/|pave:|cip:streets|law:bmc|plan:table|doc:[a-z]|\.json:)')
+        for slug, (a, h) in self.pages.items():
+            self.assertIsNone(idpat.search(visible(h)), slug)
+            for f in a['facts']:
+                self.assertIn(f['fact_id'], h, slug)
+                if f.get('record'):
+                    self.assertIn(html_escape(f['record']), h, slug)
+            self.assertIn('body:has(#tech:checked) .tech{display:block}', h)
+
+    def test_evidence_and_arithmetic_kept(self):
+        for slug, (a, h) in self.pages.items():
+            for f in a['facts']:
+                self.assertIn(html_escape(ba.pdf_href(f['cite'])), h, slug)
+            for c in a['verifier']['arithmetic']:
+                self.assertIn(ba.fmt({'value': c['recomputed'], 'unit': c['unit']}), h, slug)
+            self.assertIn(html_escape(a['short_answer']), h)
+            for m in a['missing_evidence']:
+                self.assertIn(html_escape(m['needed']), h)
+
+    def test_status_matches_approval_record(self):
+        ap = ba.load_approvals()
+        for slug, (a, h) in self.pages.items():
+            self.assertIn(ba.APPROVAL_TEXT[ap[slug]['status']], visible(h), slug)
+            self.assertIn('Not yet confirmed by a person', visible(h))
+            self.assertNotIn('Verified', visible(h))
+
+    def test_paving_gap_comparison(self):
+        a, h = self.pages['capital-to-streets']
+        t = a['interpretation'][0]['text']
+        self.assertIn('additional spending beyond its modeled', t)
+        self.assertIn('not available cash', t)
+        self.assertIn('would not close the modeled gap', t)
+
+    def test_punctuation(self):
+        for slug, (a, h) in self.pages.items():
+            items = [a['headline'], *a['key_uncertainties'], *a['open_interpretations'],
+                     *(m['needed'] for m in a['missing_evidence']),
+                     *(t for i in a['interpretation'] for t in (i['text'], i['counterargument']))]
+            for x in items:
+                self.assertRegex(x.strip(), r'[.?!)"]$', f'{slug}: {x[-40:]}')
+            self.assertTrue(a['question'].endswith('?'))
+
+
+def html_escape(s):
+    import html as _h
+    return _h.escape(s)
 
 
 class ReviewChecklist(unittest.TestCase):

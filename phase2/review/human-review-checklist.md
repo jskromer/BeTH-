@@ -24,7 +24,7 @@ Page: `phase2/docs/ask/capital-to-streets.html` · Automated checks: passed · H
 
 > From CIP Fund 501: a gross conditional ceiling of $2,946,000 of FY2027-FY2028 appropriations, or $2,916,000 excluding a contractual Joint Powers Agreement contribution. It is reached only by deferring or cancelling every other project the fund pays for, and neither figure is verified available cash. 88% of the fund's FY2027 money ($10,412,200) already goes to paving. A one-time amount from unspent carried-over appropriations may exist but cannot be measured from public records; its ceiling at June 30, 2025 was $11,568,647. From Measure FF: the adopted program already puts 45.6% into street rehabilitation, against a voter-set allocation of "approximately" 45% that Council cannot alter without a vote. Whether more could go to paving without a vote is an unresolved legal question, and BeTH states no amount.
 
-BeTH's reading (Moderate): The fund 501 money Council could move to paving is small relative to the paving gap: the City estimates PCI 70 needs about $8 million a year more, while fund 501's non-paving capital is $1,473,000 a year, mostly repairs to existing City buildings.
+BeTH's reading (Moderate): For scale, the two figures measure different things. The City estimates that reaching an average PCI of 70 would take about $8 million a year of additional spending beyond its modeled Plan + Measure FF scenario. Fund 501's non-paving capital is $1,473,000 a year of budgeted projects, mostly repairs to existing City buildings, that could be freed only by deferring them; it is not available cash. Redirecting it would not close the modeled gap.
 
 Counterargument: This covers only fund 501 and Measure FF. Other capital funds, unspent carryovers, the General Fund itself and delivery-cost savings are not assessed here and could change the total.
 
@@ -58,12 +58,12 @@ Tick a calculation only if its method is the right one for the claim, not only i
 
 ### Unresolved legal or accounting interpretation
 
-- [ ] Whether any non-paving fund 501 project could be deferred without legal, contractual, safety or condition consequences. Not assessed.
-- [ ] Whether the FY2027-28 appropriations are still uncommitted: encumbrance and spending status is not public, so the ceilings are appropriations, not available cash.
-- [ ] Whether the June 30, 2025 unencumbered assigned balance ($11,568,647) is still uncommitted; it is sixteen months old and backs carried-forward projects.
-- [ ] The Measure FF allocation questions (see the Measure FF page): BeTH states no Measure FF amount.
-- [ ] The maintenance-of-effort floor is a BeTH estimate (base year and inflation index not stated in the ordinance); it limits moving paving money out, not in.
-- [ ] Amendments made from the dais on June 23, 2026 are not in the packet; the FY2027 Annual Appropriation Ordinance is the controlling record and is not in BeTH's sources.
+- [ ] BeTH has not assessed what it would cost to delay the roof, building, pool, sidewalk and other repairs that fund 501 pays for, including legal, contract and safety consequences.
+- [ ] Public records do not show how much of the FY2027-FY2028 budget for these projects is already under contract or spent. The ceilings are budget amounts, not cash known to be available.
+- [ ] The $11,568,647 one-time ceiling is from June 30, 2025, sixteen months ago, and already backs projects carried forward from earlier years. How much of it is still uncommitted is unknown.
+- [ ] For Measure FF, BeTH gives no dollar amount because the legal questions on the Measure FF page are unresolved.
+- [ ] Measure FF requires the City to keep spending a minimum amount of other money on street maintenance. BeTH estimated that minimum because the City has not published its own calculation, and the ordinance does not state the base year or inflation index. The minimum limits moving paving money out of streets, not into them.
+- [ ] Changes Council made at the June 23, 2026 meeting are not in the budget document BeTH used. The FY2027 Annual Appropriation Ordinance, the controlling record, is not in BeTH's sources.
 
 ### Missing evidence
 
@@ -72,7 +72,7 @@ Tick a calculation only if its method is the right one for the claim, not only i
 - Public Works and Parks assessments of what deferring each fund 501 project would cost (condition, safety, legal, contracts).
 - The City's Measure FF maintenance-of-effort calculation and whether FY2027 draws on the Stabilization Reserve.
 - Restriction research for the other CIP funding sources.
-- A City Attorney opinion or Council interpretation of the Measure FF allocation (BMC 7.11.020(C)) as it applies to added paving
+- A City Attorney opinion or Council interpretation of the Measure FF allocation (BMC 7.11.020(C)) as it applies to added paving.
 
 ### Independent human approval
 
@@ -119,20 +119,20 @@ Tick a calculation only if its method is the right one for the claim, not only i
 
 ### Unresolved legal or accounting interpretation
 
-- [ ] How far "approximately" 45% allows the streets share to vary, and who decides.
-- [ ] Whether the percentages apply year by year, over the five-year program, or over the 14-year life of the tax.
-- [ ] Whether the "streets" share (repair, repaving and reconstruction) is the same as the CIP "street rehabilitation" line, or also covers street work budgeted under the safety or environmental shares.
-- [ ] How the unprogrammed $1,351,651 FY2027 revenue increase and unappropriated FY2026 collections may be used.
-- [ ] 7.11.020(D) releases the allocations at PCI 70 but cross-references 7.11.030(C), which concerns external funding; it is probably a drafting error, and its effect is not settled.
+- [ ] How much room the word "approximately" in "approximately 45%" allows, and who decides.
+- [ ] Whether the percentages must be met every year, over the five-year plan, or over the 14-year life of the tax.
+- [ ] Whether the ordinance's "streets" share means the same thing as the budget's "street rehabilitation" line, or also covers street work paid for from the safety or environmental shares.
+- [ ] How the City may use FY2027 revenue that came in above the adopted plan, and FY2026 collections not yet budgeted. Neither has been assigned in the documents BeTH holds.
+- [ ] The ordinance says the percentage rules end when the citywide average PCI reaches 70, but the sentence that says so points to the wrong subsection (7.11.020(D) refers to 7.11.030(C)). This is probably a drafting error, and its effect is not settled.
 - [ ] No City Attorney opinion or Council interpretation of these provisions is in BeTH's sources.
-- [ ] The ordinance is a scanned document; quotes are checked against BeTH's transcription, not the page images. The transcription of PDF pp.8 and 15 must be checked against the scans.
-- [ ] The adopted program total ($92,282,816) is BeTH's sum of the printed Table 1C category totals; the table prints no single grand total.
+- [ ] The ordinance is a scanned document. BeTH checked quotes against its own transcription, which a reviewer must compare with the scanned pages (PDF pages 8 and 15).
+- [ ] The five-year Measure FF total is BeTH's sum of the category totals in the City's table; the table prints no single grand total.
 
 ### Missing evidence
 
-- City Attorney opinion or Council interpretation of "approximately" and of the period over which the 7.11.020(C) shares apply
-- June 30, 2026 Measure FF balance (the first rate covered 18 months of collections) (would be in: FY2026 ACFR (expected early 2027))
-- Programming of the $1,351,651 FY2027 revenue increase adopted in Exhibit C (would be in: FY2027 Annual Appropriation Ordinance amendments)
+- City Attorney opinion or Council interpretation of "approximately" and of the period over which the 7.11.020(C) shares apply.
+- June 30, 2026 Measure FF balance (the first rate covered 18 months of collections). (would be in: FY2026 ACFR (expected early 2027))
+- Programming of the $1,351,651 FY2027 revenue increase adopted in Exhibit C. (would be in: FY2027 Annual Appropriation Ordinance amendments)
 
 ### Independent human approval
 
@@ -181,16 +181,16 @@ Tick a calculation only if its method is the right one for the claim, not only i
 
 ### Unresolved legal or accounting interpretation
 
-- [ ] Two different measures appear side by side and must not be read as one: the City's 41.93% is pavement AREA in the consultant's Poor and Failed categories (PCI 50 and below); BeTH's 88.5 miles is centerline LENGTH with PCI below 50.
-- [ ] Mileage is BeTH's sum of section lengths in feet; summing the report's rounded section miles gives 88.75. Whether 0.1-mile precision is appropriate for publication.
-- [ ] One uninspected Tevlin St section (PCI 0, no inspection date) is excluded, following the report's totals table; the report's category table counts it as Failed.
-- [ ] The condition data are from 2024 inspections, before FY2025-FY2026 paving.
-- [ ] Plan PCIs are the values printed at planning time; streets will be lower when treated. The 22.6 miles are sections currently below 50 that the plans list, not miles that will end above 50.
+- [ ] The City's 41.93% and BeTH's 88.5 miles measure different things. The City's figure is pavement area rated "poor" or "failed" (PCI 50 and below); BeTH's figure is street length below PCI 50.
+- [ ] BeTH measured length from each section's length in feet. Adding up the report's rounded mileage figures instead gives slightly more. Figures are shown to a tenth of a mile.
+- [ ] One short section of Tevlin Street was not inspected and has no score. BeTH leaves it out, as the report's totals do; the report's condition table counts it as failed.
+- [ ] The data are from 2024 inspections, before the City's FY2025-FY2026 paving.
+- [ ] Street scores in the City's plans are the scores when the plans were written; streets will be in worse condition by the time they are repaved. The 22.6 miles are streets now below 50 that the plans list for work.
 
 ### Missing evidence
 
-- Projected miles below PCI 50 under each funding scenario (would be in: StreetSaver output; the Measure FF annual report must include "the PCI of all streets" (BMC 7.11.050(B)(1)))
-- Condition after FY2025-FY2026 paving (would be in: next StreetSaver inspection update)
+- Projected miles below PCI 50 under each funding scenario. (would be in: StreetSaver output; the Measure FF annual report must include "the PCI of all streets" (BMC 7.11.050(B)(1)))
+- Condition after FY2025-FY2026 paving. (would be in: next StreetSaver inspection update)
 
 ### Independent human approval
 
@@ -240,14 +240,14 @@ Tick a calculation only if its method is the right one for the claim, not only i
 
 ### Unresolved legal or accounting interpretation
 
-- [ ] The origin of the "$139.3 million" figure in the question is not identified in BeTH's sources; the street plan says "over $139 million".
-- [ ] FY2029-FY2031 amounts are planned, not appropriated.
-- [ ] The Mayor's recommendations adopted with the budget (Exhibit D) add $2.9M of one-time SOSIP money in FY2027, including $2.5M for Oxford for All, outside the Exhibit B Streets table. Whether a resident's "streets figure" should include it.
-- [ ] Dais amendments of June 23, 2026 and the FY2027 Annual Appropriation Ordinance are not in BeTH's sources.
+- [ ] BeTH has not found the source of the figure in the question. The exact five-year amount rounds to $139.4 million, and the City's street plan describes it as "over $139 million".
+- [ ] The last three years, FY2029-FY2031, are plans, not approved spending.
+- [ ] Some one-time money added with the Mayor's budget recommendations, including funding for Oxford for All, is outside the Streets table. Whether it belongs in a "streets figure" is a judgment call.
+- [ ] Changes Council made at the June 23, 2026 meeting, and the FY2027 Annual Appropriation Ordinance, are not in BeTH's sources.
 
 ### Missing evidence
 
-- FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments)
+- FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments).
 
 ### Independent human approval
 

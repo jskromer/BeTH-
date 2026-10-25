@@ -306,7 +306,7 @@ function ask() {
   const list = (A && A.answers) || [];
   $('#ask-list').innerHTML = list.filter(a => a.verifier.passed).map(a =>
     '<div class="card"><h3>' + esc(a.question) + ' <span class="chip k-unknown" title="Automated structural checks passed. Not independently source-verified.">AUTOMATED CHECKS PASSED · NOT INDEPENDENTLY VERIFIED</span></h3>' +
-    '<p>' + esc(a.short_answer) + '</p>' +
+    '<p>' + esc(a.headline) + '</p>' +
     '<p class="cap">' + a.facts.length + ' cited facts · ' + a.calculations.length + ' calculations · ' +
     a.missing_evidence.length + ' items still missing · <a href="ask/' + esc(a.slug) + '.html">see the evidence</a></p></div>'
   ).join('') || '<p class="cap">No answers passed the automated checks.</p>';

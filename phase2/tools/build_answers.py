@@ -237,33 +237,46 @@ def answer_capital_to_streets():
              f'legal question, and BeTH states no amount.')
     interp = [{
         'claim_id': 'claim:fund-501-small',
-        'text': 'The fund 501 money Council could move to paving is small relative to the paving gap: the City estimates PCI '
-                f'70 needs about $8 million a year more, while fund 501\'s non-paving capital is ${a["fy2027"]["other"]:,} '
-                'a year, mostly repairs to existing City buildings.',
+        'text': 'For scale, the two figures measure different things. The City estimates that reaching an average PCI of 70 '
+                'would take about $8 million a year of additional spending beyond its modeled Plan + Measure FF scenario. '
+                f'Fund 501\'s non-paving capital is ${a["fy2027"]["other"]:,} a year of budgeted projects, mostly repairs to '
+                'existing City buildings, that could be freed only by deferring them; it is not available cash. Redirecting '
+                'it would not close the modeled gap.',
         'counterargument': 'This covers only fund 501 and Measure FF. Other capital funds, unspent carryovers, the General '
                            'Fund itself and delivery-cost savings are not assessed here and could change the total.',
         'confidence': 'Moderate'}]
     missing = [{'needed': m, 'status': 'not in record'} for m in sf['answer']['what_would_complete_it']]
     missing.append({'needed': 'A City Attorney opinion or Council interpretation of the Measure FF allocation '
-                              '(BMC 7.11.020(C)) as it applies to added paving', 'status': 'not in record'})
-    return {'slug': 'capital-to-streets', 'question': sf['answer']['question'],
+                              '(BMC 7.11.020(C)) as it applies to added paving.', 'status': 'not in record'})
+    headline = (f'Little can be shown to be available. Fund 501 could free at most ${gross:,} over two years, only by '
+                f'delaying every other project it pays for; that is a budget ceiling, not cash. Whether Measure FF could add '
+                f'more is an open legal question.')
+    key = ['The ${:,} is money budgeted for other projects, not money known to be unspent. Public records do not show how '
+           'much is already under contract or spent.'.format(gross),
+           'Freeing it means delaying roof, building, pool, sidewalk and other repairs. BeTH has not assessed what those '
+           'delays would cost.',
+           'Measure FF says "approximately" 45% for streets. Whether that allows more paving without a vote has not been '
+           'settled by the City Attorney or Council.']
+    return {'slug': 'capital-to-streets', 'question': sf['answer']['question'], 'headline': headline,
+            'key_uncertainties': key,
             'resolution': {'entities': ['fund:501', 'fund:166'], 'measures': ['appropriation', 'fund_balance'],
                            'period': {'fy_start': 2027, 'fy_end': 2028},
                            'scope': sf['answer']['scope']},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
             'scenario_assumptions': [], 'missing_evidence': missing,
             'open_interpretations': [
-                'Whether any non-paving fund 501 project could be deferred without legal, contractual, safety or condition '
-                'consequences. Not assessed.',
-                'Whether the FY2027-28 appropriations are still uncommitted: encumbrance and spending status is not public, '
-                'so the ceilings are appropriations, not available cash.',
-                'Whether the June 30, 2025 unencumbered assigned balance ($11,568,647) is still uncommitted; it is sixteen '
-                'months old and backs carried-forward projects.',
-                'The Measure FF allocation questions (see the Measure FF page): BeTH states no Measure FF amount.',
-                'The maintenance-of-effort floor is a BeTH estimate (base year and inflation index not stated in the '
-                'ordinance); it limits moving paving money out, not in.',
-                'Amendments made from the dais on June 23, 2026 are not in the packet; the FY2027 Annual Appropriation '
-                'Ordinance is the controlling record and is not in BeTH\'s sources.'],
+                'BeTH has not assessed what it would cost to delay the roof, building, pool, sidewalk and other repairs that '
+                'fund 501 pays for, including legal, contract and safety consequences.',
+                'Public records do not show how much of the FY2027-FY2028 budget for these projects is already under contract '
+                'or spent. The ceilings are budget amounts, not cash known to be available.',
+                f'The ${unenc:,} one-time ceiling is from June 30, 2025, sixteen months ago, and already backs projects carried '
+                'forward from earlier years. How much of it is still uncommitted is unknown.',
+                'For Measure FF, BeTH gives no dollar amount because the legal questions on the Measure FF page are unresolved.',
+                'Measure FF requires the City to keep spending a minimum amount of other money on street maintenance. BeTH '
+                'estimated that minimum because the City has not published its own calculation, and the ordinance does not '
+                'state the base year or inflation index. The minimum limits moving paving money out of streets, not into them.',
+                'Changes Council made at the June 23, 2026 meeting are not in the budget document BeTH used. The FY2027 Annual '
+                'Appropriation Ordinance, the controlling record, is not in BeTH\'s sources.'],
             'more': ['../../07-street-funding-legal-analysis.md', '../data/phase2.json']}
 
 
@@ -304,21 +317,37 @@ def answer_measure_ff_paving():
                                   'sources settles which applies.',
                'confidence': 'Moderate'}]
     missing = [{'needed': 'City Attorney opinion or Council interpretation of "approximately" and of the period over which '
-                          'the 7.11.020(C) shares apply', 'status': 'not in record'},
-               {'needed': 'June 30, 2026 Measure FF balance (the first rate covered 18 months of collections)',
+                          'the 7.11.020(C) shares apply.', 'status': 'not in record'},
+               {'needed': 'June 30, 2026 Measure FF balance (the first rate covered 18 months of collections).',
                 'would_be_in': 'FY2026 ACFR (expected early 2027)', 'status': 'not in record'},
-               {'needed': 'Programming of the $1,351,651 FY2027 revenue increase adopted in Exhibit C',
+               {'needed': 'Programming of the $1,351,651 FY2027 revenue increase adopted in Exhibit C.',
                 'would_be_in': 'FY2027 Annual Appropriation Ordinance amendments', 'status': 'not in record'}]
+    headline = (f'Unclear. Voters fixed Measure FF\'s split at about 45% for streets, and the adopted plan already puts '
+                f'{share:.1%} into street repaving. Whether more could go to paving without a vote is an open legal question.')
+    key = ['The ordinance says "approximately" 45% for streets. It does not say how much room that allows.',
+           'It does not say whether the split must be met every year or over the 14-year life of the tax.',
+           'No City Attorney opinion on these questions is in the public records BeTH holds.']
     return {'slug': 'measure-ff-paving', 'question': 'Could Measure FF money pay for more street paving?',
+            'headline': headline, 'key_uncertainties': key,
             'resolution': {'entities': ['fund:166'], 'measures': ['allocation', 'appropriation'],
                            'period': {'fy_start': 2027, 'fy_end': 2031}},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
             'scenario_assumptions': [], 'missing_evidence': missing,
-            'open_interpretations': ff['available_for_paving']['unresolved_questions'] + [
-                'The ordinance is a scanned document; quotes are checked against BeTH\'s transcription, not the page '
-                'images. The transcription of PDF pp.8 and 15 must be checked against the scans.',
-                'The adopted program total ($92,282,816) is BeTH\'s sum of the printed Table 1C category totals; the '
-                'table prints no single grand total.'],
+            'open_interpretations': [
+                'How much room the word "approximately" in "approximately 45%" allows, and who decides.',
+                'Whether the percentages must be met every year, over the five-year plan, or over the 14-year life of the tax.',
+                'Whether the ordinance\'s "streets" share means the same thing as the budget\'s "street rehabilitation" line, '
+                'or also covers street work paid for from the safety or environmental shares.',
+                'How the City may use FY2027 revenue that came in above the adopted plan, and FY2026 collections not yet '
+                'budgeted. Neither has been assigned in the documents BeTH holds.',
+                'The ordinance says the percentage rules end when the citywide average PCI reaches 70, but the sentence that '
+                'says so points to the wrong subsection (7.11.020(D) refers to 7.11.030(C)). This is probably a drafting '
+                'error, and its effect is not settled.',
+                'No City Attorney opinion or Council interpretation of these provisions is in BeTH\'s sources.',
+                'The ordinance is a scanned document. BeTH checked quotes against its own transcription, which a reviewer must '
+                'compare with the scanned pages (PDF pages 8 and 15).',
+                'The five-year Measure FF total is BeTH\'s sum of the category totals in the City\'s table; the table prints '
+                'no single grand total.'],
             'more': ['../../07-street-funding-legal-analysis.md']}
 
 
@@ -374,12 +403,19 @@ def answer_street_condition():
                                   'one point lower in 2038), so a lower failed-street count can mean a lower average; both '
                                   'measures are needed.',
                'confidence': 'High'}]
-    missing = [{'needed': 'Projected miles below PCI 50 under each funding scenario',
+    missing = [{'needed': 'Projected miles below PCI 50 under each funding scenario.',
                 'would_be_in': 'StreetSaver output; the Measure FF annual report must include "the PCI of all streets" (BMC 7.11.050(B)(1))',
                 'status': 'not published'},
-               {'needed': 'Condition after FY2025-FY2026 paving', 'would_be_in': 'next StreetSaver inspection update',
+               {'needed': 'Condition after FY2025-FY2026 paving.', 'would_be_in': 'next StreetSaver inspection update',
                 'status': 'not published'}]
+    headline = (f'Worse than the average suggests. The 2024 average was PCI 56 out of 100, but {m50:.1f} miles of streets, '
+                f'{share50:.0%} of the network, were below PCI 50.')
+    key = ['The data are from 2024 inspections, before the last two years of paving.',
+           'The City reports a related but different figure: 41.93% of pavement area in "poor" or "failed" condition. It '
+           'measures area rather than length, and includes streets at exactly PCI 50.',
+           'The City publishes no forecast of how many streets will still be below PCI 50 in future years.']
     return {'slug': 'street-condition', 'question': "How bad are Berkeley's streets, beyond the average PCI?",
+            'headline': headline, 'key_uncertainties': key,
             'resolution': {'entities': ['network:streets'], 'measures': ['pci_average', 'miles_below_50'],
                            'period': {'as_of': '2024 inspection'},
                            'scope': 'Mileage is computed from section lengths in feet and reported to 0.1 mile. One '
@@ -388,16 +424,16 @@ def answer_street_condition():
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
             'scenario_assumptions': [], 'missing_evidence': missing,
             'open_interpretations': [
-                'Two different measures appear side by side and must not be read as one: the City\'s 41.93% is pavement '
-                'AREA in the consultant\'s Poor and Failed categories (PCI 50 and below); BeTH\'s 88.5 miles is centerline '
-                'LENGTH with PCI below 50.',
-                'Mileage is BeTH\'s sum of section lengths in feet; summing the report\'s rounded section miles gives '
-                '88.75. Whether 0.1-mile precision is appropriate for publication.',
-                'One uninspected Tevlin St section (PCI 0, no inspection date) is excluded, following the report\'s '
-                'totals table; the report\'s category table counts it as Failed.',
-                'The condition data are from 2024 inspections, before FY2025-FY2026 paving.',
-                'Plan PCIs are the values printed at planning time; streets will be lower when treated. The 22.6 miles '
-                'are sections currently below 50 that the plans list, not miles that will end above 50.'],
+                f'The City\'s 41.93% and BeTH\'s {m50:.1f} miles measure different things. The City\'s figure is pavement area '
+                'rated "poor" or "failed" (PCI 50 and below); BeTH\'s figure is street length below PCI 50.',
+                'BeTH measured length from each section\'s length in feet. Adding up the report\'s rounded mileage figures '
+                'instead gives slightly more. Figures are shown to a tenth of a mile.',
+                'One short section of Tevlin Street was not inspected and has no score. BeTH leaves it out, as the report\'s '
+                'totals do; the report\'s condition table counts it as failed.',
+                'The data are from 2024 inspections, before the City\'s FY2025-FY2026 paving.',
+                'Street scores in the City\'s plans are the scores when the plans were written; streets will be in worse '
+                f'condition by the time they are repaved. The {both["miles_below_pci_50"]:.1f} miles are streets now below 50 '
+                'that the plans list for work.'],
             'more': ['../../06-pci60-financial-model.md']}
 
 
@@ -442,20 +478,25 @@ def answer_streets_139m():
                'exact amount rounds to $139.4 million.)',
                'counterargument': 'FY2029-FY2031 are planned amounts and may change; the two-year figure is the only one '
                                   'with appropriations behind it.', 'confidence': 'High'}]
-    missing = [{'needed': 'FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments)',
+    missing = [{'needed': 'FY2027 Annual Appropriation Ordinance (controlling record, incl. any June 23 amendments).',
                 'status': 'not in record'}]
+    headline = (f'It is a five-year figure, not a two-year one. The ${total:,} covers FY2027 through FY2031; the two-year '
+                f'amount is ${two:,}.')
+    key = ['The last three years, FY2029-FY2031, are plans, not approved spending, and may change.',
+           'Some one-time street-related money added with the Mayor\'s budget recommendations is outside this table.']
     return {'slug': 'streets-139m', 'question': 'What does the $139.3 million streets figure include?',
+            'headline': headline, 'key_uncertainties': key,
             'resolution': {'entities': ['cip:streets'], 'measures': ['appropriation'], 'period': {'fy_start': 2027, 'fy_end': 2031}},
             'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
             'scenario_assumptions': [], 'missing_evidence': missing,
             'open_interpretations': [
-                'The origin of the "$139.3 million" figure in the question is not identified in BeTH\'s sources; the '
-                'street plan says "over $139 million".',
-                'FY2029-FY2031 amounts are planned, not appropriated.',
-                'The Mayor\'s recommendations adopted with the budget (Exhibit D) add $2.9M of one-time SOSIP money in '
-                'FY2027, including $2.5M for Oxford for All, outside the Exhibit B Streets table. Whether a resident\'s '
-                '"streets figure" should include it.',
-                'Dais amendments of June 23, 2026 and the FY2027 Annual Appropriation Ordinance are not in BeTH\'s sources.'],
+                'BeTH has not found the source of the figure in the question. The exact five-year amount rounds to $139.4 '
+                'million, and the City\'s street plan describes it as "over $139 million".',
+                'The last three years, FY2029-FY2031, are plans, not approved spending.',
+                'Some one-time money added with the Mayor\'s budget recommendations, including funding for Oxford for All, '
+                'is outside the Streets table. Whether it belongs in a "streets figure" is a judgment call.',
+                'Changes Council made at the June 23, 2026 meeting, and the FY2027 Annual Appropriation Ordinance, are not in '
+                'BeTH\'s sources.'],
             'more': ['../data/phase2.json']}
 
 
@@ -581,7 +622,10 @@ def verify(ans):
     vals = [(f['value'], f['unit']) for f in ans['facts'] if isinstance(f['value'], (int, float))] + \
            [(c['result'], c['unit']) for c in ans['calculations'] if isinstance(c['result'], (int, float))]
     quoted = ' '.join(f['cite']['quote'] for f in ans['facts'] if f['cite'].get('quote'))
-    prose = ans['short_answer'] + ' ' + ' '.join(i['text'] + ' ' + i['counterargument'] for i in ans['interpretation'])
+    prose = ' '.join([ans['headline'], ans['short_answer'], *ans['key_uncertainties'], *ans['open_interpretations'],
+                      *(i['text'] + ' ' + i['counterargument'] for i in ans['interpretation'])])
+    if not ans['headline'] or not ans['key_uncertainties'] or not ans['open_interpretations']:
+        problems.append('presentation: headline, key uncertainties and open interpretations are required')
     for m in MONEY.finditer(prose):
         tok, n = m.group(1), float(m.group(1).replace(',', ''))
         if m.group(2):
@@ -630,6 +674,27 @@ def verify(ans):
 
 
 # ------------------------------------------------------------------ rendering
+# One template for every answer: question, a short conclusion, the main uncertainties, a plain status line, then
+# expandable details. Internal identifiers (fact ids, data-record paths, calculation references) carry class "tech"
+# and stay hidden unless the reader turns on "Show technical references"; they remain in the page for auditing.
+
+APPROVALS = ROOT / 'review' / 'human-approvals.json'
+SHORT_DOC = {'doc:acfr-fy2025': 'FY2025 audited financial report',
+             'doc:budget-adoption-2026-06-23': 'FY2027-28 adopted budget',
+             'doc:street-plan-2026-07-07': 'July 2026 street plan',
+             'doc:measure-ff-ordinance': 'Measure FF ordinance',
+             'doc:measure-ff-rate-fy2027': 'FY2027 Measure FF tax-rate report',
+             'doc:ptap25': '2024 pavement condition report'}
+BASIS = {'audited': 'Audited', 'adopted': 'Adopted budget or plan', 'law': 'Law', 'city_assessment': 'City assessment',
+         'city_model': 'City projection'}
+APPROVAL_TEXT = {'NOT APPROVED': 'Not yet approved by an independent reviewer',
+                 'APPROVED WITH CHANGES': 'Approved by an independent reviewer, with changes',
+                 'APPROVED': 'Approved by an independent reviewer'}
+
+
+def load_approvals():
+    return json.loads(APPROVALS.read_text())['answers']
+
 
 def fmt(f):
     v, u = f['value'], f['unit']
@@ -644,79 +709,148 @@ def fmt(f):
     return f'{v:,}'
 
 
-def link(cite):
-    d = DOCS[cite['doc_id']]
-    pg = f"#page={cite['pdf_page']}"
-    out = f'<a href="{html.escape(d["pdf"])}{pg}">{html.escape(d["title"])}</a>, {html.escape(cite["pages"])}'
-    if d.get('url'):
-        out += f' · <a href="{html.escape(d["url"])}">City copy</a>'
+def pdf_href(cite):
+    return f'{DOCS[cite["doc_id"]]["pdf"]}#page={cite["pdf_page"]}'
+
+
+def page_words(cite):
+    a, b = cite['pdf_page'], cite['pdf_page_last']
+    return f'page {a}' if a == b else f'pages {a}-{b}'
+
+
+def source_cell(f):
+    e, c = html.escape, f['cite']
+    d = DOCS[c['doc_id']]
+    out = f'<a href="{e(pdf_href(c))}">{e(SHORT_DOC[c["doc_id"]])}, PDF {e(page_words(c))}</a>'
+    if c['quote']:
+        out += f'<blockquote>&ldquo;{e(c["quote"])}&rdquo;</blockquote>'
+    out += (f'<div class="tech"><code>{e(f["fact_id"])}</code> · cited as: {e(c["pages"])} · {e(d["title"])}'
+            + (f' · <a href="{e(d["url"])}">City copy</a>' if d.get('url') else '')
+            + (f' · record <code>{e(f["record"])}</code>' if f.get('record') else '') + '</div>')
     return out
 
 
-def render(ans):
+PAGE_CSS = '''
+:root{--ink:#1c2230;--muted:#5a6272;--rule:#dfe3ea;--paper:#f7f6f2;--card:#fff;--acc:#24589e;--warn:#8a4b08;--warnbg:#fff6e5;--ok:#1f6b4a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 18px 64px}
+.proto{font-size:12px;color:var(--warn);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.crumb{font-size:14px;margin:6px 0 2px}.crumb a{color:var(--acc)}
+h1{font-size:1.65rem;line-height:1.25;margin:.25em 0 .6em}
+.answer{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--acc);border-radius:6px;padding:16px 18px}
+.answer .lbl,.know .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.answer p{margin:.3em 0 0;font-size:1.12rem}
+.know{background:var(--warnbg);border:1px solid #f0d9ae;border-radius:6px;padding:12px 18px;margin:14px 0}
+.know ul{margin:.4em 0 0;padding-left:1.2em}.know li{margin:.3em 0}
+.status{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;font-size:14px}
+.pill{border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:3px 10px}
+.pill.ok{color:var(--ok)}.pill.no{color:var(--warn)}
+details{background:var(--card);border:1px solid var(--rule);border-radius:6px;margin:10px 0}
+summary{cursor:pointer;padding:12px 16px;font-weight:600}
+summary span{font-weight:400;color:var(--muted);font-size:14px}
+details>div{padding:0 16px 14px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--rule)}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.basis{font-size:12px;color:var(--muted);white-space:nowrap}
+blockquote{margin:4px 0 0;padding-left:10px;border-left:3px solid var(--rule);color:var(--muted);font-size:14px}
+ul.plain{padding-left:1.2em}ul.plain li{margin:.45em 0}
+.calc b{font-variant-numeric:tabular-nums}.note,.cap{color:var(--muted);font-size:14px}
+.tech{display:none;font-size:12.5px;color:var(--muted);margin-top:3px}
+code{font-size:12px;background:#eef1f5;padding:0 3px;border-radius:3px}
+body:has(#tech:checked) .tech{display:block}
+.techtoggle{font-size:14px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;margin-top:18px}
+a{color:var(--acc)}
+'''
+
+
+def page(title, body):
+    return (f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>'
+            f'<style>{PAGE_CSS}</style></head><body><main>{body}</main>'
+            '<script>document.getElementById("tech").addEventListener("change",e=>{if(e.target.checked)'
+            'document.querySelectorAll("details").forEach(d=>d.open=true)})</script></body></html>\n')
+
+
+def render(ans, approval):
     e = html.escape
     v = ans['verifier']
-    rows = ''.join(f'<tr><td>{e(f["label"])}</td><td class="n">{fmt(f)}</td><td><span class="basis">{e(f["basis"])}</span>'
-                   f'<div class="note">{e(v["fact_support"].get(f["fact_id"], ""))}</div></td>'
-                   f'<td>{link(f["cite"])}{"<blockquote>" + e(f["cite"]["quote"]) + "</blockquote>" if f["cite"]["quote"] else ""}</td></tr>'
-                   for f in ans['facts'])
     if not v['passed'] or len(v['arithmetic']) != len(ans['calculations']):
         raise ValueError(f'{ans["slug"]}: refusing to render an answer that did not pass the automated checks')
+    labels = {f['fact_id']: f['label'] for f in ans['facts']} | {a['id']: a['label'] for a in v['arithmetic']}
     sym = {'sum': ' + ', 'sub': ' − ', 'div': ' ÷ '}
-    calcs = ''.join(f'<li><b>{e(a["label"])}</b>: '
-                    + e(sym[a['op']].join(fmt({'value': i['value'], 'unit': i['unit']}) for i in a['inputs']))
-                    + f' = <b>{e(fmt({"value": a["recomputed"], "unit": a["unit"]}))}</b>'
-                    f'<br><code>{e(sym[a["op"]].join(i["ref"] for i in a["inputs"]))}</code>'
-                    f'{" <span class=note>" + e(a["note"]) + "</span>" if a.get("note") else ""}</li>' for a in v['arithmetic'])
-    interp = ''.join(f'<li>{e(i["text"])} <span class="conf">({e(i["confidence"])})</span><br><span class="counter">Counterargument: '
-                     f'{e(i["counterargument"])}</span></li>' for i in ans['interpretation'])
-    miss = ''.join(f'<li>{e(m["needed"])}{" — would be in: " + e(m["would_be_in"]) if m.get("would_be_in") else ""}</li>'
-                   for m in ans['missing_evidence'])
-    badge = ('<span class="ok">Automated structural checks passed</span>: cited pages exist; every figure matches a data '
-             'record or is printed on its cited page; every quote appears on its cited page; arithmetic recomputes. '
-             '<span class="bad">Not independently source-verified</span>: no one has yet confirmed that each cited page '
-             'supports the claim made from it. The checks also do not establish that a legal interpretation is right, '
-             'that a calculation method is appropriate, or that answers agree with one another.' if v['passed']
-             else '<span class="bad">Automated checks failed: ' + e('; '.join(v['problems'])) + '</span>')
-    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{e(ans["question"])} — BeTH Ask (prototype)</title>
-<style>
-:root{{--ink:#1d2433;--muted:#5b6475;--rule:#d8dce3;--paper:#f6f7f9;--card:#fff;--ok:#1f6b4a;--bad:#a8322c;--acc:#2a5db0}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}}
-main{{max-width:960px;margin:0 auto;padding:24px 18px 64px}}h1{{font-size:1.6rem;margin:.2em 0}}h2{{font-size:1.05rem;margin:28px 0 8px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}}
-.proto{{font-size:12px;color:var(--bad);font-weight:600;letter-spacing:.05em;text-transform:uppercase}}
-.answer{{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--acc);padding:14px 18px;font-size:1.05rem}}
-.badge{{margin:10px 0;font-size:13px}}.ok{{color:var(--ok)}}.bad{{color:var(--bad)}}
-.tw{{overflow-x:auto;background:var(--card);border:1px solid var(--rule)}}table{{width:100%;border-collapse:collapse;font-size:14px}}
-td,th{{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top;text-align:left}}td.n{{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}}
-.basis{{font-size:11px;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--rule);padding:0 5px;color:var(--muted)}}
-blockquote{{margin:6px 0 0;padding-left:10px;border-left:3px solid var(--rule);color:var(--muted);font-style:italic}}
-ul{{background:var(--card);border:1px solid var(--rule);padding:12px 12px 12px 32px;margin:0}}li{{margin:6px 0}}.counter{{color:var(--muted);font-size:14px}}.note{{color:var(--muted);font-size:13px}}
-code{{background:#eef1f5;padding:0 4px;font-size:13px}}a{{color:var(--acc)}}
-</style></head><body><main>
-<div class="proto">Prototype — not published · Phase 2</div>
+    calcs = ''.join(
+        f'<li class="calc">{e(a["label"])}: '
+        + e(sym[a['op']].join(fmt({'value': i['value'], 'unit': i['unit']}) for i in a['inputs']))
+        + f' = <b>{e(fmt({"value": a["recomputed"], "unit": a["unit"]}))}</b>'
+        + (f'<div class="note">{e(a["note"])}</div>' if a.get('note') else '')
+        + '<div class="note">Using: ' + e('; '.join(labels.get(i['ref'], i['ref']) for i in a['inputs'])) + '.</div>'
+        + f'<div class="tech"><code>{e(sym[a["op"]].join(i["ref"] for i in a["inputs"]))}</code></div></li>'
+        for a in v['arithmetic'])
+    rows = ''.join(f'<tr><td>{e(f["label"])}<div class="basis">{e(BASIS.get(f["basis"], f["basis"]))}</div></td>'
+                   f'<td class="n">{fmt(f)}</td><td>{source_cell(f)}'
+                   f'<div class="tech">automated check: {e(v["fact_support"].get(f["fact_id"], ""))}</div></td></tr>'
+                   for f in ans['facts'])
+    reading = ''.join(f'<li>{e(i["text"])} <span class="note">(BeTH\'s confidence: {e(i["confidence"])})</span>'
+                      f'<div class="note"><b>The other side:</b> {e(i["counterargument"])}</div></li>'
+                      for i in ans['interpretation'])
+    miss = ''.join(f'<li>{e(m["needed"])}' + (f' <span class="note">Would be in: {e(m["would_be_in"])}.</span>'
+                                              if m.get('would_be_in') else '') + '</li>' for m in ans['missing_evidence'])
+    opens = ''.join(f'<li>{e(x)}</li>' for x in ans['open_interpretations'])
+    know = ''.join(f'<li>{e(x)}</li>' for x in ans['key_uncertainties'])
+    limits = ''.join(f'<li>{e(x[0].upper() + x[1:])}.</li>' for x in v['does_not_establish'])
+    st = approval['status']
+    scope = ans['resolution'].get('scope')
+    body = f'''<div class="proto">Prototype · not published</div>
+<div class="crumb"><a href="index.html">Ask BeTH</a> · Berkeley budget questions answered from City records</div>
 <h1>{e(ans["question"])}</h1>
-<div class="answer">{e(ans["short_answer"])}</div>
-<div class="badge">{badge}</div>
-<h2>From the record</h2><div class="tw"><table><thead><tr><th>Fact</th><th>Value</th><th>Basis</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div>
-<h2>Arithmetic</h2><ul>{calcs}</ul>
-<h2>BeTH's reading</h2><ul>{interp}</ul>
-<h2>What's missing to answer fully</h2><ul>{miss}</ul>
-<p class="note">Scope: {e(ans["resolution"].get("scope", ""))}</p>
-<p class="note"><a href="../budget-choices.html">Budget choices prototype</a> · other questions: <a href="index.html">Ask index</a></p>
-</main></body></html>'''
+<section class="answer"><div class="lbl">Short answer</div><p>{e(ans["headline"])}</p></section>
+<section class="know"><div class="lbl">What you should know</div><ul>{know}</ul></section>
+<div class="status"><span class="pill ok">Checked automatically against the cited records</span>
+<span class="pill no">Not yet confirmed by a person</span><span class="pill no">{e(APPROVAL_TEXT[st])}</span></div>
+<details><summary>The full answer and BeTH's reading</summary><div><p>{e(ans["short_answer"])}</p>
+<ul class="plain">{reading}</ul>{f'<p class="note">Scope: {e(scope)}</p>' if scope else ''}</div></details>
+<details><summary>Open questions <span>({len(ans["open_interpretations"])}) · what is unsettled or not yet known</span></summary>
+<div><ul class="plain">{opens}</ul></div></details>
+<details><summary>The numbers and where they come from <span>({len(ans["facts"])} sources)</span></summary>
+<div><p class="note">Each link opens the City document at the cited page.</p><div class="tw"><table>
+<thead><tr><th>What</th><th>Amount</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div></div></details>
+<details><summary>How the numbers are worked out <span>({len(v["arithmetic"])})</span></summary>
+<div><ul class="plain">{calcs}</ul><p class="note">These sums are recomputed by BeTH's checking program from the figures above.</p></div></details>
+<details><summary>What's still missing</summary><div><ul class="plain">{miss}</ul></div></details>
+<details><summary>How this page was checked</summary><div>
+<p>A program checked that every cited document and page exists, that every figure matches BeTH's records or appears on
+the cited page, that every quotation appears on its cited page, and that the arithmetic adds up. It also checked that
+every number in the text above traces to one of those figures.</p>
+<p><b>A program cannot confirm everything.</b> These checks do not establish:</p><ul class="plain">{limits}</ul>
+<p>Human review: <b>{e(v["independent_source_verification"]["status"].capitalize())}</b>. Independent approval:
+<b>{e(st.capitalize())}</b>.</p>
+<div class="tech">verifier: {e(v["kind"])} · problems: {len(v["problems"])} · approval record
+<code>phase2/review/human-approvals.json → answers.{e(ans["slug"])}</code> · answer data
+<code>phase2/docs/data/answers.json</code></div></div></details>
+<label class="techtoggle"><input type="checkbox" id="tech"> Show technical references</label>
+<p class="cap"><a href="index.html">More questions</a> · <a href="../budget-choices.html">Budget choices prototype</a></p>'''
+    return page(f'{ans["question"]} — Ask BeTH (prototype)', body)
 
 
-def render_index(answers):
-    items = ''.join(f'<li><a href="{a["slug"]}.html">{html.escape(a["question"])}</a> '
-                    f'<span class="{"ok" if a["verifier"]["passed"] else "bad"}">{"automated checks passed; not independently source-verified" if a["verifier"]["passed"] else "automated checks failed"}</span></li>'
-                    for a in answers)
-    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ask BeTH — prototype</title><style>body{{font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:760px;margin:0 auto;padding:24px 18px;color:#1d2433;background:#f6f7f9}}
-.ok{{color:#1f6b4a;font-size:13px}}.bad{{color:#a8322c;font-size:13px}}li{{margin:10px 0}}.proto{{font-size:12px;color:#a8322c;font-weight:600;text-transform:uppercase}}</style></head>
-<body><div class="proto">Prototype — not published · Phase 2</div><h1>Ask BeTH</h1>
-<p>Answers built only from cited City records. Automated checks confirm that each cited page exists, that figures match BeTH's data records or appear on the cited page, that quotes appear on the cited page, and that arithmetic recomputes. They do not confirm that a page supports the claim; that independent source verification has not yet been done. Anything the record cannot answer is listed, not guessed.</p>
-<ul>{items}</ul></body></html>'''
+def render_index(answers, approvals):
+    e = html.escape
+    cards = ''.join(f'<section class="answer" style="margin:12px 0"><h2 style="font-size:1.15rem;margin:0 0 4px">'
+                    f'<a href="{e(a["slug"])}.html">{e(a["question"])}</a></h2><p style="font-size:1rem">{e(a["headline"])}</p>'
+                    f'<div class="status"><span class="pill ok">Checked automatically</span>'
+                    f'<span class="pill no">Not yet confirmed by a person</span>'
+                    f'<span class="pill no">{e(APPROVAL_TEXT[approvals[a["slug"]]["status"]])}</span></div></section>'
+                    for a in answers if a['verifier']['passed'])
+    body = f'''<div class="proto">Prototype · not published</div>
+<h1>Ask BeTH</h1>
+<p>Plain answers to common questions about Berkeley's budget, built only from City records. Each answer links to the
+page of the document it relies on, says what is still uncertain, and lists what is missing. A program has checked the
+figures and citations; no person has yet confirmed each answer.</p>
+{cards}
+<label class="techtoggle"><input type="checkbox" id="tech"> Show technical references</label>
+<div class="tech">Answer data: <code>phase2/docs/data/answers.json</code> · approvals: <code>phase2/review/human-approvals.json</code></div>'''
+    return page('Ask BeTH — prototype', body)
 
 
 def main(argv):
@@ -731,10 +865,11 @@ def main(argv):
         OUT_JSON.write_text(json.dumps({'generated': '2026-10-23', 'status': 'PROTOTYPE - not published',
                                         'contract': 'PR #17 plans/phase2-grounded-qa-architecture.md section 5',
                                         'documents': DOCS, 'answers': answers}, indent=1) + '\n')
+        approvals = load_approvals()
         for a in answers:
             if a['verifier']['passed']:
-                (OUT_DIR / f"{a['slug']}.html").write_text(render(a))
-        (OUT_DIR / 'index.html').write_text(render_index(answers))
+                (OUT_DIR / f"{a['slug']}.html").write_text(render(a, approvals[a['slug']]))
+        (OUT_DIR / 'index.html').write_text(render_index(answers, approvals))
         print('wrote', OUT_JSON.relative_to(REPO), 'and', len([a for a in answers if a['verifier']['passed']]), 'Ask pages')
     return 1 if bad else 0
 
