@@ -29,8 +29,8 @@ CLASSIFY = {
     'Undistributed Engineering and Administration': ('overhead (design, engineering, administration)', 'not allocated to projects',
                                                      {'design': True, 'administration': True, 'construction': False}),
     'Street Reconstruction': ('capital', 'construction', {'design': False, 'administration': False, 'construction': True}),
-    'Overlay and Sealing': ('operating (maintenance)', 'paving maintenance', {'design': False, 'administration': False, 'construction': True}),
-    'Patching': ('operating (maintenance)', 'paving maintenance', {'design': False, 'administration': False, 'construction': True}),
+    'Overlay and Sealing': ('operating (maintenance)', 'overlay, sealing and patching (Controller maintenance categories)', {'design': False, 'administration': False, 'construction': True}),
+    'Patching': ('operating (maintenance)', 'overlay, sealing and patching (Controller maintenance categories)', {'design': False, 'administration': False, 'construction': True}),
     'Total Construction': ('capital', 'all street construction', {'design': False, 'administration': False, 'construction': True}),
     'Total Maintenance': ('operating (maintenance)', 'all street maintenance', {'design': False, 'administration': False, 'construction': True}),
     'Grand Total Expenditures': ('mixed', 'all street-purpose expenditures', {'design': True, 'administration': True, 'construction': True}),
@@ -169,7 +169,7 @@ def dataset(cite):
 
 
 def series(ds):
-    """Street Reconstruction and paving maintenance by year, for the chart and narrative."""
+    """Street Reconstruction plus the Controller's maintenance categories (Overlay and Sealing; Patching) by year, for the chart and narrative."""
     out = []
     for fy in sorted({r['fy'] for r in ds['rows']}):
         g = {r['category']: r['amount'] for r in ds['rows'] if r['fy'] == fy}

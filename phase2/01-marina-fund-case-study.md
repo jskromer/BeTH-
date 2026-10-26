@@ -132,6 +132,8 @@ Two consecutive contribution "holidays" (no workers' compensation charges billed
 
 A fund with negative net position, no revenue, and an unrecorded $5.5M claim against the waterfront is a solvency question in its own right, independent of the Marina.
 
+> **Cross-reference added 2026-10-26** (from the streets history investigation, `phase2/history/findings-2026-10-26-street-expenditures.md` §3, and `phase2/review/workers-compensation-authorizations-2026-10-26.md`). The $5.5M resolution was not the only 2023 call on this fund. Council authorized **$4,050,000** from Workers' Compensation on June 13, 2023 toward the Measure T1 funding gap, and **$5,500,000** on July 25, 2023 for the Marina docks: two separate actions, $9,550,000 in all. The FY2024 audit records **one** $5,500,000 transfer out, to the General Fund; `4,050,000` appears in neither the FY2024 nor the FY2025 ACFR. The evidence therefore does not establish which authorization the recorded transfer implemented. Four events must be kept apart in any reading: the authorization, the actual transfer, the project expenditure, and an outstanding loan; only the first two are in the record, and no loan is recorded. Nothing in this addendum changes an approved ledger entry.
+
 ---
 
 ## 2. Operating results: where the two records agree and differ

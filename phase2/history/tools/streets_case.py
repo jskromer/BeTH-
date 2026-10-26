@@ -524,7 +524,7 @@ def sync_chart(events, funding, miles, pci_mtc, pci_city_extra, design, actuals=
 
     rows = (f'<div class="srow drow"><div class="lab">Decisions (click)</div>{"".join(cell_d(y) for y in years)}</div>'
             f'<div class="srow"><div class="lab">Paving funding, $M (budgets and plans)</div>{"".join(cell_f(y) for y in years)}</div>'
-            + (f'<div class="srow"><div class="lab">Actual spending, $M: street reconstruction and paving maintenance '
+            + (f'<div class="srow"><div class="lab">Actual spending, $M: Street Reconstruction plus Overlay and Sealing and Patching, as the City reported them to the State Controller (not audited) '
                f'(City-reported)</div>{"".join(cell_a(y) for y in years)}</div>' if ap else '') +
             f'<div class="srow"><div class="lab">Centerline miles paved</div>{"".join(cell_m(y) for y in years)}</div>'
             f'<div class="srow"><div class="lab">Pavement condition (PCI), scale 45-62</div>{"".join(cell_p(y) for y in years)}</div>'

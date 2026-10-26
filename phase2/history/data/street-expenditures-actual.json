@@ -135,7 +135,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -160,7 +160,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -310,7 +310,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -335,7 +335,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -485,7 +485,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -510,7 +510,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -660,7 +660,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -685,7 +685,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -835,7 +835,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -860,7 +860,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1010,7 +1010,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1035,7 +1035,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1185,7 +1185,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1210,7 +1210,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1360,7 +1360,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1385,7 +1385,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1537,7 +1537,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1563,7 +1563,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1718,7 +1718,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1744,7 +1744,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1899,7 +1899,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -1925,7 +1925,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2080,7 +2080,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2106,7 +2106,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2261,7 +2261,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2287,7 +2287,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2442,7 +2442,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2468,7 +2468,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2623,7 +2623,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2649,7 +2649,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2804,7 +2804,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,
@@ -2830,7 +2830,7 @@
    },
    "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
    "capital_or_operating": "operating (maintenance)",
-   "scope": "paving maintenance",
+   "scope": "overlay, sealing and patching (Controller maintenance categories)",
    "includes": {
     "design": false,
     "administration": false,

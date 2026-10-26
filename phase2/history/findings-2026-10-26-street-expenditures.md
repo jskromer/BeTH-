@@ -1,4 +1,4 @@
-# Street paving: what was actually spent, FY2010–FY2025, and four reconciliations
+# Street-purpose spending as reported to the State Controller, FY2010–FY2025, and four reconciliations
 
 **Status: DRAFT · NOT APPROVED.** Pending independent source review. Nothing here changes an approved ledger, an Ask BeTH answer or an existing finding. Prepared 2026-10-26 on branch `phase2-capital-analysis`; not merged, not deployed.
 
@@ -102,7 +102,7 @@ No row counts a transfer, debt service, bond proceeds, an appropriation or an en
    - FY2014: no Street Reconstruction, but $1,597,699 of Patching and $2,442,557 of Signals.
    - FY2025: $2,331,787 of Overlay and Sealing.
 
-   Comparing one category year to year can mislead. The timeline shows Street Reconstruction and paving maintenance together.
+   Comparing one category year to year can mislead. The timeline shows Street Reconstruction and the Controller's maintenance categories (Overlay and Sealing; Patching) together.
 5. **Some rows' descriptions conflict with their class.** Some rows filed as Street Reconstruction are described as "Admin & Eng" or "Maintenance":
    - FY2024: $4,094,609. Fund 305 "Private Admin & Eng – PWTRCS2002", $3,818,649; fund 149, $275,960.
    - FY2025: $8,001,131. Fund 501 "Private Admin & Eng – PWENST2301", $7,371,484; fund 501 "Force Maintenance – PWENEN2001", $629,647.
