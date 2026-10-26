@@ -76,6 +76,26 @@ DOCS = {
                    'pdf': '../../sources/pavement-management-update-ptap25-2025-04.pdf',
                    'url': 'https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf',
                    'basis': 'city_assessment'},
+    'doc:acfr-fy2024': {'title': 'Annual Comprehensive Financial Report, FY ended June 30, 2024',
+                        'local': 'staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf',
+                        'pdf': '../../../staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf',
+                        'url': 'https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf',
+                        'basis': 'audited'},
+    'doc:bf-marina-2026-10-22': {'title': 'Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation)',
+                                 'local': 'phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf',
+                                 'pdf': '../../sources/bf-committee-marina-fund-update-2026-10-22.pdf',
+                                 'url': 'https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20Marina%20Fund%20Overview%20and%20Update.pdf',
+                                 'basis': 'staff_unaudited'},
+    'doc:prw-waterfront-2026-09-09': {'title': 'Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026 (supplemental packet)',
+                                      'local': 'phase2/sources/prw-commission-waterfront-overview-2026-09-09.pdf',
+                                      'pdf': '../../sources/prw-commission-waterfront-overview-2026-09-09.pdf',
+                                      'url': 'https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Suppl%20Communications%20-%20PRW%20Commission%20-%202026-09-09_0.pdf',
+                                      'basis': 'staff_unaudited'},
+    'doc:council-2023-07-25-wc-loan': {'title': '$5.5M Loan for D and E Dock Replacement Project, Council Item 19, July 25, 2023 (revised staff report)',
+                                       'local': 'phase2/sources/council-2023-07-25-item19-wc-loan.pdf',
+                                       'pdf': '../../sources/council-2023-07-25-item19-wc-loan.pdf',
+                                       'url': 'https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2019%205.5M%20Loan%20for%20D%20and%20E%20Dock%20Replacement%20-%20REV%20PRW.pdf',
+                                       'basis': 'authorization'},
 }
 
 INDEPENDENT_NOT_PERFORMED = {
@@ -502,7 +522,243 @@ def answer_streets_139m():
             'more': ['../data/phase2.json']}
 
 
-ANSWERS = (answer_capital_to_streets, answer_measure_ff_paving, answer_street_condition, answer_streets_139m)
+MARINA_DECK, PRW, ACFR24, LOAN = ('doc:bf-marina-2026-10-22', 'doc:prw-waterfront-2026-09-09', 'doc:acfr-fy2024',
+                                  'doc:council-2023-07-25-wc-loan')
+
+
+def answer_marina():
+    """Fund 608. Every figure is an audited ACFR line, a City staff figure (unaudited), a projection or an
+    authorization, and is labelled as such. The approved ledger data/funds/608.json is not read for any figure here."""
+    def deck(fid, value, page, label, quote=None, printed=True, basis='staff_unaudited', unit='usd'):
+        return fact(fid, value, basis, MARINA_DECK, f'slide {page}', label, page, quote=quote, unit=unit,
+                    printed=printed)
+    facts = [
+        # audited FY2024 and FY2025 (Statement of Revenues, Expenses and Changes in Net Position, Proprietary Funds)
+        fact('acfr24:608/operating-revenue', 6925076, 'audited', ACFR24, 'PDF p.87 (Marina Operations column)',
+             'FY2024 operating revenue', 87, printed=True),
+        fact('acfr24:608/operating-expenses', 7326968, 'audited', ACFR24, 'PDF p.87', 'FY2024 operating expenses', 87,
+             printed=True),
+        fact('acfr25:608/operating-revenue', 7594812, 'audited', ACFR, 'PDF p.85 (Marina Operations column)',
+             'FY2025 operating revenue', 85, printed=True),
+        fact('acfr25:608/marina-ops-revenue', 5329258, 'audited', ACFR, 'PDF p.85, line "Marina operations and maintenance"',
+             'FY2025 "Marina operations and maintenance" revenue (berths and other marina charges; the ACFR does not '
+             'break this line down)', 85, printed=True),
+        fact('acfr25:608/lease-revenue', 2265554, 'audited', ACFR, 'PDF p.85, line "Lease revenues"',
+             'FY2025 lease revenue (hotel, restaurants and other tenants)', 85, printed=True),
+        fact('acfr25:608/operating-expenses', 13573896, 'audited', ACFR, 'PDF p.85', 'FY2025 operating expenses', 85,
+             printed=True),
+        fact('acfr25:608/depreciation', 594125, 'audited', ACFR, 'PDF p.85', 'Of which depreciation (not cash)', 85,
+             printed=True),
+        fact('acfr25:608/state-capital-grant', 7689069, 'audited', ACFR, 'PDF p.85, nonoperating "Capital grants - State"',
+             'FY2025 State capital grant (recorded outside operating revenue)', 85, printed=True),
+        fact('acfr25:608/interfund-loan-receipt', 2477099, 'audited', ACFR, 'PDF p.87, cash flow "Receipt from interfund loans"',
+             'FY2025 loan received from another City fund (financing, not revenue)', 87, printed=True),
+        fact('acfr25:608/due-to-general-fund', 2477099, 'audited', ACFR, 'PDF p.113, Note 4.A Due To/From Other Funds',
+             'Owed by the Marina Fund to the General Fund, June 30, 2025', 113, printed=True),
+        fact('acfr25:interfund-note/repayment-expectation', None, 'audited', ACFR, 'PDF p.113, Note 4.A',
+             'What the audit says about such balances', 113, unit='text',
+             quote='expected to be repaid within the next fiscal year'),
+        fact('acfr25:608/dbw-loan-balance', 5415120, 'audited', ACFR, 'PDF p.133, Harbor Construction 5 note payable',
+             'State boating loan still owed, June 30, 2025', 133, printed=True),
+        # the $5.5 million authorization and what the FY2024 audit shows
+        fact('loan:2023-07-25/authorization', 5500000, 'authorization', LOAN, 'p.1', 'Council authorization: internal '
+             'loan from the Workers\' Compensation Fund for D and E dock replacement (July 25, 2023)', 1,
+             quote='authorizes an internal loan of $5.5M from the Workers Compensation Fund', printed='$5.5M'),
+        fact('acfr24:wc/transfer-out', 5500000, 'audited', ACFR24, 'PDF p.312, internal service funds statement, '
+             'Workers\' Compensation column', 'FY2024 transfer out of the Workers\' Compensation Fund', 312, printed=True),
+        fact('acfr24:transfer-note/to-general-fund', 5500000, 'audited', ACFR24, 'PDF p.115, Note 4.B Transfers',
+             'FY2024 transfer note: $5,500,000 to the General Fund, purpose "Worker\'s Compensation Fund"', 115,
+             printed=True),
+        # City staff, October 22, 2026 (unaudited FY2026 "actual"; FY2027-28 projected)
+        deck('bf26:fy2026/revenue', 8673012, 14, 'FY2026 revenue, staff "actual" (unaudited)'),
+        deck('bf26:fy2026/leases', 2164222, 14, 'FY2026 lease revenue (unaudited)'),
+        deck('bf26:fy2026/berthers', 3971848, 14, 'FY2026 berth revenue (unaudited)'),
+        deck('bf26:fy2026/other', 2536941, 14, 'FY2026 other revenue, including the General Fund subsidy (unaudited)'),
+        deck('bf26:fy2026/gf-subsidy', 1400000, 14, 'FY2026 General Fund subsidy included in revenue (as stated, '
+             'rounded)', quote='Includes $1.4M in General Fund subsidy to the Marina Fund.', printed='$1.4M'),
+        deck('bf26:fy2026/expenditures', 8395420, 14, 'FY2026 expenditures, staff "actual" (unaudited)'),
+        deck('bf26:fy2027/revenue', 6364360, 14, 'FY2027 revenue, projected', basis='projection'),
+        deck('bf26:fy2027/expenditures', 7388315, 14, 'FY2027 expenditures, projected', basis='projection'),
+        deck('bf26:fy2028/revenue', 6534799, 14, 'FY2028 revenue, projected', basis='projection'),
+        deck('bf26:fy2028/expenditures', 7580393, 14, 'FY2028 expenditures, projected', basis='projection'),
+        deck('bf26:fy2028/ending-deficit', 545586, 14, 'FY2028 ending fund balance, projected: a deficit of',
+             basis='projection'),
+        deck('bf26:support/fy2022-arpa', 1400000, 6, 'FY2022 federal pandemic aid (ARPA)',
+             quote='FY22: $1.4M in American Rescue Plan Act (ARPA) funds', printed='$1.4M'),
+        deck('bf26:support/fy2023-arpa', 1150000, 6, 'FY2023 federal pandemic aid (ARPA)',
+             quote='FY23: $1.15M in ARPA funds', printed='$1.15M'),
+        deck('bf26:support/fy2024-cost-shifts', 800000, 6, 'FY2024 cost shifts to other funds',
+             quote='FY24: $800k in cost shifts to other funds', printed='$800k'),
+        deck('bf26:support/fy2024-wc', 5500000, 6, 'FY2024 Workers\' Compensation Fund money "for capital projects" '
+             '(staff description)', quote='$5.5M from Workers Compensation Fund for capital projects', printed='$5.5M'),
+        deck('bf26:support/fy2025-indirect', 850000, 6, 'FY2025 reduced City overhead charges and Workers\' '
+             'Compensation holiday', quote='FY25: $850k in reduced indirect costs and Workers Compensation Fund holiday',
+             printed='$850k'),
+        deck('bf26:support/fy2026-gf', 1400000, 6, 'FY2026 General Fund transfer (as stated, rounded)',
+             quote='FY26: $1.4M in General Fund transfer', printed='$1.4M'),
+        deck('bf26:support/fy2026-indirect', 360000, 6, 'FY2026 reduced overhead charges and Workers\' Compensation '
+             'holiday', quote='$360k in reduced indirect costs and Workers Compensation holiday', printed='$360k'),
+        deck('bf26:parks-tax-shift', 1579000, 6, 'Waterfront park and landscape costs moved to the Parks Tax each year '
+             'from FY2026', quote='Shifts $1.579M in Waterfront park and landscape costs from Marina Fund to Parks Tax.',
+             printed='$1.579M'),
+        deck('bf26:original-design', None, 3, 'What the fund was set up to do (1964)', unit='text', printed=False,
+             quote='Revenue from slips and hotel/restaurant leases was expected to cover the costs of debt service, '
+                   'maintenance and operations of the entire Waterfront.'),
+        deck('bf26:no-general-fund', None, 12, 'General Fund support in FY2027-28', unit='text', printed=False,
+             quote='No General Fund available to support the Marina Fund'),
+        deck('bf26:doubletree/paid-sept-2025', 964680, 9, 'DoubleTree payment that cleared an earlier balance, '
+             'September 2025', quote='Hotel paid their full balance in Sept 2025: $964,680.'),
+        deck('bf26:doubletree/no-rent-since', None, 9, 'DoubleTree payments since', unit='text', printed=False,
+             quote='No rent has been paid to the City since Dec 2025.'),
+        deck('bf26:doubletree/owed-oct-2026', 1000000, 9, 'DoubleTree rent owed, October 2026 (approximate)',
+             quote='Hotel currently owes approx. $1M (10 months of base rent, 4 quarters of % rent).', printed='$1M'),
+        deck('bf26:doubletree/budgeted', 840000, 9, 'DoubleTree rent counted on in the FY2027-28 budget',
+             quote='Marina Fund FY27-28 budget included $840k in projected revenue (approx. 30% of required rent)',
+             printed='$840k'),
+        fact('prw26:doubletree/owed-sept-2026', 890000, 'staff_unaudited', PRW, 'p.11', 'DoubleTree rent owed, '
+             'September 2026 (approximate)', 11, quote='currently owes approx. $890k', printed='$890k'),
+        fact('prw26:doubletree/assumption-35', None, 'staff_unaudited', PRW, 'p.15', 'Budget assumption stated elsewhere '
+             'in the September packet', 15, unit='text',
+             quote='FY27 and FY28 Marina Fund budget assumed Doubletree would pay at least 35% of rent.'),
+        deck('bf26:needed', 1200000, 15, 'Staff estimate of cuts, cost shifts or new revenue needed through FY2028',
+             quote='Results in $1.2M+ needed in reductions, cost shifts or new revenue', printed='$1.2M',
+             basis='projection'),
+        deck('bf26:unfunded-capital', 163344000, 8, 'Unfunded waterfront infrastructure needs (City estimate)',
+             basis='city_assessment'),
+    ]
+    v = {f['fact_id']: f['value'] for f in facts}
+    own26 = v['bf26:fy2026/revenue'] - v['bf26:fy2026/gf-subsidy']
+    calcs = [
+        calc('c1', 'FY2024 operating loss (audited): operating expenses minus operating revenue', 'sub',
+             ['acfr24:608/operating-expenses', 'acfr24:608/operating-revenue'],
+             v['acfr24:608/operating-expenses'] - v['acfr24:608/operating-revenue']),
+        calc('c2', 'FY2025 operating loss (audited): operating expenses minus operating revenue', 'sub',
+             ['acfr25:608/operating-expenses', 'acfr25:608/operating-revenue'],
+             v['acfr25:608/operating-expenses'] - v['acfr25:608/operating-revenue'],
+             note='Includes $594,125 of depreciation, which is not cash, and an unknown share of dock work paid for by '
+                  'the State capital grant recorded below the operating line.'),
+        calc('c3', 'FY2026 revenue without the General Fund subsidy (unaudited)', 'sub',
+             ['bf26:fy2026/revenue', 'bf26:fy2026/gf-subsidy'], own26,
+             note='Approximate: the subsidy is stated only as "$1.4M".'),
+        calc('c4', 'FY2026 shortfall before the General Fund subsidy (unaudited)', 'sub',
+             ['bf26:fy2026/expenditures', 'c3'], v['bf26:fy2026/expenditures'] - own26),
+        calc('c5', 'FY2027 projected operating loss', 'sub', ['bf26:fy2027/expenditures', 'bf26:fy2027/revenue'],
+             v['bf26:fy2027/expenditures'] - v['bf26:fy2027/revenue']),
+        calc('c6', 'FY2028 projected operating loss', 'sub', ['bf26:fy2028/expenditures', 'bf26:fy2028/revenue'],
+             v['bf26:fy2028/expenditures'] - v['bf26:fy2028/revenue']),
+    ]
+    loss24, loss25, gap26 = calcs[0]['result'], calcs[1]['result'], calcs[3]['result']
+    parts = [
+        {'q': 'Does the Marina cover its costs?',
+         'a': f'Not consistently. In audited FY2024, operating expenses exceeded operating revenue by ${loss24:,}. Audited '
+              f'FY2025 shows a much larger operating loss, ${loss25:,}, in a year the fund also received a ${v["acfr25:608/state-capital-grant"]:,} '
+              f'State capital grant for dock work; the statements do not show how much of the year\'s expense that work '
+              f'accounts for. Staff\'s unaudited FY2026 figures balance only because revenue includes about $1.4 million '
+              f'of General Fund subsidy; without it the shortfall is about ${gap26:,}.'},
+        {'q': 'If not, who pays the difference?',
+         'a': 'Other City money, in several different forms: federal pandemic aid in FY2022 ($1.4 million) and FY2023 '
+              '($1.15 million); cost shifts to other funds ($800,000 in FY2024); reduced City overhead charges and '
+              'Workers\' Compensation "holidays" ($850,000 in FY2025, $360,000 in FY2026); a General Fund transfer of '
+              f'about $1.4 million in FY2026; and a ${v["acfr25:608/due-to-general-fund"]:,} loan from the General Fund, '
+              'still owed at June 30, 2025. Since FY2026 the Parks Tax pays $1.579 million a year of waterfront park '
+              'and landscape costs. Staff told the committee there is no General Fund money for FY2027-FY2028.'},
+        {'q': 'What would it take to make the waterfront financially sustainable?',
+         'a': 'Staff estimate at least $1.2 million of cuts, cost shifts or new revenue just to reach FY2028 with a small '
+              f'reserve, before any capital work. Separately, the waterfront has ${v["bf26:unfunded-capital"]:,} of '
+              'unfunded infrastructure needs, and the City\'s update names no funding source for them. When the fund '
+              'was set up in 1964, berth fees and hotel and restaurant leases were expected to pay for the whole '
+              'waterfront; how much of its public parks, paths and services boaters and tenants should carry, and how '
+              'much the wider city should, is a policy choice, not an accounting fact.'},
+    ]
+    headline = (f'No. Audited FY2024 operating costs exceeded revenue by ${loss24:,}, staff\'s unaudited FY2026 figures '
+                f'balance only with about $1.4 million of General Fund support, and staff project a deficit by FY2028.')
+    short = (f'The Marina Fund (fund 608) is meant to pay for the whole waterfront from berth fees and leases. In audited '
+             f'FY2024 it had an operating loss of ${loss24:,}; in audited FY2025, ${loss25:,}, a year distorted by '
+             f'State-funded dock work. Staff\'s unaudited FY2026 figures show revenue of ${v["bf26:fy2026/revenue"]:,} '
+             f'against expenditures of ${v["bf26:fy2026/expenditures"]:,}, but the revenue includes about $1.4 million '
+             f'of General Fund subsidy. Staff project losses of ${calcs[4]["result"]:,} in FY2027 and '
+             f'${calcs[5]["result"]:,} in FY2028, leaving the fund ${v["bf26:fy2028/ending-deficit"]:,} in deficit. '
+             f'The DoubleTree hotel owed about $1 million in rent in October 2026.')
+    interp = [
+        {'claim_id': 'claim:marina-not-self-supporting',
+         'text': 'At current fees, leases and service levels the Marina Fund does not pay for the waterfront it runs; '
+                 'one-time help and support from other City funds have covered the gap since FY2022.',
+         'counterargument': 'Much of the waterfront is public parkland, paths, restrooms, security and recreation used by '
+                            'everyone, not only boaters. A 2023 State review, cited by the Berkeley Decision Project and '
+                            'not yet verified by BeTH, estimated that boating revenue roughly covered boating costs. On '
+                            'that view the question is how the public parts of the waterfront should be funded, not '
+                            'whether boaters underpay.',
+         'confidence': 'Moderate'},
+        {'claim_id': 'claim:doubletree-largest-near-term-risk',
+         'text': 'Unpaid DoubleTree rent is the largest near-term risk to the fund: it is the largest single tenant and the '
+                 'budget counts on partial payment that has not arrived.',
+         'counterargument': 'The rent is still owed, not written off, and the hotel cleared an earlier balance in '
+                            'September 2025. If it pays again, the projected deficit shrinks; if it does not, the loss is '
+                            'larger than the budget assumed.',
+         'confidence': 'Moderate'},
+    ]
+    key = ['FY2026 numbers are City staff figures, not audited. The audited report for FY2026 is not yet published.',
+           'The DoubleTree hotel owed about $1 million in rent in October 2026. That is rent still owed, not written off; '
+           'whether it will be paid is unknown.',
+           'The $5.5 million Workers\' Compensation loan cannot be traced to the Marina Fund in the audited statements: '
+           'the FY2024 audit shows the money going to the General Fund.']
+    opens = [
+        'The FY2025 operating loss includes depreciation, which is not cash, and an unknown amount of dock and pile work '
+        'paid for by the State capital grant. FY2025 is therefore not a clean measure of day-to-day operations.',
+        f'The ${v["acfr25:608/due-to-general-fund"]:,} owed to the General Fund at June 30, 2025 was "expected to be '
+        'repaid within the next fiscal year". Whether it was repaid, and whether it is connected to the $5.5 million '
+        'authorization, is not shown in any document BeTH holds.',
+        'The FY2024 audit shows $5,500,000 leaving the Workers\' Compensation Fund and going to the General Fund. The '
+        'Marina Fund recorded no transfer in and owed nothing to another fund at June 30, 2024. The audit\'s transfer '
+        'note lists the row under the Equipment Replacement Fund while its fund statement shows the money leaving '
+        'Workers\' Compensation, an inconsistency inside the audit report itself. Whether waterfront hotel tax has been '
+        'used to repay the loan, as the 2023 authorization intended, is not shown.',
+        'City documents give different amounts for General Fund support in FY2026. BeTH has not reconciled them to one '
+        'adopted figure.',
+        f'The audited FY2025 line "Marina operations and maintenance" (${v["acfr25:608/marina-ops-revenue"]:,}) and staff\'s '
+        f'FY2026 "Berthers" (${v["bf26:fy2026/berthers"]:,}) measure different things; what the audited line includes '
+        'beyond berth rent is not stated.',
+        'Staff\'s FY2026 revenue components add to one dollar less than the stated total. The difference is in the City\'s '
+        'table and is recorded, not corrected.',
+        'DoubleTree arrears: about $890,000 in September 2026 (nine months of base rent, three quarters of percentage rent) '
+        'and about $1 million in October 2026 (ten months, four quarters). Staff counted on $840,000 of DoubleTree rent '
+        'over FY2027-FY2028, described as approximately 30% of rent; the September packet also describes the assumption '
+        'as at least 35%. Whether the City has recorded an allowance for doubtful accounts or started lease enforcement '
+        'is not established.',
+        'Costs caused by boating and costs of public waterfront services are not separated in any audited statement. The '
+        'only estimate BeTH knows of is a 2023 State report, cited by a third party and not yet obtained by BeTH.',
+        'Staff expenditure totals and audited operating expenses are measured differently (for example, staff figures are '
+        'on a budget basis and audited figures include depreciation), so audited and staff years are not directly '
+        'comparable.',
+        f'The State boating loan balance (${v["acfr25:608/dbw-loan-balance"]:,} at June 30, 2025) is still being repaid '
+        'from the Marina Fund.',
+    ]
+    missing = [{'needed': 'The FY2026 audited financial report, including whether the General Fund loan was repaid.',
+                'status': 'not yet published'},
+               {'needed': 'What the audited "Marina operations and maintenance" revenue line includes.', 'status': 'not in record'},
+               {'needed': 'Waterfront hotel-tax collections and any repayments to the Workers\' Compensation Fund since FY2025.',
+                'status': 'not in record'},
+               {'needed': 'The DoubleTree receivable as booked, any allowance for doubtful accounts, and lease-enforcement status.',
+                'status': 'not in record'},
+               {'needed': 'The June 2023 State Division of Boating and Waterways report (Attachment 4 to the July 25, 2023 '
+                          'Council item), the primary source for any boating and non-boating cost split.',
+                'status': 'not in record'},
+               {'needed': 'A funding plan for the waterfront\'s unfunded infrastructure needs.', 'status': 'not published'}]
+    return {'slug': 'marina', 'question': 'Is Berkeley\'s Marina paying for itself?', 'headline': headline,
+            'key_uncertainties': key, 'parts': parts,
+            'resolution': {'entities': ['fund:608'], 'measures': ['operating_result', 'support', 'arrears', 'capital_need'],
+                           'period': {'fy_start': 2024, 'fy_end': 2028},
+                           'scope': 'Marina Fund (fund 608). Audited figures are from the FY2024 and FY2025 ACFRs; FY2026 '
+                                    'figures are City staff figures (unaudited); FY2027-FY2028 are staff projections. '
+                                    'BeTH\'s approved ledger for fund 608 is not changed; suspected ledger issues are '
+                                    'flagged separately in phase2/flags/.'},
+            'short_answer': short, 'facts': facts, 'calculations': calcs, 'interpretation': interp,
+            'scenario_assumptions': [], 'missing_evidence': missing, 'open_interpretations': opens,
+            'more': ['../../01-marina-fund-case-study.md']}
+
+
+ANSWERS = (answer_capital_to_streets, answer_measure_ff_paving, answer_street_condition, answer_streets_139m,
+           answer_marina)
 
 
 # ------------------------------------------------------------------ verifier
@@ -625,6 +881,7 @@ def verify(ans):
            [(c['result'], c['unit']) for c in ans['calculations'] if isinstance(c['result'], (int, float))]
     quoted = ' '.join(f['cite']['quote'] for f in ans['facts'] if f['cite'].get('quote'))
     prose = ' '.join([ans['headline'], ans['short_answer'], *ans['key_uncertainties'], *ans['open_interpretations'],
+                      *(p['q'] + ' ' + p['a'] for p in ans.get('parts', [])),
                       *(i['text'] + ' ' + i['counterargument'] for i in ans['interpretation'])])
     if not ans['headline'] or not ans['key_uncertainties'] or not ans['open_interpretations']:
         problems.append('presentation: headline, key uncertainties and open interpretations are required')
@@ -686,8 +943,14 @@ SHORT_DOC = {'doc:acfr-fy2025': 'FY2025 audited financial report',
              'doc:street-plan-2026-07-07': 'July 2026 street plan',
              'doc:measure-ff-ordinance': 'Measure FF ordinance',
              'doc:measure-ff-rate-fy2027': 'FY2027 Measure FF tax-rate report',
-             'doc:ptap25': '2024 pavement condition report'}
+             'doc:ptap25': '2024 pavement condition report',
+             'doc:acfr-fy2024': 'FY2024 audited financial report',
+             'doc:bf-marina-2026-10-22': 'October 2026 Marina Fund update',
+             'doc:prw-waterfront-2026-09-09': 'September 2026 Waterfront overview',
+             'doc:council-2023-07-25-wc-loan': 'July 2023 Council loan item'}
 BASIS = {'audited': 'Audited', 'adopted': 'Adopted budget or plan', 'law': 'Law', 'city_assessment': 'City assessment',
+         'staff_unaudited': 'City staff figure, unaudited', 'projection': 'City staff projection',
+         'authorization': 'Council authorization',
          'city_model': 'City projection'}
 APPROVAL_TEXT = {'NOT APPROVED': 'Not yet approved by an independent reviewer',
                  'APPROVED WITH CHANGES': 'Approved by an independent reviewer, with changes',
@@ -763,18 +1026,20 @@ def render(ans, approval):
     scope = ans['resolution'].get('scope')
     pres = design.PRESENTATION[ans['slug']]
     fig, credit, photo = design.photo_figure(ans['slug'], '../')
+    parts_html = ('<div class="parts">' + ''.join(f'<section class="part"><h3>{e(p["q"])}</h3><p>{e(p["a"])}</p></section>'
+                                                  for p in ans['parts']) + '</div>') if ans.get('parts') else ''
     body = f'''<section class="hero">{fig}<div class="wrap hero-in"><span class="kicker">{e(pres["kicker"])}</span>
 <h1>{e(ans["question"])}</h1></div></section>
 <main class="narrow lead">
 <section class="answer"><div class="lbl">Short answer</div><p>{e(ans["headline"])}</p></section>
 {design.highlights_html(ans, fmt)}
-<section class="know"><div class="lbl">What you should know</div><ul>{know}</ul></section>
+{parts_html}<section class="know"><div class="lbl">What you should know</div><ul>{know}</ul></section>
 <div class="status"><span class="pill ok">Checked automatically against the cited records</span>
 <span class="pill no">Not yet confirmed by a person</span><span class="pill no">{e(APPROVAL_TEXT[st])}</span></div>
 {design.photo_caption(photo, credit, "photo-credits.html")}
 <h2 class="sec">The picture in numbers</h2>
 <p class="sec-sub">Drawn from the same City records as the answer. Every value is labelled; the full figures and sources are below.</p>
-{chart_for(ans["slug"])}
+{chart_for(ans["slug"], ans)}
 <h2 class="sec">The details</h2>
 <p class="sec-sub">Open any section to see the full answer, the open questions, every source and how the numbers were checked.</p>
 <details><summary>The full answer and BeTH's reading</summary><div><p>{e(ans["short_answer"])}</p>
@@ -803,7 +1068,9 @@ every number in the text above traces to one of those figures.</p>
     return design.shell(f'{ans["question"]} — Ask BeTH (prototype)', body, '../', ans['headline'])
 
 
-def chart_for(slug):
+def chart_for(slug, ans=None):
+    if slug == 'marina':
+        return design.chart_marina(ans)
     if slug == 'street-condition':
         return design.chart_street_condition(load('network-condition.json'))
     if slug == 'measure-ff-paving':
@@ -837,7 +1104,7 @@ def render_index(answers, approvals):
 <h1>Ask BeTH</h1><p class="sub">Where does Berkeley’s money go? What are we getting for it?</p></div></section>
 <main class="wrap">
 <div class="narrow" style="padding-inline:0">{design.photo_caption(photo, credit, "photo-credits.html")}</div>
-<h2 class="sec">Four questions residents ask</h2>
+<h2 class="sec">Questions residents ask</h2>
 <p class="sec-sub">Each answer starts short, shows the key numbers, says plainly what is uncertain, and links every figure to
 the page of the City document it comes from.</p>
 <div class="cards">{cards}</div>

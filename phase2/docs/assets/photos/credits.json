@@ -107,6 +107,28 @@
    "commons_credit_field": "Own work",
    "credit_line": "Photo: Andreas Praefcke, CC BY 3.0, via Wikimedia Commons",
    "not_evidence": true
+  },
+  "marina": {
+   "file": "assets/photos/berkeley-marina-berths-2011.jpg",
+   "width": 1600,
+   "height": 1200,
+   "sha256": "b8259057381182ea71430e94e57fb87ac90d6aa4ba90b73fd9428f8fa872add5",
+   "alt": "Sailboats and a white motor yacht berthed at the Berkeley Marina on a calm day",
+   "description": "Berths at the Berkeley Marina with sailboat masts reflected in calm water",
+   "location": "Berkeley Marina, 201 University Avenue, Berkeley (photographer's description)",
+   "date": "2011-05-25",
+   "date_source": "2011-05-25 22:29:50",
+   "commons_title": "File:Berkeley Marina - DSC08804.JPG",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Berkeley_Marina_-_DSC08804.JPG",
+   "source_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Berkeley_Marina_-_DSC08804.JPG/1920px-Berkeley_Marina_-_DSC08804.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "author": "Daderot",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Berkeley_Marina_-_DSC08804.JPG",
+   "attribution_required": false,
+   "commons_credit_field": "Self-photographed",
+   "credit_line": "Photo: Daderot, Public domain, via Wikimedia Commons",
+   "not_evidence": true,
+   "license_basis": "PD-self: the author released the photograph into the public domain, as stated on the Commons file page"
   }
  }
 }

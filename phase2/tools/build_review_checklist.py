@@ -60,6 +60,8 @@ def main():
                 f'{"passed" if v["structural_checks_passed"] else "FAILED"} · Human source verification: '
                 f'**{v["independent_source_verification"]["status"]}** · Approval: **{ap["status"]}**', '',
                 '### Central claim', '', f'> {a["short_answer"]}', '']
+        for part in a.get('parts', []):
+            out += [f'**{part["q"]}** {part["a"]}', '']
         for i in a['interpretation']:
             out += [f'BeTH\'s reading ({i["confidence"]}): {i["text"]}', '', f'Counterargument: {i["counterargument"]}', '']
         out += ['### Calculations', '']

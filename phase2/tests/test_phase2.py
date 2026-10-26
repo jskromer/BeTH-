@@ -350,7 +350,7 @@ class ReviewChecklist(unittest.TestCase):
                 self.assertIn(x, md)
             for fct in a['facts']:
                 self.assertIn(fct['label'].replace('|', '\\|'), md)
-        self.assertEqual(md.count('### Independent human approval'), 4)
+        self.assertEqual(md.count('### Independent human approval'), len(ba.ANSWERS))
 
 
 class CapitalInventory(unittest.TestCase):
@@ -472,7 +472,7 @@ class Design(unittest.TestCase):
         h = (ROOT / 'docs' / 'ask' / 'index.html').read_text()
         self.assertIn('<h1>Ask BeTH</h1>', h)
         self.assertIn('Where does Berkeley’s money go? What are we getting for it?', h)
-        self.assertEqual(h.count('class="card"'), 4)
+        self.assertEqual(h.count('class="card"'), 5)
 
     def test_highlights_are_verified_values(self):
         for slug, (a, h) in self.pages.items():
@@ -511,3 +511,82 @@ class Design(unittest.TestCase):
         for f in (ROOT / 'docs' / 'ask').glob('*.html'):
             h = f.read_text()
             self.assertNotRegex(h, r'<(script|link|img)[^>]+(src|href)="https?://', f.name)
+
+
+class Marina(unittest.TestCase):
+    """The Marina question: accounting distinctions the answer must keep, and the protected ledger left alone."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.a = ba.verify(ba.answer_marina())
+        cls.facts = {f['fact_id']: f for f in cls.a['facts']}
+        cls.text = ' '.join([cls.a['headline'], cls.a['short_answer'], *cls.a['key_uncertainties'],
+                             *cls.a['open_interpretations'], *(p['a'] for p in cls.a['parts']),
+                             *(i['text'] + ' ' + i['counterargument'] for i in cls.a['interpretation'])])
+
+    def test_passes_structural_checks(self):
+        self.assertEqual(self.a['verifier']['problems'], [])
+
+    def test_three_public_questions(self):
+        self.assertEqual([p['q'] for p in self.a['parts']],
+                         ['Does the Marina cover its costs?', 'If not, who pays the difference?',
+                          'What would it take to make the waterfront financially sustainable?'])
+
+    def test_not_approved(self):
+        ap = ba.load_approvals()
+        self.assertEqual(ap['marina']['status'], 'NOT APPROVED')
+        self.assertEqual(self.a['verifier']['independent_source_verification']['status'], 'NOT PERFORMED')
+
+    def test_evidence_classes_labelled(self):
+        b = {fid: f['basis'] for fid, f in self.facts.items()}
+        self.assertEqual(b['acfr25:608/operating-revenue'], 'audited')
+        self.assertEqual(b['bf26:fy2026/revenue'], 'staff_unaudited')
+        self.assertEqual(b['bf26:fy2027/revenue'], 'projection')
+        self.assertEqual(b['loan:2023-07-25/authorization'], 'authorization')
+        for fid, f in self.facts.items():
+            if fid.startswith('bf26:fy2026/'):
+                self.assertNotEqual(f['basis'], 'audited', fid)
+
+    def test_loan_authorization_not_revenue(self):
+        cal = {c['id']: c for c in self.a['calculations']}
+        for c in cal.values():
+            self.assertNotIn('loan:2023-07-25/authorization', c['inputs'])
+            self.assertNotIn('acfr25:608/interfund-loan-receipt', c['inputs'])
+        self.assertIn('financing, not revenue', self.facts['acfr25:608/interfund-loan-receipt']['label'])
+        self.assertIn('going to the General Fund', ' '.join(self.a['key_uncertainties']))
+
+    def test_unpaid_rent_not_written_off(self):
+        self.assertNotRegex(self.text, r'(?i)(was|were|been|is) written off')
+        self.assertIn('not written off', self.text)
+        self.assertEqual(self.facts['bf26:doubletree/owed-oct-2026']['value'], 1000000)
+        self.assertEqual(self.facts['bf26:doubletree/paid-sept-2025']['value'], 964680)
+        self.assertEqual(self.facts['bf26:doubletree/budgeted']['value'], 840000)
+
+    def test_not_all_on_boaters(self):
+        t = self.text
+        self.assertIn('policy choice', t)
+        self.assertIn('not only boaters', t)
+
+    def test_discrepancies_preserved(self):
+        t = ' '.join(self.a['open_interpretations'])
+        for k in ('Equipment Replacement Fund', 'one dollar less', 'different amounts for General Fund support',
+                  'measure different things', 'at least 35%'):
+            self.assertIn(k, t)
+        v = {fid: f['value'] for fid, f in self.facts.items()}
+        self.assertEqual(v['bf26:fy2026/leases'] + v['bf26:fy2026/berthers'] + v['bf26:fy2026/other'],
+                         v['bf26:fy2026/revenue'] - 1)
+
+    def test_highlights_and_chart(self):
+        h = ba.render(self.a, {'status': 'NOT APPROVED'})
+        self.assertEqual(h.count('class="stat"'), 3)
+        self.assertIn('Marina Fund revenue and expenses by year', h)
+        self.assertIn('Who has covered the gap', h)
+        self.assertIn('not added up', h)
+        self.assertIn('data-photo="marina"', h)
+
+    def test_protected_ledger_untouched(self):
+        import subprocess
+        out = subprocess.run(['git', 'diff', '--name-only', 'HEAD', '--', 'data/funds', 'data/curation'],
+                             capture_output=True, text=True, cwd=ROOT.parent).stdout
+        self.assertEqual(out.strip(), '')
+        self.assertTrue((ROOT / 'flags' / '2026-10-25-marina-608-ledger-review.md').exists())

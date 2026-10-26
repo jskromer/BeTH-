@@ -43,6 +43,34 @@
    "pdf": "../../sources/pavement-management-update-ptap25-2025-04.pdf",
    "url": "https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf",
    "basis": "city_assessment"
+  },
+  "doc:acfr-fy2024": {
+   "title": "Annual Comprehensive Financial Report, FY ended June 30, 2024",
+   "local": "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf",
+   "pdf": "../../../staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/annual-comprehensive-financial-report-fy2024.pdf",
+   "basis": "audited"
+  },
+  "doc:bf-marina-2026-10-22": {
+   "title": "Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation)",
+   "local": "phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf",
+   "pdf": "../../sources/bf-committee-marina-fund-update-2026-10-22.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20Marina%20Fund%20Overview%20and%20Update.pdf",
+   "basis": "staff_unaudited"
+  },
+  "doc:prw-waterfront-2026-09-09": {
+   "title": "Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026 (supplemental packet)",
+   "local": "phase2/sources/prw-commission-waterfront-overview-2026-09-09.pdf",
+   "pdf": "../../sources/prw-commission-waterfront-overview-2026-09-09.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Suppl%20Communications%20-%20PRW%20Commission%20-%202026-09-09_0.pdf",
+   "basis": "staff_unaudited"
+  },
+  "doc:council-2023-07-25-wc-loan": {
+   "title": "$5.5M Loan for D and E Dock Replacement Project, Council Item 19, July 25, 2023 (revised staff report)",
+   "local": "phase2/sources/council-2023-07-25-item19-wc-loan.pdf",
+   "pdf": "../../sources/council-2023-07-25-item19-wc-loan.pdf",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2023-07-25%20Item%2019%205.5M%20Loan%20for%20D%20and%20E%20Dock%20Replacement%20-%20REV%20PRW.pdf",
+   "basis": "authorization"
   }
  },
  "answers": [
@@ -1296,6 +1324,1088 @@
        }
       ],
       "recomputed": 58211462
+     }
+    ],
+    "does_not_establish": [
+     "that the cited page supports the claim made from it (human source verification)",
+     "that any legal interpretation is correct",
+     "that the calculation method is the appropriate one for the question",
+     "that answers are consistent with one another"
+    ],
+    "independent_source_verification": {
+     "status": "NOT PERFORMED",
+     "meaning": "No person has yet read each cited page and confirmed that it supports the claim made from it. The automated checks establish that citations exist and that numbers and quotes appear where cited; a valid page, or a matching number on it, does not by itself establish support."
+    }
+   }
+  },
+  {
+   "slug": "marina",
+   "question": "Is Berkeley's Marina paying for itself?",
+   "headline": "No. Audited FY2024 operating costs exceeded revenue by $401,892, staff's unaudited FY2026 figures balance only with about $1.4 million of General Fund support, and staff project a deficit by FY2028.",
+   "key_uncertainties": [
+    "FY2026 numbers are City staff figures, not audited. The audited report for FY2026 is not yet published.",
+    "The DoubleTree hotel owed about $1 million in rent in October 2026. That is rent still owed, not written off; whether it will be paid is unknown.",
+    "The $5.5 million Workers' Compensation loan cannot be traced to the Marina Fund in the audited statements: the FY2024 audit shows the money going to the General Fund."
+   ],
+   "parts": [
+    {
+     "q": "Does the Marina cover its costs?",
+     "a": "Not consistently. In audited FY2024, operating expenses exceeded operating revenue by $401,892. Audited FY2025 shows a much larger operating loss, $5,979,084, in a year the fund also received a $7,689,069 State capital grant for dock work; the statements do not show how much of the year's expense that work accounts for. Staff's unaudited FY2026 figures balance only because revenue includes about $1.4 million of General Fund subsidy; without it the shortfall is about $1,122,408."
+    },
+    {
+     "q": "If not, who pays the difference?",
+     "a": "Other City money, in several different forms: federal pandemic aid in FY2022 ($1.4 million) and FY2023 ($1.15 million); cost shifts to other funds ($800,000 in FY2024); reduced City overhead charges and Workers' Compensation \"holidays\" ($850,000 in FY2025, $360,000 in FY2026); a General Fund transfer of about $1.4 million in FY2026; and a $2,477,099 loan from the General Fund, still owed at June 30, 2025. Since FY2026 the Parks Tax pays $1.579 million a year of waterfront park and landscape costs. Staff told the committee there is no General Fund money for FY2027-FY2028."
+    },
+    {
+     "q": "What would it take to make the waterfront financially sustainable?",
+     "a": "Staff estimate at least $1.2 million of cuts, cost shifts or new revenue just to reach FY2028 with a small reserve, before any capital work. Separately, the waterfront has $163,344,000 of unfunded infrastructure needs, and the City's update names no funding source for them. When the fund was set up in 1964, berth fees and hotel and restaurant leases were expected to pay for the whole waterfront; how much of its public parks, paths and services boaters and tenants should carry, and how much the wider city should, is a policy choice, not an accounting fact."
+    }
+   ],
+   "resolution": {
+    "entities": [
+     "fund:608"
+    ],
+    "measures": [
+     "operating_result",
+     "support",
+     "arrears",
+     "capital_need"
+    ],
+    "period": {
+     "fy_start": 2024,
+     "fy_end": 2028
+    },
+    "scope": "Marina Fund (fund 608). Audited figures are from the FY2024 and FY2025 ACFRs; FY2026 figures are City staff figures (unaudited); FY2027-FY2028 are staff projections. BeTH's approved ledger for fund 608 is not changed; suspected ledger issues are flagged separately in phase2/flags/."
+   },
+   "short_answer": "The Marina Fund (fund 608) is meant to pay for the whole waterfront from berth fees and leases. In audited FY2024 it had an operating loss of $401,892; in audited FY2025, $5,979,084, a year distorted by State-funded dock work. Staff's unaudited FY2026 figures show revenue of $8,673,012 against expenditures of $8,395,420, but the revenue includes about $1.4 million of General Fund subsidy. Staff project losses of $1,023,955 in FY2027 and $1,045,594 in FY2028, leaving the fund $545,586 in deficit. The DoubleTree hotel owed about $1 million in rent in October 2026.",
+   "facts": [
+    {
+     "fact_id": "acfr24:608/operating-revenue",
+     "label": "FY2024 operating revenue",
+     "value": 6925076,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2024",
+      "pages": "PDF p.87 (Marina Operations column)",
+      "quote": null,
+      "pdf_page": 87,
+      "pdf_page_last": 87
+     }
+    },
+    {
+     "fact_id": "acfr24:608/operating-expenses",
+     "label": "FY2024 operating expenses",
+     "value": 7326968,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2024",
+      "pages": "PDF p.87",
+      "quote": null,
+      "pdf_page": 87,
+      "pdf_page_last": 87
+     }
+    },
+    {
+     "fact_id": "acfr25:608/operating-revenue",
+     "label": "FY2025 operating revenue",
+     "value": 7594812,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85 (Marina Operations column)",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/marina-ops-revenue",
+     "label": "FY2025 \"Marina operations and maintenance\" revenue (berths and other marina charges; the ACFR does not break this line down)",
+     "value": 5329258,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85, line \"Marina operations and maintenance\"",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/lease-revenue",
+     "label": "FY2025 lease revenue (hotel, restaurants and other tenants)",
+     "value": 2265554,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85, line \"Lease revenues\"",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/operating-expenses",
+     "label": "FY2025 operating expenses",
+     "value": 13573896,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/depreciation",
+     "label": "Of which depreciation (not cash)",
+     "value": 594125,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/state-capital-grant",
+     "label": "FY2025 State capital grant (recorded outside operating revenue)",
+     "value": 7689069,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.85, nonoperating \"Capital grants - State\"",
+      "quote": null,
+      "pdf_page": 85,
+      "pdf_page_last": 85
+     }
+    },
+    {
+     "fact_id": "acfr25:608/interfund-loan-receipt",
+     "label": "FY2025 loan received from another City fund (financing, not revenue)",
+     "value": 2477099,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.87, cash flow \"Receipt from interfund loans\"",
+      "quote": null,
+      "pdf_page": 87,
+      "pdf_page_last": 87
+     }
+    },
+    {
+     "fact_id": "acfr25:608/due-to-general-fund",
+     "label": "Owed by the Marina Fund to the General Fund, June 30, 2025",
+     "value": 2477099,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.113, Note 4.A Due To/From Other Funds",
+      "quote": null,
+      "pdf_page": 113,
+      "pdf_page_last": 113
+     }
+    },
+    {
+     "fact_id": "acfr25:interfund-note/repayment-expectation",
+     "label": "What the audit says about such balances",
+     "value": null,
+     "unit": "text",
+     "basis": "audited",
+     "record": null,
+     "printed": false,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.113, Note 4.A",
+      "quote": "expected to be repaid within the next fiscal year",
+      "pdf_page": 113,
+      "pdf_page_last": 113
+     }
+    },
+    {
+     "fact_id": "acfr25:608/dbw-loan-balance",
+     "label": "State boating loan still owed, June 30, 2025",
+     "value": 5415120,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2025",
+      "pages": "PDF p.133, Harbor Construction 5 note payable",
+      "quote": null,
+      "pdf_page": 133,
+      "pdf_page_last": 133
+     }
+    },
+    {
+     "fact_id": "loan:2023-07-25/authorization",
+     "label": "Council authorization: internal loan from the Workers' Compensation Fund for D and E dock replacement (July 25, 2023)",
+     "value": 5500000,
+     "unit": "usd",
+     "basis": "authorization",
+     "record": null,
+     "printed": "$5.5M",
+     "cite": {
+      "doc_id": "doc:council-2023-07-25-wc-loan",
+      "pages": "p.1",
+      "quote": "authorizes an internal loan of $5.5M from the Workers Compensation Fund",
+      "pdf_page": 1,
+      "pdf_page_last": 1
+     }
+    },
+    {
+     "fact_id": "acfr24:wc/transfer-out",
+     "label": "FY2024 transfer out of the Workers' Compensation Fund",
+     "value": 5500000,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2024",
+      "pages": "PDF p.312, internal service funds statement, Workers' Compensation column",
+      "quote": null,
+      "pdf_page": 312,
+      "pdf_page_last": 312
+     }
+    },
+    {
+     "fact_id": "acfr24:transfer-note/to-general-fund",
+     "label": "FY2024 transfer note: $5,500,000 to the General Fund, purpose \"Worker's Compensation Fund\"",
+     "value": 5500000,
+     "unit": "usd",
+     "basis": "audited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:acfr-fy2024",
+      "pages": "PDF p.115, Note 4.B Transfers",
+      "quote": null,
+      "pdf_page": 115,
+      "pdf_page_last": 115
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/revenue",
+     "label": "FY2026 revenue, staff \"actual\" (unaudited)",
+     "value": 8673012,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/leases",
+     "label": "FY2026 lease revenue (unaudited)",
+     "value": 2164222,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/berthers",
+     "label": "FY2026 berth revenue (unaudited)",
+     "value": 3971848,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/other",
+     "label": "FY2026 other revenue, including the General Fund subsidy (unaudited)",
+     "value": 2536941,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/gf-subsidy",
+     "label": "FY2026 General Fund subsidy included in revenue (as stated, rounded)",
+     "value": 1400000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1.4M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": "Includes $1.4M in General Fund subsidy to the Marina Fund.",
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2026/expenditures",
+     "label": "FY2026 expenditures, staff \"actual\" (unaudited)",
+     "value": 8395420,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2027/revenue",
+     "label": "FY2027 revenue, projected",
+     "value": 6364360,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2027/expenditures",
+     "label": "FY2027 expenditures, projected",
+     "value": 7388315,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2028/revenue",
+     "label": "FY2028 revenue, projected",
+     "value": 6534799,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2028/expenditures",
+     "label": "FY2028 expenditures, projected",
+     "value": 7580393,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:fy2028/ending-deficit",
+     "label": "FY2028 ending fund balance, projected: a deficit of",
+     "value": 545586,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 14",
+      "quote": null,
+      "pdf_page": 14,
+      "pdf_page_last": 14
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2022-arpa",
+     "label": "FY2022 federal pandemic aid (ARPA)",
+     "value": 1400000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1.4M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "FY22: $1.4M in American Rescue Plan Act (ARPA) funds",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2023-arpa",
+     "label": "FY2023 federal pandemic aid (ARPA)",
+     "value": 1150000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1.15M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "FY23: $1.15M in ARPA funds",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2024-cost-shifts",
+     "label": "FY2024 cost shifts to other funds",
+     "value": 800000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$800k",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "FY24: $800k in cost shifts to other funds",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2024-wc",
+     "label": "FY2024 Workers' Compensation Fund money \"for capital projects\" (staff description)",
+     "value": 5500000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$5.5M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "$5.5M from Workers Compensation Fund for capital projects",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2025-indirect",
+     "label": "FY2025 reduced City overhead charges and Workers' Compensation holiday",
+     "value": 850000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$850k",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "FY25: $850k in reduced indirect costs and Workers Compensation Fund holiday",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2026-gf",
+     "label": "FY2026 General Fund transfer (as stated, rounded)",
+     "value": 1400000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1.4M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "FY26: $1.4M in General Fund transfer",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:support/fy2026-indirect",
+     "label": "FY2026 reduced overhead charges and Workers' Compensation holiday",
+     "value": 360000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$360k",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "$360k in reduced indirect costs and Workers Compensation holiday",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:parks-tax-shift",
+     "label": "Waterfront park and landscape costs moved to the Parks Tax each year from FY2026",
+     "value": 1579000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1.579M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 6",
+      "quote": "Shifts $1.579M in Waterfront park and landscape costs from Marina Fund to Parks Tax.",
+      "pdf_page": 6,
+      "pdf_page_last": 6
+     }
+    },
+    {
+     "fact_id": "bf26:original-design",
+     "label": "What the fund was set up to do (1964)",
+     "value": null,
+     "unit": "text",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": false,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 3",
+      "quote": "Revenue from slips and hotel/restaurant leases was expected to cover the costs of debt service, maintenance and operations of the entire Waterfront.",
+      "pdf_page": 3,
+      "pdf_page_last": 3
+     }
+    },
+    {
+     "fact_id": "bf26:no-general-fund",
+     "label": "General Fund support in FY2027-28",
+     "value": null,
+     "unit": "text",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": false,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 12",
+      "quote": "No General Fund available to support the Marina Fund",
+      "pdf_page": 12,
+      "pdf_page_last": 12
+     }
+    },
+    {
+     "fact_id": "bf26:doubletree/paid-sept-2025",
+     "label": "DoubleTree payment that cleared an earlier balance, September 2025",
+     "value": 964680,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 9",
+      "quote": "Hotel paid their full balance in Sept 2025: $964,680.",
+      "pdf_page": 9,
+      "pdf_page_last": 9
+     }
+    },
+    {
+     "fact_id": "bf26:doubletree/no-rent-since",
+     "label": "DoubleTree payments since",
+     "value": null,
+     "unit": "text",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": false,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 9",
+      "quote": "No rent has been paid to the City since Dec 2025.",
+      "pdf_page": 9,
+      "pdf_page_last": 9
+     }
+    },
+    {
+     "fact_id": "bf26:doubletree/owed-oct-2026",
+     "label": "DoubleTree rent owed, October 2026 (approximate)",
+     "value": 1000000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$1M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 9",
+      "quote": "Hotel currently owes approx. $1M (10 months of base rent, 4 quarters of % rent).",
+      "pdf_page": 9,
+      "pdf_page_last": 9
+     }
+    },
+    {
+     "fact_id": "bf26:doubletree/budgeted",
+     "label": "DoubleTree rent counted on in the FY2027-28 budget",
+     "value": 840000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$840k",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 9",
+      "quote": "Marina Fund FY27-28 budget included $840k in projected revenue (approx. 30% of required rent)",
+      "pdf_page": 9,
+      "pdf_page_last": 9
+     }
+    },
+    {
+     "fact_id": "prw26:doubletree/owed-sept-2026",
+     "label": "DoubleTree rent owed, September 2026 (approximate)",
+     "value": 890000,
+     "unit": "usd",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": "$890k",
+     "cite": {
+      "doc_id": "doc:prw-waterfront-2026-09-09",
+      "pages": "p.11",
+      "quote": "currently owes approx. $890k",
+      "pdf_page": 11,
+      "pdf_page_last": 11
+     }
+    },
+    {
+     "fact_id": "prw26:doubletree/assumption-35",
+     "label": "Budget assumption stated elsewhere in the September packet",
+     "value": null,
+     "unit": "text",
+     "basis": "staff_unaudited",
+     "record": null,
+     "printed": false,
+     "cite": {
+      "doc_id": "doc:prw-waterfront-2026-09-09",
+      "pages": "p.15",
+      "quote": "FY27 and FY28 Marina Fund budget assumed Doubletree would pay at least 35% of rent.",
+      "pdf_page": 15,
+      "pdf_page_last": 15
+     }
+    },
+    {
+     "fact_id": "bf26:needed",
+     "label": "Staff estimate of cuts, cost shifts or new revenue needed through FY2028",
+     "value": 1200000,
+     "unit": "usd",
+     "basis": "projection",
+     "record": null,
+     "printed": "$1.2M",
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 15",
+      "quote": "Results in $1.2M+ needed in reductions, cost shifts or new revenue",
+      "pdf_page": 15,
+      "pdf_page_last": 15
+     }
+    },
+    {
+     "fact_id": "bf26:unfunded-capital",
+     "label": "Unfunded waterfront infrastructure needs (City estimate)",
+     "value": 163344000,
+     "unit": "usd",
+     "basis": "city_assessment",
+     "record": null,
+     "printed": true,
+     "cite": {
+      "doc_id": "doc:bf-marina-2026-10-22",
+      "pages": "slide 8",
+      "quote": null,
+      "pdf_page": 8,
+      "pdf_page_last": 8
+     }
+    }
+   ],
+   "calculations": [
+    {
+     "id": "c1",
+     "label": "FY2024 operating loss (audited): operating expenses minus operating revenue",
+     "op": "sub",
+     "expression": "acfr24:608/operating-expenses - acfr24:608/operating-revenue",
+     "inputs": [
+      "acfr24:608/operating-expenses",
+      "acfr24:608/operating-revenue"
+     ],
+     "result": 401892,
+     "unit": "usd",
+     "digits": null,
+     "note": null
+    },
+    {
+     "id": "c2",
+     "label": "FY2025 operating loss (audited): operating expenses minus operating revenue",
+     "op": "sub",
+     "expression": "acfr25:608/operating-expenses - acfr25:608/operating-revenue",
+     "inputs": [
+      "acfr25:608/operating-expenses",
+      "acfr25:608/operating-revenue"
+     ],
+     "result": 5979084,
+     "unit": "usd",
+     "digits": null,
+     "note": "Includes $594,125 of depreciation, which is not cash, and an unknown share of dock work paid for by the State capital grant recorded below the operating line."
+    },
+    {
+     "id": "c3",
+     "label": "FY2026 revenue without the General Fund subsidy (unaudited)",
+     "op": "sub",
+     "expression": "bf26:fy2026/revenue - bf26:fy2026/gf-subsidy",
+     "inputs": [
+      "bf26:fy2026/revenue",
+      "bf26:fy2026/gf-subsidy"
+     ],
+     "result": 7273012,
+     "unit": "usd",
+     "digits": null,
+     "note": "Approximate: the subsidy is stated only as \"$1.4M\"."
+    },
+    {
+     "id": "c4",
+     "label": "FY2026 shortfall before the General Fund subsidy (unaudited)",
+     "op": "sub",
+     "expression": "bf26:fy2026/expenditures - c3",
+     "inputs": [
+      "bf26:fy2026/expenditures",
+      "c3"
+     ],
+     "result": 1122408,
+     "unit": "usd",
+     "digits": null,
+     "note": null
+    },
+    {
+     "id": "c5",
+     "label": "FY2027 projected operating loss",
+     "op": "sub",
+     "expression": "bf26:fy2027/expenditures - bf26:fy2027/revenue",
+     "inputs": [
+      "bf26:fy2027/expenditures",
+      "bf26:fy2027/revenue"
+     ],
+     "result": 1023955,
+     "unit": "usd",
+     "digits": null,
+     "note": null
+    },
+    {
+     "id": "c6",
+     "label": "FY2028 projected operating loss",
+     "op": "sub",
+     "expression": "bf26:fy2028/expenditures - bf26:fy2028/revenue",
+     "inputs": [
+      "bf26:fy2028/expenditures",
+      "bf26:fy2028/revenue"
+     ],
+     "result": 1045594,
+     "unit": "usd",
+     "digits": null,
+     "note": null
+    }
+   ],
+   "interpretation": [
+    {
+     "claim_id": "claim:marina-not-self-supporting",
+     "text": "At current fees, leases and service levels the Marina Fund does not pay for the waterfront it runs; one-time help and support from other City funds have covered the gap since FY2022.",
+     "counterargument": "Much of the waterfront is public parkland, paths, restrooms, security and recreation used by everyone, not only boaters. A 2023 State review, cited by the Berkeley Decision Project and not yet verified by BeTH, estimated that boating revenue roughly covered boating costs. On that view the question is how the public parts of the waterfront should be funded, not whether boaters underpay.",
+     "confidence": "Moderate"
+    },
+    {
+     "claim_id": "claim:doubletree-largest-near-term-risk",
+     "text": "Unpaid DoubleTree rent is the largest near-term risk to the fund: it is the largest single tenant and the budget counts on partial payment that has not arrived.",
+     "counterargument": "The rent is still owed, not written off, and the hotel cleared an earlier balance in September 2025. If it pays again, the projected deficit shrinks; if it does not, the loss is larger than the budget assumed.",
+     "confidence": "Moderate"
+    }
+   ],
+   "scenario_assumptions": [],
+   "missing_evidence": [
+    {
+     "needed": "The FY2026 audited financial report, including whether the General Fund loan was repaid.",
+     "status": "not yet published"
+    },
+    {
+     "needed": "What the audited \"Marina operations and maintenance\" revenue line includes.",
+     "status": "not in record"
+    },
+    {
+     "needed": "Waterfront hotel-tax collections and any repayments to the Workers' Compensation Fund since FY2025.",
+     "status": "not in record"
+    },
+    {
+     "needed": "The DoubleTree receivable as booked, any allowance for doubtful accounts, and lease-enforcement status.",
+     "status": "not in record"
+    },
+    {
+     "needed": "The June 2023 State Division of Boating and Waterways report (Attachment 4 to the July 25, 2023 Council item), the primary source for any boating and non-boating cost split.",
+     "status": "not in record"
+    },
+    {
+     "needed": "A funding plan for the waterfront's unfunded infrastructure needs.",
+     "status": "not published"
+    }
+   ],
+   "open_interpretations": [
+    "The FY2025 operating loss includes depreciation, which is not cash, and an unknown amount of dock and pile work paid for by the State capital grant. FY2025 is therefore not a clean measure of day-to-day operations.",
+    "The $2,477,099 owed to the General Fund at June 30, 2025 was \"expected to be repaid within the next fiscal year\". Whether it was repaid, and whether it is connected to the $5.5 million authorization, is not shown in any document BeTH holds.",
+    "The FY2024 audit shows $5,500,000 leaving the Workers' Compensation Fund and going to the General Fund. The Marina Fund recorded no transfer in and owed nothing to another fund at June 30, 2024. The audit's transfer note lists the row under the Equipment Replacement Fund while its fund statement shows the money leaving Workers' Compensation, an inconsistency inside the audit report itself. Whether waterfront hotel tax has been used to repay the loan, as the 2023 authorization intended, is not shown.",
+    "City documents give different amounts for General Fund support in FY2026. BeTH has not reconciled them to one adopted figure.",
+    "The audited FY2025 line \"Marina operations and maintenance\" ($5,329,258) and staff's FY2026 \"Berthers\" ($3,971,848) measure different things; what the audited line includes beyond berth rent is not stated.",
+    "Staff's FY2026 revenue components add to one dollar less than the stated total. The difference is in the City's table and is recorded, not corrected.",
+    "DoubleTree arrears: about $890,000 in September 2026 (nine months of base rent, three quarters of percentage rent) and about $1 million in October 2026 (ten months, four quarters). Staff counted on $840,000 of DoubleTree rent over FY2027-FY2028, described as approximately 30% of rent; the September packet also describes the assumption as at least 35%. Whether the City has recorded an allowance for doubtful accounts or started lease enforcement is not established.",
+    "Costs caused by boating and costs of public waterfront services are not separated in any audited statement. The only estimate BeTH knows of is a 2023 State report, cited by a third party and not yet obtained by BeTH.",
+    "Staff expenditure totals and audited operating expenses are measured differently (for example, staff figures are on a budget basis and audited figures include depreciation), so audited and staff years are not directly comparable.",
+    "The State boating loan balance ($5,415,120 at June 30, 2025) is still being repaid from the Marina Fund."
+   ],
+   "more": [
+    "../../01-marina-fund-case-study.md"
+   ],
+   "verifier": {
+    "kind": "automated structural checks",
+    "checks": {
+     "citations_resolve": true,
+     "facts_resolve_to_records_or_cited_pages": true,
+     "quotes_on_cited_pages": true,
+     "calculations_recomputed": true,
+     "prose_numbers_traced": true,
+     "counterarguments_present": true,
+     "missing_evidence_present": true
+    },
+    "structural_checks_passed": true,
+    "passed": true,
+    "problems": [],
+    "fact_support": {
+     "acfr24:608/operating-revenue": "value printed on cited page",
+     "acfr24:608/operating-expenses": "value printed on cited page",
+     "acfr25:608/operating-revenue": "value printed on cited page",
+     "acfr25:608/marina-ops-revenue": "value printed on cited page",
+     "acfr25:608/lease-revenue": "value printed on cited page",
+     "acfr25:608/operating-expenses": "value printed on cited page",
+     "acfr25:608/depreciation": "value printed on cited page",
+     "acfr25:608/state-capital-grant": "value printed on cited page",
+     "acfr25:608/interfund-loan-receipt": "value printed on cited page",
+     "acfr25:608/due-to-general-fund": "value printed on cited page",
+     "acfr25:interfund-note/repayment-expectation": "quote found on cited page",
+     "acfr25:608/dbw-loan-balance": "value printed on cited page",
+     "loan:2023-07-25/authorization": "value printed in the quoted passage; quote found on cited page",
+     "acfr24:wc/transfer-out": "value printed on cited page",
+     "acfr24:transfer-note/to-general-fund": "value printed on cited page",
+     "bf26:fy2026/revenue": "value printed on cited page",
+     "bf26:fy2026/leases": "value printed on cited page",
+     "bf26:fy2026/berthers": "value printed on cited page",
+     "bf26:fy2026/other": "value printed on cited page",
+     "bf26:fy2026/gf-subsidy": "value printed in the quoted passage; quote found on cited page",
+     "bf26:fy2026/expenditures": "value printed on cited page",
+     "bf26:fy2027/revenue": "value printed on cited page",
+     "bf26:fy2027/expenditures": "value printed on cited page",
+     "bf26:fy2028/revenue": "value printed on cited page",
+     "bf26:fy2028/expenditures": "value printed on cited page",
+     "bf26:fy2028/ending-deficit": "value printed on cited page",
+     "bf26:support/fy2022-arpa": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2023-arpa": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2024-cost-shifts": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2024-wc": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2025-indirect": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2026-gf": "value printed in the quoted passage; quote found on cited page",
+     "bf26:support/fy2026-indirect": "value printed in the quoted passage; quote found on cited page",
+     "bf26:parks-tax-shift": "value printed in the quoted passage; quote found on cited page",
+     "bf26:original-design": "quote found on cited page",
+     "bf26:no-general-fund": "quote found on cited page",
+     "bf26:doubletree/paid-sept-2025": "value printed in the quoted passage; quote found on cited page",
+     "bf26:doubletree/no-rent-since": "quote found on cited page",
+     "bf26:doubletree/owed-oct-2026": "value printed in the quoted passage; quote found on cited page",
+     "bf26:doubletree/budgeted": "value printed in the quoted passage; quote found on cited page",
+     "prw26:doubletree/owed-sept-2026": "value printed in the quoted passage; quote found on cited page",
+     "prw26:doubletree/assumption-35": "quote found on cited page",
+     "bf26:needed": "value printed in the quoted passage; quote found on cited page",
+     "bf26:unfunded-capital": "value printed on cited page"
+    },
+    "arithmetic": [
+     {
+      "id": "c1",
+      "label": "FY2024 operating loss (audited): operating expenses minus operating revenue",
+      "op": "sub",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "acfr24:608/operating-expenses",
+        "value": 7326968,
+        "unit": "usd"
+       },
+       {
+        "ref": "acfr24:608/operating-revenue",
+        "value": 6925076,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 401892
+     },
+     {
+      "id": "c2",
+      "label": "FY2025 operating loss (audited): operating expenses minus operating revenue",
+      "op": "sub",
+      "unit": "usd",
+      "note": "Includes $594,125 of depreciation, which is not cash, and an unknown share of dock work paid for by the State capital grant recorded below the operating line.",
+      "inputs": [
+       {
+        "ref": "acfr25:608/operating-expenses",
+        "value": 13573896,
+        "unit": "usd"
+       },
+       {
+        "ref": "acfr25:608/operating-revenue",
+        "value": 7594812,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 5979084
+     },
+     {
+      "id": "c3",
+      "label": "FY2026 revenue without the General Fund subsidy (unaudited)",
+      "op": "sub",
+      "unit": "usd",
+      "note": "Approximate: the subsidy is stated only as \"$1.4M\".",
+      "inputs": [
+       {
+        "ref": "bf26:fy2026/revenue",
+        "value": 8673012,
+        "unit": "usd"
+       },
+       {
+        "ref": "bf26:fy2026/gf-subsidy",
+        "value": 1400000,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 7273012
+     },
+     {
+      "id": "c4",
+      "label": "FY2026 shortfall before the General Fund subsidy (unaudited)",
+      "op": "sub",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "bf26:fy2026/expenditures",
+        "value": 8395420,
+        "unit": "usd"
+       },
+       {
+        "ref": "c3",
+        "value": 7273012,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 1122408
+     },
+     {
+      "id": "c5",
+      "label": "FY2027 projected operating loss",
+      "op": "sub",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "bf26:fy2027/expenditures",
+        "value": 7388315,
+        "unit": "usd"
+       },
+       {
+        "ref": "bf26:fy2027/revenue",
+        "value": 6364360,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 1023955
+     },
+     {
+      "id": "c6",
+      "label": "FY2028 projected operating loss",
+      "op": "sub",
+      "unit": "usd",
+      "note": null,
+      "inputs": [
+       {
+        "ref": "bf26:fy2028/expenditures",
+        "value": 7580393,
+        "unit": "usd"
+       },
+       {
+        "ref": "bf26:fy2028/revenue",
+        "value": 6534799,
+        "unit": "usd"
+       }
+      ],
+      "recomputed": 1045594
      }
     ],
     "does_not_establish": [

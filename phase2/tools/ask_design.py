@@ -56,6 +56,15 @@ PRESENTATION = {
                                                                 'FY2031.'),
                        ('c2', 'The two-year amount, FY2027 and FY2028, adopted in the current budget. The other three '
                               'years are plans.')]},
+    'marina': {
+        'kicker': 'Waterfront', 'card_title': 'Is the Marina paying for itself?',
+        'card_text': 'Berth fees and hotel and restaurant leases were meant to run the whole waterfront. Do they, who '
+                     'covers the gap, and what would it take to close it?',
+        'highlights': [('c4', 'FY2026 shortfall before the General Fund subsidy (City staff figures, unaudited).'),
+                       ('bf26:fy2028/ending-deficit', 'Projected Marina Fund deficit at the end of FY2028 (City staff '
+                                                      'projection).'),
+                       ('bf26:unfunded-capital', 'Unfunded waterfront infrastructure needs. The City names no funding '
+                                                 'source.')]},
 }
 
 RESTRICTION_LABEL = {'unknown': 'Restriction not yet researched', 'voter_approved_tax': 'Voter-approved taxes',
@@ -217,6 +226,56 @@ def chart_capital(sf, restrictions):
                     '"Unfunded need" rows carry no money and are left out.'))
 
 
+def chart_marina(ans):
+    """Revenue against expenses by year, each year labelled by evidence class; then who has covered the gap."""
+    v = {f['fact_id']: f['value'] for f in ans['facts']}
+    years = [('FY2024', 'Audited', v['acfr24:608/operating-revenue'], 0, v['acfr24:608/operating-expenses']),
+             ('FY2025', 'Audited', v['acfr25:608/operating-revenue'], 0, v['acfr25:608/operating-expenses']),
+             ('FY2026', 'Staff, unaudited', v['bf26:fy2026/revenue'] - v['bf26:fy2026/gf-subsidy'],
+              v['bf26:fy2026/gf-subsidy'], v['bf26:fy2026/expenditures']),
+             ('FY2027', 'Projected', v['bf26:fy2027/revenue'], 0, v['bf26:fy2027/expenditures']),
+             ('FY2028', 'Projected', v['bf26:fy2028/revenue'], 0, v['bf26:fy2028/expenditures'])]
+    top = max(max(r + s_, e) for _, _, r, s_, e in years)
+    rows = ''
+    for fy, basis, rev, sub, exp in years:
+        sub_seg = (f'<span class="bar-f" style="width:{sub / top * 100:.1f}%;background:{LIGHT_BLUE};border-radius:0 4px 4px 0" '
+                   f'title="General Fund subsidy: about {money(sub)}"></span>') if sub else ''
+        rows += (f'<div class="ry"><div class="ry-h"><b>{fy}</b> <span class="note">{e(basis)}</span></div>'
+                 f'<div class="bar-row"><div class="bar-l">Revenue</div><div class="bar-t" style="gap:0">'
+                 f'<span class="bar-f" style="width:{rev / top * 100:.1f}%;background:{BLUE};border-radius:{"0" if sub else "0 4px 4px 0"}" '
+                 f'title="Revenue: {money(rev)}"></span>{sub_seg}<span class="bar-v" style="margin-left:8px">{millions(rev + sub)}'
+                 f'{f" incl. about {millions(sub)} subsidy" if sub else ""}</span></div></div>'
+                 f'<div class="bar-row"><div class="bar-l">Expenses</div><div class="bar-t"><span class="bar-f" '
+                 f'style="width:{exp / top * 100:.1f}%;background:{ORANGE}" title="Expenses: {money(exp)}"></span>'
+                 f'<span class="bar-v">{millions(exp)}</span></div></div></div>')
+    body = legend([('Revenue', BLUE), ('General Fund subsidy counted as revenue', LIGHT_BLUE), ('Expenses', ORANGE)]) + \
+        f'<div class="ryears">{rows}</div>'
+    one = chart('Marina Fund revenue and expenses by year',
+                'Audited years are operating revenue and operating expenses. FY2025 expenses include depreciation and '
+                f'State-funded dock work; the {millions(v["acfr25:608/state-capital-grant"])} State grant that paid for that '
+                'work is not shown as revenue here. '
+                'FY2026 is City staff figures, unaudited; FY2027 and FY2028 are staff projections.', body,
+                'Sources: FY2024 audited report, PDF page 87; FY2025 audited report, PDF page 85; October 22, 2026 Marina '
+                'Fund update, slide 14.')
+    support = [('FY2022', 'Federal pandemic aid (ARPA)', v['bf26:support/fy2022-arpa']),
+               ('FY2023', 'Federal pandemic aid (ARPA)', v['bf26:support/fy2023-arpa']),
+               ('FY2024', 'Cost shifts to other funds', v['bf26:support/fy2024-cost-shifts']),
+               ('FY2025', 'Reduced overhead charges and Workers\' Compensation holiday', v['bf26:support/fy2025-indirect']),
+               ('FY2025', 'Loan from the General Fund, still owed June 30, 2025 (audited)', v['acfr25:608/due-to-general-fund']),
+               ('FY2026', 'General Fund transfer (stated as $1.4M)', v['bf26:support/fy2026-gf']),
+               ('FY2026', 'Reduced overhead charges and Workers\' Compensation holiday', v['bf26:support/fy2026-indirect']),
+               ('FY2026 on', 'Parks Tax pays waterfront park and landscape costs, each year', v['bf26:parks-tax-shift'])]
+    srows = [(f'{fy} · {what}', amt, money(amt), ORANGE if 'Loan' in what else BLUE) for fy, what, amt in support]
+    two = chart('Who has covered the gap',
+                'Different mechanisms, kept separate and not added up: aid and transfers do not have to be repaid; a loan '
+                'does; cost shifts and overhead reductions move costs rather than add money.',
+                legend([('Help that does not have to be repaid', BLUE), ('A loan that does', ORANGE)]) + bars(srows),
+                'Sources: October 22, 2026 Marina Fund update, slide 6 (staff figures); FY2025 audited report, PDF '
+                'pages 87 and 113. Not shown: $5.5 million from the Workers\' Compensation Fund, which the FY2024 audit '
+                'records as going to the General Fund (see Open questions).')
+    return one + two
+
+
 # ------------------------------------------------------------------ stylesheet
 
 CSS = '''
@@ -327,6 +386,12 @@ text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15
 footer{background:var(--navy-deep);color:#d9dee8;font-size:14px;margin-top:56px}
 footer .wrap{padding-block:26px}footer a{color:#fff}
 .credits-list li{margin:.8em 0}
+.parts{display:grid;gap:14px;margin:18px 0}
+.part{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--navy);border-radius:10px;padding:14px 18px}
+.part h3{font-family:var(--serif);color:var(--navy);font-size:1.2rem;margin:0 0 4px}.part p{margin:0}
+.ryears{display:grid;gap:14px}.ry-h{font-size:14px;margin-bottom:2px}.ry .bar-row{margin:3px 0}
+@media (min-width:720px){.cards>.card:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row}
+.cards>.card:last-child:nth-child(odd) .card-link{flex:0 0 50%}.cards>.card:last-child:nth-child(odd) .card-photo{height:100%;aspect-ratio:auto}}
 @media (max-width:560px){body{font-size:16px}.bar-row{grid-template-columns:1fr;gap:2px}.answer{padding:18px}
 .cols{gap:6px}.col-v{font-size:11px}.topnav{gap:12px}}
 '''

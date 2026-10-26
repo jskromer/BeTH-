@@ -25,7 +25,7 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000/phase2/docs/budget-choices.html` (seven tabs) and
-`http://localhost:8000/phase2/docs/ask/index.html` (four Ask pages). Opening the HTML file directly (`file://`) does
+`http://localhost:8000/phase2/docs/ask/index.html` (five Ask pages). Opening the HTML file directly (`file://`) does
 not work: the page fetches `data/phase2.json` and `data/answers.json`.
 
 ## Rebuild and test

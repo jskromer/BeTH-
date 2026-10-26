@@ -105,5 +105,11 @@ text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15
 footer{background:var(--navy-deep);color:#d9dee8;font-size:14px;margin-top:56px}
 footer .wrap{padding-block:26px}footer a{color:#fff}
 .credits-list li{margin:.8em 0}
+.parts{display:grid;gap:14px;margin:18px 0}
+.part{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--navy);border-radius:10px;padding:14px 18px}
+.part h3{font-family:var(--serif);color:var(--navy);font-size:1.2rem;margin:0 0 4px}.part p{margin:0}
+.ryears{display:grid;gap:14px}.ry-h{font-size:14px;margin-bottom:2px}.ry .bar-row{margin:3px 0}
+@media (min-width:720px){.cards>.card:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row}
+.cards>.card:last-child:nth-child(odd) .card-link{flex:0 0 50%}.cards>.card:last-child:nth-child(odd) .card-photo{height:100%;aspect-ratio:auto}}
 @media (max-width:560px){body{font-size:16px}.bar-row{grid-template-columns:1fr;gap:2px}.answer{padding:18px}
 .cols{gap:6px}.col-v{font-size:11px}.topnav{gap:12px}}

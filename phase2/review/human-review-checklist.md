@@ -261,3 +261,121 @@ Recorded in `phase2/review/human-approvals.json` → `answers.streets-139m`. Cur
 | Changes required |  |
 | Notes |  |
 
+---
+
+## Is Berkeley's Marina paying for itself?
+
+Page: `phase2/docs/ask/marina.html` · Automated checks: passed · Human source verification: **NOT PERFORMED** · Approval: **NOT APPROVED**
+
+### Central claim
+
+> The Marina Fund (fund 608) is meant to pay for the whole waterfront from berth fees and leases. In audited FY2024 it had an operating loss of $401,892; in audited FY2025, $5,979,084, a year distorted by State-funded dock work. Staff's unaudited FY2026 figures show revenue of $8,673,012 against expenditures of $8,395,420, but the revenue includes about $1.4 million of General Fund subsidy. Staff project losses of $1,023,955 in FY2027 and $1,045,594 in FY2028, leaving the fund $545,586 in deficit. The DoubleTree hotel owed about $1 million in rent in October 2026.
+
+**Does the Marina cover its costs?** Not consistently. In audited FY2024, operating expenses exceeded operating revenue by $401,892. Audited FY2025 shows a much larger operating loss, $5,979,084, in a year the fund also received a $7,689,069 State capital grant for dock work; the statements do not show how much of the year's expense that work accounts for. Staff's unaudited FY2026 figures balance only because revenue includes about $1.4 million of General Fund subsidy; without it the shortfall is about $1,122,408.
+
+**If not, who pays the difference?** Other City money, in several different forms: federal pandemic aid in FY2022 ($1.4 million) and FY2023 ($1.15 million); cost shifts to other funds ($800,000 in FY2024); reduced City overhead charges and Workers' Compensation "holidays" ($850,000 in FY2025, $360,000 in FY2026); a General Fund transfer of about $1.4 million in FY2026; and a $2,477,099 loan from the General Fund, still owed at June 30, 2025. Since FY2026 the Parks Tax pays $1.579 million a year of waterfront park and landscape costs. Staff told the committee there is no General Fund money for FY2027-FY2028.
+
+**What would it take to make the waterfront financially sustainable?** Staff estimate at least $1.2 million of cuts, cost shifts or new revenue just to reach FY2028 with a small reserve, before any capital work. Separately, the waterfront has $163,344,000 of unfunded infrastructure needs, and the City's update names no funding source for them. When the fund was set up in 1964, berth fees and hotel and restaurant leases were expected to pay for the whole waterfront; how much of its public parks, paths and services boaters and tenants should carry, and how much the wider city should, is a policy choice, not an accounting fact.
+
+BeTH's reading (Moderate): At current fees, leases and service levels the Marina Fund does not pay for the waterfront it runs; one-time help and support from other City funds have covered the gap since FY2022.
+
+Counterargument: Much of the waterfront is public parkland, paths, restrooms, security and recreation used by everyone, not only boaters. A 2023 State review, cited by the Berkeley Decision Project and not yet verified by BeTH, estimated that boating revenue roughly covered boating costs. On that view the question is how the public parts of the waterfront should be funded, not whether boaters underpay.
+
+BeTH's reading (Moderate): Unpaid DoubleTree rent is the largest near-term risk to the fund: it is the largest single tenant and the budget counts on partial payment that has not arrived.
+
+Counterargument: The rent is still owed, not written off, and the hotel cleared an earlier balance in September 2025. If it pays again, the projected deficit shrinks; if it does not, the loss is larger than the budget assumed.
+
+### Calculations
+
+- [ ] **FY2024 operating loss (audited): operating expenses minus operating revenue**: $7,326,968 − $6,925,076 = **$401,892** (`acfr24:608/operating-expenses − acfr24:608/operating-revenue`)
+- [ ] **FY2025 operating loss (audited): operating expenses minus operating revenue**: $13,573,896 − $7,594,812 = **$5,979,084** (`acfr25:608/operating-expenses − acfr25:608/operating-revenue`). Includes $594,125 of depreciation, which is not cash, and an unknown share of dock work paid for by the State capital grant recorded below the operating line.
+- [ ] **FY2026 revenue without the General Fund subsidy (unaudited)**: $8,673,012 − $1,400,000 = **$7,273,012** (`bf26:fy2026/revenue − bf26:fy2026/gf-subsidy`). Approximate: the subsidy is stated only as "$1.4M".
+- [ ] **FY2026 shortfall before the General Fund subsidy (unaudited)**: $8,395,420 − $7,273,012 = **$1,122,408** (`bf26:fy2026/expenditures − c3`)
+- [ ] **FY2027 projected operating loss**: $7,388,315 − $6,364,360 = **$1,023,955** (`bf26:fy2027/expenditures − bf26:fy2027/revenue`)
+- [ ] **FY2028 projected operating loss**: $7,580,393 − $6,534,799 = **$1,045,594** (`bf26:fy2028/expenditures − bf26:fy2028/revenue`)
+
+Tick a calculation only if its method is the right one for the claim, not only if the arithmetic is correct.
+
+### Sources
+
+| Page supports claim? | Fact | Value | Document (local file) | Cited | PDF page(s) | Quote | Automated check |
+|---|---|---|---|---|---|---|---|
+| [ ] | FY2024 operating revenue | $6,925,076 | Annual Comprehensive Financial Report, FY ended June 30, 2024 (`staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf`) | PDF p.87 (Marina Operations column) | 87 |  | value printed on cited page |
+| [ ] | FY2024 operating expenses | $7,326,968 | Annual Comprehensive Financial Report, FY ended June 30, 2024 (`staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf`) | PDF p.87 | 87 |  | value printed on cited page |
+| [ ] | FY2025 operating revenue | $7,594,812 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85 (Marina Operations column) | 85 |  | value printed on cited page |
+| [ ] | FY2025 "Marina operations and maintenance" revenue (berths and other marina charges; the ACFR does not break this line down) | $5,329,258 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85, line "Marina operations and maintenance" | 85 |  | value printed on cited page |
+| [ ] | FY2025 lease revenue (hotel, restaurants and other tenants) | $2,265,554 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85, line "Lease revenues" | 85 |  | value printed on cited page |
+| [ ] | FY2025 operating expenses | $13,573,896 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85 | 85 |  | value printed on cited page |
+| [ ] | Of which depreciation (not cash) | $594,125 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85 | 85 |  | value printed on cited page |
+| [ ] | FY2025 State capital grant (recorded outside operating revenue) | $7,689,069 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.85, nonoperating "Capital grants - State" | 85 |  | value printed on cited page |
+| [ ] | FY2025 loan received from another City fund (financing, not revenue) | $2,477,099 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.87, cash flow "Receipt from interfund loans" | 87 |  | value printed on cited page |
+| [ ] | Owed by the Marina Fund to the General Fund, June 30, 2025 | $2,477,099 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.113, Note 4.A Due To/From Other Funds | 113 |  | value printed on cited page |
+| [ ] | What the audit says about such balances | (text) | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.113, Note 4.A | 113 | expected to be repaid within the next fiscal year | quote found on cited page |
+| [ ] | State boating loan still owed, June 30, 2025 | $5,415,120 | Annual Comprehensive Financial Report, FY ended June 30, 2025 (`annual-comprehensive-financial-report-fy2025.pdf`) | PDF p.133, Harbor Construction 5 note payable | 133 |  | value printed on cited page |
+| [ ] | Council authorization: internal loan from the Workers' Compensation Fund for D and E dock replacement (July 25, 2023) | $5,500,000 | $5.5M Loan for D and E Dock Replacement Project, Council Item 19, July 25, 2023 (revised staff report) (`phase2/sources/council-2023-07-25-item19-wc-loan.pdf`) | p.1 | 1 | authorizes an internal loan of $5.5M from the Workers Compensation Fund | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2024 transfer out of the Workers' Compensation Fund | $5,500,000 | Annual Comprehensive Financial Report, FY ended June 30, 2024 (`staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf`) | PDF p.312, internal service funds statement, Workers' Compensation column | 312 |  | value printed on cited page |
+| [ ] | FY2024 transfer note: $5,500,000 to the General Fund, purpose "Worker's Compensation Fund" | $5,500,000 | Annual Comprehensive Financial Report, FY ended June 30, 2024 (`staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf`) | PDF p.115, Note 4.B Transfers | 115 |  | value printed on cited page |
+| [ ] | FY2026 revenue, staff "actual" (unaudited) | $8,673,012 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2026 lease revenue (unaudited) | $2,164,222 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2026 berth revenue (unaudited) | $3,971,848 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2026 other revenue, including the General Fund subsidy (unaudited) | $2,536,941 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2026 General Fund subsidy included in revenue (as stated, rounded) | $1,400,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 | Includes $1.4M in General Fund subsidy to the Marina Fund. | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2026 expenditures, staff "actual" (unaudited) | $8,395,420 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2027 revenue, projected | $6,364,360 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2027 expenditures, projected | $7,388,315 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2028 revenue, projected | $6,534,799 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2028 expenditures, projected | $7,580,393 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2028 ending fund balance, projected: a deficit of | $545,586 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 14 | 14 |  | value printed on cited page |
+| [ ] | FY2022 federal pandemic aid (ARPA) | $1,400,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | FY22: $1.4M in American Rescue Plan Act (ARPA) funds | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2023 federal pandemic aid (ARPA) | $1,150,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | FY23: $1.15M in ARPA funds | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2024 cost shifts to other funds | $800,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | FY24: $800k in cost shifts to other funds | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2024 Workers' Compensation Fund money "for capital projects" (staff description) | $5,500,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | $5.5M from Workers Compensation Fund for capital projects | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2025 reduced City overhead charges and Workers' Compensation holiday | $850,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | FY25: $850k in reduced indirect costs and Workers Compensation Fund holiday | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2026 General Fund transfer (as stated, rounded) | $1,400,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | FY26: $1.4M in General Fund transfer | value printed in the quoted passage; quote found on cited page |
+| [ ] | FY2026 reduced overhead charges and Workers' Compensation holiday | $360,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | $360k in reduced indirect costs and Workers Compensation holiday | value printed in the quoted passage; quote found on cited page |
+| [ ] | Waterfront park and landscape costs moved to the Parks Tax each year from FY2026 | $1,579,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 6 | 6 | Shifts $1.579M in Waterfront park and landscape costs from Marina Fund to Parks Tax. | value printed in the quoted passage; quote found on cited page |
+| [ ] | What the fund was set up to do (1964) | (text) | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 3 | 3 | Revenue from slips and hotel/restaurant leases was expected to cover the costs of debt service, maintenance and operations of the entire Waterfront. | quote found on cited page |
+| [ ] | General Fund support in FY2027-28 | (text) | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 12 | 12 | No General Fund available to support the Marina Fund | quote found on cited page |
+| [ ] | DoubleTree payment that cleared an earlier balance, September 2025 | $964,680 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 9 | 9 | Hotel paid their full balance in Sept 2025: $964,680. | value printed in the quoted passage; quote found on cited page |
+| [ ] | DoubleTree payments since | (text) | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 9 | 9 | No rent has been paid to the City since Dec 2025. | quote found on cited page |
+| [ ] | DoubleTree rent owed, October 2026 (approximate) | $1,000,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 9 | 9 | Hotel currently owes approx. $1M (10 months of base rent, 4 quarters of % rent). | value printed in the quoted passage; quote found on cited page |
+| [ ] | DoubleTree rent counted on in the FY2027-28 budget | $840,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 9 | 9 | Marina Fund FY27-28 budget included $840k in projected revenue (approx. 30% of required rent) | value printed in the quoted passage; quote found on cited page |
+| [ ] | DoubleTree rent owed, September 2026 (approximate) | $890,000 | Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026 (supplemental packet) (`phase2/sources/prw-commission-waterfront-overview-2026-09-09.pdf`) | p.11 | 11 | currently owes approx. $890k | value printed in the quoted passage; quote found on cited page |
+| [ ] | Budget assumption stated elsewhere in the September packet | (text) | Berkeley Waterfront Overview, Parks, Recreation and Waterfront Commission, September 9, 2026 (supplemental packet) (`phase2/sources/prw-commission-waterfront-overview-2026-09-09.pdf`) | p.15 | 15 | FY27 and FY28 Marina Fund budget assumed Doubletree would pay at least 35% of rent. | quote found on cited page |
+| [ ] | Staff estimate of cuts, cost shifts or new revenue needed through FY2028 | $1,200,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 15 | 15 | Results in $1.2M+ needed in reductions, cost shifts or new revenue | value printed in the quoted passage; quote found on cited page |
+| [ ] | Unfunded waterfront infrastructure needs (City estimate) | $163,344,000 | Berkeley Waterfront: Marina Fund Update, Budget & Finance Committee Item 2, October 22, 2026 (presentation) (`phase2/sources/bf-committee-marina-fund-update-2026-10-22.pdf`) | slide 8 | 8 |  | value printed on cited page |
+
+### Unresolved legal or accounting interpretation
+
+- [ ] The FY2025 operating loss includes depreciation, which is not cash, and an unknown amount of dock and pile work paid for by the State capital grant. FY2025 is therefore not a clean measure of day-to-day operations.
+- [ ] The $2,477,099 owed to the General Fund at June 30, 2025 was "expected to be repaid within the next fiscal year". Whether it was repaid, and whether it is connected to the $5.5 million authorization, is not shown in any document BeTH holds.
+- [ ] The FY2024 audit shows $5,500,000 leaving the Workers' Compensation Fund and going to the General Fund. The Marina Fund recorded no transfer in and owed nothing to another fund at June 30, 2024. The audit's transfer note lists the row under the Equipment Replacement Fund while its fund statement shows the money leaving Workers' Compensation, an inconsistency inside the audit report itself. Whether waterfront hotel tax has been used to repay the loan, as the 2023 authorization intended, is not shown.
+- [ ] City documents give different amounts for General Fund support in FY2026. BeTH has not reconciled them to one adopted figure.
+- [ ] The audited FY2025 line "Marina operations and maintenance" ($5,329,258) and staff's FY2026 "Berthers" ($3,971,848) measure different things; what the audited line includes beyond berth rent is not stated.
+- [ ] Staff's FY2026 revenue components add to one dollar less than the stated total. The difference is in the City's table and is recorded, not corrected.
+- [ ] DoubleTree arrears: about $890,000 in September 2026 (nine months of base rent, three quarters of percentage rent) and about $1 million in October 2026 (ten months, four quarters). Staff counted on $840,000 of DoubleTree rent over FY2027-FY2028, described as approximately 30% of rent; the September packet also describes the assumption as at least 35%. Whether the City has recorded an allowance for doubtful accounts or started lease enforcement is not established.
+- [ ] Costs caused by boating and costs of public waterfront services are not separated in any audited statement. The only estimate BeTH knows of is a 2023 State report, cited by a third party and not yet obtained by BeTH.
+- [ ] Staff expenditure totals and audited operating expenses are measured differently (for example, staff figures are on a budget basis and audited figures include depreciation), so audited and staff years are not directly comparable.
+- [ ] The State boating loan balance ($5,415,120 at June 30, 2025) is still being repaid from the Marina Fund.
+
+### Missing evidence
+
+- The FY2026 audited financial report, including whether the General Fund loan was repaid.
+- What the audited "Marina operations and maintenance" revenue line includes.
+- Waterfront hotel-tax collections and any repayments to the Workers' Compensation Fund since FY2025.
+- The DoubleTree receivable as booked, any allowance for doubtful accounts, and lease-enforcement status.
+- The June 2023 State Division of Boating and Waterways report (Attachment 4 to the July 25, 2023 Council item), the primary source for any boating and non-boating cost split.
+- A funding plan for the waterfront's unfunded infrastructure needs.
+
+### Independent human approval
+
+Recorded in `phase2/review/human-approvals.json` → `answers.marina`. Current status: **NOT APPROVED**.
+
+| Field | Entry |
+|---|---|
+| Reviewer |  |
+| Date |  |
+| Decision | NOT APPROVED |
+| Changes required |  |
+| Notes |  |
+
