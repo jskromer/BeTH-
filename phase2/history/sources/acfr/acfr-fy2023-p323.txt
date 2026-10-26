@@ -1,0 +1,351 @@
+/City of Berkeley, California
+
+Annual Comprehensive Financial Report
+
+Combining Statement of Revenues, Expenses, and Changes in Net Position
+All Internal Service Funds
+For the year ended June 30, 2023
+Equipment
+Maintenance
+Replacement
+
+Building
+Maintenance
+
+Central
+Services
+
+Computer
+Replacement
+
+Operating revenues:
+Equipment rentals service charge
+Building maintenance
+Central store service charge
+Workers’ compensation fees
+IT service fee
+Other revenues
+Total operating revenues
+
+$
+
+
+
+
+
+
+
+18,165,571
+30,837
+18,196,408
+
+$
+
+3,349,285
+
+
+
+3,452
+
+3,352,737
+
+$
+
+
+
+
+
+
+
+Operating expenses:
+Personnel services
+Employee benefits
+Transportation
+Repairs and maintenance
+Materials and supplies
+Utilities
+Insurance
+Specialized and professional services
+Depreciation
+Judgments and claims
+Communication
+General administration
+Total operating expenses
+
+
+
+2,154,148
+
+1,312,575
+
+304,258
+
+138,596
+
+6,565,653
+
+54,557
+
+8,914
+
+648,914
+
+5,023,139
+
+
+5,206
+
+71,880
+
+16,287,840
+
+
+
+1,467,195
+
+1,034,451
+
+205,899
+
+335,187
+
+525,672
+
+5,581
+
+
+138,336
+
+8,833
+
+836,178
+
+60,640
+
+64,381
+
+4,682,353
+
+ 
+
+66,289 
+
+35,871 
+
+16,514 
+
+- 
+
+142,981 
+
+- 
+
+- 
+
+62,570 
+
+- 
+22,797
+
+- 
+
+70 
+
+7,053 
+6
+
+331,348 
+22,803
+
+Operating income (loss)
+
+
+
+
+
+Nonoperating revenues (expenses):
+Investment earnings
+Interest expense
+Gain (loss) on disposal of capital assets
+Total nonoperating revenues (expenses)
+
+
+
+(371,054)
+
+(52,119)
+
+109,382
+
+(313,791)
+
+
+
+(39,425)
+
+
+
+(39,425)
+
+Income (loss) before transfers
+
+
+
+1,594,777
+
+
+
+
+
+
+1,081,699
+-
+
+
+
+
+Change in net position
+
+
+
+2,676,476
+
+
+
+Total net position - beginning balance
+
+
+25,250,189 
+(1,673,506) 
+11,203 
+23,417
+    
+$
+27,926,665 $
+(3,042,547) $
+(2,318)$
+610
+
+Transfers in
+Transfers out
+
+Total net position - ending
+
+284
+
+1,908,568
+
+(1,329,616) 
+
+- $
+- 
+317,827 
+- 
+- 
+- 
+317,827 
+
+(13,521)
+
+-
+
+(22,803)
+
+ 
+
+- 
+(4)
+
+- 
+
+- 
+
+- 
+(4)
+
+(1,369,041) 
+
+(13,521)
+
+(22,807)
+
+
+
+
+- 
+- 
+
+-
+
+(1,369,041) 
+
+(13,521)
+
+(22,807)
+
+-
+
+FOR YEAR ENDED JUNE 30, 2023
+
+
+=== layout ===
+/City of Berkeley, California                                                            Annual Comprehensive Financial Report
+
+
+
+
+Combining Statement of Revenues, Expenses, and Changes in Net Position
+All Internal Service Funds
+For the year ended June 30, 2023
+
+                                                    Equipment
+                                                   Maintenance          Building                Central           Computer
+                                                   Replacement         Maintenance             Services          Replacement
+Operating revenues:
+   Equipment rentals service charge            $     18,165,571   $         -           $             - $                 -
+   Building maintenance                                       -     3,349,285                         -                   -
+   Central store service charge                               -             -                   317,827                   -
+   Workers’ compensation fees                                 -             -                         -                   -
+   IT service fee                                             -             -                         -                   -
+   Other revenues                                        30,837   3,452                               -                   -
+Total operating revenues                             18,196,408     3,352,737                   317,827                   -
+
+Operating expenses:                                                                      
+   Personnel services                            2,154,148         1,467,195              66,289       -
+   Employee benefits                             1,312,575         1,034,451              35,871       -
+   Transportation                                  304,258           205,899              16,514       -
+   Repairs and maintenance                         138,596           335,187                   -       -
+   Materials and supplies                        6,565,653           525,672             142,981       -
+   Utilities                                        54,557             5,581                   -       -
+   Insurance                                         8,914                 -                   -       -
+   Specialized and professional services           648,914           138,336              62,570       -
+   Depreciation                                  5,023,139             8,833                   -  22,797
+   Judgments and claims                                  -           836,178                   -       -
+   Communication                                     5,206            60,640                  70       -
+   General administration                           71,880            64,381               7,053       6
+Total operating expenses                        16,287,840         4,682,353             331,348  22,803
+
+Operating income (loss)                               1,908,568          (1,329,616)             (13,521)         (22,803)
+
+Nonoperating revenues (expenses):                                                        
+   Investment earnings                          (371,054)          (39,425)              -  (4)
+   Interest expense                               (52,119)               -               -    -
+   Gain (loss) on disposal of capital assets     109,382                 -               -    -
+Total nonoperating revenues (expenses)          (313,791)          (39,425)              -  (4)
+
+Income (loss) before transfers                        1,594,777          (1,369,041)             (13,521)         (22,807)
+
+  Transfers in                                        1,081,699                    -                   -                  -
+  Transfers out                                               -                    -                   -                  -
+
+Change in net position                                2,676,476          (1,369,041)             (13,521)         (22,807)
+
+Total net position - beginning balance           25,250,189    (1,673,506)   11,203   23,417
+                                                   
+Total net position - ending                    $ 27,926,665 $ (3,042,547) $ (2,318)$    610
+
+
+
+
+284                                                                                             FOR YEAR ENDED JUNE 30, 2023
+

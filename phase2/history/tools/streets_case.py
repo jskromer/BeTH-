@@ -430,10 +430,17 @@ font-size:10.5px;text-align:center;text-decoration:none;padding:0 3px}
 '''
 
 
-def sync_chart(events, funding, miles, pci_mtc, pci_city_extra, design):
+PAVING_MAINT = '#1b3a63'  # overlay, sealing and patching (actuals row); street reconstruction uses design.AQUA
+
+
+def sync_chart(events, funding, miles, pci_mtc, pci_city_extra, design, actuals=None):
     years = list(range(2010, 2032))
     fp = {p['fy']: p for p in funding['points']}
-    top_f = max(p['total_m'] for p in funding['points'])
+    ap = {p['fy']: p for p in (actuals or [])}
+    # one dollar scale for the budget row and the actuals row, so bar heights compare like with like
+    top_f = max([p['total_m'] for p in funding['points']] +
+                [sum(p[k] or 0 for k in ('street_reconstruction', 'overlay_sealing', 'patching')) / 1e6
+                 for p in ap.values()])
     mp = {}
     for p in miles['points']:
         fy = int(p['fy'][2:6])
@@ -464,6 +471,26 @@ def sync_chart(events, funding, miles, pci_mtc, pci_city_extra, design):
                          f'title="FY{y} {lbl}: ${v:.1f}M ({e(p["basis"])}; {p["value_type"]})"></span>')
         lab = f'{p["total_m"]:.1f}' + ('~' if p['value_type'] == 'measured' else '')
         return f'<div class="sb{fut}"><span class="tv">{lab}</span>{segs}</div>'
+
+    def cell_a(y):
+        p = ap.get(y)
+        if not p:
+            note = 'not yet published by the State Controller' if y == 2026 else 'not applicable' if y > 2026 else 'not held'
+            return f'<div class="sb" title="FY{y}: actual spending {note}"></div>'
+        h = 150 - 16
+        segs = ''
+        for key, col, lbl in (('overlay_sealing', PAVING_MAINT, 'overlay and sealing'), ('patching', PAVING_MAINT, 'patching'),
+                              ('street_reconstruction', design.AQUA, 'street reconstruction')):
+            v = (p[key] or 0) / 1e6
+            if v:
+                segs += (f'<span class="seg" style="height:{v / top_f * h:.1f}px;background-color:{col}" '
+                         f'title="FY{y} {lbl}: ${v:.2f}M actual (City-reported to the State Controller; not audited)"></span>')
+        values = [p[k] for k in ('street_reconstruction', 'overlay_sealing', 'patching')]
+        if all(v is None for v in values):
+            return '<div class="sb" title="Actual spending not reported"></div>'
+        tot = sum(v for v in values if v is not None) / 1e6
+        suffix = '*' if None in values else ''
+        return f'<div class="sb"><span class="tv">{tot:.1f}{suffix}</span>{segs}</div>'
 
     def cell_m(y):
         p = mp.get(y)
@@ -497,21 +524,28 @@ def sync_chart(events, funding, miles, pci_mtc, pci_city_extra, design):
 
     rows = (f'<div class="srow drow"><div class="lab">Decisions (click)</div>{"".join(cell_d(y) for y in years)}</div>'
             f'<div class="srow"><div class="lab">Paving funding, $M (budgets and plans)</div>{"".join(cell_f(y) for y in years)}</div>'
+            + (f'<div class="srow"><div class="lab">Actual spending, $M: street reconstruction and paving maintenance '
+               f'(City-reported)</div>{"".join(cell_a(y) for y in years)}</div>' if ap else '') +
             f'<div class="srow"><div class="lab">Centerline miles paved</div>{"".join(cell_m(y) for y in years)}</div>'
             f'<div class="srow"><div class="lab">Pavement condition (PCI), scale 45-62</div>{"".join(cell_p(y) for y in years)}</div>'
             f'<div class="srow"><div class="lab"></div>{"".join(f"<div class=yr>{str(y)[2:]}</div>" for y in years)}</div>')
     legend = design.legend([('Recurring funding', design.BLUE), ('Bond (one-time)', design.ORANGE), ('Grant', '#9aa3ad'),
-                            ('Measure FF', design.YELLOW), ('Miles: actual', design.BLUE), ('Miles: projected', design.LIGHT_BLUE),
+                            ('Measure FF', design.YELLOW)] + ([('Actual: street reconstruction', design.AQUA),
+                            ('Actual: overlay, sealing, patching', PAVING_MAINT)] if ap else []) + [('Miles: actual', design.BLUE), ('Miles: projected', design.LIGHT_BLUE),
                             ('PCI: MTC 3-yr average', '#2a78d6'), ('PCI: City single year', '#eb6834')])
     body = (legend + '<p class="note" style="margin:4px 0 8px">Hatched bars: measured from a chart (approximate, marked ~). '
-            'Shaded columns FY2027-31: plans, not results. Hollow orange dots: City projections. Columns are fiscal years '
+            'Shaded columns FY2027-31: plans, not results. The actual-spending row is what the City reported spending to the '
+            'State Controller (not audited, and not paving-only: street reconstruction can include safety and complete-streets '
+            'work); design and administration are excluded; FY2026 is not yet published. Budgets and actuals share one dollar '
+            'scale but must not be added together. * Actual spending is a subtotal of reported categories; blank '
+            'categories remain unknown, not zero. Hollow orange dots: City projections. Columns are fiscal years '
             '(July-June) for funding and miles, calendar years for PCI. Numbered markers: decisions; click to open the card.</p>'
             f'<div class="sync"><div class="sync-in">{rows}</div></div>')
     return design.chart('Funding, paving and pavement condition, 2010-2031, on one timeline',
                         'Three different measures on a shared year axis. Lining them up shows sequence, not cause.', body,
                         'Sources: City Auditor 2020 (Figures 3 and 10); January 2022, November 2023 and July 2026 paving plans; '
                         'adopted FY2027-28 budget p.215 (Measure FF); MTC PCI tables; City and consultant PCI figures. '
-                        'Actual expenditures are not yet collected.'), num
+                        'Actual spending: the City\'s Annual Street Reports to the State Controller, FY2010-FY2025 (not audited).'), num
 
 
 # ------------------------------------------------------------------ narrative

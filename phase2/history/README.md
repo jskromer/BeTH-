@@ -19,6 +19,19 @@ here changes either.
 | Primary records | `sources/` (Council annotated agendas, MTC tables) and `../sources/` (shared Phase 2 sources) |
 | Image credits | `docs/assets/photos/credits.json` |
 | Tests | `../tests/test_history.py` |
+| Actual street expenditure exports | `data/street-expenditures-actual.json` and `.csv` |
+| Actual-spending findings and reconciliations A–D | `findings-2026-10-26-street-expenditures.md` |
+| Draft records request (not submitted) | `records-request-draft-2026-10-26.md` |
+
+## Latest continuation: actual spending, October 26
+
+The timeline now compares the budget/plan series with City-reported street-purpose actual expenditures for FY2010–FY2025. These are Annual Street Reports to the State Controller, not audited paving-only expenditures. FY2018–FY2025 reconstruction detail reconciles to each year's reported summary; the detailed export retains fund numbers and available project codes.
+
+The findings document records four investigations: the all-source $7.3M baseline; the two Workers' Compensation authorizations and recorded transfers; Measure FF's unresolved maintenance-of-effort calculation; and the arithmetic behind the FY2027 policy-line difference. Reconstruction entries described as administration or maintenance remain as filed and are flagged for explanation. Blank raw categories remain `null`, distinct from reported zeroes; charts label partial reported subtotals with `*`.
+
+The six-item records-request draft seeks the project ledger, classification support, interfund entries, maintenance-of-effort calculation, policy worksheets and code dictionaries needed to resolve these issues. It has not been submitted. Earlier research notes below describe the budget-series pass; the current actual-spending findings supersede their statements that no actual series is held.
+
+Validation at this checkpoint: the full Phase 2 rebuild succeeds; all 98 Phase 2 tests pass. The history builder reports 16 events, 89 of 144 fields verified by its citation checks, 121 event citations and zero check problems. These automated checks do not replace independent source review. Equal dollar amounts use equal bar heights in the budget and actual-spending rows. JSON and CSV downloads are linked from the actual-spending table.
 
 ## Streets case study (second pass)
 
@@ -59,8 +72,7 @@ Every value carries a **basis** and a **value type**:
 
 The series separates recurring money, one-time bond money (Measure M, T1), grants and Measure FF.
 
-**Not held:** FY2010–FY2013, and actual expenditures for any year. The chart says so; it does not substitute budgets for
-actuals.
+**Not held:** FY2010–FY2013 paving budgets and a reconciled project-level paving actuals series. City-reported street-purpose actuals are now held separately; see the latest continuation above.
 
 **Changes in definitions.** These are recorded in the data and shown on the page:
 - The Auditor's "Street Rehabilitation Program" capital budget, against the later five-year plans' "programmed paving
@@ -264,7 +276,7 @@ Field = {status: verified|to_collect|not_in_record, value, citations[{doc_id, pd
 ## Next steps before the full timeline
 
 1. Collect the missing records above, starting with 1–3.
-2. Have a person review the 14 storyboard events against their cited pages.
+2. Have a person review all 16 current events and the actual-spending findings against their cited records.
 3. Agree the event-selection rule, i.e. what counts as "significant", before adding events, so the selection is not
    ad hoc.
 4. Then expand to the General Fund, the Marina (reusing the Marina workstream's sources), housing and other services.

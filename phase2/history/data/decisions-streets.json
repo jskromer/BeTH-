@@ -207,6 +207,90 @@
    "local": "phase2/history/sources/council-2023-06-13-annotated.pdf",
    "kind": "annotated_agenda",
    "url": null
+  },
+  "sco:0910": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2009-10, Table 5 (Cities), page 137 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy0910-berkeley-p137.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1011": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2010-11, Table 5 (Cities), page 138 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1011-berkeley-p138.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1112": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2011-12, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1112-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1213": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2012-13, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1213-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1314": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2013-14, Table 5 (Cities), page 142 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1314-berkeley-p142.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1415": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2014-15, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1415-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1516": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2015-16, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1516-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1617": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2016-17, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1617-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "acfr23:p122": {
+   "title": "FY2023 ACFR, PDF p.122, Note 4.C Advances to/from (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p122.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr23:p324": {
+   "title": "FY2023 ACFR, PDF p.324, internal service funds statement (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p324.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr24": {
+   "title": "FY2024 ACFR",
+   "local": "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr25": {
+   "title": "FY2025 ACFR",
+   "local": "annual-comprehensive-financial-report-fy2025.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "ws25:p37": {
+   "title": "Safe Streets & Pavement Management Program Workshop, March 25, 2025, slide 37 (text extract)",
+   "local": "phase2/history/sources/measure-ff/safe-streets-workshop-2025-03-25-p37.txt",
+   "kind": "staff_presentation",
+   "url": null
+  },
+  "r22:jul26-03": {
+   "title": "Establishing Policy for Adequate Annual General Fund Contribution for Street Maintenance, Council Item 3, July 26, 2022 (report)",
+   "local": "phase2/history/sources/streets/council-2022-07-26-item03-paving-policy.pdf",
+   "kind": "council_item",
+   "url": null
   }
  },
  "events": [

@@ -32,6 +32,7 @@ sys.path.insert(0, str(PHASE2 / 'tools'))
 import ask_design as design  # noqa: E402  shared BeTH visual design system
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import streets_case as sc  # noqa: E402  streets case study: funding series, proposals, charts
+import streets_actuals as sa  # noqa: E402  actual street expenditures (State Controller) and investigations A-D
 
 SCHEMA_VERSION = 1
 
@@ -71,22 +72,28 @@ for y, f, url in [(2012, 'mtc-pci-2012', 'https://mtc.ca.gov/sites/default/files
 
 
 sc.register_docs(_doc)
+sa.register_docs(_doc)
 
 
 def norm(s):
     s = s.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"')
     s = s.replace('–', '-').replace('—', '-')
+    s = re.sub(r'[\x00-\x08\x0b\x0e-\x1f]', '', s)  # some PDFs embed backspaces between table cells
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
 @lru_cache(maxsize=None)
 def page_count(doc):
+    if DOCS[doc]['local'].endswith('.txt'):  # single-page text extract of a large PDF (full-file SHA-256 kept beside it)
+        return 1
     out = subprocess.run(['pdfinfo', str(REPO / DOCS[doc]['local'])], capture_output=True, text=True, check=True).stdout
     return int(re.search(r'^Pages:\s+(\d+)', out, re.M).group(1))
 
 
 @lru_cache(maxsize=None)
 def page_text(doc, page):
+    if DOCS[doc]['local'].endswith('.txt'):
+        return norm((REPO / DOCS[doc]['local']).read_text())
     parts = [subprocess.run(['pdftotext', *m, '-f', str(page), '-l', str(page), str(REPO / DOCS[doc]['local']), '-'],
                             capture_output=True, text=True, check=True).stdout for m in ([], ['-layout'])]
     return norm(' \n '.join(parts))
@@ -526,10 +533,26 @@ def outcomes():
         'displacement': sc.displacement_analysis(cite),
         'annual_paving_spending': {
             'status': 'to_collect',
-            'needed': 'Actual paving expenditures by fiscal year, FY2010-FY2026, and adopted versus amended appropriations '
-                      'for each year. Budgets and plans are held for FY2014-FY2031 (street_rehab_funding); actuals are not.',
-            'where_to_look': 'Adopted budgets and CIP books; ACFR capital outlay; Public Works paving reports.'},
+            'needed': 'Actual paving expenditures by project and fiscal year, FY2010-FY2026, and adopted versus amended '
+                      'appropriations for each year. The City-reported street-purpose actuals (street_expenditures_actual) '
+                      'are held for FY2010-FY2025 but are not paving-only; no City project-level ledger is published.',
+            'where_to_look': 'City general ledger by project (records request draft, item 1); FY2026 Annual Street Report '
+                             'when the State Controller publishes it.'},
+        'street_expenditures_actual': actuals_summary(),
+        'investigations': sa.investigations(cite),
     }
+
+
+@lru_cache(maxsize=None)
+def actuals_dataset():
+    return sa.dataset(cite)
+
+
+def actuals_summary():
+    ds = actuals_dataset()
+    return {k: ds[k] for k in ('what', 'accounting_basis', 'categories_used_for_paving', 'reconciliation_rules', 'rows',
+                               'detail_check', 'description_class_conflicts')} | {'series': sa.series(ds),
+                                                  'detail_file': 'phase2/history/data/street-expenditures-actual.json'}
 
 
 # ------------------------------------------------------------------ checks
@@ -545,8 +568,42 @@ def all_citations(obj):
             yield from all_citations(v)
 
 
-def check(evs, outs):
+def check_actuals(outs):
     problems = []
+    a = outs['street_expenditures_actual']
+    for c in a['detail_check']:
+        if c['difference'] != 0:
+            problems.append(f'actuals FY{c["fy"]}: Street Reconstruction detail {c["detail_sum"]:,} != summary {c["summary"]:,}')
+    for r in a['rows']:
+        inc = r['includes']
+        if inc['transfers'] or inc['bond_proceeds'] or inc['appropriations_or_encumbrances'] or inc['debt_service']:
+            problems.append(f'actuals FY{r["fy"]} {r["category"]}: counts a non-expenditure')
+        if r['source_type'] == 'printed_report' and r['amount'] and norm(f'{r["amount"]:,}') != norm(r['citation']['quote']):
+            problems.append(f'actuals FY{r["fy"]} {r["category"]}: amount and quote differ')
+    years = sorted({r['fy'] for r in a['rows']})
+    if years != list(range(2010, 2026)):
+        problems.append(f'actuals years {years}')
+    for s in a['series']:  # Grand total must cover the paving categories it contains
+        if s['grand_total'] is not None and s['grand_total'] < sum(s[k] or 0 for k in
+                ('street_reconstruction', 'overlay_sealing', 'patching', 'eng_admin')):
+            problems.append(f'actuals FY{s["fy"]}: components exceed grand total')
+    inv = {i['id']: i for i in outs['investigations']}
+    d = inv['D']['arithmetic']
+    if not (d['plan_2023_is_8937022_at_3pct_from_fy2025'] and d['budget_2026_is_8000000_at_3pct_from_fy2025']):
+        problems.append('D: printed series no longer reproduce at 3%')
+    if d['difference_fy2027'] != 9481286 - 8487200:
+        problems.append('D: FY2027 difference')
+    b = inv['B']['arithmetic']
+    if (b['authorized'], b['audited_transfers_out_fy2023_2025']) != (9550000, 5500000):
+        problems.append('B: Workers\' Compensation trace figures')
+    m = inv['C']['arithmetic']
+    if m['total'] != 18742503:  # the printed FY2027 Table 1A total
+        problems.append(f'C: FY2027 sources sum to {m["total"]:,}, Table 1A prints 18,742,503')
+    return problems
+
+
+def check(evs, outs):
+    problems = check_actuals(outs)
     for c in all_citations({'e': evs, 'o': outs, 'n': narrative_claims()}):
         d = c['doc_id']
         if d not in DOCS:
@@ -756,6 +813,32 @@ def funding_table(outs):
             + ''.join(f'<li>{e(x)}</li>' for x in outs['pci_method_notes']) + '</ul></div></details>')
 
 
+def actuals_table(outs):
+    a = outs['street_expenditures_actual']
+    m = lambda v: 'Not reported' if v is None else f'${v / 1e6:.2f}M'  # noqa: E731
+    def maintenance(s):
+        values = [s['overlay_sealing'], s['patching']]
+        if all(v is None for v in values):
+            return 'Not reported'
+        return m(sum(v for v in values if v is not None)) + ('*' if None in values else '')
+    rows = ''.join(f'<tr><td>FY{s["fy"]}</td><td class="n">{m(s["street_reconstruction"])}</td>'
+                   f'<td class="n">{maintenance(s)}</td><td class="n">{m(s["eng_admin"])}</td>'
+                   f'<td class="n">{m(s["grand_total"])}</td></tr>' for s in a['series'])
+    rules = ''.join(f'<li>{e(x)}</li>' for x in a['reconciliation_rules'])
+    return (f'<details class="open-card" style="margin:10px 0"><summary>Actual spending by year (City-reported to the State '
+            f'Controller): the numbers and their limits</summary><div><p class="note">{e(a["accounting_basis"])}</p>'
+            f'<div class="tw"><table><thead><tr><th>Year</th><th>Street reconstruction (capital)</th>'
+            f'<th>Overlay, sealing, patching (maintenance)</th><th>Engineering and administration (not in project costs)</th>'
+            f'<th>All street purposes</th></tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<p class="note"><b>Reconciliation rules:</b></p><ul class="plain">{rules}</ul>'
+            f'<p class="note">* Reported subtotal: one maintenance category is blank. Blank categories remain unknown; '
+            f'they are not reported zeroes. Full dataset, with fund and project detail from FY2018: '
+            f'<a href="../data/street-expenditures-actual.json">JSON</a> and '
+            f'<a href="../data/street-expenditures-actual.csv">CSV</a>. '
+            f'FY2010-FY2017 figures are from the Controller\'s printed reports; each cites its page.</p>'
+            f'</div></details>')
+
+
 def displacement_html(outs):
     out = ''
     for d in outs['displacement']:
@@ -931,7 +1014,8 @@ def page_html(evs, outs, credits, ask_credits):
         return (f'<a href="{e(p["source_page"])}">{e(p["author"])}</a>, {e(p["license"])}'
                 + (f' ({e(p["license_basis"])})' if p.get('license_basis') else '') + ', via Wikimedia Commons')
     sync, nums = sc.sync_chart(evs, outs['street_rehab_funding'], outs['centerline_miles_paved'],
-                               outs['pci_mtc_3yr_moving_average'], outs['pci_city_history'], design)
+                               outs['pci_mtc_3yr_moving_average'], outs['pci_city_history'], design,
+                               outs['street_expenditures_actual']['series'])
     items, last = '', None
     for ev in sorted(evs, key=lambda x: x['date']):
         card, year = card_html(ev)
@@ -964,6 +1048,7 @@ scenarios are kept separate and none are included yet.</li>
 <p class="sec-sub">Funding, paving and condition on one timeline, with each decision marked. Gaps are shown, not filled.</p>
 <div class="widefig">{sync}</div>
 {funding_table(outs)}
+{actuals_table(outs)}
 <h2 class="sec">Did new money add to street funding or replace it?</h2>
 <p class="sec-sub">What the record shows so far. Each item states its evidence and how far it goes.</p>
 {displacement_html(outs)}
@@ -997,6 +1082,28 @@ window.addEventListener('hashchange',openHash);openHash();
                         'A research prototype timeline of Berkeley street and infrastructure decisions and outcomes.')
 
 
+def write_actuals_csv(path):
+    import csv
+    import io
+    ds = actuals_dataset()
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator='\n')
+    w.writerow(['fiscal_year', 'level', 'category', 'fund', 'project_id', 'description', 'amount', 'capital_or_operating',
+                'includes_design_admin', 'includes_debt_service', 'includes_transfers', 'accounting_basis', 'source'])
+    for r in ds['rows']:
+        c = r['citation']
+        src = (f'{DOCS[c["doc_id"]]["title"]}' if 'doc_id' in c else f'{c["dataset"]}, {c["sheet"]}, FY{c["fiscal_year"]}, '
+               f'{c.get("column", "")}')
+        w.writerow([r['fy'], 'city total', r['category'], r['fund'], '', '', '' if r['amount'] is None else r['amount'],
+                    r['capital_or_operating'], r['includes']['design'], False, False, 'City-reported to SCO; not audited', src])
+    for r in ds['street_reconstruction_detail']:
+        c = r['citation']
+        w.writerow([r['fy'], 'fund detail', r['category'], r['fund'], r['project_id'] or '', r['description'], r['amount'],
+                    'capital', False, False, False, 'City-reported to SCO; not audited',
+                    f'{c["dataset"]}, {c["sheet"]}, FY{c["fiscal_year"]}, record {c["record_no"]}'])
+    path.write_text(buf.getvalue())
+
+
 def main(argv):
     evs, outs = events(), outcomes()
     problems = check(evs, outs)
@@ -1015,6 +1122,9 @@ def main(argv):
                 'documents': DOCS}
         (HIST / 'data' / 'decisions-streets.json').write_text(json.dumps({**meta, 'events': evs}, indent=1) + '\n')
         (HIST / 'data' / 'outcomes-streets.json').write_text(json.dumps({**meta, 'series': outs}, indent=1) + '\n')
+        (HIST / 'data' / 'street-expenditures-actual.json').write_text(json.dumps(
+            {**meta, 'documents': {k: v for k, v in DOCS.items() if k.startswith('sco:')}, **actuals_dataset()}, indent=1) + '\n')
+        write_actuals_csv(HIST / 'data' / 'street-expenditures-actual.csv')
         credits = json.loads((HIST / 'docs' / 'assets' / 'photos' / 'credits.json').read_text())
         ask_credits = json.loads((PHASE2 / 'docs' / 'assets' / 'photos' / 'credits.json').read_text())
         (HIST / 'docs' / 'timeline.html').write_text(page_html(evs, outs, credits, ask_credits))

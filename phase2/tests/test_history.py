@@ -196,5 +196,116 @@ class StreetsCase(unittest.TestCase):
         self.assertIn('plans, not results', page)
 
 
+class StreetActuals(unittest.TestCase):
+    """Actual expenditures: City-reported to the State Controller, never mixed with budgets or authorizations."""
+    @classmethod
+    def setUpClass(cls):
+        cls.outs = bh.outcomes()
+        cls.a = cls.outs['street_expenditures_actual']
+        cls.inv = {i['id']: i for i in cls.outs['investigations']}
+        cls.file = json.loads((PHASE2 / 'history' / 'data' / 'street-expenditures-actual.json').read_text())
+
+    def test_basis_labelled_on_every_row(self):
+        for r in self.a['rows']:
+            self.assertIn('State Controller', r['accounting_basis'])
+            self.assertIn('not audited', r['accounting_basis'])
+            self.assertIn(r['capital_or_operating'], ('capital', 'operating (maintenance)', 'mixed',
+                                                      'overhead (design, engineering, administration)'))
+
+    def test_no_appropriation_encumbrance_transfer_or_bond_proceeds(self):
+        for r in self.a['rows'] + self.file['street_reconstruction_detail']:
+            for k in ('transfers', 'bond_proceeds', 'appropriations_or_encumbrances', 'debt_service'):
+                self.assertFalse(r.get('includes', {}).get(k, False), f'FY{r["fy"]} {r["category"]} {k}')
+        for p in self.outs['street_rehab_funding']['points']:  # the budget series stays a budget series
+            self.assertNotIn('actual', p['basis'].split(' ')[0])
+
+    def test_detail_reconciles_to_summary(self):
+        self.assertEqual([c['fy'] for c in self.a['detail_check']], list(range(2018, 2026)))
+        for c in self.a['detail_check']:
+            self.assertEqual(c['difference'], 0, c)
+
+    def test_known_values(self):
+        sr = {s['fy']: s['street_reconstruction'] for s in self.a['series']}
+        self.assertEqual((sr[2010], sr[2014], sr[2017], sr[2023], sr[2025]), (1415791, 0, 7296164, 5558322, 21670883))
+        self.assertNotIn(2026, sr)  # FY2026 not yet published by the Controller
+
+    def test_printed_report_rows_cite_their_page(self):
+        pr = [r for r in self.a['rows'] if r['source_type'] == 'printed_report']
+        self.assertEqual(sorted({r['fy'] for r in pr}), list(range(2010, 2018)))
+        for r in pr:
+            if r['amount']:
+                self.assertIn(bh.norm(f'{r["amount"]:,}'), bh.page_text(r['citation']['doc_id'], 1))
+
+    def test_workers_comp_trace(self):
+        b = self.inv['B']
+        self.assertEqual(b['arithmetic'], {'authorized': 9550000, 'audited_transfers_out_fy2023_2025': 5500000,
+                                           'not_visible_in_audited_wc_statements': 4050000})
+        self.assertIn('not established', b['answer'])
+        self.assertTrue(any('authorization' in f['text'] for f in b['findings']))
+
+    def test_fy2027_arithmetic(self):
+        d = self.inv['D']['arithmetic']
+        self.assertEqual(d['difference_fy2027'], 994086)
+        self.assertEqual(d['base_difference_fy2025'], 937022)
+        self.assertTrue(d['plan_2023_is_8937022_at_3pct_from_fy2025'] and d['budget_2026_is_8000000_at_3pct_from_fy2025'])
+
+    def test_moe_is_not_a_compliance_finding(self):
+        c = self.inv['C']
+        self.assertIn('legal question', c['answer'])
+        self.assertTrue(any('not a compliance finding' in x for x in c['caveats']))
+        self.assertEqual(c['arithmetic']['total'], 18742503)
+
+    def test_baseline_not_general_fund(self):
+        self.assertTrue(self.inv['A']['answer'].startswith('No.'))
+
+    def test_page_labels_actuals(self):
+        page = (PHASE2 / 'history' / 'docs' / 'timeline.html').read_text()
+        self.assertIn('Actual spending, $M', page)
+        self.assertIn('must not be added together', page)
+        self.assertIn('DRAFT · NOT APPROVED', page)
+
+    def test_missing_categories_survive_into_series(self):
+        points = {s['fy']: s for s in self.a['series']}
+        self.assertIsNone(points[2024]['overlay_sealing'])
+        self.assertIsNone(points[2024]['patching'])
+        self.assertEqual(points[2014]['street_reconstruction'], 0)
+        page = (PHASE2 / 'history' / 'docs' / 'timeline.html').read_text()
+        self.assertIn('Not reported', page)
+        self.assertIn('not reported zeroes', page)
+
+    def test_unknown_categories_do_not_break_checks_or_rendering(self):
+        from copy import deepcopy
+        outs = deepcopy(self.outs)
+        for key in ('street_reconstruction', 'overlay_sealing', 'patching', 'eng_admin', 'grand_total'):
+            outs['street_expenditures_actual']['series'][0][key] = None
+        self.assertEqual(bh.check_actuals(outs), [])
+        self.assertIn('Not reported', bh.actuals_table(outs))
+
+    def test_exports_are_linked_and_match_source_rows(self):
+        import csv
+        import io
+        self.assertEqual(self.file['rows'], self.a['rows'])
+        path = PHASE2 / 'history' / 'data' / 'street-expenditures-actual.csv'
+        records = list(csv.DictReader(io.StringIO(path.read_text())))
+        summary = [r for r in records if r['level'] == 'city total']
+        self.assertEqual(len(summary), len(self.a['rows']))
+        for exported, source in zip(summary, self.a['rows']):
+            self.assertEqual(exported['amount'], '' if source['amount'] is None else str(source['amount']))
+        page = (PHASE2 / 'history' / 'docs' / 'timeline.html').read_text()
+        for ext in ('json', 'csv'):
+            self.assertIn(f'href="../data/street-expenditures-actual.{ext}"', page)
+
+    def test_same_dollars_have_same_chart_height(self):
+        funding = {'points': [{'fy': 2025, 'total_m': 10, 'recurring_m': 10,
+                                'basis': 'budget', 'value_type': 'printed'}]}
+        actuals = [{'fy': 2025, 'street_reconstruction': 10_000_000, 'overlay_sealing': 0, 'patching': 0}]
+        chart, _ = bh.sc.sync_chart([], funding, {'points': [{'fy': 'FY2025', 'miles': 1, 'basis': 'actual'}]},
+                                    {'points': []}, [], bh.design, actuals)
+        heights = re.findall(r'height:([\d.]+)px;background-color:[^"<>]+" title="FY2025 '
+                             r'(?:recurring|street reconstruction):', chart)
+        self.assertEqual(len(heights), 2)
+        self.assertEqual(heights[0], heights[1])
+
+
 if __name__ == '__main__':
     unittest.main()

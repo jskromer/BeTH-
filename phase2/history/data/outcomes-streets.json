@@ -207,6 +207,90 @@
    "local": "phase2/history/sources/council-2023-06-13-annotated.pdf",
    "kind": "annotated_agenda",
    "url": null
+  },
+  "sco:0910": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2009-10, Table 5 (Cities), page 137 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy0910-berkeley-p137.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1011": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2010-11, Table 5 (Cities), page 138 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1011-berkeley-p138.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1112": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2011-12, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1112-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1213": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2012-13, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1213-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1314": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2013-14, Table 5 (Cities), page 142 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1314-berkeley-p142.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1415": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2014-15, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1415-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1516": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2015-16, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1516-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1617": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2016-17, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1617-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "acfr23:p122": {
+   "title": "FY2023 ACFR, PDF p.122, Note 4.C Advances to/from (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p122.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr23:p324": {
+   "title": "FY2023 ACFR, PDF p.324, internal service funds statement (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p324.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr24": {
+   "title": "FY2024 ACFR",
+   "local": "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr25": {
+   "title": "FY2025 ACFR",
+   "local": "annual-comprehensive-financial-report-fy2025.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "ws25:p37": {
+   "title": "Safe Streets & Pavement Management Program Workshop, March 25, 2025, slide 37 (text extract)",
+   "local": "phase2/history/sources/measure-ff/safe-streets-workshop-2025-03-25-p37.txt",
+   "kind": "staff_presentation",
+   "url": null
+  },
+  "r22:jul26-03": {
+   "title": "Establishing Policy for Adequate Annual General Fund Contribution for Street Maintenance, Council Item 3, July 26, 2022 (report)",
+   "local": "phase2/history/sources/streets/council-2022-07-26-item03-paving-policy.pdf",
+   "kind": "council_item",
+   "url": null
   }
  },
  "series": {
@@ -1061,8 +1145,3460 @@
   ],
   "annual_paving_spending": {
    "status": "to_collect",
-   "needed": "Actual paving expenditures by fiscal year, FY2010-FY2026, and adopted versus amended appropriations for each year. Budgets and plans are held for FY2014-FY2031 (street_rehab_funding); actuals are not.",
-   "where_to_look": "Adopted budgets and CIP books; ACFR capital outlay; Public Works paving reports."
-  }
+   "needed": "Actual paving expenditures by project and fiscal year, FY2010-FY2026, and adopted versus amended appropriations for each year. The City-reported street-purpose actuals (street_expenditures_actual) are held for FY2010-FY2025 but are not paving-only; no City project-level ledger is published.",
+   "where_to_look": "City general ledger by project (records request draft, item 1); FY2026 Annual Street Report when the State Controller publishes it."
+  },
+  "street_expenditures_actual": {
+   "what": "Actual street-purpose expenditures as reported by the City of Berkeley to the State Controller, by Controller category, FY2010-FY2025.",
+   "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+   "categories_used_for_paving": {
+    "primary": "Street Reconstruction (capital construction; contracts plus any in-house work)",
+    "also": "Overlay and Sealing; Patching (maintenance)",
+    "excluded_from_paving_measures": "Undistributed Engineering and Administration (design, engineering and administration not charged to projects); signals, lighting, bike/ped and storm drain construction; other street maintenance."
+   },
+   "reconciliation_rules": [
+    "Never add these actuals to budget or plan figures: different bases.",
+    "Totals are all-fund City totals. Fund-level detail exists only from FY2018 (SR_EXP_DETAIL).",
+    "Street Reconstruction detail rows must sum to the summary for each year (checked; see detail_check).",
+    "Design and administration sit in Undistributed Engineering and Administration and are not in Street Reconstruction; adding both is not double counting but changes the measure.",
+    "Bond-funded construction (Measure M fund 630 in FY2018; Measure T1 fund 511) appears as expenditure when spent; bond proceeds themselves are not in this dataset.",
+    "Classification varies by year: FY2014 reports no Street Reconstruction but $1,597,699 of Patching; FY2025 reports $2,331,787 of Overlay and Sealing. Year-to-year comparisons of one category can mislead.",
+    "Some Street Reconstruction rows are described as \"Admin & Eng\" or \"Maintenance\" ($4.09M in FY2024, $8.00M in FY2025; see description_class_conflicts). They are kept as filed and flagged, not reclassified.",
+    "Project identifiers are taken from the City's expenditure descriptions; their meaning (e.g. PWENST2301) is not defined in any document BeTH holds and needs the City's project dictionary."
+   ],
+   "rows": [
+    {
+     "fy": 2010,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 4726265,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "4,726,265"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Street Reconstruction",
+     "amount": 1415791,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "1,415,791"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Patching",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Total Construction",
+     "amount": 4582763,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "4,582,763"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Total Maintenance",
+     "amount": 7732773,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "7,732,773"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2010,
+     "category": "Grand Total Expenditures",
+     "amount": 17619780,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:0910",
+      "pdf_page": 1,
+      "quote": "17,619,780"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 5554568,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "5,554,568"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Street Reconstruction",
+     "amount": 1257826,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "1,257,826"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Patching",
+     "amount": 494189,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "494,189"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Total Construction",
+     "amount": 3459578,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "3,459,578"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Total Maintenance",
+     "amount": 5697445,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "5,697,445"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2011,
+     "category": "Grand Total Expenditures",
+     "amount": 14768430,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1011",
+      "pdf_page": 1,
+      "quote": "14,768,430"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 4964045,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "4,964,045"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Street Reconstruction",
+     "amount": 2131593,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "2,131,593"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Overlay and Sealing",
+     "amount": 1980694,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "1,980,694"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Patching",
+     "amount": 1342732,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "1,342,732"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Total Construction",
+     "amount": 5843635,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "5,843,635"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Total Maintenance",
+     "amount": 6892307,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "6,892,307"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2012,
+     "category": "Grand Total Expenditures",
+     "amount": 17699987,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1112",
+      "pdf_page": 1,
+      "quote": "17,699,987"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 6543514,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "6,543,514"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Street Reconstruction",
+     "amount": 3182466,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "3,182,466"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Patching",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Total Construction",
+     "amount": 6370315,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "6,370,315"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Total Maintenance",
+     "amount": 5659522,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "5,659,522"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2013,
+     "category": "Grand Total Expenditures",
+     "amount": 19136833,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1213",
+      "pdf_page": 1,
+      "quote": "19,136,833"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7168998,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "7,168,998"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Street Reconstruction",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Patching",
+     "amount": 1597699,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "1,597,699"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Total Construction",
+     "amount": 3915592,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "3,915,592"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Total Maintenance",
+     "amount": 6075156,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "6,075,156"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2014,
+     "category": "Grand Total Expenditures",
+     "amount": 17174529,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1314",
+      "pdf_page": 1,
+      "quote": "17,174,529"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7567657,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "7,567,657"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Street Reconstruction",
+     "amount": 2860180,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "2,860,180"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Patching",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Total Construction",
+     "amount": 5599625,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "5,599,625"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Total Maintenance",
+     "amount": 9359358,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "9,359,358"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2015,
+     "category": "Grand Total Expenditures",
+     "amount": 23590563,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1415",
+      "pdf_page": 1,
+      "quote": "23,590,563"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 10379946,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "10,379,946"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Street Reconstruction",
+     "amount": 6839312,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "6,839,312"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Patching",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Total Construction",
+     "amount": 10270287,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "10,270,287"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Total Maintenance",
+     "amount": 6379628,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "6,379,628"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2016,
+     "category": "Grand Total Expenditures",
+     "amount": 26545860,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1516",
+      "pdf_page": 1,
+      "quote": "26,545,860"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7700724,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "7,700,724"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Street Reconstruction",
+     "amount": 7296164,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "7,296,164"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Overlay and Sealing",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Patching",
+     "amount": 0,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "Berkeley"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Total Construction",
+     "amount": 8809873,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "8,809,873"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Total Maintenance",
+     "amount": 7321295,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "7,321,295"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2017,
+     "category": "Grand Total Expenditures",
+     "amount": 23831892,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "printed_report",
+     "citation": {
+      "doc_id": "sco:1617",
+      "pdf_page": 1,
+      "quote": "23,831,892"
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 6994996,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Street Reconstruction",
+     "amount": 13190165,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Patching",
+     "amount": 75580,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Total Construction",
+     "amount": 13340165,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Total Maintenance",
+     "amount": 5303051,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2022,
+     "category": "Grand Total Expenditures",
+     "amount": 26107323,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2022
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7215517,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Street Reconstruction",
+     "amount": 9880042,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Patching",
+     "amount": 8100,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Total Construction",
+     "amount": 9880042,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Total Maintenance",
+     "amount": 8010686,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2021,
+     "category": "Grand Total Expenditures",
+     "amount": 25490937,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2021
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7937242,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Street Reconstruction",
+     "amount": 17046786,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Patching",
+     "amount": 68411,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Total Construction",
+     "amount": 17046786,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Total Maintenance",
+     "amount": 7382116,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2020,
+     "category": "Grand Total Expenditures",
+     "amount": 32794663,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2020
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 7771928,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Street Reconstruction",
+     "amount": 9411760,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Patching",
+     "amount": 39796,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Total Construction",
+     "amount": 9411760,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Total Maintenance",
+     "amount": 4457364,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2019,
+     "category": "Grand Total Expenditures",
+     "amount": 21943061,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2019
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 8141008,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Street Reconstruction",
+     "amount": 11104839,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Patching",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Total Construction",
+     "amount": 11219571,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Total Maintenance",
+     "amount": 7186307,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2018,
+     "category": "Grand Total Expenditures",
+     "amount": 26546886,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2018
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 9379238,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Street Reconstruction",
+     "amount": 22512470,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Patching",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Total Construction",
+     "amount": 22456026,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Total Maintenance",
+     "amount": 3140294,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2024,
+     "category": "Grand Total Expenditures",
+     "amount": 35608054,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2024
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 12013436,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Street Reconstruction",
+     "amount": 5558322,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Overlay and Sealing",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Patching",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Total Construction",
+     "amount": 5618291,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Total Maintenance",
+     "amount": 4519439,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2023,
+     "category": "Grand Total Expenditures",
+     "amount": 23311760,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2023
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Undistributed Engineering and Administration",
+     "amount": 6454881,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "overhead (design, engineering, administration)",
+     "scope": "not allocated to projects",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": false,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Street Reconstruction",
+     "amount": 21670883,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Street Reconstruction_Total_Construction and Right of Way",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Overlay and Sealing",
+     "amount": 2331787,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Overlay and Sealing_Total_Maintenance",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Patching",
+     "amount": null,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Patching_Total_Maintenance",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "paving maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Total Construction",
+     "amount": 24316026,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Construction_Total_Construction and Right of Way",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "capital",
+     "scope": "all street construction",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Total Maintenance",
+     "amount": 6250649,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Maintenance_Total_Maintenance",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "operating (maintenance)",
+     "scope": "all street maintenance",
+     "includes": {
+      "design": false,
+      "administration": false,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    },
+    {
+     "fy": 2025,
+     "category": "Grand Total Expenditures",
+     "amount": 37562669,
+     "fund": "all funds (City total)",
+     "project_id": null,
+     "source_type": "dataset",
+     "citation": {
+      "dataset": "SCO City Street Raw Data",
+      "sheet": "SR_EXP_SUMMARY",
+      "column": "Total Street Purpose Expenditures_Total_",
+      "fiscal_year": 2025
+     },
+     "accounting_basis": "Actual expenditures as reported by the City to the State Controller (Annual Street Report, Streets and Highways Code s.2151). The Controller notes the data are not audited. Not reconciled by BeTH to the ACFR.",
+     "capital_or_operating": "mixed",
+     "scope": "all street-purpose expenditures",
+     "includes": {
+      "design": true,
+      "administration": true,
+      "construction": true,
+      "debt_service": false,
+      "transfers": false,
+      "bond_proceeds": false,
+      "appropriations_or_encumbrances": false
+     }
+    }
+   ],
+   "detail_check": [
+    {
+     "fy": 2018,
+     "detail_sum": 11104839,
+     "summary": 11104839,
+     "difference": 0
+    },
+    {
+     "fy": 2019,
+     "detail_sum": 9411760,
+     "summary": 9411760,
+     "difference": 0
+    },
+    {
+     "fy": 2020,
+     "detail_sum": 17046786,
+     "summary": 17046786,
+     "difference": 0
+    },
+    {
+     "fy": 2021,
+     "detail_sum": 9880042,
+     "summary": 9880042,
+     "difference": 0
+    },
+    {
+     "fy": 2022,
+     "detail_sum": 13190165,
+     "summary": 13190165,
+     "difference": 0
+    },
+    {
+     "fy": 2023,
+     "detail_sum": 5558322,
+     "summary": 5558322,
+     "difference": 0
+    },
+    {
+     "fy": 2024,
+     "detail_sum": 22512470,
+     "summary": 22512470,
+     "difference": 0
+    },
+    {
+     "fy": 2025,
+     "detail_sum": 21670883,
+     "summary": 21670883,
+     "difference": 0
+    }
+   ],
+   "description_class_conflicts": [
+    {
+     "fy": 2024,
+     "fund": "149",
+     "description": "Force Admin & Eng-Project PRIVATE SIDEWALKS MAILINGD",
+     "amount": 275960,
+     "record_no": 34,
+     "note": "Filed as Street Reconstruction (construction) but described as administration/engineering or maintenance. Needs the City's explanation before it is counted as paving construction."
+    },
+    {
+     "fy": 2024,
+     "fund": "305",
+     "description": "Private Admin & Eng-Project-PWTRCS2002",
+     "amount": 3818649,
+     "record_no": 37,
+     "note": "Filed as Street Reconstruction (construction) but described as administration/engineering or maintenance. Needs the City's explanation before it is counted as paving construction."
+    },
+    {
+     "fy": 2023,
+     "fund": "133",
+     "description": "Private Maintenance-Project TRIP STOP SIDEWALK REPAIR ",
+     "amount": 2613,
+     "record_no": 26,
+     "note": "Filed as Street Reconstruction (construction) but described as administration/engineering or maintenance. Needs the City's explanation before it is counted as paving construction."
+    },
+    {
+     "fy": 2025,
+     "fund": "501",
+     "description": "Private Admin & Eng-PWENST2301",
+     "amount": 7371484,
+     "record_no": 48,
+     "note": "Filed as Street Reconstruction (construction) but described as administration/engineering or maintenance. Needs the City's explanation before it is counted as paving construction."
+    },
+    {
+     "fy": 2025,
+     "fund": "501",
+     "description": "Force Maintenance-PWENEN2001",
+     "amount": 629647,
+     "record_no": 50,
+     "note": "Filed as Street Reconstruction (construction) but described as administration/engineering or maintenance. Needs the City's explanation before it is counted as paving construction."
+    }
+   ],
+   "series": [
+    {
+     "fy": 2010,
+     "street_reconstruction": 1415791,
+     "overlay_sealing": 0,
+     "patching": 0,
+     "eng_admin": 4726265,
+     "grand_total": 17619780
+    },
+    {
+     "fy": 2011,
+     "street_reconstruction": 1257826,
+     "overlay_sealing": 0,
+     "patching": 494189,
+     "eng_admin": 5554568,
+     "grand_total": 14768430
+    },
+    {
+     "fy": 2012,
+     "street_reconstruction": 2131593,
+     "overlay_sealing": 1980694,
+     "patching": 1342732,
+     "eng_admin": 4964045,
+     "grand_total": 17699987
+    },
+    {
+     "fy": 2013,
+     "street_reconstruction": 3182466,
+     "overlay_sealing": 0,
+     "patching": 0,
+     "eng_admin": 6543514,
+     "grand_total": 19136833
+    },
+    {
+     "fy": 2014,
+     "street_reconstruction": 0,
+     "overlay_sealing": 0,
+     "patching": 1597699,
+     "eng_admin": 7168998,
+     "grand_total": 17174529
+    },
+    {
+     "fy": 2015,
+     "street_reconstruction": 2860180,
+     "overlay_sealing": 0,
+     "patching": 0,
+     "eng_admin": 7567657,
+     "grand_total": 23590563
+    },
+    {
+     "fy": 2016,
+     "street_reconstruction": 6839312,
+     "overlay_sealing": 0,
+     "patching": 0,
+     "eng_admin": 10379946,
+     "grand_total": 26545860
+    },
+    {
+     "fy": 2017,
+     "street_reconstruction": 7296164,
+     "overlay_sealing": 0,
+     "patching": 0,
+     "eng_admin": 7700724,
+     "grand_total": 23831892
+    },
+    {
+     "fy": 2018,
+     "street_reconstruction": 11104839,
+     "overlay_sealing": null,
+     "patching": null,
+     "eng_admin": 8141008,
+     "grand_total": 26546886
+    },
+    {
+     "fy": 2019,
+     "street_reconstruction": 9411760,
+     "overlay_sealing": null,
+     "patching": 39796,
+     "eng_admin": 7771928,
+     "grand_total": 21943061
+    },
+    {
+     "fy": 2020,
+     "street_reconstruction": 17046786,
+     "overlay_sealing": null,
+     "patching": 68411,
+     "eng_admin": 7937242,
+     "grand_total": 32794663
+    },
+    {
+     "fy": 2021,
+     "street_reconstruction": 9880042,
+     "overlay_sealing": null,
+     "patching": 8100,
+     "eng_admin": 7215517,
+     "grand_total": 25490937
+    },
+    {
+     "fy": 2022,
+     "street_reconstruction": 13190165,
+     "overlay_sealing": null,
+     "patching": 75580,
+     "eng_admin": 6994996,
+     "grand_total": 26107323
+    },
+    {
+     "fy": 2023,
+     "street_reconstruction": 5558322,
+     "overlay_sealing": null,
+     "patching": null,
+     "eng_admin": 12013436,
+     "grand_total": 23311760
+    },
+    {
+     "fy": 2024,
+     "street_reconstruction": 22512470,
+     "overlay_sealing": null,
+     "patching": null,
+     "eng_admin": 9379238,
+     "grand_total": 35608054
+    },
+    {
+     "fy": 2025,
+     "street_reconstruction": 21670883,
+     "overlay_sealing": 2331787,
+     "patching": null,
+     "eng_admin": 6454881,
+     "grand_total": 37562669
+    }
+   ],
+   "detail_file": "phase2/history/data/street-expenditures-actual.json"
+  },
+  "investigations": [
+   {
+    "id": "A",
+    "question": "Was the 2022 \"$7.3 million\" baseline General Fund money?",
+    "answer": "No. The $7.3 million was the City's street paving budget from all recurring sources; the General Fund share was the $1,925,000 Capital Improvement Fund line. The July 2022 report and the annotated agenda call it the \"existing General Fund street paving budget\"; the adopted resolution text calls it the \"existing baseline $7.3 million allocation\". City staff in 2026 describe it as coming \"from local and state sources\".",
+    "findings": [
+     {
+      "status": "verified",
+      "text": "The July 26, 2022 recommendation describes the $7.3 million as the existing General Fund street paving budget.",
+      "citations": [
+       {
+        "doc_id": "r22:jul26-03",
+        "pdf_page": 1,
+        "quote": "augment the existing General Fund street paving budget of $7.3 million"
+       },
+       {
+        "doc_id": "aa:2022-07-26-special",
+        "pdf_page": 4,
+        "quote": "augment the existing General Fund street paving budget of $7.3 million"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "The resolution as adopted does not call the $7.3 million General Fund money.",
+      "citations": [
+       {
+        "doc_id": "aa:2022-07-26-special",
+        "pdf_page": 4,
+        "quote": "in addition to the existing baseline $7.3 million allocation, for a total amount of $15.3 million"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "Six months earlier, City staff's Table 1 put the recurring program at $7,275,303 of which the Capital Improvement Fund (General Fund) line was $1,925,000; the rest was gas tax, SB 1, Measure BB and Measure F.",
+      "citations": [
+       {
+        "doc_id": "r22:25a",
+        "pdf_page": 1,
+        "quote": "7,275,303"
+       },
+       {
+        "doc_id": "r22:25a",
+        "pdf_page": 1,
+        "quote": "1,925,000"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "City staff in the FY2027 budget: the $7.3 million came from local and state sources.",
+      "citations": [
+       {
+        "doc_id": "budget:2026-06-23",
+        "pdf_page": 243,
+        "quote": "The City has historically allocated about $7.3 million in recurring funding to Street paving from local and state sources"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "A March 2025 City workshop slide shows \"General Fund: $9.9M/yr\" as \"Baseline annual streets funding\" without a breakdown; it is not reconcilable to either figure from that slide alone.",
+      "citations": [
+       {
+        "doc_id": "ws25:p37",
+        "pdf_page": 1,
+        "quote": "General Fund: $9.9M/yr"
+       }
+      ]
+     }
+    ],
+    "open": [
+     "The City's working papers for the $7.3 million and the $9.9 million (records request item 5)."
+    ]
+   },
+   {
+    "id": "B",
+    "question": "Did the June 2023 $4.05M and the July 2023 $5.5M Workers' Compensation actions happen as transfers, loans, receivables and repayments?",
+    "answer": "Authorized: $9.55 million in two actions. Recorded in the audited Workers' Compensation statements, FY2023-FY2025: one transfer out of $5,500,000, in FY2024, to the General Fund, and no advance or receivable for either action. The $4,050,000 does not appear in the FY2023 Workers' Compensation statement (transfers \"-\"), in the FY2024 or FY2025 ACFR at all, or in either year's interfund notes. The $813,779 transfer into the fund in FY2024 is the final repayment of a 2017 General Fund loan, unrelated to either action. Which 2023 action, if either, the $5.5 million transfer carried out is not established.",
+    "findings": [
+     {
+      "status": "verified",
+      "text": "June 13, 2023: Council approved using $4,050,000 from the Workers Compensation Fund toward the Measure T1 funding gap (an authorization).",
+      "citations": [
+       {
+        "doc_id": "aa:2023-06-13",
+        "pdf_page": 11,
+        "quote": "Use $4,050,000 from the Workers Compensation Fund"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "July 25, 2023: Council authorized an internal $5.5M loan from the Workers Compensation Fund for the D and E dock project (an authorization).",
+      "citations": [
+       {
+        "doc_id": "loan:2023-07-25",
+        "pdf_page": 1,
+        "quote": "authorizes an internal loan of $5.5M from the Workers Compensation Fund"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "FY2023 (year ended June 30, 2023): no Workers' Compensation transfers; ending net position $12,650,613; the 2017 loan balance stood at $813,779.",
+      "citations": [
+       {
+        "doc_id": "acfr23:p324",
+        "pdf_page": 1,
+        "quote": "12,650,613"
+       },
+       {
+        "doc_id": "acfr23:p122",
+        "pdf_page": 1,
+        "quote": "No principal repayment of the loan was made during FY 2023"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "FY2024: transfers in $813,779 and out ($5,500,000); the $813,779 repaid the 2017 loan in full; the transfers note shows the $5,500,000 going to the General Fund.",
+      "citations": [
+       {
+        "doc_id": "acfr24",
+        "pdf_page": 312,
+        "quote": "(5,500,000)"
+       },
+       {
+        "doc_id": "acfr24",
+        "pdf_page": 312,
+        "quote": "813,779"
+       },
+       {
+        "doc_id": "acfr24",
+        "pdf_page": 116,
+        "quote": "principal repayment of the loan in the amount of $813,779 was made"
+       },
+       {
+        "doc_id": "acfr24",
+        "pdf_page": 115,
+        "quote": "5,500,000"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "FY2025: no Workers' Compensation transfers; ending net position ($9,752,938); the only Marina interfund balance is $2,477,099 due to the General Fund.",
+      "citations": [
+       {
+        "doc_id": "acfr25",
+        "pdf_page": 322,
+        "quote": "(9,752,938)"
+       },
+       {
+        "doc_id": "acfr25",
+        "pdf_page": 113,
+        "quote": "Worker's Compensation Fund -"
+       },
+       {
+        "doc_id": "acfr25",
+        "pdf_page": 113,
+        "quote": "Marina Operations 2,477,099"
+       }
+      ]
+     }
+    ],
+    "arithmetic": {
+     "authorized": 9550000,
+     "audited_transfers_out_fy2023_2025": 5500000,
+     "not_visible_in_audited_wc_statements": 4050000
+    },
+    "caveats": [
+     "The FY2024 transfers note prints \"Equipment Replacement Fund\" in the From column of the $5,500,000 row while the fund statement (p.312) shows the outflow in the Workers' Compensation column; the group total ($6,450,612) matches the internal service funds' total transfers out. Read as Workers' Compensation; the label conflict is the City's and is recorded, not corrected.",
+     "The $4,050,000 may have been met from another source or not executed; BeTH holds no record either way. Absence from audited statements is not proof that no money moved through another fund.",
+     "The Marina ledger question (BeTH records the $5.5M as a loan into fund 608) is held in phase2/01-marina-fund-case-study.md and the 2026-10-25 flag; nothing here changes that ledger."
+    ],
+    "open": [
+     "Journal entries for the FY2024 $5,500,000 transfer and any entry for the $4,050,000 (records request item 3)."
+    ]
+   },
+   {
+    "id": "C",
+    "question": "Which funding sources count toward the $15.3 million Measure FF budget requirement?",
+    "answer": "The ordinance counts \"funding for street maintenance, from sources other than this tax\", at the $15.3 million defined by Resolution No. 70,456-N.S. That resolution defines $15.3 million as $8 million of General Fund plus the \"existing baseline $7.3 million allocation\", a baseline that contained no Zero Waste or Storm Water money. City staff introduced Zero Waste and Storm Water contributions in November 2023 as \"new revenue sources\". The ordinance text does not exclude them, and BeTH found no City calculation stating which funds the City counts. Whether they count is a legal question for the City Attorney; BeTH does not answer it.",
+    "findings": [
+     {
+      "status": "transcription",
+      "text": "BMC 7.11.030(B): the Council may not impose the tax for two years if it fails to adopt a budget with at least $15.3 million for street maintenance from sources other than this tax, adjusted for inflation per Res. 70,456. 7.11.030(C) reduces the requirement if an external source in the 2023-24 budget is lost or declines. Read from page images of the initiative as filed (no text layer); see phase2/sources/measure-ff-ordinance-transcription.md.",
+      "citations": []
+     },
+     {
+      "status": "verified",
+      "text": "Res. 70,456 composition of $15.3 million.",
+      "citations": [
+       {
+        "doc_id": "aa:2022-07-26-special",
+        "pdf_page": 4,
+        "quote": "in addition to the existing baseline $7.3 million allocation, for a total amount of $15.3 million"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "November 2023: Zero Waste and Storm Water listed among \"three important new revenue sources\".",
+      "citations": [
+       {
+        "doc_id": "r23:17",
+        "pdf_page": 1,
+        "quote": "The proposed Five Year Plan includes three important new revenue sources"
+       },
+       {
+        "doc_id": "r23:17",
+        "pdf_page": 1,
+        "quote": "rate revenue from the Zero Waste Fund"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "July 2026: Zero Waste (fund 601) $2M a year offsets collection-vehicle impact; Clean Storm (fund 616) $1M a year pays for cross drains and is excluded by staff from the amount \"available for street rehabilitation\".",
+      "citations": [
+       {
+        "doc_id": "plan:2026-07-07",
+        "pdf_page": 2,
+        "quote": "Zero Waste- Fund 601; Clean Storm- Fund 616"
+       },
+       {
+        "doc_id": "plan:2026-07-07",
+        "pdf_page": 3,
+        "quote": "The Zero Waste Fund contributes $2 million annually to offset the impact of Zero Waste collection vehicles"
+       },
+       {
+        "doc_id": "plan:2026-07-07",
+        "pdf_page": 3,
+        "quote": "excluding the $5 million in Clean Storm Fund allocations dedicated to drainage infrastructure"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "Actual Street Reconstruction reported to the State Controller from fund 601 (Zero Waste): $7,988 in FY2021 and $728,763 in FY2025; none from fund 616 (Clean Storm), which reported small storm-drain and administration amounts.",
+      "citations": [],
+      "dataset_refs": [
+       {
+        "dataset": "SCO City Street Raw Data",
+        "sheet": "SR_EXP_DETAIL",
+        "fiscal_year": 2021,
+        "record_no": 65,
+        "fund": "601"
+       },
+       {
+        "dataset": "SCO City Street Raw Data",
+        "sheet": "5 SR_EXP_DETAIL",
+        "fiscal_year": 2025,
+        "record_no": 57,
+        "fund": "601"
+       }
+      ]
+     }
+    ],
+    "arithmetic": {
+     "fy2027_sources": {
+      "SB 1 / gas tax": 2195303,
+      "Measure BB": 2980000,
+      "Measure F VRF": 155000,
+      "CIP Fund": 1925000,
+      "CIP Fund / Council Policy (Res. 70,456)": 8487200,
+      "Zero Waste Fund": 2000000,
+      "Clean Storm Fund": 1000000
+     },
+     "total": 18742503,
+     "total_without_zero_waste_and_storm": 15742503,
+     "requirement_if": {
+      "base FY2023": 17220285,
+      "base FY2025": 16231770
+     }
+    },
+    "caveats": [
+     "The requirement is about the budget the Council adopts, not about money spent: an actual-expenditure series cannot by itself show compliance or breach.",
+     "Scenario arithmetic uses the 3% the City's tables apply; Res. 70,456 names the greater of Bay Area CPI or state per capita personal income growth. Neither the index values nor the base year have been checked. The scenario is not a compliance finding.",
+     "The City may count street-maintenance budgets outside the paving plan (e.g. Public Works operating budgets). BeTH has not seen the City's calculation.",
+     "The City's Measure FF web page links \"Ordinance No. 7939-N.S.\", which is the Ashby BART real property exchange ordinance; Measure FF is Ordinance 7,952-N.S. (page image read; no text layer)."
+    ],
+    "open": [
+     "The City's maintenance-of-effort calculation and the City Attorney's position on which funds count (records request item 4)."
+    ]
+   },
+   {
+    "id": "D",
+    "question": "Why is FY2027 $8,487,200 when $9,481,286 was planned?",
+    "answer": "The November 2023 plan escalated from $8,937,022 in FY2025 at 3% a year (FY2027 $9,481,286). The FY2026 budget and the July 2026 plan restart from $8,000,000 in FY2025 at 3% a year ($8,240,000 FY2026, $8,487,200 FY2027). The $994,086 gap is the $937,022 difference in the FY2025 base, carried forward at 3%. BeTH found no document explaining the re-basing, and both series escalate at a flat 3% although Res. 70,456 and the July 2026 plan name an index.",
+    "findings": [
+     {
+      "status": "verified",
+      "text": "November 2023 plan, Res. 70,456 line: FY2024 $5,996,598; FY2025-FY2028 $8,937,022, $9,205,132, $9,481,286, $9,765,725.",
+      "citations": [
+       {
+        "doc_id": "r23:17",
+        "pdf_page": 2,
+        "quote": "8,937,022 9,205,132 9,481,286 9,765,725"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "Adopted FY2027-28 budget, CIP row \"Street Rehab PCI Improvements\", fund 501: prior years $14,100,000; $8,240,000; $8,487,200; $8,741,816; $9,004,070; $9,274,193; $9,552,418.",
+      "citations": [
+       {
+        "doc_id": "budget:2026-06-23",
+        "pdf_page": 215,
+        "quote": "$14,100,000 $8,240,000 $8,487,200 $8,741,816 $9,004,070"
+       }
+      ]
+     },
+     {
+      "status": "verified",
+      "text": "July 2026 plan says funding is escalated per Res. 70,456 and the Measure FF ordinance.",
+      "citations": [
+       {
+        "doc_id": "plan:2026-07-07",
+        "pdf_page": 2,
+        "quote": "$8,487,200 $8,741,816 $9,004,070"
+       },
+       {
+        "doc_id": "plan:2026-07-07",
+        "pdf_page": 12,
+        "quote": "Funding is escalated consistent with the terms of the applicable Council fiscal policy (Resolution No. 70,456-N.S.)"
+       }
+      ]
+     }
+    ],
+    "arithmetic": {
+     "plan_2023": {
+      "2025": 8937022,
+      "2026": 9205132,
+      "2027": 9481286,
+      "2028": 9765725
+     },
+     "budget_2026": {
+      "2026": 8240000,
+      "2027": 8487200,
+      "2028": 8741816,
+      "2029": 9004070,
+      "2030": 9274193,
+      "2031": 9552418
+     },
+     "plan_2023_is_8937022_at_3pct_from_fy2025": true,
+     "budget_2026_is_8000000_at_3pct_from_fy2025": true,
+     "difference_fy2027": 994086,
+     "base_difference_fy2025": 937022
+    },
+    "caveats": [
+     "The $14,100,000 \"prior years\" figure and the FY2023-FY2025 amounts actually budgeted and spent under Res. 70,456 are not reconciled here."
+    ],
+    "open": [
+     "Budget worksheets showing the base and index used (records request item 5)."
+    ]
+   }
+  ]
  }
 }
