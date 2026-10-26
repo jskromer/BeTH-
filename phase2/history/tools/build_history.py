@@ -30,6 +30,8 @@ PHASE2 = HIST.parent
 REPO = PHASE2.parent
 sys.path.insert(0, str(PHASE2 / 'tools'))
 import ask_design as design  # noqa: E402  shared BeTH visual design system
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import streets_case as sc  # noqa: E402  streets case study: funding series, proposals, charts
 
 SCHEMA_VERSION = 1
 
@@ -66,6 +68,9 @@ for y, f, url in [(2012, 'mtc-pci-2012', 'https://mtc.ca.gov/sites/default/files
                   (2022, 'mtc-pci-2022', 'https://es.mtc.ca.gov/sites/default/files/documents/2023-11/PCI_table-2022_data.pdf')]:
     _doc(f'mtc:{y}', f'Metropolitan Transportation Commission, Pavement Condition Index table, {y} edition',
          f'phase2/history/sources/mtc/{f}.pdf', 'regional_dataset', url)
+
+
+sc.register_docs(_doc)
 
 
 def norm(s):
@@ -449,7 +454,7 @@ def events():
                                'Council materials; public communications'),
        actual=not_in_record('Pending.'), outcomes=not_in_record('Pending.'), outstanding=not_in_record('Pending.'),
        uncertainties=['Election on November 3, 2026.'])
-    return E
+    return sc.enrich(E, cite, verified)
 
 
 # ------------------------------------------------------------------ outcome series
@@ -488,9 +493,41 @@ def outcomes():
             'what': 'Centerline miles paved by fiscal year (City staff, July 2026, Table 2).',
             'points': [{'fy': f, 'miles': m, 'basis': b} for f, m, b in miles],
             'citation': cite('plan:2026-07-07', 5, 'Table 2: Centerline Miles Paved')},
+        'street_rehab_funding': sc.funding_series(cite),
+        'pci_city_history': [
+            {'year': 2011, 'pci': 58, 'kind': 'reported', 'label': 'City figure reported by the Auditor',
+             'citation': cite('audit:2020-11-19', 9, 'PCI increased only slightly from 58 in 2011 to 59 in 2018')},
+            {'year': 2018, 'pci': 59, 'kind': 'reported', 'label': 'City figure reported by the Auditor',
+             'citation': cite('audit:2020-11-19', 9, 'PCI increased only slightly from 58 in 2011 to 59 in 2018')},
+            {'year': 2021, 'pci': 55.8, 'kind': 'reported', 'label': 'Public Works Commission',
+             'citation': cite('r22:25b', 1, 'In 2021 the citywide average PCI was 55.8')},
+            {'year': 2023, 'pci': 55, 'kind': 'reported', 'label': 'City staff, November 2023 ("current PCI")',
+             'citation': cite('r23:17', 6, 'Citywide 55 57')},
+            {'year': 2024, 'pci': 56, 'kind': 'reported', 'label': '2024 inspection (consultant report)',
+             'citation': cite('ptap25', 5, "the City's overall average PCI is 56")},
+            {'year': 2025, 'pci': 57, 'kind': 'reported', 'label': 'City staff, most recent assessment',
+             'citation': cite('plan:2026-07-07', 11, 'The current citywide PCI is 57')},
+            {'year': 2023, 'pci': 52, 'kind': 'projection', 'label': 'January 2022 staff projection at baseline funding',
+             'citation': cite('r22:25a', 2, 'the PCI will drop to 52 by the year 2023')},
+            {'year': 2027, 'pci': 49.1, 'kind': 'projection', 'label': 'Public Works Commission projection at 2022 funding',
+             'citation': cite('r22:25b', 2, 'the citywide PCI will be 49.1')},
+            {'year': 2026, 'pci': 59, 'kind': 'projection', 'label': 'City staff, after FY2026 work',
+             'citation': cite('plan:2026-07-07', 11, 'the projected citywide PCI is 59')},
+            {'year': 2028, 'pci': 57, 'kind': 'projection', 'label': 'November 2023 staff projection after the five-year plan',
+             'citation': cite('r23:17', 6, 'Citywide 55 57')}],
+        'pci_method_notes': [
+            'MTC values are 3-year moving averages; City and consultant figures are single-year StreetSaver results. They '
+            'are shown on one axis but not joined into one line.',
+            'MTC adopted an improved ASTM D6433 rating standard in 2016 (2016 edition footnote).',
+            'The City reported 59 for 2018 while MTC\'s 3-year averages for 2017-2019 are 57-58: the same streets, '
+            'measured and averaged differently.',
+            'Projections assumed the funding level of their day; funding later rose. A projection that did not happen is '
+            'not evidence that a decision caused the difference.'],
+        'displacement': sc.displacement_analysis(cite),
         'annual_paving_spending': {
             'status': 'to_collect',
-            'needed': 'Paving appropriations and actual expenditures by fiscal year, FY2010-FY2026, on one basis.',
+            'needed': 'Actual paving expenditures by fiscal year, FY2010-FY2026, and adopted versus amended appropriations '
+                      'for each year. Budgets and plans are held for FY2014-FY2031 (street_rehab_funding); actuals are not.',
             'where_to_look': 'Adopted budgets and CIP books; ACFR capital outlay; Public Works paving reports.'},
     }
 
@@ -510,7 +547,7 @@ def all_citations(obj):
 
 def check(evs, outs):
     problems = []
-    for c in all_citations({'e': evs, 'o': outs}):
+    for c in all_citations({'e': evs, 'o': outs, 'n': narrative_claims()}):
         d = c['doc_id']
         if d not in DOCS:
             problems.append(f'unknown document {d}')
@@ -562,6 +599,16 @@ def check(evs, outs):
             problems.append(f'{e["id"]}: unknown kind')
         if e.get('retrospective_scenarios'):
             problems.append(f'{e["id"]}: retrospective scenarios must be researched and labelled before inclusion')
+    for ev in evs:
+        if not ev.get('significance'):
+            problems.append(f'{ev["id"]}: no significance criterion')
+    tc = sc.table_checks(page_text, norm)
+    bad = [c for c in tc['checked'] if not c['ok']]
+    if [c['table'] for c in bad] != [x['table'] for x in tc['city_table_errors']] or len(bad) != 1:
+        problems.append(f'unexpected table arithmetic: {bad}')
+    for p in outs['street_rehab_funding']['points']:
+        if abs(p['total_m'] - (p['recurring_m'] + p['bond_m'] + p.get('other_m', 0) + p['measure_ff_m'])) > 0.051:
+            problems.append(f'funding FY{p["fy"]}: components do not sum to total')
     return problems
 
 
@@ -580,6 +627,10 @@ def doc_link(c):
     d = DOCS[c['doc_id']]
     href = '../../../' + d['local'] + f'#page={c["pdf_page"]}'
     return f'<a href="{e(href)}">{e(d["title"])}, PDF p.{c["pdf_page"]}</a>'
+
+
+def doc_link_q(c):
+    return doc_link(c) + f'<blockquote>&ldquo;{e(c["quote"])}&rdquo;</blockquote>'
 
 
 def cites_html(f):
@@ -631,6 +682,8 @@ def field_html(f):
 
 def card_html(ev):
     alt = field_html(ev['alternatives'])
+    if ev.get('competing_proposals'):
+        alt += '<p class="note"><b>Competing proposals, compared as documented:</b></p>' + sc.proposals_html(ev['competing_proposals'], doc_link_q)
     for fm in ev.get('failed_motions', []):
         x = fm['value']
         alt += (f'<div class="failed"><b>Motion that failed</b> ({e(x["mover"])}/{e(x["seconder"])}): {e(x["text"])}'
@@ -664,6 +717,7 @@ def card_html(ev):
             f'<h3>{e(ev["title"])}</h3>'
             f'<p class="tl-sum">{e(summary_text(ev))}</p>'
             f'<div class="tl-badges"><span class="pill">{nverified} of 9 fields verified</span>'
+            + ''.join(f'<span class="pill">{e(t["label"])}</span>' for t in ev.get('significance', [])) +
             f'<span class="pill no">Not yet reviewed by a person</span></div>{qs}'
             f'<div class="tech"><code>{e(ev["id"])}</code></div></div></article>'), year
 
@@ -678,6 +732,38 @@ def field_text(f):
 def summary_text(ev):
     d = ev['decision']
     return d['value'] if d['status'] == 'verified' else 'Decision record not yet collected: ' + (d.get('needed') or '')
+
+
+def funding_table(outs):
+    f = outs['street_rehab_funding']
+    rows = ''.join(f'<tr><td>FY{p["fy"]}</td><td class="n">${p["total_m"]:.1f}M{"~" if p["value_type"] == "measured" else ""}</td>'
+                   f'<td class="n">${p["recurring_m"]:.1f}M</td><td class="n">{("$%.1fM" % p["bond_m"]) if p["bond_m"] else "–"}</td>'
+                   f'<td class="n">{("$%.1fM" % p["measure_ff_m"]) if p["measure_ff_m"] else "–"}</td>'
+                   f'<td>{e(p["basis"])}<div class="note">{e(p["value_type"])}: {e(p["components"])}</div></td>'
+                   f'<td>{doc_link(p["citation"])}</td></tr>' for p in f['points'])
+    defs = ''.join(f'<li>{e(x)}</li>' for x in f['definition_changes'])
+    gaps = ''.join(f'<li>{e(x)}</li>' for x in f['gaps'])
+    tc = sc.table_checks(page_text, norm)
+    errs = ''.join(f'<li>{e(x["table"])}: components add to ${x["components_sum"]:,}; printed total ${x["printed_total"]:,} '
+                   f'(difference ${x["difference"]:,}). {e(x["note"])}</li>' for x in tc['city_table_errors'])
+    return (f'<details class="open-card" style="margin:10px 0"><summary>Funding by year: the numbers, their basis and '
+            f'sources</summary><div><div class="tw"><table><thead><tr><th>Year</th><th>Total</th><th>Recurring</th>'
+            f'<th>Bond</th><th>Measure FF</th><th>Basis</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<p class="note"><b>Changes in definitions:</b></p><ul class="plain">{defs}</ul>'
+            f'<p class="note"><b>Errors in the City\'s tables (recorded, not corrected):</b></p><ul class="plain">{errs}</ul>'
+            f'<p class="note"><b>Not yet held:</b></p><ul class="plain">{gaps}</ul>'
+            f'<p class="note"><b>Pavement measures:</b></p><ul class="plain">'
+            + ''.join(f'<li>{e(x)}</li>' for x in outs['pci_method_notes']) + '</ul></div></details>')
+
+
+def displacement_html(outs):
+    out = ''
+    for d in outs['displacement']:
+        out += (f'<div class="nclaim"><p><b>{e(d["period"])}.</b> {e(d["observation"])}</p><p class="note">'
+                f'<b>Reading:</b> {e(d["reading"])} <b>Status:</b> {e(d["status"])}.</p><details class="nev"><summary>'
+                f'Evidence ({len(d["citations"])})</summary><div><ul class="cites">'
+                + ''.join(f'<li>{doc_link_q(c)}</li>' for c in d['citations']) + '</ul></div></details></div>')
+    return out
 
 
 def charts_html(outs):
@@ -778,6 +864,64 @@ color:#4b5563;border-radius:4px;padding:1px 6px;margin-right:4px}
 '''
 
 
+def narrative_claims():
+    """The public narrative. Each claim lists its evidence; every citation is checked like the rest."""
+    fig3 = cite('audit:2020-11-19', 6, "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources")
+    fig10 = cite('audit:2020-11-19', 14, 'Figure 10. An Estimated Additional $10 Million Needed per Year')
+    return [
+        {'text': 'From FY2014 to FY2020, Berkeley budgeted roughly $4.9 million to $11.3 million a year for street '
+                 'rehabilitation. The high years came from one-time bond money (Measure M from 2012, Measure T1 from '
+                 '2016). Recurring money stayed between about $3.5 million and $7 million.',
+         'evidence_class': 'City capital budgets as reported by the City Auditor; FY2014-2018 measured from a chart',
+         'caveat': 'Budgets, not actual spending. FY2014-2018 values are measured from the Auditor\'s chart (about '
+                   '+/-$0.1M); FY2019 and FY2020 are printed in the Auditor\'s chart.',
+         'citations': [fig3, fig10]},
+        {'text': 'The General Fund\'s own share was flat. It put $1.925 million a year into street rehabilitation from '
+                 'FY2014, down from $2.8 million in FY2013, the year before Measure M money appeared. The record does not '
+                 'say why it fell.',
+         'evidence_class': 'City Auditor, printed figures',
+         'citations': [cite('audit:2020-11-19', 13, 'contributions to streets capital declined from $2.8 million'),
+                       cite('audit:2020-11-19', 11, 'has remained stagnant at $1.925 million per')]},
+        {'text': 'Street condition barely moved. The City reported a PCI of 58 in 2011 and 59 in 2018. The Metropolitan '
+                 'Transportation Commission\'s three-year averages stayed between 56 and 60 from 2010 to 2022.',
+         'evidence_class': 'Two different measures (City single-year, MTC 3-year average)',
+         'citations': [cite('audit:2020-11-19', 9, 'PCI increased only slightly from 58 in 2011 to 59 in 2018'),
+                       cite('mtc:2012', 1, 'Berkeley'), cite('mtc:2022', 5, 'Berkeley')]},
+        {'text': 'In January 2022 Council chose between two paving plans of similar cost from the same funding: the Equity '
+                 'Alternative ($38.4 million, 15.94 miles, more residential streets) and the Commission\'s Arterial '
+                 'Alternative ($40.0 million, 15.49 miles). The choice was about which streets, not how much money. At that '
+                 'funding level staff projected a PCI of 52 by 2023 and the Commission 49.1 by 2027.',
+         'evidence_class': 'Staff and Commission reports, January 2022 (projections)',
+         'citations': [cite('r22:25a', 6, 'Total 15.94 $38,385,313'), cite('r22:25a', 5, 'Total 15.49 $40,027,381'),
+                       cite('r22:25a', 2, 'the PCI will drop to 52 by the year 2023'),
+                       cite('r22:25b', 2, 'the citywide PCI will be 49.1')]},
+        {'text': 'Council then raised recurring funding. The June 2022 budget added General Fund paving money. In July 2022 '
+                 'a policy committed $8 million a year more on top of an "existing General Fund street paving budget of '
+                 '$7.3 million". That $7.3 million was mostly state and county money: only $1,925,000 of it was General '
+                 'Fund.',
+         'evidence_class': 'Council records and staff reports, printed figures',
+         'citations': [cite('r23:17', 3, 'increased baseline paving funding from the General Fund by $5.1M in FY 2023 and $9.0M in FY 2024'),
+                       cite('aa:2022-07-26-special', 4, 'existing General Fund street paving budget of $7.3 million'),
+                       cite('r22:25a', 1, 'TOTAL 7,275,303'), cite('r22:25a', 1, 'Capital Improvement 1,925,000')]},
+        {'text': 'Programmed paving money roughly doubled: $7.3 million a year in the January 2022 plan; $14.5 million to '
+                 '$18.3 million a year for FY2024-FY2026; $18.7 million plus $13.2 million of Measure FF street '
+                 'rehabilitation for FY2027.',
+         'evidence_class': 'Adopted five-year plans and budget (programmed and planned amounts, not actuals)',
+         'citations': [cite('r22:25a', 1, 'TOTAL 7,275,303'),
+                       cite('r23:17', 2, 'TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028'),
+                       cite('plan:2026-07-07', 2, '18,742,503'), cite('budget:2026-06-23', 215, '13,198,842')]},
+        {'text': 'Miles paved rose from 1.9-2.6 a year in FY2020-FY2022 to 7.0 in FY2023, 10.7 in FY2024 and 8.4 in '
+                 'FY2025. City staff attribute the increase to the added General Fund money. The City\'s condition figures '
+                 'since are 55 (2023), 56 (2024 inspection) and 57 (2025).',
+         'evidence_class': 'City staff reports and consultant inspection; the attribution is the City\'s',
+         'caveat': 'A rise after a funding increase does not by itself show the increase caused it. Construction timing, '
+                   'bond-funded projects and staffing also changed.',
+         'citations': [cite('plan:2026-07-07', 5, 'FY 2024 10.7'), cite('r23:17', 4, 'nearly 2-3'),
+                       cite('r23:17', 6, 'Citywide 55 57'), cite('ptap25', 5, "the City's overall average PCI is 56"),
+                       cite('plan:2026-07-07', 11, 'The current citywide PCI is 57')]},
+    ]
+
+
 def page_html(evs, outs, credits, ask_credits):
     hero = credits['photos']['aerial-1932']
     bird = credits['photos']['birdseye-1909']
@@ -786,6 +930,8 @@ def page_html(evs, outs, credits, ask_credits):
     def credit(p):
         return (f'<a href="{e(p["source_page"])}">{e(p["author"])}</a>, {e(p["license"])}'
                 + (f' ({e(p["license_basis"])})' if p.get('license_basis') else '') + ', via Wikimedia Commons')
+    sync, nums = sc.sync_chart(evs, outs['street_rehab_funding'], outs['centerline_miles_paved'],
+                               outs['pci_mtc_3yr_moving_average'], outs['pci_city_history'], design)
     items, last = '', None
     for ev in sorted(evs, key=lambda x: x['date']):
         card, year = card_html(ev)
@@ -797,6 +943,7 @@ def page_html(evs, outs, credits, ask_credits):
 width="{hero["width"]}" height="{hero["height"]}"></figure><div class="wrap hero-in"><span class="kicker">Research prototype · streets and infrastructure, 2010-2026</span>
 <h1>How Did We Get Here?</h1><p class="sub">Berkeley's budget decisions and their consequences</p></div></section>
 <main class="narrow" style="padding-block:18px">
+<span class="draftbadge">DRAFT · NOT APPROVED · pending independent source review</span>
 <p class="photo-note"><span class="tag">Historical photo</span> {e(hero["description"])}. Illustrative only. {credit(hero)}.</p>
 <div class="lead-grid"><div>
 <p>This timeline sets City Council decisions about streets and infrastructure next to what happened afterwards. Each card
@@ -810,9 +957,16 @@ scenarios are kept separate and none are included yet.</li>
 <li>No scores, rankings or ratings of officials.</li></ul></div></div>
 <figure class="figure-img"><img src="{e(bird["file"])}" alt="{e(bird["alt"])}" loading="lazy">
 <figcaption>{e(bird["description"])}. {credit(bird)}.</figcaption></figure></div>
-<h2 class="sec">The record so far</h2>
-<p class="sec-sub">Outcome data that can be compared across years. Gaps are shown, not filled.</p>
-{charts_html(outs)}
+<h2 class="sec">What happened, in brief</h2>
+<p class="sec-sub">A short account built only from the records below. Open any claim's evidence to see the page it rests on.</p>
+{sc.narrative([dict(c, render=doc_link_q) for c in narrative_claims()])}
+<h2 class="sec">The record, year by year</h2>
+<p class="sec-sub">Funding, paving and condition on one timeline, with each decision marked. Gaps are shown, not filled.</p>
+<div class="widefig">{sync}</div>
+{funding_table(outs)}
+<h2 class="sec">Did new money add to street funding or replace it?</h2>
+<p class="sec-sub">What the record shows so far. Each item states its evidence and how far it goes.</p>
+{displacement_html(outs)}
 <figure class="figure-img" style="margin:18px 0"><img src="../../docs/{e(street["file"])}" alt="{e(street["alt"])}" loading="lazy">
 <figcaption>Illustrative photo: {e(street["description"])}, {e(street["date"])}. Not evidence for any figure.
 <a href="{e(street["source_page"])}">Photo: {e(street["author"])}</a>, {e(street["license"])}, via Wikimedia Commons.</figcaption></figure>
@@ -834,9 +988,12 @@ document.querySelectorAll('.tl-filters button').forEach(function(b){{b.addEventL
  document.querySelectorAll('.tl-year').forEach(function(y){{var n=y.nextElementSibling,vis=false;
   while(n&&!n.classList.contains('tl-year')){{if(!n.hidden)vis=true;n=n.nextElementSibling}}y.hidden=!vis}});
 }})}});
+function openHash(){{var h=location.hash.slice(1);if(!h)return;var c=document.getElementById(h);if(!c)return;
+ c.hidden=false;var d=c.querySelector('details.open-card');if(d)d.open=true;}}
+window.addEventListener('hashchange',openHash);openHash();
 </script>'''
     return design.shell('How Did We Get Here? — Berkeley budget decisions (prototype)',
-                        f'<style>{EXTRA_CSS}</style>' + body, '../../docs/',
+                        f'<style>{EXTRA_CSS}{sc.SYNC_CSS}{sc.NARRATIVE_CSS}</style>' + body, '../../docs/',
                         'A research prototype timeline of Berkeley street and infrastructure decisions and outcomes.')
 
 

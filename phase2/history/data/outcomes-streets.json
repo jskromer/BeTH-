@@ -159,6 +159,54 @@
    "local": "phase2/history/sources/mtc/mtc-pci-2022.pdf",
    "kind": "regional_dataset",
    "url": "https://es.mtc.ca.gov/sites/default/files/documents/2023-11/PCI_table-2022_data.pdf"
+  },
+  "audit:2020-11-19": {
+   "title": "City Auditor, \"Rocky Road: Berkeley Streets at Risk and Significantly Underfunded\", November 19, 2020",
+   "local": "phase2/history/sources/streets/auditor-rocky-road-2020-11-19.pdf",
+   "kind": "audit",
+   "url": "https://berkeleyca.gov/sites/default/files/2022-01/Rocky-Road-Berkeley-Streets-at-Risk-and-Significantly-Underfunded.pdf"
+  },
+  "r22:25a": {
+   "title": "Street Maintenance and Rehabilitation Policy and Five Year Plan, staff report, Council Item 25a, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25a-street-policy-plan.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r22:25b": {
+   "title": "Public Works Commission Recommendation for the Five-Year Paving Plan, Council Item 25b, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25b-pwc-five-year-plan.pdf",
+   "kind": "commission_report",
+   "url": null
+  },
+  "r22:25c": {
+   "title": "Updating City of Berkeley Street Maintenance and Rehabilitation Policy (Councilmember Harrison), Council Item 25c, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25c-harrison-policy.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "r23:17": {
+   "title": "Street Rehabilitation Five Year Plan for Fiscal Years 2024-2028, staff report, Council Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-staff-report.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r23:17-hahn": {
+   "title": "Supplemental 2, Councilmembers Hahn and Wengraf, Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-hahn-supp2.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "aa:2022-06-28": {
+   "title": "City Council annotated agenda, 2022-06-28",
+   "local": "phase2/history/sources/council-2022-06-28-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2023-06-13": {
+   "title": "City Council annotated agenda, 2023-06-13",
+   "local": "phase2/history/sources/council-2023-06-13-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
   }
  },
  "series": {
@@ -469,9 +517,551 @@
     "quote": "Table 2: Centerline Miles Paved"
    }
   },
+  "street_rehab_funding": {
+   "what": "Street rehabilitation (paving) funding by fiscal year, $ millions, on the basis each source reports. Budgets and plans, not actual expenditures.",
+   "value_types": {
+    "measured": "measured from bar heights in the Auditor's Figure 3 (no printed values); method checked against the FY2019 and FY2020 bars, which the Auditor labels $4.9M and $9.8M in Figure 10: measured $4.89M and $9.82M; about +/-$0.1M",
+    "image_label": "printed inside a chart image in the Auditor's report",
+    "printed": "printed as text in the cited table"
+   },
+   "definition_changes": [
+    "2014-2020 (Auditor): \"Street Rehabilitation Program\" capital budget by source, including bond money.",
+    "FY2023-FY2026 (five-year plans): programmed paving funding; from FY2024 includes the $8M General Fund policy line and ratepayer funds from Zero Waste and Storm Water.",
+    "FY2027 on: the 2026 plan prints one \"SB 1\" line ($2,195,303) equal to the earlier separate State Transportation Tax ($495,303) and SB1 ($1,700,000) lines; Storm Water renamed Clean Storm and programmed at $1,000,000.",
+    "Measure FF street rehabilitation (FY2027 on) is a separate voter-restricted program, shown separately.",
+    "Actual expenditures are not in this series."
+   ],
+   "points": [
+    {
+     "fy": 2014,
+     "total_m": 6.0,
+     "bond_m": 2.5,
+     "recurring_m": 3.5,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "measured",
+     "components": "Measure M ~2.5; CIF ~1.9; gas tax ~0.8; Measure B ~0.7; Measure F ~0.1",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     }
+    },
+    {
+     "fy": 2015,
+     "total_m": 10.0,
+     "bond_m": 6.0,
+     "recurring_m": 4.0,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "measured",
+     "components": "Measure M ~6.0; CIF ~1.9; gas tax ~0.8; Measure B ~0.7; Measure F ~0.6",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     }
+    },
+    {
+     "fy": 2016,
+     "total_m": 11.3,
+     "bond_m": 6.0,
+     "recurring_m": 5.3,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "measured",
+     "components": "Measure M ~6.0; CIF ~1.9; Measure BB ~1.6; gas tax ~0.8; Measure B ~0.7; Measure F ~0.2; Successor Agency ~0.1",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     }
+    },
+    {
+     "fy": 2017,
+     "total_m": 11.2,
+     "bond_m": 6.0,
+     "recurring_m": 5.2,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "measured",
+     "components": "Measure M ~6.0; CIF ~1.9; Measure BB ~1.6; gas tax ~0.8; Measure B ~0.7; Measure F ~0.2",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     }
+    },
+    {
+     "fy": 2018,
+     "total_m": 8.7,
+     "bond_m": 4.4,
+     "recurring_m": 4.3,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "measured",
+     "components": "Measure M ~4.4; CIF ~1.9; Measure BB ~1.1; Measure B ~0.7; gas tax ~0.5",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     }
+    },
+    {
+     "fy": 2019,
+     "total_m": 4.9,
+     "bond_m": 0.0,
+     "recurring_m": 4.9,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "image_label",
+     "components": "No bond money (Figure 3)",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 14,
+      "quote": "Figure 10. An Estimated Additional $10 Million Needed per Year"
+     }
+    },
+    {
+     "fy": 2020,
+     "total_m": 9.8,
+     "bond_m": 2.8,
+     "recurring_m": 7.0,
+     "measure_ff_m": 0,
+     "basis": "capital budget",
+     "value_type": "image_label",
+     "components": "Measure T1 ~2.8 (measured); recurring ~7.0",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 14,
+      "quote": "Figure 10. An Estimated Additional $10 Million Needed per Year"
+     }
+    },
+    {
+     "fy": 2021,
+     "total_m": 7.0,
+     "bond_m": 0.0,
+     "recurring_m": 7.0,
+     "measure_ff_m": 0,
+     "basis": "planned (FY2020 Capital Improvement Program, as reported by the Auditor)",
+     "value_type": "image_label",
+     "components": "Excludes T1",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 14,
+      "quote": "Figure 10. An Estimated Additional $10 Million Needed per Year"
+     }
+    },
+    {
+     "fy": 2022,
+     "total_m": 7.0,
+     "bond_m": 0.0,
+     "recurring_m": 7.0,
+     "measure_ff_m": 0,
+     "basis": "planned (FY2020 Capital Improvement Program, as reported by the Auditor)",
+     "value_type": "image_label",
+     "components": "Excludes T1",
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 14,
+      "quote": "Figure 10. An Estimated Additional $10 Million Needed per Year"
+     }
+    },
+    {
+     "fy": 2023,
+     "total_m": 14.850303,
+     "bond_m": 6.375,
+     "recurring_m": 7.275303,
+     "measure_ff_m": 0,
+     "other_m": 1.2,
+     "basis": "programmed in the January 2022 five-year plan",
+     "value_type": "printed",
+     "components": "Recurring $7,275,303; Measure T1 $6,375,000; federal grant $1,200,000. Staff later reported a further $5.1M General Fund increase adopted June 28, 2022 for FY2023 (not added here: different document and basis).",
+     "citation": {
+      "doc_id": "r22:25a",
+      "pdf_page": 2,
+      "quote": "Measure T1 6,375,000"
+     }
+    },
+    {
+     "fy": 2024,
+     "total_m": 14.454463,
+     "bond_m": 0.0,
+     "recurring_m": 14.454463,
+     "measure_ff_m": 0,
+     "basis": "programmed in the November 2023 five-year plan",
+     "value_type": "printed",
+     "components": "Includes the $8M policy line, Zero Waste and Storm Water funds",
+     "citation": {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028"
+     }
+    },
+    {
+     "fy": 2025,
+     "total_m": 18.317325,
+     "bond_m": 0.0,
+     "recurring_m": 18.317325,
+     "measure_ff_m": 0,
+     "basis": "programmed in the November 2023 five-year plan",
+     "value_type": "printed",
+     "components": "Includes the $8M policy line, Zero Waste and Storm Water funds",
+     "citation": {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028"
+     }
+    },
+    {
+     "fy": 2026,
+     "total_m": 17.460435,
+     "bond_m": 0.0,
+     "recurring_m": 17.460435,
+     "measure_ff_m": 0,
+     "basis": "programmed in the November 2023 five-year plan",
+     "value_type": "printed",
+     "components": "Includes the $8M policy line, Zero Waste and Storm Water funds",
+     "citation": {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028"
+     }
+    },
+    {
+     "fy": 2027,
+     "total_m": 31.941345,
+     "bond_m": 0.0,
+     "recurring_m": 18.742503,
+     "measure_ff_m": 13.198842,
+     "basis": "planned (July 2026 five-year plan; FY2027-28 appropriated, FY2029-31 planned)",
+     "value_type": "printed",
+     "components": "Five-Year Paving Plan $18,742,503; Measure FF street rehabilitation $13,198,842",
+     "citation": {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 2,
+      "quote": "18,742,503"
+     },
+     "ff_citation": {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 215,
+      "quote": "13,198,842"
+     }
+    },
+    {
+     "fy": 2028,
+     "total_m": 25.820117,
+     "bond_m": 0.0,
+     "recurring_m": 18.997119,
+     "measure_ff_m": 6.822998,
+     "basis": "planned (July 2026 five-year plan; FY2027-28 appropriated, FY2029-31 planned)",
+     "value_type": "printed",
+     "components": "Five-Year Paving Plan $18,997,119; Measure FF street rehabilitation $6,822,998",
+     "citation": {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 2,
+      "quote": "18,997,119"
+     },
+     "ff_citation": {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 215,
+      "quote": "13,198,842"
+     }
+    },
+    {
+     "fy": 2029,
+     "total_m": 27.064629,
+     "bond_m": 0.0,
+     "recurring_m": 19.259373,
+     "measure_ff_m": 7.805256,
+     "basis": "planned (July 2026 five-year plan; FY2027-28 appropriated, FY2029-31 planned)",
+     "value_type": "printed",
+     "components": "Five-Year Paving Plan $19,259,373; Measure FF street rehabilitation $7,805,256",
+     "citation": {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 2,
+      "quote": "19,259,373"
+     },
+     "ff_citation": {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 215,
+      "quote": "13,198,842"
+     }
+    },
+    {
+     "fy": 2030,
+     "total_m": 25.054402,
+     "bond_m": 0.0,
+     "recurring_m": 19.529496,
+     "measure_ff_m": 5.524906,
+     "basis": "planned (July 2026 five-year plan; FY2027-28 appropriated, FY2029-31 planned)",
+     "value_type": "printed",
+     "components": "Five-Year Paving Plan $19,529,496; Measure FF street rehabilitation $5,524,906",
+     "citation": {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 3,
+      "quote": "TOTAL $19,529,496 $19,807,721"
+     },
+     "ff_citation": {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 215,
+      "quote": "13,198,842"
+     }
+    },
+    {
+     "fy": 2031,
+     "total_m": 28.575654,
+     "bond_m": 0.0,
+     "recurring_m": 19.807721,
+     "measure_ff_m": 8.767933,
+     "basis": "planned (July 2026 five-year plan; FY2027-28 appropriated, FY2029-31 planned)",
+     "value_type": "printed",
+     "components": "Five-Year Paving Plan $19,807,721; Measure FF street rehabilitation $8,767,933",
+     "citation": {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 3,
+      "quote": "TOTAL $19,529,496 $19,807,721"
+     },
+     "ff_citation": {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 215,
+      "quote": "13,198,842"
+     }
+    }
+   ],
+   "gaps": [
+    "FY2010-FY2013: no paving funding series held. The Auditor gives only the FY2013 General Fund (Capital Improvement Fund) contribution, $2.8M.",
+    "Actual expenditures for every year."
+   ],
+   "notes": {
+    "cif_fy2013": {
+     "value_m": 2.8,
+     "citation": {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 13,
+      "quote": "contributions to streets capital declined from $2.8 million"
+     }
+    }
+   }
+  },
+  "pci_city_history": [
+   {
+    "year": 2011,
+    "pci": 58,
+    "kind": "reported",
+    "label": "City figure reported by the Auditor",
+    "citation": {
+     "doc_id": "audit:2020-11-19",
+     "pdf_page": 9,
+     "quote": "PCI increased only slightly from 58 in 2011 to 59 in 2018"
+    }
+   },
+   {
+    "year": 2018,
+    "pci": 59,
+    "kind": "reported",
+    "label": "City figure reported by the Auditor",
+    "citation": {
+     "doc_id": "audit:2020-11-19",
+     "pdf_page": 9,
+     "quote": "PCI increased only slightly from 58 in 2011 to 59 in 2018"
+    }
+   },
+   {
+    "year": 2021,
+    "pci": 55.8,
+    "kind": "reported",
+    "label": "Public Works Commission",
+    "citation": {
+     "doc_id": "r22:25b",
+     "pdf_page": 1,
+     "quote": "In 2021 the citywide average PCI was 55.8"
+    }
+   },
+   {
+    "year": 2023,
+    "pci": 55,
+    "kind": "reported",
+    "label": "City staff, November 2023 (\"current PCI\")",
+    "citation": {
+     "doc_id": "r23:17",
+     "pdf_page": 6,
+     "quote": "Citywide 55 57"
+    }
+   },
+   {
+    "year": 2024,
+    "pci": 56,
+    "kind": "reported",
+    "label": "2024 inspection (consultant report)",
+    "citation": {
+     "doc_id": "ptap25",
+     "pdf_page": 5,
+     "quote": "the City's overall average PCI is 56"
+    }
+   },
+   {
+    "year": 2025,
+    "pci": 57,
+    "kind": "reported",
+    "label": "City staff, most recent assessment",
+    "citation": {
+     "doc_id": "plan:2026-07-07",
+     "pdf_page": 11,
+     "quote": "The current citywide PCI is 57"
+    }
+   },
+   {
+    "year": 2023,
+    "pci": 52,
+    "kind": "projection",
+    "label": "January 2022 staff projection at baseline funding",
+    "citation": {
+     "doc_id": "r22:25a",
+     "pdf_page": 2,
+     "quote": "the PCI will drop to 52 by the year 2023"
+    }
+   },
+   {
+    "year": 2027,
+    "pci": 49.1,
+    "kind": "projection",
+    "label": "Public Works Commission projection at 2022 funding",
+    "citation": {
+     "doc_id": "r22:25b",
+     "pdf_page": 2,
+     "quote": "the citywide PCI will be 49.1"
+    }
+   },
+   {
+    "year": 2026,
+    "pci": 59,
+    "kind": "projection",
+    "label": "City staff, after FY2026 work",
+    "citation": {
+     "doc_id": "plan:2026-07-07",
+     "pdf_page": 11,
+     "quote": "the projected citywide PCI is 59"
+    }
+   },
+   {
+    "year": 2028,
+    "pci": 57,
+    "kind": "projection",
+    "label": "November 2023 staff projection after the five-year plan",
+    "citation": {
+     "doc_id": "r23:17",
+     "pdf_page": 6,
+     "quote": "Citywide 55 57"
+    }
+   }
+  ],
+  "pci_method_notes": [
+   "MTC values are 3-year moving averages; City and consultant figures are single-year StreetSaver results. They are shown on one axis but not joined into one line.",
+   "MTC adopted an improved ASTM D6433 rating standard in 2016 (2016 edition footnote).",
+   "The City reported 59 for 2018 while MTC's 3-year averages for 2017-2019 are 57-58: the same streets, measured and averaged differently.",
+   "Projections assumed the funding level of their day; funding later rose. A projection that did not happen is not evidence that a decision caused the difference."
+  ],
+  "displacement": [
+   {
+    "id": "disp-1-measure-m-cif",
+    "period": "FY2013-FY2014",
+    "observation": "The General Fund's Capital Improvement Fund contribution to streets capital fell from $2.8M in FY2013 to $1.9M in FY2014, the year Measure M bond money first appears in the street budget, and stayed at $1.925M a year through at least FY2027.",
+    "reading": "Timing is consistent with partial displacement of General Fund money by bond money. The record does not say why the contribution fell; the Auditor does not attribute it to Measure M.",
+    "status": "possible displacement; cause not established",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 13,
+      "quote": "contributions to streets capital declined from $2.8 million"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 11,
+      "quote": "has remained stagnant at $1.925 million per"
+     }
+    ]
+   },
+   {
+    "id": "disp-2-baseline-held",
+    "period": "FY2023-FY2031",
+    "observation": "After the 2022 policy, the $1,925,000 General Fund baseline line stays in every plan alongside the new policy line ($5,996,598 in FY2024; $8,487,200 in FY2027).",
+    "reading": "On the General Fund lines, the new money was added on top of the old baseline, not substituted for it.",
+    "status": "supplemented (programmed amounts; actuals not yet checked)",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "5,996,598 8,937,022 9,205,132 9,481,286 9,765,725"
+     },
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 2,
+      "quote": "$8,487,200"
+     }
+    ]
+   },
+   {
+    "id": "disp-3-baseline-label",
+    "period": "July 2022",
+    "observation": "Res. 70,456-N.S. describes \"the existing General Fund street paving budget of $7.3 million\". The January 2022 plan's $7,275,303 baseline was all sources: only $1,925,000 of it was General Fund; the rest was gas tax, SB1, Measure BB and Measure F.",
+    "reading": "The $15.3M figure that later became Measure FF's maintenance-of-effort floor (\"from sources other than this tax\") was built on an all-sources baseline, though the resolution called it General Fund.",
+    "status": "documented discrepancy in wording; effect on the floor is that state and county money counts toward it",
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "existing General Fund street paving budget of $7.3 million"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "TOTAL 7,275,303"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "Capital Improvement 1,925,000"
+     }
+    ]
+   },
+   {
+    "id": "disp-4-ratepayer-funds",
+    "period": "FY2024 on",
+    "observation": "From FY2024 the paving plans add Zero Waste rate revenue ($1M, then $2M a year) \"to offset the impact of Zero Waste collection vehicles\" and Storm Water money for required green infrastructure.",
+    "reading": "These are new sources, not General Fund. Whether they count toward the $15.3M Measure FF floor is not stated in BeTH's sources; if they do, General Fund paving could fall by the same amount without breaching it.",
+    "status": "open question",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "Zero Waste Fund 1,000,000 1,000,000 1,000,000 2,000,000 2,000,000"
+     }
+    ]
+   },
+   {
+    "id": "disp-5-fy2027-policy-amount",
+    "period": "FY2027",
+    "observation": "The November 2023 plan programmed $9,481,286 of policy money for FY2027; the July 2026 plan programs $8,487,200 (= $8,000,000 x 1.0609), about $1.0M less. Storm Water is $1.0M rather than $1.5M.",
+    "reading": "The adopted FY2027 General Fund paving amount is lower than the earlier plan projected. The documents BeTH holds do not explain the change in the inflation base.",
+    "status": "reduction relative to an earlier plan; reason not in the record",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "5,996,598 8,937,022 9,205,132 9,481,286 9,765,725"
+     },
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 2,
+      "quote": "$8,487,200"
+     }
+    ]
+   }
+  ],
   "annual_paving_spending": {
    "status": "to_collect",
-   "needed": "Paving appropriations and actual expenditures by fiscal year, FY2010-FY2026, on one basis.",
+   "needed": "Actual paving expenditures by fiscal year, FY2010-FY2026, and adopted versus amended appropriations for each year. Budgets and plans are held for FY2014-FY2031 (street_rehab_funding); actuals are not.",
    "where_to_look": "Adopted budgets and CIP books; ACFR capital outlay; Public Works paving reports."
   }
  }

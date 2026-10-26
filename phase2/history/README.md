@@ -1,7 +1,7 @@
 # How Did We Get Here? Berkeley's Budget Decisions and Their Consequences
 
-**Phase 2 research and design workstream. Started 2026-10-26.** Status: research prototype. Not reviewed by a person.
-Not published.
+**Phase 2 research and design workstream. Started 2026-10-26; streets case study extended 2026-10-26.** Status: DRAFT,
+NOT APPROVED, pending independent source review. Not published.
 
 The workstream builds an evidence-based timeline of City Council budget decisions and what followed them. It starts
 with streets and infrastructure, 2010–2026. The General Fund, the Marina, housing and other services come after the
@@ -15,10 +15,121 @@ here changes either.
 | Decision history (machine-readable) | `data/decisions-streets.json` |
 | Outcome series | `data/outcomes-streets.json` |
 | Local visual prototype | `docs/timeline.html`. Serve the repository root and open `/phase2/history/docs/timeline.html` |
-| Builder and checks | `tools/build_history.py` (`--write` rebuilds the data and the page) |
+| Builder and checks | `tools/build_history.py` (`--write` rebuilds the data and the page); streets case study in `tools/streets_case.py` |
 | Primary records | `sources/` (Council annotated agendas, MTC tables) and `../sources/` (shared Phase 2 sources) |
 | Image credits | `docs/assets/photos/credits.json` |
 | Tests | `../tests/test_history.py` |
+
+## Streets case study (second pass)
+
+### Significance rule
+
+An event is included if it does at least one of these:
+- materially changes a recurring commitment;
+- authorizes major funding;
+- reallocates resources;
+- establishes performance targets;
+- substantially changes an adopted plan.
+
+Context items such as audits are labelled as context. Every event carries its criteria (`significance`).
+
+Two decisions found in the newly collected staff reports meet the rule and were added. The original 14 events and all
+their citations are preserved, and a test checks this.
+
+| Added | Event | Why it qualifies |
+|---|---|---|
+| 2022-06-28 | Res. 70,442-N.S., FY2023-24 budget: General Fund paving +$5.1M (FY2023), +$9.0M (FY2024), per the November 2023 staff report | recurring commitment; major funding |
+| 2023-06-13 | Measure T1 funding gap closed: $2.8M moved from the Hopkins project; $4,050,000 drawn from the Workers' Compensation Fund | reallocation |
+
+New evidence was added to fields that were "to collect": Measure M ($30M) and T1 ($100M) amounts and uses; the audit's
+date and findings; and the 2022 and 2023 plans' funding and expected outcomes.
+
+### Street funding series, FY2014–FY2031 (`outcomes-streets.json` → `street_rehab_funding`)
+
+Every value carries a **basis** and a **value type**:
+
+| Years | Basis | Value type |
+|---|---|---|
+| FY2014–FY2018 | Capital budget (City Auditor, Figure 3) | **Measured** from bar heights (no printed values). The method was checked against the two bars the Auditor labels: FY2019 $4.9M measured $4.89M; FY2020 $9.8M measured $9.82M. About ±$0.1M |
+| FY2019–FY2020 | Capital budget | Printed in the Auditor's chart image |
+| FY2021–FY2022 | Planned in the FY2020 CIP (as reported by the Auditor) | Printed in the chart image |
+| FY2023 | Programmed in the January 2022 plan | Printed: recurring $7,275,303 + T1 $6,375,000 + grant $1,200,000 |
+| FY2024–FY2026 | Programmed in the November 2023 plan | Printed |
+| FY2027–FY2031 | July 2026 plan + Measure FF street rehabilitation (FY2027-28 appropriated, later years planned) | Printed |
+
+The series separates recurring money, one-time bond money (Measure M, T1), grants and Measure FF.
+
+**Not held:** FY2010–FY2013, and actual expenditures for any year. The chart says so; it does not substitute budgets for
+actuals.
+
+**Changes in definitions.** These are recorded in the data and shown on the page:
+- The Auditor's "Street Rehabilitation Program" capital budget, against the later five-year plans' "programmed paving
+  funding".
+- From FY2024, the $8M policy line and ratepayer funds (Zero Waste, Storm Water) are included.
+- In 2026 the separate State Transportation Tax and SB1 lines were merged into one "SB 1" line.
+- Measure FF is shown separately.
+
+**Pavement measures:**
+- The City and consultant publish single-year StreetSaver figures; MTC publishes 3-year moving averages. They are shown
+  on one axis, never joined.
+- MTC changed its rating standard in 2016.
+- The City reported 59 for 2018 while MTC's averages for 2017-2019 were 57–58.
+- Projections (52 by 2023; 49.1 by 2027; 57 after the 2023 plan; 59 after FY2026 work) are drawn hollow and labelled.
+
+### Findings that change the picture
+
+1. **Recurring paving money was flat for about a decade, and the peaks were one-time bonds.**
+   - FY2014–FY2020 street rehabilitation budgets were about $4.9M to $11.3M a year.
+   - Recurring sources supplied about $3.5M–$7M of that; Measure M and T1 bond money made up the rest.
+   - The General Fund share was $1.925M a year from FY2014, down from $2.8M in FY2013.
+2. **The $7.3M "General Fund" baseline in Res. 70,456-N.S. was an all-sources figure.**
+   - The January 2022 plan's $7,275,303 baseline breaks down as: gas tax $495,303, Measure BB $2,700,000, Measure F
+     $155,000, SB1 $2,000,000, and Capital Improvement Fund (General Fund) $1,925,000.
+   - So the $15.3M total later used as Measure FF's maintenance-of-effort floor ("from sources other than this tax")
+     rests on state and county money as well as General Fund.
+3. **The new General Fund money was added on top of the old General Fund baseline.** The $1,925,000 line stays in every
+   later plan beside the policy line. This is true of programmed amounts; actuals are not yet checked.
+4. **There is one possible case of displacement.** The General Fund contribution fell from $2.8M to $1.9M in FY2014,
+   the year Measure M bond money arrived. The record does not give a reason.
+5. **The FY2027 General Fund policy amount is about $1.0M below what the 2023 plan programmed.** The 2023 plan put
+   FY2027 at $9,481,286; the 2026 plan adopts $8,487,200, which is $8,000,000 × 1.0609. The documents held do not
+   explain the change.
+6. **New ratepayer money now funds paving**: Zero Waste ($1–2M a year) and Storm Water. Whether these count toward the
+   $15.3M floor is not stated. If they do, General Fund paving could fall by the same amount without breaching it.
+7. **The City's own tables contain errors and inconsistencies:**
+   - The November 2023 plan's FY2027 total is printed $1,000,000 below the sum of its components ($19,236,589 against
+     $20,236,589). This is recorded, not corrected.
+   - The 2023 report gives the FY2018–19 paving average as 2.15 miles a year; the 2026 report gives 2.7 for the same
+     5.3 miles.
+   - Staff describe a "$9.0M" General Fund increase for FY2024, but the FY2024 plan programs $8,124,160 of General
+     Fund paving money in total.
+8. **Another Workers' Compensation draw.** The June 13, 2023 T1 gap closure took $4,050,000 from the Workers'
+   Compensation Fund, six weeks before the separate $5.5M Marina loan from the same fund. How it was booked is not
+   established.
+9. **The January 2022 choice was about which streets, not how much money.** The Equity plan cost $38.4M for 15.94
+   miles; the Arterial plan $40.0M for 15.49 miles. Both had the same funding. At that funding, staff projected a PCI
+   of 52 by 2023 and the Commission projected 49.1 by 2027. Funding then rose. BeTH has not modelled what either plan
+   would have produced.
+
+### Missing-data inventory (updated)
+
+| # | Missing | Why it matters | Where to look |
+|---|---|---|---|
+| 1 | **Actual paving expenditures, every year** | The series is budgets and plans only | CIP actuals by project; ACFR capital outlay by fund (Measure B/BB/F, gas tax, CIF, T1, M) |
+| 2 | FY2010–FY2013 paving budgets | The series starts in FY2014 | FY2010–FY2013 adopted budgets and CIP books |
+| 3 | Adopted versus amended appropriations by year | To separate budget changes from plans | Annual Appropriation Ordinances and amendments |
+| 4 | Pre-2021 Council records (Measure M, T1 placement; earlier paving plans; Vision 2050) | Votes and alternatives | City Clerk Records Online; public records request |
+| 5 | June 2022 budget detail for paving | Reconcile "+$5.1M / +$9.0M" with the plans | FY2023-24 adopted budget, CIP section |
+| 6 | Why the FY2027 policy amount is $8,487,200 | Finding 5 | Budget Office; FY2027-28 budget book |
+| 7 | Whether Zero Waste and Storm Water count toward the Measure FF floor | Finding 6 | City's maintenance-of-effort calculation |
+| 8 | Measure M and T1 completion reports | Bond-funded paving delivered | Public Works; T1 status reports |
+| 9 | MTC 2023–2024 editions; MTC annual scores | Condition after 2022 | MTC |
+| 10 | Election results, Measure L (2022) and FF (2024) | Event outcomes | Alameda County Registrar of Voters |
+| 11 | The $300M bond placement resolution and vote | Event 16 | Council annotated agendas, summer 2026 |
+| 12 | How the June 2023 $4,050,000 Workers' Compensation draw was booked | Finding 8 | FY2024 ACFR transfer notes |
+
+Retrospective scenarios: none. Any added later will be labelled as hindsight, kept separate from documented
+alternatives, and reviewed before use.
 
 ## Rules the builder enforces
 

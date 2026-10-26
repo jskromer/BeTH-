@@ -159,6 +159,54 @@
    "local": "phase2/history/sources/mtc/mtc-pci-2022.pdf",
    "kind": "regional_dataset",
    "url": "https://es.mtc.ca.gov/sites/default/files/documents/2023-11/PCI_table-2022_data.pdf"
+  },
+  "audit:2020-11-19": {
+   "title": "City Auditor, \"Rocky Road: Berkeley Streets at Risk and Significantly Underfunded\", November 19, 2020",
+   "local": "phase2/history/sources/streets/auditor-rocky-road-2020-11-19.pdf",
+   "kind": "audit",
+   "url": "https://berkeleyca.gov/sites/default/files/2022-01/Rocky-Road-Berkeley-Streets-at-Risk-and-Significantly-Underfunded.pdf"
+  },
+  "r22:25a": {
+   "title": "Street Maintenance and Rehabilitation Policy and Five Year Plan, staff report, Council Item 25a, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25a-street-policy-plan.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r22:25b": {
+   "title": "Public Works Commission Recommendation for the Five-Year Paving Plan, Council Item 25b, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25b-pwc-five-year-plan.pdf",
+   "kind": "commission_report",
+   "url": null
+  },
+  "r22:25c": {
+   "title": "Updating City of Berkeley Street Maintenance and Rehabilitation Policy (Councilmember Harrison), Council Item 25c, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25c-harrison-policy.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "r23:17": {
+   "title": "Street Rehabilitation Five Year Plan for Fiscal Years 2024-2028, staff report, Council Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-staff-report.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r23:17-hahn": {
+   "title": "Supplemental 2, Councilmembers Hahn and Wengraf, Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-hahn-supp2.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "aa:2022-06-28": {
+   "title": "City Council annotated agenda, 2022-06-28",
+   "local": "phase2/history/sources/council-2022-06-28-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2023-06-13": {
+   "title": "City Council annotated agenda, 2023-06-13",
+   "local": "phase2/history/sources/council-2023-06-13-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
   }
  },
  "events": [
@@ -193,10 +241,20 @@
     "where_to_look": "City Clerk records archive, 2012"
    },
    "money": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Bond amount authorized and amounts issued",
-    "where_to_look": "Measure M ballot text; bond official statements"
+    "status": "verified",
+    "value": {
+     "amount": 30000000,
+     "basis": "ballot authorization (bonds)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "In 2012, Berkeley voters passed Measure M to secure $30 million"
+     }
+    ],
+    "note": null
    },
    "purpose": {
     "status": "to_collect",
@@ -211,10 +269,21 @@
     "where_to_look": "Council staff report, 2012"
    },
    "actual": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Measure M expenditures by project",
-    "where_to_look": "Measure M completion or oversight reports"
+    "status": "verified",
+    "value": "About $25 million of Measure M money appears in the City's street rehabilitation capital budgets for FY2014-FY2018 (BeTH measurement of the Auditor's Figure 3; approximate). The Auditor: \"Only a portion of Measure M funds were spent directly on paving costs.\"",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 13,
+      "quote": "Only a portion of Measure M funds were spent directly on paving costs"
+     }
+    ],
+    "note": "Budget amounts by year, measured from a chart; not audited expenditures."
    },
    "outcomes": {
     "status": "to_collect",
@@ -237,7 +306,13 @@
    "uncertainties": [
     "Bond amount, project list and results are not yet in BeTH's records."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2016-11-measure-t1",
@@ -270,10 +345,20 @@
     "where_to_look": "City Clerk records archive, 2016"
    },
    "money": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Bond amount authorized; phases issued; share spent on streets",
-    "where_to_look": "Measure T1 program reports"
+    "status": "verified",
+    "value": {
+     "amount": 100000000,
+     "basis": "ballot authorization (bonds)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "In 2016, Berkeley voters approved $100 million in general"
+     }
+    ],
+    "note": null
    },
    "purpose": {
     "status": "to_collect",
@@ -288,10 +373,21 @@
     "where_to_look": "Council staff report, 2016"
    },
    "actual": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Measure T1 street expenditures by year",
-    "where_to_look": "Measure T1 status reports"
+    "status": "verified",
+    "value": "As of November 2019, about $36.8 million of T1 had been allocated, about $9.9 million of it to Complete Streets projects (City Auditor). The January 2022 paving plan added $6.9 million of T1 Phase 2 money.",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "approximately $36.8 million T1 funds were"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "Additional funding includes $6.9 million from Measure T1, Phase 2"
+     }
+    ],
+    "note": null
    },
    "outcomes": {
     "status": "verified",
@@ -320,12 +416,18 @@
    "uncertainties": [
     "How much of Measure T1 went to streets, and what it delivered, is not yet in BeTH's records."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2020-auditor-rocky-road",
-   "date": "2020",
-   "date_precision": "year (to confirm)",
+   "date": "2020-11-19",
+   "date_precision": "report date",
    "kind": "context",
    "title": "City Auditor: \"Rocky Road: Berkeley Streets at Risk and Significantly Underfunded\"",
    "decision": {
@@ -356,10 +458,26 @@
     "needed": "The audit report states its own estimates; not yet collected."
    },
    "purpose": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Audit findings and recommendations",
-    "where_to_look": "City Auditor report, 2020; status reports 2022-2024"
+    "status": "verified",
+    "value": "Audit of the Street Rehabilitation Program, FY2014-2020, issued November 19, 2020. Key findings quoted: General Fund (Capital Improvement Fund) contributions to street rehabilitation \"remained stagnant at $1.925 million per year since 2014\"; PCI \"increased only slightly from 58 in 2011 to 59 in 2018\".",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 1,
+      "quote": "November 19, 2020"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 11,
+      "quote": "has remained stagnant at $1.925 million per"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "PCI increased only slightly from 58 in 2011 to 59 in 2018"
+     }
+    ],
+    "note": null
    },
    "alternatives": {
     "status": "not_in_record",
@@ -387,7 +505,13 @@
    "uncertainties": [
     "The audit report itself is not yet in BeTH's records."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "context",
+     "label": "context (not a decision; included as evidence)"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2022-01-25-res-70204",
@@ -466,15 +590,42 @@
     "note": null
    },
    "money": {
-    "status": "not_in_record",
-    "value": null,
-    "needed": "The annotated agenda states no amount; the plan's funding levels are in the staff report, to collect."
+    "status": "verified",
+    "value": {
+     "amount": 7275303,
+     "basis": "programmed annual paving funding, all sources (FY2023-FY2027 plan)",
+     "source": "gas tax $495,303; Measure BB $2,700,000; Measure F $155,000; Capital Improvement Fund (General Fund) $1,925,000; SB1 $2,000,000; plus Measure T1 $6.9M and a $1.2M federal grant"
+    },
+    "citations": [
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "TOTAL 7,275,303"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "Capital Improvement 1,925,000"
+     }
+    ],
+    "note": null
    },
    "purpose": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Policy goals and the plan's expected results",
-    "where_to_look": "January 18/25, 2022 staff report"
+    "status": "verified",
+    "value": "Staff projected that at the budgeted baseline \"the PCI will drop to 52 by the year 2023\"; the Public Works Commission projected citywide PCI of 49.1 by 2027 at the current level of investment. Both plans were designed within the same funding.",
+    "citations": [
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 2,
+      "quote": "the PCI will drop to 52 by the year 2023"
+     },
+     {
+      "doc_id": "r22:25b",
+      "pdf_page": 2,
+      "quote": "the citywide PCI will be 49.1"
+     }
+    ],
+    "note": null
    },
    "alternatives": {
     "status": "verified",
@@ -508,7 +659,71 @@
    "uncertainties": [
     "The record does not list individual names for \"All Ayes\" votes."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "competing_proposals": [
+    {
+     "name": "Equity Alternative (staff recommendation; adopted, first three years)",
+     "cost_five_year": 38385313,
+     "miles": 15.94,
+     "mix": "Arterials 1.18 mi, collectors 4.06 mi, residential 10.70 mi; Equity Zone 5.21 mi",
+     "expected_outcome": "No separate PCI projection for this plan in the record; staff projected the network PCI would fall at the budgeted funding level.",
+     "funding_restrictions": "Same sources and amounts as the other plan ($7,275,303 a year plus T1 and a grant).",
+     "tradeoff_as_documented": "Staff: \"These investments are offset by a corresponding reduction of investment in arterials.\"",
+     "citations": [
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 6,
+       "quote": "Total 15.94 $38,385,313"
+      },
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "These investments are offset by a corresponding reduction of investment in arterials"
+      }
+     ]
+    },
+    {
+     "name": "Arterial Alternative, Plan 12A (Public Works Commission recommendation; not adopted)",
+     "cost_five_year": 40027381,
+     "miles": 15.49,
+     "mix": "Arterials 5.99 mi, collectors 4.12 mi, residential 5.38 mi; Equity Zone 2.19 mi",
+     "expected_outcome": "Commission: citywide PCI 49.1 by 2027 \"at the current level of investment\" (applies to the funding level, not to this plan alone).",
+     "funding_restrictions": "Same sources and amounts.",
+     "tradeoff_as_documented": "Staff: the plan \"does not address equity, does much less for residential streets generally\". Commission: focuses on \"long contiguous stretches of paving on the primary transportation network\".",
+     "citations": [
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "Total 15.49 $40,027,381"
+      },
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "does not address equity, does much less for residential streets generally"
+      },
+      {
+       "doc_id": "r22:25b",
+       "pdf_page": 1,
+       "quote": "focusing on long contiguous stretches of paving on the primary transportation network"
+      },
+      {
+       "doc_id": "r22:25b",
+       "pdf_page": 2,
+       "quote": "the citywide PCI will be 49.1"
+      }
+     ]
+    }
+   ],
+   "significance": [
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    },
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2022-07-26-res-70456",
@@ -666,7 +881,17 @@
     "Whether every year since FY2023 met the $15.3 million (adjusted) level is not yet established.",
     "The record does not list individual names for \"All Ayes\" votes; two members arrived after roll call and the agenda does not say whether they were present for this item."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2022-08-03-res-70492-measure-l",
@@ -797,7 +1022,13 @@
    "uncertainties": [
     "The election result is not yet in BeTH's records."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2023-07-25-res-70997",
@@ -929,7 +1160,17 @@
    "uncertainties": [
     "Whether the loan reached the Marina Fund, and whether repayment has begun, is unresolved."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    },
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2023-11-28-res-71120",
@@ -1042,16 +1283,37 @@
     }
    ],
    "money": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Plan funding by year and source",
-    "where_to_look": "November 28, 2023 staff report"
+    "status": "verified",
+    "value": {
+     "amount": 14454463,
+     "basis": "programmed FY2024 paving funding (FY2025 $18,317,325; FY2026 $17,460,435)",
+     "source": "adds the $8M policy line, Zero Waste and Storm Water funds to the earlier sources"
+    },
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028"
+     }
+    ],
+    "note": null
    },
    "purpose": {
-    "status": "to_collect",
-    "value": null,
-    "needed": "Streets selected and expected miles",
-    "where_to_look": "November 28, 2023 staff report"
+    "status": "verified",
+    "value": "City staff projection: citywide PCI 55 now, 57 after the five-year plan; the plan \"maintains the citywide PCI in the mid 50's\" and does not reach \"good\" (70).",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 6,
+      "quote": "Citywide 55 57"
+     },
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 6,
+      "quote": "maintains the citywide PCI in the mid 50's"
+     }
+    ],
+    "note": null
    },
    "alternatives": {
     "status": "verified",
@@ -1108,7 +1370,82 @@
    "uncertainties": [
     "The record does not list individual names for the final \"All Ayes\" vote."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "competing_proposals": [
+    {
+     "name": "Staff plan as recommended (basis of the adopted resolution)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Hopkins Street held over (on hold per an April 5, 2023 City Manager memo); about $4.75 million of other Hopkins money moved to paving other streets.",
+     "expected_outcome": "City staff: citywide PCI 55 now, 57 after the plan.",
+     "funding_restrictions": "Programmed funding $14,454,463 in FY2024 rising to $20,521,028 in FY2028; Hopkins T1 money is bond money restricted to T1 projects.",
+     "tradeoff_as_documented": "Staff: the plan \"maintains the citywide PCI in the mid 50's\".",
+     "citations": [
+      {
+       "doc_id": "r23:17",
+       "pdf_page": 3,
+       "quote": "the Hopkins project is on hold per the City Manager's April 5, 2023 off agenda memo"
+      },
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 3,
+       "quote": "approximately $4.75 million - are slated to be reallocated"
+      },
+      {
+       "doc_id": "r23:17",
+       "pdf_page": 6,
+       "quote": "Citywide 55 57"
+      }
+     ]
+    },
+    {
+     "name": "Hahn/Wengraf alternative (failed 4-5)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Add Hopkins Street, The Alameda to Gilman, to the FY2025 list, paid only from the $3.9 million of Measure T1 money still allocated to Hopkins; parking analysis for the corridor.",
+     "expected_outcome": "No separate PCI projection in the record.",
+     "funding_restrictions": "Uses only T1 money already allocated to Hopkins.",
+     "tradeoff_as_documented": "The supplemental describes the segment as having the lowest PCIs and serving AC Transit routes, the shopping district and King Pool.",
+     "citations": [
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 3,
+       "quote": "$3.9 million of T1 funds remain allocated for Hopkins paving"
+      },
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 2,
+       "quote": "for paving in FY 2025, using only the previously"
+      }
+     ]
+    },
+    {
+     "name": "Adopted (Humbert/Robinson, All Ayes)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Staff plan plus Milvia Street; Hopkins segments to be completed with Measure T1 funds by the end of FY2027.",
+     "expected_outcome": "As staff projected above.",
+     "funding_restrictions": "As above.",
+     "tradeoff_as_documented": "Not stated in the record.",
+     "citations": [
+      {
+       "doc_id": "aa:2023-11-28",
+       "pdf_page": 9,
+       "quote": "complete the Hopkins Street segments with Measure T1 funds by the end of FY 2027"
+      }
+     ]
+    }
+   ],
+   "significance": [
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    },
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2024-07-30-res-71461-measure-ff",
@@ -1235,7 +1572,13 @@
    "uncertainties": [
     "The record does not list individual names for \"All Ayes\" votes."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2024-12-10-ord-7952",
@@ -1318,7 +1661,21 @@
    "uncertainties": [
     "Election vote totals are not yet in BeTH's records."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    },
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2026-03-17-bond-direction",
@@ -1423,7 +1780,13 @@
    "uncertainties": [
     "BeTH has not yet located the final placement resolution or its vote."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2026-06-23-res-72340-budget",
@@ -1589,7 +1952,13 @@
    "uncertainties": [
     "The record does not list individual names for the final \"All Ayes\" vote."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2026-07-07-res-72377",
@@ -1721,7 +2090,17 @@
    "uncertainties": [
     "The record does not list individual names for \"All Ayes\" votes."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
   },
   {
    "id": "bdh-streets-2026-11-bond-ballot",
@@ -1793,7 +2172,300 @@
    "uncertainties": [
     "Election on November 3, 2026."
    ],
-   "retrospective_scenarios": []
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2022-06-28-res-70442-budget",
+   "date": "2022-06-28",
+   "kind": "council_decision",
+   "item": "Action Calendar 44",
+   "title": "Council adopts the FY2023-24 budget, raising General Fund paving money",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,442-N.S. adopting the FY2023 and FY2024 biennial budget, including the proposed capital budget, as revised at the meeting.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "to adopt Resolution No. 70,442"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,442-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "Resolution No. 70,442"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Harrison",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Bartlett",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Droste",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Harrison present at 6:06 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "to adopt Resolution No. 70,442"
+     },
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 2,
+      "quote": "Councilmember Harrison present at 6:06 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 5100000,
+     "basis": "adopted budget increase to General Fund paving, FY2023 ($9.0M in FY2024), as described by staff in November 2023",
+     "source": "General Fund"
+    },
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 3,
+      "quote": "increased baseline paving funding from the General Fund by $5.1M in FY 2023 and $9.0M in FY 2024"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Staff (November 2023): \"historic and unprecedented investments in paving from the General Fund.\"",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 3,
+      "quote": "These were historic and"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Budget alternatives for paving considered in June 2022",
+    "where_to_look": "June 14 and June 28, 2022 budget materials"
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "FY2023 and FY2024 actual paving expenditures",
+    "where_to_look": "CIP actuals; ACFR"
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "City staff report 7.0 centerline miles paved in FY2023 (including Southside), \"nearly 2-3 times the annual rate for the preceding four years\", and attribute it to Council's increase to baseline paving funding. The City's attribution, not a BeTH finding.",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 4,
+      "quote": "nearly 2-3"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Carried forward by the July 26, 2022 policy (next event).",
+    "citations": [],
+    "note": "See the next event."
+   },
+   "uncertainties": [
+    "The FY2024 plan programs $8,124,160 of General Fund paving money (baseline plus policy), which is not the \"$9.0M\" increase staff describe for FY2024; the difference is not explained in the record.",
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2023-06-13-t1-gap",
+   "date": "2023-06-13",
+   "kind": "council_decision",
+   "item": "Action Calendar 25",
+   "title": "Council closes the Measure T1 funding gap, moving $2.8 million from the Hopkins project",
+   "decision": {
+    "status": "verified",
+    "value": "Approved the Budget & Finance Committee recommendation to cover the Measure T1 funding gap, including $4,050,000 from the Workers' Compensation Fund and $2,800,000 of the $6,750,000 allocated to the Hopkins Bike/Pedestrian T1 project.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $4,050,000 from the Workers Compensation Fund"
+     },
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $2,800,000 of $6,750,000 allocated for the Hopkins Bike/Pedestrian T1"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Direction by motion; no resolution number in the annotated agenda."
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Harrison",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Humbert"
+     ],
+     "arrivals": [
+      "Arreguin present at 7:13 p.m.",
+      "Bartlett present at 7:26 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "M/S/C (Arreguin/Harrison) to approve the recommendation of"
+     },
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 2,
+      "quote": "Mayor Arreguin present at 7:13 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 2800000,
+     "basis": "reallocation of bond-funded project budget",
+     "source": "Measure T1"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $2,800,000 of $6,750,000 allocated for the Hopkins Bike/Pedestrian T1"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "\"Identify up to $9.062M to cover the Measure T1 funding gap in order to complete the current remaining T1 projects.\"",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Identify up to $9.062M to cover the Measure T1 funding gap"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Options presented for closing the gap",
+    "where_to_look": "June 13, 2023 staff report; Budget & Finance Committee"
+   },
+   "actual": {
+    "status": "verified",
+    "value": "In November 2023 staff reported $3.9 million of T1 money still allocated to Hopkins paving, and Council later directed the Hopkins segments be completed with T1 funds by the end of FY2027.",
+    "citations": [
+     {
+      "doc_id": "r23:17-hahn",
+      "pdf_page": 3,
+      "quote": "$3.9 million of T1 funds remain allocated for Hopkins paving"
+     }
+    ],
+    "note": null
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Hopkins paving status",
+    "where_to_look": "Public Works project status"
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "The $4,050,000 drawn from the Workers' Compensation Fund; repayment terms are not in the annotated agenda.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $4,050,000 from the Workers Compensation Fund"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "Whether the $4,050,000 from the Workers' Compensation Fund is a loan or a transfer, and how it was booked, is not established. It is separate from the $5.5M Marina loan six weeks later.",
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
   }
  ]
 }
