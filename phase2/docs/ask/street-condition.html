@@ -1,42 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How bad are Berkeley&#x27;s streets, beyond the average PCI? — Ask BeTH (prototype)</title><style>
-:root{--ink:#1c2230;--muted:#5a6272;--rule:#dfe3ea;--paper:#f7f6f2;--card:#fff;--acc:#24589e;--warn:#8a4b08;--warnbg:#fff6e5;--ok:#1f6b4a}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-main{max-width:760px;margin:0 auto;padding:20px 18px 64px}
-.proto{font-size:12px;color:var(--warn);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.crumb{font-size:14px;margin:6px 0 2px}.crumb a{color:var(--acc)}
-h1{font-size:1.65rem;line-height:1.25;margin:.25em 0 .6em}
-.answer{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--acc);border-radius:6px;padding:16px 18px}
-.answer .lbl,.know .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.answer p{margin:.3em 0 0;font-size:1.12rem}
-.know{background:var(--warnbg);border:1px solid #f0d9ae;border-radius:6px;padding:12px 18px;margin:14px 0}
-.know ul{margin:.4em 0 0;padding-left:1.2em}.know li{margin:.3em 0}
-.status{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;font-size:14px}
-.pill{border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:3px 10px}
-.pill.ok{color:var(--ok)}.pill.no{color:var(--warn)}
-details{background:var(--card);border:1px solid var(--rule);border-radius:6px;margin:10px 0}
-summary{cursor:pointer;padding:12px 16px;font-weight:600}
-summary span{font-weight:400;color:var(--muted);font-size:14px}
-details>div{padding:0 16px 14px}
-.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--rule)}
-td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.basis{font-size:12px;color:var(--muted);white-space:nowrap}
-blockquote{margin:4px 0 0;padding-left:10px;border-left:3px solid var(--rule);color:var(--muted);font-size:14px}
-ul.plain{padding-left:1.2em}ul.plain li{margin:.45em 0}
-.calc b{font-variant-numeric:tabular-nums}.note,.cap{color:var(--muted);font-size:14px}
-.tech{display:none;font-size:12.5px;color:var(--muted);margin-top:3px}
-code{font-size:12px;background:#eef1f5;padding:0 3px;border-radius:3px}
-body:has(#tech:checked) .tech{display:block}
-.techtoggle{font-size:14px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;margin-top:18px}
-a{color:var(--acc)}
-</style></head><body><main><div class="proto">Prototype · not published</div>
-<div class="crumb"><a href="index.html">Ask BeTH</a> · Berkeley budget questions answered from City records</div>
-<h1>How bad are Berkeley&#x27;s streets, beyond the average PCI?</h1>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How bad are Berkeley&#x27;s streets, beyond the average PCI? — Ask BeTH (prototype)</title><meta name="description" content="Worse than the average suggests. The 2024 average was PCI 56 out of 100, but 88.5 miles of streets, 42% of the network, were below PCI 50."><link rel="stylesheet" href="../assets/ask.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="../ask/index.html">Be<span>TH</span> <span style="color:#fff;font-weight:400;font-size:15px">Berkeley Transparency Hub</span></a><nav class="topnav"><a href="../ask/index.html">Ask BeTH</a><a href="../budget-choices.html">Budget choices</a><a href="../ask/photo-credits.html">Photo credits</a></nav></div></header><div class="proto">Prototype for review. Not published. Answers are checked automatically but not yet confirmed by a person.</div><section class="hero"><figure class="hero-photo"><img src="../assets/photos/civic-center-park-pavement-2018.jpg" alt="Cracked asphalt and turn-lane markings on the street beside Civic Center Park" width="1600" height="1200" loading="eager" data-photo="street-condition"></figure><div class="wrap hero-in"><span class="kicker">Street condition</span>
+<h1>How bad are Berkeley&#x27;s streets, beyond the average PCI?</h1></div></section>
+<main class="narrow lead">
 <section class="answer"><div class="lbl">Short answer</div><p>Worse than the average suggests. The 2024 average was PCI 56 out of 100, but 88.5 miles of streets, 42% of the network, were below PCI 50.</p></section>
+<div class="stats"><div class="stat"><div class="stat-v">56</div><div class="stat-l">Citywide average pavement score in 2024, out of 100.</div><div class="tech"><code>pave:network/2024/average-pci</code></div></div><div class="stat"><div class="stat-v">88.5 mi</div><div class="stat-l">Miles of street scoring below 50, the line in Measure FF&#x27;s goal.</div><div class="tech"><code>pave:network/2024/miles-below-50</code></div></div><div class="stat"><div class="stat-v">41.6%</div><div class="stat-l">Share of the street network below 50.</div><div class="tech"><code>c1</code></div></div></div>
 <section class="know"><div class="lbl">What you should know</div><ul><li>The data are from 2024 inspections, before the last two years of paving.</li><li>The City reports a related but different figure: 41.93% of pavement area in &quot;poor&quot; or &quot;failed&quot; condition. It measures area rather than length, and includes streets at exactly PCI 50.</li><li>The City publishes no forecast of how many streets will still be below PCI 50 in future years.</li></ul></section>
 <div class="status"><span class="pill ok">Checked automatically against the cited records</span>
 <span class="pill no">Not yet confirmed by a person</span><span class="pill no">Not yet approved by an independent reviewer</span></div>
+<p class="photo-note"><span class="tag">Illustrative photo</span> Patched and cracked asphalt with white turn arrows in the foreground; Civic Center Park lawn and trees behind, 2018-11-25. It does not show evidence for the figures on this page. <a href="https://commons.wikimedia.org/wiki/File:Civic_Center_Park.jpg">Photo: Simon Cobb</a>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>, via Wikimedia Commons. <a href="photo-credits.html">All photo credits</a></p>
+<h2 class="sec">The picture in numbers</h2>
+<p class="sec-sub">Drawn from the same City records as the answer. Every value is labelled; the full figures and sources are below.</p>
+<figure class="chart"><figcaption><h3>Miles of street in each condition band, 2024</h3><p>Pavement Condition Index (PCI) bands used by the Metropolitan Transportation Commission. Measure FF&#x27;s goal is PCI 70, &quot;ideally with no streets having a PCI below 50&quot;.</p></figcaption><ul class="key"><li><span class="sw" style="background:#2a78d6"></span>PCI 50 or above</li><li><span class="sw" style="background:#eb6834"></span>Below PCI 50: 88.5 miles in all</li></ul><div class="bars"><div class="bar-row" title="Very good (80-100): 45.6 mi"><div class="bar-l">Very good (80-100)</div><div class="bar-t"><span class="bar-f" style="width:83.5%;background:#2a78d6"></span><span class="bar-v">45.6 mi</span></div></div><div class="bar-row" title="Good (70-79): 31.9 mi"><div class="bar-l">Good (70-79)</div><div class="bar-t"><span class="bar-f" style="width:58.5%;background:#2a78d6"></span><span class="bar-v">31.9 mi</span></div></div><div class="bar-row" title="Fair (60-69): 29.4 mi"><div class="bar-l">Fair (60-69)</div><div class="bar-t"><span class="bar-f" style="width:53.9%;background:#2a78d6"></span><span class="bar-v">29.4 mi</span></div></div><div class="bar-row" title="At risk (50-59): 17.4 mi"><div class="bar-l">At risk (50-59)</div><div class="bar-t"><span class="bar-f" style="width:31.8%;background:#2a78d6"></span><span class="bar-v">17.4 mi</span></div></div><div class="bar-row" title="Poor (25-49): 54.6 mi"><div class="bar-l">Poor (25-49)</div><div class="bar-t"><span class="bar-f" style="width:100.0%;background:#eb6834"></span><span class="bar-v">54.6 mi</span></div></div><div class="bar-row" title="Failed (0-24): 33.9 mi"><div class="bar-l">Failed (0-24)</div><div class="bar-t"><span class="bar-f" style="width:62.1%;background:#eb6834"></span><span class="bar-v">33.9 mi</span></div></div></div><p class="chart-src">Source: BeTH sum of 1,216 street sections in the City&#x27;s 2024 pavement condition report (PDF pages 40-67), lengths in feet converted to miles. One uninspected section is excluded, as in the report&#x27;s totals.</p></figure>
+<h2 class="sec">The details</h2>
+<p class="sec-sub">Open any section to see the full answer, the open questions, every source and how the numbers were checked.</p>
 <details><summary>The full answer and BeTH's reading</summary><div><p>The average hides most of it. In the 2024 inspection the network averaged PCI 56, but 88.5 centerline miles (42% of the network) were below PCI 50 and 33.9 miles were below 25. The City projects an average of about 62 by 2038 with Measure FF, but publishes no projection of how many streets will still be below 50. The adopted plans treat 22.6 miles of currently-below-50 streets over five years.</p>
 <ul class="plain"><li>Reaching a network average of 60 or 62 is not the same as eliminating failed streets; the measure that matches Measure FF&#x27;s goal is the mileage below PCI 50. <span class="note">(BeTH's confidence: High)</span><div class="note"><b>The other side:</b> Treating the worst streets first costs more per point of average PCI (the City shows about one point lower in 2038), so a lower failed-street count can mean a lower average; both measures are needed.</div></li></ul><p class="note">Scope: Mileage is computed from section lengths in feet and reported to 0.1 mile. One uninspected 155-foot section (Tevlin St, PCI 0, no inspection date) is excluded, as in the report&#x27;s totals table.</p></div></details>
 <details><summary>Open questions <span>(5) · what is unsettled or not yet known</span></summary>
@@ -58,4 +33,5 @@ every number in the text above traces to one of those figures.</p>
 <code>phase2/review/human-approvals.json → answers.street-condition</code> · answer data
 <code>phase2/docs/data/answers.json</code></div></div></details>
 <label class="techtoggle"><input type="checkbox" id="tech"> Show technical references</label>
-<p class="cap"><a href="index.html">More questions</a> · <a href="../budget-choices.html">Budget choices prototype</a></p></main><script>document.getElementById("tech").addEventListener("change",e=>{if(e.target.checked)document.querySelectorAll("details").forEach(d=>d.open=true)})</script></body></html>
+<p class="cap"><a href="index.html">More questions</a> · <a href="../budget-choices.html">Budget choices prototype</a></p>
+</main><footer><div class="wrap">BeTH answers come only from City of Berkeley records, each linked to the page it relies on. Photographs are illustrative and are not evidence. <a href="../ask/photo-credits.html">Photo credits and licenses</a>.</div></footer><script>var t=document.getElementById("tech");if(t)t.addEventListener("change",function(e){if(e.target.checked)document.querySelectorAll("details").forEach(function(d){d.open=true})})</script></body></html>

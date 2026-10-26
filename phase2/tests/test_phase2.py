@@ -288,7 +288,9 @@ class Presentation(unittest.TestCase):
                 self.assertIn(f['fact_id'], h, slug)
                 if f.get('record'):
                     self.assertIn(html_escape(f['record']), h, slug)
-            self.assertIn('body:has(#tech:checked) .tech{display:block}', h)
+            self.assertIn('href="../assets/ask.css"', h)
+        self.assertIn('body:has(#tech:checked) .tech{display:block}', (ROOT / 'docs' / 'assets' / 'ask.css').read_text())
+        self.assertIn('.tech{display:none', (ROOT / 'docs' / 'assets' / 'ask.css').read_text())
 
     def test_evidence_and_arithmetic_kept(self):
         for slug, (a, h) in self.pages.items():
@@ -421,3 +423,91 @@ class Pavement(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class Design(unittest.TestCase):
+    """Presentation-only redesign: photographs carry established rights and credits; highlights and charts use
+    verified values or committed data; nothing here may change what is verified."""
+
+    @classmethod
+    def setUpClass(cls):
+        import ask_design
+        cls.d = ask_design
+        cls.credits = json.loads((ROOT / 'docs' / 'assets' / 'photos' / 'credits.json').read_text())
+        cls.pages = pages()
+
+    def test_photo_rights_recorded(self):
+        import hashlib
+        allowed = {'CC0', 'Public domain', 'CC BY 2.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 2.5', 'CC BY-SA 3.0',
+                   'CC BY-SA 4.0'}
+        self.assertEqual(set(self.credits['photos']), {'home', *self.d.PRESENTATION})
+        for use, p in self.credits['photos'].items():
+            for k in ('file', 'source_page', 'author', 'license', 'license_url', 'date', 'location', 'alt',
+                      'description', 'credit_line', 'sha256'):
+                self.assertTrue(p.get(k), f'{use}: {k}')
+            self.assertIn(p['license'], allowed, use)
+            self.assertTrue(p['source_page'].startswith('https://commons.wikimedia.org/wiki/File:'), use)
+            self.assertTrue(p['not_evidence'])
+            data = (ROOT / 'docs' / p['file']).read_bytes()
+            self.assertEqual(hashlib.sha256(data).hexdigest(), p['sha256'], use)
+
+    def test_every_image_is_credited_and_captioned(self):
+        files = {p['file'] for p in self.credits['photos'].values()}
+        for name in ('index', 'capital-to-streets', 'measure-ff-paving', 'street-condition', 'streets-139m',
+                     'photo-credits'):
+            h = (ROOT / 'docs' / 'ask' / f'{name}.html').read_text()
+            srcs = re.findall(r'<img src="\.\./([^"]+)"', h)
+            self.assertTrue(srcs, name)
+            for s in srcs:
+                self.assertIn(s, files, name)
+                p = next(p for p in self.credits['photos'].values() if p['file'] == s)
+                self.assertIn(html_escape(p['source_page']), h, name)
+                self.assertIn(html_escape(p['license']), h, name)
+            self.assertNotRegex(h, r'<img src="https?://', name)
+            if name != 'photo-credits':
+                self.assertIn('Illustrative photo', h, name)
+                self.assertIn('does not show evidence for the figures on this page', h, name)
+
+    def test_home_heading(self):
+        h = (ROOT / 'docs' / 'ask' / 'index.html').read_text()
+        self.assertIn('<h1>Ask BeTH</h1>', h)
+        self.assertIn('Where does Berkeley’s money go? What are we getting for it?', h)
+        self.assertEqual(h.count('class="card"'), 4)
+
+    def test_highlights_are_verified_values(self):
+        for slug, (a, h) in self.pages.items():
+            facts = {f['fact_id']: f for f in a['facts']}
+            calcs = {c['id']: c for c in a['verifier']['arithmetic']}
+            hl = self.d.PRESENTATION[slug]['highlights']
+            self.assertTrue(2 <= len(hl) <= 3, slug)
+            for ref, _ in hl:
+                self.assertTrue(ref in facts or ref in calcs, f'{slug}: {ref}')
+                v = (ba.fmt({'value': calcs[ref]['recomputed'], 'unit': calcs[ref]['unit']}) if ref in calcs
+                     else ba.fmt(facts[ref]))
+                self.assertIn(f'<div class="stat-v">{html_escape(v)}</div>', h, slug)
+
+    def test_charts_match_data(self):
+        nc = load('network-condition.json')['distribution']
+        h = self.pages['street-condition'][1]
+        for k, b in nc['by_mtc_band'].items():
+            self.assertIn(f'{b["centerline_miles"]:.1f} mi', h)
+        below = nc['by_mtc_band']['poor (25-49)']['centerline_miles_unrounded'] + \
+            nc['by_mtc_band']['failed (0-24)']['centerline_miles_unrounded']
+        self.assertAlmostEqual(below, nc['below_pci_50']['centerline_miles_unrounded'], places=6)
+        self.assertIn(f'Below PCI 50: {nc["below_pci_50"]["centerline_miles"]:.1f} miles in all', h)
+        t = load('cip-projects.json')['categories']['Streets']['printed_grand_total']
+        h = self.pages['streets-139m'][1]
+        self.assertIn(f'Two years: ${t["fy2027"] + t["fy2028"]:,}', h)
+        self.assertIn(f'Five years: ${t["five_year_budget"]:,}', h)
+        prog = load('street-funding-sources.json')['funding_sources'][1]['allocation_fixed_by_voters']['adopted_five_year_program']
+        h = self.pages['measure-ff-paving'][1]
+        self.assertIn(f'Street rehabilitation <b>{prog["street_rehabilitation_cip"] / prog["total"]:.1%}</b>', h)
+        a = load('street-funding-sources.json')['funding_sources'][0]['appropriations_adopted_cip']['fy2027']
+        h = self.pages['capital-to-streets'][1]
+        self.assertIn(f'Paving <b>${a["paving"]:,}</b>', h)
+        self.assertIn('Budget amounts, not cash', h)
+
+    def test_no_external_resources(self):
+        for f in (ROOT / 'docs' / 'ask').glob('*.html'):
+            h = f.read_text()
+            self.assertNotRegex(h, r'<(script|link|img)[^>]+(src|href)="https?://', f.name)

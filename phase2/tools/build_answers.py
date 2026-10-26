@@ -39,6 +39,8 @@ import sys
 from functools import lru_cache
 from pathlib import Path
 
+import ask_design as design
+
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 DATA = ROOT / 'data'
@@ -730,49 +732,6 @@ def source_cell(f):
     return out
 
 
-PAGE_CSS = '''
-:root{--ink:#1c2230;--muted:#5a6272;--rule:#dfe3ea;--paper:#f7f6f2;--card:#fff;--acc:#24589e;--warn:#8a4b08;--warnbg:#fff6e5;--ok:#1f6b4a}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-main{max-width:760px;margin:0 auto;padding:20px 18px 64px}
-.proto{font-size:12px;color:var(--warn);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.crumb{font-size:14px;margin:6px 0 2px}.crumb a{color:var(--acc)}
-h1{font-size:1.65rem;line-height:1.25;margin:.25em 0 .6em}
-.answer{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--acc);border-radius:6px;padding:16px 18px}
-.answer .lbl,.know .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.answer p{margin:.3em 0 0;font-size:1.12rem}
-.know{background:var(--warnbg);border:1px solid #f0d9ae;border-radius:6px;padding:12px 18px;margin:14px 0}
-.know ul{margin:.4em 0 0;padding-left:1.2em}.know li{margin:.3em 0}
-.status{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;font-size:14px}
-.pill{border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:3px 10px}
-.pill.ok{color:var(--ok)}.pill.no{color:var(--warn)}
-details{background:var(--card);border:1px solid var(--rule);border-radius:6px;margin:10px 0}
-summary{cursor:pointer;padding:12px 16px;font-weight:600}
-summary span{font-weight:400;color:var(--muted);font-size:14px}
-details>div{padding:0 16px 14px}
-.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--rule)}
-td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.basis{font-size:12px;color:var(--muted);white-space:nowrap}
-blockquote{margin:4px 0 0;padding-left:10px;border-left:3px solid var(--rule);color:var(--muted);font-size:14px}
-ul.plain{padding-left:1.2em}ul.plain li{margin:.45em 0}
-.calc b{font-variant-numeric:tabular-nums}.note,.cap{color:var(--muted);font-size:14px}
-.tech{display:none;font-size:12.5px;color:var(--muted);margin-top:3px}
-code{font-size:12px;background:#eef1f5;padding:0 3px;border-radius:3px}
-body:has(#tech:checked) .tech{display:block}
-.techtoggle{font-size:14px;color:var(--muted);display:inline-flex;gap:6px;align-items:center;margin-top:18px}
-a{color:var(--acc)}
-'''
-
-
-def page(title, body):
-    return (f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
-            f'<meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>'
-            f'<style>{PAGE_CSS}</style></head><body><main>{body}</main>'
-            '<script>document.getElementById("tech").addEventListener("change",e=>{if(e.target.checked)'
-            'document.querySelectorAll("details").forEach(d=>d.open=true)})</script></body></html>\n')
-
-
 def render(ans, approval):
     e = html.escape
     v = ans['verifier']
@@ -802,13 +761,22 @@ def render(ans, approval):
     limits = ''.join(f'<li>{e(x[0].upper() + x[1:])}.</li>' for x in v['does_not_establish'])
     st = approval['status']
     scope = ans['resolution'].get('scope')
-    body = f'''<div class="proto">Prototype · not published</div>
-<div class="crumb"><a href="index.html">Ask BeTH</a> · Berkeley budget questions answered from City records</div>
-<h1>{e(ans["question"])}</h1>
+    pres = design.PRESENTATION[ans['slug']]
+    fig, credit, photo = design.photo_figure(ans['slug'], '../')
+    body = f'''<section class="hero">{fig}<div class="wrap hero-in"><span class="kicker">{e(pres["kicker"])}</span>
+<h1>{e(ans["question"])}</h1></div></section>
+<main class="narrow lead">
 <section class="answer"><div class="lbl">Short answer</div><p>{e(ans["headline"])}</p></section>
+{design.highlights_html(ans, fmt)}
 <section class="know"><div class="lbl">What you should know</div><ul>{know}</ul></section>
 <div class="status"><span class="pill ok">Checked automatically against the cited records</span>
 <span class="pill no">Not yet confirmed by a person</span><span class="pill no">{e(APPROVAL_TEXT[st])}</span></div>
+{design.photo_caption(photo, credit, "photo-credits.html")}
+<h2 class="sec">The picture in numbers</h2>
+<p class="sec-sub">Drawn from the same City records as the answer. Every value is labelled; the full figures and sources are below.</p>
+{chart_for(ans["slug"])}
+<h2 class="sec">The details</h2>
+<p class="sec-sub">Open any section to see the full answer, the open questions, every source and how the numbers were checked.</p>
 <details><summary>The full answer and BeTH's reading</summary><div><p>{e(ans["short_answer"])}</p>
 <ul class="plain">{reading}</ul>{f'<p class="note">Scope: {e(scope)}</p>' if scope else ''}</div></details>
 <details><summary>Open questions <span>({len(ans["open_interpretations"])}) · what is unsettled or not yet known</span></summary>
@@ -830,27 +798,62 @@ every number in the text above traces to one of those figures.</p>
 <code>phase2/review/human-approvals.json → answers.{e(ans["slug"])}</code> · answer data
 <code>phase2/docs/data/answers.json</code></div></div></details>
 <label class="techtoggle"><input type="checkbox" id="tech"> Show technical references</label>
-<p class="cap"><a href="index.html">More questions</a> · <a href="../budget-choices.html">Budget choices prototype</a></p>'''
-    return page(f'{ans["question"]} — Ask BeTH (prototype)', body)
+<p class="cap"><a href="index.html">More questions</a> · <a href="../budget-choices.html">Budget choices prototype</a></p>
+</main>'''
+    return design.shell(f'{ans["question"]} — Ask BeTH (prototype)', body, '../', ans['headline'])
+
+
+def chart_for(slug):
+    if slug == 'street-condition':
+        return design.chart_street_condition(load('network-condition.json'))
+    if slug == 'measure-ff-paving':
+        return design.chart_measure_ff(load(SF))
+    if slug == 'streets-139m':
+        return design.chart_streets_budget(load('cip-projects.json'))
+    restrictions = json.loads((ROOT / 'docs' / 'data' / 'phase2.json').read_text())['capital']['by_restriction_class']
+    return design.chart_capital(load(SF), restrictions)
 
 
 def render_index(answers, approvals):
     e = html.escape
-    cards = ''.join(f'<section class="answer" style="margin:12px 0"><h2 style="font-size:1.15rem;margin:0 0 4px">'
-                    f'<a href="{e(a["slug"])}.html">{e(a["question"])}</a></h2><p style="font-size:1rem">{e(a["headline"])}</p>'
-                    f'<div class="status"><span class="pill ok">Checked automatically</span>'
-                    f'<span class="pill no">Not yet confirmed by a person</span>'
-                    f'<span class="pill no">{e(APPROVAL_TEXT[approvals[a["slug"]]["status"]])}</span></div></section>'
-                    for a in answers if a['verifier']['passed'])
-    body = f'''<div class="proto">Prototype · not published</div>
-<h1>Ask BeTH</h1>
-<p>Plain answers to common questions about Berkeley's budget, built only from City records. Each answer links to the
-page of the document it relies on, says what is still uncertain, and lists what is missing. A program has checked the
-figures and citations; no person has yet confirmed each answer.</p>
-{cards}
+    cards = ''
+    for a in answers:
+        if not a['verifier']['passed']:
+            continue
+        pres = design.PRESENTATION[a['slug']]
+        fig, credit, _ = design.photo_figure(a['slug'], '../', cls='card')
+        cards += (f'<article class="card"><a class="card-link" href="{e(a["slug"])}.html" tabindex="-1" aria-hidden="true">'
+                  f'{fig}</a><div class="card-b">'
+                  f'<span class="kicker">{e(pres["kicker"])}</span>'
+                  f'<h3><a href="{e(a["slug"])}.html">{e(pres["card_title"])}</a></h3>'
+                  f'<p>{e(pres["card_text"])}</p><p class="answer-line">{e(a["headline"])}</p>'
+                  f'<div class="status" style="margin:6px 0 0"><span class="pill no">'
+                  f'{e(APPROVAL_TEXT[approvals[a["slug"]]["status"]])}</span></div>'
+                  f'<a class="go" href="{e(a["slug"])}.html">Read the answer →</a>'
+                  f'<span class="credit">Illustrative photo. {credit}.</span></div></article>')
+    fig, credit, photo = design.photo_figure('home', '../')
+    body = f'''<section class="hero home">{fig}<div class="wrap hero-in">
+<span class="kicker">Berkeley budget questions, answered from City records</span>
+<h1>Ask BeTH</h1><p class="sub">Where does Berkeley’s money go? What are we getting for it?</p></div></section>
+<main class="wrap">
+<div class="narrow" style="padding-inline:0">{design.photo_caption(photo, credit, "photo-credits.html")}</div>
+<h2 class="sec">Four questions residents ask</h2>
+<p class="sec-sub">Each answer starts short, shows the key numbers, says plainly what is uncertain, and links every figure to
+the page of the City document it comes from.</p>
+<div class="cards">{cards}</div>
+<h2 class="sec">How BeTH answers</h2>
+<div class="how"><div><b>Only City records</b><p>Budgets, audited financial reports, the Measure FF ordinance and the
+City's pavement report. Every figure links to its page.</p></div>
+<div><b>Checked by a program</b><p>Cited pages must exist, figures must match the records, quotes must appear on the
+cited page and the arithmetic must add up. If anything fails, the answer is not shown.</p></div>
+<div><b>Reviewed by a person</b><p>The last step is an independent reviewer reading every source. That has not happened
+yet for these answers, and each page says so.</p></div></div>
 <label class="techtoggle"><input type="checkbox" id="tech"> Show technical references</label>
-<div class="tech">Answer data: <code>phase2/docs/data/answers.json</code> · approvals: <code>phase2/review/human-approvals.json</code></div>'''
-    return page('Ask BeTH — prototype', body)
+<div class="tech">Answer data: <code>phase2/docs/data/answers.json</code> · approvals: <code>phase2/review/human-approvals.json</code>
+· photo record: <code>phase2/docs/assets/photos/credits.json</code></div>
+</main>'''
+    return design.shell('Ask BeTH — Where does Berkeley’s money go?', body, '../',
+                        'Where does Berkeley’s money go? What are we getting for it? Plain answers from City records.')
 
 
 def main(argv):
@@ -870,6 +873,8 @@ def main(argv):
             if a['verifier']['passed']:
                 (OUT_DIR / f"{a['slug']}.html").write_text(render(a, approvals[a['slug']]))
         (OUT_DIR / 'index.html').write_text(render_index(answers, approvals))
+        (OUT_DIR / 'photo-credits.html').write_text(design.credits_page())
+        (ROOT / 'docs' / 'assets' / 'ask.css').write_text(design.CSS.lstrip())
         print('wrote', OUT_JSON.relative_to(REPO), 'and', len([a for a in answers if a['verifier']['passed']]), 'Ask pages')
     return 1 if bad else 0
 
