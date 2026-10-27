@@ -1,6 +1,6 @@
 # Berkeley street funding and expenditures — draft records request
 
-Prepared October 26, 2026. Draft for review; not submitted.
+Prepared October 26, 2026. Approved as drafted by Steve Kromer on October 27, 2026. **Not submitted**; submission awaits a separate instruction.
 
 To: City of Berkeley, City Clerk / Public Records
 
