@@ -1,0 +1,51 @@
+{
+ "sco-streets-roads-fy0910.pdf": {
+  "extract": "sco-streets-roads-fy0910-berkeley-p137.pdf",
+  "original_page": 137,
+  "full_sha256": "229e65936da77ad572c61a7885829f35ea6e944c7cbbb3fbad289b9011009435"
+ },
+ "sco-streets-roads-fy1011.pdf": {
+  "extract": "sco-streets-roads-fy1011-berkeley-p138.pdf",
+  "original_page": 138,
+  "full_sha256": "17b87b8ce5e8796d954dd32b295f84261b9bffb9b77b4cd131967c4e726118bf"
+ },
+ "sco-streets-roads-fy1112.pdf": {
+  "extract": "sco-streets-roads-fy1112-berkeley-p141.pdf",
+  "original_page": 141,
+  "full_sha256": "4d45845f66c69c8eaf20f467e7ed219595e52cd20bac4de56630f0d01ba54899"
+ },
+ "sco-streets-roads-fy1213.pdf": {
+  "extract": "sco-streets-roads-fy1213-berkeley-p141.pdf",
+  "original_page": 141,
+  "full_sha256": "73c34559ec1b1ca78a6134534c129eb633549630a61da9e81c0dcfd8abbbc64d"
+ },
+ "sco-streets-roads-fy1314.pdf": {
+  "extract": "sco-streets-roads-fy1314-berkeley-p142.pdf",
+  "original_page": 142,
+  "full_sha256": "e2b663e8edb81a20157f192639aeac3689e101dd2ff746d650a10de60293fb2f"
+ },
+ "sco-streets-roads-fy1415.pdf": {
+  "extract": "sco-streets-roads-fy1415-berkeley-p141.pdf",
+  "original_page": 141,
+  "full_sha256": "1053dffb4004e1340df73b71dd8472d0a5b8e00378401c95050c2d632d749145"
+ },
+ "sco-streets-roads-fy1516.pdf": {
+  "extract": "sco-streets-roads-fy1516-berkeley-p140.pdf",
+  "original_page": 140,
+  "full_sha256": "e13e72a4caaa45a08b50b7b1b5283ba6c7bc9c4daba6d5f97d38358c06613bbe"
+ },
+ "sco-streets-roads-fy1617.pdf": {
+  "extract": "sco-streets-roads-fy1617-berkeley-p140.pdf",
+  "original_page": 140,
+  "full_sha256": "ad863bc5e4a4f13c5b0730fb6e917a85f2ec3382ab5adaa43369cbf7ddf872d7"
+ },
+ "raw-mpy3-2iag.xlsx": {
+  "full_sha256": "6c08138b197608ce1c0aa6dc06f31737eeb6f7cf57cef1735e2f86d46cec34ca"
+ },
+ "raw-g8ja-n4f6.xlsx": {
+  "full_sha256": "d1d93f8e87b4f2c05ea6eecadacbb034adc514eb0fd4082b32ea27aa9f91a0cd"
+ },
+ "raw-b5ms-dvgv.xlsx": {
+  "full_sha256": "f5b4fee63babc8cb72528b31f247dfbb989116cc5c366b3f0b0b9e2eb1ab8620"
+ }
+}

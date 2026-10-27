@@ -1,0 +1,122 @@
+{
+ "flag": "2026-10-23-doubletree-608-ledger-event.md",
+ "status": "PROPOSAL - NOT APPLIED",
+ "ledger": "data/funds/608.json",
+ "ledger_protected": true,
+ "ledger_sha256_at_flag": "23a8d30daf45032924e5c949a0b4726550fd4af6f8b3149762cf1043af4483d0",
+ "authorization_required": "Steve (protected ledger); schema change prepared by Codex",
+ "current_entry": {
+  "id": "608-doubletree-arrears",
+  "date": "2025-03",
+  "fy": 2026,
+  "kind": "write_off",
+  "amount": 890000,
+  "from_fund": "Doubletree Hotel (tenant)",
+  "to_fund": "608",
+  "recurring": false,
+  "instrument": "Lease (60-year term to 2080; base rent ~$82K/month plus percentage rent)",
+  "stated_reason": "Hotel stopped paying regular rent in early 2025 (Jan per May 2025 deck; March per Sept 2026 deck); paid $964,680 in Sept 2025; nothing since Dec 2025; ~$890K owed as of Sept 2026 (9 months base rent, 3 quarters percentage rent)",
+  "terms": "Not written off; recorded here as revenue at risk. Budget assumed 35% of rent for FY27-28; actual zero. Staff: potential loss $840K through FY28.",
+  "source": "prw-2026-09",
+  "confidence": "High",
+  "reviewer": "SK"
+ },
+ "sources": {
+  "bf-2025-05": {
+   "local": "phase2/sources/bf-committee-marina-fund-update-2025-05-22.pdf",
+   "sha256": "e088f9eeb80e813a5886339b72aca446f90bd4a9a3418504fb557d948db47992"
+  },
+  "prw-2026-09": {
+   "local": "phase2/sources/prw-commission-waterfront-overview-2026-09-09.pdf",
+   "sha256": "3c18487d398387c9130e10768a19f85f1afd510883beac19a402c6420295b86b"
+  }
+ },
+ "schema_change_proposed": {
+  "flow_kinds_add": [
+   "arrears",
+   "arrears_payment"
+  ],
+  "files": [
+   "data/funds/SCHEMA.md",
+   "tools/ledger.py (KINDS)",
+   "tools/build_fund_page.py (KIND_LABEL)"
+  ],
+  "definitions": {
+   "arrears": "Billed to a counterparty and unpaid as of a date; amount = balance owed; as_of required; not revenue lost.",
+   "arrears_payment": "Payment received against arrears."
+  }
+ },
+ "proposed_flows_replace": [
+  {
+   "id": "608-doubletree-arrears-2025-06",
+   "date": "2025-06-30",
+   "fy": 2025,
+   "kind": "arrears",
+   "amount": 680299,
+   "from_fund": "Doubletree Hotel (tenant)",
+   "to_fund": "608",
+   "recurring": false,
+   "instrument": "Lease (60-year term to 2080; base rent ~$82K/month plus percentage rent)",
+   "stated_reason": "Payment arrears through June 2025: $187,615 percentage rent (2024) + $492,684 base rent (Jan-Jun 2025) = $680,299 past due.",
+   "source": "bf-2025-05",
+   "pages": "p.7",
+   "confidence": "High",
+   "reviewer": "agent:proposed"
+  },
+  {
+   "id": "608-doubletree-payment-2025-09",
+   "date": "2025-09",
+   "fy": 2026,
+   "kind": "arrears_payment",
+   "amount": 964680,
+   "from_fund": "Doubletree Hotel (tenant)",
+   "to_fund": "608",
+   "recurring": false,
+   "instrument": "Lease",
+   "stated_reason": "\"Hotel paid their full balance in Sept. 2025: $964,680.\" Clears the first episode.",
+   "source": "prw-2026-09",
+   "pages": "p.11",
+   "confidence": "High",
+   "reviewer": "agent:proposed"
+  },
+  {
+   "id": "608-doubletree-arrears-2026-09",
+   "date": "2026-09",
+   "fy": 2027,
+   "kind": "arrears",
+   "amount": 890000,
+   "amount_is_approximate": true,
+   "from_fund": "Doubletree Hotel (tenant)",
+   "to_fund": "608",
+   "recurring": false,
+   "instrument": "Lease",
+   "stated_reason": "\"Has not paid rent since Dec, 2025 and currently owes approx. $890k (9 months of base rent, 3 quarters % rent).\" Accrual period Jan-Sep 2026 (FY2026 6 months, FY2027 3 months).",
+   "source": "prw-2026-09",
+   "pages": "p.11",
+   "confidence": "High",
+   "reviewer": "agent:proposed"
+  }
+ ],
+ "proposed_projection_outside_flows": {
+  "kind": "revenue_at_risk_projection",
+  "amount": 840000,
+  "as_of": "2026-09",
+  "through": "FY2028",
+  "basis": "projected",
+  "source": "prw-2026-09",
+  "pages": "p.15",
+  "confidence": "Moderate",
+  "note": "Potential loss of PLANNED hotel revenue versus the FY2027-28 budget assumption, stated as \"30% of revenue, $420K/year\" (p.11) and \"at least 35% of rent\" (p.15) in the same packet."
+ },
+ "amounts_never_to_be_combined": {
+  "890000": "outstanding rent owed (receivable), approx., as of Sept 2026",
+  "964680": "cash received Sept 2025, clearing the first episode",
+  "840000": "staff projection of lost planned revenue through FY2028"
+ },
+ "unresolved": [
+  "allowance for doubtful accounts against this tenant",
+  "start month of first episode (Jan vs Mar 2025)",
+  "lease enforcement status",
+  "which budget assumption (30% or 35%) the adopted Marina budget uses"
+ ]
+}
