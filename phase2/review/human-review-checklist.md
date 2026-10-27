@@ -267,6 +267,8 @@ Recorded in `phase2/review/human-approvals.json` → `answers.streets-139m`. Cur
 
 Page: `phase2/docs/ask/marina.html` · Automated checks: passed · Human source verification: **NOT PERFORMED** · Approval: **NOT APPROVED**
 
+Reviewer note: Cross-reference (2026-10-26): the $5.5M Workers' Compensation item is one of two 2023 authorizations ($4.05M on June 13; $5.5M on July 25); the FY2024 audit records one $5.5M transfer out, to the General Fund, and the evidence does not establish which authorization it implemented. See phase2/review/workers-compensation-authorizations-2026-10-26.md and phase2/01-marina-fund-case-study.md section 1 addendum. Authorization, transfer, project expenditure and outstanding loan are separate events; no ledger entry is changed. Approval status unchanged.
+
 ### Central claim
 
 > The Marina Fund (fund 608) is meant to pay for the whole waterfront from berth fees and leases. In audited FY2024 it had an operating loss of $401,892; in audited FY2025, $5,979,084, a year distorted by State-funded dock work. Staff's unaudited FY2026 figures show revenue of $8,673,012 against expenditures of $8,395,420, but the revenue includes about $1.4 million of General Fund subsidy. Staff project losses of $1,023,955 in FY2027 and $1,045,594 in FY2028, leaving the fund $545,586 in deficit. The DoubleTree hotel owed about $1 million in rent in October 2026.

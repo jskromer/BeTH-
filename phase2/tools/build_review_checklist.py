@@ -60,6 +60,9 @@ def main():
                 f'{"passed" if v["structural_checks_passed"] else "FAILED"} · Human source verification: '
                 f'**{v["independent_source_verification"]["status"]}** · Approval: **{ap["status"]}**', '',
                 '### Central claim', '', f'> {a["short_answer"]}', '']
+        if ap.get('notes'):
+            # Reviewer-recorded context from human-approvals.json, shown ahead of the claim it qualifies.
+            out[-4:-4] = [f'Reviewer note: {ap["notes"]}', '']
         for part in a.get('parts', []):
             out += [f'**{part["q"]}** {part["a"]}', '']
         for i in a['interpretation']:
