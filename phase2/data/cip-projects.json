@@ -1,0 +1,5907 @@
+{
+ "schema_version": 3,
+ "extracted": "2026-10-23",
+ "evidence_class": "BUDGET_ADOPTED",
+ "source": {
+  "title": "Adoption of Fiscal Years 2027 and 2028 Biennial Budget and Fiscal Years 2027-2031 Capital Improvement Program, Exhibit B: FY2027-FY2031 Capital Improvement Program Overview",
+  "body": "City of Berkeley, City Council Special Meeting, June 23, 2026, Item 01 (adopted by resolution)",
+  "local_copy": "phase2/sources/budget-adoption-2026-06-23.pdf",
+  "pages": "Exhibit B project tables pp.179-229; funding-source tables pp.170, 172-173"
+ },
+ "adoption_status": "The resolution adopts the Five-Year CIP \"contained in the City Manager's Proposed\" budget \"and as amended by subsequent Council action on June 23, 2026\" (packet p.6). Exhibit C (pp.249-255) amends FY2027-28 revenues and expenditures by fund; it changes capital grant revenue (funds 305-307, 336, 339) and Measure FF revenue (funds 164, 166) but prints no change to CIP project appropriations. Amendments made from the dais on June 23 are not in this packet; the FY2027 Annual Appropriation Ordinance is the controlling appropriation record and is not yet in BeTH's sources.",
+ "caveats": [
+  "Amounts are budget appropriations and plans, not cash, not expenditures, not encumbrances.",
+  "prior_years and fy2026_budget are appropriations already made. Unspent capital appropriations are re-appropriated until a project completes (FY2025 ACFR, Required Supplementary Information budget note); how much of them is unspent or encumbered is not in this source.",
+  "FY2029-FY2031 are \"Planned\", not appropriated.",
+  "Equipment & Fleet is a vehicle replacement schedule of the Equipment Replacement internal service fund (pp.231-247), not project rows; it is summarized in excluded_categories, not itemized."
+ ],
+ "project_count_stated_by_city": 149,
+ "reconciliation": {
+  "project_rows_sum_to_printed_project_totals": true,
+  "categories_sum_to_printed_grand_totals": true,
+  "category_project_counts_match_document": "yes, except: Storm Water: The Storm Water tables (pp.210-212) print 13 project titles; p.212 states \"14 Projects in Five-Year CIP\". Dollar totals tie exactly to the printed Grand Total, so no amount is missing; the stated count is not reproducible.",
+  "projects_extracted": 143,
+  "city_summary_tables": {
+   "categories_p169": {
+    "Camps": {
+     "city_p169": [
+      585000,
+      800000,
+      100000,
+      100000,
+      100000,
+      1685000
+     ],
+     "parsed_funded": [
+      585000,
+      800000,
+      100000,
+      100000,
+      100000,
+      1685000
+     ],
+     "match": true
+    },
+    "Equipment & Fleet": {
+     "city_p169": [
+      9563532,
+      4886614,
+      8418345,
+      6933222,
+      3529403,
+      33331116
+     ],
+     "parsed": null,
+     "note": "Vehicle replacement schedule (pp.231-247), not project rows; value taken from p.169."
+    },
+    "Facilities": {
+     "city_p169": [
+      3123000,
+      1788000,
+      1298000,
+      897000,
+      883000,
+      7989000
+     ],
+     "parsed_funded": [
+      3123000,
+      1788000,
+      1298000,
+      897000,
+      883000,
+      7989000
+     ],
+     "match": true
+    },
+    "Information Technology": {
+     "city_p169": [
+      485000,
+      685000,
+      0,
+      0,
+      0,
+      1170000
+     ],
+     "parsed_funded": [
+      485000,
+      685000,
+      0,
+      0,
+      0,
+      1170000
+     ],
+     "match": true
+    },
+    "Other Infrastructure": {
+     "city_p169": [
+      631900,
+      1258100,
+      2580300,
+      2186100,
+      1444600,
+      8101000
+     ],
+     "parsed_funded": [
+      631900,
+      1258100,
+      2580300,
+      2186100,
+      1444600,
+      8101000
+     ],
+     "match": true
+    },
+    "Parks": {
+     "city_p169": [
+      5990000,
+      2765000,
+      3175000,
+      3175000,
+      3175000,
+      18280000
+     ],
+     "parsed_funded": [
+      5990000,
+      2765000,
+      3175000,
+      3175000,
+      3175000,
+      18280000
+     ],
+     "match": true
+    },
+    "Sanitary Sewer": {
+     "city_p169": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "parsed_funded": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "match": true
+    },
+    "Sidewalks": {
+     "city_p169": [
+      2894224,
+      2770517,
+      2493579,
+      4035000,
+      3535000,
+      15728320
+     ],
+     "parsed_funded": [
+      2894224,
+      2770517,
+      2493579,
+      4035000,
+      3535000,
+      15728320
+     ],
+     "match": true
+    },
+    "Storm Water": {
+     "city_p169": [
+      5665000,
+      7290000,
+      2470000,
+      2300000,
+      2015000,
+      19740000
+     ],
+     "parsed_funded": [
+      5665000,
+      7290000,
+      2470000,
+      2300000,
+      2015000,
+      19740000
+     ],
+     "match": true
+    },
+    "Streets": {
+     "city_p169": [
+      32241345,
+      25970117,
+      27214629,
+      25204402,
+      28725654,
+      139356147
+     ],
+     "parsed_funded": [
+      32241345,
+      25970117,
+      27214629,
+      25204402,
+      28725654,
+      139356147
+     ],
+     "match": true
+    },
+    "Transportation": {
+     "city_p169": [
+      13387067,
+      12223960,
+      10203038,
+      6203942,
+      1550000,
+      43568007
+     ],
+     "parsed_funded": [
+      13387067,
+      12223960,
+      10203038,
+      6203942,
+      1550000,
+      43568007
+     ],
+     "match": true
+    },
+    "Waterfront": {
+     "city_p169": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "parsed_funded": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "match": true
+    }
+   },
+   "funding_sources_p170": {
+    "Capital Improvements": {
+     "funds": [
+      "501"
+     ],
+     "city_p170": [
+      11885200,
+      12139816,
+      12412070,
+      12681193,
+      12945418,
+      62063697
+     ],
+     "parsed": [
+      11885200,
+      12139816,
+      12412070,
+      12681193,
+      12945418,
+      62063697
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas T1 - Infrstr And Fac": {
+     "funds": [
+      "511"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Clean Storm Water": {
+     "funds": [
+      "616"
+     ],
+     "city_p170": [
+      4465000,
+      6390000,
+      3470000,
+      3300000,
+      3015000,
+      20640000
+     ],
+     "parsed": [
+      4465000,
+      6390000,
+      3470000,
+      3300000,
+      3015000,
+      20640000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Marina Operations/Maint": {
+     "funds": [
+      "608"
+     ],
+     "city_p170": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "parsed": [
+      350000,
+      350000,
+      350000,
+      350000,
+      350000,
+      1750000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Sanitary Sewer Operation": {
+     "funds": [
+      "611",
+      "NOT_PRINTED"
+     ],
+     "city_p170": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "parsed": [
+      25150000,
+      22920000,
+      24050000,
+      25250000,
+      22550000,
+      119920000
+     ],
+     "match": true,
+     "note": "Includes four Sanitary Sewer rows that print no funding source (kept as NOT_PRINTED in the project data)."
+    },
+    "Zero Waste": {
+     "funds": [
+      "601"
+     ],
+     "city_p170": [
+      3750000,
+      2900000,
+      2400000,
+      2000000,
+      2000000,
+      13050000
+     ],
+     "parsed": [
+      3750000,
+      2900000,
+      2400000,
+      2000000,
+      2000000,
+      13050000
+     ],
+     "match": true,
+     "note": null
+    },
+    "GF Discretionary": {
+     "funds": [
+      "011"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - Federal": {
+     "funds": [
+      "305"
+     ],
+     "city_p170": [
+      500000,
+      0,
+      0,
+      0,
+      0,
+      500000
+     ],
+     "parsed": [
+      500000,
+      0,
+      0,
+      0,
+      0,
+      500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - Local": {
+     "funds": [
+      "307"
+     ],
+     "city_p170": [
+      758250,
+      1026250,
+      773500,
+      0,
+      0,
+      2558000
+     ],
+     "parsed": [
+      758250,
+      1026250,
+      773500,
+      0,
+      0,
+      2558000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Capital Grants - State": {
+     "funds": [
+      "306"
+     ],
+     "city_p170": [
+      1447000,
+      4681900,
+      4693200,
+      3710900,
+      0,
+      14533000
+     ],
+     "parsed": [
+      1447000,
+      4681900,
+      4693200,
+      3710900,
+      0,
+      14533000
+     ],
+     "match": true,
+     "note": null
+    },
+    "FEMA": {
+     "funds": [
+      "340"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "MTC": {
+     "funds": [
+      "339"
+     ],
+     "city_p170": [
+      1122000,
+      150000,
+      0,
+      0,
+      0,
+      1272000
+     ],
+     "parsed": [
+      1122000,
+      150000,
+      0,
+      0,
+      0,
+      1272000
+     ],
+     "match": true,
+     "note": null
+    },
+    "One-Time Grant:No Cap Exp": {
+     "funds": [
+      "336"
+     ],
+     "city_p170": [
+      1200000,
+      0,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "parsed": [
+      1200000,
+      0,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Equipment Replacement": {
+     "funds": [
+      "671"
+     ],
+     "city_p170": [
+      9995432,
+      5464714,
+      9798645,
+      9119322,
+      4974003,
+      39352116
+     ],
+     "parsed": [
+      9995432,
+      5464714,
+      9798645,
+      9119322,
+      4974003,
+      39352116
+     ],
+     "match": true,
+     "note": "Project lines of fund 671 (four Fleet EV Charger projects, $6,021,000, Other Infrastructure) plus the Equipment & Fleet vehicle schedule ($33,331,116, p.169)."
+    },
+    "It Cost Allocation": {
+     "funds": [
+      "680"
+     ],
+     "city_p170": [
+      485000,
+      535000,
+      0,
+      0,
+      0,
+      1020000
+     ],
+     "parsed": [
+      485000,
+      535000,
+      0,
+      0,
+      0,
+      1020000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas B - Bike And Pedestrian": {
+     "funds": [
+      "131"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas B - Local Streets and RDS": {
+     "funds": [
+      "130"
+     ],
+     "city_p170": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "parsed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas BB - Bike and Pedestrian": {
+     "funds": [
+      "135"
+     ],
+     "city_p170": [
+      0,
+      258000,
+      258000,
+      0,
+      0,
+      516000
+     ],
+     "parsed": [
+      0,
+      258000,
+      258000,
+      0,
+      0,
+      516000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas BB - Local Streets and RD": {
+     "funds": [
+      "134"
+     ],
+     "city_p170": [
+      3380000,
+      3280000,
+      3280000,
+      3280000,
+      3280000,
+      16500000
+     ],
+     "parsed": [
+      3380000,
+      3280000,
+      3280000,
+      3280000,
+      3280000,
+      16500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Meas F - ALA CT VRF ST and RD": {
+     "funds": [
+      "133"
+     ],
+     "city_p170": [
+      255000,
+      255000,
+      255000,
+      255000,
+      255000,
+      1275000
+     ],
+     "parsed": [
+      255000,
+      255000,
+      255000,
+      255000,
+      255000,
+      1275000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Measure FF - Street Repair": {
+     "funds": [
+      "166"
+     ],
+     "city_p170": [
+      24328066,
+      14676515,
+      14342835,
+      11199906,
+      13067933,
+      77615255
+     ],
+     "parsed": [
+      24328066,
+      14676515,
+      14342835,
+      11199906,
+      13067933,
+      77615255
+     ],
+     "match": true,
+     "note": null
+    },
+    "Miles Lab": {
+     "funds": [
+      "145"
+     ],
+     "city_p170": [
+      100000,
+      0,
+      0,
+      0,
+      0,
+      100000
+     ],
+     "parsed": [
+      100000,
+      0,
+      0,
+      0,
+      0,
+      100000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Park Tax": {
+     "funds": [
+      "138"
+     ],
+     "city_p170": [
+      5975000,
+      2750000,
+      2775000,
+      2775000,
+      2775000,
+      17050000
+     ],
+     "parsed": [
+      5975000,
+      2750000,
+      2775000,
+      2775000,
+      2775000,
+      17050000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Playground Camp": {
+     "funds": [
+      "125"
+     ],
+     "city_p170": [
+      585000,
+      415000,
+      100000,
+      100000,
+      100000,
+      1300000
+     ],
+     "parsed": [
+      585000,
+      415000,
+      100000,
+      100000,
+      100000,
+      1300000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Private Party Sidewalks": {
+     "funds": [
+      "149"
+     ],
+     "city_p170": [
+      100000,
+      100000,
+      100000,
+      100000,
+      100000,
+      500000
+     ],
+     "parsed": [
+      100000,
+      100000,
+      100000,
+      100000,
+      100000,
+      500000
+     ],
+     "match": true,
+     "note": null
+    },
+    "State Transportation Tax": {
+     "funds": [
+      "127"
+     ],
+     "city_p170": [
+      3435120,
+      3835113,
+      3094641,
+      2513345,
+      2445303,
+      15323522
+     ],
+     "parsed": [
+      3435120,
+      3835113,
+      3094641,
+      2513345,
+      2445303,
+      15323522
+     ],
+     "match": true,
+     "note": null
+    },
+    "Street And Open Space Impr": {
+     "funds": [
+      "139"
+     ],
+     "city_p170": [
+      150000,
+      0,
+      0,
+      0,
+      0,
+      150000
+     ],
+     "parsed": [
+      150000,
+      0,
+      0,
+      0,
+      0,
+      150000
+     ],
+     "match": true,
+     "note": null
+    },
+    "Street Lighting": {
+     "funds": [
+      "142"
+     ],
+     "city_p170": [
+      200000,
+      680000,
+      200000,
+      0,
+      0,
+      1080000
+     ],
+     "parsed": [
+      200000,
+      680000,
+      200000,
+      0,
+      0,
+      1080000
+     ],
+     "match": true,
+     "note": null
+    },
+    "UC Settlement": {
+     "funds": [
+      "147"
+     ],
+     "city_p170": [
+      450000,
+      750000,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "parsed": [
+      450000,
+      750000,
+      0,
+      0,
+      0,
+      1200000
+     ],
+     "match": true,
+     "note": null
+    }
+   },
+   "city_totals": {
+    "by_category_p169": 410618590,
+    "by_funding_source_p170_sum_of_group_totals": 410468590,
+    "difference": 150000,
+    "project_funding_absent_from_p170": {
+     "621": 150000
+    },
+    "explanation": "Fund 621 (Permit Service Center) funds one project, \"Clariti Integration With Erma\" ($150,000, FY2028, Information Technology). The project and the p.169 category table include it; the p.170 funding-source table has no row for fund 621. Its group totals sum to $410,468,590, $150,000 less than the p.169 category total of $410,618,590. The p.171 chart labels Enterprise Funds $155,510,000 against the table's $155,360,000, the same $150,000. Unresolved: which total the City intends.",
+    "unfunded_need_excluded_from_city_totals": 22075000
+   }
+  },
+  "printed_total_rounding_differences": [
+   {
+    "where": "Transportation: Ohlone Green Modernization & SFTY",
+    "lines_minus_printed": {
+     "prior_years": 0,
+     "fy2026_budget": 1,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Transportation: Parker - Addison Bikeway",
+    "lines_minus_printed": {
+     "prior_years": 0,
+     "fy2026_budget": 1,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 0,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Transportation: University Ave Bus Stop",
+    "lines_minus_printed": {
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": -1,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Transportation: WOOLSEY-FULTON BIKE BLVD",
+    "lines_minus_printed": {
+     "prior_years": -1,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 0,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Facilities: Grand Total",
+    "lines_minus_printed": {
+     "prior_years": 1,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Storm Water: Grand Total",
+    "lines_minus_printed": {
+     "prior_years": -1,
+     "fy2026_budget": -1,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 0,
+     "five_year_budget": 0
+    }
+   },
+   {
+    "where": "Transportation: Grand Total",
+    "lines_minus_printed": {
+     "prior_years": -2,
+     "fy2026_budget": 2,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": -1,
+     "five_year_budget": 0
+    }
+   }
+  ],
+  "streets_139m": {
+   "question": "The $139.3 million figure is the adopted FIVE-YEAR (FY2027-FY2031) Streets CIP budget, not a two-year budget.",
+   "identity": {
+    "five_year_street_rehabilitation_plan": 96336212,
+    "measure_ff_street_rehabilitation": 42119935,
+    "other_streets_projects": {
+     "Bridge Preventative Maintenance Program": 750000,
+     "Harold Way Placemaking": 150000
+    },
+    "total": 139356147,
+    "printed_streets_five_year_budget": 139356147
+   },
+   "two_year_fy2027_fy2028": 58211462,
+   "cross_check": "The July 7, 2026 street plan (Tables 1A-1B) totals the Five-Year Street Rehabilitation Plan at $96,336,212 and the Measure FF five-year street program at $42,119,935 (p.8, Table 4); its fiscal impact section states the combined five-year street CIP \"totals over $139 million\"."
+  },
+  "adoption_changes_outside_exhibit_b": [
+   {
+    "exhibit": "C",
+    "pages": "253-255",
+    "item": "Measure FF - Street Repair (fund 166) revenue",
+    "fy2027": 1351651,
+    "fy2028": 1378684,
+    "kind": "revenue",
+    "note": "FY2027 revenue revised from $15,300,000 to $16,651,651 (inflator 4.95% personal income growth). No matching change to Measure FF CIP appropriations is printed."
+   },
+   {
+    "exhibit": "C",
+    "pages": "253-255",
+    "item": "Capital grant revenue (funds 305, 306, 307, 336, 339)",
+    "kind": "revenue",
+    "note": "Grant revenue revised for named capital projects (Codornices Creek, Addison Bicycle Boulevard Phase 2, Adeline, Washington Elementary/Berkeley High, Telegraph Multimodal, West Berkeley/Aquatic Park stormwater)."
+   },
+   {
+    "exhibit": "D",
+    "pages": "255-257",
+    "item": "Streets & Open Space Improvement Plan (SOSIP) - Mayor's recommendation",
+    "fy2027": 2900000,
+    "kind": "appropriation (one-time)",
+    "note": "Includes $2.5M Oxford for All design, engineering and construction and $150K Addison Street catenary lighting. Exhibit B prints only $150,000 of SOSIP money (Harold Way Placemaking)."
+   },
+   {
+    "exhibit": "D",
+    "pages": "255-257",
+    "item": "CAR-FREE Telegraph study - LRDP funding process",
+    "fy2027": 662500,
+    "fy2028": 662500,
+    "kind": "study (not capital construction)"
+   }
+  ],
+  "to_proposed_presentation": "Not reconciled row by row. The earlier extraction of the proposed-CIP presentation (cip-presentation.json) mixes summary labels, funding-source lines and fragments into its project list, so title matching produces false differences. Exhibit B is the proposed CIP that the June 23 resolution adopted; Exhibit C prints no change to CIP project appropriations. cip-presentation.json is kept only as a record of the earlier pass."
+ },
+ "excluded_categories": [
+  {
+   "category": "Equipment & Fleet",
+   "fund": "671 Equipment Replacement (internal service)",
+   "by_year": {
+    "fy2027": 9563532,
+    "fy2028": 4886614,
+    "fy2029": 8418345,
+    "fy2030": 6933222,
+    "fy2031": 3529403,
+    "five_year": 33331116
+   },
+   "source": "p.169 category table, Equipment & Fleet row; vehicle schedule pp.231-247",
+   "note": "Fleet vehicles only. The p.170 Equipment Replacement row ($39,352,116) also includes the four Fleet EV Charger projects ($6,021,000, fund 671) that are already in the Other Infrastructure project table; counting both would double-count them."
+  }
+ ],
+ "categories": {
+  "Facilities": {
+   "stated_count": 21,
+   "printed_grand_total": {
+    "prior_years": 2877401,
+    "fy2026_budget": 14327984,
+    "fy2027": 3123000,
+    "fy2028": 1788000,
+    "fy2029": 1298000,
+    "fy2030": 897000,
+    "fy2031": 883000,
+    "project_total": 25194385,
+    "five_year_budget": 7989000
+   }
+  },
+  "Information Technology": {
+   "stated_count": 21,
+   "printed_grand_total": {
+    "prior_years": 0,
+    "fy2026_budget": 75000,
+    "fy2027": 2135000,
+    "fy2028": 2335000,
+    "fy2029": 10475000,
+    "fy2030": 7575000,
+    "fy2031": 725000,
+    "project_total": 23320000,
+    "five_year_budget": 23245000
+   }
+  },
+  "Parks": {
+   "stated_count": 10,
+   "printed_grand_total": {
+    "prior_years": 2514929,
+    "fy2026_budget": 12827902,
+    "fy2027": 5990000,
+    "fy2028": 2765000,
+    "fy2029": 3175000,
+    "fy2030": 3175000,
+    "fy2031": 3175000,
+    "project_total": 33622831,
+    "five_year_budget": 18280000
+   }
+  },
+  "Camps": {
+   "stated_count": 5,
+   "printed_grand_total": {
+    "prior_years": 38084,
+    "fy2026_budget": 25166,
+    "fy2027": 585000,
+    "fy2028": 800000,
+    "fy2029": 100000,
+    "fy2030": 100000,
+    "fy2031": 100000,
+    "project_total": 1748250,
+    "five_year_budget": 1685000
+   }
+  },
+  "Waterfront": {
+   "stated_count": 7,
+   "printed_grand_total": {
+    "prior_years": 1552389,
+    "fy2026_budget": 310800,
+    "fy2027": 350000,
+    "fy2028": 350000,
+    "fy2029": 350000,
+    "fy2030": 350000,
+    "fy2031": 350000,
+    "project_total": 3613189,
+    "five_year_budget": 1750000
+   }
+  },
+  "Sanitary Sewer": {
+   "stated_count": 12,
+   "printed_grand_total": {
+    "prior_years": 856739,
+    "fy2026_budget": 1074266,
+    "fy2027": 25150000,
+    "fy2028": 22920000,
+    "fy2029": 24050000,
+    "fy2030": 25250000,
+    "fy2031": 22550000,
+    "project_total": 121851006,
+    "five_year_budget": 119920000
+   }
+  },
+  "Sidewalks": {
+   "stated_count": 7,
+   "printed_grand_total": {
+    "prior_years": 0,
+    "fy2026_budget": 0,
+    "fy2027": 2894224,
+    "fy2028": 2770517,
+    "fy2029": 2493579,
+    "fy2030": 4035000,
+    "fy2031": 3535000,
+    "project_total": 15728320,
+    "five_year_budget": 15728320
+   }
+  },
+  "Storm Water": {
+   "stated_count": 14,
+   "printed_grand_total": {
+    "prior_years": 1464813,
+    "fy2026_budget": 5035984,
+    "fy2027": 5665000,
+    "fy2028": 7290000,
+    "fy2029": 2470000,
+    "fy2030": 2300000,
+    "fy2031": 2015000,
+    "project_total": 26240797,
+    "five_year_budget": 19740000
+   }
+  },
+  "Streets": {
+   "stated_count": 7,
+   "printed_grand_total": {
+    "prior_years": 14100000,
+    "fy2026_budget": 8240000,
+    "fy2027": 32241345,
+    "fy2028": 25970117,
+    "fy2029": 27214629,
+    "fy2030": 25204402,
+    "fy2031": 28725654,
+    "project_total": 161696147,
+    "five_year_budget": 139356147
+   }
+  },
+  "Transportation": {
+   "stated_count": 34,
+   "printed_grand_total": {
+    "prior_years": 3347038,
+    "fy2026_budget": 16232944,
+    "fy2027": 13387067,
+    "fy2028": 12223960,
+    "fy2029": 10203038,
+    "fy2030": 6203942,
+    "fy2031": 1550000,
+    "project_total": 63147990,
+    "five_year_budget": 43568007
+   }
+  },
+  "Other Infrastructure": {
+   "stated_count": 6,
+   "printed_grand_total": {
+    "prior_years": 730000,
+    "fy2026_budget": 1346245,
+    "fy2027": 631900,
+    "fy2028": 1258100,
+    "fy2029": 2580300,
+    "fy2030": 2186100,
+    "fy2031": 1444600,
+    "project_total": 10177245,
+    "five_year_budget": 8101000
+   }
+  }
+ },
+ "projects": [
+  {
+   "category": "Facilities",
+   "title": "1947 Center Street Facade",
+   "project_number": "PWENBM2601",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 100000,
+     "fy2029": 10000,
+     "fy2030": 10000,
+     "fy2031": 10000,
+     "project_total": 230000,
+     "five_year_budget": 230000,
+     "source_line": 9255
+    }
+   ],
+   "source_line": 9255
+  },
+  {
+   "category": "Facilities",
+   "title": "2180 Milvia - 2Nd Floor Payroll Card Reader Project",
+   "project_number": "PWENBM2603",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 25000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 25000,
+     "five_year_budget": 25000,
+     "source_line": 9258
+    }
+   ],
+   "source_line": 9258
+  },
+  {
+   "category": "Facilities",
+   "title": "2180 Milvia - It Carpet Replacement",
+   "project_number": "PWENBM2603",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 25710,
+     "fy2027": 90000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 115710,
+     "five_year_budget": 90000,
+     "source_line": 9263
+    }
+   ],
+   "source_line": 9263
+  },
+  {
+   "category": "Facilities",
+   "title": "2180 Milvia Envelope Repair",
+   "project_number": "PWENBM2407",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 36782,
+     "fy2026_budget": 63,
+     "fy2027": 135000,
+     "fy2028": 80000,
+     "fy2029": 15000,
+     "fy2030": 15000,
+     "fy2031": 25000,
+     "project_total": 306845,
+     "five_year_budget": 270000,
+     "source_line": 9267
+    }
+   ],
+   "source_line": 9267
+  },
+  {
+   "category": "Facilities",
+   "title": "2180 Milvia Stairwell Tower Windows Repairs",
+   "project_number": "PWENBM2501",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 1282347,
+     "fy2026_budget": 235378,
+     "fy2027": 3000,
+     "fy2028": 3000,
+     "fy2029": 3000,
+     "fy2030": 3000,
+     "fy2031": 3000,
+     "project_total": 1532725,
+     "five_year_budget": 15000,
+     "source_line": 9270
+    }
+   ],
+   "source_line": 9270
+  },
+  {
+   "category": "Facilities",
+   "title": "2180 Milvia-Back Up Emergency Generator",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 60000,
+     "fy2030": 20000,
+     "fy2031": 225000,
+     "project_total": 305000,
+     "five_year_budget": 305000,
+     "source_line": 9274
+    }
+   ],
+   "source_line": 9274
+  },
+  {
+   "category": "Facilities",
+   "title": "Corp Yard & 2Nd Street Fences",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 100000,
+     "fy2031": 150000,
+     "project_total": 350000,
+     "five_year_budget": 350000,
+     "source_line": 9278
+    }
+   ],
+   "source_line": 9278
+  },
+  {
+   "category": "Facilities",
+   "title": "Euclid Ave Garbage Enclosure Retainer",
+   "project_number": "PWENPL2601",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "147",
+     "fund_label": "UC SETTLEM",
+     "prior_years": 0,
+     "fy2026_budget": 41486,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 141486,
+     "five_year_budget": 100000,
+     "source_line": 9286
+    }
+   ],
+   "source_line": 9286
+  },
+  {
+   "category": "Facilities",
+   "title": "Facility Condition Assessment",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 50000,
+     "fy2026_budget": 50000,
+     "fy2027": 50000,
+     "fy2028": 50000,
+     "fy2029": 50000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 250000,
+     "five_year_budget": 150000,
+     "source_line": 9290
+    }
+   ],
+   "source_line": 9290
+  },
+  {
+   "category": "Facilities",
+   "title": "Fire Stations Painting",
+   "project_number": "PWENBM2406",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 30375,
+     "fy2026_budget": 9973,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 120000,
+     "fy2030": 150000,
+     "fy2031": 0,
+     "project_total": 310348,
+     "five_year_budget": 270000,
+     "source_line": 9313
+    }
+   ],
+   "source_line": 9313
+  },
+  {
+   "category": "Facilities",
+   "title": "Hvac At Animal Shelter",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GEN FUND",
+     "prior_years": 0,
+     "fy2026_budget": 37897,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 37897,
+     "five_year_budget": 0,
+     "source_line": 9315
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 32761,
+     "fy2026_budget": 78656,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 90000,
+     "fy2031": 0,
+     "project_total": 301417,
+     "five_year_budget": 190000,
+     "source_line": 9316
+    }
+   ],
+   "source_line": 9315
+  },
+  {
+   "category": "Facilities",
+   "title": "King Pool Leak Repair",
+   "project_number": "PRWRC27001",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 185000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 185000,
+     "five_year_budget": 185000,
+     "source_line": 9318
+    }
+   ],
+   "source_line": 9318
+  },
+  {
+   "category": "Facilities",
+   "title": "Martin Luther King Jr. Youth Services Center",
+   "project_number": "PRWT122001",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GEN FUND",
+     "prior_years": 0,
+     "fy2026_budget": 2816757,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2816757,
+     "five_year_budget": 0,
+     "source_line": 9325
+    },
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 45007,
+     "fy2026_budget": 4770760,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 4815767,
+     "five_year_budget": 0,
+     "source_line": 9327
+    },
+    {
+     "fund": "340",
+     "fund_label": "FEMA",
+     "prior_years": 101318,
+     "fy2026_budget": 205082,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 306400,
+     "five_year_budget": 0,
+     "source_line": 9328
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 109983,
+     "fy2026_budget": 1421104,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1731087,
+     "five_year_budget": 200000,
+     "source_line": 9329
+    },
+    {
+     "fund": "511",
+     "fund_label": "T1-CAPITAL",
+     "prior_years": 788829,
+     "fy2026_budget": 4235118,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 5023947,
+     "five_year_budget": 0,
+     "source_line": 9330
+    }
+   ],
+   "source_line": 9325
+  },
+  {
+   "category": "Facilities",
+   "title": "Materials Storage Shed Replacement - Cy",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 29000,
+     "fy2031": 70000,
+     "project_total": 99000,
+     "five_year_budget": 99000,
+     "source_line": 9333
+    }
+   ],
+   "source_line": 9333
+  },
+  {
+   "category": "Facilities",
+   "title": "Nbsc Wall Collission Damage Repair",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 50000,
+     "fy2028": 150000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 200000,
+     "five_year_budget": 200000,
+     "source_line": 9337
+    }
+   ],
+   "source_line": 9337
+  },
+  {
+   "category": "Facilities",
+   "title": "Psb Bicycle Bunker Roof Repair",
+   "project_number": "TBD",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 120000,
+     "fy2030": 160000,
+     "fy2031": 0,
+     "project_total": 280000,
+     "five_year_budget": 280000,
+     "source_line": 9341
+    }
+   ],
+   "source_line": 9341
+  },
+  {
+   "category": "Facilities",
+   "title": "Psb Server Room Redundancy",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 235000,
+     "fy2028": 305000,
+     "fy2029": 20000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 560000,
+     "five_year_budget": 560000,
+     "source_line": 9345
+    }
+   ],
+   "source_line": 9345
+  },
+  {
+   "category": "Facilities",
+   "title": "Roof Replacement",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 200000,
+     "fy2029": 300000,
+     "fy2030": 300000,
+     "fy2031": 350000,
+     "project_total": 1350000,
+     "five_year_budget": 1350000,
+     "source_line": 9348
+    }
+   ],
+   "source_line": 9348
+  },
+  {
+   "category": "Facilities",
+   "title": "Termite Repair Building A - Cy",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 20000,
+     "fy2031": 50000,
+     "project_total": 70000,
+     "five_year_budget": 70000,
+     "source_line": 9362
+    }
+   ],
+   "source_line": 9362
+  },
+  {
+   "category": "Facilities",
+   "title": "Zero Waste Transfer Station Maintenance & Repairs",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "601",
+     "fund_label": "ZERO WASTE",
+     "prior_years": 400000,
+     "fy2026_budget": 400000,
+     "fy2027": 400000,
+     "fy2028": 400000,
+     "fy2029": 400000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 1200000,
+     "source_line": 9365
+    }
+   ],
+   "source_line": 9365
+  },
+  {
+   "category": "Facilities",
+   "title": "Replacement",
+   "project_number": "PWZWCB2402",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "601",
+     "fund_label": "ZERO WASTE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1350000,
+     "fy2028": 500000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1850000,
+     "five_year_budget": 1850000,
+     "source_line": 9370
+    }
+   ],
+   "source_line": 9370
+  },
+  {
+   "category": "Information Technology",
+   "title": "Active Directory (Ad) Management + Complete Disaster Recovery (Dr)",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1000000,
+     "fy2030": 1000000,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 2000000,
+     "source_line": 9578
+    }
+   ],
+   "source_line": 9578
+  },
+  {
+   "category": "Information Technology",
+   "title": "Asset Management",
+   "project_number": "TBD",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 75000,
+     "fy2027": 75000,
+     "fy2028": 75000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 225000,
+     "five_year_budget": 150000,
+     "source_line": 9582
+    },
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 75000,
+     "fy2030": 75000,
+     "fy2031": 75000,
+     "project_total": 225000,
+     "five_year_budget": 225000,
+     "source_line": 9584
+    }
+   ],
+   "source_line": 9582
+  },
+  {
+   "category": "Information Technology",
+   "title": "Citywide Mesh Network (Lpr, Drones, Smart City Infrastructure)",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1100000,
+     "fy2030": 1100000,
+     "fy2031": 0,
+     "project_total": 2200000,
+     "five_year_budget": 2200000,
+     "source_line": 9586
+    }
+   ],
+   "source_line": 9586
+  },
+  {
+   "category": "Information Technology",
+   "title": "Clariti Integration With Erma",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "621",
+     "fund_label": "PERMIT SER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 150000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 150000,
+     "five_year_budget": 150000,
+     "source_line": 9590
+    }
+   ],
+   "source_line": 9590
+  },
+  {
+   "category": "Information Technology",
+   "title": "Complete Fund$ Sunset",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1600000,
+     "fy2028": 1600000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 3200000,
+     "five_year_budget": 3200000,
+     "source_line": 9594
+    }
+   ],
+   "source_line": 9594
+  },
+  {
+   "category": "Information Technology",
+   "title": "Data Center Colocation Or Lift/Shift To Cloud",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1100000,
+     "fy2030": 1100000,
+     "fy2031": 0,
+     "project_total": 2200000,
+     "five_year_budget": 2200000,
+     "source_line": 9596
+    }
+   ],
+   "source_line": 9596
+  },
+  {
+   "category": "Information Technology",
+   "title": "Data Center Ups Replacement",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 500000,
+     "fy2030": 500000,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 9599
+    }
+   ],
+   "source_line": 9599
+  },
+  {
+   "category": "Information Technology",
+   "title": "Emergency Notification",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 50000,
+     "fy2028": 50000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 9607
+    },
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 50000,
+     "fy2028": 50000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 9609
+    }
+   ],
+   "source_line": 9607
+  },
+  {
+   "category": "Information Technology",
+   "title": "Extend Infrastructure Dr For Servers",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 200000,
+     "fy2030": 200000,
+     "fy2031": 0,
+     "project_total": 400000,
+     "five_year_budget": 400000,
+     "source_line": 9631
+    }
+   ],
+   "source_line": 9631
+  },
+  {
+   "category": "Information Technology",
+   "title": "External Firewall Upgrades",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 250000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 500000,
+     "five_year_budget": 500000,
+     "source_line": 9634
+    }
+   ],
+   "source_line": 9634
+  },
+  {
+   "category": "Information Technology",
+   "title": "Fiber Infrastructure Conduit To Remote Sites -Phase 1-2",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2500000,
+     "fy2030": 2500000,
+     "fy2031": 0,
+     "project_total": 5000000,
+     "five_year_budget": 5000000,
+     "source_line": 9643
+    }
+   ],
+   "source_line": 9643
+  },
+  {
+   "category": "Information Technology",
+   "title": "Fiber Infrastructure Upgrades",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 50000,
+     "fy2030": 50000,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 9647
+    }
+   ],
+   "source_line": 9647
+  },
+  {
+   "category": "Information Technology",
+   "title": "High Speed Point To Point Wireless Connection To Remote Sites",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 150000,
+     "fy2031": 150000,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 9651
+    }
+   ],
+   "source_line": 9651
+  },
+  {
+   "category": "Information Technology",
+   "title": "Infrastructure Vulnerability Scanner",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 60000,
+     "fy2028": 60000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 120000,
+     "five_year_budget": 120000,
+     "source_line": 9655
+    }
+   ],
+   "source_line": 9655
+  },
+  {
+   "category": "Information Technology",
+   "title": "Network Access Control Appliance",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 50000,
+     "fy2028": 50000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 9659
+    }
+   ],
+   "source_line": 9659
+  },
+  {
+   "category": "Information Technology",
+   "title": "Public Safety \u2013 New World Cloud Upgrade",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2000000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 2000000,
+     "source_line": 9663
+    }
+   ],
+   "source_line": 9663
+  },
+  {
+   "category": "Information Technology",
+   "title": "Public Works \u2013 Intelligent Transportation Systems (Its)",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need FY 2027 -",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1000000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 9667
+    }
+   ],
+   "source_line": 9667
+  },
+  {
+   "category": "Information Technology",
+   "title": "Redundancy For Remote Sites",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "680",
+     "fund_label": "ITCSTALLOC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 50000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 50000,
+     "five_year_budget": 50000,
+     "source_line": 9683
+    },
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 50000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 50000,
+     "five_year_budget": 50000,
+     "source_line": 9685
+    }
+   ],
+   "source_line": 9683
+  },
+  {
+   "category": "Information Technology",
+   "title": "Remote Sites Ups",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 50000,
+     "fy2030": 50000,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 9688
+    }
+   ],
+   "source_line": 9688
+  },
+  {
+   "category": "Information Technology",
+   "title": "Upgrade Bandwidth For Remote Sites (30) To Meet Customer\u2019S Increased Data Demands",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 350000,
+     "fy2030": 350000,
+     "fy2031": 0,
+     "project_total": 700000,
+     "five_year_budget": 700000,
+     "source_line": 9690
+    }
+   ],
+   "source_line": 9690
+  },
+  {
+   "category": "Information Technology",
+   "title": "Upgrade To Microsoft G5",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "UNFUNDED",
+     "fund_label": "Unfunded Need",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 500000,
+     "fy2030": 500000,
+     "fy2031": 500000,
+     "project_total": 1500000,
+     "five_year_budget": 1500000,
+     "source_line": 9695
+    }
+   ],
+   "source_line": 9695
+  },
+  {
+   "category": "Parks",
+   "title": "Capital Improvement Program Fund",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 400000,
+     "fy2030": 400000,
+     "fy2031": 400000,
+     "project_total": 1200000,
+     "five_year_budget": 1200000,
+     "source_line": 9930
+    }
+   ],
+   "source_line": 9930
+  },
+  {
+   "category": "Parks",
+   "title": "Cedar Rose Park 2-5 Playground Renovation",
+   "project_number": "PRWPK22008",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 2630,
+     "fy2026_budget": 262225,
+     "fy2027": 0,
+     "fy2028": 750000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1014855,
+     "five_year_budget": 750000,
+     "source_line": 9934
+    },
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 13927,
+     "fy2026_budget": 23923,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 37850,
+     "five_year_budget": 0,
+     "source_line": 9936
+    }
+   ],
+   "source_line": 9934
+  },
+  {
+   "category": "Parks",
+   "title": "Cedar Rose Park 5-12 Playground Renovation",
+   "project_number": "PRWPK22008",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 6137,
+     "fy2026_budget": 611857,
+     "fy2027": 1206000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1823994,
+     "five_year_budget": 1206000,
+     "source_line": 9940
+    },
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 32496,
+     "fy2026_budget": 55822,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 88318,
+     "five_year_budget": 0,
+     "source_line": 9942
+    }
+   ],
+   "source_line": 9940
+  },
+  {
+   "category": "Parks",
+   "title": "James Kenney Sports Field/ ADA Improvements",
+   "project_number": "PRWPK28004",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 1500000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1700000,
+     "five_year_budget": 1700000,
+     "source_line": 9946
+    }
+   ],
+   "source_line": 9946
+  },
+  {
+   "category": "Parks",
+   "title": "Martin Luther King Jr. Youth Services - Solar + Storage",
+   "project_number": "PRWPK27003",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 250000,
+     "five_year_budget": 250000,
+     "source_line": 9950
+    }
+   ],
+   "source_line": 9950
+  },
+  {
+   "category": "Parks",
+   "title": "Park Restroom (Cedar Rose or Codornices)",
+   "project_number": "PRWPK28003",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 500000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 500000,
+     "five_year_budget": 500000,
+     "source_line": 9955
+    }
+   ],
+   "source_line": 9955
+  },
+  {
+   "category": "Parks",
+   "title": "Parks Tax Capital Baseline",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2775000,
+     "fy2030": 2775000,
+     "fy2031": 2775000,
+     "project_total": 8325000,
+     "five_year_budget": 8325000,
+     "source_line": 9964
+    }
+   ],
+   "source_line": 9964
+  },
+  {
+   "category": "Parks",
+   "title": "SFROW - Rails to Park Project",
+   "project_number": "PRWPK21012",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GF DISCRETIONARY",
+     "prior_years": 8534,
+     "fy2026_budget": 16,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 8550,
+     "five_year_budget": 0,
+     "source_line": 9967
+    },
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 72743,
+     "fy2026_budget": 42281,
+     "fy2027": 3950000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 4065024,
+     "five_year_budget": 3950000,
+     "source_line": 9989
+    },
+    {
+     "fund": "336",
+     "fund_label": "ONE-TIME EXP",
+     "prior_years": 884996,
+     "fy2026_budget": 4115005,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 5000001,
+     "five_year_budget": 0,
+     "source_line": 9990
+    },
+    {
+     "fund": "511",
+     "fund_label": "MEAS T1 INFRSTR AND FAC",
+     "prior_years": 0,
+     "fy2026_budget": 185177,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 185177,
+     "five_year_budget": 0,
+     "source_line": 9993
+    }
+   ],
+   "source_line": 9967
+  },
+  {
+   "category": "Parks",
+   "title": "Tom Bates Regional Sports Complex Project",
+   "project_number": "PRWT122005/",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GF DISCRETIONARY",
+     "prior_years": 0,
+     "fy2026_budget": 250000,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 250000,
+     "five_year_budget": 0,
+     "source_line": 10002
+    },
+    {
+     "fund": "138",
+     "fund_label": "PARKS TAX",
+     "prior_years": 29760,
+     "fy2026_budget": 5114797,
+     "fy2027": 369000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 5513557,
+     "five_year_budget": 369000,
+     "source_line": 10004
+    },
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 454,
+     "fy2026_budget": 781561,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 782015,
+     "five_year_budget": 0,
+     "source_line": 10005
+    },
+    {
+     "fund": "511",
+     "fund_label": "MEAS T1 INFRSTR AND FAC",
+     "prior_years": 1463252,
+     "fy2026_budget": 1385238,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2848490,
+     "five_year_budget": 0,
+     "source_line": 10007
+    }
+   ],
+   "source_line": 10002
+  },
+  {
+   "category": "Parks",
+   "title": "Tom Bates Turf Replacement - Annual JPA Contribution",
+   "project_number": "PRWPK27002/",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 15000,
+     "fy2028": 15000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 30000,
+     "five_year_budget": 30000,
+     "source_line": 10011
+    }
+   ],
+   "source_line": 10011
+  },
+  {
+   "category": "Camps",
+   "title": "Camps Fund Capital Baseline",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "125",
+     "fund_label": "PLAYGROUND",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 100000,
+     "fy2031": 100000,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10036
+    }
+   ],
+   "source_line": 10036
+  },
+  {
+   "category": "Camps",
+   "title": "Cazadero Camp Storm Damage Recovery",
+   "project_number": "PRWEM26001",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "125",
+     "fund_label": "PLAYGROUND",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 185000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 185000,
+     "five_year_budget": 185000,
+     "source_line": 10041
+    }
+   ],
+   "source_line": 10041
+  },
+  {
+   "category": "Camps",
+   "title": "Echo Lake Fireplace Renovation",
+   "project_number": "PRWCP27002",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "125",
+     "fund_label": "PLAYGROUND",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 70000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 70000,
+     "five_year_budget": 70000,
+     "source_line": 10046
+    }
+   ],
+   "source_line": 10046
+  },
+  {
+   "category": "Camps",
+   "title": "Echo Lake Generator",
+   "project_number": "PRWCP25004",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GEN FUND",
+     "prior_years": 38084,
+     "fy2026_budget": 25166,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 63250,
+     "five_year_budget": 0,
+     "source_line": 10051
+    },
+    {
+     "fund": "125",
+     "fund_label": "PLAYGROUND",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 130000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 130000,
+     "five_year_budget": 130000,
+     "source_line": 10053
+    }
+   ],
+   "source_line": 10051
+  },
+  {
+   "category": "Camps",
+   "title": "Echo Lake Water Intake Line",
+   "project_number": "PRWCP27001",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "125",
+     "fund_label": "PLAYGROUND",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 415000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 615000,
+     "five_year_budget": 615000,
+     "source_line": 10057
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 385000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 385000,
+     "five_year_budget": 385000,
+     "source_line": 10060
+    }
+   ],
+   "source_line": 10057
+  },
+  {
+   "category": "Waterfront",
+   "title": "Finger Docks Replacement",
+   "project_number": "PRWWF28002",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 200000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 200000,
+     "five_year_budget": 200000,
+     "source_line": 10091
+    }
+   ],
+   "source_line": 10091
+  },
+  {
+   "category": "Waterfront",
+   "title": "L&M, N Dock Garbage Relocation",
+   "project_number": "PRWWF27002",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 25000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 25000,
+     "five_year_budget": 25000,
+     "source_line": 10095
+    }
+   ],
+   "source_line": 10095
+  },
+  {
+   "category": "Waterfront",
+   "title": "Marina Baseline Capital",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 350000,
+     "fy2030": 350000,
+     "fy2031": 350000,
+     "project_total": 1050000,
+     "five_year_budget": 1050000,
+     "source_line": 10099
+    }
+   ],
+   "source_line": 10099
+  },
+  {
+   "category": "Waterfront",
+   "title": "O Dock Parking Lot Design",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 150000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 150000,
+     "five_year_budget": 150000,
+     "source_line": 10102
+    }
+   ],
+   "source_line": 10102
+  },
+  {
+   "category": "Waterfront",
+   "title": "O&K Electrical",
+   "project_number": "PRWWF20005",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GEN FUND",
+     "prior_years": 0,
+     "fy2026_budget": 79167,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 79167,
+     "five_year_budget": 0,
+     "source_line": 10106
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 849967,
+     "fy2026_budget": 20439,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 870406,
+     "five_year_budget": 0,
+     "source_line": 10108
+    },
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 702422,
+     "fy2026_budget": 211194,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1113616,
+     "five_year_budget": 200000,
+     "source_line": 10109
+    }
+   ],
+   "source_line": 10106
+  },
+  {
+   "category": "Waterfront",
+   "title": "Skates Parking Lot (N-Lot)",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 25000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 25000,
+     "five_year_budget": 25000,
+     "source_line": 10112
+    }
+   ],
+   "source_line": 10112
+  },
+  {
+   "category": "Waterfront",
+   "title": "South Cove East Parking Lot Slurry/Striping",
+   "project_number": "PRWWF27003",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "608",
+     "fund_label": "MARINA OPE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10121
+    }
+   ],
+   "source_line": 10121
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "SANITARY SEWER MASTERPLAN",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 856739,
+     "fy2026_budget": 1074266,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2131006,
+     "five_year_budget": 200000,
+     "source_line": 10245
+    }
+   ],
+   "source_line": 10245
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project A-FY27",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 10475000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 10475000,
+     "five_year_budget": 10475000,
+     "source_line": 10249
+    }
+   ],
+   "source_line": 10249
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project A-FY28",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1650000,
+     "fy2028": 9350000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 11000000,
+     "five_year_budget": 11000000,
+     "source_line": 10253
+    }
+   ],
+   "source_line": 10253
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project A-FY29",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 1735000,
+     "fy2029": 9800000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 11535000,
+     "five_year_budget": 11535000,
+     "source_line": 10257
+    }
+   ],
+   "source_line": 10257
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project A-FY31",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 1900000,
+     "fy2031": 10825000,
+     "project_total": 12725000,
+     "five_year_budget": 12725000,
+     "source_line": 10261
+    }
+   ],
+   "source_line": 10261
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project B-FY27",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 10475000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 10475000,
+     "five_year_budget": 10475000,
+     "source_line": 10265
+    }
+   ],
+   "source_line": 10265
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project B-FY28",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "NOT_PRINTED",
+     "fund_label": null,
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1650000,
+     "fy2028": 9350000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 11000000,
+     "five_year_budget": 11000000,
+     "source_line": 10269
+    }
+   ],
+   "source_line": 10269
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project B-FY30",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "NOT_PRINTED",
+     "fund_label": null,
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1825000,
+     "fy2030": 10300000,
+     "fy2031": 0,
+     "project_total": 12125000,
+     "five_year_budget": 12125000,
+     "source_line": 10277
+    }
+   ],
+   "source_line": 10277
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitation Project B-FY31",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 1900000,
+     "fy2031": 10825000,
+     "project_total": 12725000,
+     "five_year_budget": 12725000,
+     "source_line": 10280
+    }
+   ],
+   "source_line": 10280
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitiation Project A-FY30",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "611",
+     "fund_label": "SANITARY SEWER OPERATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1825000,
+     "fy2030": 10300000,
+     "fy2031": 0,
+     "project_total": 12125000,
+     "five_year_budget": 12125000,
+     "source_line": 10304
+    }
+   ],
+   "source_line": 10304
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Sewer Rehabilitiation Project B-FY29",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "NOT_PRINTED",
+     "fund_label": null,
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 1735000,
+     "fy2029": 9800000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 11535000,
+     "five_year_budget": 11535000,
+     "source_line": 10308
+    }
+   ],
+   "source_line": 10308
+  },
+  {
+   "category": "Sanitary Sewer",
+   "title": "Urgent Sewer Project",
+   "project_number": null,
+   "new_or_continuing": null,
+   "funding": [
+    {
+     "fund": "NOT_PRINTED",
+     "fund_label": null,
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 700000,
+     "fy2028": 750000,
+     "fy2029": 800000,
+     "fy2030": 850000,
+     "fy2031": 900000,
+     "project_total": 4000000,
+     "five_year_budget": 4000000,
+     "source_line": 10316
+    }
+   ],
+   "source_line": 10316
+  },
+  {
+   "category": "Sidewalks",
+   "title": "FY27 Sidewalk Repair Program",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10408
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10410
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 300000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10412
+    },
+    {
+     "fund": "149",
+     "fund_label": "PRIV SDWLK",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10414
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 185000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 185000,
+     "five_year_budget": 185000,
+     "source_line": 10416
+    }
+   ],
+   "source_line": 10408
+  },
+  {
+   "category": "Sidewalks",
+   "title": "FY28 Sidewalk Repair Program",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 100000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10419
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 100000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10421
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 300000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10423
+    },
+    {
+     "fund": "149",
+     "fund_label": "PRIV SDWLK",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 100000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10425
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 185000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 185000,
+     "five_year_budget": 185000,
+     "source_line": 10427
+    }
+   ],
+   "source_line": 10419
+  },
+  {
+   "category": "Sidewalks",
+   "title": "Measure FF 50-50 Sidewalk and Path Repair Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 500000,
+     "fy2028": 500000,
+     "fy2029": 500000,
+     "fy2030": 2500000,
+     "fy2031": 2000000,
+     "project_total": 6000000,
+     "five_year_budget": 6000000,
+     "source_line": 10430
+    }
+   ],
+   "source_line": 10430
+  },
+  {
+   "category": "Sidewalks",
+   "title": "Measure FF Sidewalk Shaving Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 250000,
+     "fy2029": 250000,
+     "fy2030": 250000,
+     "fy2031": 250000,
+     "project_total": 1250000,
+     "five_year_budget": 1250000,
+     "source_line": 10439
+    }
+   ],
+   "source_line": 10439
+  },
+  {
+   "category": "Sidewalks",
+   "title": "Pathway Repairs Improvements",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 500000,
+     "fy2031": 500000,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 10443
+    }
+   ],
+   "source_line": 10443
+  },
+  {
+   "category": "Sidewalks",
+   "title": "Remediation of PROW-Related ADA Issues",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1359224,
+     "fy2028": 1235517,
+     "fy2029": 958579,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 3553320,
+     "five_year_budget": 3553320,
+     "source_line": 10467
+    }
+   ],
+   "source_line": 10467
+  },
+  {
+   "category": "Sidewalks",
+   "title": "Sidewalk Repair Project FY29-FY31",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 100000,
+     "fy2031": 100000,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10472
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 100000,
+     "fy2031": 100000,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10479
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 300000,
+     "fy2030": 300000,
+     "fy2031": 300000,
+     "project_total": 900000,
+     "five_year_budget": 900000,
+     "source_line": 10481
+    },
+    {
+     "fund": "149",
+     "fund_label": "PRIV SDWLK",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 100000,
+     "fy2031": 100000,
+     "project_total": 300000,
+     "five_year_budget": 300000,
+     "source_line": 10483
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 185000,
+     "fy2030": 185000,
+     "fy2031": 185000,
+     "project_total": 555000,
+     "five_year_budget": 555000,
+     "source_line": 10485
+    }
+   ],
+   "source_line": 10472
+  },
+  {
+   "category": "Storm Water",
+   "title": "Berkeley Aquatic Park Stormwater Improvement (EPA Grant Project)",
+   "project_number": "PWENSD2501",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "336",
+     "fund_label": "ONE-TIME EXP",
+     "prior_years": 0,
+     "fy2026_budget": 325000,
+     "fy2027": 1200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1525000,
+     "five_year_budget": 1200000,
+     "source_line": 10632
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 712,
+     "fy2026_budget": 2914508,
+     "fy2027": 1675000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 4590221,
+     "five_year_budget": 1675000,
+     "source_line": 10635
+    }
+   ],
+   "source_line": 10632
+  },
+  {
+   "category": "Storm Water",
+   "title": "Bolivar Parking Project",
+   "project_number": "PWENSD2501",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "145",
+     "fund_label": "BAYER MILES LAB",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 10640
+    }
+   ],
+   "source_line": 10640
+  },
+  {
+   "category": "Storm Water",
+   "title": "Clean Water Program",
+   "project_number": "PWENSD2309",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 98528,
+     "fy2026_budget": 47834,
+     "fy2027": 200000,
+     "fy2028": 200000,
+     "fy2029": 200000,
+     "fy2030": 200000,
+     "fy2031": 200000,
+     "project_total": 1146362,
+     "five_year_budget": 1000000,
+     "source_line": 10643
+    }
+   ],
+   "source_line": 10643
+  },
+  {
+   "category": "Storm Water",
+   "title": "Codornices Creek Restoration At 9th",
+   "project_number": "PWENCR2402",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "305",
+     "fund_label": "CAPITAL GRANTS - FEDERAL",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 500000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 500000,
+     "five_year_budget": 500000,
+     "source_line": 10646
+    },
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 124952,
+     "fy2026_budget": 36839,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 161791,
+     "five_year_budget": 0,
+     "source_line": 10648
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 150000,
+     "fy2028": 170000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 320000,
+     "five_year_budget": 320000,
+     "source_line": 10650
+    }
+   ],
+   "source_line": 10646
+  },
+  {
+   "category": "Storm Water",
+   "title": "FY26 Green Infrastructure Projects",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 400000,
+     "fy2028": 1900000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2300000,
+     "five_year_budget": 2300000,
+     "source_line": 10654
+    }
+   ],
+   "source_line": 10654
+  },
+  {
+   "category": "Storm Water",
+   "title": "FY27 Storm Drain Improvement",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 300000,
+     "fy2028": 1200000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1500000,
+     "five_year_budget": 1500000,
+     "source_line": 10683
+    }
+   ],
+   "source_line": 10683
+  },
+  {
+   "category": "Storm Water",
+   "title": "FY27-FY29 Green Infrastructure Projects- Stormwater Quality Improvements",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 400000,
+     "fy2030": 1900000,
+     "fy2031": 0,
+     "project_total": 2300000,
+     "five_year_budget": 2300000,
+     "source_line": 10687
+    }
+   ],
+   "source_line": 10687
+  },
+  {
+   "category": "Storm Water",
+   "title": "FY29 Storm Drain Improvement",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 200000,
+     "fy2029": 1650000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1850000,
+     "five_year_budget": 1850000,
+     "source_line": 10700
+    }
+   ],
+   "source_line": 10700
+  },
+  {
+   "category": "Storm Water",
+   "title": "FY31 Storm Drain Improvement",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 200000,
+     "fy2031": 1815000,
+     "project_total": 2015000,
+     "five_year_budget": 2015000,
+     "source_line": 10704
+    }
+   ],
+   "source_line": 10704
+  },
+  {
+   "category": "Storm Water",
+   "title": "Green Infrastructure Projects- Stormwater Quality Improvements",
+   "project_number": "PWENSD2302",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 52351,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 1500000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1802351,
+     "five_year_budget": 1750000,
+     "source_line": 10707
+    }
+   ],
+   "source_line": 10707
+  },
+  {
+   "category": "Storm Water",
+   "title": "MRP Trash Capture Project",
+   "project_number": "PWENSD2308",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 541900,
+     "fy2026_budget": 480784,
+     "fy2027": 240000,
+     "fy2028": 220000,
+     "fy2029": 220000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1702684,
+     "five_year_budget": 680000,
+     "source_line": 10713
+    }
+   ],
+   "source_line": 10713
+  },
+  {
+   "category": "Storm Water",
+   "title": "Offsite LID stormwater treatment for regulated road reconstruction work on Jones and Buena Vista Way",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF STREET REPAIR",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 400000,
+     "fy2028": 1900000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2300000,
+     "five_year_budget": 2300000,
+     "source_line": 10716
+    }
+   ],
+   "source_line": 10716
+  },
+  {
+   "category": "Storm Water",
+   "title": "Stormwater Master Plan",
+   "project_number": "PWENSD2201",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 63000,
+     "fy2026_budget": 15000,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 78000,
+     "five_year_budget": 0,
+     "source_line": 10734
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STORM WATER",
+     "prior_years": 583369,
+     "fy2026_budget": 1216018,
+     "fy2027": 250000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2049388,
+     "five_year_budget": 250000,
+     "source_line": 10736
+    }
+   ],
+   "source_line": 10734
+  },
+  {
+   "category": "Streets",
+   "title": "Bridge Preventative Maintenance Program",
+   "project_number": "TBD",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 150000,
+     "fy2028": 150000,
+     "fy2029": 150000,
+     "fy2030": 150000,
+     "fy2031": 150000,
+     "project_total": 750000,
+     "five_year_budget": 750000,
+     "source_line": 10852
+    }
+   ],
+   "source_line": 10852
+  },
+  {
+   "category": "Streets",
+   "title": "Harold Way Placemaking",
+   "project_number": "PWENST2402",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "139",
+     "fund_label": "STR OP IMP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 150000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 150000,
+     "five_year_budget": 150000,
+     "source_line": 10857
+    }
+   ],
+   "source_line": 10857
+  },
+  {
+   "category": "Streets",
+   "title": "Measure FF Street Rehabiltiation Project FY2027- FY2031",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 13198842,
+     "fy2028": 6822998,
+     "fy2029": 7805256,
+     "fy2030": 5524906,
+     "fy2031": 8767933,
+     "project_total": 42119935,
+     "five_year_budget": 42119935,
+     "source_line": 10860
+    }
+   ],
+   "source_line": 10860
+  },
+  {
+   "category": "Streets",
+   "title": "Street Rehab PCI Improvements",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 14100000,
+     "fy2026_budget": 8240000,
+     "fy2027": 8487200,
+     "fy2028": 8741816,
+     "fy2029": 9004070,
+     "fy2030": 9274193,
+     "fy2031": 9552418,
+     "project_total": 67399697,
+     "five_year_budget": 45059697,
+     "source_line": 10866
+    }
+   ],
+   "source_line": 10866
+  },
+  {
+   "category": "Streets",
+   "title": "Street Rehabilitation FY 2027",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 2195303,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2195303,
+     "five_year_budget": 2195303,
+     "source_line": 10870
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 155000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 155000,
+     "five_year_budget": 155000,
+     "source_line": 10872
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 2980000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2980000,
+     "five_year_budget": 2980000,
+     "source_line": 10873
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1925000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1925000,
+     "five_year_budget": 1925000,
+     "source_line": 10874
+    },
+    {
+     "fund": "601",
+     "fund_label": "ZERO WASTE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 2000000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 2000000,
+     "source_line": 10875
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STOR",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1000000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 10876
+    }
+   ],
+   "source_line": 10870
+  },
+  {
+   "category": "Streets",
+   "title": "Street Rehabilitation FY 2028",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 2195303,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2195303,
+     "five_year_budget": 2195303,
+     "source_line": 10885
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 155000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 155000,
+     "five_year_budget": 155000,
+     "source_line": 10887
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 2980000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2980000,
+     "five_year_budget": 2980000,
+     "source_line": 10888
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 1925000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1925000,
+     "five_year_budget": 1925000,
+     "source_line": 10909
+    },
+    {
+     "fund": "601",
+     "fund_label": "ZERO WASTE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 2000000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 2000000,
+     "source_line": 10910
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STOR",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 1000000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 10911
+    }
+   ],
+   "source_line": 10885
+  },
+  {
+   "category": "Streets",
+   "title": "Street Rehabilitation FY 2029 - FY 2031",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "ST TRNS TX",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2195303,
+     "fy2030": 2195303,
+     "fy2031": 2195303,
+     "project_total": 6585909,
+     "five_year_budget": 6585909,
+     "source_line": 10914
+    },
+    {
+     "fund": "133",
+     "fund_label": "F-ALA VRF",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 155000,
+     "fy2030": 155000,
+     "fy2031": 155000,
+     "project_total": 465000,
+     "five_year_budget": 465000,
+     "source_line": 10921
+    },
+    {
+     "fund": "134",
+     "fund_label": "BB-STR RD",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2980000,
+     "fy2030": 2980000,
+     "fy2031": 2980000,
+     "project_total": 8940000,
+     "five_year_budget": 8940000,
+     "source_line": 10922
+    },
+    {
+     "fund": "501",
+     "fund_label": "CIP",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1925000,
+     "fy2030": 1925000,
+     "fy2031": 1925000,
+     "project_total": 5775000,
+     "five_year_budget": 5775000,
+     "source_line": 10923
+    },
+    {
+     "fund": "601",
+     "fund_label": "ZERO WASTE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 2000000,
+     "fy2030": 2000000,
+     "fy2031": 2000000,
+     "project_total": 6000000,
+     "five_year_budget": 6000000,
+     "source_line": 10924
+    },
+    {
+     "fund": "616",
+     "fund_label": "CLEAN STOR",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1000000,
+     "fy2030": 1000000,
+     "fy2031": 1000000,
+     "project_total": 3000000,
+     "five_year_budget": 3000000,
+     "source_line": 10925
+    }
+   ],
+   "source_line": 10914
+  },
+  {
+   "category": "Transportation",
+   "title": "Addison Bicycle Blvd Ph2",
+   "project_number": "PWTRCS2401",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 0,
+     "five_year_budget": 0,
+     "source_line": 11031
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 41477,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 41477,
+     "five_year_budget": 0,
+     "source_line": 11034
+    },
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 193000,
+     "fy2029": 2354000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2747000,
+     "five_year_budget": 2747000,
+     "source_line": 11037
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 99000,
+     "fy2026_budget": 0,
+     "fy2027": 255000,
+     "fy2028": 2070000,
+     "fy2029": 2446000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 4870000,
+     "five_year_budget": 4771000,
+     "source_line": 11040
+    }
+   ],
+   "source_line": 11031
+  },
+  {
+   "category": "Transportation",
+   "title": "Adeline Trans Improvements",
+   "project_number": "PWTRCT2201",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 119000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 119000,
+     "five_year_budget": 119000,
+     "source_line": 11043
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 7020,
+     "fy2026_budget": 157979,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 164999,
+     "five_year_budget": 0,
+     "source_line": 11046
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 175,
+     "fy2026_budget": 146800,
+     "fy2027": 0,
+     "fy2028": 258000,
+     "fy2029": 258000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 662975,
+     "five_year_budget": 516000,
+     "source_line": 11049
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 0,
+     "fy2026_budget": 1095000,
+     "fy2027": 850000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1945000,
+     "five_year_budget": 850000,
+     "source_line": 11052
+    },
+    {
+     "fund": "307",
+     "fund_label": "CAPITAL GRANTS - LOCAL",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 773500,
+     "fy2029": 773500,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1547000,
+     "five_year_budget": 1547000,
+     "source_line": 11054
+    },
+    {
+     "fund": "339",
+     "fund_label": "MTC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 922000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 922000,
+     "five_year_budget": 922000,
+     "source_line": 11056
+    }
+   ],
+   "source_line": 11043
+  },
+  {
+   "category": "Transportation",
+   "title": "Affordable Housing and Sustainable Communities (AHSC) Grant Matching funds",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 200000,
+     "five_year_budget": 200000,
+     "source_line": 11063
+    }
+   ],
+   "source_line": 11063
+  },
+  {
+   "category": "Transportation",
+   "title": "AHSC 8 Sixth University Shattuck",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 77847,
+     "fy2028": 315506,
+     "fy2029": 544338,
+     "fy2030": 68042,
+     "fy2031": 0,
+     "project_total": 1005733,
+     "five_year_budget": 1005733,
+     "source_line": 11069
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 100000,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 200000,
+     "five_year_budget": 100000,
+     "source_line": 11091
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 342000,
+     "fy2028": 1280900,
+     "fy2029": 2247200,
+     "fy2030": 280900,
+     "fy2031": 0,
+     "project_total": 4151000,
+     "five_year_budget": 4151000,
+     "source_line": 11094
+    }
+   ],
+   "source_line": 11069
+  },
+  {
+   "category": "Transportation",
+   "title": "Alameda CTC RSEP",
+   "project_number": "PWTRCT2101",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "011",
+     "fund_label": "GF DISCRETIONARY",
+     "prior_years": 1072,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1072,
+     "five_year_budget": 0,
+     "source_line": 11097
+    },
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 32862,
+     "fy2026_budget": 0,
+     "fy2027": 5000,
+     "fy2028": 35000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 72862,
+     "five_year_budget": 40000,
+     "source_line": 11104
+    }
+   ],
+   "source_line": 11097
+  },
+  {
+   "category": "Transportation",
+   "title": "Cedar Street median crossing to support Grant Street Bike Boulevard Crossing",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 100000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 11108
+    }
+   ],
+   "source_line": 11108
+  },
+  {
+   "category": "Transportation",
+   "title": "Cedar Street Pedestrian Safety Crossing Improvements",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1000000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 11114
+    }
+   ],
+   "source_line": 11114
+  },
+  {
+   "category": "Transportation",
+   "title": "City-wide Traffic Calming Program",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 250000,
+     "fy2029": 250000,
+     "fy2030": 250000,
+     "fy2031": 250000,
+     "project_total": 1250000,
+     "five_year_budget": 1250000,
+     "source_line": 11119
+    }
+   ],
+   "source_line": 11119
+  },
+  {
+   "category": "Transportation",
+   "title": "Citywide Traffic Signal Master Plan",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 250000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 500000,
+     "five_year_budget": 500000,
+     "source_line": 11124
+    }
+   ],
+   "source_line": 11124
+  },
+  {
+   "category": "Transportation",
+   "title": "Citywide Transit Stop Amenities Program",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 250000,
+     "fy2028": 250000,
+     "fy2029": 250000,
+     "fy2030": 250000,
+     "fy2031": 250000,
+     "project_total": 1250000,
+     "five_year_budget": 1250000,
+     "source_line": 11141
+    }
+   ],
+   "source_line": 11141
+  },
+  {
+   "category": "Transportation",
+   "title": "Claremont and Eaton RRFB",
+   "project_number": "PWTRTC2301",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 70000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 70000,
+     "five_year_budget": 70000,
+     "source_line": 11146
+    },
+    {
+     "fund": "501",
+     "fund_label": "CAPITAL IMPROVEMENTS",
+     "prior_years": 37382,
+     "fy2026_budget": 62618,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 0,
+     "source_line": 11149
+    }
+   ],
+   "source_line": 11146
+  },
+  {
+   "category": "Transportation",
+   "title": "Claremont Ave Complete Street Corridor Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 350000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 350000,
+     "five_year_budget": 350000,
+     "source_line": 11152
+    }
+   ],
+   "source_line": 11152
+  },
+  {
+   "category": "Transportation",
+   "title": "Claremont Vision Zero Quick Build",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1250000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1250000,
+     "five_year_budget": 1250000,
+     "source_line": 11157
+    }
+   ],
+   "source_line": 11157
+  },
+  {
+   "category": "Transportation",
+   "title": "Delaware Bike Lanes Refresh",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 100000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 11162
+    }
+   ],
+   "source_line": 11162
+  },
+  {
+   "category": "Transportation",
+   "title": "Derby/Warring Traffic Safety Imp",
+   "project_number": "PWTRST2502",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "147",
+     "fund_label": "UC SETTLEMENT",
+     "prior_years": 31074,
+     "fy2026_budget": 968926,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1200000,
+     "five_year_budget": 200000,
+     "source_line": 11166
+    }
+   ],
+   "source_line": 11166
+  },
+  {
+   "category": "Transportation",
+   "title": "Gilman/Camelia Complete Street Corridor Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 300000,
+     "fy2031": 350000,
+     "project_total": 650000,
+     "five_year_budget": 650000,
+     "source_line": 11174
+    }
+   ],
+   "source_line": 11174
+  },
+  {
+   "category": "Transportation",
+   "title": "HSIP Sacramento Ped Xing Safet Enh",
+   "project_number": "PWTRBP2202",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 10000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 10000,
+     "five_year_budget": 10000,
+     "source_line": 11199
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 2616,
+     "fy2026_budget": 531902,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 534518,
+     "five_year_budget": 0,
+     "source_line": 11202
+    },
+    {
+     "fund": "133",
+     "fund_label": "MEAS F - ALA CT VRF",
+     "prior_years": 50,
+     "fy2026_budget": 39950,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 40000,
+     "five_year_budget": 0,
+     "source_line": 11205
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 175021,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 175021,
+     "five_year_budget": 0,
+     "source_line": 11213
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 164333,
+     "fy2026_budget": 196554,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 360887,
+     "five_year_budget": 0,
+     "source_line": 11216
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 0,
+     "fy2026_budget": 250000,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 250000,
+     "five_year_budget": 0,
+     "source_line": 11219
+    }
+   ],
+   "source_line": 11199
+  },
+  {
+   "category": "Transportation",
+   "title": "Ohlone Green Modernization & SFTY",
+   "project_number": "PWTRBP2204",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 50000,
+     "fy2027": 190000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 240000,
+     "five_year_budget": 190000,
+     "source_line": 11223
+    },
+    {
+     "fund": "131",
+     "fund_label": "MEAS B - BIKE AND",
+     "prior_years": 204082,
+     "fy2026_budget": 21896,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 225978,
+     "five_year_budget": 0,
+     "source_line": 11226
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 8361,
+     "fy2026_budget": 419639,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 428000,
+     "five_year_budget": 0,
+     "source_line": 11229
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 177214,
+     "fy2026_budget": 88550,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 265764,
+     "five_year_budget": 0,
+     "source_line": 11232
+    },
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 150000,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 150000,
+     "five_year_budget": 0,
+     "source_line": 11235
+    },
+    {
+     "fund": "307",
+     "fund_label": "CAPITAL GRANTS - LOCAL",
+     "prior_years": 250842,
+     "fy2026_budget": 4020159,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 4271001,
+     "five_year_budget": 0,
+     "source_line": 11238
+    }
+   ],
+   "source_line": 11223
+  },
+  {
+   "category": "Transportation",
+   "title": "Oxford for All",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "147",
+     "fund_label": "UC SETTLEMENT",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 150000,
+     "fy2028": 750000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 900000,
+     "five_year_budget": 900000,
+     "source_line": 11254
+    },
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 1000000,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 11256
+    }
+   ],
+   "source_line": 11254
+  },
+  {
+   "category": "Transportation",
+   "title": "Parker - Addison Bikeway",
+   "project_number": "PWTRBP2203",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 100000,
+     "fy2027": 10000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 110000,
+     "five_year_budget": 10000,
+     "source_line": 11261
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 28763,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 28763,
+     "five_year_budget": 0,
+     "source_line": 11264
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 497657,
+     "fy2026_budget": 259009,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 756666,
+     "five_year_budget": 0,
+     "source_line": 11267
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 5317,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 5317,
+     "five_year_budget": 0,
+     "source_line": 11270
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 171091,
+     "fy2026_budget": 432986,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 604076,
+     "five_year_budget": 0,
+     "source_line": 11273
+    }
+   ],
+   "source_line": 11261
+  },
+  {
+   "category": "Transportation",
+   "title": "Pedestrian Plan Update",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "339",
+     "fund_label": "MTC",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 150000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 350000,
+     "five_year_budget": 350000,
+     "source_line": 11276
+    }
+   ],
+   "source_line": 11276
+  },
+  {
+   "category": "Transportation",
+   "title": "Sacramento Street Bike Boulevard safe crossings signalization",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 2400000,
+     "fy2028": 1100000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 3500000,
+     "five_year_budget": 3500000,
+     "source_line": 11283
+    }
+   ],
+   "source_line": 11283
+  },
+  {
+   "category": "Transportation",
+   "title": "Shattuck/Sutter/Henry ped safety crossing improvements at Rose, Vine, Eunice",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 100000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 100000,
+     "five_year_budget": 100000,
+     "source_line": 11288
+    }
+   ],
+   "source_line": 11288
+  },
+  {
+   "category": "Transportation",
+   "title": "Shattuck/Ward Pedestrian Crossing refuge",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 50000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 50000,
+     "five_year_budget": 50000,
+     "source_line": 11314
+    }
+   ],
+   "source_line": 11314
+  },
+  {
+   "category": "Transportation",
+   "title": "Southwest Berkeley Bicycle Blvd",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 340000,
+     "fy2029": 105000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 445000,
+     "five_year_budget": 445000,
+     "source_line": 11324
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 3430000,
+     "fy2031": 0,
+     "project_total": 3430000,
+     "five_year_budget": 3430000,
+     "source_line": 11327
+    }
+   ],
+   "source_line": 11324
+  },
+  {
+   "category": "Transportation",
+   "title": "Telegraph Multimodal Corridor.",
+   "project_number": "PWTRCS2204",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 253500,
+     "fy2028": 84500,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 338000,
+     "five_year_budget": 338000,
+     "source_line": 11331
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 127306,
+     "fy2026_budget": 47273,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 174580,
+     "five_year_budget": 0,
+     "source_line": 11334
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 323,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 323,
+     "five_year_budget": 0,
+     "source_line": 11337
+    },
+    {
+     "fund": "307",
+     "fund_label": "CAPITAL GRANTS - LOCAL",
+     "prior_years": 194209,
+     "fy2026_budget": 95792,
+     "fy2027": 758250,
+     "fy2028": 252750,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1301000,
+     "five_year_budget": 1011000,
+     "source_line": 11340
+    }
+   ],
+   "source_line": 11331
+  },
+  {
+   "category": "Transportation",
+   "title": "Traffic Signal Modernization Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 250000,
+     "fy2029": 250000,
+     "fy2030": 250000,
+     "fy2031": 250000,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 11343
+    }
+   ],
+   "source_line": 11343
+  },
+  {
+   "category": "Transportation",
+   "title": "Transportation Design Guideline Study",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 200000,
+     "fy2029": 200000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 600000,
+     "five_year_budget": 600000,
+     "source_line": 11348
+    }
+   ],
+   "source_line": 11348
+  },
+  {
+   "category": "Transportation",
+   "title": "Transportation Nexus Study",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 200000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 200000,
+     "five_year_budget": 200000,
+     "source_line": 11365
+    }
+   ],
+   "source_line": 11365
+  },
+  {
+   "category": "Transportation",
+   "title": "University Ave Bus Stop",
+   "project_number": "PWTRCS2203",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 938015,
+     "fy2027": 10000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 948015,
+     "five_year_budget": 10000,
+     "source_line": 11369
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 118000,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 118000,
+     "five_year_budget": 0,
+     "source_line": 11372
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 273385,
+     "fy2026_budget": 600955,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 874340,
+     "five_year_budget": 0,
+     "source_line": 11375
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 0,
+     "fy2026_budget": 180000,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 180000,
+     "five_year_budget": 0,
+     "source_line": 11378
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 85499,
+     "fy2026_budget": 730784,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 816283,
+     "five_year_budget": 0,
+     "source_line": 11381
+    }
+   ],
+   "source_line": 11369
+  },
+  {
+   "category": "Transportation",
+   "title": "Vision Zero Action Plan update Phased Implementation Roadmap",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 1000000,
+     "fy2028": 1000000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2000000,
+     "five_year_budget": 2000000,
+     "source_line": 11384
+    }
+   ],
+   "source_line": 11384
+  },
+  {
+   "category": "Transportation",
+   "title": "Vision Zero Quick Build Program",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 500000,
+     "fy2028": 375000,
+     "fy2029": 375000,
+     "fy2030": 375000,
+     "fy2031": 450000,
+     "project_total": 2075000,
+     "five_year_budget": 2075000,
+     "source_line": 11395
+    }
+   ],
+   "source_line": 11395
+  },
+  {
+   "category": "Transportation",
+   "title": "Washington Elementary/Berkeley High School",
+   "project_number": "PWTRCS2501",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 40000,
+     "fy2027": 304470,
+     "fy2028": 614804,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 959274,
+     "five_year_budget": 919274,
+     "source_line": 11399
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 95849,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 95849,
+     "five_year_budget": 0,
+     "source_line": 11422
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 0,
+     "fy2026_budget": 208021,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 208021,
+     "five_year_budget": 0,
+     "source_line": 11425
+    },
+    {
+     "fund": "166",
+     "fund_label": "MEASURE FF - STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 400000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 400000,
+     "five_year_budget": 400000,
+     "source_line": 11428
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 0,
+     "fy2026_budget": 30000,
+     "fy2027": 0,
+     "fy2028": 1331000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1361000,
+     "five_year_budget": 1331000,
+     "source_line": 11436
+    }
+   ],
+   "source_line": 11399
+  },
+  {
+   "category": "Transportation",
+   "title": "WOOLSEY-FULTON BIKE BLVD",
+   "project_number": "PWTRBP2205",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "127",
+     "fund_label": "STATE TRANSPORTATION",
+     "prior_years": 0,
+     "fy2026_budget": 40000,
+     "fy2027": 10000,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 50000,
+     "five_year_budget": 10000,
+     "source_line": 11440
+    },
+    {
+     "fund": "130",
+     "fund_label": "MEAS B LOCAL STREETS",
+     "prior_years": 6000,
+     "fy2026_budget": 150865,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 156865,
+     "five_year_budget": 0,
+     "source_line": 11443
+    },
+    {
+     "fund": "131",
+     "fund_label": "MEAS B - BIKE AND",
+     "prior_years": 477338,
+     "fy2026_budget": 45918,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 523256,
+     "five_year_budget": 0,
+     "source_line": 11446
+    },
+    {
+     "fund": "134",
+     "fund_label": "MEAS BB LOCAL STREETS",
+     "prior_years": 2692,
+     "fy2026_budget": 1856277,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1858970,
+     "five_year_budget": 0,
+     "source_line": 11449
+    },
+    {
+     "fund": "135",
+     "fund_label": "MEAS BB - BIKE AND",
+     "prior_years": 250821,
+     "fy2026_budget": 105685,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 356506,
+     "five_year_budget": 0,
+     "source_line": 11452
+    },
+    {
+     "fund": "306",
+     "fund_label": "CAPITAL GRANTS - STATE",
+     "prior_years": 79838,
+     "fy2026_budget": 1771760,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1851598,
+     "five_year_budget": 0,
+     "source_line": 11455
+    }
+   ],
+   "source_line": 11440
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Fleet EV Charger - PWENEN2502 1326 Allston Way",
+   "project_number": "PWENEN2502",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "671",
+     "fund_label": "EQ REPLACE",
+     "prior_years": 0,
+     "fy2026_budget": 84710,
+     "fy2027": 48600,
+     "fy2028": 472900,
+     "fy2029": 1228500,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1834710,
+     "five_year_budget": 1750000,
+     "source_line": 11529
+    }
+   ],
+   "source_line": 11529
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Fleet EV Charger PWENEN2503 PSB 2100 MLK Way",
+   "project_number": "PWENEN2503",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "671",
+     "fund_label": "EQ REPLACE",
+     "prior_years": 0,
+     "fy2026_budget": 258000,
+     "fy2027": 29300,
+     "fy2028": 47300,
+     "fy2029": 30675,
+     "fy2030": 725300,
+     "fy2031": 1329600,
+     "project_total": 2420175,
+     "five_year_budget": 2162175,
+     "source_line": 11535
+    }
+   ],
+   "source_line": 11535
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Fleet EV Charger- PWENEN2501 2640 MLK, 1 Bolivar, 2939 Ellis, 2029 Berkeley",
+   "project_number": "PWENEN2501",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "671",
+     "fund_label": "EQ REPLACE",
+     "prior_years": 0,
+     "fy2026_budget": 128000,
+     "fy2027": 326200,
+     "fy2028": 15000,
+     "fy2029": 0,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 469200,
+     "five_year_budget": 341200,
+     "source_line": 11541
+    }
+   ],
+   "source_line": 11541
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Fleet EV Chargers PWENEN2504 Waterfront 201 University, 125 University",
+   "project_number": "PWENEN2504",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "671",
+     "fund_label": "EQ REPLACE",
+     "prior_years": 0,
+     "fy2026_budget": 245535,
+     "fy2027": 27800,
+     "fy2028": 42900,
+     "fy2029": 121125,
+     "fy2030": 1460800,
+     "fy2031": 115000,
+     "project_total": 2013160,
+     "five_year_budget": 1767625,
+     "source_line": 11549
+    }
+   ],
+   "source_line": 11549
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Solano Ave-Retaining Wall Project",
+   "project_number": "TBD",
+   "new_or_continuing": "New",
+   "funding": [
+    {
+     "fund": "166",
+     "fund_label": "FF-STREET",
+     "prior_years": 0,
+     "fy2026_budget": 0,
+     "fy2027": 0,
+     "fy2028": 0,
+     "fy2029": 1000000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 1000000,
+     "five_year_budget": 1000000,
+     "source_line": 11561
+    }
+   ],
+   "source_line": 11561
+  },
+  {
+   "category": "Other Infrastructure",
+   "title": "Streetlight Pole Replacement & Painting",
+   "project_number": "PWENEL2301",
+   "new_or_continuing": "Continuing",
+   "funding": [
+    {
+     "fund": "142",
+     "fund_label": "ST LGHTNG",
+     "prior_years": 730000,
+     "fy2026_budget": 630000,
+     "fy2027": 200000,
+     "fy2028": 680000,
+     "fy2029": 200000,
+     "fy2030": 0,
+     "fy2031": 0,
+     "project_total": 2440000,
+     "five_year_budget": 1080000,
+     "source_line": 11565
+    }
+   ],
+   "source_line": 11565
+  }
+ ],
+ "five_year_by_fund": {
+  "611": 81260000,
+  "166": 77615255,
+  "501": 62063697,
+  "NOT_PRINTED": 38660000,
+  "UNFUNDED": 22075000,
+  "616": 20640000,
+  "138": 17050000,
+  "134": 16500000,
+  "127": 15323522,
+  "306": 14533000,
+  "601": 13050000,
+  "671": 6021000,
+  "307": 2558000,
+  "608": 1750000,
+  "125": 1300000,
+  "133": 1275000,
+  "339": 1272000,
+  "147": 1200000,
+  "336": 1200000,
+  "142": 1080000,
+  "680": 1020000,
+  "135": 516000,
+  "149": 500000,
+  "305": 500000,
+  "621": 150000,
+  "139": 150000,
+  "145": 100000,
+  "011": 0,
+  "340": 0,
+  "511": 0,
+  "130": 0,
+  "131": 0
+ }
+}

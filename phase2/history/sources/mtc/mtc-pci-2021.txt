@@ -1,0 +1,197 @@
+Pavement Condition
+Of Bay Area Jurisdictions
+2021
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2021
+                                                                   3-Year Moving Average
+                                          Total
+Jurisdiction        County             Lane Miles           2019           2020            2021
+                                   Very Good (PCI = 80– 89)
+Cupertino           Santa Clara           297.7              84             85              84
+Orinda              Contra Costa          187.4              75             81              83
+Palo Alto           Santa Clara           414.4              84             84              83
+Dublin              Alameda               327.0              85             84              82
+Brentwood           Contra Costa          425.9              82             81              81
+Solano County       Solano                930.1              81             80              80
+                                     Good (PCI = 70 – 79)
+Danville            Contra Costa          324.0              80             80              79
+Foster City         San Mateo             120.1              81             80              79
+Los Altos Hills     Santa Clara           124.7              80             79              79
+Clayton             Contra Costa           94.2              82             81              79
+Woodside            San Mateo              96.9              81             81              79
+Livermore           Alameda               725.4              79             79              79
+Menlo Park          San Mateo             196.6              77             79              79
+Burlingame          San Mateo             162.4              78             79              78
+Daly City           San Mateo             256.8              82             79              78
+Hillsborough        San Mateo             166.4              80             78              78
+San Ramon           Contra Costa          503.8              78             78              78
+Pleasanton          Alameda               516.0              79             78              78
+Ross                Marin                  22.0              78             77              77
+Portola Valley      San Mateo              70.9              78             77              77
+Colma               San Mateo              26.9              79             78              77
+Sunnyvale           Santa Clara           639.2              76             76              77
+Union City          Alameda               329.2              78             77              76
+Yountville          Napa                   16.6              74             74              76
+Windsor             Sonoma                171.1              77             76              76
+Tiburon             Marin                  67.5              76             77              75
+Emeryville          Alameda                47.2              74             74              75
+Atherton            San Mateo             105.3              76             75              75
+Lafayette           Contra Costa          199.3              76             75              75
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2021 (continued)
+                                                                                   3-Year Moving Average
+                                                       Total
+Jurisdiction                 County                 Lane Miles            2019             2020            2021
+Oakley                       Contra Costa               293.2                 77            76              75
+Brisbane                     San Mateo                   66.7                 77            76              75
+San Francisco                San Francisco             2144.6                 74            74              74
+Santa Clara                  Santa Clara                608.3                 75            75              74
+Moraga                       Contra Costa               113.3                 72            74              74
+Newark                       Alameda                    256.0                 75            74              73
+Walnut Creek                 Contra Costa               435.0                 73            73              73
+San Mateo County             San Mateo                  628.7                 73            74              73
+Morgan Hill                  Santa Clara                301.7                 72            73              73
+South San Francisco          San Mateo                  294.9                 75            73              73
+Fremont                      Alameda                   1081.4                 73            73              72
+Redwood City                 San Mateo                  358.6                 75            73              72
+Alameda County               Alameda                    993.7                 71            72              72
+El Cerrito                   Contra Costa               137.6                 80            76              72
+Mill Valley                  Marin                      116.0                 68            73              72
+San Mateo                    San Mateo                  426.9                 75            73              71
+Milpitas                     Santa Clara                302.5                 75            73              71
+Mountain View                Santa Clara                332.8                 73            73              71
+Vacaville                    Solano                     697.2                 69            70              71
+Belvedere                    Marin                       23.4                 73            71              71
+Contra Costa County          Contra Costa              1337.7                 72            71              70
+San Pablo                    Contra Costa               104.2                 72            71              70
+Monte Sereno                 Santa Clara                 31.3                 65            68              70
+Sonoma                       Sonoma                      68.3                 73            71              70
+                                                   Fair (PCI= 60 – 69)
+Campbell                     Santa Clara                218.7                 69            70              69
+Hayward                      Alameda                    655.3                 70            70              69
+Los Gatos                    Santa Clara                230.0                 68            69              69
+Alameda                      Alameda                    278.1                 70            70              68
+Fairfield                    Solano                     772.3                 72            69              68
+Napa                         Napa                       467.6                 71            69              68
+Pleasant Hill                Contra Costa               225.3                 67            67              68
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2021 (continued)
+                                                                                   3-Year Moving Average
+                                                       Total
+Jurisdiction                 County                 Lane Miles            2019             2020            2021
+San Jose                     Santa Clara              4468.0                  66            66              67
+Rohnert Park                 Sonoma                     227.9                 67            68              67
+Hercules                     Contra Costa               122.3                 67            67              67
+Martinez                     Contra Costa               233.0                 63            64              67
+San Anselmo                  Marin                       81.5                 66            68              67
+Larkspur                     Marin                       65.6                 52            59              67
+Novato                       Marin                      318.7                 69            68              67
+Los Altos                    Santa Clara                227.0                 69            68              66
+Corte Madera                 Marin                       72.2                 67            66              66
+Marin County                 Marin                      851.0                 66            65              66
+Saratoga                     Santa Clara                284.4                 68            67              66
+Antioch                      Contra Costa               685.3                 68            66              65
+Half Moon Bay                San Mateo                   55.4                 60            66              65
+San Rafael                   Marin                      331.5                 65            65              65
+Dixon                        Solano                     143.6                 65            64              65
+Healdsburg                   Sonoma                      94.1                 61            63              65
+Piedmont                     Alameda                     78.4                 64            64              64
+Santa Clara County           Santa Clara               1428.9                 66            66              64
+Richmond                     Contra Costa               576.9                 64            63              62
+Belmont                      San Mateo                  139.2                 57            60              62
+San Bruno                    San Mateo                  180.1                 61            62              62
+Santa Rosa                   Sonoma                    1131.8                 60            62              62
+Cotati                       Sonoma                      49.2                 56            59              61
+Calistoga                    Napa                        30.6                 59            61              61
+Pittsburg                    Contra Costa               343.9                 62            61              61
+American Canyon              Napa                       112.8                 63            62              61
+East Palo Alto               San Mateo                   82.7                 65            62              60
+Rio Vista                    Solano                      46.0                 63            59              60
+Sausalito                    Marin                       56.4                 63            62              60
+San Carlos                   San Mateo                  179.2                 62            61              60
+Gilroy                       Santa Clara                269.6                 65            62              60
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2021 (continued)
+                                                                                   3-Year Moving Average
+                                                       Total
+Jurisdiction                 County                 Lane Miles            2019             2020            2021
+                                                 At Risk (PCI = 50–59)
+Concord                      Contra Costa               716.9                 60            59              58
+Suisun City                  Solano                     153.6                 61            59              58
+Albany                       Alameda                     59.4                 57            56              57
+Pinole                       Contra Costa               119.3                 62            59              57
+Berkeley                     Alameda                    450.5                 57            58              57
+Fairfax                      Marin                       54.7                 60            58              56
+Cloverdale                   Sonoma                      64.7                 58            56              55
+San Leandro                  Alameda                    393.8                 57            55              55
+Millbrae                     San Mateo                  120.6                 53            56              55
+Oakland                      Alameda                   2022.5                 53            52              53
+Benicia                      Solano                     198.0                 53            51              53
+St Helena                    Napa                        51.5                 57            54              52
+Sonoma County                Sonoma                    2691.1                 49            50              51
+                                                   Poor (PCI= 25–49)
+Vallejo                      Solano                     710.9                 52            49              48
+Napa County                  Napa                       828.7                 48            45              46
+Sebastopol                   Sonoma                      47.5                 51            48              46
+Petaluma                     Sonoma                     391.8                 45            44              44
+Pacifica                     San Mateo                  188.1                 47            42              42
+
+
+Bay Area                     —                         43,953                 67            67              67
+Aggregate City and County PCI for Bay Area Counties, 2021
+                                                     3-Year Moving Average
+                        Total
+Jurisdiction         Lane Miles           2019               2020            2021
+                            Good (PCI = 70 – 79)
+San Francisco          2,145               74                 74              74
+San Mateo              3,925               72                 71              70
+Santa Clara           10,193               70                 70              70
+                               Fair (PCI= 60 – 69)
+Contra Costa           7,190               70                 70              69
+Alameda                8,285               68                 68              67
+Marin                  2,059               66                 66              66
+Solano                 3,707               67                 68              66
+                           At Risk (PCI=50–59)
+Napa                   1,513               57                 56              55
+Sonoma                 4,937               54                 55              55
+Figure 1: Year-Over-Year Comparison of Local Roadway Conditions
+                                    Pavement Conditions for Local Roadways,
+                                           2007–2021 (Lane Miles)
+
+
+
+   2021                      35%                              34%                     9%               22%
+
+   2020                      36%                              33%                     10%              21%
+
+   2019                      37%                              33%                      9%              21%
+
+   2018                      37%                              31%                    9%               23%
+
+   2017                      37%                              32%                     9%               22%
+
+   2016                  34%                                 34%                     10%               23%
+
+   2015                  34%                                 34%                    10%                22%
+
+   2014                  31%                                35%                   10%                 23%
+
+   2013                  32%                                34%                  10%                  23%
+
+   2012                  31%                                35%                   11%                 23%
+
+   2011                 31%                                 35%                   11%                 23%
+
+   2010                  32%                                34%                   11%                 23%
+
+ 2008/09                 33%                                34%                    11%                21%
+
+   2007                      35%                             32%                   10%                22%
+
+           0%          10%        20%     30%      40%        50%       60%        70%          80%        90%      100%
+
+                Excellent or Very Good       Good or Fair     At Risk        Poor or Failed      No Data
+
+
+
+                                          Regional Weighted PCI (Year-over-Year)
+                Year     2012      2013     2014   2015      2016   2017       2018       2019    2020       2021
+           Weighted
+             PCI             66     66       66      67       67        67      67         67         67     67
+

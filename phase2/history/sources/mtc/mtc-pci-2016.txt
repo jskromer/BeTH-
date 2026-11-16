@@ -1,0 +1,239 @@
+Pavement Condition
+Of Bay Area Jurisdictions
+2016
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2016
+                                                                                                    3-Year Moving Average*
+                                                                  Total
+ Jurisdiction                      County                      Lane Miles                 2014                  2015                   2016
+                                                         Very Good (PCI = 80– 89)
+ Dublin                            Alameda                         276.5                   86                     85                     85
+ El Cerrito                        Contra Costa                    145.3                   84                     84                     84
+ Brentwood                         Contra Costa                    419.5                   86                     85                     84
+ Colma                             San Mateo                        24.2                   78                     83                     84
+ Clayton                           Contra Costa                     94.2                   80                     81                     83
+ Union City                        Alameda                         328.7                   81                     81                     82
+ Foster City                       San Mateo                       119.9                   81                     82                     82
+ Palo Alto                         Santa Clara                     414.5                   78                     79                     81
+ San Ramon                         Contra Costa                    488.4                   78                     80                     80
+ Solano County                     —                               925.4                   77                     79                     80
+                                                             Good (PCI = 70 – 79)
+ Emeryville                        Alameda                          47.0                   76                     78                     79
+ Portola Valley                    San Mateo                        70.1                   80                     79                     79
+ Daly City                         San Mateo                       255.0                   77                     77                     79
+ Lafayette                         Contra Costa                    199.4                   76                     77                     79
+ Pleasanton                        Alameda                         511.3                   78                     79                     78
+ Redwood City                      San Mateo                       353.6                   77                     78                     78
+ Los Altos Hills                   Santa Clara                     119.8                   76                     77                     78
+ Brisbane                          San Mateo                        67.2                   77                     76                     77
+ Belvedere                         Marin                            23.4                   80                     79                     77
+ Atherton                          San Mateo                       105.8                   79                     78                     77
+ Livermore                         Alameda                         710.6                   76                     77                     76
+ Sunnyvale                         Santa Clara                     637.4                   77                     77                     76
+ San Pablo                         Contra Costa                    103.5                   77                     77                     76
+ Burlingame                        San Mateo                       162.3                   75                     77                     76
+ San Mateo                         San Mateo                       417.9                   74                     75                     76
+ Newark                            Alameda                         254.6                   76                     76                     76
+ Oakley                            Contra Costa                    277.7                   75                     75                     76
+ Windsor                           Sonoma                          170.7                   70                     73                     75
+ Tiburon                           Marin                            68.1                   74                     74                     75
+
+*For annual (non-averaged) PCI scores, please contact MTC. MTC in 2016 implemented an improved ASTM D6433 pavement rating standard. Under
+  the previous standard, data for 2015 indicated a half-point increase in the region's average PCI score; under the new standard, 2016 data indicate
+  an additional half-point increase.
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2016 (continued)
+                                                                                                    3-Year Moving Average*
+                                                                  Total
+ Jurisdiction                      County                      Lane Miles                 2014                  2015                   2016
+ Danville                          Contra Costa                    323.4                   73                     74                     75
+ Menlo Park                        San Mateo                       195.5                   77                     76                     74
+ Yountville                        Napa                             16.5                   69                     71                     74
+ Santa Clara                       Santa Clara                     589.8                   74                     73                     73
+ South San Francisco               San Mateo                       293.2                   71                     73                     73
+ Woodside                          San Mateo                        96.0                   71                     72                     73
+ Los Altos                         Santa Clara                     227.0                   78                     76                     73
+ Milpitas                          Santa Clara                     298.2                   72                     72                     73
+ Hillsborough                      San Mateo                       166.4                   72                     71                     73
+ Sonoma                            Sonoma                           68.2                   70                     72                     73
+ Ross                              Marin                            22.0                   72                     72                     72
+ Walnut Creek                      Contra Costa                    435.0                   71                     71                     72
+ Contra Costa County               —                              1,326.5                  70                     71                     72
+ Fairfield                         Solano                          742.0                   71                     71                     72
+ San Mateo County                  —                               623.2                   70                     70                     72
+ Cupertino                         Santa Clara                     297.5                   65                     67                     72
+ Alameda County                    —                               993.4                   71                     71                     71
+ Mountain View                     Santa Clara                     332.1                   72                     70                     71
+ Hercules                          Contra Costa                    122.3                   72                     71                     71
+ Rohnert Park                      Sonoma                          228.3                   68                     69                     71
+ Fremont                           Alameda                        1,073.0                  66                     69                     71
+ Alameda                           Alameda                         275.9                   67                     69                     71
+ Novato                            Marin                           318.5                   70                     70                     70
+ Campbell                          Santa Clara                     229.8                   73                     72                     70
+                                                              Fair (PCI= 60 – 69)
+ Vacaville                         Solano                          616.0                   69                     69                     69
+ Pittsburg                         Contra Costa                    342.9                   65                     67                     69
+ American Canyon                   Napa                            111.9                   67                     69                     69
+ Dixon                             Solano                          130.2                   75                     72                     69
+ Santa Clara County                —                              1,427.0                  72                     70                     69
+ Morgan Hill                       Santa Clara                     282.2                   71                     68                     69
+ Corte Madera                      Marin                            71.2                   69                     68                     69
+
+*For annual (non-averaged) PCI scores, please contact MTC. MTC in 2016 implemented an improved ASTM D6433 pavement rating standard. Under
+  the previous standard, data for 2015 indicated a half-point increase in the region's average PCI score; under the new standard, 2016 data indicate
+  an additional half-point increase.
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2016 (continued)
+                                                                                                    3-Year Moving Average*
+                                                                  Total
+ Jurisdiction                      County                      Lane Miles                 2014                  2015                   2016
+ Hayward                           Alameda                         654.9                   67                     67                     68
+ San Francisco                     —                              2,141.6                  66                     67                     68
+ Saratoga                          Santa Clara                     282.9                   70                     67                     68
+ Gilroy                            Santa Clara                     269.5                   73                     69                     68
+ Pinole                            Contra Costa                    118.2                   67                     67                     68
+ San Rafael                        Marin                           331.1                   69                     68                     67
+ Napa                              Napa                            464.3                   64                     66                     67
+ Antioch                           Contra Costa                    680.2                   67                     66                     67
+ Moraga                            Contra Costa                    110.4                   58                     64                     67
+ Los Gatos                         Santa Clara                     230.1                   70                     68                     67
+ Pleasant Hill                     Contra Costa                    224.3                   65                     65                     66
+ Half Moon Bay                     San Mateo                        55.4                   63                     67                     66
+ Sausalito                         Marin                            58.0                   65                     66                     65
+ San Bruno                         San Mateo                       180.5                   62                     65                     64
+ Fairfax                           Marin                            54.7                   65                     65                     64
+ East Palo Alto                    San Mateo                        83.1                   58                     58                     63
+ Piedmont                          Alameda                          77.6                   67                     65                     62
+ Monte Sereno                      Santa Clara                      26.8                   65                     63                     62
+ San Jose                          Santa Clara                    4,313.7                  62                     62                     62
+ San Anselmo                       Marin                            81.4                   59                     60                     62
+ Marin County                      —                               845.0                   59                     60                     62
+ Healdsburg                        Sonoma                           93.2                   60                     61                     61
+ San Carlos                        San Mateo                       175.1                   60                     59                     61
+ Richmond                          Contra Costa                    571.1                   64                     63                     61
+ Mill Valley                       Marin                           115.9                   58                     60                     61
+ Cloverdale                        Sonoma                           64.6                   63                     62                     61
+ Santa Rosa                        Sonoma                         1,099.8                  62                     61                     60
+ Concord                           Contra Costa                    716.7                   62                     61                     60
+
+
+
+
+*For annual (non-averaged) PCI scores, please contact MTC. MTC in 2016 implemented an improved ASTM D6433 pavement rating standard. Under
+  the previous standard, data for 2015 indicated a half-point increase in the region's average PCI score; under the new standard, 2016 data indicate
+  an additional half-point increase.
+Pavement Condition Index (PCI) for Bay Area Jurisdictions, 2016 (continued)
+                                                                                                    3-Year Moving Average*
+                                                                  Total
+ Jurisdiction                      County                      Lane Miles                 2014                  2015                   2016
+                                                           At Risk (PCI = 50–59)
+ Albany                            Alameda                          58.4                   56                     57                     59
+ Sebastopol                        Sonoma                           47.5                   62                     60                     58
+ Suisun City                       Solano                          152.5                   59                     55                     58
+ Berkeley                          Alameda                         453.7                   58                     58                     58
+ Rio Vista                         Solano                           46.0                   57                     57                     56
+ San Leandro                       Alameda                         393.6                   57                     56                     56
+ Benicia                           Solano                          195.8                   59                     57                     56
+ Oakland                           Alameda                        2,023.1                  58                     57                     56
+ St Helena                         Napa                             51.5                   45                     50                     55
+ Belmont                           San Mateo                       137.7                   56                     55                     54
+ Pacifica                          San Mateo                       186.1                   56                     55                     54
+ Orinda                            Contra Costa                    193.3                   49                     49                     54
+ Calistoga                         Napa                             31.1                   55                     54                     52
+ Cotati                            Sonoma                           47.9                   55                     53                     52
+ Millbrae                          San Mateo                       121.5                   56                     54                     52
+ Napa County                       —                               838.0                   56                     53                     52
+ Vallejo                           Solano                          714.5                   47                     49                     51
+                                                             Poor (PCI= 25–49)
+ Sonoma County                     —                              2,706.1                  45                     47                     49
+ Martinez                          Contra Costa                    232.6                   56                     52                     48
+ Petaluma                          Sonoma                          396.3                   45                     46                     46
+ Larkspur                          Marin                            66.0                   40                     39                     41
+
+
+ Bay Area                                                         43,280                   66                     66                     67
+
+
+
+
+*For annual (non-averaged) PCI scores, please contact MTC. MTC in 2016 implemented an improved ASTM D6433 pavement rating standard. Under
+  the previous standard, data for 2015 indicated a half-point increase in the region's average PCI score; under the new standard, 2016 data indicate
+  an additional half-point increase.
+Aggregate City and County PCI for Bay Area Counties, 2016
+                                                                          3-Year Moving Average*
+                                         Total
+ Jurisdiction                         Lane Miles                2014                 2015                 2016
+                                                 Good (PCI = 70 – 79)
+ San Mateo County                        3,890                    70                   70                   71
+ Contra Costa County                     7,125                    69                   69                   70
+                                                  Fair (PCI= 60 – 69)
+ Alameda County                          8,132                    68                   68                   68
+ San Francisco County                    2,142                    66                   67                   68
+ Santa Clara County                      9,978                    68                   68                   68
+ Solano County                           3,522                    64                   65                   66
+ Marin County                            2,055                    64                   64                   65
+                                                At Risk (PCI=50–59)
+ Napa County                             1,513                    60                   59                   59
+ Sonoma County                           4,922                    54                   55                   55
+
+*For annual (non-averaged) PCI scores, please contact MTC. MTC in 2016 implemented an improved ASTM D6433 pavement
+  rating standard. Under the previous standard, data for 2015 indicated a half-point increase in the region's average PCI
+  score; under the new standard, 2016 data indicate an additional half-point increase.
+
+
+
+
+  Figure 1: Bay Area Local Roadways by Condition Category
+                                                Lane Miles of Local Street & Road Pavement
+           Excellent    Very Good     Good          Fair      At-Risk      Poor       Failed                      Annual
+                                                                                                 No
+                                                                                                       Totals    Weighted
+           PCI=90–100   PCI=80–89   PCI=70–79    PCI=60–69   PCI=50–59   PCI=25–49   PCI=0–24   Data
+                                                                                                                 Avg PCI
+Bay Area     4,301       10,374      8,975         5,671       4,170      6,837       2,900     53 42,281
+                                                                                                                   67
+Percent      10.0%       24.0%       20.7%         13.1%       9.6%       15.8%       6.7%      0.1% 100%
+Figure 2: Year-Over-Year Comparison of Local Roadway Conditions
+                                      Pavement Conditions for Local Roadways,
+                                             2006–2016 (Lane Miles)
+
+
+
+   2016                   34%                                   34%                    10%              23%
+
+
+   2015                   34%                                   34%                    10%              22%
+
+
+   2014                   31%                                  35%                    10%               23%
+
+
+   2013                   32%                                  34%                    10%               23%
+
+
+   2012                   31%                                  35%                    11%               23%
+
+
+   2011                   31%                                  35%                    11%               23%
+
+
+   2010                   32%                                  34%                    11%               23%
+
+
+ 2008/09                  33%                                  34%                     11%              21%
+
+
+   2007                    35%                                  32%                    10%              22%
+
+
+   2006                   34%                                  31%                    10%               25%
+
+
+           0%       10%         20%       30%        40%        50%            60%     70%        80%     90%        100%
+
+                 Excellent or Very Good         Good or Fair         At Risk     Poor or Failed     No Data
+
+
+
+                                          Regional Weighted PCI (Network)
+                Year      2008/09        2010       2011        2012           2013     2014       2015       2016
+            Weighted
+              PCI            66           66          66         66             66       66         67        67
+

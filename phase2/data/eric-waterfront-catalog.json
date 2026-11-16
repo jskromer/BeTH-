@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "title": "Catalog of figures extracted from Eric Fredericks' Berkeley Decision Project waterfront analysis",
+  "retrieved": "2026-10-23",
+  "attribution": {
+    "author": "Eric Fredericks (ericdf)",
+    "project": "Berkeley Decision Project",
+    "pages_read": [
+      "https://ericdf.github.io/berkeley-decision-project/waterfront-fund.html",
+      "https://ericdf.github.io/berkeley-decision-project/pier-ferry.html"
+    ],
+    "repository": "https://github.com/ericdf/berkeley-decision-project",
+    "stated_method": "Per the project README: 'Every figure on this site traces to a primary document. Where a figure could not be reproduced from the source it is attributed to, it has been dropped and the omission stated on the page.'",
+    "repository_note": "The public repository is generated output from a private source repository. Underlying data files and build scripts are not public, so Eric's extraction steps cannot be re-executed; only his cited primary documents can be re-read."
+  },
+  "evidence_status": "RESEARCH SOURCE, NOT AUDITED EVIDENCE. Every figure below is Eric's reading of a cited document. BeTH treats these as leads to verify against primary sources, never as substitutes for the audited ACFR ledger. Status values: verified-independently | consistent-with-beth | conflicts-with-beth | unverified.",
+
+  "marina_operating": [
+    {"fy": 2023, "measure": "total revenue", "eric": 8200000, "beth_audited": 6898201,
+     "status": "conflicts-with-beth",
+     "note": "Eric's $8.20M is a budget-document revenue concept that includes a $630,826 draw from reserves and $1,150,000 of ARPA aid. A reserve draw is not revenue under GAAP. BeTH's $6,898,201 is the audited operating revenue from the FY2024 ACFR.",
+     "eric_components": {"berth_rentals": 3615881, "waterfront_leases": 1922308, "other_boating_fees_fines": 659179, "interest_events_programs": 225865, "federal_aid_arpa": 1150000, "drawn_from_reserves": 630826}},
+    {"fy": 2023, "measure": "total spending", "eric": 7380000, "beth_audited": 7319483,
+     "status": "consistent-with-beth",
+     "note": "About $60K apart. Likely a depreciation or internal-charge treatment difference; not yet isolated."},
+    {"fy": 2026, "measure": "total revenue", "eric": 8670000, "beth_projected": 8673012,
+     "status": "conflicts-with-beth",
+     "note": "Figures agree to the dollar and come from the same source (PRW Commission packet, 2026-09-09). The conflict is the LABEL: Eric presents FY2026 as 'Actual'; BeTH records it as PROJECTED. No FY2026 ACFR exists yet (FY2025 is the latest audited year), so these cannot be actuals."},
+    {"fy": 2026, "measure": "total spending", "eric": 8395000, "beth_projected": 8395420,
+     "status": "conflicts-with-beth", "note": "Same label problem as FY2026 revenue."},
+    {"fy": 2025, "measure": "total revenue", "eric": null, "beth_audited": 7594812,
+     "status": "unverified", "note": "Eric has no FY2025 operating data. BeTH's audited FY2025 operating revenue is berth rents $5,329,258 + leases $2,265,554. Investment earnings $122,868 are non-operating and excluded."},
+    {"fy": 2025, "measure": "total expenditure", "eric": null, "beth_audited": 13573896,
+     "status": "unverified", "note": "BeTH FY2025 audited expense is nearly double FY2024, driven by the state-grant-funded dock and pile capital work. Eric's analysis does not cover FY2025."}
+  ],
+
+  "boating_vs_nonboating": {
+    "fy": 2023, "status": "unverified",
+    "source": "California Division of Boating and Waterways, Berkeley Marina Loan Feasibility Report Update, June 2023, Table 6, p.19",
+    "eric_finding": "Boating revenue covers boating cost in FY2023: $3.28M boating revenue against $3.28M boating expense. Non-boating expense of $4.09M has no dedicated revenue stream.",
+    "allocation_percentages": {
+      "marina_operations": {"boating": 69.4, "nonboating": 30.6},
+      "building_maintenance": {"boating": 40.0, "nonboating": 60.0},
+      "landscape_services": {"boating": 0, "nonboating": 100},
+      "recreation": {"boating": 0, "nonboating": 100},
+      "security": {"boating": 45.0, "nonboating": 55.0},
+      "waterfront_management": {"boating": 48.6, "nonboating": 51.4},
+      "capital_minor_maintenance": {"boating": 42.1, "nonboating": 57.9},
+      "admin_overhead": {"boating": 50.1, "nonboating": 49.9}
+    },
+    "beth_position": "BeTH's audited ledger has NO boating/non-boating split. The ACFR does not report one. This split exists only in the DBW report, which the State itself called 'an informal report prepared at DBW's request' based on 'estimated workloads'. It is a cost-allocation estimate, not an audited classification, and must be labeled as such wherever BeTH displays it."
+  },
+
+  "payroll_and_allocations": {
+    "status": "conflicts-with-beth",
+    "eric": {"marina_fund_personnel_charged": 4400000, "waterfront_division_actual_salaries_benefits": 3100000,
+             "unallocated_overhead_within_fund": 1300000, "period": "FY2025-2026",
+             "waterfront_manager_pct_to_marina": 85, "assistant_civil_engineer_pct_to_marina": 60,
+             "prw_director_admin_portion_fy2023": 573818},
+    "beth_audited_fy2025": {"staff_and_benefits": 4179607, "city_central_charges_indirect": 706259},
+    "note": "Eric's $4.4M 'charged' vs BeTH's audited $4,179,607 'Staff and benefits' are different measures over different periods and do not reconcile as stated. Eric's inferred ~$1.3M of unallocated overhead is an analytical conclusion, not a line item in any statement. BeTH must not publish the $1.3M as an audited figure.",
+    "eric_finding_on_method": "'No document reviewed states how any of these shares was set.' Indirect cost charged was lower in every year with data than the City's own cost-allocation plan computes.",
+    "beth_corroboration": "BeTH independently records FY2025 and FY2026 indirect-cost reductions and Workers' Compensation 'holidays' as discrete ledger flows, which is consistent with Eric's finding that charges were set below plan."
+  },
+
+  "interfund": [
+    {"item": "Workers' Compensation internal loan", "authorized": "2023-07-25", "amount": 5500000,
+     "interest_rate_pct": 2.8, "approx_total_interest": 500000,
+     "intended_repayment": "about $1,000,000 annually from waterfront hotel tax beginning FY2025",
+     "eric_finding": "$5.5M moved from the Workers' Compensation Fund to the GENERAL FUND in FY2024. No loan receivable is recorded in the audited statements. No repayment documented through FY2025.",
+     "beth_ledger_says": "608 records FY2024 loan_in $5,500,000 from the Workers' Compensation Fund to the MARINA. ACFR-workers-compensation records FY2024 transfer_out $5,500,000 described as 'Waterfront D and E dock replacement (Marina)'.",
+     "status": "conflicts-with-beth",
+     "priority": "HIGHEST",
+     "independent_verification_by_beth": "The string '5,500,000' does not appear anywhere in the FY2025 ACFR. Note 4.A (Due To/From Other Funds, p.79) at June 30, 2025 lists only $2,477,099 due from Marina Operations to the General Fund and NO Workers' Compensation receivable of any size. Marina's own audited FY2024 transfers in are $0. This corroborates Eric: no $5.5M receivable is recorded as owed.",
+     "open_question": "Where did the Workers' Compensation Fund's audited FY2024 transfers out of $5,500,000 actually go, and on what basis does BeTH's 608 ledger record a matching loan in? Resolve before either figure is published in Phase 2."},
+
+    {"item": "Workers' Compensation further drawdown", "fy": 2026, "amount_eric": 5200000, "amount_beth": 5187019,
+     "direction": "Workers' Compensation Fund to General Fund", "status": "consistent-with-beth",
+     "note": "Eric rounds to $5.2M; BeTH carries the budgeted $5,187,019. Same transaction, same direction. BeTH lists it among the FY2026 budgeted transfers into the General Fund."},
+
+    {"item": "General Fund interfund receivable from Marina", "as_of": "2025-06-30", "amount": 2477099,
+     "status": "verified-independently", "eric_mentions": false,
+     "note": "ABSENT from Eric's analysis. BeTH carries it, and Phase 1 reclassified the General Fund side from transfer_out to loan_out after confirming ACFR Note 4.A (p.79) describes these balances as reclassified temporary negative cash balances pending grant reimbursements or other receivables, expected to be repaid within the next fiscal year. This is BeTH evidence Eric's analysis lacks."}
+  ],
+
+  "general_fund_support_to_marina": [
+    {"fy": 2022, "eric": 1400000, "beth": 1400000, "mechanism": "Federal ARPA pandemic aid", "status": "consistent-with-beth"},
+    {"fy": 2023, "eric": 1150000, "beth": 1150000, "mechanism": "Federal ARPA pandemic aid", "status": "consistent-with-beth"},
+    {"fy": 2024, "eric": 800000, "beth": 800000, "mechanism": "Cost shifts (capital staff, gardeners)", "status": "consistent-with-beth"},
+    {"fy": 2025, "eric": 704000, "beth": 850000, "mechanism": "Indirect-cost and workers' comp holidays; Parks Tax shift",
+     "status": "conflicts-with-beth", "variance": 146000,
+     "note": "Eric cites Budget and Finance presentations (2025-05-22, 2025-10-28) and the 2024-07-17 City Manager memo; BeTH cites the same period at $850,000. Component-level comparison needed."},
+    {"fy": 2026, "eric": 1400000, "beth_608_side": 1526000, "beth_011_side": 1300000, "beth_011_transfer_list": 1409886,
+     "status": "conflicts-with-beth", "priority": "HIGH",
+     "note": "FOUR different figures for FY2026 General Fund support to the Marina: Eric $1,400,000; BeTH 608 inflows $1,300,000 + $226,000 = $1,526,000; BeTH 011 flow $1,300,000; BeTH 011 FY2026 transfer list line 'Marina $1,409,886'. All are budget-stage figures. Must be reconciled to one adopted number before publication."},
+    {"fy_range": "2008-2021", "eric": 0, "beth": null, "mechanism": "No transfers", "status": "unverified"}
+  ],
+
+  "parks_tax": {
+    "measure_y_permanent_shift_annual": 1579000, "effective": "FY2026 onward",
+    "eric": 1579000, "beth": 1579000, "status": "consistent-with-beth",
+    "note": "Exact agreement. BeTH records it as a FY2026 cost_shift from 608 to the Park Tax fund for waterfront park and landscape maintenance.",
+    "historical_drift_eric": {"FY1998": 121895, "FY2003_projection_low": 107000, "FY2003_projection_high": 124000,
+                              "FY2007": 519707, "FY2023": 757125, "FY2016_20_projection": 966334},
+    "eric_open_question": "'The records this project reviewed do not show when, or by what decision, the cost moved' from Parks Tax to Marina Fund between 2003 and 2007.",
+    "beth_context": "BeTH's Park Tax ledger shows FY2025 audited revenue $19,415,084 and expenditure $17,712,400, a FY2026 Measure Y increase of about $3,800,000 from $0.221 to $0.2652 per square foot, and $281,500,000 of unfunded parks and camps capital need in the proposed FY2027-31 CIP."
+  },
+
+  "unfunded_capital": [
+    {"as_of": "2026-09-09", "eric": "163000000+", "beth": 163344000, "status": "consistent-with-beth",
+     "beth_breakdown_partial": {"inner_harbor_docks": 33400000, "parking_lots": 17300000, "streets": 15000000},
+     "note": "BeTH carries a more precise figure with a partial breakdown; Eric reports no breakdown."},
+    {"as_of": "2025-05-22", "eric": null, "beth": 131000000, "status": "unverified",
+     "note": "BeTH-only earlier estimate. The jump from $131.0M to $163.3M in about 16 months is itself a finding to source."},
+    {"as_of": "2025-09", "eric": 153480000, "beth": null, "status": "unverified",
+     "note": "Third figure, from Eric's pier-ferry page. Three waterfront unfunded-need totals now exist for a 16-month window: $131.0M, $153.5M, $163.3M. Scope definitions differ and must be pinned down."}
+  ],
+
+  "pier_ferry": {
+    "status": "unverified",
+    "capital_estimates": [
+      {"amount": 119500000, "date": "2019", "basis": "GHD feasibility study"},
+      {"amount": 121700000, "date": "2021-12", "basis": "Preferred Concept: waterside $69.5M + landside $14M + two electric vessels $38.2M"},
+      {"amount": 103600000, "date": "2025-10", "basis": "City Manager report, terminal only"},
+      {"amount": 137500000, "date": "2026-06", "basis": "City presentation"},
+      {"amount": 200000000, "date": "2026", "basis": "McGrath analysis, full system; independent, not a City figure"}
+    ],
+    "pier_rebuild_range_2019": {"low": 17000000, "high": 55000000},
+    "funding_identified": {"alameda_ctc_grant": 5138685, "accepted": "2023-07-11"},
+    "funding_not_identified": "Construction funding has not been identified (City Manager update, 2025-10-24).",
+    "operating_subsidy_2035_best_case": {"fare_per_passenger": 7.28, "public_subsidy_per_boarding": 7.62, "annual_operating_gap": 5589288},
+    "weta_annual_operating_subsidy_range": {"low": 9000000, "high": 12000000},
+    "mcgrath_annualized_capital_plus_operating": 20000000,
+    "farebox_recovery_richmond_pct": 12, "state_policy_goal_pct": 40,
+    "contracts_through_2024_07": 20700000,
+    "contracts_note": "About $20.7M across six items, all approved on the consent calendar without debate.",
+    "measure_u_bond": "The $300M Measure U project list (2026-05-19) contains waterfront items (restroom, perimeter pathway, Marina Blvd sea-level-rise work, dock timber piles, Seawall Drive, Bay Trail) but NO ferry or terminal project.",
+    "beth_position": "BeTH's audited ledger contains none of this. These are planning and contract figures, not audited expenditures. They belong in the capital-project database with status and funding-restriction fields, clearly separated from ACFR data."
+  },
+
+  "vision2050": {
+    "asset_management_policy_adopted": "2022-05-10 (Council Item 31)",
+    "status_december_2025": "Mayor's Vision 2050 Task Force final report (2025-12-02, p.11): asset management program still incomplete; target of facilities, street paving, sidewalks and sewers by July 2027.",
+    "waterfront_status": "Waterfront is named as a Parks, Recreation and Waterfront Department asset in the 2022 policy but is NOT on the Vision 2050 implementation schedule.",
+    "status_flag": "unverified",
+    "significance": "If correct, the single largest identified unfunded asset class on the waterfront ($163.3M) sits outside the City's asset-management implementation plan. Verify directly against the Task Force report before publishing."
+  },
+
+  "state_regulator": {
+    "agency": "California Division of Boating and Waterways",
+    "date": "2023-06",
+    "finding": "'This is not how enterprise funds are typically used.' Berkeley is using an enterprise fund to support non-revenue-generating activities.",
+    "recommendation": "Either provide additional financial security for the $5.5M dock-replacement loan, or move non-boating expenses off the Marina Fund.",
+    "city_response": "Borrowed $5.5M internally from the Workers' Compensation Fund instead.",
+    "status": "unverified",
+    "significance": "This is the causal link between the regulator's finding and the Workers' Compensation transaction that BeTH cannot currently trace. Highest-value document to obtain."
+  }
+}

@@ -145,3 +145,7 @@ T1/
 NJ PY6 TRM*
 Berkeley_Efficiency_Bargaining_Strategy.docx
 *.rtfd/
+
+# Python bytecode
+__pycache__/
+*.pyc

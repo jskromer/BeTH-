@@ -1,0 +1,556 @@
+{
+ "schema_version": 1,
+ "generated": "2026-10-23",
+ "evidence_class": "CITY_PLAN",
+ "source": {
+  "title": "Five-Year Street Rehabilitation and Measure FF Plans for Fiscal Years 2027-2031, Council Action Calendar, July 7, 2026, Attachments (street lists)",
+  "local": "phase2/sources/street-rehab-measure-ff-2026-07-07.pdf"
+ },
+ "what_this_is": "Current PCI (as printed in the plan) of every section the City plans to treat FY2027-FY2031, validated per fiscal year against the printed section count and miles.",
+ "what_this_is_not": "Not the condition of the whole network. Streets not in either plan are not here. PCI is the value printed at planning time; streets will be lower when treated.",
+ "condition_bands": "Metropolitan Transportation Commission pavement categories: failed 0-24, poor 25-49, at risk 50-59, fair 60-69, good 70-79, very good 80-100.",
+ "network_context": {
+  "centerline_miles": 213,
+  "lane_miles": 450,
+  "sources": "street plan p.16 (213 centerline miles, PCI 57); adoption packet p.243 (450 lane miles)"
+ },
+ "plans": {
+  "five_year_plan": {
+   "by_year": {
+    "2027": {
+     "printed_header": {
+      "sections": 60,
+      "cost": 17360697,
+      "miles": 9.97
+     },
+     "parsed_sections": 60,
+     "parsed_miles": 9.98,
+     "validated": true,
+     "miles_difference_vs_printed": 0.01,
+     "pages": "21-27",
+     "sections": 60,
+     "centerline_miles": 9.98,
+     "miles_below_pci_50": 2.99,
+     "share_of_planned_miles_below_50": 0.2996,
+     "length_weighted_mean_current_pci": 63.3,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 6,
+       "miles": 1.13
+      },
+      "poor (25-49)": {
+       "sections": 9,
+       "miles": 1.86
+      },
+      "at risk (50-59)": {
+       "sections": 5,
+       "miles": 0.86
+      },
+      "fair (60-69)": {
+       "sections": 5,
+       "miles": 1.12
+      },
+      "good (70-79)": {
+       "sections": 10,
+       "miles": 1.36
+      },
+      "very good (80-100)": {
+       "sections": 25,
+       "miles": 3.65
+      }
+     }
+    },
+    "2028": {
+     "printed_header": {
+      "sections": 67,
+      "cost": 17051650,
+      "miles": 9.84
+     },
+     "parsed_sections": 67,
+     "parsed_miles": 9.86,
+     "validated": true,
+     "miles_difference_vs_printed": 0.02,
+     "pages": "29-33",
+     "sections": 67,
+     "centerline_miles": 9.86,
+     "miles_below_pci_50": 2.3,
+     "share_of_planned_miles_below_50": 0.2333,
+     "length_weighted_mean_current_pci": 66.0,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 1,
+       "miles": 0.1
+      },
+      "poor (25-49)": {
+       "sections": 14,
+       "miles": 2.2
+      },
+      "at risk (50-59)": {
+       "sections": 4,
+       "miles": 0.74
+      },
+      "fair (60-69)": {
+       "sections": 10,
+       "miles": 1.54
+      },
+      "good (70-79)": {
+       "sections": 15,
+       "miles": 2.35
+      },
+      "very good (80-100)": {
+       "sections": 23,
+       "miles": 2.93
+      }
+     }
+    },
+    "2029": {
+     "printed_header": {
+      "sections": 63,
+      "cost": 17870774,
+      "miles": 8.28
+     },
+     "parsed_sections": 63,
+     "parsed_miles": 8.33,
+     "validated": true,
+     "miles_difference_vs_printed": 0.05,
+     "pages": "35-38",
+     "sections": 63,
+     "centerline_miles": 8.33,
+     "miles_below_pci_50": 2.96,
+     "share_of_planned_miles_below_50": 0.3553,
+     "length_weighted_mean_current_pci": 57.6,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 4,
+       "miles": 0.89
+      },
+      "poor (25-49)": {
+       "sections": 15,
+       "miles": 2.07
+      },
+      "at risk (50-59)": {
+       "sections": 5,
+       "miles": 0.82
+      },
+      "fair (60-69)": {
+       "sections": 12,
+       "miles": 1.67
+      },
+      "good (70-79)": {
+       "sections": 7,
+       "miles": 1.01
+      },
+      "very good (80-100)": {
+       "sections": 20,
+       "miles": 1.87
+      }
+     }
+    },
+    "2030": {
+     "printed_header": {
+      "sections": 66,
+      "cost": 17957460,
+      "miles": 11.33
+     },
+     "parsed_sections": 66,
+     "parsed_miles": 11.33,
+     "validated": true,
+     "miles_difference_vs_printed": 0.0,
+     "pages": "40-43",
+     "sections": 66,
+     "centerline_miles": 11.33,
+     "miles_below_pci_50": 2.04,
+     "share_of_planned_miles_below_50": 0.1801,
+     "length_weighted_mean_current_pci": 67.3,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 3,
+       "miles": 0.56
+      },
+      "poor (25-49)": {
+       "sections": 10,
+       "miles": 1.48
+      },
+      "at risk (50-59)": {
+       "sections": 5,
+       "miles": 1.26
+      },
+      "fair (60-69)": {
+       "sections": 6,
+       "miles": 1.18
+      },
+      "good (70-79)": {
+       "sections": 21,
+       "miles": 2.97
+      },
+      "very good (80-100)": {
+       "sections": 21,
+       "miles": 3.88
+      }
+     }
+    },
+    "2031": {
+     "printed_header": {
+      "sections": 97,
+      "cost": 18380381,
+      "miles": 15.72
+     },
+     "parsed_sections": 97,
+     "parsed_miles": 15.78,
+     "validated": true,
+     "miles_difference_vs_printed": 0.06,
+     "pages": "45-50",
+     "sections": 97,
+     "centerline_miles": 15.78,
+     "miles_below_pci_50": 2.9,
+     "share_of_planned_miles_below_50": 0.1838,
+     "length_weighted_mean_current_pci": 68.8,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 1,
+       "miles": 0.06
+      },
+      "poor (25-49)": {
+       "sections": 15,
+       "miles": 2.84
+      },
+      "at risk (50-59)": {
+       "sections": 9,
+       "miles": 1.51
+      },
+      "fair (60-69)": {
+       "sections": 9,
+       "miles": 1.7
+      },
+      "good (70-79)": {
+       "sections": 26,
+       "miles": 5.27
+      },
+      "very good (80-100)": {
+       "sections": 37,
+       "miles": 4.4
+      }
+     }
+    }
+   },
+   "all_years": {
+    "sections": 353,
+    "centerline_miles": 55.28,
+    "miles_below_pci_50": 13.19,
+    "share_of_planned_miles_below_50": 0.2386,
+    "length_weighted_mean_current_pci": 65.3,
+    "by_condition_band": {
+     "failed (0-24)": {
+      "sections": 15,
+      "miles": 2.74
+     },
+     "poor (25-49)": {
+      "sections": 63,
+      "miles": 10.45
+     },
+     "at risk (50-59)": {
+      "sections": 28,
+      "miles": 5.19
+     },
+     "fair (60-69)": {
+      "sections": 42,
+      "miles": 7.21
+     },
+     "good (70-79)": {
+      "sections": 79,
+      "miles": 12.96
+     },
+     "very good (80-100)": {
+      "sections": 126,
+      "miles": 16.73
+     }
+    }
+   }
+  },
+  "measure_ff": {
+   "by_year": {
+    "2027": {
+     "printed_header": {
+      "sections": 20,
+      "cost": 13560042,
+      "miles": 3.8
+     },
+     "parsed_sections": 20,
+     "parsed_miles": 3.81,
+     "validated": true,
+     "miles_difference_vs_printed": 0.01,
+     "pages": "52-53",
+     "sections": 20,
+     "centerline_miles": 3.81,
+     "miles_below_pci_50": 3.68,
+     "share_of_planned_miles_below_50": 0.9659,
+     "length_weighted_mean_current_pci": 25.0,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 12,
+       "miles": 2.46
+      },
+      "poor (25-49)": {
+       "sections": 7,
+       "miles": 1.22
+      },
+      "at risk (50-59)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "fair (60-69)": {
+       "sections": 1,
+       "miles": 0.13
+      },
+      "good (70-79)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "very good (80-100)": {
+       "sections": 0,
+       "miles": 0
+      }
+     }
+    },
+    "2028": {
+     "printed_header": {
+      "sections": 6,
+      "cost": 6822998,
+      "miles": 1.05
+     },
+     "parsed_sections": 6,
+     "parsed_miles": 1.05,
+     "validated": true,
+     "miles_difference_vs_printed": 0.0,
+     "pages": "54-54",
+     "sections": 6,
+     "centerline_miles": 1.05,
+     "miles_below_pci_50": 1.05,
+     "share_of_planned_miles_below_50": 1.0,
+     "length_weighted_mean_current_pci": 32.6,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 1,
+       "miles": 0.1
+      },
+      "poor (25-49)": {
+       "sections": 5,
+       "miles": 0.95
+      },
+      "at risk (50-59)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "fair (60-69)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "good (70-79)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "very good (80-100)": {
+       "sections": 0,
+       "miles": 0
+      }
+     }
+    },
+    "2029": {
+     "printed_header": {
+      "sections": 11,
+      "cost": 7805256,
+      "miles": 1.42
+     },
+     "parsed_sections": 11,
+     "parsed_miles": 1.42,
+     "validated": true,
+     "miles_difference_vs_printed": 0.0,
+     "pages": "55-55",
+     "sections": 11,
+     "centerline_miles": 1.42,
+     "miles_below_pci_50": 1.42,
+     "share_of_planned_miles_below_50": 1.0,
+     "length_weighted_mean_current_pci": 23.0,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 6,
+       "miles": 0.9
+      },
+      "poor (25-49)": {
+       "sections": 5,
+       "miles": 0.52
+      },
+      "at risk (50-59)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "fair (60-69)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "good (70-79)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "very good (80-100)": {
+       "sections": 0,
+       "miles": 0
+      }
+     }
+    },
+    "2030": {
+     "printed_header": {
+      "sections": 9,
+      "cost": 5524906,
+      "miles": 1.19
+     },
+     "parsed_sections": 9,
+     "parsed_miles": 1.21,
+     "validated": true,
+     "miles_difference_vs_printed": 0.02,
+     "pages": "56-56",
+     "sections": 9,
+     "centerline_miles": 1.21,
+     "miles_below_pci_50": 1.21,
+     "share_of_planned_miles_below_50": 1.0,
+     "length_weighted_mean_current_pci": 29.0,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 5,
+       "miles": 0.47
+      },
+      "poor (25-49)": {
+       "sections": 4,
+       "miles": 0.74
+      },
+      "at risk (50-59)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "fair (60-69)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "good (70-79)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "very good (80-100)": {
+       "sections": 0,
+       "miles": 0
+      }
+     }
+    },
+    "2031": {
+     "printed_header": {
+      "sections": 8,
+      "cost": 8767933,
+      "miles": 2.05
+     },
+     "parsed_sections": 8,
+     "parsed_miles": 2.06,
+     "validated": true,
+     "miles_difference_vs_printed": 0.01,
+     "pages": "57-57",
+     "sections": 8,
+     "centerline_miles": 2.06,
+     "miles_below_pci_50": 2.06,
+     "share_of_planned_miles_below_50": 1.0,
+     "length_weighted_mean_current_pci": 26.9,
+     "by_condition_band": {
+      "failed (0-24)": {
+       "sections": 4,
+       "miles": 0.94
+      },
+      "poor (25-49)": {
+       "sections": 4,
+       "miles": 1.12
+      },
+      "at risk (50-59)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "fair (60-69)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "good (70-79)": {
+       "sections": 0,
+       "miles": 0
+      },
+      "very good (80-100)": {
+       "sections": 0,
+       "miles": 0
+      }
+     }
+    }
+   },
+   "all_years": {
+    "sections": 54,
+    "centerline_miles": 9.55,
+    "miles_below_pci_50": 9.42,
+    "share_of_planned_miles_below_50": 0.9864,
+    "length_weighted_mean_current_pci": 26.5,
+    "by_condition_band": {
+     "failed (0-24)": {
+      "sections": 28,
+      "miles": 4.87
+     },
+     "poor (25-49)": {
+      "sections": 25,
+      "miles": 4.55
+     },
+     "at risk (50-59)": {
+      "sections": 0,
+      "miles": 0
+     },
+     "fair (60-69)": {
+      "sections": 1,
+      "miles": 0.13
+     },
+     "good (70-79)": {
+      "sections": 0,
+      "miles": 0
+     },
+     "very good (80-100)": {
+      "sections": 0,
+      "miles": 0
+     }
+    }
+   }
+  },
+  "both_plans_fy2027_2031": {
+   "sections": 407,
+   "centerline_miles": 64.83,
+   "miles_below_pci_50": 22.61,
+   "share_of_planned_miles_below_50": 0.3488,
+   "length_weighted_mean_current_pci": 59.6,
+   "by_condition_band": {
+    "failed (0-24)": {
+     "sections": 43,
+     "miles": 7.61
+    },
+    "poor (25-49)": {
+     "sections": 88,
+     "miles": 15.0
+    },
+    "at risk (50-59)": {
+     "sections": 28,
+     "miles": 5.19
+    },
+    "fair (60-69)": {
+     "sections": 43,
+     "miles": 7.34
+    },
+    "good (70-79)": {
+     "sections": 79,
+     "miles": 12.96
+    },
+    "very good (80-100)": {
+     "sections": 126,
+     "miles": 16.73
+    }
+   }
+  }
+ }
+}

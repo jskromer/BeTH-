@@ -1,0 +1,1037 @@
+{
+ "schema_version": 2,
+ "extracted": "2026-10-23",
+ "source": {
+  "title": "Proposed Five-Year Capital Improvement Program, Fiscal Years 2027-2031",
+  "body": "City of Berkeley, Council agenda attachment Item 02",
+  "url": "https://berkeleyca.gov/sites/default/files/legislative-body-meeting-attachments/Item%2002%20Proposed%20FY27-FY31%20Proposed%20CIP%20Budget%20Presentation.pdf",
+  "local_copy": "phase2/sources/cip-fy27-31-presentation.pdf",
+  "pages": 44,
+  "document_states": "FY 2027 - FY 2031 CIP Total Projects = 149 projects"
+ },
+ "evidence_class": "BUDGET_PROPOSED",
+ "caveats": [
+  "PROPOSED FY2027/FY2028 budget figures from a presentation deck. Not adopted appropriations, not expenditures, not encumbrances, not cash.",
+  "The deck states 149 projects across the five-year program but prints line-item tables for only a subset, almost all FY2027-FY2028. These rows are what the document actually prints.",
+  "FY2029-FY2031 line items are not printed in this source.",
+  "Amounts are assigned to a fiscal year by column position taken from each table header, not by the order dollar signs appear. Rows whose header geometry could not be read are flagged year_unassignable and left null.",
+  "No expenditure, encumbrance, remaining-authorization, schedule, status or restriction data exists in this source. Every such field is null and must come from the adopted budget, an encumbrance report, and restriction research.",
+  "Funding-source subtotal tables are captured separately in funding_source_rows and must never be summed together with project rows."
+ ],
+ "project_count_stated_by_city": 149,
+ "project_rows_extracted": 82,
+ "funding_rows_extracted": 21,
+ "projects": [
+  {
+   "label": "Finger Docks Replacement",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": null,
+   "fy2028_proposed": 200000,
+   "year_unassignable": false,
+   "source_line": 298
+  },
+  {
+   "label": "L&M, N Dock Garbage Relocation",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": 25000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 299
+  },
+  {
+   "label": "O Dock Parking Lot Design",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": null,
+   "fy2028_proposed": 150000,
+   "year_unassignable": false,
+   "source_line": 300
+  },
+  {
+   "label": "O&K Electrical (majority funded in previous FY)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 301
+  },
+  {
+   "label": "N Dock/Skates Parking Lot (majority funded by Tenant)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": 25000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 302
+  },
+  {
+   "label": "South Cove East Parking Lot Slurry/Striping",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "Marina Fund",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 303
+  },
+  {
+   "label": "West Frontage Road Landscaping and Irrigation Improvements",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Waterfront Projects",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 700000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 304
+  },
+  {
+   "label": "Cedar Rose Park 2-5 Playground Renovation",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": null,
+   "fy2028_proposed": 750000,
+   "year_unassignable": false,
+   "source_line": 316
+  },
+  {
+   "label": "Cedar Rose Park 5-12 Playground Renovation",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": 1206000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 317
+  },
+  {
+   "label": "James Kenney Sports Field/ ADA Improvements",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 1500000,
+   "year_unassignable": false,
+   "source_line": 318
+  },
+  {
+   "label": "MLK Jr. (YAP) Solar + Storage (majority funded by HUD grant)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": 400000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 319
+  },
+  {
+   "label": "MLK Jr. (YAP) Renovation (majority funded in prior FY)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 320
+  },
+  {
+   "label": "Park Restroom",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": null,
+   "fy2028_proposed": 500000,
+   "year_unassignable": false,
+   "source_line": 332
+  },
+  {
+   "label": "SFROW - Rails To Park Project (majority funded by grant)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": 3950000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 333
+  },
+  {
+   "label": "Tom Bates Regional Sports Complex Project (majority funded in prior FY)",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Parks Tax",
+   "fy2027_proposed": 369000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 334
+  },
+  {
+   "label": "Tom Bates Turf Replacement - Annual JPA Contribution",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 15000,
+   "fy2028_proposed": 15000,
+   "year_unassignable": false,
+   "source_line": 335
+  },
+  {
+   "label": "King Pool Leak Repair",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 185000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 336
+  },
+  {
+   "label": "Bolivar Parking Project",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Park Projects",
+   "funding_source_as_printed": "Bayer Aquatic Park Fund",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 337
+  },
+  {
+   "label": "Cazadero Camp Storm Damage Recovery",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Camp Projects",
+   "funding_source_as_printed": "Camps Fund",
+   "fy2027_proposed": 185000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 349
+  },
+  {
+   "label": "Echo Lake Fireplace Renovation",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Camp Projects",
+   "funding_source_as_printed": "Camps Fund",
+   "fy2027_proposed": 70000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 350
+  },
+  {
+   "label": "Echo Lake Generator",
+   "department": "Parks, Recreation & Waterfront",
+   "category": "Camp Projects",
+   "funding_source_as_printed": "Camps Fund",
+   "fy2027_proposed": 130000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 351
+  },
+  {
+   "label": "Sewer Rehabilitation Project",
+   "department": "Public Works",
+   "category": "Sanitary Sewer",
+   "funding_source_as_printed": "Sanitary Sewer Fund",
+   "fy2027_proposed": 24250000,
+   "fy2028_proposed": 22170000,
+   "year_unassignable": false,
+   "source_line": 418
+  },
+  {
+   "label": "Urgent Sewer Project",
+   "department": "Public Works",
+   "category": "Sanitary Sewer",
+   "funding_source_as_printed": "Sanitary Sewer Fund",
+   "fy2027_proposed": 700000,
+   "fy2028_proposed": 750000,
+   "year_unassignable": false,
+   "source_line": 419
+  },
+  {
+   "label": "Sanitary Sewer Masterplan",
+   "department": "Public Works",
+   "category": "Sanitary Sewer",
+   "funding_source_as_printed": "Sanitary Sewer Fund",
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 420
+  },
+  {
+   "label": "2180 Milvia windows, envelope repair, card reader, carpet",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 253000,
+   "fy2028_proposed": 83000,
+   "year_unassignable": false,
+   "source_line": 437
+  },
+  {
+   "label": "PSB Server Room Redundancy",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 235000,
+   "fy2028_proposed": 305000,
+   "year_unassignable": false,
+   "source_line": 438
+  },
+  {
+   "label": "Roof Replacement",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 200000,
+   "year_unassignable": false,
+   "source_line": 439
+  },
+  {
+   "label": "1947 Center Street Facade",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": 100000,
+   "year_unassignable": false,
+   "source_line": 440
+  },
+  {
+   "label": "Euclid Ave Garbage Enclosure Retainer",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 441
+  },
+  {
+   "label": "Facility Condition Assessment",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 50000,
+   "fy2028_proposed": 50000,
+   "year_unassignable": false,
+   "source_line": 442
+  },
+  {
+   "label": "NBSC Wall Collission Damage Repair",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 50000,
+   "fy2028_proposed": 150000,
+   "year_unassignable": false,
+   "source_line": 443
+  },
+  {
+   "label": "UC Settlement",
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 450
+  },
+  {
+   "label": "righ-of-way (Measure FF)",
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1359224,
+   "fy2028_proposed": 1235517,
+   "year_unassignable": false,
+   "source_line": 464
+  },
+  {
+   "label": "Sidewalk Repair Program",
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 785000,
+   "fy2028_proposed": 785000,
+   "year_unassignable": false,
+   "source_line": 465
+  },
+  {
+   "label": "Codornices Creek Restoration At 9th",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 650000,
+   "fy2028_proposed": 170000,
+   "year_unassignable": false,
+   "source_line": 502
+  },
+  {
+   "label": "FY27-29 Storm Drain Improvement\u200b and Trash Capture",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 540000,
+   "fy2028_proposed": 1620000,
+   "year_unassignable": false,
+   "source_line": 503
+  },
+  {
+   "label": "FY26 Green Infrastructure Projects",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 400000,
+   "fy2028_proposed": 1900000,
+   "year_unassignable": false,
+   "source_line": 504
+  },
+  {
+   "label": "Clean Water Program",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 200000,
+   "year_unassignable": false,
+   "source_line": 509
+  },
+  {
+   "label": "Clean Stormwater Fund",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 3465000,
+   "fy2028_proposed": 5390000,
+   "year_unassignable": false,
+   "source_line": 514
+  },
+  {
+   "label": "One-Time Grants",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1200000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 515
+  },
+  {
+   "label": "Capital Grant-Federal",
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 500000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 516
+  },
+  {
+   "label": "Clean Stormwater",
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1000000,
+   "fy2028_proposed": 1000000,
+   "year_unassignable": false,
+   "source_line": 541
+  },
+  {
+   "label": "Street & Open Space Improvement",
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 150000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 543
+  },
+  {
+   "label": "together investing over",
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": null,
+   "fy2028_proposed": 58,
+   "year_unassignable": false,
+   "source_line": 549
+  },
+  {
+   "label": "Capital Grant \u2013 State",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1447000,
+   "fy2028_proposed": 4681900,
+   "year_unassignable": false,
+   "source_line": 586
+  },
+  {
+   "label": "Capital Grants \u2013 Local",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 758250,
+   "fy2028_proposed": 1026250,
+   "year_unassignable": false,
+   "source_line": 589
+  },
+  {
+   "label": "UC Settlement",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 350000,
+   "fy2028_proposed": 750000,
+   "year_unassignable": false,
+   "source_line": 590
+  },
+  {
+   "label": "Improvements Grants-Local; MTC",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1891000,
+   "fy2028_proposed": 1031500,
+   "year_unassignable": false,
+   "source_line": 605
+  },
+  {
+   "label": "Telegraph Multimodal Corridor Grants-Local",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1011750,
+   "fy2028_proposed": 337250,
+   "year_unassignable": false,
+   "source_line": 607
+  },
+  {
+   "label": "High School Safety Improvements (",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 400000,
+   "fy2028_proposed": 1945804,
+   "year_unassignable": false,
+   "source_line": 610
+  },
+  {
+   "label": "Pedestrian Plan Update MTC",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 150000,
+   "year_unassignable": false,
+   "source_line": 611
+  },
+  {
+   "label": "Safety Project",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "State Transportation Tax",
+   "fy2027_proposed": 190000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 613
+  },
+  {
+   "label": "Oxford for All UC Settlement",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 150000,
+   "fy2028_proposed": 750000,
+   "year_unassignable": false,
+   "source_line": 614
+  },
+  {
+   "label": "Claremont Vision Zero Quick Build",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 1250000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 617
+  },
+  {
+   "label": "Corridor Project",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 350000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 619
+  },
+  {
+   "label": "Crossing Improvements",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 1000000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 621
+  },
+  {
+   "label": "Phased Implementation Roadmap",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 1000000,
+   "fy2028_proposed": 1000000,
+   "year_unassignable": false,
+   "source_line": 623
+  },
+  {
+   "label": "Vision Zero Quick Build Program",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 500000,
+   "fy2028_proposed": 375000,
+   "year_unassignable": false,
+   "source_line": 624
+  },
+  {
+   "label": "City-wide Traffic Calming Program",
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 250000,
+   "fy2028_proposed": 250000,
+   "year_unassignable": false,
+   "source_line": 625
+  },
+  {
+   "label": "Vehicle Replacement Schedule",
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 9563532,
+   "fy2028_proposed": 4886614,
+   "year_unassignable": false,
+   "source_line": 630
+  },
+  {
+   "label": "Fleet Electric Vehicle Chargers",
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 431900,
+   "fy2028_proposed": 578100,
+   "year_unassignable": false,
+   "source_line": 631
+  },
+  {
+   "label": "Streetlight Pole Replacement & Painting",
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 680000,
+   "year_unassignable": false,
+   "source_line": 632
+  },
+  {
+   "label": "Fleet Equipment Replacement Fund",
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 9563532,
+   "fy2028_proposed": 4886614,
+   "year_unassignable": false,
+   "source_line": 637
+  },
+  {
+   "label": "Other Infrastrucutre Equipment Replacement Fund",
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 431900,
+   "fy2028_proposed": 578100,
+   "year_unassignable": false,
+   "source_line": 638
+  },
+  {
+   "label": "Asset Management Infrastructure Fund",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 75000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 660
+  },
+  {
+   "label": "Clariti Integration with ERMA Application Center",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 150000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 662
+  },
+  {
+   "label": "Cyber Security and Infrastructure Security Fund",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 410000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 664
+  },
+  {
+   "label": "Redundancy for Remote Sites Infrastructure Fund",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 50000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 666
+  },
+  {
+   "label": "UNFUNDED CAPITAL NEEDS",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 2,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 684
+  },
+  {
+   "label": "PRW UNFUNDED CAPITAL NEEDS ~",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 281,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 702
+  },
+  {
+   "label": "PW UNFUNDED CAPITAL NEEDS ~",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 1,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 714
+  },
+  {
+   "label": "City Buildings",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 342,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 715
+  },
+  {
+   "label": "Sidewalks & Pathways",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 60,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 716
+  },
+  {
+   "label": "Streets & Roads",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 245,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 717
+  },
+  {
+   "label": "Sewers",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 117,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 719
+  },
+  {
+   "label": "Storm Water & Green Infrastructure",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 332,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 720
+  },
+  {
+   "label": "Traffic Signals & Parking Infrastructure",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 22,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 721
+  },
+  {
+   "label": "Undergrounding Project",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 129,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 722
+  },
+  {
+   "label": "Vets & Old City Hall",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 204,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 723
+  },
+  {
+   "label": "Transfer Station",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 123,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 724
+  },
+  {
+   "label": "Bike & Ped Projects",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 162,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 725
+  },
+  {
+   "label": "Transit Projects",
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": null,
+   "fy2027_proposed": 55,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 726
+  }
+ ],
+ "funding_source_rows": [
+  {
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": "Zero Waste Transfer Station Replacement",
+   "fy2027_proposed": 1750000,
+   "fy2028_proposed": 900000,
+   "year_unassignable": false,
+   "source_line": 436
+  },
+  {
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": "Zero Waste Fund",
+   "fy2027_proposed": 1750000,
+   "fy2028_proposed": 900000,
+   "year_unassignable": false,
+   "source_line": 448
+  },
+  {
+   "department": "Public Works",
+   "category": "Facilities",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 888000,
+   "fy2028_proposed": 888000,
+   "year_unassignable": false,
+   "source_line": 449
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 2109224,
+   "fy2028_proposed": 1985517,
+   "year_unassignable": false,
+   "source_line": 470
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "Measure BB Local Streets& Roads",
+   "fy2027_proposed": 300000,
+   "fy2028_proposed": 300000,
+   "year_unassignable": false,
+   "source_line": 471
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 185000,
+   "fy2028_proposed": 185000,
+   "year_unassignable": false,
+   "source_line": 472
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "State Transportation Tax",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": 100000,
+   "year_unassignable": false,
+   "source_line": 473
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "Measure F-AC VRF",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": 100000,
+   "year_unassignable": false,
+   "source_line": 474
+  },
+  {
+   "department": "Public Works",
+   "category": "Sidewalks",
+   "funding_source_as_printed": "Private Sidewalks",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": 100000,
+   "year_unassignable": false,
+   "source_line": 475
+  },
+  {
+   "department": "Public Works",
+   "category": "Stormwater",
+   "funding_source_as_printed": "Stormwater Master Plan",
+   "fy2027_proposed": 250000,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 508
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 13198842,
+   "fy2028_proposed": 6822998,
+   "year_unassignable": false,
+   "source_line": 536
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "CIP Fund",
+   "fy2027_proposed": 10412200,
+   "fy2028_proposed": 10666816,
+   "year_unassignable": false,
+   "source_line": 537
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "Measure BB Local Streets & Roads",
+   "fy2027_proposed": 2980000,
+   "fy2028_proposed": 2980000,
+   "year_unassignable": false,
+   "source_line": 538
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "State Transportation Tax",
+   "fy2027_proposed": 2345303,
+   "fy2028_proposed": 2345303,
+   "year_unassignable": false,
+   "source_line": 539
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "Zero Waste",
+   "fy2027_proposed": 2000000,
+   "fy2028_proposed": 2000000,
+   "year_unassignable": false,
+   "source_line": 540
+  },
+  {
+   "department": "Public Works",
+   "category": "Streets",
+   "funding_source_as_printed": "Measure F-AC VRF",
+   "fy2027_proposed": 155000,
+   "fy2028_proposed": 155000,
+   "year_unassignable": false,
+   "source_line": 542
+  },
+  {
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure FF",
+   "fy2027_proposed": 8420000,
+   "fy2028_proposed": 3768000,
+   "year_unassignable": false,
+   "source_line": 585
+  },
+  {
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "State Transportation Tax",
+   "fy2027_proposed": 989817,
+   "fy2028_proposed": 1389810,
+   "year_unassignable": false,
+   "source_line": 588
+  },
+  {
+   "department": "Public Works",
+   "category": "Transportation",
+   "funding_source_as_printed": "Measure BB",
+   "fy2027_proposed": 100000,
+   "fy2028_proposed": 258000,
+   "year_unassignable": false,
+   "source_line": 591
+  },
+  {
+   "department": "Public Works",
+   "category": "Equipment Replacement & Other Infrastructure",
+   "funding_source_as_printed": "Street Lighting Fund",
+   "fy2027_proposed": 200000,
+   "fy2028_proposed": 680000,
+   "year_unassignable": false,
+   "source_line": 639
+  },
+  {
+   "department": "Information Technology",
+   "category": null,
+   "funding_source_as_printed": "Street Lights",
+   "fy2027_proposed": 5,
+   "fy2028_proposed": null,
+   "year_unassignable": false,
+   "source_line": 718
+  }
+ ]
+}

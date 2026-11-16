@@ -1,0 +1,44 @@
+{
+ "purpose": "Images used by the \"How Did We Get Here?\" timeline prototype. Illustrative only; not evidence for any figure.",
+ "retrieved": "2026-10-26",
+ "photos": {
+  "birdseye-1909": {
+   "file": "assets/photos/berkeley-birdseye-1909-loc.jpg",
+   "kind": "map",
+   "width": 1600,
+   "height": 732,
+   "sha256": "084fab8d5b23c9ef68f9f65df5502a603263da606f5b95b9c3aa9a88968095a9",
+   "alt": "Bird's-eye view map of Berkeley drawn in 1909, showing the street grid from the hills to the Bay",
+   "description": "Bird's-eye view of Berkeley, 1909 (lithograph map, not a photograph)",
+   "date": "1909",
+   "commons_title": "File:Berkeley. LOC 75693088.jpg",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Berkeley._LOC_75693088.jpg",
+   "source_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Berkeley._LOC_75693088.jpg/1920px-Berkeley._LOC_75693088.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "author": "Charles Green (Library of Congress, item 75693088)",
+   "credit_field": "https://www.loc.gov/item/75693088/",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Berkeley._LOC_75693088.jpg",
+   "not_evidence": true,
+   "license_basis": "PD-old-100-expired (published 1909)"
+  },
+  "aerial-1932": {
+   "file": "assets/photos/berkeley-aerial-1932-nara.jpg",
+   "kind": "photograph",
+   "width": 1600,
+   "height": 1251,
+   "sha256": "c58fe3584c630fbe29ccbfa1b30ed45d3239f90fdefc9d28287d068571e127b6",
+   "alt": "Black-and-white aerial photograph of Berkeley's street grid between the hills and the Bay, March 1932",
+   "description": "Aerial photograph of Berkeley, March 1932 (National Archives)",
+   "date": "March 1932 (caption on the print: \"Taken and neg. rec'd during March 1932\")",
+   "commons_title": "File:California - Berkeley - NARA - 23934107.jpg",
+   "source_page": "https://commons.wikimedia.org/wiki/File:California_-_Berkeley_-_NARA_-_23934107.jpg",
+   "source_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/California_-_Berkeley_-_NARA_-_23934107.jpg/1920px-California_-_Berkeley_-_NARA_-_23934107.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "author": "U.S. Army Air Corps (National Archives and Records Administration)",
+   "credit_field": "U.S. National Archives and Records Administration",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:California_-_Berkeley_-_NARA_-_23934107.jpg",
+   "not_evidence": true,
+   "license_basis": "PD US Air Force: work of the U.S. federal government"
+  }
+ }
+}

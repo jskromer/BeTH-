@@ -1,0 +1,241 @@
+{
+ "schema_version": 1,
+ "generated": "2026-10-23",
+ "evidence_class": "CITY_ASSESSMENT",
+ "source": {
+  "title": "City of Berkeley 2024 Pavement Management Program Update (P-TAP Round 25), Final Report, Pavement Engineering Inc., April 2025",
+  "url": "https://berkeleyca.gov/sites/default/files/2026-07/2024%20Pavement%20Management%20Plan%20Update%20%28PTAP25%29.pdf",
+  "local": "phase2/sources/pavement-management-update-ptap25-2025-04.pdf",
+  "sha256": "5e431b32fca3e2dcd96bb3698e19f14df6be734a9256bfdeb38d62472269e420",
+  "pages": "Executive Summary p.2 / PDF p.5 (average PCI 56, totals by functional class); Executive Summary p.4 / PDF p.7 (Condition Category Breakdown); Section IV Reference Reports (street sections alphabetical)",
+  "pdf_pages": {
+   "totals": 5,
+   "condition_breakdown": 7
+  }
+ },
+ "as_of": "Inspections in 2024 (report dated 02/14/2025). Before FY2025-FY2026 paving. The July 7, 2026 plan cites PCI 57 (2025) and 59 after FY2026 planned work; no newer segment list is public.",
+ "validation": {
+  "parsed": {
+   "sections": 1216,
+   "centerline_miles_from_feet": 212.778,
+   "centerline_miles_sum_of_rounded_section_miles": 213.48,
+   "lane_miles": 446.13,
+   "area_sqft": 39363218,
+   "area_weighted_pci": 56.43,
+   "centerline_weighted_pci": 56.19
+  },
+  "printed": {
+   "centerline_miles": 212.77,
+   "lane_miles": 446.1,
+   "area_sqft": 39363218,
+   "average_pci": 56,
+   "by_functional_class": {
+    "A": {
+     "centerline_miles": 21.87,
+     "area_sqft": 5866756,
+     "average_pci": 57
+    },
+    "C": {
+     "centerline_miles": 36.7,
+     "area_sqft": 7200161,
+     "average_pci": 64
+    },
+    "R": {
+     "centerline_miles": 154.2,
+     "area_sqft": 26296301,
+     "average_pci": 53
+    }
+   },
+   "condition_by_area": {
+    "Excellent": 4182818,
+    "Good": 9078245,
+    "Fair": 9597800,
+    "Poor": 7215563,
+    "Failed": 9292667
+   }
+  },
+  "result": "all checks passed",
+  "mileage_method": "Section lengths in feet / 5,280 = 212.778 mi, against the printed 212.77. The sum of the rounded section miles is 213.48 mi: 1,216 short sections each rounded to 0.01 mi accumulate about 0.7 mi of rounding. BeTH uses feet and reports miles to 0.1 mi.",
+  "uninspected_section": {
+   "sections": [
+    {
+     "line": 2623,
+     "text": "TEVLIN ST 040 GILMAN ST END",
+     "length_ft": 155,
+     "width_ft": 25,
+     "area_sqft": 3875,
+     "pci_printed": 0,
+     "pci_date": null,
+     "ptap_category": "Failed"
+    }
+   ],
+   "explanation": "The Condition Category areas (p.4) sum to 39,367,093 sq ft, 3,875 more than the totals table (p.2, 39,363,218). The difference is exactly this one section, which prints PCI 0 with no inspection date: the category table counts it as Failed, the totals table leaves it out. BeTH follows the totals table and excludes it from every distribution below."
+  }
+ },
+ "distribution": {
+  "below_pci_50": {
+   "sections": 502,
+   "centerline_miles": 88.5,
+   "centerline_miles_unrounded": 88.466,
+   "centerline_miles_sum_of_rounded_section_miles": 88.75,
+   "share_of_centerline_miles": 0.4158,
+   "area_sqft": 16060510,
+   "share_of_area": 0.408
+  },
+  "below_pci_25": {
+   "sections": 205,
+   "centerline_miles": 33.9,
+   "centerline_miles_unrounded": 33.903,
+   "centerline_miles_sum_of_rounded_section_miles": 33.99,
+   "share_of_centerline_miles": 0.1593,
+   "area_sqft": 6143274,
+   "share_of_area": 0.1561
+  },
+  "pci_50_or_above": {
+   "sections": 714,
+   "centerline_miles": 124.3,
+   "centerline_miles_unrounded": 124.312,
+   "centerline_miles_sum_of_rounded_section_miles": 124.73,
+   "share_of_centerline_miles": 0.5842,
+   "area_sqft": 23302708,
+   "share_of_area": 0.592
+  },
+  "by_mtc_band": {
+   "failed (0-24)": {
+    "sections": 205,
+    "centerline_miles": 33.9,
+    "centerline_miles_unrounded": 33.903,
+    "centerline_miles_sum_of_rounded_section_miles": 33.99,
+    "share_of_centerline_miles": 0.1593,
+    "area_sqft": 6143274,
+    "share_of_area": 0.1561
+   },
+   "poor (25-49)": {
+    "sections": 297,
+    "centerline_miles": 54.6,
+    "centerline_miles_unrounded": 54.563,
+    "centerline_miles_sum_of_rounded_section_miles": 54.76,
+    "share_of_centerline_miles": 0.2564,
+    "area_sqft": 9917236,
+    "share_of_area": 0.2519
+   },
+   "at risk (50-59)": {
+    "sections": 87,
+    "centerline_miles": 17.4,
+    "centerline_miles_unrounded": 17.362,
+    "centerline_miles_sum_of_rounded_section_miles": 17.43,
+    "share_of_centerline_miles": 0.0816,
+    "area_sqft": 3236905,
+    "share_of_area": 0.0822
+   },
+   "fair (60-69)": {
+    "sections": 157,
+    "centerline_miles": 29.4,
+    "centerline_miles_unrounded": 29.421,
+    "centerline_miles_sum_of_rounded_section_miles": 29.49,
+    "share_of_centerline_miles": 0.1383,
+    "area_sqft": 5679077,
+    "share_of_area": 0.1443
+   },
+   "good (70-79)": {
+    "sections": 178,
+    "centerline_miles": 31.9,
+    "centerline_miles_unrounded": 31.946,
+    "centerline_miles_sum_of_rounded_section_miles": 32.03,
+    "share_of_centerline_miles": 0.1501,
+    "area_sqft": 5957765,
+    "share_of_area": 0.1514
+   },
+   "very good (80-100)": {
+    "sections": 292,
+    "centerline_miles": 45.6,
+    "centerline_miles_unrounded": 45.583,
+    "centerline_miles_sum_of_rounded_section_miles": 45.78,
+    "share_of_centerline_miles": 0.2142,
+    "area_sqft": 8428961,
+    "share_of_area": 0.2141
+   }
+  },
+  "by_ptap_category": {
+   "Excellent": {
+    "sections": 131,
+    "centerline_miles": 21.6,
+    "centerline_miles_unrounded": 21.618,
+    "centerline_miles_sum_of_rounded_section_miles": 21.72,
+    "share_of_centerline_miles": 0.1016,
+    "area_sqft": 4182818,
+    "share_of_area": 0.1063
+   },
+   "Good": {
+    "sections": 309,
+    "centerline_miles": 50.1,
+    "centerline_miles_unrounded": 50.147,
+    "centerline_miles_sum_of_rounded_section_miles": 50.3,
+    "share_of_centerline_miles": 0.2357,
+    "area_sqft": 9078245,
+    "share_of_area": 0.2306
+   },
+   "Fair": {
+    "sections": 262,
+    "centerline_miles": 49.9,
+    "centerline_miles_unrounded": 49.89,
+    "centerline_miles_sum_of_rounded_section_miles": 50.05,
+    "share_of_centerline_miles": 0.2345,
+    "area_sqft": 9597800,
+    "share_of_area": 0.2438
+   },
+   "Poor": {
+    "sections": 226,
+    "centerline_miles": 41.2,
+    "centerline_miles_unrounded": 41.159,
+    "centerline_miles_sum_of_rounded_section_miles": 41.26,
+    "share_of_centerline_miles": 0.1934,
+    "area_sqft": 7215563,
+    "share_of_area": 0.1833
+   },
+   "Failed": {
+    "sections": 288,
+    "centerline_miles": 50.0,
+    "centerline_miles_unrounded": 49.965,
+    "centerline_miles_sum_of_rounded_section_miles": 50.15,
+    "share_of_centerline_miles": 0.2348,
+    "area_sqft": 9288792,
+    "share_of_area": 0.236
+   }
+  },
+  "by_functional_class_below_50": {
+   "A": {
+    "sections": 37,
+    "centerline_miles": 8.7,
+    "centerline_miles_unrounded": 8.741,
+    "centerline_miles_sum_of_rounded_section_miles": 8.8,
+    "share_of_centerline_miles": 0.0411,
+    "area_sqft": 2246660,
+    "share_of_area": 0.0571
+   },
+   "C": {
+    "sections": 37,
+    "centerline_miles": 8.7,
+    "centerline_miles_unrounded": 8.725,
+    "centerline_miles_sum_of_rounded_section_miles": 8.74,
+    "share_of_centerline_miles": 0.041,
+    "area_sqft": 1783259,
+    "share_of_area": 0.0453
+   },
+   "R": {
+    "sections": 428,
+    "centerline_miles": 71.0,
+    "centerline_miles_unrounded": 71.0,
+    "centerline_miles_sum_of_rounded_section_miles": 71.21,
+    "share_of_centerline_miles": 0.3337,
+    "area_sqft": 12030591,
+    "share_of_area": 0.3056
+   }
+  }
+ },
+ "notes": [
+  "PTAP categories (as printed by the City's consultant): Excellent 91-100, Good 71-90, Fair 51-70, Poor 31-50, Failed 0-30.",
+  "MTC bands (regional standard): very good 80-100, good 70-79, fair 60-69, at risk 50-59, poor 25-49, failed 0-24.",
+  "Measure FF's goal is PCI 70 \"ideally with no streets having a PCI below 50\" (BMC 7.11.010(K)(1)); the below-50 measure here matches that wording."
+ ]
+}

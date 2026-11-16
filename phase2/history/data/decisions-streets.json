@@ -1,0 +1,2555 @@
+{
+ "schema_version": 1,
+ "workstream": "How Did We Get Here? (streets and infrastructure)",
+ "status": "RESEARCH PROTOTYPE - not reviewed, not published",
+ "generated": "2026-10-26",
+ "documents": {
+  "aa:2022-01-25": {
+   "title": "City Council annotated agenda, 2022-01-25",
+   "local": "phase2/history/sources/council-2022-01-25-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2022-07-26": {
+   "title": "City Council annotated agenda, 2022-07-26",
+   "local": "phase2/history/sources/council-2022-07-26-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2023-07-25": {
+   "title": "City Council annotated agenda, 2023-07-25",
+   "local": "phase2/history/sources/council-2023-07-25-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2023-11-28": {
+   "title": "City Council annotated agenda, 2023-11-28",
+   "local": "phase2/history/sources/council-2023-11-28-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2024-07-09": {
+   "title": "City Council annotated agenda, 2024-07-09",
+   "local": "phase2/history/sources/council-2024-07-09-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2024-12-10": {
+   "title": "City Council annotated agenda, 2024-12-10",
+   "local": "phase2/history/sources/council-2024-12-10-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2026-06-16": {
+   "title": "City Council annotated agenda, 2026-06-16",
+   "local": "phase2/history/sources/council-2026-06-16-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2026-06-23": {
+   "title": "City Council annotated agenda, 2026-06-23",
+   "local": "phase2/history/sources/council-2026-06-23-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2026-07-07": {
+   "title": "City Council annotated agenda, 2026-07-07",
+   "local": "phase2/history/sources/council-2026-07-07-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2022-07-26-special": {
+   "title": "City Council special meeting annotated agenda, 2022-07-26",
+   "local": "phase2/history/sources/council-2022-07-26-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2022-08-03-special": {
+   "title": "City Council special meeting annotated agenda, 2022-08-03",
+   "local": "phase2/history/sources/council-2022-08-03-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2024-07-30-special": {
+   "title": "City Council special meeting annotated agenda, 2024-07-30",
+   "local": "phase2/history/sources/council-2024-07-30-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2024-12-10-special": {
+   "title": "City Council special meeting annotated agenda, 2024-12-10",
+   "local": "phase2/history/sources/council-2024-12-10-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2026-03-17-special": {
+   "title": "City Council special meeting annotated agenda, 2026-03-17",
+   "local": "phase2/history/sources/council-2026-03-17-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2026-05-19-special": {
+   "title": "City Council special meeting annotated agenda, 2026-05-19",
+   "local": "phase2/history/sources/council-2026-05-19-special-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "plan:2026-07-07": {
+   "title": "Five-Year Street Rehabilitation and Measure FF Plans FY2027-2031, Council Item 10, July 7, 2026",
+   "local": "phase2/sources/street-rehab-measure-ff-2026-07-07.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "ptap25": {
+   "title": "City of Berkeley 2024 Pavement Management Program Update (P-TAP 25), April 2025",
+   "local": "phase2/sources/pavement-management-update-ptap25-2025-04.pdf",
+   "kind": "city_assessment",
+   "url": null
+  },
+  "budget:2026-06-23": {
+   "title": "Adoption of FY2027-28 Biennial Budget and FY2027-31 CIP, June 23, 2026",
+   "local": "phase2/sources/budget-adoption-2026-06-23.pdf",
+   "kind": "adopted_budget",
+   "url": null
+  },
+  "loan:2023-07-25": {
+   "title": "$5.5M Loan for D and E Dock Replacement Project, Council Item 19, July 25, 2023 (staff report)",
+   "local": "phase2/sources/council-2023-07-25-item19-wc-loan.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "mtc:2012": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2012 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2012.pdf",
+   "kind": "regional_dataset",
+   "url": "https://mtc.ca.gov/sites/default/files/PCI_12.pdf"
+  },
+  "mtc:2015": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2015 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2015.pdf",
+   "kind": "regional_dataset",
+   "url": "https://es.mtc.ca.gov/sites/default/files/PCI_15.pdf"
+  },
+  "mtc:2016": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2016 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2016.pdf",
+   "kind": "regional_dataset",
+   "url": "https://es.mtc.ca.gov/sites/default/files/PCI_16.pdf"
+  },
+  "mtc:2019": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2019 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2019.pdf",
+   "kind": "regional_dataset",
+   "url": "https://zh-tw.mtc.ca.gov/sites/default/files/PCI_table_2019_data.pdf"
+  },
+  "mtc:2020": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2020 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2020.pdf",
+   "kind": "regional_dataset",
+   "url": "https://zh-tw.mtc.ca.gov/sites/default/files/documents/2021-11/PCI_table-2020_data.pdf"
+  },
+  "mtc:2021": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2021 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2021.pdf",
+   "kind": "regional_dataset",
+   "url": "https://zh-tw.mtc.ca.gov/sites/default/files/documents/2022-11/PCI_table-2021_data.pdf"
+  },
+  "mtc:2022": {
+   "title": "Metropolitan Transportation Commission, Pavement Condition Index table, 2022 edition",
+   "local": "phase2/history/sources/mtc/mtc-pci-2022.pdf",
+   "kind": "regional_dataset",
+   "url": "https://es.mtc.ca.gov/sites/default/files/documents/2023-11/PCI_table-2022_data.pdf"
+  },
+  "audit:2020-11-19": {
+   "title": "City Auditor, \"Rocky Road: Berkeley Streets at Risk and Significantly Underfunded\", November 19, 2020",
+   "local": "phase2/history/sources/streets/auditor-rocky-road-2020-11-19.pdf",
+   "kind": "audit",
+   "url": "https://berkeleyca.gov/sites/default/files/2022-01/Rocky-Road-Berkeley-Streets-at-Risk-and-Significantly-Underfunded.pdf"
+  },
+  "r22:25a": {
+   "title": "Street Maintenance and Rehabilitation Policy and Five Year Plan, staff report, Council Item 25a, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25a-street-policy-plan.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r22:25b": {
+   "title": "Public Works Commission Recommendation for the Five-Year Paving Plan, Council Item 25b, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25b-pwc-five-year-plan.pdf",
+   "kind": "commission_report",
+   "url": null
+  },
+  "r22:25c": {
+   "title": "Updating City of Berkeley Street Maintenance and Rehabilitation Policy (Councilmember Harrison), Council Item 25c, January 18, 2022",
+   "local": "phase2/history/sources/streets/council-2022-01-18-item25c-harrison-policy.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "r23:17": {
+   "title": "Street Rehabilitation Five Year Plan for Fiscal Years 2024-2028, staff report, Council Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-staff-report.pdf",
+   "kind": "staff_report",
+   "url": null
+  },
+  "r23:17-hahn": {
+   "title": "Supplemental 2, Councilmembers Hahn and Wengraf, Item 17, November 28, 2023",
+   "local": "phase2/history/sources/streets/council-2023-11-28-item17-hahn-supp2.pdf",
+   "kind": "council_item",
+   "url": null
+  },
+  "aa:2022-06-28": {
+   "title": "City Council annotated agenda, 2022-06-28",
+   "local": "phase2/history/sources/council-2022-06-28-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "aa:2023-06-13": {
+   "title": "City Council annotated agenda, 2023-06-13",
+   "local": "phase2/history/sources/council-2023-06-13-annotated.pdf",
+   "kind": "annotated_agenda",
+   "url": null
+  },
+  "sco:0910": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2009-10, Table 5 (Cities), page 137 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy0910-berkeley-p137.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1011": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2010-11, Table 5 (Cities), page 138 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1011-berkeley-p138.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1112": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2011-12, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1112-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1213": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2012-13, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1213-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1314": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2013-14, Table 5 (Cities), page 142 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1314-berkeley-p142.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1415": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2014-15, Table 5 (Cities), page 141 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1415-berkeley-p141.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1516": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2015-16, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1516-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "sco:1617": {
+   "title": "State Controller, Streets and Roads Annual Report, FY2016-17, Table 5 (Cities), page 140 (single-page extract)",
+   "local": "phase2/history/sources/sco/sco-streets-roads-fy1617-berkeley-p140.pdf",
+   "kind": "state_report",
+   "url": null
+  },
+  "acfr23:p122": {
+   "title": "FY2023 ACFR, PDF p.122, Note 4.C Advances to/from (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p122.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr23:p324": {
+   "title": "FY2023 ACFR, PDF p.324, internal service funds statement (text extract)",
+   "local": "phase2/history/sources/acfr/acfr-fy2023-p324.txt",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr24": {
+   "title": "FY2024 ACFR",
+   "local": "staging/fy2024/source/annual-comprehensive-financial-report-fy2024.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "acfr25": {
+   "title": "FY2025 ACFR",
+   "local": "annual-comprehensive-financial-report-fy2025.pdf",
+   "kind": "audited",
+   "url": null
+  },
+  "ws25:p37": {
+   "title": "Safe Streets & Pavement Management Program Workshop, March 25, 2025, slide 37 (text extract)",
+   "local": "phase2/history/sources/measure-ff/safe-streets-workshop-2025-03-25-p37.txt",
+   "kind": "staff_presentation",
+   "url": null
+  },
+  "r22:jul26-03": {
+   "title": "Establishing Policy for Adequate Annual General Fund Contribution for Street Maintenance, Council Item 3, July 26, 2022 (report)",
+   "local": "phase2/history/sources/streets/council-2022-07-26-item03-paving-policy.pdf",
+   "kind": "council_item",
+   "url": null
+  }
+ },
+ "events": [
+  {
+   "id": "bdh-streets-2012-11-measure-m",
+   "date": "2012-11-06",
+   "date_precision": "election day",
+   "kind": "voter_decision",
+   "title": "Voters approve Measure M, a street and watershed improvement bond",
+   "decision": {
+    "status": "verified",
+    "value": "Measure M (November 2012), Street and Integrated Watershed Improvements General Obligation Bonds. The City still sets a tax rate each year to pay its debt service.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-16",
+      "pdf_page": 7,
+      "quote": "Improvements General Obligation Bonds (Measure M, November 2012 Election)"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Council resolution placing Measure M on the November 2012 ballot, and its number",
+    "where_to_look": "City Clerk records archive (pre-2021 annotated agendas are not on the current City site)"
+   },
+   "vote": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Council roll-call vote placing Measure M on the ballot",
+    "where_to_look": "City Clerk records archive, 2012"
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 30000000,
+     "basis": "ballot authorization (bonds)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "In 2012, Berkeley voters passed Measure M to secure $30 million"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Stated purpose and expected outcomes in the ballot measure",
+    "where_to_look": "November 2012 ballot pamphlet"
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Alternatives presented to Council in 2012",
+    "where_to_look": "Council staff report, 2012"
+   },
+   "actual": {
+    "status": "verified",
+    "value": "About $25 million of Measure M money appears in the City's street rehabilitation capital budgets for FY2014-FY2018 (BeTH measurement of the Auditor's Figure 3; approximate). The Auditor: \"Only a portion of Measure M funds were spent directly on paving costs.\"",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 6,
+      "quote": "Figure 3. Berkeley's Street Rehabilitation Program Funded by State and Local Sources"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 13,
+      "quote": "Only a portion of Measure M funds were spent directly on paving costs"
+     }
+    ],
+    "note": "Budget amounts by year, measured from a chart; not audited expenditures."
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Miles paved and green infrastructure built with Measure M funds",
+    "where_to_look": "Public Works reports"
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Debt service continues: Council set the FY2027 Measure M tax rate at 0.0040%.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-16",
+      "pdf_page": 7,
+      "quote": "General Obligation Bonds (Measure M, November 2012) at 0.0040%"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "Bond amount, project list and results are not yet in BeTH's records."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2016-11-measure-t1",
+   "date": "2016-11-08",
+   "date_precision": "election day",
+   "kind": "voter_decision",
+   "title": "Voters approve Measure T1, an infrastructure and facilities bond",
+   "decision": {
+    "status": "verified",
+    "value": "Measure T1 (November 2016), Infrastructure and Facilities Improvements General Obligation Bonds. The City still sets a tax rate each year to pay its debt service.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-16",
+      "pdf_page": 5,
+      "quote": "General Obligation Bonds (Measure T1, November 2016 Election)"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Council resolution placing Measure T1 on the ballot",
+    "where_to_look": "City Clerk records archive, 2016"
+   },
+   "vote": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Council roll-call vote placing Measure T1 on the ballot",
+    "where_to_look": "City Clerk records archive, 2016"
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 100000000,
+     "basis": "ballot authorization (bonds)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "In 2016, Berkeley voters approved $100 million in general"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Stated purpose and project lists for each phase",
+    "where_to_look": "Ballot pamphlet; Phase 1 and 2 project lists"
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Alternatives presented in 2016",
+    "where_to_look": "Council staff report, 2016"
+   },
+   "actual": {
+    "status": "verified",
+    "value": "As of November 2019, about $36.8 million of T1 had been allocated, about $9.9 million of it to Complete Streets projects (City Auditor). The January 2022 paving plan added $6.9 million of T1 Phase 2 money.",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "approximately $36.8 million T1 funds were"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "Additional funding includes $6.9 million from Measure T1, Phase 2"
+     }
+    ],
+    "note": null
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "In November 2023 Council directed that the Hopkins Street segments be completed \"with Measure T1 funds by the end of FY 2027\".",
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "complete the Hopkins Street segments with Measure T1 funds by the end of FY 2027"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Debt service continues: Council set the FY2027 Measure T1 tax rate at 0.0140%.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-16",
+      "pdf_page": 5,
+      "quote": "Obligation Bonds (Measure T1, November 2016) at 0.0140%"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "How much of Measure T1 went to streets, and what it delivered, is not yet in BeTH's records."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2020-auditor-rocky-road",
+   "date": "2020-11-19",
+   "date_precision": "report date",
+   "kind": "context",
+   "title": "City Auditor: \"Rocky Road: Berkeley Streets at Risk and Significantly Underfunded\"",
+   "decision": {
+    "status": "verified",
+    "value": "The City Auditor's streets audit. In December 2024 Council received a status report on it (\"Received and filed\").",
+    "citations": [
+     {
+      "doc_id": "aa:2024-12-10",
+      "pdf_page": 11,
+      "quote": "Rocky Road: Berkeley Streets at Risk and Significantly Underfunded"
+     }
+    ],
+    "note": "The audit's own date and findings are to be collected; the year shown is provisional."
+   },
+   "instrument": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "An audit is not a Council decision; there is no resolution."
+   },
+   "vote": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Not a vote."
+   },
+   "money": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "The audit report states its own estimates; not yet collected."
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Audit of the Street Rehabilitation Program, FY2014-2020, issued November 19, 2020. Key findings quoted: General Fund (Capital Improvement Fund) contributions to street rehabilitation \"remained stagnant at $1.925 million per year since 2014\"; PCI \"increased only slightly from 58 in 2011 to 59 in 2018\".",
+    "citations": [
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 1,
+      "quote": "November 19, 2020"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 11,
+      "quote": "has remained stagnant at $1.925 million per"
+     },
+     {
+      "doc_id": "audit:2020-11-19",
+      "pdf_page": 9,
+      "quote": "PCI increased only slightly from 58 in 2011 to 59 in 2018"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Not applicable."
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Status of each recommendation",
+    "where_to_look": "Audit status reports, including December 10, 2024"
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Which recommendations were implemented",
+    "where_to_look": "Audit status reports"
+   },
+   "outstanding": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Open recommendations",
+    "where_to_look": "City Auditor follow-up"
+   },
+   "uncertainties": [
+    "The audit report itself is not yet in BeTH's records."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "context",
+     "label": "context (not a decision; included as evidence)"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2022-01-25-res-70204",
+   "date": "2022-01-25",
+   "kind": "council_decision",
+   "item": "Action Calendar Aa",
+   "title": "Council updates the Street Maintenance and Rehabilitation Policy and adopts the Five-Year Paving Plan (Equity Alternative)",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,204-N.S. updating the Street Maintenance and Rehabilitation Policy and the Five-Year Paving Plan \"Equity Alternative\", amended to approve the first three years of the plan, with the condition that its criteria would not govern funds from potential future ballot measures; staff to return in January 2024.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 7,
+      "quote": "to adopt Resolution No. 70,204"
+     },
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 7,
+      "quote": "Paving Plan Equity Alternative amended to approve the first three years of the plan"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,204-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 7,
+      "quote": "Resolution No. 70,204"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Harrison",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Droste",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Bartlett present at 6:06 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 7,
+      "quote": "M/S/C (Arreguin/Harrison)"
+     },
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 2,
+      "quote": "Councilmember Bartlett present at 6:06 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 7275303,
+     "basis": "programmed annual paving funding, all sources (FY2023-FY2027 plan)",
+     "source": "gas tax $495,303; Measure BB $2,700,000; Measure F $155,000; Capital Improvement Fund (General Fund) $1,925,000; SB1 $2,000,000; plus Measure T1 $6.9M and a $1.2M federal grant"
+    },
+    "citations": [
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "TOTAL 7,275,303"
+     },
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 1,
+      "quote": "Capital Improvement 1,925,000"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Staff projected that at the budgeted baseline \"the PCI will drop to 52 by the year 2023\"; the Public Works Commission projected citywide PCI of 49.1 by 2027 at the current level of investment. Both plans were designed within the same funding.",
+    "citations": [
+     {
+      "doc_id": "r22:25a",
+      "pdf_page": 2,
+      "quote": "the PCI will drop to 52 by the year 2023"
+     },
+     {
+      "doc_id": "r22:25b",
+      "pdf_page": 2,
+      "quote": "the citywide PCI will be 49.1"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the Public Works Commission recommended a different plan, version 12A (\"Arterial Alternative\"), and a Councilmember-authored policy update was also on the agenda. Council adopted the Equity Alternative instead.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-01-25",
+      "pdf_page": 7,
+      "quote": "Five-Year Paving Plan version 12A"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Paving delivered under this plan, by year",
+    "where_to_look": "Public Works paving reports"
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Whether the January 2024 policy update came back as directed",
+    "where_to_look": "Council agendas, 2024"
+   },
+   "outstanding": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "No financial commitment stated in the record we hold."
+   },
+   "uncertainties": [
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "competing_proposals": [
+    {
+     "name": "Equity Alternative (staff recommendation; adopted, first three years)",
+     "cost_five_year": 38385313,
+     "miles": 15.94,
+     "mix": "Arterials 1.18 mi, collectors 4.06 mi, residential 10.70 mi; Equity Zone 5.21 mi",
+     "expected_outcome": "No separate PCI projection for this plan in the record; staff projected the network PCI would fall at the budgeted funding level.",
+     "funding_restrictions": "Same sources and amounts as the other plan ($7,275,303 a year plus T1 and a grant).",
+     "tradeoff_as_documented": "Staff: \"These investments are offset by a corresponding reduction of investment in arterials.\"",
+     "citations": [
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 6,
+       "quote": "Total 15.94 $38,385,313"
+      },
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "These investments are offset by a corresponding reduction of investment in arterials"
+      }
+     ]
+    },
+    {
+     "name": "Arterial Alternative, Plan 12A (Public Works Commission recommendation; not adopted)",
+     "cost_five_year": 40027381,
+     "miles": 15.49,
+     "mix": "Arterials 5.99 mi, collectors 4.12 mi, residential 5.38 mi; Equity Zone 2.19 mi",
+     "expected_outcome": "Commission: citywide PCI 49.1 by 2027 \"at the current level of investment\" (applies to the funding level, not to this plan alone).",
+     "funding_restrictions": "Same sources and amounts.",
+     "tradeoff_as_documented": "Staff: the plan \"does not address equity, does much less for residential streets generally\". Commission: focuses on \"long contiguous stretches of paving on the primary transportation network\".",
+     "citations": [
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "Total 15.49 $40,027,381"
+      },
+      {
+       "doc_id": "r22:25a",
+       "pdf_page": 5,
+       "quote": "does not address equity, does much less for residential streets generally"
+      },
+      {
+       "doc_id": "r22:25b",
+       "pdf_page": 1,
+       "quote": "focusing on long contiguous stretches of paving on the primary transportation network"
+      },
+      {
+       "doc_id": "r22:25b",
+       "pdf_page": 2,
+       "quote": "the citywide PCI will be 49.1"
+      }
+     ]
+    }
+   ],
+   "significance": [
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    },
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2022-07-26-res-70456",
+   "date": "2022-07-26",
+   "kind": "council_decision",
+   "item": "Special meeting, Action 3",
+   "title": "Council commits $8 million a year more of General Fund money to street maintenance",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,456-N.S., a fiscal policy allocating $8 million a year from the General Fund to street maintenance on top of the existing $7.3 million, $15.3 million in all, adjusted for inflation. It may be suspended in a year Council draws $1 million or more from the Stabilization Reserve to adopt a budget, or by a two-thirds vote of Council.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "to adopt Resolution No. 70,456"
+     },
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "existing General Fund street paving budget of $7.3 million"
+     },
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "a two-thirds vote of the City Council"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,456-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "Resolution No. 70,456"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Wengraf",
+     "seconder": "Arreguin",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Taplin",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Droste",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Kesarwani present at 3:07 p.m.",
+      "Bartlett present at 3:21 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "M/S/C (Wengraf/Arreguin)"
+     },
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 2,
+      "quote": "Councilmember Bartlett present at 3:21 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 8000000,
+     "basis": "policy commitment (annual, inflation-adjusted)",
+     "source": "General Fund",
+     "total_target": 15300000
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "allocate $8 million annually in General Fund monies for street maintenance"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "\"This policy is needed to ensure that deferred street maintenance is supported by an ongoing adequate General Fund contribution.\"",
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "ensure that deferred street maintenance is supported by an"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the policy itself sets two ways to suspend it (a Stabilization Reserve draw of $1 million or more, or a two-thirds vote). No alternative funding level was voted on in the record we hold.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-07-26-special",
+      "pdf_page": 4,
+      "quote": "a two-thirds vote of the City Council"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "General Fund paving appropriations and actual expenditures each year since FY2023",
+    "where_to_look": "Adopted budgets FY2023-FY2026; CIP actuals"
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "City staff (July 2026): about 29.4 centerline miles paved in FY2024-FY2026, against a historical average of about 2 to 3 miles a year, an acceleration staff attribute to \"the commitment of additional General Fund resources in 2022\". This is the City's attribution, not a BeTH finding.",
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 5,
+      "quote": "This acceleration was made possible by the commitment of additional General Fund"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Carried into Measure FF: voters made the $15.3 million (inflation-adjusted) non-FF street budget a condition of collecting the tax (BMC 7.11.030(B)).",
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 3,
+      "quote": "Adequate General Fund Contribution"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "Whether every year since FY2023 met the $15.3 million (adjusted) level is not yet established.",
+    "The record does not list individual names for \"All Ayes\" votes; two members arrived after roll call and the agenda does not say whether they were present for this item."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2022-08-03-res-70492-measure-l",
+   "date": "2022-08-03",
+   "kind": "council_decision",
+   "item": "Special meeting, Item 2",
+   "title": "Council places a $650 million housing and infrastructure bond on the November 2022 ballot",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,492-N.S. placing a $650 million general obligation bond \"to create affordable housing; repair streets and sidewalks; underground utilities; and enhance buildings, infrastructure, and safety\" on the November 8, 2022 ballot.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "Adopt Resolution No. 70,492"
+     },
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "repair streets and sidewalks"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,492-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "Resolution No. 70,492"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Kesarwani",
+     "recorded": "roll call",
+     "ayes": [
+      "Kesarwani",
+      "Taplin",
+      "Bartlett",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Arreguin"
+     ],
+     "noes": [],
+     "abstain": [],
+     "absent": [
+      "Droste"
+     ]
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "Ayes - Kesarwani, Taplin, Bartlett, Harrison, Hahn, Wengraf, Robinson, Arreguin; Noes - None; Abstain - None; Absent - Droste"
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 650000000,
+     "basis": "ballot authorization (not appropriated)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "the issuance of $650 million in general obligation bonds"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Affordable housing, climate resiliency, wildfire protection and other public infrastructure, including street and sidewalk repair.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "climate change resiliency, wildfire protection"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the recommendation offered $600 million or $650 million; the July 26, 2022 item had proposed $300 million before Council asked for a revised measure.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-08-03-special",
+      "pdf_page": 3,
+      "quote": "obligation bond in the amount of either $600 million or $650 million"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "A ballot authorization is not an expenditure."
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "November 8, 2022 election result for this measure",
+    "where_to_look": "Alameda County Registrar of Voters; Council resolution confirming results"
+   },
+   "outstanding": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Whether any bonds were issued",
+    "where_to_look": "Depends on the election result"
+   },
+   "uncertainties": [
+    "The election result is not yet in BeTH's records."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2023-07-25-res-70997",
+   "date": "2023-07-25",
+   "kind": "council_decision",
+   "item": "Consent Calendar 19",
+   "title": "Council authorizes a $5.5 million internal loan for Marina dock replacement",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,997-N.S. authorizing an internal loan of $5.5 million from the Workers' Compensation Fund, to be repaid from waterfront hotel tax starting in FY2025.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "Adopted Resolution No. 70,997"
+     },
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "authorizes an internal loan of $5.5M from the Workers Compensation Fund"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,997-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "Resolution No. 70,997"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Hahn",
+     "recorded": "roll call (Consent Calendar, one motion)",
+     "ayes": [
+      "Kesarwani",
+      "Taplin",
+      "Bartlett",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Humbert",
+      "Arreguin"
+     ],
+     "noes": [],
+     "abstain": [],
+     "absent": [
+      "Harrison"
+     ]
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 3,
+      "quote": "Ayes - Kesarwani, Taplin, Bartlett, Hahn, Wengraf, Robinson, Humbert, Arreguin; Noes - None; Abstain - None; Absent - Harrison"
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 5500000,
+     "basis": "loan authorization (not revenue, not an expenditure)",
+     "source": "Workers' Compensation Fund"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "authorizes an internal loan of $5.5M"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Replace the Marina's D and E docks.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "$5.5M Loan for D and E Dock Project In Berkeley Marina"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: amend the existing $5.5 million State boating loan under one of four options, or borrow internally. Council chose the internal loan.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-07-25",
+      "pdf_page": 12,
+      "quote": "execute an Amendment to the existing $5.5M Loan"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "verified",
+    "value": "The FY2024 audit records $5,500,000 leaving the Workers' Compensation Fund to the General Fund; the Marina Fund recorded no transfer in. See the Ask BeTH Marina answer.",
+    "citations": [],
+    "note": "Detailed citations in phase2/flags/2026-10-25-marina-608-ledger-review.md."
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Dock replacement status and cost",
+    "where_to_look": "Marina capital project reports"
+   },
+   "outstanding": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Loan balance and repayments from waterfront hotel tax",
+    "where_to_look": "Workers' Compensation Fund ledger"
+   },
+   "uncertainties": [
+    "Whether the loan reached the Marina Fund, and whether repayment has begun, is unresolved."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    },
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2023-11-28-res-71120",
+   "date": "2023-11-28",
+   "kind": "council_decision",
+   "item": "Action Calendar 17",
+   "title": "Council adopts the Five-Year Street Rehabilitation Plan, FY2024-2028, after a competing motion fails",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 71,120-N.S. adopting the staff plan with Milvia Street (Hearst to Rose) added and the Hopkins Street segments to be completed with Measure T1 funds by the end of FY2027; green infrastructure and holdover-list questions referred to committee.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "71,120"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "71,120-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "71,120"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Humbert",
+     "seconder": "Robinson",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Taplin",
+      "Bartlett",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Humbert",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Kesarwani present at 6:39 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "M/S/Carried (Humbert/Robinson)"
+     },
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 2,
+      "quote": "Councilmember Kesarwani present at 6:39 p.m."
+     }
+    ],
+    "note": null
+   },
+   "failed_motions": [
+    {
+     "status": "verified",
+     "value": {
+      "mover": "Hahn",
+      "seconder": "Wengraf",
+      "result": "failed",
+      "text": "Adopt the plan with Milvia added, add Hopkins Street (The Alameda to Gilman) to the FY2025 list, refer green infrastructure and holdover issues to committee, and direct a parking management analysis around the Hopkins corridor.",
+      "ayes": [
+       "Bartlett",
+       "Hahn",
+       "Wengraf",
+       "Arreguin"
+      ],
+      "noes": [
+       "Kesarwani",
+       "Taplin",
+       "Harrison",
+       "Robinson",
+       "Humbert"
+      ],
+      "abstain": [],
+      "absent": []
+     },
+     "citations": [
+      {
+       "doc_id": "aa:2023-11-28",
+       "pdf_page": 9,
+       "quote": "M/S/Failed (Hahn/Wengraf)"
+      },
+      {
+       "doc_id": "aa:2023-11-28",
+       "pdf_page": 9,
+       "quote": "Ayes - Bartlett, Hahn, Wengraf, Arreguin; Noes - Kesarwani, Taplin, Harrison, Robinson, Humbert"
+      }
+     ],
+     "note": null
+    }
+   ],
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 14454463,
+     "basis": "programmed FY2024 paving funding (FY2025 $18,317,325; FY2026 $17,460,435)",
+     "source": "adds the $8M policy line, Zero Waste and Storm Water funds to the earlier sources"
+    },
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 2,
+      "quote": "TOTAL 14,454,463 18,317,325 17,460,435 19,236,589 20,521,028"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "City staff projection: citywide PCI 55 now, 57 after the five-year plan; the plan \"maintains the citywide PCI in the mid 50's\" and does not reach \"good\" (70).",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 6,
+      "quote": "Citywide 55 57"
+     },
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 6,
+      "quote": "maintains the citywide PCI in the mid 50's"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the Hahn/Wengraf motion (below), which failed 4-5.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "M/S/Failed (Hahn/Wengraf)"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "verified",
+    "value": "City staff report centerline miles paved: 10.7 in FY2024 and 8.4 in FY2025; 10.3 projected for FY2026. Some streets were deferred to coordinate with Claremont, Oxford and Telegraph projects.",
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 5,
+      "quote": "FY 2024 10.7"
+     },
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 5,
+      "quote": "FY 2025 8.4"
+     },
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 5,
+      "quote": "Several streets from the FY 2024-2028 plan have been deferred"
+     }
+    ],
+    "note": null
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Whether the Hopkins segments are on track for FY2027",
+    "where_to_look": "Public Works project status"
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Hopkins Street segments to be completed with Measure T1 funds by the end of FY2027.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-11-28",
+      "pdf_page": 9,
+      "quote": "complete the Hopkins Street segments with Measure T1 funds by the end of FY 2027"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "The record does not list individual names for the final \"All Ayes\" vote."
+   ],
+   "retrospective_scenarios": [],
+   "competing_proposals": [
+    {
+     "name": "Staff plan as recommended (basis of the adopted resolution)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Hopkins Street held over (on hold per an April 5, 2023 City Manager memo); about $4.75 million of other Hopkins money moved to paving other streets.",
+     "expected_outcome": "City staff: citywide PCI 55 now, 57 after the plan.",
+     "funding_restrictions": "Programmed funding $14,454,463 in FY2024 rising to $20,521,028 in FY2028; Hopkins T1 money is bond money restricted to T1 projects.",
+     "tradeoff_as_documented": "Staff: the plan \"maintains the citywide PCI in the mid 50's\".",
+     "citations": [
+      {
+       "doc_id": "r23:17",
+       "pdf_page": 3,
+       "quote": "the Hopkins project is on hold per the City Manager's April 5, 2023 off agenda memo"
+      },
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 3,
+       "quote": "approximately $4.75 million - are slated to be reallocated"
+      },
+      {
+       "doc_id": "r23:17",
+       "pdf_page": 6,
+       "quote": "Citywide 55 57"
+      }
+     ]
+    },
+    {
+     "name": "Hahn/Wengraf alternative (failed 4-5)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Add Hopkins Street, The Alameda to Gilman, to the FY2025 list, paid only from the $3.9 million of Measure T1 money still allocated to Hopkins; parking analysis for the corridor.",
+     "expected_outcome": "No separate PCI projection in the record.",
+     "funding_restrictions": "Uses only T1 money already allocated to Hopkins.",
+     "tradeoff_as_documented": "The supplemental describes the segment as having the lowest PCIs and serving AC Transit routes, the shopping district and King Pool.",
+     "citations": [
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 3,
+       "quote": "$3.9 million of T1 funds remain allocated for Hopkins paving"
+      },
+      {
+       "doc_id": "r23:17-hahn",
+       "pdf_page": 2,
+       "quote": "for paving in FY 2025, using only the previously"
+      }
+     ]
+    },
+    {
+     "name": "Adopted (Humbert/Robinson, All Ayes)",
+     "cost_five_year": null,
+     "miles": null,
+     "mix": "Staff plan plus Milvia Street; Hopkins segments to be completed with Measure T1 funds by the end of FY2027.",
+     "expected_outcome": "As staff projected above.",
+     "funding_restrictions": "As above.",
+     "tradeoff_as_documented": "Not stated in the record.",
+     "citations": [
+      {
+       "doc_id": "aa:2023-11-28",
+       "pdf_page": 9,
+       "quote": "complete the Hopkins Street segments with Measure T1 funds by the end of FY 2027"
+      }
+     ]
+    }
+   ],
+   "significance": [
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    },
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2024-07-30-res-71461-measure-ff",
+   "date": "2024-07-30",
+   "kind": "council_decision",
+   "item": "Special meeting",
+   "title": "Council sends the SAFE STREETS parcel tax (Measure FF) to voters",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 71,461-N.S. submitting the citizens' initiative, without alteration, to the November 5, 2024 election.",
+    "citations": [
+     {
+      "doc_id": "aa:2024-07-30-special",
+      "pdf_page": 2,
+      "quote": "Adopt Resolution No. 71,461"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "71,461-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2024-07-30-special",
+      "pdf_page": 2,
+      "quote": "Resolution No. 71,461"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Taplin",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Taplin",
+      "Tregub",
+      "Hahn",
+      "Wengraf",
+      "Lunaparra",
+      "Humbert",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Kesarwani present at 3:16 p.m.",
+      "Bartlett present at 3:36 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2024-07-30-special",
+      "pdf_page": 2,
+      "quote": "M/S/C (Arreguin/Taplin)"
+     },
+     {
+      "doc_id": "aa:2024-07-30-special",
+      "pdf_page": 2,
+      "quote": "Vote: All Ayes"
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "A ballot placement appropriates nothing."
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Repairs and improvements to streets, sidewalks and pedestrian paths.",
+    "citations": [
+     {
+      "doc_id": "aa:2024-07-09",
+      "pdf_page": 10,
+      "quote": "Improvements to Streets, Sidewalks, and Pedestrian Paths (SAFE STREETS)"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: for an initiative, Council could adopt the measure itself without alteration, or submit it to voters. Council submitted it.",
+    "citations": [
+     {
+      "doc_id": "aa:2024-07-09",
+      "pdf_page": 10,
+      "quote": "Adopt the provisions of the measure without alteration"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "See the following event."
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "Approved by voters; Council adopted Ordinance No. 7,952-N.S. on December 10, 2024 (next event).",
+    "citations": [
+     {
+      "doc_id": "aa:2024-12-10-special",
+      "pdf_page": 3,
+      "quote": "Ordinance No. 7,952-N.S. (Measure FF"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "See the following event."
+   },
+   "uncertainties": [
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2024-12-10-ord-7952",
+   "date": "2024-12-10",
+   "kind": "voter_decision",
+   "item": "Special meeting, Item 1",
+   "title": "Measure FF results confirmed; Ordinance No. 7,952-N.S. adopted",
+   "decision": {
+    "status": "verified",
+    "value": "Council confirmed the November 5, 2024 election results and adopted Ordinance No. 7,952-N.S. (Measure FF, the SAFE STREETS parcel tax).",
+    "citations": [
+     {
+      "doc_id": "aa:2024-12-10-special",
+      "pdf_page": 3,
+      "quote": "Ordinance No. 7,952-N.S. (Measure FF"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "ordinance",
+     "number": "7,952-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2024-12-10-special",
+      "pdf_page": 3,
+      "quote": "7,952-N.S."
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Vote confirming the results",
+    "where_to_look": "Same annotated agenda; confirming results is ministerial"
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": null,
+     "basis": "special parcel tax, 14 years; FY2027 revenue projected $16,651,651",
+     "source": "Measure FF"
+    },
+    "citations": [],
+    "note": "See the Ask BeTH Measure FF answer for the cited revenue figure."
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Approximately 45% streets, 15% sidewalks and paths, 30% safety, 10% environmental and other uses; goal of PCI 70 \"ideally with no streets having a PCI below 50\" by 2036.",
+    "citations": [],
+    "note": "Citations in the Ask BeTH Measure FF answer (BMC 7.11.010(K)(1), 7.11.020(C))."
+   },
+   "alternatives": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Voters decided; see the July 30, 2024 event for Council's documented options."
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Measure FF receipts and spending, FY2025-FY2026",
+    "where_to_look": "FY2026 ACFR; Measure FF annual report"
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "First Measure FF annual report (streets paved, cost per mile, PCI)",
+    "where_to_look": "BMC 7.11.050 report"
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Five-year Measure FF program adopted July 7, 2026 (later event).",
+    "citations": [],
+    "note": "See the July 7, 2026 event for its citation."
+   },
+   "uncertainties": [
+    "Election vote totals are not yet in BeTH's records."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    },
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2026-03-17-bond-direction",
+   "date": "2026-03-17",
+   "kind": "council_direction",
+   "item": "Special meeting, Item 1",
+   "title": "Council directs staff to draft a $300 million infrastructure bond and a sales tax measure",
+   "decision": {
+    "status": "verified",
+    "value": "Approved the recommendation to prepare draft ballot language for a potential $300 million general obligation bond for infrastructure and a 0.5 percent sales tax increase, and to run a second voter survey.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-03-17-special",
+      "pdf_page": 2,
+      "quote": "potential $300 million General Obligation bond measure"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Direction by motion; no resolution number."
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Ishii",
+     "seconder": "Taplin",
+     "recorded": "All Ayes",
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-03-17-special",
+      "pdf_page": 2,
+      "quote": "M/S/C (Ishii/Taplin) to approve the recommendation"
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 300000000,
+     "basis": "potential ballot authorization (direction only)",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-03-17-special",
+      "pdf_page": 2,
+      "quote": "potential $300 million General Obligation bond measure"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "\"to fund priority infrastructure investments\"",
+    "citations": [
+     {
+      "doc_id": "aa:2026-03-17-special",
+      "pdf_page": 2,
+      "quote": "ballot to fund priority infrastructure investments"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Survey options and bond sizes considered",
+    "where_to_look": "March 17, 2026 staff report and survey"
+   },
+   "actual": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Direction only."
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "Affirmed on May 19, 2026 (All Ayes).",
+    "citations": [
+     {
+      "doc_id": "aa:2026-05-19-special",
+      "pdf_page": 2,
+      "quote": "Affirm the direction to prepare ballot language for a potential $300 million General"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "The Council resolution placing the bond on the November 3, 2026 ballot, its vote, and the project list",
+    "where_to_look": "Council annotated agendas, June-August 2026"
+   },
+   "uncertainties": [
+    "BeTH has not yet located the final placement resolution or its vote."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2026-06-23-res-72340-budget",
+   "date": "2026-06-23",
+   "kind": "council_decision",
+   "item": "Special meeting",
+   "title": "Council adopts the FY2027-28 budget and FY2027-31 capital program, after a competing budget motion fails",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 72,340-N.S. adopting the FY2027-28 biennial budget and the FY2027-2031 Capital Improvement Program, with the Mayor's recommendations as revised at the meeting.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-23",
+      "pdf_page": 3,
+      "quote": "72,340"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "72,340-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-23",
+      "pdf_page": 3,
+      "quote": "72,340"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Humbert",
+     "seconder": "Tregub",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Bartlett",
+      "Tregub",
+      "O'Keefe",
+      "Blackaby",
+      "Lunaparra",
+      "Humbert",
+      "Ishii"
+     ],
+     "arrivals": [],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-23",
+      "pdf_page": 3,
+      "quote": "M/S/Carried (Humbert/Tregub)"
+     }
+    ],
+    "note": null
+   },
+   "failed_motions": [
+    {
+     "status": "verified",
+     "value": {
+      "mover": "Kesarwani",
+      "seconder": "Blackaby",
+      "result": "failed",
+      "text": "Adopt the budget with the Mayor's allocations except that $2,500,000 would be retained for Small Sites and $1,300,000 in the Housing Trust Fund.",
+      "ayes": [
+       "Kesarwani",
+       "Taplin",
+       "Blackaby"
+      ],
+      "noes": [
+       "Bartlett",
+       "Tregub",
+       "O'Keefe",
+       "Lunaparra",
+       "Ishii"
+      ],
+      "abstain": [
+       "Humbert"
+      ],
+      "absent": []
+     },
+     "citations": [
+      {
+       "doc_id": "aa:2026-06-23",
+       "pdf_page": 2,
+       "quote": "M/S/Failed (Kesarwani/Blackaby)"
+      },
+      {
+       "doc_id": "aa:2026-06-23",
+       "pdf_page": 3,
+       "quote": "Ayes - Kesarwani, Taplin, Blackaby; Noes - Bartlett, Tregub, O'Keefe"
+      }
+     ],
+     "note": null
+    }
+   ],
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 139356147,
+     "basis": "adopted five-year Streets CIP (FY2027-28 appropriated; FY2029-31 planned)",
+     "source": "multiple (see Ask BeTH: streets figure)"
+    },
+    "citations": [
+     {
+      "doc_id": "budget:2026-06-23",
+      "pdf_page": 216,
+      "quote": "$139,356,147 in Five-Year CIP Budget"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Budget priorities stated by the City Manager and Mayor",
+    "where_to_look": "Budget message; Mayor's recommendations"
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the Kesarwani/Blackaby budget motion, which failed 3-5 with one abstention. Four transportation studies were moved to \"unfunded and pending\".",
+    "citations": [
+     {
+      "doc_id": "aa:2026-06-23",
+      "pdf_page": 2,
+      "quote": "M/S/Failed (Kesarwani/Blackaby)"
+     },
+     {
+      "doc_id": "aa:2026-06-23",
+      "pdf_page": 3,
+      "quote": "Citywide Traffic Signal Master Plan"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "FY2027 actual street spending",
+    "where_to_look": "FY2027 ACFR (late 2027)"
+   },
+   "outcomes": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Too recent."
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "FY2029-FY2031 street amounts are plans, not appropriations.",
+    "citations": [],
+    "note": "See the Ask BeTH streets-figure answer."
+   },
+   "uncertainties": [
+    "The record does not list individual names for the final \"All Ayes\" vote."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2026-07-07-res-72377",
+   "date": "2026-07-07",
+   "kind": "council_decision",
+   "item": "Action Calendar 10",
+   "title": "Council adopts the Five-Year Street Rehabilitation and Measure FF plans, FY2027-2031",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 72,377-N.S. adopting both five-year plans, noting several transportation studies as preliminary Measure FF safety projects subject to the SAFE STREETS oversight committee and Council.",
+    "citations": [
+     {
+      "doc_id": "aa:2026-07-07",
+      "pdf_page": 9,
+      "quote": "72,377"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "72,377-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-07-07",
+      "pdf_page": 9,
+      "quote": "72,377"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Humbert",
+     "seconder": "Tregub",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Tregub",
+      "O'Keefe",
+      "Blackaby",
+      "Lunaparra",
+      "Humbert",
+      "Ishii"
+     ],
+     "arrivals": [
+      "Bartlett present at 6:12 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-07-07",
+      "pdf_page": 9,
+      "quote": "M/S/C (Humbert/Tregub)"
+     },
+     {
+      "doc_id": "aa:2026-07-07",
+      "pdf_page": 2,
+      "quote": "Councilmember Bartlett present at 6:12 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 96336212,
+     "basis": "five-year paving plan funding (planned)",
+     "source": "seven sources"
+    },
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 3,
+      "quote": "$96,336,212"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "City projection: the paving plan plus Measure FF raises citywide PCI to about 62 by 2038; neither scenario reaches 70 within 12 years.",
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 12,
+      "quote": "the citywide PCI is projected to improve to approximately 62 by 2038"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "verified",
+    "value": "Documented at the time: the City modeled funding scenarios and two ways of choosing Measure FF streets (PCI below 50 versus cost-effectiveness).",
+    "citations": [
+     {
+      "doc_id": "plan:2026-07-07",
+      "pdf_page": 13,
+      "quote": "PCI Under 50"
+     }
+    ],
+    "note": null
+   },
+   "actual": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Too recent."
+   },
+   "outcomes": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Too recent."
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Five years of planned paving and Measure FF projects; see the Ask BeTH street pages.",
+    "citations": [],
+    "note": "Plan totals and street lists are cited in the Ask BeTH street answers."
+   },
+   "uncertainties": [
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "plan_change",
+     "label": "substantially changes an adopted plan"
+    },
+    {
+     "criterion": "targets",
+     "label": "establishes performance targets"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2026-11-bond-ballot",
+   "date": "2026-11-03",
+   "date_precision": "election day (pending)",
+   "kind": "voter_decision",
+   "title": "A $300 million infrastructure bond goes to voters (pending)",
+   "decision": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "The placement resolution and final ballot question",
+    "where_to_look": "Council annotated agendas, June-August 2026"
+   },
+   "instrument": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Resolution number",
+    "where_to_look": "Same"
+   },
+   "vote": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Council vote placing the measure",
+    "where_to_look": "Same"
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 300000000,
+     "basis": "potential ballot authorization",
+     "source": "general obligation bonds"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2026-05-19-special",
+      "pdf_page": 2,
+      "quote": "potential $300 million General"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Project list",
+    "where_to_look": "Ballot resolution exhibit"
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Alternatives considered, including Vision 2050 recommendations raised by residents",
+    "where_to_look": "Council materials; public communications"
+   },
+   "actual": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Pending."
+   },
+   "outcomes": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Pending."
+   },
+   "outstanding": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Pending."
+   },
+   "uncertainties": [
+    "Election on November 3, 2026."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2022-06-28-res-70442-budget",
+   "date": "2022-06-28",
+   "kind": "council_decision",
+   "item": "Action Calendar 44",
+   "title": "Council adopts the FY2023-24 budget, raising General Fund paving money",
+   "decision": {
+    "status": "verified",
+    "value": "Adopted Resolution No. 70,442-N.S. adopting the FY2023 and FY2024 biennial budget, including the proposed capital budget, as revised at the meeting.",
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "to adopt Resolution No. 70,442"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "verified",
+    "value": {
+     "kind": "resolution",
+     "number": "70,442-N.S."
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "Resolution No. 70,442"
+     }
+    ],
+    "note": null
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Harrison",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Bartlett",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Droste",
+      "Arreguin"
+     ],
+     "arrivals": [
+      "Harrison present at 6:06 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 16,
+      "quote": "to adopt Resolution No. 70,442"
+     },
+     {
+      "doc_id": "aa:2022-06-28",
+      "pdf_page": 2,
+      "quote": "Councilmember Harrison present at 6:06 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 5100000,
+     "basis": "adopted budget increase to General Fund paving, FY2023 ($9.0M in FY2024), as described by staff in November 2023",
+     "source": "General Fund"
+    },
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 3,
+      "quote": "increased baseline paving funding from the General Fund by $5.1M in FY 2023 and $9.0M in FY 2024"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "Staff (November 2023): \"historic and unprecedented investments in paving from the General Fund.\"",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 3,
+      "quote": "These were historic and"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Budget alternatives for paving considered in June 2022",
+    "where_to_look": "June 14 and June 28, 2022 budget materials"
+   },
+   "actual": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "FY2023 and FY2024 actual paving expenditures",
+    "where_to_look": "CIP actuals; ACFR"
+   },
+   "outcomes": {
+    "status": "verified",
+    "value": "City staff report 7.0 centerline miles paved in FY2023 (including Southside), \"nearly 2-3 times the annual rate for the preceding four years\", and attribute it to Council's increase to baseline paving funding. The City's attribution, not a BeTH finding.",
+    "citations": [
+     {
+      "doc_id": "r23:17",
+      "pdf_page": 4,
+      "quote": "nearly 2-3"
+     }
+    ],
+    "note": null
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "Carried forward by the July 26, 2022 policy (next event).",
+    "citations": [],
+    "note": "See the next event."
+   },
+   "uncertainties": [
+    "The FY2024 plan programs $8,124,160 of General Fund paving money (baseline plus policy), which is not the \"$9.0M\" increase staff describe for FY2024; the difference is not explained in the record.",
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "recurring",
+     "label": "materially changes a recurring commitment"
+    },
+    {
+     "criterion": "major_funding",
+     "label": "authorizes major funding"
+    }
+   ]
+  },
+  {
+   "id": "bdh-streets-2023-06-13-t1-gap",
+   "date": "2023-06-13",
+   "kind": "council_decision",
+   "item": "Action Calendar 25",
+   "title": "Council closes the Measure T1 funding gap, moving $2.8 million from the Hopkins project",
+   "decision": {
+    "status": "verified",
+    "value": "Approved the Budget & Finance Committee recommendation to cover the Measure T1 funding gap, including $4,050,000 from the Workers' Compensation Fund and $2,800,000 of the $6,750,000 allocated to the Hopkins Bike/Pedestrian T1 project.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $4,050,000 from the Workers Compensation Fund"
+     },
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $2,800,000 of $6,750,000 allocated for the Hopkins Bike/Pedestrian T1"
+     }
+    ],
+    "note": null
+   },
+   "instrument": {
+    "status": "not_in_record",
+    "value": null,
+    "needed": "Direction by motion; no resolution number in the annotated agenda."
+   },
+   "vote": {
+    "status": "verified",
+    "value": {
+     "mover": "Arreguin",
+     "seconder": "Harrison",
+     "recorded": "All Ayes",
+     "present_at_roll_call": [
+      "Kesarwani",
+      "Taplin",
+      "Harrison",
+      "Hahn",
+      "Wengraf",
+      "Robinson",
+      "Humbert"
+     ],
+     "arrivals": [
+      "Arreguin present at 7:13 p.m.",
+      "Bartlett present at 7:26 p.m."
+     ],
+     "ayes": null,
+     "noes": null,
+     "abstain": null,
+     "absent": null
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "M/S/C (Arreguin/Harrison) to approve the recommendation of"
+     },
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 2,
+      "quote": "Mayor Arreguin present at 7:13 p.m."
+     }
+    ],
+    "note": null
+   },
+   "money": {
+    "status": "verified",
+    "value": {
+     "amount": 2800000,
+     "basis": "reallocation of bond-funded project budget",
+     "source": "Measure T1"
+    },
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $2,800,000 of $6,750,000 allocated for the Hopkins Bike/Pedestrian T1"
+     }
+    ],
+    "note": null
+   },
+   "purpose": {
+    "status": "verified",
+    "value": "\"Identify up to $9.062M to cover the Measure T1 funding gap in order to complete the current remaining T1 projects.\"",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Identify up to $9.062M to cover the Measure T1 funding gap"
+     }
+    ],
+    "note": null
+   },
+   "alternatives": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Options presented for closing the gap",
+    "where_to_look": "June 13, 2023 staff report; Budget & Finance Committee"
+   },
+   "actual": {
+    "status": "verified",
+    "value": "In November 2023 staff reported $3.9 million of T1 money still allocated to Hopkins paving, and Council later directed the Hopkins segments be completed with T1 funds by the end of FY2027.",
+    "citations": [
+     {
+      "doc_id": "r23:17-hahn",
+      "pdf_page": 3,
+      "quote": "$3.9 million of T1 funds remain allocated for Hopkins paving"
+     }
+    ],
+    "note": null
+   },
+   "outcomes": {
+    "status": "to_collect",
+    "value": null,
+    "needed": "Hopkins paving status",
+    "where_to_look": "Public Works project status"
+   },
+   "outstanding": {
+    "status": "verified",
+    "value": "The $4,050,000 drawn from the Workers' Compensation Fund; repayment terms are not in the annotated agenda.",
+    "citations": [
+     {
+      "doc_id": "aa:2023-06-13",
+      "pdf_page": 11,
+      "quote": "Use $4,050,000 from the Workers Compensation Fund"
+     }
+    ],
+    "note": null
+   },
+   "uncertainties": [
+    "Whether the $4,050,000 from the Workers' Compensation Fund is a loan or a transfer, and how it was booked, is not established. It is separate from the $5.5M Marina loan six weeks later.",
+    "The record does not list individual names for \"All Ayes\" votes."
+   ],
+   "retrospective_scenarios": [],
+   "significance": [
+    {
+     "criterion": "reallocation",
+     "label": "reallocates resources"
+    }
+   ]
+  }
+ ]
+}

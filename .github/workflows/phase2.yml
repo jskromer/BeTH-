@@ -1,0 +1,36 @@
+name: Phase 2
+# Separate from Phase 1 CI (extraction-safety.yml, dashboard.yml), which is unchanged.
+# Runs the Phase 2 tests, rebuilds every Phase 2 output and requires the committed files to be reproduced exactly,
+# and refuses any change to approved ledgers, curation data or production website files.
+on:
+  pull_request:
+    paths: ['phase2/**', '.github/workflows/phase2.yml']
+  push:
+    branches: [phase2-capital-analysis]
+    paths: ['phase2/**', '.github/workflows/phase2.yml']
+  workflow_dispatch:
+
+jobs:
+  phase2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Phase 2 tests
+        run: python -m unittest discover -s phase2/tests -v
+      - name: Rebuild every Phase 2 output
+        run: sh phase2/tools/rebuild.sh
+      - name: Committed outputs reproduce exactly
+        run: |
+          changes=$(git status --porcelain --untracked-files=all | grep -v '__pycache__/' || true)
+          if [ -n "$changes" ]; then echo "Rebuild changed or created files:"; echo "$changes"; git diff --stat; exit 1; fi
+      - name: No change to approved ledgers, curation data or production website files
+        run: |
+          base="origin/${{ github.base_ref || 'main' }}"
+          touched=$(git diff --name-only "$base"...HEAD -- data/funds data/curation docs)
+          if [ -n "$touched" ]; then echo "Phase 2 must not modify:"; echo "$touched"; exit 1; fi

@@ -1,0 +1,162 @@
+                          Pavement Condition Index Scores by Jurisdiction: Details
+                                                                Current Level of Service
+                                                                                                       2012 PCI                     3-yr Moving Average
+                                                                                      %
+                                                        Total        % Poor or Excellent
+                                           Total Lane Centerline        Failed  or Very
+County    Jurisdiction                     Miles        Miles                     Good Arterial    Collector Residential Network    2010     2011         2012
+          Regional Benchmarks (weighted)       42,788       20,634        24%      31%          73         66          63      66     66       66           66
+Alameda   ALAMEDA                                 303.9        137.8      22%       29%         70         72          62      66     66       67           68
+          ALAMEDA COUNTY                          990.3        471.8       9%       16%         71         73          71      71     72       73           71
+          ALBANY                                   59.1         29.4      36%       20%         64         60          54      58     60       58           57
+          BERKELEY                                452.8        216.2      38%       28%         70         50          58      58     60       59           59
+          DUBLIN                                  254.0        116.0       0%       84%         88         85          88      87     82       84           86
+          EMERYVILLE                               47.1         19.8       5%       51%         77         75          70      75     77       78           78
+          FREMONT                               1064.9         496.9      30%       31%         73         61          57      63     64       63           63
+          HAYWARD                                 645.3        282.0      21%       45%         79         72          64      69     69       69           69
+          LIVERMORE                               670.2        301.8       5%       52%         76         76          76      76     78       78           78
+          NEWARK                                  250.1        104.4       5%       52%         77         75          75      76     69       71           73
+          OAKLAND                               1919.5         794.5      29%       18%         67         58          58      61     56       57           58
+          PIEDMONT                                 78.1         38.8      16%       19%         70         71          65      67     70       73           71
+          PLEASANTON                              497.4        206.3       5%       54%         77         75          78      77     77       77           77
+          SAN LEANDRO                             391.5        180.4      41%       19%         64         62          52      57     57       56           56
+          UNION CITY                              329.6        138.1       4%       59%         77         82          80      80     78       79           79
+          COUNTYWIDE                            7954.0        3534.1      20%      33%          72         67          65      67     66       67           68
+Contra    ANTIOCH                                 666.3        317.3      21%       40%         71         57          68      68     69       69           69
+Costa     BRENTWOOD                               406.1        182.7       1%       90%         83         86          89      88     86       86           87
+          CLAYTON                                  94.2         42.4       7%       59%         88         79          78      80     75       74           75
+          CONCORD                                 713.3        308.6      18%        8%         62         65          61      62     76       72           67
+          CONTRA COSTA COUNTY                   1328.3         645.3      14%       28%         73         63          68      69     78       75           72
+          DANVILLE                                315.7        154.0      14%       37%         83         74          70      72     73       72           72
+          EL CERRITO                              145.4         70.1       0%       82%         81         88          85      85     62       73           84
+          HERCULES                                121.8         58.0      20%       60%         77         75          69      72     73       74           74
+          LAFAYETTE                               200.7         92.5      11%       59%         84         83          67      75     72       73           74
+          MARTINEZ                                230.3        120.2      36%       31%         69         58          59      61     59       60           60
+          MORAGA                                  110.2         55.7      54%       14%         67         43          43      50     58       56           53
+          OAKLEY                                  282.4        130.6      10%       61%         74         75          77      76     76       75           74
+          ORINDA                                  192.9         92.7      58%       23%         78         62          38      50     49       48           48
+          PINOLE                                  118.8         52.2      14%       30%         77         61          69      69     70       69           70
+
+
+                                                                               1
+                         Pavement Condition Index Scores by Jurisdiction: Details
+                                                                                                      2012 PCI                     3-yr Moving Average
+                                                                                     %
+                                                       Total        % Poor or Excellent
+                                          Total Lane Centerline        Failed  or Very
+County   Jurisdiction                     Miles        Miles                     Good Arterial    Collector Residential Network    2010     2011         2012
+         Regional Benchmarks (weighted)       42,788       20,634        24%      31%          73         66          63      66     66       66           66
+         PITTSBURG                               334.4        165.3      28%       31%         69         65          60      63     64       64           64
+         PLEASANT HILL                           224.9        109.7      24%       24%         76         79          57      65     67       66           66
+         RICHMOND                                570.2        286.7      31%       40%         73         63          60      65     55       58           61
+         SAN PABLO                               103.4         48.1       4%       50%         83         77          76      78     80       79           79
+         SAN RAMON                               433.1        213.6       9%       54%         77         76          76      76     75       76           76
+         WALNUT CREEK                            430.5        217.5       9%       40%         71         72          71      71     73       71           71
+         COUNTYWIDE                            7022.8        3363.1      18%      39%          74         68          67      69     71       71           70
+Marin    BELVEDERE                                23.5         12.7       1%       50%         85         80          80      81     84       85           83
+         CORTE MADERA                             71.2         35.0       9%       19%         72         70          70      70     72       71           71
+         FAIRFAX                                  54.7         27.6      24%       22%         63         65          62      63     69       68           66
+         LARKSPUR                                 63.7         32.2      65%        7%         71         63          33      40     45       44           42
+         MARIN COUNTY                            845.7        420.4      39%       21%         75         60          50      57     52       52           55
+         MILL VALLEY                             117.4         61.4      30%       21%         54         59          62      60     61       62           62
+         NOVATO                                  317.8        152.6      14%       36%         69         71          69      70     73       73           72
+         ROSS                                     22.1         11.1      16%       41%         81         64          74      72     67       69           70
+         SAN ANSELMO                              81.4         39.2      34%       31%         67         55          59      59     55       56           57
+         SAN RAFAEL                              330.9        172.6      19%       40%         71         70          69      70     75       74           72
+         SAUSALITO                                52.3         26.8      26%       29%         73         57          76      63     63       63           63
+         TIBURON                                  67.4         35.9      12%       54%         87         77          74      76     70       70           73
+         COUNTYWIDE                            2048.1        1027.2      29%      28%          72         64          60      63     62       62           63
+Napa     AMERICAN CANYON                         106.5         52.3      26%       40%         72         59          66      64     74       71           67
+         CALISTOGA                                30.7         15.4      39%       13%         73         57          57      58     60       61           59
+         NAPA                                    462.9        218.7      33%       30%         73         68          59      63     57       58           60
+         NAPA COUNTY                             833.9        416.4      34%       17%         81         63          53      60     57       60           59
+         ST. HELENA                               51.2         26.0      59%       15%         44         38          41      40     46       44           42
+         YOUNTVILLE                               16.9          8.5      17%       26%         74         62          67      68     69       71           69
+         COUNTYWIDE                            1502.1         737.1      34%      22%          76         63          56      61     58       58           60
+San      SAN FRANCISCO                         2121.1         939.3      31%       27%         72         68          62      65     64       64           64
+Francisco
+San Mateo ATHERTON                             105.8        53.8       0%         56%       83         83          81        81     77        79          81
+          BELMONT                              138.3        69.3      45%         23%       75         60          50        56     60        58          57
+
+
+                                                                              2
+                          Pavement Condition Index Scores by Jurisdiction: Details
+                                                                                                       2012 PCI                     3-yr Moving Average
+                                                                                      %
+                                                        Total        % Poor or Excellent
+                                           Total Lane Centerline        Failed  or Very
+County    Jurisdiction                     Miles        Miles                     Good Arterial    Collector Residential Network    2010     2011         2012
+          Regional Benchmarks (weighted)       42,788       20,634        24%      31%          73         66          63      66     66       66           66
+            BRISBANE                               53.2         22.3       4%       57%         79         73          80      77     77       77           77
+            BURLINGAME                            162.3         83.9      10%       34%         76         69          73      73     77       76           74
+            COLMA                                  23.0          9.1      31%       55%         53         77          90      68     65       68           70
+            DALY CITY                             253.8        115.2       3%       56%         79         79          79      79     77       77           78
+            EAST PALO ALTO                         79.7         37.9      34%       40%         63         65          53      57     53       53           55
+            FOSTER CITY                           121.0         54.7       0%       59%         80         83          80      81     81       81           81
+            HALF MOON BAY                          54.1         27.3      48%       37%         74         48          54      56     62       59           56
+            HILLSBOROUGH                          166.5         83.3       6%       24%         79         74          70      72     71       72           73
+            MENLO PARK                            199.8         98.0       8%       56%         77         79          78      78     63       68           72
+            MILLBRAE                              124.6         58.2      31%       16%         73         62          49      59     59       62           61
+            PACIFICA                              187.2         90.1      39%       23%         58         70          55      59     59       60           59
+            PORTOLA VALLEY                         71.3         36.7       4%       54%         82         83          80      81     73       77           78
+            REDWOOD CITY                          352.4        154.3       5%       45%         79         77          75      76     78       77           77
+            SAN BRUNO                             178.1         88.8      37%       26%         74         58          53      58     63       63           61
+            SAN CARLOS                            174.7         86.0      34%       15%         71         56          57      60     67       65           63
+            SAN MATEO                             411.7        192.4      17%       56%         83         81          67      73     73       72           72
+            SAN MATEO COUNTY                      624.6        307.1      14%       26%         82         74          65      69     69       69           69
+            SOUTH SAN FRANCISCO                   296.0        138.9      13%       31%         74         67          69      70     73       72           71
+            WOODSIDE                               96.4         47.7      31%       38%         66         70          68      67     57       58           62
+            COUNTYWIDE                          3874.4        1855.1      17%      38%          77         72          67      70     70       70           69
+Santa Clara CAMPBELL                              218.3         91.2       8%       38%         77         66          74      73     75       75           74
+            CUPERTINO                             299.1        138.7      30%       23%         77         78          60      65     70       70           68
+            GILROY                                253.1        118.7       8%       50%         74         75          77      76     76       74           74
+            LOS ALTOS                             225.9        110.9       0%       48%         83         78          78      79     82       81           80
+            LOS ALTOS HILLS                       114.6         57.4       8%       49%         74         78          76      76     77       77           77
+            LOS GATOS                             220.7        104.0      17%       44%         82         72          69      72     69       68           69
+            MILPITAS                              298.2        128.3      14%       33%         74         68          71      71     69       68           69
+            MONTE SERENO                           27.1         13.6      10%       23%         68         68          68      68     69       69           70
+            MORGAN HILL                           255.9        116.1       4%       41%         74         73          76      75     77       77           76
+            MOUNTAIN VIEW                         330.9        144.4       4%       34%         72         75          74      73     76       75           75
+            PALO ALTO                             470.7        198.4      14%       60%         71         75          80      78     73       74           76
+
+
+                                                                               3
+                         Pavement Condition Index Scores by Jurisdiction: Details
+                                                                                                      2012 PCI                     3-yr Moving Average
+                                                                                     %
+                                                       Total        % Poor or Excellent
+                                          Total Lane Centerline        Failed  or Very
+County   Jurisdiction                     Miles        Miles                     Good Arterial    Collector Residential Network    2010     2011         2012
+         Regional Benchmarks (weighted)       42,788       20,634        24%      31%          73         66          63      66     66       66           66
+         SAN JOSE                              4210.3        1934.1      23%       17%         73         71          57      62     64       64           63
+         SANTA CLARA                             589.8        247.4       3%       37%         79         72          77      76     80       78           76
+         SANTA CLARA COUNTY                    1436.1         623.8      11%       44%         77         70          72      75     74       74           75
+         SARATOGA                                280.8        140.0       5%       18%         78         72          73      74     71       72           73
+         SUNNYVALE                               635.8        259.6       4%       41%         78         74          76      76     75       76           76
+         COUNTYWIDE                            9867.4        4426.3      15%      29%          75         72          67      69     70       70           69
+Solano   BENICIA                                 190.1         93.9      37%       27%         62         77          55      60     63       61           60
+         DIXON                                   125.8         62.1      11%       61%         77         79          77      77     76       78           77
+         FAIRFIELD                               716.8        331.8      12%       34%         71         68          71      70     73       73           73
+         RIO VISTA                                45.5         22.7      43%       39%         76         65          50      57     42       47           51
+         SOLANO COUNTY                           940.8        467.7       8%       43%         76         81          69      75     67       68           71
+         SUISUN CITY                             150.0         75.1      26%       39%         77         67          60      65     62       68           67
+         VACAVILLE                               581.9        264.5      21%       30%         74         66          66      68     76       73           70
+         VALLEJO                                 714.5        320.0      49%       24%         68         53          42      50     53       51           51
+         COUNTYWIDE                            3465.3        1637.8      22%      35%          72         69          62      66     66       66           66
+Sonoma   CLOVERDALE                               63.2         32.0      28%       36%         69         61          62      64     71       68           66
+         COTATI                                   46.3         22.3      42%       21%         73         51          51      57     64       61           59
+         HEALDSBURG                               93.2         44.9      31%       30%         69         67          56      62     66       63           61
+         PETALUMA                                389.7        174.1      28%       22%         62         43          40      46     55       52           49
+         ROHNERT PARK                            207.0         90.2      23%       38%         72         70          65      68     69       68           68
+         SANTA ROSA                            1093.8         490.5      30%       24%         65         64          60      62     65       65           64
+         SEBASTOPOL                               47.2         23.7      27%       34%         64         75          60      65     65       64           64
+         SONOMA                                   68.2         33.8      24%       44%         69         71          66      68     77       74           71
+         SONOMA COUNTY                         2737.2        1378.8      65%       16%         72         54          34      44     45       45           44
+         WINDSOR                                 173.1         86.4      15%       40%         68         71          68      69     73       72           70
+         COUNTYWIDE                            4919.0        2376.6      49%      21%          69         57          44      61     54       53           55
+
+
+
+
+                                                                              4
+
