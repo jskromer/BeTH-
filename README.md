@@ -80,4 +80,6 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 ## Where else BeTH material lives (copies and views; this repo is the real one)
 - Claude project "Berkeley - Learn About": working notes (auditor feed delta, FY2027 tax rates, Gage fact sheet, ferry tracker)
 - Claude Docs: the PRW Measure U letter draft (copy in `research/2026-11-prw-measure-u-letter.md`)
-- Separate Vercel apps not in this repo: tax calculator, audit dashboard
+- Sibling repos in `Documents/GitHub/`: `berkeley-tax-calculator` (live at berkeley-tax-calculator.vercel.app; WOM Berkeley embeds a copy) and `d1-site` (District 1 campaign site, retired to a thank-you page Nov 4, 2026). `District One Election/` is an empty folder.
+- Audit dashboard app: location not found in `Documents/GitHub/` (2026-11-16)
+- About 14 Berkeley artifacts in claude.ai (homelessness, ferry, Liability Clock, Budget Flight Sim, and others) are not yet copied into this repo
