@@ -20,7 +20,7 @@ The `main` branch of this repo is the real version of everything. Other copies (
 Page edits go straight to `main`. Feature branches only for code; delete them once merged. Commits and pushes are run by Steve in Terminal.
 
 ## 4. Freshness registry
-`docs/data/pages.json`: for each page, its sources, the date last checked, and the event that makes it stale. `tools/staleness_check.py` flags pages whose trigger has passed.
+`docs/data/pages.json`: for each page, its sources, the date last checked, and the event that makes it stale. `tools/staleness_check.py` flags pages whose trigger has passed, that are overdue for review, or that still contain known-stale phrases. After rechecking a page: `python3 tools/staleness_check.py --mark <page>.html`.
 
 ## 5. Rhythm
 - **Every council meeting:** budget scan (`docs/budget-scan-YYYY-MM-DD.html`).
@@ -46,4 +46,5 @@ Before any session ends: everything it produced is saved in this repo, and Steve
 - [x] Step 1: files moved into sources/, research/, _archive/2026-11-16/ (2026-11-16; manifest in plans/)
 - [ ] Step 1 leftovers: move research-bound Berkeley_Budget_History xlsx once closed; place beth_orchestrator.py
 - [x] Step 2: README.md map written; PROJECT-INDEX.md archived (2026-11-16)
-- [ ] Step 4–5: pages.json, staleness_check.py, monthly scheduled check
+- [x] Step 4: docs/data/pages.json + tools/staleness_check.py (2026-11-16)
+- [ ] Step 5: monthly scheduled check
