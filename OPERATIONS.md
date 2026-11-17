@@ -14,7 +14,7 @@ The `main` branch of this repo is the real version of everything. Other copies (
 | `_archive/` | Superseded copies, renamed with a date. Nothing is deleted; Steve empties it by hand. |
 
 ## 2. One map
-`README.md` lists every folder and every site page in one line each. It replaces `PROJECT-INDEX.md` (June 2026), which moves to `_archive/`.
+`README.md` lists every folder and every site page in one line each. It replaced `PROJECT-INDEX.md` (June 2026), now in `_archive/2026-11-16/`.
 
 ## 3. One branch for content
 Page edits go straight to `main`. Feature branches only for code; delete them once merged. Commits and pushes are run by Steve in Terminal.
@@ -45,5 +45,5 @@ Before any session ends: everything it produced is saved in this repo, and Steve
 - [x] Site audit and post-election fixes (2026-11-16)
 - [x] Step 1: files moved into sources/, research/, _archive/2026-11-16/ (2026-11-16; manifest in plans/)
 - [ ] Step 1 leftovers: move research-bound Berkeley_Budget_History xlsx once closed; place beth_orchestrator.py
-- [ ] Step 2: README.md map; archive PROJECT-INDEX.md
+- [x] Step 2: README.md map written; PROJECT-INDEX.md archived (2026-11-16)
 - [ ] Step 4–5: pages.json, staleness_check.py, monthly scheduled check
