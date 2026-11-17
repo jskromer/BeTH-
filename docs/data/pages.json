@@ -364,6 +364,17 @@
    "checked": "2026-11-16",
    "review_every_days": 365,
    "triggers": []
+  },
+  "measure-t1-tracker.html": {
+   "checked": "2026-11-16",
+   "review_every_days": 90,
+   "triggers": [
+    {
+     "date": "2026-12-08",
+     "event": "County certifies Nov 3, 2026 election; replace \"unofficial\" results with final"
+    }
+   ],
+   "note": "Moved from the separate tonephasetwo Vercel app; project statuses as of March 2026 PRW update — refresh from the next T1 quarterly update"
   }
  },
  "groups": {

@@ -12,7 +12,7 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 |---|---|
 | `docs/` | The website. Every `.html` here is a public page. |
 | `sources/<year>/` | City documents: agenda packets, staff reports, audits, CIP presentations (`sources/2026/agenda-items/` item PDFs; `ballot-measure-filings/` Nov 2026 measure committee filings; `measure-arguments/` Measures U and V ballot arguments and rebuttals). |
-| `research/` | Steve's Berkeley research: `behavioral-health/` (MHSA/BHSA plans, split ledger, flight sim, system maps), `budget-balance-stack/`, `corridors/` (density and parcel models), `liability-clock/` (model project), `vision-2050/`, `waterfront-ferry/`, `decision-making-framework/`, `encampment-litigation/` (Harrison / BHU v. Berkeley dockets and analysis), `middle-housing/`, `hot-topics/` (explainer pages and fact checks first written for the D1 campaign site), `correspondence/` (Carole Marasovic, Kelly), `Gage/`, `artifacts/` (claude.ai artifact copies, indexed in its README), plus spreadsheets, notes and drafts. Moved from `~/D1-campaign` on 2026-11-16. **Ignored by git for new files** (`.gitignore`): the repo is public. |
+| `research/` | Steve's Berkeley research: `behavioral-health/` (MHSA/BHSA plans, split ledger, flight sim, system maps), `budget-balance-stack/`, `corridors/` (density and parcel models), `liability-clock/` (model project), `vision-2050/`, `waterfront-ferry/`, `decision-making-framework/`, `encampment-litigation/` (Harrison / BHU v. Berkeley dockets and analysis), `middle-housing/`, `fiscal-reality/` (the retired Berkeley Fiscal Reality advocacy site and its carryover data), `hot-topics/` (explainer pages and fact checks first written for the D1 campaign site), `correspondence/` (Carole Marasovic, Kelly), `Gage/`, `artifacts/` (claude.ai artifact copies, indexed in its README), plus spreadsheets, notes and drafts. Moved from `~/D1-campaign` on 2026-11-16. **Ignored by git for new files** (`.gitignore`): the repo is public. |
 | `sources/assessor/` | Alameda County assessor roll extracts (403 MB). Ignored by git. |
 | `annual-comprehensive-financial-report-fy2025.pdf` | FY2025 audited financial report. Stays at the top level because the fund tools read it from here. |
 | `data/funds/` | 106 fund records (JSON), one per City fund. `data/curation/` lists the six hand-curated ledgers. |
@@ -20,9 +20,8 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 | `tests/`, `.github/` | Tests and CI for the fund pipeline. |
 | `plans/` | Project plans, handoffs, and the reorganization manifest. |
 | `staging/` | Working files for the FY2024 extraction pilot and FY2025 corrections. |
-| `berkeley-fiscal-reality/` | Separate React site (older). |
 | `event-value-twin/` | Model behind the Event Value Twin page. |
-| `T1/` | Separate Measure T1 bond tracker site. |
+| `T1/` | Old source of the Measure T1 tracker (Vercel project `tonephasetwo`); the live page is now `docs/measure-t1-tracker.html`. Retire after the site push. |
 | `_archive/` | Superseded copies, by date. Nothing in it is live. |
 | `_to_delete/` | Files set aside for Steve to delete by hand. |
 
@@ -44,6 +43,7 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 - `funds.html` — every fund, one line each, linking to its page
 - `fund-*.html` (106 pages) — one ledger per fund, generated from `data/funds/` by `tools/build_fund_page.py`; six are hand-curated (011 General Fund, 608 Marina, Parks Tax, Equipment Replacement, Workers' Comp, Zero Waste)
 - `dashboard.html` — city finances as the FY2025 audit reports them
+- `measure-t1-tracker.html` — Measure T1 (2016 bond) Phase 2 project status; moved here from the separate T1 site
 - `berkeley-grant-flows.html` — where outside grant money enters and goes
 - `berkeley-cross-fund.html` — six legal ways other-fund savings could relieve the General Fund
 - `berkeley-homeless-costs.html` — the reported ~$35M, every contract, regional comparison, uncounted costs

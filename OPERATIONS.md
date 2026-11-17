@@ -41,10 +41,35 @@ Page edits go straight to `main`. Feature branches only for code; delete them on
 ## 6. Session close
 Before any session ends: everything it produced is saved in this repo, and Steve gets one commit command to paste.
 
+## 7. Three tiers: public, private research, campaign
+
+| Tier | Where | Who sees it |
+|---|---|---|
+| **Public** | `docs/` → https://learn-about-berkeley.vercel.app (Vercel `berkeley-transparency-hub`). Separate public tool: the tax calculator (repo `berkeley-tax-calculator`, Vercel `berkeley-tax-calculator`, embedded by WOM Berkeley). | Everyone |
+| **Private Berkeley research** | `research/` and `sources/assessor/` in this repo, both git-ignored (the repo is public). Claude project "Berkeley - Learn About" for working notes. | Steve only |
+| **Campaign** | `~/D1-campaign` (private repo) and `d1-site` (retired to a thank-you page). Campaign material never enters BeTH. | Steve and treasurer |
+
+**From research to public:** write a neutral page in `docs/` (sources, confidence labels, no recommendations), add it to `docs/data/pages.json`, link it from `index.html`, push. Nothing in `research/` reaches GitHub unless it is deliberately rewritten into `docs/`. Advocacy (Steve speaking for himself) is published elsewhere, never on Learn About Berkeley.
+
+### Vercel projects (2026-11-16)
+
+| Project | Source | Status |
+|---|---|---|
+| `berkeley-transparency-hub` | `BeTH/docs` | **Live** — the public site |
+| `berkeley-tax-calculator` | `berkeley-tax-calculator` repo | **Live** — updated for Nov 2026 results 2026-11-16 |
+| `tonephasetwo` | `BeTH/T1` | **Retire** — content now `docs/measure-t1-tracker.html` |
+| `berkeley-audit-dashboard` | none on disk | **Retire** — shows the same T1 page; site links now point to `docs/dashboard.html` |
+| `berkeley-fiscal-reality` | `research/fiscal-reality/site` | **Retire** — advocacy; content saved in research, links removed from the site |
+| `d1-site` | `d1-site` repo | Campaign; retire when filings close |
+
+Retiring is done in the Vercel dashboard by Steve.
+
 ## Status
 - [x] Site audit and post-election fixes (2026-11-16)
 - [x] Step 1: files moved into sources/, research/, _archive/2026-11-16/ (2026-11-16; manifest in plans/)
 - [ ] Step 1 leftovers: move research-bound Berkeley_Budget_History xlsx once closed; place beth_orchestrator.py
 - [x] Step 2: README.md map written; PROJECT-INDEX.md archived (2026-11-16)
 - [x] Step 4: docs/data/pages.json + tools/staleness_check.py (2026-11-16)
-- [ ] Step 5: monthly scheduled check
+- [x] Three-tier plan, T1 tracker folded into site, tax calculator updated, fiscal-reality archived (2026-11-16)
+- [ ] Retire Vercel projects: tonephasetwo, berkeley-audit-dashboard, berkeley-fiscal-reality
+- [x] Step 5: scheduled task "BeTH monthly freshness check" — Mondays 9:31 am Pacific, acts only on the first Monday of each month; runs the staleness check + City Auditor feed comparison and sends a report (no edits). Needs the Mac on with the Claude desktop app open. (2026-11-16)

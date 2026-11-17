@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Learn About Berkeley — Measure T1 Phase 2 Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1e2a38;--ink2:#33455a;--paper:#f6f8fa;--paper2:#eaeff4;--rule:#d2dbe4;--accent:#2c5f87;--accent2:#4a86b8;--gold:#9fb4c6;--good:#3d7d6f;--muted:#7d8896;--alert:#b23b30;}
+*{box-sizing:border-box}
+body{margin:0;background:#e4e9ee;color:var(--ink);font-family:'Source Serif 4',Georgia,serif;}
+.wrap{max-width:1200px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.15)}
+.masthead{background:var(--ink);color:var(--paper);padding:34px 46px 28px;border-bottom:5px double var(--gold)}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.masthead h1{font-family:'Playfair Display',serif;font-weight:900;font-size:48px;line-height:.97;margin:0;letter-spacing:-.01em;color:var(--paper)}
+.masthead h1 em{font-style:italic;color:var(--accent2)}
+.dek{font-size:16px;color:#c3cdd9;margin:14px 0 0;max-width:820px;line-height:1.55}
+.byline{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--muted);margin-top:16px;text-transform:uppercase;line-height:1.6}
+.section{padding:30px 46px;border-bottom:1px solid var(--rule)}
+.section h2{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.section h2:after{content:"";flex:1;height:1px;background:var(--rule)}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.metric{background:var(--paper);padding:16px 16px 14px}
+.metric .v{font-family:'Playfair Display',serif;font-weight:900;font-size:27px;line-height:1;color:var(--ink)}
+.metric .v small{font-size:13px;font-weight:700;color:var(--muted)}
+.metric .l{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.45}
+.metric.flag .v{color:var(--alert)}
+.callout{background:var(--ink2);color:var(--paper);padding:24px 28px;border-left:5px solid var(--accent)}
+.callout .src{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.callout p{margin:0;font-size:16px;line-height:1.6;color:#e4ebf2}
+.callout b{color:#fff}
+.realloc{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:18px}
+.rc{background:var(--paper);padding:15px 16px}
+.rc .n{font-family:'Playfair Display',serif;font-weight:900;font-size:24px;color:var(--accent)}
+.rc .t{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:7px;line-height:1.5}
+.barwrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}
+.bars{display:flex;align-items:flex-end;gap:26px;height:185px;padding-left:8px}
+.barcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.bar{width:62px;border-radius:3px 3px 0 0;display:flex;align-items:flex-start;justify-content:center;min-height:22px}
+.bar span{font-family:'JetBrains Mono';font-weight:700;font-size:13px;color:#fff;margin-top:5px}
+.barlbl{font-family:'JetBrains Mono';font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+.s-Completed{background:#8b97a6}.s-Construction{background:var(--accent2)}.s-Design{background:var(--good)}.s-Planning{background:#a8b3bf}
+.legend{font-family:'JetBrains Mono';font-size:11.5px;line-height:1.95;color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 9px;border-bottom:2px solid var(--ink)}
+tbody td{padding:9px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:hover{background:var(--paper2)}
+.pname{font-weight:600;color:var(--ink)}
+.pnote{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.4;font-style:italic}
+.cnote{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+.area{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted);white-space:nowrap}
+.cost{font-family:'JetBrains Mono';font-size:11px;color:var(--ink2);white-space:nowrap}
+.dash{color:#cabd9f}
+td .pill{display:inline-block}
+.pill{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;font-weight:500;color:#fff}
+.pill.s-Completed{background:#7c8a99}.pill.s-Construction{background:var(--accent2)}.pill.s-Design{background:var(--good)}.pill.s-Planning{background:#8c99a6}
+.chg{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;border-radius:3px;font-weight:700;white-space:nowrap;color:#fff}
+.c-designOnly{background:var(--alert)}.c-topUp{background:var(--accent2)}.c-new{background:var(--good)}
+.tabs{display:flex;flex-wrap:wrap;border:1px solid var(--ink);width:fit-content;margin-bottom:16px}
+.tab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;background:var(--paper);border:none;color:var(--ink2)}
+.tab.on{background:var(--ink);color:var(--paper)}.tab+.tab{border-left:1px solid var(--ink)}
+.gaps{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.gap{background:var(--paper);padding:15px 17px}
+.gap .t{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.gap p{margin:0;font-size:13px;line-height:1.5;color:var(--ink2)}
+.removed{font-size:13.5px;color:var(--ink2);line-height:1.7}
+.removed .x{color:var(--alert);font-family:'JetBrains Mono';font-weight:700;font-size:11px;margin-right:8px}
+.removed .dim{color:#8b95a1}
+.foot{padding:22px 46px 40px;background:var(--ink);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.7;letter-spacing:.03em}
+.note{font-size:12px;color:var(--muted);font-style:italic;margin-top:14px;line-height:1.5}
+.hide{display:none}
+@media(max-width:860px){.metrics,.realloc{grid-template-columns:repeat(2,1fr)}.gaps,.barwrap{grid-template-columns:1fr}.masthead h1{font-size:33px}.section,.masthead{padding-left:22px;padding-right:22px}}
+</style></head>
+<body><div class="wrap">
+<div class="masthead">
+<p class="kicker"><a href="index.html" style="color:inherit">&larr; Learn About Berkeley</a> · Capital projects</p>
+<h1>Measure&nbsp;T1: Phase&nbsp;2 Status</h1>
+<p class="dek">Berkeley approved $100M in 2016. As of March 2026, 21 of 37 Phase 2 projects were unfinished. In September 2025, a consent-calendar resolution reallocated $6.28M among projects: five were reduced to design-only, three removed, and six given additional funds. In November 2026 voters approved Measure U, a $300M bond, in the unofficial count; the City&rsquo;s FY27&ndash;31 CIP documents a $2.1B unfunded capital need.</p>
+<p class="byline">Authoritative roster: Resolution updating T1 Phase 2 list, Sept 16 2025 (Exhibit A) · status: PRW quarterly update, Mar 2026 · audit: Badawi &amp; Assoc. AUP, Mar 5 2026 · FY27–31 CIP presentation, May 28 2026 · Compiled June 4, 2026; Measure U status updated Nov 16, 2026. Project statuses are as of the March 2026 update and may have changed.</p>
+</div>
+
+<div class="section"><h2>The Program</h2>
+<div class="metrics">
+<div class="metric"><div class="v">$100M</div><div class="l">GO bond · Nov 2016 · 86.5% yes · 40-yr repayment</div></div>
+<div class="metric"><div class="v">76</div><div class="l">Total T1 projects · 39 Phase 1 + 37 Phase 2</div></div>
+<div class="metric flag"><div class="v">21<small> of 37</small></div><div class="l">Phase 2 projects still unfinished, ~9 yrs in</div></div>
+<div class="metric flag"><div class="v">$6.28M</div><div class="l">Reallocated among projects · consent calendar · Sept 2025</div></div>
+<div class="metric flag"><div class="v">$300M</div><div class="l">Measure U GO bond · approved Nov 2026 (70.3% yes, unofficial; ⅔ needed) · ~$22/$100k AV average</div></div>
+</div>
+<p class="note">The city states total T1 funding is unchanged at $100M — the Sept 2025 action moved money <em>between</em> projects, not into the program. Original 2016 cost to voters: ~$21 / $90 / $128 per year for homes assessed at $100k / $425k / $600k.</p></div>
+
+<div class="section"><h2>Measure U and the Capital Need in the FY27&ndash;31 CIP</h2>
+<div class="realloc">
+<div class="rc"><div class="n">$2.1B</div><div class="t">Unfunded capital &amp; maintenance need the city documents in the <b>same FY27–31 CIP</b> — Public Works ~$1.8B, Parks/Waterfront ~$281M, IT ~$23M</div></div>
+<div class="rc"><div class="n">~14%</div><div class="t">Share of that need a <b>$300M bond</b> would cover — leaving roughly $1.8B unaddressed</div></div>
+<div class="rc"><div class="n">~$12M</div><div class="t">Discretionary General-Fund capital the city puts toward this need <b>per year</b> (CIP funding sources, slide 11)</div></div>
+<div class="rc"><div class="n">40 yr</div><div class="t">Repayment horizon on Measure U bonds, as on T1</div></div>
+</div>
+<p class="note" style="margin-top:0">The CIP concedes annual capital allocations are <b>&ldquo;insufficient to address infrastructure needs at the scale and pace required.&rdquo;</b> Measure U&rsquo;s oversight provisions are on <a href="berkeley-measure-u-oversight.html">Measure U: Who Watches the $300 Million</a>. The T1 auditor finding below concerns the same kind of program reporting.</p></div>
+
+<div class="section"><h2>The Auditor's Finding</h2>
+<div class="callout"><div class="src">Badawi &amp; Associates · Independent AUP Report · March 5 2026</div>
+<p>The T1 manual requires a <b>program-level financial schedule every six months</b> as part of bi-annual reporting to Council. The auditor's finding: <b>&ldquo;the City no longer performs this reporting. Reporting is done on an as-needed basis.&rdquo;</b> The six-month program schedule the T1 manual requires is not being produced.</p></div></div>
+
+<div class="section"><h2>The September 2025 Reallocation</h2>
+<div class="realloc">
+<div class="rc"><div class="n">5</div><div class="t">Projects cut to <b>design only</b> — incl. 2 of 3 promised ROW restrooms, Harrison Park, the former Cesar Chavez Park</div></div>
+<div class="rc"><div class="n">3</div><div class="t">Projects <b>removed</b> from T1 — incl. $3.95M street-paving contribution</div></div>
+<div class="rc"><div class="n">6</div><div class="t">Projects <b>over budget</b>, topped up — MLK YSC, Tom Bates, S. Berkeley Senior…</div></div>
+<div class="rc"><div class="n">0</div><div class="t">Commission <b>actions taken</b> — PRW &amp; T&amp;I raised concerns, then passed on consent</div></div>
+</div>
+<p class="note" style="margin-top:0">The staff report states that &ldquo;shortages [will] be greater than the remaining $5.633M identified.&rdquo; Several restrooms in the original list will be designed but not built with T1 money.</p>
+<div class="removed"><div><span class="x">REMOVED</span>T1 Streets Contribution to Annual Paving <b>· $3.95M</b> <span class="dim">— Removed from T1 list Sept 2025; backfilled with &#x27;other funding.&#x27;</span></div>
+<div><span class="x">REMOVED</span>Corp Yard Facility Assessment <span class="dim">— Removed; other funding identified.</span></div>
+<div><span class="x">REMOVED</span>Corp Yard Deferred Maintenance (gate, paving, parking, fuel island) <b>· $0.30M</b> <span class="dim">— Removed; other funding identified.</span></div></div></div>
+
+<div class="section"><h2>Phase 2 Status · 37 Projects</h2>
+<div class="barwrap">
+<div class="bars"><div class="barcol"><div class="bar s-Completed" style="height:150px"><span>16</span></div><div class="barlbl">Completed</div></div><div class="barcol"><div class="bar s-Construction" style="height:93px"><span>10</span></div><div class="barlbl">Construction</div></div><div class="barcol"><div class="bar s-Design" style="height:93px"><span>10</span></div><div class="barlbl">Design</div></div><div class="barcol"><div class="bar s-Planning" style="height:9px"><span>1</span></div><div class="barlbl">Planning</div></div></div>
+<div class="legend">
+<div><b>16</b> completed · <b>10</b> construction · <b>10</b> design · <b>1</b> planning</div>
+<div style="margin-top:8px;color:var(--alert)"><b>5</b> reduced to design-only (won't be built with T1)</div>
+<div style="color:var(--accent2)"><b>6</b> over budget, needing top-ups</div>
+<div style="color:var(--good)"><b>3</b> added to the list in 2025</div>
+<p style="font-family:'Source Serif 4';font-style:italic;font-size:13px;color:var(--muted);margin-top:14px;line-height:1.5">More than half the Phase 2 program remains unfinished roughly nine years after voters approved the bond.</p>
+</div></div></div>
+
+<div class="section"><h2>Project Ledger</h2>
+<div class="tabs">
+<button class="tab on" data-filter="active" onclick="setTab(this)">Unfinished (21)</button>
+<button class="tab" data-filter="changed" onclick="setTab(this)">Changed in '25 (14)</button>
+<button class="tab" data-filter="all" onclick="setTab(this)">All Phase 2 (37)</button>
+</div>
+<table><thead><tr><th>Project</th><th>Area</th><th>Status</th><th>Sept '25 Change</th><th>Cost</th></tr></thead>
+<tbody id="tb"><tr data-status="Construction" data-change="topUp">
+<td class="pname">MLK Jr. Youth Services Center<div class="pnote">Construction started July 2025; completion expected early 2027.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost">$13M<div class="cnote">T1 + CIP + Parks Tax + grants; an $836k FEMA grant was indefinitely postponed.</div></td></tr>
+<tr data-status="Design" data-change="topUp">
+<td class="pname">South Berkeley Senior Center Renovation<div class="pnote">Seismic renovation in permitting; water heater bid opened.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost">$5M<div class="cnote">T1; shortfall from increased construction costs.</div></td></tr>
+<tr data-status="Design" data-change="kept">
+<td class="pname">African American Holistic Resource Center<div class="pnote">ZAB approval Dec 11 2025; working toward final design.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Restrooms in ROW: Channing &amp; Telegraph<div class="pnote">Completed Jan 2025; grand opening Feb 2025.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="designOnly">
+<td class="pname">Restrooms in ROW: Adeline &amp; Alcatraz<div class="pnote">Design only; technical utility difficulties and/or negative public feedback.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-designOnly">Cut to design</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="designOnly">
+<td class="pname">Restrooms in ROW: San Pablo &amp; University<div class="pnote">Design only; will not be built with T1 funds.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-designOnly">Cut to design</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="topUp">
+<td class="pname">1947 Center Street Window Replacement<div class="pnote">Permit approved; next step is to bid. Scope changed to replace all windows.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">Fire Station #2 (HVAC, electrical, solar, roof)<div class="pnote">Construction in progress; tentative completion April 2026.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="topUp">
+<td class="pname">Fire Station #6 (windows, energy efficiency)<div class="pnote">Notice to proceed March 23 2026; construction in progress.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">PW Corp Yard: Green Room (8)<div class="pnote">Under construction; tentative completion April 2026.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">PW Corp Yard: Wash Station<div class="pnote">Work completed March 2026.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="topUp">
+<td class="pname">PW Corp Yard: Storage Room (H) Roof<div class="pnote">Shortage from increased construction costs.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Planning" data-change="kept">
+<td class="pname">PW Corp Yard: Generator Upgrades</td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Planning">Planning</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">Telegraph-Channing Garage Restrooms &amp; Elevators<div class="pnote">Entry/restroom work complete; full completion expected May 2026.</div></td>
+<td class="area">Facilities</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost">$2.10M<div class="cnote">&#x27;Oxford&#x27; was inadvertently dropped from the project name in Sept 2025.</div></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Cazadero Dining Hall &amp; ADA Improvements</td>
+<td class="area">Camps</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Willard Clubhouse &amp; Restroom Replacement<div class="pnote">Clubhouse opened June 2025 (LEED Gold, all-electric); restroom opened Aug 2025.</div></td>
+<td class="area">Parks Buildings</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost">$8M</td></tr>
+<tr data-status="Construction" data-change="topUp">
+<td class="pname">Tom Bates Restroom / Community Space<div class="pnote">Contract awarded Dec 2 2025; start late spring 2026; completion mid-2027.</div></td>
+<td class="area">Parks Buildings</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="chg c-topUp">Over budget</span></td>
+<td class="cost">$8M<div class="cnote">T1 + CIP + Parks Tax; shortage from increased construction costs.</div></td></tr>
+<tr data-status="Design" data-change="designOnly">
+<td class="pname">Harrison Park Restroom Renovation<div class="pnote">Conceptual design completed; project delayed due to lack of funding.</div></td>
+<td class="area">Parks Buildings</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-designOnly">Cut to design</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Ohlone Park New Restroom<div class="pnote">Opened to public January 2026.</div></td>
+<td class="area">Parks Buildings</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Ohlone Park (East) Playground &amp; Site Improvements<div class="pnote">Project complete.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">John Hinkel Park Lower (playground, picnic, parking)<div class="pnote">Playground &amp; amphitheater improvements complete.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Grove Park (playground 2-5 &amp; 5-12, field)<div class="pnote">Field and both playgrounds complete.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Aquatic Park Tide Tubes Clean-Out &amp; Soil Removal<div class="pnote">Completed phases.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Ohlone Park Lighting (dark-sky)<div class="pnote">Dark-sky compliant fixtures installed.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Civic Center Park Upper Plaza Improvements<div class="pnote">Completed and reopened August 2025.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="new">
+<td class="pname">Adeline Area Dog Park &amp; Landscaping<div class="pnote">Miyawaki Forest done; dog park/landscape construction began March 2026, ~June 2026 completion.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="chg c-new">Added '25</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="new">
+<td class="pname">Santa Fe Trackbed to Park Conversion<div class="pnote">Phase 1 (remediation) ~Spring 2026; Phase 2 (park) ~Fall 2026.</div></td>
+<td class="area">Parks</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-new">Added '25</span></td>
+<td class="cost">$7.5M<div class="cnote">State grant + Parks Tax; +$150k T1 for contaminated-soil cleanup.</div></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">King Pool Tile &amp; Plaster Replacement<div class="pnote">Project complete.</div></td>
+<td class="area">Pools</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Marina Piling Replacements<div class="pnote">Project completed.</div></td>
+<td class="area">Waterfront</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">D &amp; E Dock Replacement<div class="pnote">In-water demo done; landside/waterside in construction; ~late Summer 2026.</div></td>
+<td class="area">Waterfront</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">K Dock Restroom Renovation<div class="pnote">Contract awarded Nov 18 2025; construction in progress; ~mid-2026.</div></td>
+<td class="area">Waterfront</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Design" data-change="designOnly">
+<td class="pname">Former Cesar Chavez Park Restroom (Spinnaker)<div class="pnote">Design 90% done; original site has landfill contamination; relocated, +$300k cost.</div></td>
+<td class="area">Waterfront</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-designOnly">Cut to design</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="new">
+<td class="pname">F &amp; G Dock Re-Decking<div class="pnote">Project completed.</div></td>
+<td class="area">Waterfront</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="chg c-new">Added '25</span></td>
+<td class="cost">$500k<div class="cnote">Added Sept 2025; $250k GF + $250k additional needed.</div></td></tr>
+<tr data-status="Design" data-change="designOnly">
+<td class="pname">Bollard Conversion to Landscaping<div class="pnote">Conceptual design complete; T1 funds design only.</div></td>
+<td class="area">Streets/ROW</td>
+<td><span class="pill s-Design">Design</span></td>
+<td><span class="chg c-designOnly">Cut to design</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Sidewalks Maintenance &amp; Safety Repairs<div class="pnote">FY22 sidewalk repair project complete.</div></td>
+<td class="area">Sidewalks</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Construction" data-change="kept">
+<td class="pname">Pathway Repairs &amp; Improvements<div class="pnote">Most paths done; Upper Columbia Path ~April 2026.</div></td>
+<td class="area">Pathways</td>
+<td><span class="pill s-Construction">Construction</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr>
+<tr data-status="Completed" data-change="kept">
+<td class="pname">Stormwater Infrastructure Repairs/Replacement<div class="pnote">John Hinkel, Marin, Euclid, Spruce, Grizzly Peak, San Benito, High Court, Virginia complete.</div></td>
+<td class="area">Storm</td>
+<td><span class="pill s-Completed">Completed</span></td>
+<td><span class="dash">—</span></td>
+<td class="cost"><span class="dash">—</span></td></tr></tbody></table>
+<p class="note">Costs shown are total project costs (often blended T1 + CIP + Parks Tax + grants), not isolated T1 allocations — the city does not publish a clean per-project T1 allocation/spend table. Roster reflects Exhibit A as revised Sept 16 2025; 37 lines, matching the city's official count.</p></div>
+
+<div class="section"><h2>What the City Does Not Publish</h2>
+<div class="gaps">
+<div class="gap"><div class="t">No per-project T1 dollars</div><p>No public table of $ allocated vs. spent per project. Project pages show a dollar figure for only 6 of 56 listings, mixing grants with totals.</p></div>
+<div class="gap"><div class="t">Lapsed financial reporting</div><p>The independent auditor confirms the required six-month program schedule is no longer produced — &ldquo;as-needed&rdquo; only. The latest &ldquo;quarterly update&rdquo; (Mar 2026) is a Parks email newsletter with zero financials.</p></div>
+<div class="gap"><div class="t">Changes adopted on consent</div><p>The $6.28M reallocation and scope cuts passed on the Sept 16 2025 consent calendar. Both oversight commissions objected; neither took action.</p></div>
+<div class="gap"><div class="t">Dashboard lags the roster</div><p>The public funded-projects dashboard doesn't flag design-only downgrades, removals, or over-budget status .</p></div>
+</div></div>
+
+<div class="foot">PRIMARY SOURCES · Resolution updating the Measure T1 Phase 2 project list, Item 10, Consent Calendar, Sept 16 2025 (Exhibit A + reallocation tables) · PRW Capital Projects / Measure T1 Quarterly Update, March 2026 · Independent Accountant's AUP Report on Measure T1, Badawi &amp; Associates, March 5 2026 · Proposed FY27–FY31 CIP Budget Presentation, May 28 2026 · Measure T1 funded-projects dashboard, berkeleyca.gov.<br/><br/>
+Learn About Berkeley · built from public documents · residents decide. Figures checked against Council documents; blended-fund project costs should not be read as isolated T1 spend.</div>
+</div>
+<script>
+function setTab(btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
+  btn.classList.add('on');
+  var f=btn.getAttribute('data-filter');
+  document.querySelectorAll('#tb tr').forEach(function(tr){
+    var st=tr.getAttribute('data-status'), ch=tr.getAttribute('data-change');
+    var show = (f==='all') || (f==='active' && st!=='Completed') || (f==='changed' && ch!=='kept');
+    tr.classList.toggle('hide', !show);
+  });
+}
+document.querySelectorAll('#tb tr').forEach(function(tr){
+  if(tr.getAttribute('data-status')==='Completed') tr.classList.add('hide');
+});
+</script>
+</body></html>
