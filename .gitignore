@@ -145,3 +145,10 @@ T1/
 NJ PY6 TRM*
 Berkeley_Efficiency_Bargaining_Strategy.docx
 *.rtfd/
+.vercel
+
+# --- added 2026-11-16: the repo is public; research and bulk data stay local ---
+# Files already tracked under research/ stay tracked; new ones are ignored.
+research/
+sources/assessor/
+node_modules/

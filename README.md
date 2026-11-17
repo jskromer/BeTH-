@@ -11,8 +11,9 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 | Path | What it holds |
 |---|---|
 | `docs/` | The website. Every `.html` here is a public page. |
-| `sources/<year>/` | City documents: agenda packets, staff reports, audits, CIP presentations. |
-| `research/` | Steve's analysis: spreadsheets, notes, reviews, memos, letters, drafts. **The repo is public.** Files added here are not committed unless you name them; keep private drafts out of `git add`. |
+| `sources/<year>/` | City documents: agenda packets, staff reports, audits, CIP presentations (`sources/2026/agenda-items/` holds item PDFs pulled for analysis). |
+| `research/` | Steve's Berkeley research: `behavioral-health/` (MHSA/BHSA plans, split ledger, flight sim, system maps), `budget-balance-stack/`, `corridors/` (density and parcel models), `liability-clock/` (model project), `vision-2050/`, `waterfront-ferry/`, `decision-making-framework/`, `artifacts/` (claude.ai artifact copies, indexed in its README), plus spreadsheets, notes and drafts. Moved from `~/D1-campaign` on 2026-11-16. **Ignored by git for new files** (`.gitignore`): the repo is public. |
+| `sources/assessor/` | Alameda County assessor roll extracts (403 MB). Ignored by git. |
 | `annual-comprehensive-financial-report-fy2025.pdf` | FY2025 audited financial report. Stays at the top level because the fund tools read it from here. |
 | `data/funds/` | 106 fund records (JSON), one per City fund. `data/curation/` lists the six hand-curated ledgers. |
 | `tools/` | Fund pipeline: ACFR extraction, safety layer, page builders. See `AGENT_COORDINATION.md`. |
@@ -77,7 +78,8 @@ The public site is **Learn About Berkeley**: https://learn-about-berkeley.vercel
 ### Tools & models
 - `berkeley-event-value-twin.html` — weighing a civic event's economic, fiscal and public value
 
-## Where else BeTH material lives (copies and views; this repo is the real one)
+## Where else BeTH material lives
+- `~/D1-campaign` (private repo): campaign operations only — finance, filings, voter file, field, mailers, positions and talking points, correspondence. Berkeley research moved out to `research/` on 2026-11-16. (copies and views; this repo is the real one)
 - Claude project "Berkeley - Learn About": working notes (auditor feed delta, FY2027 tax rates, Gage fact sheet, ferry tracker)
 - Claude Docs: the PRW Measure U letter draft (copy in `research/2026-11-prw-measure-u-letter.md`)
 - Sibling repos in `Documents/GitHub/`: `berkeley-tax-calculator` (live at berkeley-tax-calculator.vercel.app; WOM Berkeley embeds a copy) and `d1-site` (District 1 campaign site, retired to a thank-you page Nov 4, 2026). `District One Election/` is an empty folder.
