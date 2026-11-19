@@ -24,7 +24,18 @@ def m(n):
     return f"−${s}" if n < 0 else f"${s}"
 
 
+def load_numbers(data_dir):
+    """City budget fund numbers per ACFR fund id, from data/fund_numbers.json (AAO Exhibit A crosswalk)."""
+    p = Path(data_dir).parent / "fund_numbers.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text()).get("acfr_to_budget", {})
+
+
 def main(data_dir, out_path):
+    nums = load_numbers(data_dir)
+    ap = Path(data_dir).parent / "agenda_fund_actions.json"
+    acted = {a["fund"] for mt in json.loads(ap.read_text())["meetings"] for a in mt["actions"]} if ap.exists() else set()
     funds = []
     for f in sorted(glob.glob(f"{data_dir}/*.json")):
         d = json.loads(Path(f).read_text())
@@ -36,13 +47,22 @@ def main(data_dir, out_path):
             "rev": y.get("revenue"), "exp": y.get("expenditure"), "ti": y.get("transfers_in") or 0,
             "to": y.get("transfers_out") or 0, "bal": y.get("ending_balance"),
             "flows": len(d.get("flows", [])), "curated": "generated_by" not in d,
+            "num": nums.get(d["fund_number"], {}),
         })
     rows = []
+    ledger_tag = ' <span class="cur">ledger</span>'
     for f in funds:
+        nn = f["num"].get("numbers") or []
+        num_txt = ", ".join(nn) if nn else "—"
+        num_html = ", ".join(f'<a href="fund-activity.html#f-{n}" title="Council actions on this fund">{n}</a>' if n in acted else esc(n) for n in nn) if nn else "—"
+        num_title = f' title="{esc(f["num"].get("note") or "")} Match: {esc(f["num"].get("confidence",""))}."' if nn else ' title="Not in the FY2026 or FY2027 budget fund list"'
+        num_sort = nn[0].split("–")[0] if nn else "999"
+        low = ' <span class="lowm">?</span>' if f["num"].get("confidence") == "Low" else ""
         res = (f["rev"] or 0) - (f["exp"] or 0) if f["rev"] is not None and f["exp"] is not None else None
         rows.append(
-            f'<tr data-type="{esc(f["type"])}" data-name="{esc(f["name"]).lower()}" data-rev="{f["rev"] or 0}" data-exp="{f["exp"] or 0}" data-res="{res or 0}" data-ti="{f["ti"]}" data-bal="{f["bal"] or 0}">'
-            f'<td><a href="{esc(f["page"])}">{esc(f["name"])}</a>{" <span class=\"cur\">ledger</span>" if f["curated"] else ""}</td>'
+            f'<tr data-type="{esc(f["type"])}" data-name="{esc(f["name"]).lower()} {esc(num_txt)}" data-num="{num_sort}" data-rev="{f["rev"] or 0}" data-exp="{f["exp"] or 0}" data-res="{res or 0}" data-ti="{f["ti"]}" data-bal="{f["bal"] or 0}">'
+            f'<td class="fn"{num_title}>{num_html}{low}</td>'
+            f'<td><a href="{esc(f["page"])}">{esc(f["name"])}</a>{ledger_tag if f["curated"] else ""}</td>'
             f'<td>{esc(TYPE_LABEL.get(f["type"], f["type"]))}</td><td class="n">{m(f["rev"])}</td><td class="n">{m(f["exp"])}</td>'
             f'<td class="n {"neg" if (res or 0) < 0 else ""}">{m(res)}</td><td class="n">{m(f["ti"]) if f["ti"] else "—"}</td><td class="n">{m(f["bal"])}</td></tr>')
     n_types = {}
@@ -75,6 +95,7 @@ def main(data_dir, out_path):
   th,td{{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }} th{{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:#f3f6f9; white-space:nowrap; cursor:pointer; user-select:none; }}
   th.sorted::after{{ content:" ▾"; }} td.n{{ text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }} td.neg{{ color:var(--red); }}
   .cur{{ font-family:"JetBrains Mono",monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:var(--hi); border:1px solid var(--hi); padding:0 4px; margin-left:6px; vertical-align:middle; }}
+  td.fn{{ width:1%; font-family:"JetBrains Mono",monospace; font-size:.8rem; white-space:nowrap; color:var(--slate); }} .lowm{{ color:var(--mod); font-weight:700; }}
   .cap{{ font-family:"JetBrains Mono",monospace; font-size:10.5px; color:var(--muted); margin:10px 0 0; line-height:1.5; }}
   footer{{ padding:28px 0 64px; font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--muted); line-height:1.7; }} footer .bar{{ height:3px; background:var(--navy); margin:0 0 16px; width:48px; }}
 </style>
@@ -86,6 +107,7 @@ def main(data_dir, out_path):
   <header class="masthead">
     <div class="eyebrow">Following the money</div>
     <h1>Every City fund, one line each</h1>
+    <p class="dek"><a href="fund-activity.html">Council actions by fund &rarr;</a> what each agenda does to each fund.</p>
     <p class="dek">The budget shows 18 departments. The audit shows the same money in {len(funds)} legally separate funds. This is each fund's FY2025 revenue, spending, transfers in and year-end balance from the audit, with a page per fund showing where its money came from and went. Sort any column; filter by type or name.</p>
     <div class="statrow">
       <div class="stat"><div class="v">{len(funds)}</div><div class="l">Funds in the FY2025 ACFR statements</div></div>
@@ -95,12 +117,13 @@ def main(data_dir, out_path):
     </div>
   </header>
   <div class="controls">
-    <input id="q" type="search" placeholder="filter by name" aria-label="filter by name">
+    <input id="q" type="search" placeholder="filter by name or fund #" aria-label="filter by name or fund number">
     <select id="t" aria-label="fund type"><option value="">all types</option>{"".join(f'<option value="{k}">{v} ({n_types.get(k,0)})</option>' for k, v in TYPE_LABEL.items())}</select>
     <span id="count"></span>
   </div>
-  <div class="tw"><table id="tbl"><thead><tr><th data-k="name">Fund</th><th data-k="type">Type</th><th data-k="rev" data-num>Revenue</th><th data-k="exp" data-num>Spending</th><th data-k="res" data-num>Result</th><th data-k="ti" data-num>Transfers in</th><th data-k="bal" data-num>Balance, June 30, 2025</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+  <div class="tw"><table id="tbl"><thead><tr><th data-k="num" data-num>Fund #</th><th data-k="name">Fund</th><th data-k="type">Type</th><th data-k="rev" data-num>Revenue</th><th data-k="exp" data-num>Spending</th><th data-k="res" data-num>Result</th><th data-k="ti" data-num>Transfers in</th><th data-k="bal" data-num>Balance, June 30, 2025</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
   <p class="cap">Governmental funds: total revenues, total expenditures (including capital outlay and debt service), fund balance. Enterprise and internal service funds: operating revenues, operating expenses (including depreciation), total net position. Transfers in are shown separately; they are not revenue. Figures read by <code>tools/acfr_funds.py</code> from the FY2025 ACFR statement pages named on each fund page; row and column sums were checked against the statements' own totals. "Ledger" marks funds whose dated flow events have been read from Council documents.</p>
+  <p class="cap"><b>Fund #</b> is the City's budget fund number from Exhibit A of the <a href="https://berkeleyca.gov/sites/default/files/2026-07/2026-07-14%20Item%20A%20Ordinance%208029.pdf">FY2027</a> and <a href="https://berkeleyca.gov/sites/default/files/documents/2025-07-08%20Item%2004%20FY%202026%20Annual%20Appropriations%20Ordinance.pdf">FY2026</a> Annual Appropriations Ordinances. The audit names funds but does not number them, so each match was made by name (hover a number for notes; "?" marks a low-confidence match). Some audit columns combine several budget funds (General Fund, Library, Grants, Equipment). "—" means the fund has no appropriation in either year's budget. Council agenda items cite these numbers; see <a href="fund-activity.html">Council actions by fund</a> to follow them meeting by meeting. Crosswalk: <code>data/fund_numbers.json</code>.</p>
   <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer.</footer>
 </main>
 <script>

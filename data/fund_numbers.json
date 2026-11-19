@@ -1,0 +1,2013 @@
+{
+ "about": "Crosswalk between the City's budget fund numbers (AAO Exhibit A) and the fund columns in the FY2025 ACFR. Confidence is for the match, not for the dollar figures.",
+ "sources": {
+  "fy2027_aao": {
+   "title": "Ordinance 8,029-N.S., FY2027 Annual Appropriations Ordinance, Exhibit A",
+   "url": "https://berkeleyca.gov/sites/default/files/2026-07/2026-07-14%20Item%20A%20Ordinance%208029.pdf",
+   "local": "sources/2026/aao/2026-07-14 Ordinance 8029 FY2027 AAO.pdf"
+  },
+  "fy2026_aao": {
+   "title": "Ordinance 7,977-N.S., FY2026 Annual Appropriations Ordinance, Exhibit A",
+   "url": "https://berkeleyca.gov/sites/default/files/documents/2025-07-08%20Item%2004%20FY%202026%20Annual%20Appropriations%20Ordinance.pdf",
+   "local": "sources/2026/aao/2025-07-08 Ordinance 7977 FY2026 AAO.pdf"
+  }
+ },
+ "family_ranges": "AAO Section 1: General 001–099; Special 100–199; Grants 300–399; Capital 500–550; Debt service 551–599; Enterprise 600–669; Internal service 146, 670–699; Trust 701–759; Successor Agency 760–769; Agency 771–799.",
+ "acfr_to_budget": {
+  "011": {
+   "numbers": [
+    "011"
+   ],
+   "confidence": "Moderate",
+   "note": "ACFR General Fund also absorbs the City's other 001–099 funds (e.g. 013 Payroll Deduction Trust, 016 Measure U1, 099 Catastrophic Reserve). Budget fund 011 is the discretionary core."
+  },
+  "501": {
+   "numbers": [
+    "501"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "511": {
+   "numbers": [
+    "511"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "511-debt-service": {
+   "numbers": [
+    "560"
+   ],
+   "confidence": "High",
+   "note": "Debt-service fund for the T1 bonds; the capital fund is 511."
+  },
+  "608": {
+   "numbers": [
+    "608"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "611": {
+   "numbers": [
+    "611"
+   ],
+   "confidence": "Moderate",
+   "note": "ACFR Sanitary Sewer likely also includes 612 Private Sewer Lateral."
+  },
+  "ACFR-2009-measure-ff-library": {
+   "numbers": [
+    "552"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-2010-cop-animal-shelter": {
+   "numbers": [
+    "558"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-affordable-child-care": {
+   "numbers": [
+    "121"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-affordable-housing-mitigation-fee": {
+   "numbers": [
+    "120"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-alameda-county-abandoned-vehicle-abatement-autho": {
+   "numbers": [
+    "161"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-animal-shelter": {
+   "numbers": [
+    "115"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-asset-forfeiture": {
+   "numbers": [
+    "106"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-building-maintenance": {
+   "numbers": [
+    "673"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-building-purchases-management": {
+   "numbers": [
+    "636"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-business-economic-development": {
+   "numbers": [
+    "143"
+   ],
+   "confidence": "Moderate",
+   "note": "Budget name: Berkeley Bus Ec Dev."
+  },
+  "ACFR-catastrophic-loss": {
+   "numbers": [
+    "679"
+   ],
+   "confidence": "High",
+   "note": "Internal-service insurance fund. Not the same as the Catastrophic Reserve (099), which sits inside the General Fund."
+  },
+  "ACFR-cdbg": {
+   "numbers": [
+    "128"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-central-services": {
+   "numbers": [
+    "674"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-clean-storm-water": {
+   "numbers": [
+    "616"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-condo-conversion-program": {
+   "numbers": [
+    "123"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-domestic-violence-prevention-vital-statistics": {
+   "numbers": [
+    "119"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-employee-training": {
+   "numbers": [
+    "146"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-equipment-maintenance-replacement": {
+   "numbers": [
+    "671",
+    "672"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-fair-elections": {
+   "numbers": [
+    "165"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-fund-raising-activities": {
+   "numbers": [
+    "111"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-fund-replacement": {
+   "numbers": [
+    "503"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-gilman-sport-field": {
+   "numbers": [
+    "113"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-go-2014-measure-m-street-and-watershed-improveme": {
+   "numbers": [
+    "559"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo": {
+   "numbers": [
+    "555"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo": {
+   "numbers": [
+    "553"
+   ],
+   "confidence": "Low",
+   "note": "Budget lists 553 \"2015 GORBS\" without saying which issue; this is a guess."
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service": {
+   "numbers": [
+    "556"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt": {
+   "numbers": [
+    "557"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-grants": {
+   "numbers": [
+    "301–350"
+   ],
+   "confidence": "Moderate",
+   "note": "The ACFR reports the City's grant funds (budget range 300–399) as one column."
+  },
+  "ACFR-health-state-aid-realignment": {
+   "numbers": [
+    "156"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-inclusionary-housing-program": {
+   "numbers": [
+    "122"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-it-cost-allocation-plan": {
+   "numbers": [
+    "680"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-library": {
+   "numbers": [
+    "101",
+    "102",
+    "103",
+    "104",
+    "105"
+   ],
+   "confidence": "Moderate",
+   "note": "ACFR Library combines the five budget library funds; 101 Library Tax is the largest."
+  },
+  "ACFR-measure-b-bike-and-pedestrian": {
+   "numbers": [
+    "131"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-b-local-streets-and-roads": {
+   "numbers": [
+    "130"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-b-paratransit": {
+   "numbers": [
+    "132"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-bb-bike-and-pedestrian": {
+   "numbers": [
+    "135"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-bb-local-streets-and-roads": {
+   "numbers": [
+    "134"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-bb-paratransit": {
+   "numbers": [
+    "136"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-e-special-tax-for-disabled": {
+   "numbers": [
+    "107"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-f-alameda-county-vrf-street-and-road": {
+   "numbers": [
+    "133"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-ff-public-safety": {
+   "numbers": [
+    "164"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-gg-fire-preparation-tax": {
+   "numbers": [
+    "140"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-measure-o-housing-bond": {
+   "numbers": [
+    "512"
+   ],
+   "confidence": "Moderate",
+   "note": "Budget: 512 Measure O (bond proceeds)."
+  },
+  "ACFR-measure-o-housing-bond-debt-service": {
+   "numbers": [
+    "561"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-mental-health-state-aid-realignment": {
+   "numbers": [
+    "158"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-miles-lab": {
+   "numbers": [
+    "145"
+   ],
+   "confidence": "High",
+   "note": "Budget name: Bayer-Miles Lab."
+  },
+  "ACFR-off-street-parking": {
+   "numbers": [
+    "627"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-one-time-funding": {
+   "numbers": [
+    "137"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-opt-public-safety": {
+   "numbers": [
+    "159"
+   ],
+   "confidence": "Moderate",
+   "note": "Budget name: Citizens Option Public Safety Trust (COPS)."
+  },
+  "ACFR-paramedic-assessment-district": {
+   "numbers": [
+    "116"
+   ],
+   "confidence": "Moderate",
+   "note": "Budget name: Paramedic Tax."
+  },
+  "ACFR-park-tax": {
+   "numbers": [
+    "138"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-parking-meter": {
+   "numbers": [
+    "631"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-permit-service-center": {
+   "numbers": [
+    "621"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-pers-savings": {
+   "numbers": [
+    "154"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-phone-system-replacement": {
+   "numbers": [
+    "502"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-playground-camp": {
+   "numbers": [
+    "125"
+   ],
+   "confidence": "High",
+   "note": "Staff reports call it the Camps Fund."
+  },
+  "ACFR-private-party-sidewalks": {
+   "numbers": [
+    "149"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-public-art": {
+   "numbers": [
+    "150"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-public-education-and-government-access-facilitie": {
+   "numbers": [
+    "504"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-public-liability": {
+   "numbers": [
+    "678"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-rental-housing-safety-program": {
+   "numbers": [
+    "129"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-sec-108-hud-loan-grant-assistance": {
+   "numbers": [
+    "110"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-sick-leave-vacation-payouts": {
+   "numbers": [
+    "780"
+   ],
+   "confidence": "Moderate",
+   "note": "Budget name: Sick Leave Entitlement."
+  },
+  "ACFR-state-proposition-172": {
+   "numbers": [
+    "126"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-state-transportation-tax": {
+   "numbers": [
+    "127"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-street-and-open-space-improvement": {
+   "numbers": [
+    "139"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-street-lighting": {
+   "numbers": [
+    "142"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-tobacco-control": {
+   "numbers": [
+    "157"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-uc-settlement": {
+   "numbers": [
+    "147"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-vital-and-health-statistic": {
+   "numbers": [
+    "152"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-workers-compensation": {
+   "numbers": [
+    "676"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-workforce-investment-act": {
+   "numbers": [
+    "108"
+   ],
+   "confidence": "High",
+   "note": ""
+  },
+  "ACFR-zero-waste": {
+   "numbers": [
+    "601"
+   ],
+   "confidence": "High",
+   "note": ""
+  }
+ },
+ "budget_funds": [
+  {
+   "number": "011",
+   "name": "General Fund Discretionary",
+   "family": "General Fund",
+   "fy2026_adopted": 311435259,
+   "fy2027_adopted": 315764545,
+   "acfr": [
+    "011"
+   ]
+  },
+  {
+   "number": "013",
+   "name": "GF - Payroll Deduction Trust",
+   "family": "General Fund",
+   "fy2026_adopted": 6750000,
+   "fy2027_adopted": 750000,
+   "acfr": [
+    "011"
+   ]
+  },
+  {
+   "number": "016",
+   "name": "Measure U1 - Housing",
+   "family": "General Fund",
+   "fy2026_adopted": 13511284,
+   "fy2027_adopted": 11475988,
+   "acfr": [
+    "011"
+   ]
+  },
+  {
+   "number": "099",
+   "name": "Catastrophic Reserve",
+   "family": "General Fund",
+   "fy2026_adopted": null,
+   "fy2027_adopted": null,
+   "acfr": [
+    "011"
+   ],
+   "note": "General Fund reserve; no annual appropriation in the AAO. Balance $28.2M at end of FY2026 (Dec 1, 2026 Item 3 staff report)."
+  },
+  {
+   "number": "101",
+   "name": "Library - Tax",
+   "family": "Special revenue",
+   "fy2026_adopted": 29382885,
+   "fy2027_adopted": 38873066,
+   "acfr": [
+    "ACFR-library"
+   ]
+  },
+  {
+   "number": "102",
+   "name": "Library - Trans Based",
+   "family": "Special revenue",
+   "fy2026_adopted": 4000000,
+   "fy2027_adopted": 3800000,
+   "acfr": [
+    "ACFR-library"
+   ]
+  },
+  {
+   "number": "103",
+   "name": "Library - Grants",
+   "family": "Special revenue",
+   "fy2026_adopted": 99884,
+   "fy2027_adopted": 110000,
+   "acfr": [
+    "ACFR-library"
+   ]
+  },
+  {
+   "number": "104",
+   "name": "Library - Friends & Gift",
+   "family": "Special revenue",
+   "fy2026_adopted": 222150,
+   "fy2027_adopted": 183000,
+   "acfr": [
+    "ACFR-library"
+   ]
+  },
+  {
+   "number": "105",
+   "name": "Library - Foundation",
+   "family": "Special revenue",
+   "fy2026_adopted": 200000,
+   "fy2027_adopted": 200000,
+   "acfr": [
+    "ACFR-library"
+   ]
+  },
+  {
+   "number": "106",
+   "name": "Asset Forefeiture",
+   "family": "Special revenue",
+   "fy2026_adopted": 61000,
+   "fy2027_adopted": 61000,
+   "acfr": [
+    "ACFR-asset-forfeiture"
+   ]
+  },
+  {
+   "number": "107",
+   "name": "Special Tax Measure E",
+   "family": "Special revenue",
+   "fy2026_adopted": 1882839,
+   "fy2027_adopted": 1972678,
+   "acfr": [
+    "ACFR-measure-e-special-tax-for-disabled"
+   ]
+  },
+  {
+   "number": "108",
+   "name": "Workforce Investment",
+   "family": "Special revenue",
+   "fy2026_adopted": 58692,
+   "fy2027_adopted": 61379,
+   "acfr": [
+    "ACFR-workforce-investment-act"
+   ]
+  },
+  {
+   "number": "110",
+   "name": "Sec 108 Loan Gty Asst.",
+   "family": "Special revenue",
+   "fy2026_adopted": 1183612,
+   "fy2027_adopted": 1183612,
+   "acfr": [
+    "ACFR-sec-108-hud-loan-grant-assistance"
+   ]
+  },
+  {
+   "number": "111",
+   "name": "Fund Raising Activities",
+   "family": "Special revenue",
+   "fy2026_adopted": 54789,
+   "fy2027_adopted": 258662,
+   "acfr": [
+    "ACFR-fund-raising-activities"
+   ]
+  },
+  {
+   "number": "113",
+   "name": "Gilman Sports Field",
+   "family": "Special revenue",
+   "fy2026_adopted": 335382,
+   "fy2027_adopted": 345014,
+   "acfr": [
+    "ACFR-gilman-sport-field"
+   ]
+  },
+  {
+   "number": "115",
+   "name": "Animal Shelter",
+   "family": "Special revenue",
+   "fy2026_adopted": 52480,
+   "fy2027_adopted": 2818172,
+   "acfr": [
+    "ACFR-animal-shelter"
+   ]
+  },
+  {
+   "number": "116",
+   "name": "Paramedic Tax",
+   "family": "Special revenue",
+   "fy2026_adopted": 4894321,
+   "fy2027_adopted": 5158767,
+   "acfr": [
+    "ACFR-paramedic-assessment-district"
+   ]
+  },
+  {
+   "number": "119",
+   "name": "Domestic Violence Prev - Vit Stat",
+   "family": "Special revenue",
+   "fy2026_adopted": 32490,
+   "fy2027_adopted": 31261,
+   "acfr": [
+    "ACFR-domestic-violence-prevention-vital-statistics"
+   ]
+  },
+  {
+   "number": "120",
+   "name": "Affordable Housing Mitigation",
+   "family": "Special revenue",
+   "fy2026_adopted": 1925568,
+   "fy2027_adopted": 25347986,
+   "acfr": [
+    "ACFR-affordable-housing-mitigation-fee"
+   ]
+  },
+  {
+   "number": "121",
+   "name": "Affordable Child Care",
+   "family": "Special revenue",
+   "fy2026_adopted": 13275,
+   "fy2027_adopted": 240982,
+   "acfr": [
+    "ACFR-affordable-child-care"
+   ]
+  },
+  {
+   "number": "122",
+   "name": "Inclusionary Housing Program",
+   "family": "Special revenue",
+   "fy2026_adopted": 438731,
+   "fy2027_adopted": 606924,
+   "acfr": [
+    "ACFR-inclusionary-housing-program"
+   ]
+  },
+  {
+   "number": "123",
+   "name": "Condo Conversion",
+   "family": "Special revenue",
+   "fy2026_adopted": 534833,
+   "fy2027_adopted": 933121,
+   "acfr": [
+    "ACFR-condo-conversion-program"
+   ]
+  },
+  {
+   "number": "125",
+   "name": "Playground Camp",
+   "family": "Special revenue",
+   "fy2026_adopted": 4387369,
+   "fy2027_adopted": 5591322,
+   "acfr": [
+    "ACFR-playground-camp"
+   ]
+  },
+  {
+   "number": "126",
+   "name": "State-Prop 172 Pub.Safety",
+   "family": "Special revenue",
+   "fy2026_adopted": 448976,
+   "fy2027_adopted": 303150,
+   "acfr": [
+    "ACFR-state-proposition-172"
+   ]
+  },
+  {
+   "number": "127",
+   "name": "State Transportation Tax",
+   "family": "Special revenue",
+   "fy2026_adopted": 7686498,
+   "fy2027_adopted": 10602412,
+   "acfr": [
+    "ACFR-state-transportation-tax"
+   ]
+  },
+  {
+   "number": "128",
+   "name": "CDBG",
+   "family": "Special revenue",
+   "fy2026_adopted": 3076701,
+   "fy2027_adopted": 3234680,
+   "acfr": [
+    "ACFR-cdbg"
+   ]
+  },
+  {
+   "number": "129",
+   "name": "Rental Housing Safety Program",
+   "family": "Special revenue",
+   "fy2026_adopted": 2804807,
+   "fy2027_adopted": 2508173,
+   "acfr": [
+    "ACFR-rental-housing-safety-program"
+   ]
+  },
+  {
+   "number": "130",
+   "name": "Measure B - Local St & Road",
+   "family": "Special revenue",
+   "fy2026_adopted": 61882,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-measure-b-local-streets-and-roads"
+   ]
+  },
+  {
+   "number": "131",
+   "name": "Measure B - Bike & Pedestrian",
+   "family": "Special revenue",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 42396,
+   "acfr": [
+    "ACFR-measure-b-bike-and-pedestrian"
+   ]
+  },
+  {
+   "number": "132",
+   "name": "Measure B - Paratransit",
+   "family": "Special revenue",
+   "fy2026_adopted": 17016,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-measure-b-paratransit"
+   ]
+  },
+  {
+   "number": "133",
+   "name": "Measure F Alameda County VRF St & Rd",
+   "family": "Special revenue",
+   "fy2026_adopted": 462227,
+   "fy2027_adopted": 749879,
+   "acfr": [
+    "ACFR-measure-f-alameda-county-vrf-street-and-road"
+   ]
+  },
+  {
+   "number": "134",
+   "name": "Measure BB - Local St & Road",
+   "family": "Special revenue",
+   "fy2026_adopted": 7657298,
+   "fy2027_adopted": 9914294,
+   "acfr": [
+    "ACFR-measure-bb-local-streets-and-roads"
+   ]
+  },
+  {
+   "number": "135",
+   "name": "Meaure BB - Bike & Pedestrian",
+   "family": "Special revenue",
+   "fy2026_adopted": 1762862,
+   "fy2027_adopted": 1915592,
+   "acfr": [
+    "ACFR-measure-bb-bike-and-pedestrian"
+   ]
+  },
+  {
+   "number": "136",
+   "name": "Measure BB - Paratransit",
+   "family": "Special revenue",
+   "fy2026_adopted": 967484,
+   "fy2027_adopted": 943791,
+   "acfr": [
+    "ACFR-measure-bb-paratransit"
+   ]
+  },
+  {
+   "number": "137",
+   "name": "One-Time Funding",
+   "family": "Special revenue",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 5114300,
+   "acfr": [
+    "ACFR-one-time-funding"
+   ]
+  },
+  {
+   "number": "138",
+   "name": "Parks Tax",
+   "family": "Special revenue",
+   "fy2026_adopted": 24534028,
+   "fy2027_adopted": 26089319,
+   "acfr": [
+    "ACFR-park-tax"
+   ]
+  },
+  {
+   "number": "139",
+   "name": "Streets and Open Space Improvement (SOSIP)",
+   "family": "Special revenue",
+   "fy2026_adopted": 250000,
+   "fy2027_adopted": 2800000,
+   "acfr": [
+    "ACFR-street-and-open-space-improvement"
+   ]
+  },
+  {
+   "number": "140",
+   "name": "Measure GG - Fire Prep Tax",
+   "family": "Special revenue",
+   "fy2026_adopted": 6289268,
+   "fy2027_adopted": 5738458,
+   "acfr": [
+    "ACFR-measure-gg-fire-preparation-tax"
+   ]
+  },
+  {
+   "number": "142",
+   "name": "Streetlight Assesment District",
+   "family": "Special revenue",
+   "fy2026_adopted": 3284660,
+   "fy2027_adopted": 3960537,
+   "acfr": [
+    "ACFR-street-lighting"
+   ]
+  },
+  {
+   "number": "143",
+   "name": "Berkeley Bus Ec Dev",
+   "family": "Special revenue",
+   "fy2026_adopted": 156387,
+   "fy2027_adopted": 156387,
+   "acfr": [
+    "ACFR-business-economic-development"
+   ]
+  },
+  {
+   "number": "145",
+   "name": "Bayer-Miles Lab",
+   "family": "Special revenue",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 100000,
+   "acfr": [
+    "ACFR-miles-lab"
+   ]
+  },
+  {
+   "number": "146",
+   "name": "Employee Training",
+   "family": "Internal service",
+   "fy2026_adopted": 822177,
+   "fy2027_adopted": 832239,
+   "acfr": [
+    "ACFR-employee-training"
+   ]
+  },
+  {
+   "number": "147",
+   "name": "UC Settlement",
+   "family": "Special revenue",
+   "fy2026_adopted": 5871394,
+   "fy2027_adopted": 5624244,
+   "acfr": [
+    "ACFR-uc-settlement"
+   ]
+  },
+  {
+   "number": "148",
+   "name": "Cultural Trust",
+   "family": "Special revenue",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 186830,
+   "acfr": []
+  },
+  {
+   "number": "149",
+   "name": "Private Party Sidewalks",
+   "family": "Special revenue",
+   "fy2026_adopted": 100000,
+   "fy2027_adopted": 300000,
+   "acfr": [
+    "ACFR-private-party-sidewalks"
+   ]
+  },
+  {
+   "number": "150",
+   "name": "Public Art Fund",
+   "family": "Special revenue",
+   "fy2026_adopted": 64367,
+   "fy2027_adopted": 162252,
+   "acfr": [
+    "ACFR-public-art"
+   ]
+  },
+  {
+   "number": "152",
+   "name": "Vital & Health Statistics Trust Fund",
+   "family": "Special revenue",
+   "fy2026_adopted": 30292,
+   "fy2027_adopted": 23550,
+   "acfr": [
+    "ACFR-vital-and-health-statistic"
+   ]
+  },
+  {
+   "number": "154",
+   "name": "PERS Savings",
+   "family": "Special revenue",
+   "fy2026_adopted": 6000000,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-pers-savings"
+   ]
+  },
+  {
+   "number": "156",
+   "name": "Hlth State Aid Realign Trust",
+   "family": "Special revenue",
+   "fy2026_adopted": 6844776,
+   "fy2027_adopted": 5419935,
+   "acfr": [
+    "ACFR-health-state-aid-realignment"
+   ]
+  },
+  {
+   "number": "157",
+   "name": "Tobacco Cont.Trust",
+   "family": "Special revenue",
+   "fy2026_adopted": 382250,
+   "fy2027_adopted": 358174,
+   "acfr": [
+    "ACFR-tobacco-control"
+   ]
+  },
+  {
+   "number": "158",
+   "name": "Mental Health State Aid Realign",
+   "family": "Special revenue",
+   "fy2026_adopted": 6335939,
+   "fy2027_adopted": 4008124,
+   "acfr": [
+    "ACFR-mental-health-state-aid-realignment"
+   ]
+  },
+  {
+   "number": "159",
+   "name": "Citizens Option Public Safety Trust",
+   "family": "Special revenue",
+   "fy2026_adopted": 272448,
+   "fy2027_adopted": 658140,
+   "acfr": [
+    "ACFR-opt-public-safety"
+   ]
+  },
+  {
+   "number": "161",
+   "name": "Alameda Cty Abandoned Vehicle Abatement",
+   "family": "Special revenue",
+   "fy2026_adopted": 101285,
+   "fy2027_adopted": 119570,
+   "acfr": [
+    "ACFR-alameda-county-abandoned-vehicle-abatement-autho"
+   ]
+  },
+  {
+   "number": "164",
+   "name": "Measure FF - Public Safety",
+   "family": "Special revenue",
+   "fy2026_adopted": 12976348,
+   "fy2027_adopted": 11629476,
+   "acfr": [
+    "ACFR-measure-ff-public-safety"
+   ]
+  },
+  {
+   "number": "165",
+   "name": "Fair Elections",
+   "family": "Special revenue",
+   "fy2026_adopted": 664752,
+   "fy2027_adopted": 672470,
+   "acfr": [
+    "ACFR-fair-elections"
+   ]
+  },
+  {
+   "number": "166",
+   "name": "Measure FF - Street Repair",
+   "family": "Special revenue",
+   "fy2026_adopted": 975000,
+   "fy2027_adopted": 27180781,
+   "acfr": []
+  },
+  {
+   "number": "301",
+   "name": "Operating Grants - Federal",
+   "family": "Grants",
+   "fy2026_adopted": 155304,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "302",
+   "name": "Operating Grants - State",
+   "family": "Grants",
+   "fy2026_adopted": 7723545,
+   "fy2027_adopted": 7989032,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "305",
+   "name": "Capital Grants - Federal",
+   "family": "Grants",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 500000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "306",
+   "name": "Capital Grants - State",
+   "family": "Grants",
+   "fy2026_adopted": 750000,
+   "fy2027_adopted": 1547000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "307",
+   "name": "Capital Grants - Local",
+   "family": "Grants",
+   "fy2026_adopted": 100000,
+   "fy2027_adopted": 758250,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "309",
+   "name": "OTS DUI Enforcement Education Prg.",
+   "family": "Grants",
+   "fy2026_adopted": 149321,
+   "fy2027_adopted": 253900,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "310",
+   "name": "HUD/Home",
+   "family": "Grants",
+   "fy2026_adopted": 2524030,
+   "fy2027_adopted": 1595935,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "311",
+   "name": "ESG",
+   "family": "Grants",
+   "fy2026_adopted": 452137,
+   "fy2027_adopted": 226367,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "312",
+   "name": "Health (General)",
+   "family": "Grants",
+   "fy2026_adopted": 2733843,
+   "fy2027_adopted": 2638541,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "313",
+   "name": "Target Case Management Linkages",
+   "family": "Grants",
+   "fy2026_adopted": 1491747,
+   "fy2027_adopted": 932067,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "315",
+   "name": "Mental Health Service Act",
+   "family": "Grants",
+   "fy2026_adopted": 11265993,
+   "fy2027_adopted": 13425796,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "316",
+   "name": "Health (Short/Doyle)",
+   "family": "Grants",
+   "fy2026_adopted": 7235143,
+   "fy2027_adopted": 3980850,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "317",
+   "name": "EPSDT Expansion Proposal",
+   "family": "Grants",
+   "fy2026_adopted": 669282,
+   "fy2027_adopted": 437043,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "318",
+   "name": "Alcoholic Bev Ctr OTS/UC",
+   "family": "Grants",
+   "fy2026_adopted": 60237,
+   "fy2027_adopted": 97330,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "319",
+   "name": "Youth Lunch",
+   "family": "Grants",
+   "fy2026_adopted": 50838,
+   "fy2027_adopted": 41782,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "320",
+   "name": "Sr. Nutrition Title III",
+   "family": "Grants",
+   "fy2026_adopted": 262905,
+   "fy2027_adopted": 246233,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "321",
+   "name": "CFP Title X",
+   "family": "Grants",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 179713,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "324",
+   "name": "BUSD Grant",
+   "family": "Grants",
+   "fy2026_adopted": 216871,
+   "fy2027_adopted": 269807,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "325",
+   "name": "Vector Control",
+   "family": "Grants",
+   "fy2026_adopted": 485945,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "326",
+   "name": "Alameda County Grants",
+   "family": "Grants",
+   "fy2026_adopted": 1115784,
+   "fy2027_adopted": 621735,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "327",
+   "name": "Senior Supportive Social Services",
+   "family": "Grants",
+   "fy2026_adopted": 118794,
+   "fy2027_adopted": null,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "328",
+   "name": "Family Care Support Program",
+   "family": "Grants",
+   "fy2026_adopted": 112253,
+   "fy2027_adopted": 115112,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "329",
+   "name": "CA Integrated Waste Management",
+   "family": "Grants",
+   "fy2026_adopted": 5244,
+   "fy2027_adopted": 23244,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "331",
+   "name": "Housing Mitigation",
+   "family": "Grants",
+   "fy2026_adopted": 1362494,
+   "fy2027_adopted": 1345533,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "333",
+   "name": "CALHOME",
+   "family": "Grants",
+   "fy2026_adopted": 221240,
+   "fy2027_adopted": 202744,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "334",
+   "name": "CSBG",
+   "family": "Grants",
+   "fy2026_adopted": 291358,
+   "fy2027_adopted": 329232,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "336",
+   "name": "One-Time Grant: No Cap Exp",
+   "family": "Grants",
+   "fy2026_adopted": 758064,
+   "fy2027_adopted": 1889431,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "339",
+   "name": "MTC",
+   "family": "Grants",
+   "fy2026_adopted": 752827,
+   "fy2027_adopted": 1122000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "340",
+   "name": "FEMA",
+   "family": "Grants",
+   "fy2026_adopted": 2869444,
+   "fy2027_adopted": 3249982,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "341",
+   "name": "Alameda Cty Waste Mgt.",
+   "family": "Grants",
+   "fy2026_adopted": 345000,
+   "fy2027_adopted": 500000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "343",
+   "name": "State Dept Conserv/Recylg",
+   "family": "Grants",
+   "fy2026_adopted": 32000,
+   "fy2027_adopted": 32000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "347",
+   "name": "Shelter+Care HUD",
+   "family": "Grants",
+   "fy2026_adopted": 7334881,
+   "fy2027_adopted": 7230907,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "348",
+   "name": "Shelter+Care County",
+   "family": "Grants",
+   "fy2026_adopted": 1041448,
+   "fy2027_adopted": 1024051,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "349",
+   "name": "JAG Grant",
+   "family": "Grants",
+   "fy2026_adopted": 60759,
+   "fy2027_adopted": 50000,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "350",
+   "name": "Bioterrorism Grant",
+   "family": "Grants",
+   "fy2026_adopted": 307040,
+   "fy2027_adopted": 321938,
+   "acfr": [
+    "ACFR-grants"
+   ]
+  },
+  {
+   "number": "501",
+   "name": "Capital Improvement Fund",
+   "family": "Capital projects",
+   "fy2026_adopted": 18155130,
+   "fy2027_adopted": 14803696,
+   "acfr": [
+    "501"
+   ]
+  },
+  {
+   "number": "502",
+   "name": "Phone System Replacement",
+   "family": "Capital projects",
+   "fy2026_adopted": 449408,
+   "fy2027_adopted": 449408,
+   "acfr": [
+    "ACFR-phone-system-replacement"
+   ]
+  },
+  {
+   "number": "503",
+   "name": "FUND$ Replacement",
+   "family": "Capital projects",
+   "fy2026_adopted": 3065223,
+   "fy2027_adopted": 2159869,
+   "acfr": [
+    "ACFR-fund-replacement"
+   ]
+  },
+  {
+   "number": "504",
+   "name": "PEG-Public, Education & Government",
+   "family": "Capital projects",
+   "fy2026_adopted": 267210,
+   "fy2027_adopted": 267210,
+   "acfr": [
+    "ACFR-public-education-and-government-access-facilitie"
+   ]
+  },
+  {
+   "number": "511",
+   "name": "Measure T1 - Infra & Facil.",
+   "family": "Capital projects",
+   "fy2026_adopted": 4106327,
+   "fy2027_adopted": 212498,
+   "acfr": [
+    "511"
+   ]
+  },
+  {
+   "number": "512",
+   "name": "Measure O",
+   "family": "Capital projects",
+   "fy2026_adopted": 8176509,
+   "fy2027_adopted": 34314198,
+   "acfr": [
+    "ACFR-measure-o-housing-bond"
+   ]
+  },
+  {
+   "number": "552",
+   "name": "09 Measure FF Debt Service",
+   "family": "Debt service",
+   "fy2026_adopted": 1330513,
+   "fy2027_adopted": 1336638,
+   "acfr": [
+    "ACFR-2009-measure-ff-library"
+   ]
+  },
+  {
+   "number": "553",
+   "name": "2015 GORBS",
+   "family": "Debt service",
+   "fy2026_adopted": 2043981,
+   "fy2027_adopted": 2062791,
+   "acfr": [
+    "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo"
+   ]
+  },
+  {
+   "number": "554",
+   "name": "2012 Lease Revenue Bonds BJPFA",
+   "family": "Debt service",
+   "fy2026_adopted": 499849,
+   "fy2027_adopted": 501283,
+   "acfr": []
+  },
+  {
+   "number": "555",
+   "name": "2015 GORBS - 2002 G.O. Refunding Bonds",
+   "family": "Debt service",
+   "fy2026_adopted": 378696,
+   "fy2027_adopted": 381552,
+   "acfr": [
+    "ACFR-go-2015-refunding-bonds-for-go-2002-refunding-bo"
+   ]
+  },
+  {
+   "number": "556",
+   "name": "2015 GORBS (2007, Series A)",
+   "family": "Debt service",
+   "fy2026_adopted": 142312,
+   "fy2027_adopted": 143615,
+   "acfr": [
+    "ACFR-go-2015-refunding-bonds-for-go-2007-refunding-bo-debt-service"
+   ]
+  },
+  {
+   "number": "557",
+   "name": "2015 GORBS (2008 Measure I)",
+   "family": "Debt service",
+   "fy2026_adopted": 479416,
+   "fy2027_adopted": 483822,
+   "acfr": [
+    "ACFR-go-2015-refunding-bonds-for-go-2008-animal-shelt"
+   ]
+  },
+  {
+   "number": "558",
+   "name": "2010 COP (Animal Shelter)",
+   "family": "Debt service",
+   "fy2026_adopted": 140085,
+   "fy2027_adopted": 140085,
+   "acfr": [
+    "ACFR-2010-cop-animal-shelter"
+   ]
+  },
+  {
+   "number": "559",
+   "name": "Measure M GO Street & Water Imps",
+   "family": "Debt service",
+   "fy2026_adopted": 1639250,
+   "fy2027_adopted": 1635600,
+   "acfr": [
+    "ACFR-go-2014-measure-m-street-and-watershed-improveme"
+   ]
+  },
+  {
+   "number": "560",
+   "name": "Infrastucture & Facilities Measure T1",
+   "family": "Debt service",
+   "fy2026_adopted": 3755881,
+   "fy2027_adopted": 3752681,
+   "acfr": [
+    "511-debt-service"
+   ]
+  },
+  {
+   "number": "561",
+   "name": "Measure O - Housing Bonds",
+   "family": "Debt service",
+   "fy2026_adopted": 4600873,
+   "fy2027_adopted": 6903033,
+   "acfr": [
+    "ACFR-measure-o-housing-bond-debt-service"
+   ]
+  },
+  {
+   "number": "601",
+   "name": "Zero Waste",
+   "family": "Enterprise",
+   "fy2026_adopted": 61614928,
+   "fy2027_adopted": 64052954,
+   "acfr": [
+    "ACFR-zero-waste"
+   ]
+  },
+  {
+   "number": "608",
+   "name": "Marina Operation",
+   "family": "Enterprise",
+   "fy2026_adopted": 7663273,
+   "fy2027_adopted": 7535322,
+   "acfr": [
+    "608"
+   ]
+  },
+  {
+   "number": "611",
+   "name": "Sewer",
+   "family": "Enterprise",
+   "fy2026_adopted": 33533465,
+   "fy2027_adopted": 41215597,
+   "acfr": [
+    "611"
+   ]
+  },
+  {
+   "number": "612",
+   "name": "Private Sewer Lateral FD",
+   "family": "Enterprise",
+   "fy2026_adopted": 80849,
+   "fy2027_adopted": 77848,
+   "acfr": []
+  },
+  {
+   "number": "616",
+   "name": "Clean Storm Water",
+   "family": "Enterprise",
+   "fy2026_adopted": 8598338,
+   "fy2027_adopted": 9876763,
+   "acfr": [
+    "ACFR-clean-storm-water"
+   ]
+  },
+  {
+   "number": "621",
+   "name": "Permit Service Center",
+   "family": "Enterprise",
+   "fy2026_adopted": 27883725,
+   "fy2027_adopted": 28635790,
+   "acfr": [
+    "ACFR-permit-service-center"
+   ]
+  },
+  {
+   "number": "622",
+   "name": "Unified Program (CUPA)",
+   "family": "Enterprise",
+   "fy2026_adopted": 1021938,
+   "fy2027_adopted": 1172868,
+   "acfr": []
+  },
+  {
+   "number": "627",
+   "name": "Off Street Parking",
+   "family": "Enterprise",
+   "fy2026_adopted": 7203523,
+   "fy2027_adopted": 7700602,
+   "acfr": [
+    "ACFR-off-street-parking"
+   ]
+  },
+  {
+   "number": "631",
+   "name": "Parking Meter",
+   "family": "Enterprise",
+   "fy2026_adopted": 10178760,
+   "fy2027_adopted": 9419091,
+   "acfr": [
+    "ACFR-parking-meter"
+   ]
+  },
+  {
+   "number": "636",
+   "name": "Building Purchases and Management",
+   "family": "Enterprise",
+   "fy2026_adopted": 3879644,
+   "fy2027_adopted": 2311026,
+   "acfr": [
+    "ACFR-building-purchases-management"
+   ]
+  },
+  {
+   "number": "671",
+   "name": "Equipment Replacement",
+   "family": "Internal service",
+   "fy2026_adopted": 6536146,
+   "fy2027_adopted": 14071895,
+   "acfr": [
+    "ACFR-equipment-maintenance-replacement"
+   ]
+  },
+  {
+   "number": "672",
+   "name": "Equipment Maintenance",
+   "family": "Internal service",
+   "fy2026_adopted": 10385092,
+   "fy2027_adopted": 11072559,
+   "acfr": [
+    "ACFR-equipment-maintenance-replacement"
+   ]
+  },
+  {
+   "number": "673",
+   "name": "Building Maintenance Fund",
+   "family": "Internal service",
+   "fy2026_adopted": 5518650,
+   "fy2027_adopted": 4849695,
+   "acfr": [
+    "ACFR-building-maintenance"
+   ]
+  },
+  {
+   "number": "674",
+   "name": "Central Services",
+   "family": "Internal service",
+   "fy2026_adopted": 411006,
+   "fy2027_adopted": 413179,
+   "acfr": [
+    "ACFR-central-services"
+   ]
+  },
+  {
+   "number": "676",
+   "name": "Workers Compensation",
+   "family": "Internal service",
+   "fy2026_adopted": 11788212,
+   "fy2027_adopted": 6567967,
+   "acfr": [
+    "ACFR-workers-compensation"
+   ]
+  },
+  {
+   "number": "678",
+   "name": "Public Liability",
+   "family": "Internal service",
+   "fy2026_adopted": 3760097,
+   "fy2027_adopted": 3760097,
+   "acfr": [
+    "ACFR-public-liability"
+   ]
+  },
+  {
+   "number": "679",
+   "name": "Catastrophic Loss",
+   "family": "Internal service",
+   "fy2026_adopted": 3447023,
+   "fy2027_adopted": 3447023,
+   "acfr": [
+    "ACFR-catastrophic-loss"
+   ]
+  },
+  {
+   "number": "680",
+   "name": "IT Cost Allocation",
+   "family": "Internal service",
+   "fy2026_adopted": 24896332,
+   "fy2027_adopted": 16990615,
+   "acfr": [
+    "ACFR-it-cost-allocation-plan"
+   ]
+  },
+  {
+   "number": "706",
+   "name": "Police Medical Trust Fund",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 48281,
+   "fy2027_adopted": 48281,
+   "acfr": []
+  },
+  {
+   "number": "721",
+   "name": "Retiree Medical Trust Fund - BHA",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 2970,
+   "fy2027_adopted": 2970,
+   "acfr": []
+  },
+  {
+   "number": "722",
+   "name": "Retiree Medical Trust Fund - IBEW",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 2563,
+   "fy2027_adopted": 2563,
+   "acfr": []
+  },
+  {
+   "number": "723",
+   "name": "Retiree Medical Trust Fund - Local 1",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 22595,
+   "fy2027_adopted": 22595,
+   "acfr": []
+  },
+  {
+   "number": "724",
+   "name": "Retiree Medical Trust Fund - Z1 Mgmt.",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 4000,
+   "fy2027_adopted": 4000,
+   "acfr": []
+  },
+  {
+   "number": "725",
+   "name": "Retiree Medical Trust Fund - Z2 To Z6",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 12000,
+   "fy2027_adopted": 12000,
+   "acfr": []
+  },
+  {
+   "number": "726",
+   "name": "Retiree Medical Trust Fund - Local 535",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 32191,
+   "fy2027_adopted": 32191,
+   "acfr": []
+  },
+  {
+   "number": "727",
+   "name": "Retiree Medical Trust Fund - Local 790",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 37106,
+   "fy2027_adopted": 37106,
+   "acfr": []
+  },
+  {
+   "number": "731",
+   "name": "Police EE Retiree Health Ast Plan",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 6500,
+   "fy2027_adopted": 6500,
+   "acfr": []
+  },
+  {
+   "number": "736",
+   "name": "Fire Medical Trust Fund",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 45571,
+   "fy2027_adopted": 45571,
+   "acfr": []
+  },
+  {
+   "number": "762",
+   "name": "Successor Agency - Savo DSF",
+   "family": "Trust & successor agency",
+   "fy2026_adopted": 57120,
+   "fy2027_adopted": 57120,
+   "acfr": []
+  },
+  {
+   "number": "774",
+   "name": "Sustainable Energy - 2",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": null,
+   "fy2027_adopted": 17038,
+   "acfr": []
+  },
+  {
+   "number": "776",
+   "name": "Thousand Oaks Underground",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 100096,
+   "fy2027_adopted": 97006,
+   "acfr": []
+  },
+  {
+   "number": "777",
+   "name": "Measure H - School Tax",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 500000,
+   "fy2027_adopted": 500000,
+   "acfr": []
+  },
+  {
+   "number": "778",
+   "name": "Measure Q - CFD#1 Dis. Fire Protect Bond",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 107904,
+   "fy2027_adopted": 108850,
+   "acfr": []
+  },
+  {
+   "number": "779",
+   "name": "Spl Tax Bds. CFD#1 ML-ROOS",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 778589,
+   "fy2027_adopted": 779811,
+   "acfr": []
+  },
+  {
+   "number": "780",
+   "name": "Sick Leave Entitlement",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 322955,
+   "fy2027_adopted": 322955,
+   "acfr": [
+    "ACFR-sick-leave-vacation-payouts"
+   ]
+  },
+  {
+   "number": "781",
+   "name": "Berkeley Tourism BID",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 2209676,
+   "fy2027_adopted": 2298135,
+   "acfr": []
+  },
+  {
+   "number": "782",
+   "name": "Elmwood Business Improvement District",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 59950,
+   "fy2027_adopted": 30000,
+   "acfr": []
+  },
+  {
+   "number": "783",
+   "name": "Solano Ave BID",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 40445,
+   "fy2027_adopted": 25000,
+   "acfr": []
+  },
+  {
+   "number": "784",
+   "name": "Telegraph Avenue Bus. Imp. District",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 826643,
+   "fy2027_adopted": 667525,
+   "acfr": []
+  },
+  {
+   "number": "785",
+   "name": "North Shattuck BID",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 334076,
+   "fy2027_adopted": 248903,
+   "acfr": []
+  },
+  {
+   "number": "786",
+   "name": "Downtown Berkeley Prop & Improv. District",
+   "family": "Agency (pass-through)",
+   "fy2026_adopted": 1599725,
+   "fy2027_adopted": 2668086,
+   "acfr": []
+  },
+  {
+   "number": "801",
+   "name": "Rent Board",
+   "family": "Rent Board (separate agency)",
+   "fy2026_adopted": 9017005,
+   "fy2027_adopted": 11298855,
+   "acfr": []
+  }
+ ]
+}

@@ -1,0 +1,240 @@
+{
+ "about": "Fund-level money actions on City Council agendas, one row per fund per item. Amounts are as stated in the item's staff report. 'kind': spend = one-time spending authority; annual = recurring cost (negative = saving); authority = permission to solicit bids, not yet spending; revenue = new money in; passthrough = collected for an outside body. 'status': proposed until the meeting, then adopted / amended / pulled. Add a block for each new budget scan.",
+ "meetings": [
+  {
+   "date": "2026-12-01",
+   "label": "Regular meeting, Tue Dec 1, 2026",
+   "scan": "budget-scan-2026-12-01.html",
+   "eagenda": "https://berkeleyca.gov/city-council-regular-meeting-eagenda-december-1-2026",
+   "status": "proposed",
+   "unassigned": [
+    {
+     "item": "6",
+     "title": "Unrepresented Employee Manual — public safety uniform allowances",
+     "amount": 1700,
+     "kind": "annual",
+     "note": "Approximate; report names no fund."
+    },
+    {
+     "item": "15",
+     "title": "Berkeley High Crew safety equipment — Council office budgets",
+     "amount": 400,
+     "kind": "spend",
+     "note": "Up to $400 per office; report says no General Fund impact and names no fund."
+    }
+   ],
+   "actions": [
+    {
+     "item": "3",
+     "title": "Animal Shelter fire/flood repairs (Belfor on-call contract)",
+     "fund": "099",
+     "amount": 850000,
+     "kind": "spend",
+     "confidence": "High",
+     "note": "Draw on the Catastrophic Reserve; needs a two-thirds vote. Insurance expected to repay all but $10,000, late FY2027–FY2028. Reserve balance $28.2M at end of FY2026. Total project cost not stated.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2003%20Use%20of%20Catastrophic%20Reserve%20Fund.pdf"
+    },
+    {
+     "item": "4",
+     "title": "FY2027 Urgent Sewer Repair (bid 27-11821-C)",
+     "fund": "611",
+     "amount": 2420000,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "Includes 10% contingency. Bids open Jan 5, 2027; award returns to Council.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "4",
+     "title": "West Berkeley & Aquatic Park Storm Drain (bid 27-11823-C) — storm-water share",
+     "fund": "616",
+     "amount": 3070015,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "Project total $4,530,015 across four funds (616, 336, 138, 145).",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "4",
+     "title": "West Berkeley & Aquatic Park Storm Drain — grant share",
+     "fund": "336",
+     "amount": 1175000,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "4",
+     "title": "West Berkeley & Aquatic Park Storm Drain — Parks Tax share",
+     "fund": "138",
+     "amount": 185000,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "Parks project code PRWPK27005.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "4",
+     "title": "West Berkeley & Aquatic Park Storm Drain — Miles Lab share",
+     "fund": "145",
+     "amount": 100000,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "Equals Fund 145's entire FY2027 appropriation.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "4",
+     "title": "Adeline Quick Build (bid 27-11822-C)",
+     "fund": "339",
+     "amount": 922000,
+     "kind": "authority",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2004%20Formal%20Bid%20Solicitations%20and%20Request.pdf"
+    },
+    {
+     "item": "5",
+     "title": "SEP Technology Consulting — Environmental Health data migration (contract amendment)",
+     "fund": "011",
+     "amount": 22800,
+     "kind": "spend",
+     "confidence": "High",
+     "note": "New total $347,800; term to June 30, 2027.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2005%20Contract%20No.%2032500243%20Amendment%20SEP.pdf"
+    },
+    {
+     "item": "7",
+     "title": "SHI International — Cohesity backup, Dec 2026–Dec 2029",
+     "fund": "680",
+     "amount": 450000,
+     "kind": "spend",
+     "confidence": "High",
+     "note": "$400,000 in FY2027; $25,000 in each of FY2028 and FY2029, subject to appropriation.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2007%20Contract%20SHI%20for%20Cohesity%20Backup%20Solution.pdf"
+    },
+    {
+     "item": "9",
+     "title": "Planning position changes — Permit Service Center share",
+     "fund": "621",
+     "amount": -80111,
+     "kind": "annual",
+     "confidence": "High",
+     "note": "Net of four position changes; deletes a vacant Associate Planner.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2009%20Planning%20and%20Development%20Department.pdf"
+    },
+    {
+     "item": "9",
+     "title": "Planning position changes — General Fund share",
+     "fund": "011",
+     "amount": -89578,
+     "kind": "annual",
+     "confidence": "High",
+     "note": "Moves a Planning Technician fully onto Fund 621.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2009%20Planning%20and%20Development%20Department.pdf"
+    },
+    {
+     "item": "10",
+     "title": "New permanent Associate Management Analyst for Measure FF streets program",
+     "fund": "166",
+     "amount": 238450,
+     "kind": "annual",
+     "confidence": "High",
+     "note": "Adopted budget already holds $98,743 (called a 40% share); 40% of $238,450 would be $95,380, so the figures don't reconcile. FY2027 partial-year cost not stated.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2010%20Staffing%20Amendment%20for%20Measure%20FF.pdf"
+    },
+    {
+     "item": "11",
+     "title": "National Auto Fleet Group — pavement-marking truck",
+     "fund": "671",
+     "amount": 201795.85,
+     "kind": "spend",
+     "confidence": "High",
+     "note": "Already in the FY2027 adopted Fund 671 budget.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2011%20Purchase%20Order%20National%20Auto%20Fleet.pdf"
+    },
+    {
+     "item": "18",
+     "title": "Recreation fee increases — Camps",
+     "fund": "125",
+     "amount": 108420,
+     "kind": "revenue",
+     "confidence": "High",
+     "note": "FY2027 estimate; mostly the new Echo Lake bus surcharge.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2018%20Changes%20to%20Selected%20Recreation.pdf"
+    },
+    {
+     "item": "18",
+     "title": "Recreation fee increases — General Fund",
+     "fund": "011",
+     "amount": 9168,
+     "kind": "revenue",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2018%20Changes%20to%20Selected%20Recreation.pdf"
+    },
+    {
+     "item": "18",
+     "title": "Recreation fee increases — Marina",
+     "fund": "608",
+     "amount": 3700,
+     "kind": "revenue",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2018%20Changes%20to%20Selected%20Recreation.pdf"
+    },
+    {
+     "item": "2",
+     "title": "Inherited IRA gift to Animal Care Services",
+     "fund": "115",
+     "amount": 10166.82,
+     "kind": "revenue",
+     "confidence": "Moderate",
+     "note": "Value floats until liquidated.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2002%20Authorization%20to%20Accept%20Inherited%20IRA.pdf"
+    },
+    {
+     "item": "8",
+     "title": "Memorial bench donation, Waterfront Park",
+     "fund": "608",
+     "amount": 3400,
+     "kind": "revenue",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2008%20Donation%20Memorial%20Bench%20at%20the%20Berkeley.pdf"
+    },
+    {
+     "item": "16",
+     "title": "Elmwood BID 2027 assessments",
+     "fund": "782",
+     "amount": 30000,
+     "kind": "passthrough",
+     "confidence": "Moderate",
+     "note": "Report also says $33,000.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2016%20Renewal%20of%20the%20Elmwood%20BID.pdf"
+    },
+    {
+     "item": "16",
+     "title": "Elmwood BID — City's assessment on its parking lot",
+     "fund": "631",
+     "amount": 2000,
+     "kind": "spend",
+     "confidence": "High",
+     "note": "",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2016%20Renewal%20of%20the%20Elmwood%20BID.pdf"
+    },
+    {
+     "item": "17",
+     "title": "Solano Avenue BID 2027 assessments",
+     "fund": "783",
+     "amount": 25000,
+     "kind": "passthrough",
+     "confidence": "Moderate",
+     "note": "Fiscal Impacts section; the BID's own report shows $29,984.",
+     "src": "https://berkeleyca.gov/sites/default/files/2026-12-01%20Item%2017%20Renewal%20of%20the%20Solano%20Avenue%20BID.pdf"
+    }
+   ]
+  }
+ ]
+}

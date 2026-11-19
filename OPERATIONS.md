@@ -23,7 +23,9 @@ Page edits go straight to `main`. Feature branches only for code; delete them on
 `docs/data/pages.json`: for each page, its sources, the date last checked, and the event that makes it stale. `tools/staleness_check.py` flags pages whose trigger has passed, that are overdue for review, or that still contain known-stale phrases. After rechecking a page: `python3 tools/staleness_check.py --mark <page>.html`.
 
 ## 5. Rhythm
-- **Every council meeting:** budget scan (`docs/budget-scan-YYYY-MM-DD.html`).
+- **Every council meeting:** budget scan (`docs/budget-scan-YYYY-MM-DD.html`). Record the fund number for every money item in the scan's Fund column, then add a meeting block to `data/agenda_fund_actions.json` (one row per fund per item; `kind` = spend / annual / authority / revenue / passthrough; amounts from the staff report; items with no fund named go in `unassigned`) and run `python3 tools/build_fund_activity.py` and `python3 tools/build_funds_index.py data/funds docs/funds.html`.
+- **After each meeting:** set that meeting's `status` in `data/agenda_fund_actions.json` to `adopted` (or note amended / pulled items) and rebuild `docs/fund-activity.html`.
+- **Each June:** when the new Annual Appropriations Ordinance is adopted, add its Exhibit A to `data/fund_numbers.json` (new funds, renamed funds, adopted amounts).
 - **Monthly:** staleness check + City Auditor recommendation feed (~10 min).
 - **Dated triggers:**
 
@@ -57,12 +59,11 @@ Before any session ends: everything it produced is saved in this repo, and Steve
 |---|---|---|
 | `berkeley-transparency-hub` | `BeTH/docs` | **Live** — the public site |
 | `berkeley-tax-calculator` | `berkeley-tax-calculator` repo | **Live** — updated for Nov 2026 results 2026-11-16 |
-| `tonephasetwo` | `BeTH/T1` | **Retire** — content now `docs/measure-t1-tracker.html` |
-| `berkeley-audit-dashboard` | none on disk | **Retire** — shows the same T1 page; site links now point to `docs/dashboard.html` |
-| `berkeley-fiscal-reality` | `research/fiscal-reality/site` | **Retire** — advocacy; content saved in research, links removed from the site |
+| `tonephasetwo` | `BeTH/T1` | **Deleted 2026-11-16** — content now `docs/measure-t1-tracker.html` |
+| `berkeley-audit-dashboard` | none on disk | **Deleted 2026-11-16** — site links now point to `docs/dashboard.html` |
+| `berkeley-fiscal-reality` | `research/fiscal-reality/site` | **Deleted 2026-11-16** — content saved in `research/fiscal-reality` |
 | `d1-site` | `d1-site` repo | Campaign; retire when filings close |
 
-Retiring is done in the Vercel dashboard by Steve.
 
 ## Status
 - [x] Site audit and post-election fixes (2026-11-16)
@@ -71,5 +72,5 @@ Retiring is done in the Vercel dashboard by Steve.
 - [x] Step 2: README.md map written; PROJECT-INDEX.md archived (2026-11-16)
 - [x] Step 4: docs/data/pages.json + tools/staleness_check.py (2026-11-16)
 - [x] Three-tier plan, T1 tracker folded into site, tax calculator updated, fiscal-reality archived (2026-11-16)
-- [ ] Retire Vercel projects: tonephasetwo, berkeley-audit-dashboard, berkeley-fiscal-reality
+- [x] Retired Vercel projects tonephasetwo, berkeley-audit-dashboard, berkeley-fiscal-reality (2026-11-16; addresses return errors)
 - [x] Step 5: scheduled task "BeTH monthly freshness check" — Mondays 9:31 am Pacific, acts only on the first Monday of each month; runs the staleness check + City Auditor feed comparison and sends a report (no edits). Needs the Mac on with the Claude desktop app open. (2026-11-16)
