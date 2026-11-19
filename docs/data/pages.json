@@ -169,6 +169,12 @@
     }
    ]
   },
+  "berkeley-homelessness-funding-map.html": {
+   "checked": "2026-08-25",
+   "review_every_days": 365,
+   "triggers": [],
+   "note": "Dated August 2026 snapshot of homelessness funding, services and oversight. Source documents are linked from the map."
+  },
   "emergency-remediation.html": {
    "checked": "2026-11-16",
    "review_every_days": 180,

@@ -1,0 +1,818 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Berkeley Homelessness Funding Map | Learn About Berkeley</title>
+<meta name="description" content="An interactive map of homelessness funding, oversight and services in Berkeley, with five illustrative paths through the system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Public+Sans:wght@400;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17324d; --paper:#d3e1ee; --paper-2:#c5d7e7; --card:#eaf1f8;
+    --blue:#2276b9; --blue-deep:#155f94; --mark:#c85f1e; --good:#2c7a4b;
+    --steel:#6d8294; --steel-line:#9db6cc;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+  header{flex:0 0 auto;display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 22px 10px;border-bottom:2px solid var(--ink);background:var(--paper)}
+  .site-links{display:flex;gap:6px 16px;flex-wrap:wrap;margin:0 0 5px;font-size:13px}
+  .site-links a{color:var(--blue-deep)}
+  .snapshot{margin:4px 0;font-size:13px;font-weight:700}
+  header h1{font-family:"Archivo";font-weight:900;font-size:clamp(18px,2.6vw,28px);letter-spacing:-.02em;margin:0;text-transform:uppercase}
+  header h1 em{font-style:normal;color:var(--blue-deep)}
+  .how{font-size:13.5px;color:#31506e;max-width:760px;line-height:1.4}
+  .how b{color:var(--ink)}
+  .ctrl{display:flex;gap:8px;align-items:center}
+  .ctrl button{font-family:"Spline Sans Mono";font-size:13px;font-weight:600;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer}
+  .ctrl button:hover{background:var(--mark);color:#fff}
+  .ctrl button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  #stage{flex:1 1 auto;overflow:hidden;cursor:grab;position:relative;touch-action:none}
+  #stage.drag{cursor:grabbing}
+  #world{position:absolute;top:0;left:0;transform-origin:0 0}
+  svg{display:block}
+  footer{flex:0 0 auto;padding:8px 22px;border-top:1px solid var(--steel-line);font-family:"Spline Sans Mono";font-size:11.5px;letter-spacing:.03em;color:#4c637a;background:var(--paper)}
+
+  /* SVG classes */
+  .band{fill:none;stroke:var(--ink);stroke-width:2}
+  .bandfill-state{fill:#c3d4e6}
+  .bandfill-city{fill:#e2ebf4}
+  .bandfill-county{fill:#c9d9e9}
+  .bandlab{font-family:"Archivo";font-weight:900;font-size:26px;letter-spacing:.14em;fill:#3d5a77}
+  .node{fill:#f4f8fc;stroke:var(--ink);stroke-width:2;rx:6}
+  .node-warn{fill:#faf1e8;stroke:var(--mark);stroke-width:2.5}
+  .node-good{fill:#ecf5ee;stroke:var(--good);stroke-width:2.5}
+  .node-dead{fill:#e7ecf1;stroke:var(--steel);stroke-width:2;stroke-dasharray:6 5}
+  .node-dept{fill:#dde9f3;stroke:var(--blue-deep);stroke-width:2.5}
+  .t{font-family:"Archivo";font-weight:800;font-size:17px;fill:var(--ink)}
+  .d{font-family:"Public Sans";font-size:13px;fill:#2a4560}
+  .m{font-family:"Spline Sans Mono";font-weight:600;font-size:12px;fill:var(--blue-deep)}
+  .m-warn{fill:var(--mark)}
+  .m-good{fill:var(--good)}
+  .edge-money{stroke:var(--blue);stroke-width:3;fill:none}
+  .edge-ctrl{stroke:var(--ink);stroke-width:2.5;fill:none}
+  .edge-rev{stroke:var(--steel);stroke-width:2;stroke-dasharray:7 6;fill:none}
+  .edge-warn{stroke:var(--mark);stroke-width:2.5;stroke-dasharray:7 6;fill:none}
+  .edge-good{stroke:var(--good);stroke-width:2.5;fill:none}
+  .elab{font-family:"Spline Sans Mono";font-weight:500;font-size:12px;fill:#33506d}
+  .elab-money{fill:var(--blue-deep);font-weight:600}
+  .elab-warn{fill:var(--mark);font-weight:600}
+  .elab-good{fill:var(--good);font-weight:600}
+  .seam{stroke:var(--mark);stroke-width:3;stroke-dasharray:14 9}
+  .seamlab{font-family:"Archivo";font-weight:900;font-size:20px;letter-spacing:.2em;fill:var(--mark)}
+  .legend-box{fill:#f4f8fc;stroke:var(--ink);stroke-width:2}
+
+  /* cohort layer */
+  #main{flex:1 1 auto;display:flex;min-height:0}
+  #chips{flex:0 0 auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 22px;border-bottom:1px solid var(--steel-line);background:var(--paper-2)}
+  #chips .lab{font-family:"Spline Sans Mono";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#42607d;margin-right:4px}
+  .chip{font-family:"Archivo";font-weight:800;font-size:13px;border:2px solid var(--ink);border-radius:20px;padding:5px 13px;background:#f4f8fc;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:7px}
+  .chip .swatch{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .chip:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  #drawer{flex:0 0 400px;max-width:44vw;overflow-y:auto;border-left:2px solid var(--ink);background:#eef4fa;padding:16px 18px;display:none}
+  #drawer.open{display:block}
+  #drawer h2{font-family:"Archivo";font-weight:900;font-size:18px;margin:0 0 6px;text-transform:uppercase;letter-spacing:-.01em}
+  #drawer h3{font-family:"Archivo";font-weight:800;font-size:15px;margin:18px 0 4px;display:flex;align-items:center;gap:8px}
+  #drawer h3 .swatch{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+  #drawer p{font-size:13.5px;line-height:1.5;margin:6px 0;color:#22405e}
+  #drawer .num{font-family:"Spline Sans Mono";font-size:12px;color:var(--blue-deep);font-weight:600}
+  #drawer .cost{font-family:"Spline Sans Mono";font-size:12px;color:var(--mark);font-weight:600}
+  #drawer .steps{margin:6px 0;padding-left:20px;font-size:13.5px;line-height:1.55;color:#22405e}
+  #drawer .steps li{margin-bottom:4px}
+  #drawer .note{font-size:12px;color:#4c637a;font-style:italic;border-top:1px dashed var(--steel-line);margin-top:14px;padding-top:8px}
+  #drawer [data-card],#drawer .note{display:none}
+  #drawer .card{border:1.5px solid var(--steel-line);border-radius:8px;background:#f7fafd;padding:10px 14px;margin-bottom:6px}
+  .ppath{fill:none;stroke-width:6;stroke-linecap:round;opacity:.85}
+  .pdot{fill:#fff;stroke-width:3.5}
+  .pnum{font-family:"Spline Sans Mono";font-weight:600;font-size:14px;text-anchor:middle}
+  .pgroup{display:none}
+  .pgroup.on{display:inline}
+
+  /* clickable nodes + info card */
+  #map text{pointer-events:none}
+  rect[data-i]{cursor:pointer}
+  rect[data-i]:hover,rect[data-i]:focus-visible{stroke-width:4.5}
+  rect[data-i].sel{stroke-width:5}
+  #info{display:none;border:2px solid var(--ink);border-radius:8px;background:#fff;padding:12px 14px;margin-bottom:14px;position:relative}
+  #info.on{display:block}
+  #info .x{position:absolute;top:8px;right:10px;border:none;background:none;font-family:"Spline Sans Mono";font-size:16px;font-weight:600;color:var(--steel);cursor:pointer}
+  #info .x:hover{color:var(--mark)}
+  #info h2{font-size:16px;margin:0 22px 2px 0}
+  #info .exp{font-family:"Spline Sans Mono";font-size:11.5px;letter-spacing:.04em;color:var(--blue-deep);margin:0 0 6px}
+  #info p{font-size:13px;margin:6px 0}
+  #info .links{margin:8px 0 2px;display:flex;flex-direction:column;gap:5px}
+  #info .links a{font-family:"Spline Sans Mono";font-size:12px;color:var(--blue-deep);text-decoration:none;border-bottom:1px dotted var(--steel-line);align-self:flex-start}
+  #info .links a:hover{color:var(--mark);border-color:var(--mark)}
+  #info .links a::before{content:"→ "}
+  @media(max-width:650px){
+    header{gap:8px;padding:9px 12px}
+    #chips,footer{padding:6px 12px}
+    #main{flex-direction:column}
+    #drawer{flex:0 0 42%;max-width:none;min-height:0;border-left:0;border-top:2px solid var(--ink);padding:10px 12px}
+  }
+</style></head><body>
+
+<header>
+  <div>
+    <nav class="site-links" aria-label="Learn About Berkeley">
+      <a href="index.html">Learn About Berkeley</a>
+      <a href="berkeley-homeless-costs.html">What Homelessness Costs the City</a>
+    </nav>
+    <h1>Who pays, who plans, <em>who checks</em></h1>
+    <p class="snapshot">Berkeley homelessness funding and services · August 2026 snapshot</p>
+    <div class="how"><b>Read it left to right:</b> money enters (solid blue), plans direct it, departments spend it, and it lands on beds and services at the far right. Dashed grey lines are the only oversight — each body sees one slice. <b>Green = a number exists and is tracked. Orange = measurement promised, missing, or refused.</b> The dashed orange line across the middle is the city–county seam most of the money has to cross. <b>Select a box</b> for details and source links, or select a person to follow an illustrative path.</div>
+  </div>
+  <div class="ctrl">
+    <button id="zo" aria-label="Zoom out">−</button>
+    <button id="zi" aria-label="Zoom in">+</button>
+    <button id="zf" aria-label="Fit to window">Fit</button>
+    <button id="z1" aria-label="Actual size">100%</button>
+  </div>
+</header>
+
+<nav id="chips" aria-label="Cohort personas">
+  <span class="lab">The people</span>
+  <button class="chip" data-p="0" aria-pressed="false"><span class="swatch" style="background:#17324d"></span>The cohort</button>
+  <button class="chip" data-p="1" aria-pressed="false"><span class="swatch" style="background:#7b3fa0"></span>Marcus, 58</button>
+  <button class="chip" data-p="2" aria-pressed="false"><span class="swatch" style="background:#b3266e"></span>Elena, 34 + kids</button>
+  <button class="chip" data-p="3" aria-pressed="false"><span class="swatch" style="background:#8a1c1c"></span>Ray, 47</button>
+  <button class="chip" data-p="4" aria-pressed="false"><span class="swatch" style="background:#0e7c86"></span>Dee, 19</button>
+  <button class="chip" data-p="5" aria-pressed="false"><span class="swatch" style="background:#6b7020"></span>Walter, 68</button>
+  <button class="chip" data-p="6" aria-pressed="false"><span class="swatch" style="background:#2c7a4b"></span>The 26 of 28</button>
+</nav>
+
+<div id="main">
+<div id="stage">
+  <div id="world">
+  <svg id="map" width="2600" height="1830" viewBox="0 0 2600 1830" role="group"
+       aria-label="System map: state, local, and federal money flows through four uncoordinated plans and the HHCS department onto beds mostly controlled by Alameda County; five advisory bodies each review one slice; green marks where numeric measurement exists, orange where it was promised and is missing.">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#33506d"/>
+      </marker>
+      <marker id="ah-money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2276b9"/>
+      </marker>
+      <marker id="ah-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#c85f1e"/>
+      </marker>
+      <marker id="ah-good" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2c7a4b"/>
+      </marker>
+    </defs>
+
+    <!-- ======== BANDS ======== -->
+    <rect class="bandfill-state" x="30" y="60" width="2540" height="270" rx="10"/>
+    <rect class="band" x="30" y="60" width="2540" height="270" rx="10"/>
+    <text class="bandlab" x="50" y="95">STATE&#160;&#160;·&#160;&#160;WHERE MOST OF THE MONEY STARTS</text>
+
+    <rect class="bandfill-city" x="30" y="370" width="2540" height="880" rx="10"/>
+    <rect class="band" x="30" y="370" width="2540" height="880" rx="10"/>
+    <text class="bandlab" x="50" y="405">CITY OF BERKELEY&#160;&#160;·&#160;&#160;ITS OWN HEALTH JURISDICTION (1 OF 3 IN CA)</text>
+
+    <rect class="bandfill-county" x="30" y="1330" width="2540" height="440" rx="10"/>
+    <rect class="band" x="30" y="1330" width="2540" height="440" rx="10"/>
+    <text class="bandlab" x="50" y="1365">ALAMEDA COUNTY&#160;&#160;·&#160;&#160;WHO ACTUALLY CONTROLS MOST PLACEMENTS</text>
+
+    <!-- the seam -->
+    <line class="seam" x1="30" y1="1290" x2="2570" y2="1290"/>
+    <text class="seamlab" x="1010" y="1282">THE SEAM — WHERE CITY MONEY MEETS COUNTY CONTROL</text>
+
+    <!-- ======== STATE NODES ======== -->
+    <g>
+      <rect class="node" data-i="bhsafund" x="70" y="130" width="330" height="150" rx="6"/>
+      <text class="t" x="90" y="162">BHSA fund</text>
+      <text class="d" x="90" y="185">1% tax on income over $1M</text>
+      <text class="d" x="90" y="204">Prop 63 (2004) &#8594; Prop 1 (2024)</text>
+      <text class="m" x="90" y="230">$3.5B/yr statewide · ~90% to locals</text>
+      <text class="d" x="90" y="254">SUD newly eligible · 30/35/35 buckets</text>
+    </g>
+    <g>
+      <rect class="node" data-i="dhcs" x="450" y="130" width="230" height="66" rx="6"/>
+      <text class="t" x="468" y="158">DHCS</text>
+      <text class="d" x="468" y="180">approves the 3-year plans</text>
+    </g>
+    <g>
+      <rect class="node" data-i="bhsoac" x="450" y="214" width="230" height="66" rx="6"/>
+      <text class="t" x="468" y="242">BHSOAC</text>
+      <text class="d" x="468" y="264">statewide oversight body</text>
+    </g>
+    <g>
+      <rect class="node" data-i="foph" x="730" y="130" width="250" height="90" rx="6"/>
+      <text class="t" x="748" y="160">FoPH grant</text>
+      <text class="m" x="748" y="184">$874K/yr</text>
+      <text class="d" x="748" y="206">&#8805;70% must fund permanent staff</text>
+    </g>
+    <g>
+      <rect class="node" data-i="erf" x="1030" y="130" width="260" height="90" rx="6"/>
+      <text class="t" x="1048" y="160">ERF (HCD)</text>
+      <text class="m" x="1048" y="184">3 grants · $15.0M</text>
+      <text class="d" x="1048" y="206">Round 5 awards: Sept 2026</text>
+    </g>
+    <g>
+      <rect class="node" data-i="p47" x="1340" y="130" width="240" height="90" rx="6"/>
+      <text class="t" x="1358" y="160">Prop 47 (BSCC)</text>
+      <text class="m" x="1358" y="184">$8M · CareBridge</text>
+      <text class="d" x="1358" y="206">BPD identifies · Options screens</text>
+    </g>
+    <g>
+      <rect class="node node-good" data-i="hcd" x="1630" y="130" width="270" height="90" rx="6"/>
+      <text class="t" x="1648" y="160">HCD — RHNA</text>
+      <text class="m m-good" x="1648" y="184">~9,000 units by 2031</text>
+      <text class="d" x="1648" y="206">the state-imposed housing target</text>
+    </g>
+    <g>
+      <rect class="node" data-i="fed" x="1950" y="130" width="250" height="90" rx="6"/>
+      <text class="t" x="1968" y="160">Federal (HUD+)</text>
+      <text class="m" x="1968" y="184">$7.2M FY25 (29%)</text>
+      <text class="d" x="1968" y="206">of Berkeley homelessness spend</text>
+    </g>
+
+    <!-- legend -->
+    <g>
+      <rect class="legend-box" x="2250" y="90" width="310" height="220" rx="6"/>
+      <text class="t" x="2270" y="120" style="font-size:15px">How to read the lines</text>
+      <line class="edge-money" x1="2270" y1="142" x2="2330" y2="142" marker-end="url(#ah-money)"/>
+      <text class="d" x="2342" y="147">money</text>
+      <line class="edge-ctrl" x1="2270" y1="172" x2="2330" y2="172" marker-end="url(#ah)"/>
+      <text class="d" x="2342" y="177">control / referral</text>
+      <line class="edge-rev" x1="2270" y1="202" x2="2330" y2="202" marker-end="url(#ah)"/>
+      <text class="d" x="2342" y="207">advisory review (one slice)</text>
+      <line class="edge-good" x1="2270" y1="232" x2="2330" y2="232" marker-end="url(#ah-good)"/>
+      <text class="d" x="2342" y="237">numeric measure exists</text>
+      <line class="edge-warn" x1="2270" y1="262" x2="2330" y2="262" marker-end="url(#ah-warn)"/>
+      <text class="d" x="2342" y="267">measurement missing / deferred</text>
+      <rect class="node-dead" x="2270" y="282" width="60" height="16" rx="4"/>
+      <text class="d" x="2342" y="295">dormant body</text>
+    </g>
+
+    <!-- ======== CITY: LOCAL MONEY (left column) ======== -->
+    <g>
+      <rect class="node node-warn" data-i="mp" x="70" y="470" width="310" height="150" rx="6"/>
+      <text class="t" x="88" y="500">Measure P</text>
+      <text class="d" x="88" y="522">transfer tax on sales &gt; $1.5M</text>
+      <text class="m" x="88" y="546">$20.6M FY22 &#8594; $6.5M FY24</text>
+      <text class="m m-warn" x="88" y="570">fund &#8594; &#8722;$22.8M by FY29</text>
+      <text class="d" x="88" y="594">spending set in the boom years</text>
+    </g>
+    <g>
+      <rect class="node" data-i="mw" x="70" y="650" width="310" height="80" rx="6"/>
+      <text class="t" x="88" y="680">City Measure W</text>
+      <text class="m" x="88" y="704">+$2&#8211;4M/yr from 1/2027</text>
+    </g>
+    <g>
+      <rect class="node" data-i="gf" x="70" y="760" width="310" height="80" rx="6"/>
+      <text class="t" x="88" y="790">General Fund</text>
+      <text class="m" x="88" y="814">$3.9M FY25 · &#8722;138 FTE budget</text>
+    </g>
+    <g>
+      <rect class="node" data-i="hcap" x="70" y="870" width="310" height="90" rx="6"/>
+      <text class="t" x="88" y="900">Housing capital</text>
+      <text class="d" x="88" y="922">Housing Trust Fund · CDBG/ESG</text>
+      <text class="d" x="88" y="942">Measure O bond ($135M, 2018)</text>
+    </g>
+
+    <!-- ======== CITY: PLANS ROW ======== -->
+    <g>
+      <rect class="node node-warn" data-i="bhsaplan" x="470" y="460" width="350" height="170" rx="6"/>
+      <text class="t" x="488" y="490">BHSA Integrated Plan</text>
+      <text class="d" x="488" y="512">FY27&#8211;29 · adopted on consent 6/16/26,</text>
+      <text class="d" x="488" y="530">no discussion (Res. 72,318&#8211;N.S.)</text>
+      <text class="m" x="488" y="556">$36.1M · 30% housing / 35% FSP / 35% BHSS</text>
+      <text class="m m-warn" x="488" y="582">numeric targets in plan: none found</text>
+      <text class="d" x="488" y="606">outcomes phrased "increased / reduced"</text>
+    </g>
+    <g>
+      <rect class="node node-warn" data-i="chip" x="870" y="460" width="320" height="170" rx="6"/>
+      <text class="t" x="888" y="490">CHIP 2025&#8211;28</text>
+      <text class="d" x="888" y="512">"not a strategic plan for either</text>
+      <text class="d" x="888" y="530">the HHCS Dept or Public Health"</text>
+      <text class="m m-warn" x="888" y="556">Appendix C measures: blank</text>
+      <text class="d" x="888" y="580">("to be filled out" — phase 1 over)</text>
+      <text class="d" x="888" y="604">priority 1: Housing</text>
+    </g>
+    <g>
+      <rect class="node node-good" data-i="he" x="1240" y="460" width="320" height="170" rx="6"/>
+      <text class="t" x="1258" y="490">Housing Element</text>
+      <text class="d" x="1258" y="512">2023&#8211;31 · adopted 1/18/2023</text>
+      <text class="m m-good" x="1258" y="538">targets by income level</text>
+      <text class="m m-good" x="1258" y="562">annual APRs to the state</text>
+      <text class="d" x="1258" y="588">proof the city can live with</text>
+      <text class="d" x="1258" y="606">hard numbers — on housing</text>
+    </g>
+    <g>
+      <rect class="node" data-i="mpalloc" x="1610" y="460" width="330" height="170" rx="6"/>
+      <text class="t" x="1628" y="490">Measure P allocations</text>
+      <text class="d" x="1628" y="512">HSPE recommends, year by year;</text>
+      <text class="d" x="1628" y="530">Council "shall consider, but</text>
+      <text class="d" x="1628" y="548">need not follow"</text>
+      <text class="m" x="1628" y="574">FY25: $25.4M total · 36 projects</text>
+      <text class="d" x="1628" y="598">16 providers · P = 31% of it</text>
+    </g>
+
+    <!-- ======== CITY: HHCS DEPARTMENT ======== -->
+    <g>
+      <rect class="node-dept" data-i="hhcs" x="470" y="700" width="1470" height="270" rx="8" style="fill:#dde9f3;stroke:#155f94;stroke-width:3"/>
+      <text class="t" x="492" y="732" style="font-size:20px">HHCS — Health, Housing &amp; Community Services</text>
+      <text class="m m-warn" x="492" y="756">FY27: &#8722;138 FTE citywide · 13.6% vacancy · HHCS-only vacancy rate: published nowhere</text>
+
+      <rect class="node" data-i="phd" x="492" y="780" width="420" height="100" rx="6"/>
+      <text class="t" x="510" y="810" style="font-size:15px">Public Health Division</text>
+      <text class="d" x="510" y="832">Health Officer interim Sept 23&#8211;June 25</text>
+      <text class="d" x="510" y="852">vector control &#8594; county (FY27)</text>
+
+      <rect class="node" data-i="mhd" x="952" y="780" width="450" height="100" rx="6"/>
+      <text class="t" x="970" y="810" style="font-size:15px">Mental Health Division</text>
+      <text class="d" x="970" y="832">runs the BHSA plan · EI RFP 26-11793-C:</text>
+      <text class="m" x="970" y="854">5 contracts × $100K/yr &#8594; Council 10/27/26</text>
+
+      <rect class="node" data-i="hrt" x="1442" y="780" width="470" height="100" rx="6"/>
+      <text class="t" x="1460" y="810" style="font-size:15px">Homeless Response Team (HRT)</text>
+      <text class="d" x="1460" y="832">Auditor, 7/2025: "…Better Track Outcomes"</text>
+      <text class="d" x="1460" y="852">case conferencing paused a year (2023&#8211;24)</text>
+
+      <rect class="node node-warn" data-i="mct" x="492" y="898" width="920" height="56" rx="6"/>
+      <text class="t" x="510" y="922" style="font-size:15px">Mobile Crisis Team — ELIMINATED (FY27)</text>
+      <text class="d" x="510" y="942">2.6 filled FTE · "last General Fund&#8211;funded mental health crisis response"</text>
+    </g>
+
+    <!-- ======== CITY: OVERSIGHT ROW ======== -->
+    <g>
+      <rect class="node node-warn" data-i="council" x="470" y="1030" width="340" height="130" rx="6"/>
+      <text class="t" x="488" y="1060">City Council</text>
+      <text class="d" x="488" y="1082">adopted the $36M plan on consent —</text>
+      <text class="d" x="488" y="1100">12 speakers on the whole calendar</text>
+      <text class="m m-warn" x="488" y="1126">has never debated what to measure</text>
+    </g>
+    <g>
+      <rect class="node" data-i="hspe" x="850" y="1030" width="250" height="130" rx="6"/>
+      <text class="t" x="868" y="1060">HSPE</text>
+      <text class="d" x="868" y="1082">Measure P recs; scores</text>
+      <text class="d" x="868" y="1100">$4.8M agency RFP</text>
+      <text class="m m-warn" x="868" y="1126">D1 seat vacant</text>
+    </g>
+    <g>
+      <rect class="node" data-i="hac" x="1140" y="1030" width="250" height="130" rx="6"/>
+      <text class="t" x="1158" y="1060">HAC</text>
+      <text class="d" x="1158" y="1082">Housing Trust Fund,</text>
+      <text class="d" x="1158" y="1100">CDBG/ESG</text>
+      <text class="m m-warn" x="1158" y="1126">never sees BHSA $</text>
+    </g>
+    <g>
+      <rect class="node" data-i="bhc" x="1430" y="1030" width="260" height="130" rx="6"/>
+      <text class="t" x="1448" y="1060">Behavioral Health</text>
+      <text class="d" x="1448" y="1082">Commission — BHSA</text>
+      <text class="d" x="1448" y="1100">statutory hearing</text>
+      <text class="m m-warn" x="1448" y="1126">never sees the units</text>
+    </g>
+    <g>
+      <rect class="node" data-i="chc" x="1730" y="1030" width="250" height="130" rx="6"/>
+      <text class="t" x="1748" y="1060">Community Health</text>
+      <text class="d" x="1748" y="1082">Commission —</text>
+      <text class="d" x="1748" y="1100">reviews the CHIP</text>
+    </g>
+    <g>
+      <rect class="node node-dead" data-i="hcomm" x="2020" y="1030" width="250" height="130" rx="6"/>
+      <text class="t" x="2038" y="1060" style="fill:#5a707f">Homeless Comm.</text>
+      <text class="d" x="2038" y="1082" style="fill:#5a707f">no meeting listed</text>
+      <text class="d" x="2038" y="1100" style="fill:#5a707f">since May 11, 2022</text>
+    </g>
+
+    <!-- ======== CITY: PLACEMENT (right column) ======== -->
+    <g>
+      <rect class="node" data-i="beds" x="2060" y="470" width="440" height="230" rx="6"/>
+      <text class="t" x="2078" y="500">320 shelter beds in Berkeley</text>
+      <rect x="2078" y="516" width="77" height="34" rx="4" style="fill:#ecf5ee;stroke:#2c7a4b;stroke-width:2"/>
+      <rect x="2163" y="516" width="319" height="34" rx="4" style="fill:#faf1e8;stroke:#c85f1e;stroke-width:2"/>
+      <text class="m m-good" x="2086" y="538">56 city</text>
+      <text class="m m-warn" x="2200" y="538">264 — county CES refers</text>
+      <text class="d" x="2078" y="576">City-controlled doors: ERF motels</text>
+      <text class="d" x="2078" y="596">(Rodeway, Super 8, HoJo) +</text>
+      <text class="d" x="2078" y="616">CareBridge (30 rooms, Signature Inn)</text>
+      <text class="d" x="2078" y="644">&gt;2× more people unsheltered on a</text>
+      <text class="d" x="2078" y="664">night than beds (Auditor, 2024)</text>
+    </g>
+    <g>
+      <rect class="node node-warn" data-i="psh" x="2060" y="740" width="440" height="150" rx="6"/>
+      <text class="t" x="2078" y="770">PSH / the county queue</text>
+      <text class="m m-warn" x="2078" y="796">280 days avg wait · &lt;&#188; housed in a yr</text>
+      <text class="d" x="2078" y="820">new PSH beds in Berkeley "not</text>
+      <text class="d" x="2078" y="840">guaranteed" to Berkeley's homeless</text>
+      <text class="d" x="2078" y="860">(Gap Analysis, 2024 — never repeated)</text>
+    </g>
+
+    <!-- ======== COUNTY NODES ======== -->
+    <g>
+      <rect class="node" data-i="hh" x="470" y="1420" width="380" height="120" rx="6"/>
+      <text class="t" x="488" y="1450">County H&amp;H + CoC</text>
+      <text class="d" x="488" y="1472">Housing &amp; Homelessness Services;</text>
+      <text class="d" x="488" y="1490">EveryOne Home plans for the CoC</text>
+      <text class="m" x="488" y="1516">$352.8M county+cities (2025)</text>
+    </g>
+    <g>
+      <rect class="node" data-i="ces" x="900" y="1420" width="360" height="120" rx="6"/>
+      <text class="t" x="918" y="1450">Coordinated Entry (CES)</text>
+      <text class="d" x="918" y="1472">the countywide queue and</text>
+      <text class="d" x="918" y="1490">assessment system</text>
+    </g>
+    <g>
+      <rect class="node node-good" data-i="ht2030" x="1310" y="1400" width="560" height="330" rx="6"/>
+      <text class="t" x="1328" y="1430">Home Together 2030 (draft — comment open)</text>
+      <text class="m m-good" x="1328" y="1458">goals: &#8722;&#8531; overall · &#8722;50% unsheltered by 2030</text>
+      <text class="m m-good" x="1328" y="1482">5 tracked indicators · PIT baseline 8,201 (&#8722;13%)</text>
+      <text class="d" x="1328" y="1508">North County (Berkeley's region): 975 — flat since 2024</text>
+      <text class="m m-warn" x="1328" y="1536">but: goals require $510M/yr ops vs $242M baseline</text>
+      <text class="m m-warn" x="1328" y="1560">+ $1.97B capital — no funding source identified</text>
+      <text class="m m-warn" x="1328" y="1584">city obligations &#8594; unpublished "Jurisdictional</text>
+      <text class="m m-warn" x="1328" y="1604">Roles Framework" · DRC settlement: unmentioned</text>
+      <text class="d" x="1328" y="1632">fallback pre-written: "disciplined stabilization"</text>
+      <text class="d" x="1328" y="1660">Berkeley at the table: Radu, Jacobs on advisory bodies</text>
+    </g>
+    <g>
+      <rect class="node node-warn" data-i="acbh" x="470" y="1580" width="380" height="130" rx="6"/>
+      <text class="t" x="488" y="1610">ACBH — mobile crisis</text>
+      <text class="d" x="488" y="1632">DRC v. Alameda County settlement</text>
+      <text class="d" x="488" y="1650">(2023): countywide crisis duty, &#8805;9 teams</text>
+      <text class="m m-warn" x="488" y="1676">city-by-city coverage: never specified</text>
+    </g>
+    <g>
+      <rect class="node" data-i="cmw" x="900" y="1580" width="360" height="130" rx="6"/>
+      <text class="t" x="918" y="1610">County Measure W</text>
+      <text class="d" x="918" y="1632">half-cent sales tax (2020)</text>
+      <text class="m" x="918" y="1658">$8.1M People's Park · $7M Harmon</text>
+      <text class="d" x="918" y="1682">Sather not selected</text>
+    </g>
+    <g>
+      <rect class="node" data-i="drcm" x="1930" y="1420" width="340" height="120" rx="6"/>
+      <text class="t" x="1948" y="1450">DRC monitor / courts</text>
+      <text class="d" x="1948" y="1472">settlement monitor; Carole has</text>
+      <text class="d" x="1948" y="1490">brought DRC + monitor to HSPE</text>
+    </g>
+
+    <!-- ======== EDGES ======== -->
+    <!-- state money down -->
+    <path class="edge-money" d="M 400 240 C 430 340, 440 400, 470 500" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="330" y="365">$11.7M/yr base</text>
+
+    <line class="edge-rev" x1="565" y1="280" x2="600" y2="460" marker-end="url(#ah)"/>
+    <text class="elab" x="600" y="380">approves · oversees</text>
+
+    <path class="edge-money" d="M 855 220 C 830 400, 760 600, 700 780" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="740" y="680">$874K/yr staff</text>
+    <path class="edge-money" d="M 900 220 C 940 300, 980 380, 1000 460" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="945" y="330">paid the CHIP consultant $274K</text>
+
+    <path class="edge-money" d="M 1160 220 C 1250 480, 1450 640, 1620 780" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="1210" y="430">$15.0M · encampment resolutions</text>
+
+    <path class="edge-money" d="M 1580 200 C 1850 260, 2100 340, 2200 470" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="1880" y="330">$8M · 30 rooms, city door</text>
+
+    <line class="edge-good" x1="1770" y1="220" x2="1470" y2="460" marker-end="url(#ah-good)"/>
+    <text class="elab elab-good" x="1590" y="330">sets the target · APRs go back</text>
+
+    <path class="edge-money" d="M 2075 220 C 2020 420, 1960 600, 1830 780" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="1940" y="560">$7.2M FY25</text>
+
+    <!-- local money -->
+    <path class="edge-money" d="M 380 560 C 430 660, 900 668, 1400 662 C 1520 658, 1600 650, 1640 632" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="1080" y="686">$7.8M FY25 — 31% of homelessness $</text>
+    <line class="edge-money" x1="225" y1="650" x2="225" y2="620" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="240" y="644">tops up P</text>
+    <path class="edge-money" d="M 380 800 C 420 800, 440 810, 470 830" marker-end="url(#ah-money)"/>
+    <path class="edge-money" d="M 380 930 C 700 1005, 1500 1005, 1980 960 C 2020 950, 2040 930, 2060 890" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="1180" y="1013">builds the units — HAC's slice</text>
+
+    <!-- plans -> department -->
+    <line class="edge-ctrl" x1="645" y1="630" x2="1100" y2="780" marker-end="url(#ah)"/>
+    <text class="elab" x="800" y="700">directs MH division</text>
+    <line class="edge-rev" x1="1030" y1="630" x2="760" y2="780" marker-end="url(#ah)"/>
+    <text class="elab" x="905" y="720">"aspirational"</text>
+    <line class="edge-ctrl" x1="1775" y1="630" x2="1700" y2="780" marker-end="url(#ah)"/>
+    <text class="elab" x="1740" y="712">funds programs</text>
+
+    <!-- bhsa housing bucket seam question -->
+    <path class="edge-warn" d="M 820 560 C 1400 660, 1900 700, 2065 760" marker-end="url(#ah-warn)"/>
+    <text class="elab elab-warn" x="1240" y="672">30% housing bucket, $3.5M/yr — which units? no body reviews both</text>
+
+    <!-- department -> placement -->
+    <line class="edge-ctrl" x1="1912" y1="830" x2="2078" y2="560" marker-end="url(#ah)"/>
+    <text class="elab" x="1920" y="700">direct referral — 56 beds only</text>
+
+    <!-- oversight dashed reviews -->
+    <line class="edge-rev" x1="640" y1="1030" x2="640" y2="634" marker-end="url(#ah)"/>
+    <text class="elab" x="648" y="1000">adopts (consent)</text>
+    <line class="edge-rev" x1="975" y1="1030" x2="1780" y2="634" marker-end="url(#ah)"/>
+    <text class="elab" x="1040" y="1008">recommends</text>
+    <line class="edge-rev" x1="1265" y1="1030" x2="235" y2="964" marker-end="url(#ah)"/>
+    <line class="edge-rev" x1="1560" y1="1030" x2="700" y2="634" marker-end="url(#ah)"/>
+    <text class="elab" x="1330" y="920">statutory hearing</text>
+    <line class="edge-rev" x1="1855" y1="1030" x2="1080" y2="634" marker-end="url(#ah)"/>
+
+    <!-- MCT reliance across seam -->
+    <path class="edge-warn" d="M 950 954 C 900 1150, 750 1400, 680 1580" marker-end="url(#ah-warn)"/>
+    <text class="elab elab-warn" x="700" y="1200">now "relies on" county crisis response — no written commitment</text>
+
+    <!-- CES controls beds across seam -->
+    <path class="edge-ctrl" d="M 1180 1420 C 1500 1150, 2100 900, 2280 704" marker-end="url(#ah)"/>
+    <text class="elab" x="1650" y="1130">controls referrals to 264 of Berkeley's 320 beds</text>
+
+    <!-- HT2030 relationships -->
+    <line class="edge-ctrl" x1="1310" y1="1480" x2="1260" y2="1480" marker-end="url(#ah)"/>
+    <path class="edge-warn" d="M 1620 1400 C 1640 1330, 1660 1290, 1690 1250" marker-end="url(#ah-warn)"/>
+    <text class="elab elab-warn" x="1700" y="1330">what must Berkeley do? deferred</text>
+    <line class="edge-money" x1="1080" y1="1580" x2="1140" y2="1540" marker-end="url(#ah-money)"/>
+    <text class="elab elab-money" x="990" y="1566">$15.1M sites</text>
+    <line class="edge-rev" x1="1930" y1="1470" x2="1870" y2="1560" marker-end="url(#ah)"/>
+    <text class="elab" x="1830" y="1530" text-anchor="end">monitors</text>
+
+    <!-- ======== THE STREET (cohort origin) ======== -->
+    <g>
+      <rect class="node node-warn" data-i="street" x="70" y="990" width="310" height="150" rx="6"/>
+      <text class="t" x="88" y="1020">The street &amp; encampments</text>
+      <text class="m m-warn" x="88" y="1046">60%+ of those counted: unsheltered</text>
+      <text class="d" x="88" y="1070">more than 2&#215; as many people on a</text>
+      <text class="d" x="88" y="1090">night as there are beds (Auditor)</text>
+      <text class="d" x="88" y="1118">plus the uncounted: doubled-up,</text>
+      <text class="d" x="88" y="1136">couch-surfing, motels self-paid</text>
+    </g>
+
+    <!-- ======== PERSONA PATHS ======== -->
+    <g class="pgroup" id="pg1">
+      <path class="ppath" stroke="#7b3fa0" d="M 380 1050 C 900 1010, 1400 940, 1660 885"/>
+      <path class="ppath" stroke="#7b3fa0" d="M 1660 885 C 1900 800, 2010 710, 2110 645"/>
+      <path class="ppath" stroke="#7b3fa0" stroke-dasharray="10 8" d="M 1660 890 C 1520 1150, 1280 1330, 1180 1418"/>
+      <circle class="pdot" stroke="#7b3fa0" cx="380" cy="1050" r="15"/><text class="pnum" fill="#7b3fa0" x="380" y="1055">1</text>
+      <circle class="pdot" stroke="#7b3fa0" cx="1660" cy="885" r="15"/><text class="pnum" fill="#7b3fa0" x="1660" y="890">2</text>
+      <circle class="pdot" stroke="#7b3fa0" cx="2110" cy="645" r="15"/><text class="pnum" fill="#7b3fa0" x="2110" y="650">3</text>
+      <circle class="pdot" stroke="#7b3fa0" cx="1180" cy="1418" r="15"/><text class="pnum" fill="#7b3fa0" x="1180" y="1423">4</text>
+    </g>
+    <g class="pgroup" id="pg2">
+      <path class="ppath" stroke="#b3266e" d="M 55 435 C 130 700, 200 900, 235 990"/>
+      <path class="ppath" stroke="#b3266e" d="M 235 1000 C 900 920, 1500 720, 1725 635"/>
+      <circle class="pdot" stroke="#b3266e" cx="55" cy="435" r="15"/><text class="pnum" fill="#b3266e" x="55" y="440">1</text>
+      <circle class="pdot" stroke="#b3266e" cx="235" cy="995" r="15"/><text class="pnum" fill="#b3266e" x="235" y="1000">2</text>
+      <circle class="pdot" stroke="#b3266e" cx="1725" cy="635" r="15"/><text class="pnum" fill="#b3266e" x="1725" y="640">3</text>
+    </g>
+    <g class="pgroup" id="pg3">
+      <path class="ppath" stroke="#8a1c1c" d="M 300 1075 C 600 1000, 800 965, 945 945"/>
+      <path class="ppath" stroke="#8a1c1c" stroke-dasharray="10 8" d="M 945 950 C 860 1200, 730 1440, 680 1578"/>
+      <circle class="pdot" stroke="#8a1c1c" cx="300" cy="1075" r="15"/><text class="pnum" fill="#8a1c1c" x="300" y="1080">1</text>
+      <circle class="pdot" stroke="#8a1c1c" cx="945" cy="945" r="15"/><text class="pnum" fill="#8a1c1c" x="945" y="950">2</text>
+      <circle class="pdot" stroke="#8a1c1c" cx="680" cy="1578" r="15"/><text class="pnum" fill="#8a1c1c" x="680" y="1583">3</text>
+    </g>
+    <g class="pgroup" id="pg4">
+      <path class="ppath" stroke="#0e7c86" d="M 210 1005 C 500 950, 800 885, 1010 862"/>
+      <circle class="pdot" stroke="#0e7c86" cx="210" cy="1005" r="15"/><text class="pnum" fill="#0e7c86" x="210" y="1010">1</text>
+      <circle class="pdot" stroke="#0e7c86" cx="1010" cy="862" r="15"/><text class="pnum" fill="#0e7c86" x="1010" y="867">2</text>
+    </g>
+    <g class="pgroup" id="pg5">
+      <path class="ppath" stroke="#6b7020" d="M 150 1085 C 500 1260, 900 1380, 1075 1422"/>
+      <path class="ppath" stroke="#6b7020" d="M 1075 1422 C 1600 1220, 2000 960, 2155 895"/>
+      <circle class="pdot" stroke="#6b7020" cx="150" cy="1085" r="15"/><text class="pnum" fill="#6b7020" x="150" y="1090">1</text>
+      <circle class="pdot" stroke="#6b7020" cx="1075" cy="1422" r="15"/><text class="pnum" fill="#6b7020" x="1075" y="1427">2</text>
+      <circle class="pdot" stroke="#6b7020" cx="2155" cy="895" r="15"/><text class="pnum" fill="#6b7020" x="2155" y="900">3</text>
+    </g>
+    <g class="pgroup" id="pg6">
+      <path class="ppath" stroke="#2c7a4b" d="M 350 1015 C 700 950, 900 895, 1055 868"/>
+      <path class="ppath" stroke="#2c7a4b" d="M 1055 868 C 1600 830, 1900 810, 2062 800"/>
+      <circle class="pdot" stroke="#2c7a4b" cx="350" cy="1015" r="15"/><text class="pnum" fill="#2c7a4b" x="350" y="1020">1</text>
+      <circle class="pdot" stroke="#2c7a4b" cx="1055" cy="868" r="15"/><text class="pnum" fill="#2c7a4b" x="1055" y="873">2</text>
+      <circle class="pdot" stroke="#2c7a4b" cx="2062" cy="800" r="15"/><text class="pnum" fill="#2c7a4b" x="2062" y="805">3</text>
+    </g>
+  </svg>
+  </div>
+</div>
+
+<aside id="drawer" aria-label="Cohort stories">
+  <div id="info" role="region" aria-live="polite">
+    <button class="x" aria-label="Close">×</button>
+    <h2 id="info-t"></h2>
+    <p class="exp" id="info-e"></p>
+    <p id="info-b"></p>
+    <div class="links" id="info-l"></div>
+  </div>
+  <div data-card="0">
+    <h2>A night's count, as 100 people</h2>
+    <div class="card">
+      <p class="num">86 single adults · 7 in families with children · 6 unaccompanied youth (households, HMIS 2025)</p>
+      <p class="num">60+ unsheltered · 49 chronically homeless (a year+ plus a disabling condition)</p>
+      <p class="num">52 Black or African American — from 10% of the county's population · 30 aged 55+ · ~10 aged 65+</p>
+      <p>The funnel these hundred stand in: <span class="num">25,000+</span> people touch the county system in a year → <span class="num">8,201</span> counted on one January night (−13% since 2024) → <span class="num">975</span> in Berkeley's region (flat since 2024, while the county fell) → <span class="num">320</span> beds inside Berkeley, <span class="num">56</span> of them city-referred.</p>
+      <p><b>The cost ladder</b> (derived from Home Together 2030's own modeling — annual, per household or unit):</p>
+      <p class="cost">prevent ≈ $7K · shelter ≈ $21K · PSH ≈ $32K · resolve one encampment ≈ $4.7–5.4M · CareBridge ≈ $267K/room over 3 yrs</p>
+      <p>Every step rightward on the ladder is roughly 3–4× the one before it — and the county funds ~500 prevention households a year against a modeled need of 4,700.</p>
+    </div>
+  </div>
+  <div data-card="1">
+    <h3><span class="swatch" style="background:#7b3fa0"></span>Marcus, 58 — long-term unsheltered homelessness</h3>
+    <div class="card">
+      <p>Marcus illustrates what navigating services can look like for an older adult who has been unsheltered for years and has a disabling condition.</p>
+      <ol class="steps">
+        <li>Lives at an encampment. Counted every other January.</li>
+        <li>HRT outreach reaches him — but HRT can refer directly to only 56 beds, and paused case conferencing for a year.</li>
+        <li><b>If his site gets an ERF grant</b> (three have): a motel room the city controls. That door cost <span class="cost">$4.7–5.4M per site</span>.</li>
+        <li><b>If not</b>: the CES queue — <span class="num">280 days average</span>, and fewer than a quarter of PSH referrals housed within a year.</li>
+      </ol>
+      <p class="cost">His PSH year, once housed: ≈$32K. His years outside: crisis, ER, and enforcement costs no Berkeley document totals.</p>
+    </div>
+  </div>
+  <div data-card="2">
+    <h3><span class="swatch" style="background:#b3266e"></span>Elena, 34, two kids — the invisible 7%</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>Evicted after a rent increase. Prevention assistance would have cost <span class="cost">≈$7K</span> — the county funds ~500 such households a year; the modeled need is 4,700.</li>
+        <li>Doubles up with relatives — invisible to the PIT count, avoids shelter over child-welfare fears. Families are 7% of the counted system but undercounted by design.</li>
+        <li>Reaches rapid rehousing through the community-agency pot HSPE scores (~$4.8M) — a time-limited subsidy (717 slots countywide today; the plan wants 1,400).</li>
+      </ol>
+      <p>Her whole path runs through the one funding stream whose fund goes negative in FY2026.</p>
+    </div>
+  </div>
+  <div data-card="3">
+    <h3><span class="swatch" style="background:#8a1c1c"></span>Ray, 47 — the crisis path</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>Psychotic episode on the street. Someone calls.</li>
+        <li>Before FY27: the city's Mobile Crisis Team — already down to 2.6 filled positions, 5 days a week. <b>Eliminated.</b></li>
+        <li>Now: BPD (part-time CIT coordinator), or the county's mobile crisis teams — whose duty comes from the DRC settlement, which never says what's owed inside Berkeley. The endpoints the DOJ flagged: John George or Santa Rita.</li>
+      </ol>
+      <p>Ray is why the DRC settlement's silence on city jurisdictions, and Home Together 2030's silence on the settlement, are the same gap.</p>
+    </div>
+  </div>
+  <div data-card="4">
+    <h3><span class="swatch" style="background:#0e7c86"></span>Dee, 19 — the 6% youth</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>Aged out of foster care, couch-surfing — mostly uncounted, exactly the pattern research ties to adult homelessness later.</li>
+        <li>Berkeley's BHSA early-intervention solicitation included a transition-age youth contract estimated at <span class="cost">$100K/yr</span>, one of five planned contracts. Homelessness is one of the adverse outcomes the program is intended to reduce.</li>
+      </ol>
+      <p>The <a href="budget-scan-2026-11-17.html">November 17 budget scan</a> lists the subsequent contract amounts.</p>
+    </div>
+  </div>
+  <div data-card="5">
+    <h3><span class="swatch" style="background:#6b7020"></span>Walter, 68 — the fastest-growing case</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>Fixed income, rent outpaces it. One in ten of the counted are now 65+; the plan calls older-adult homelessness "increasingly urgent."</li>
+        <li>Sleeps in his car — counted, but low priority scores.</li>
+        <li>Waits in the queue for a PSH unit that can handle aging needs — the scarcest kind: the plan models a need for 2,000 medically-frail PSH units against 50 today.</li>
+      </ol>
+      <p class="cost">Preventing Walter: ≈$7K once. Housing him after: ≈$32K every year, in a unit type that barely exists.</p>
+    </div>
+  </div>
+  <div data-card="6">
+    <h3><span class="swatch" style="background:#2c7a4b"></span>The 26 of 28 — a reported outcome</h3>
+    <div class="card">
+      <p>Berkeley's BHSA plan reports that 26 of 28 people from unsheltered settings secured permanent, long-term housing through a city behavioral-health program.</p>
+      <ol class="steps">
+        <li>Unsheltered, engaged by a city-funded team.</li>
+        <li>Behavioral-health services plus a housing pathway, together.</li>
+        <li>Permanent housing — 93%, measured and reported.</li>
+      </ol>
+      <p>The green path shows the outcome the city reported for this group.</p>
+    </div>
+  </div>
+  <p class="note">The five named profiles are illustrative composites drawn from published data. The 26 of 28 is an aggregate outcome reported by the City. Proportions: Alameda County HMIS/PIT 2025–26 (Home Together 2030 draft). Costs marked ≈ are derived from that plan's modeling table (ops cost ÷ households or units served). Berkeley figures per the Auditor, Gap Analysis, and BHSA plan.</p>
+</aside>
+</div>
+<footer>
+  Sources are linked in the map. Drag to pan and use the zoom controls or scroll wheel to zoom.
+</footer>
+
+<script>
+(function(){
+  const stage = document.getElementById('stage');
+  const world = document.getElementById('world');
+  const W = 2600, H = 1830;
+  let s = 1, tx = 0, ty = 0;
+  function apply(){ world.style.transform = `translate(${tx}px,${ty}px) scale(${s})`; }
+  function fit(){
+    const r = stage.getBoundingClientRect();
+    s = Math.min(r.width / W, r.height / H) * 0.97;
+    tx = (r.width - W * s) / 2; ty = (r.height - H * s) / 2; apply();
+  }
+  function zoomAt(cx, cy, f){
+    const ns = Math.min(3, Math.max(0.05, s * f));
+    tx = cx - (cx - tx) * (ns / s); ty = cy - (cy - ty) * (ns / s);
+    s = ns; apply();
+  }
+  document.getElementById('zi').onclick = () => { const r = stage.getBoundingClientRect(); zoomAt(r.width/2, r.height/2, 1.25); };
+  document.getElementById('zo').onclick = () => { const r = stage.getBoundingClientRect(); zoomAt(r.width/2, r.height/2, 0.8); };
+  document.getElementById('zf').onclick = fit;
+  document.getElementById('z1').onclick = () => { s = 1; tx = 20; ty = 20; apply(); };
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const r = stage.getBoundingClientRect();
+    zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 0.89);
+  }, { passive: false });
+  let dragging = false, lx = 0, ly = 0;
+  stage.addEventListener('pointerdown', (e) => { dragging = true; lx = e.clientX; ly = e.clientY; stage.classList.add('drag'); stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointermove', (e) => { if (!dragging) return; tx += e.clientX - lx; ty += e.clientY - ly; lx = e.clientX; ly = e.clientY; apply(); });
+  stage.addEventListener('pointerup', () => { dragging = false; stage.classList.remove('drag'); });
+  window.addEventListener('resize', fit);
+  fit();
+
+  // cohort layer
+  const drawer = document.getElementById('drawer');
+  const chips = Array.from(document.querySelectorAll('.chip'));
+  const cards = Array.from(drawer.querySelectorAll('[data-card]'));
+  let active = null;
+  function setActive(p){
+    active = (active === p) ? null : p;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.p === active)));
+    for (let i = 1; i <= 6; i++) {
+      const g = document.getElementById('pg' + i);
+      if (g) g.classList.toggle('on', active === String(i) || active === '0');
+    }
+    cards.forEach(c => {
+      c.style.display = (active !== null && (active === '0' || c.dataset.card === active || c.dataset.card === '0')) ? 'block' : 'none';
+    });
+    drawer.querySelector('.note').style.display = (active === null) ? 'none' : 'block';
+    drawer.classList.toggle('open', active !== null || info.classList.contains('on'));
+    setTimeout(fit, 30);
+  }
+  chips.forEach(c => c.addEventListener('click', () => setActive(c.dataset.p)));
+
+  // ---- clickable nodes: acronym expansions + primary-source links ----
+  const B = 'https://berkeleyca.gov';
+  const INFO = {
+    bhsafund:{t:'BHSA fund',e:'BHSA = Behavioral Health Services Act (was MHSA, Mental Health Services Act)',b:'A 1% state tax on personal income over $1M, created by Prop 63 (2004) and restructured by Prop 1 (March 2024, passed by ~0.4 points). About $3.5B/yr statewide; roughly 90% flows to counties and city health jurisdictions in three buckets: 30% housing interventions, 35% Full Service Partnerships, 35% services & supports. Substance-use treatment newly eligible.',l:[['DHCS BHSA County Policy Manual, Ch. 7','https://policy-manual.mes.dhcs.ca.gov/behavioral-health-services-act-county-policy-manual/LIVE/7-bhsa-components-and-requirements'],['Berkeley’s approved plan (PDF)',B+'/sites/default/files/2026-07/City%20Council%20Approved%20Behavioral%20Health%20Services%20Act%20FY26-27%20-%2028-29%20Three%20Year%20Integrated%20Plan.pdf']]},
+    dhcs:{t:'DHCS',e:'California Department of Health Care Services',b:'Approves every jurisdiction’s three-year BHSA Integrated Plan against a standard template, and publishes the policy manual that defines what the money can buy.',l:[['BHSA County Policy Manual','https://policy-manual.mes.dhcs.ca.gov/behavioral-health-services-act-county-policy-manual/LIVE/7-bhsa-components-and-requirements']]},
+    bhsoac:{t:'BHSOAC',e:'Behavioral Health Services Oversight & Accountability Commission (formerly MHSOAC)',b:'The statewide commission overseeing BHSA implementation, grants, and accountability. Common garbles to avoid: “BHOAC”, “MHOAC” (an unrelated emergency-medical role).',l:[['bhsoac.ca.gov','https://bhsoac.ca.gov/']]},
+    foph:{t:'FoPH grant',e:'FoPH = Future of Public Health (state funding)',b:'$874,346/yr to Berkeley’s Public Health Division, at least 70% of which must fund permanent staff. Also paid the CHIP consultant.',l:[['JSI contract amendment, Item 05, 2/25/2025 (PDF)',B+'/sites/default/files/documents/2025-02-25%20Item%2005%20Contract%20No.%2032300185%20Amendment.pdf']]},
+    erf:{t:'ERF',e:'Encampment Resolution Funding — California HCD grant program',b:'Berkeley’s three grants ($4.71M, $4.93M, $5.40M) moved specific encampments into motels the city controls — the only placements where Berkeley, not the county queue, picks the residents.',l:[['HCD ERF fact sheets, Rounds 1–3 (PDF)','https://www.hcd.ca.gov/sites/default/files/docs/grants-and-funding/calich/erf-fact-sheets-rounds-1-3r.pdf'],['ERF Round 3 acceptance, Item 4, 11/19/2024 (PDF)',B+'/sites/default/files/documents/2024-11-19%20Item%2004%20Encampment%20Resolution%20Funding.pdf']]},
+    p47:{t:'Prop 47 (BSCC)',e:'Proposition 47 = Safe Neighborhoods & Schools Act (2014) · BSCC = Board of State & Community Corrections',b:'Funds CareBridge: $8M, 30 rooms at the Signature Inn, run by Options Recovery. Berkeley Police identifies eligible participants at booking without using Coordinated Entry.',l:[['Prop 47 grant acceptance, Item 03, 9/30/2025 (PDF)',B+'/sites/default/files/documents/2025-09-30%20Item%2003%20Authorize%20Acceptance%20of%20Proposition%2047%20Cohort%205%20Grant.pdf']]},
+    hcd:{t:'HCD — RHNA',e:'HCD = Dept. of Housing & Community Development · RHNA = Regional Housing Needs Allocation',b:'The state assigns Berkeley a housing-production number (~9,000 units, 2023–31, by income level) and requires annual progress reports. The proof that hard targets are normal — on the housing side.',l:[['Housing Element adoption, 1/18/2023 (PDF)',B+'/sites/default/files/documents/2023-01-18%20Special%20Item%2001%20Adoption%20of%202023-2031%20Housing%20Element%20Update.pdf']]},
+    fed:{t:'Federal funding',e:'HUD = U.S. Dept. of Housing & Urban Development, plus other federal streams',b:'$7.2M in FY25 — 29% of Berkeley’s $25.4M homelessness spending that year.',l:[['Comprehensive Summary of Berkeley’s Homeless Response, 7/29/2025 (PDF)',B+'/sites/default/files/documents/2025-07-29%20Special%20Item%2002a%20Comprehensive%20Summary%20of%20Berkeley%E2%80%99s%20Homeless%20Response.pdf']]},
+    mp:{t:'Measure P',e:'2018 Berkeley ballot measure — transfer-tax increase on property sales over $1.5M',b:'Revenue peaked at $20.6M (FY22), fell to $6.5M (FY24). $69.2M spent through FY25. The City Manager projects the fund at −$1.2M in FY26 and −$22.8M by FY29 on current allocations.',l:[['CM memo: Measure P & Impact on Homeless Services, 3/28/2025 (PDF)',B+'/sites/default/files/legislative-body-meeting-attachments/2025-06-12%20Item%2002%20Supplemental%20Materials_2025-03-28%20Measure%20P%20and%20Impact%20on%20Homeless%20Services%20in%20Berkeley.pdf'],['City Measure P & W page',B+'/your-government/our-work/bond-revenue-measures/measure-p-w']]},
+    mw:{t:'City Measure W',e:'2024 Berkeley ballot measure (61%)',b:'Removes Measure P’s 2029 sunset and adds tiered rates up to 3.5% from Jan 1, 2027 — an estimated +$2–4M/yr. It does not close the projected gap.',l:[['City Measure P & W page',B+'/your-government/our-work/bond-revenue-measures/measure-p-w']]},
+    gf:{t:'General Fund',e:'The city’s unrestricted operating money',b:'$3.9M of FY25 homelessness spending (15%). The FY27–28 budget cuts 138 positions citywide and eliminated the Mobile Crisis Team — the last General Fund–funded mental-health crisis response.',l:[['Proposed FY2027–28 Budget, Item 21, 5/19/2026 (PDF)',B+'/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028.pdf']]},
+    hcap:{t:'Housing capital',e:'HTF = Housing Trust Fund · CDBG = Community Development Block Grant · ESG = Emergency Solutions Grant · Measure O = 2018 $135M affordable-housing bond',b:'The capital side of the arrangement — the money that builds units. Reviewed by the Housing Advisory Commission, which never sees BHSA dollars.',l:[['Housing Advisory Commission',B+'/your-government/boards-commissions/housing-advisory-commission']]},
+    bhsaplan:{t:'BHSA Integrated Plan',e:'Berkeley’s three-year Behavioral Health Services Act plan, FY2027–29',b:'~$36M of state money. Adopted on the consent calendar June 16, 2026 (Resolution 72,318-N.S., all ayes, no item discussion). Contains no Berkeley-set numeric target, baseline, or evaluation deadline; measurement is the state template’s six goal areas.',l:[['Staff report, Item 19, 6/16/2026 (PDF)',B+'/sites/default/files/2026-06/2026-06-16%20Item%2019%20Behavioral%20Health%20Services%20Act.pdf'],['Approved plan, full document (PDF)',B+'/sites/default/files/2026-07/City%20Council%20Approved%20Behavioral%20Health%20Services%20Act%20FY26-27%20-%2028-29%20Three%20Year%20Integrated%20Plan.pdf'],['Annotated agenda, 6/16/2026 (PDF)',B+'/sites/default/files/city-council-meetings/2026-06-16%20Annotated%20Agenda%20-%20Council.pdf']]},
+    chip:{t:'CHIP',e:'Community Health Improvement Plan (“Berkeley Wellness Blueprint”), Sept 2025–2028',b:'Says of itself: “not a strategic plan for either the HHCS Department, or our Public Health Division.” Its performance measures were deferred to Appendix C, published reading “To be filled out during phase 1 of Implementation” — a phase that ended around March 2026.',l:[['The CHIP (PDF)',B+'/sites/default/files/documents/Community-Health-Improvement-Plan.pdf']]},
+    he:{t:'Housing Element',e:'Berkeley’s state-mandated housing plan, 2023–2031',b:'Adopted Jan 18, 2023 with RHNA production targets by income level and annual progress reports to the state. The counter-example: the same city government lives comfortably with hard numbers — on housing.',l:[['Adoption item, 1/18/2023 (PDF)',B+'/sites/default/files/documents/2023-01-18%20Special%20Item%2001%20Adoption%20of%202023-2031%20Housing%20Element%20Update.pdf']]},
+    mpalloc:{t:'Measure P allocations',e:'Annual spending recommendations from the HSPE (Homeless Services Panel of Experts)',b:'FY25: $25.4M across 36 projects and 16 providers, Measure P covering 31%. The Panel is advisory — Council “shall consider, but need not follow.”',l:[['HSPE allocations, Item 22a, 10/29/2024 (PDF)',B+'/sites/default/files/documents/2024-10-29%20Item%2022a%20Measure%20P%20Allocations,%20Fiscal%20Year%202025-2026%20(Reviewed%20by%20Budget%20Finance%20Committee).pdf'],['Comprehensive Summary, 7/29/2025 (PDF)',B+'/sites/default/files/documents/2025-07-29%20Special%20Item%2002a%20Comprehensive%20Summary%20of%20Berkeley%E2%80%99s%20Homeless%20Response.pdf']]},
+    hhcs:{t:'HHCS',e:'Health, Housing & Community Services Department',b:'Berkeley’s health department — public health, mental health, and homeless services under one roof. Its own vacancy rate is published nowhere: checked the budget book, the Auditor’s reports, and the audit pages.',l:[['HHCS department page',B+'/your-government/about-us/departments/health-housing-and-community-services']]},
+    phd:{t:'Public Health Division',e:'Berkeley is one of three city public-health jurisdictions in California',b:'The Health Officer post was interim from Sept 2023 to June 2025 (Dr. Doohan appointed 6/3/2025). Vector control moves to the county under the FY27 budget.',l:[['Health Officer appointment, Item 6, 6/3/2025 (PDF)',B+'/sites/default/files/documents/2025-06-03%20Item%2006%20Appointment%20of%20Public%20Health%20Officer.pdf']]},
+    mhd:{t:'Mental Health Division',e:'Runs the BHSA (formerly MHSA) programs',b:'Its annual MHSA update is the one real outcomes report the city produces — 81% of Adult FSP clients reduced hospitalizations — but on cohorts of 14, 66, and 47 people. At the time of this snapshot, RFP 26-11793-C proposed five early-intervention contracts at $100K/yr each.',l:[['MHSA FY26 Annual Update, Item 9, 7/29/2025 (PDF)',B+'/sites/default/files/documents/2025-07-29%20Item%2009%20Mental%20Health%20Services%20Act%20Fiscal%20Year%202026%20Annual%20Update%20-%20Rev%20(Supp%201).pdf'],['EI RFP 26-11793-C (bids page)',B+'/doing-business/working-city/bid-proposal-opportunities/behavioral-health-services-act-bhsa-early']]},
+    hrt:{t:'HRT',e:'Homeless Response Team (City Manager’s Office)',b:'Direct referral authority over 56 of the 320 beds in Berkeley. The Auditor’s July 2025 report — titled “Opportunities Exist to Strengthen Procedures and Better Track Outcomes” — found it paused weekly case conferencing for about a year.',l:[['HRT audit, 7/16/2025 (PDF)',B+'/sites/default/files/documents/Homeless_Response_Team_-_Opportunities_Exist_to_Strengthen_Procedures_and_Better_Track_Outcomes.pdf']]},
+    mct:{t:'Mobile Crisis Team',e:'MCT — the city’s mental-health crisis response, eliminated FY27',b:'Down to 2.6 filled positions running 5 days a week before elimination; the budget calls it “the last General Fund–funded mental health crisis response.” The city now relies on county coverage that no written agreement defines.',l:[['Proposed FY27–28 Budget, Item 21 (PDF)',B+'/sites/default/files/2026-05/2026-05-19%20Item%2021%20Proposed%20FY%202027%20and%20FY%202028.pdf']]},
+    council:{t:'City Council',e:'The body that adopts the plans — mostly on the consent calendar',b:'Adopted the $36M BHSA plan on consent with no item-specific discussion; 12 public speakers addressed the entire consent calendar collectively. The record shows no council-level debate about what Berkeley should measure.',l:[['Annotated agenda, 6/16/2026 (PDF)',B+'/sites/default/files/city-council-meetings/2026-06-16%20Annotated%20Agenda%20-%20Council.pdf']]},
+    hspe:{t:'HSPE',e:'Homeless Services Panel of Experts — the Measure P advisory body (BMC 7.52.190)',b:'Recommends Measure P spending year by year and scores about $4.8M of the pooled community-agency contracts.',l:[['Commission page',B+'/your-government/boards-commissions/homeless-services-panel-experts'],['BMC 7.52.190','https://berkeley.municipal.codes/BMC/7.52.190']]},
+    hac:{t:'HAC',e:'Housing Advisory Commission',b:'Advises on Housing Trust Fund allocations and CDBG/ESG funding — the capital slice. It does not review BHSA housing money.',l:[['Commission page',B+'/your-government/boards-commissions/housing-advisory-commission']]},
+    bhc:{t:'Behavioral Health Commission',e:'Formerly the Mental Health Commission',b:'Holds the statutory public hearing on the MHSA/BHSA plans — including the new 30% housing bucket — but never reviews the Housing Trust Fund or the units themselves.',l:[['Commission page',B+'/your-government/boards-commissions/mental-health-commission']]},
+    chc:{t:'Community Health Commission',e:'Reviews the CHIP and public-health matters',b:'The CHIP it reviews lists Housing as its first priority area — with indicators and no targets.',l:[['Boards & commissions directory',B+'/your-government/boards-commissions']]},
+    hcomm:{t:'Homeless Commission',e:'Dormant',b:'Its city page lists no meeting after May 11, 2022. No formal dissolution or consolidation notice found — it simply stopped.',l:[['Commission page',B+'/your-government/boards-commissions/homeless-commission']]},
+    beds:{t:'320 shelter beds',e:'The beds physically inside Berkeley, as of Aug 2024',b:'City has direct referral authority over 56; the other 264 are managed by the Alameda County CoC (Continuum of Care) and referrals are “outside the HRT’s direct control.” City-controlled doors: the three ERF motels and CareBridge.',l:[['HRT audit, 7/16/2025 (PDF)',B+'/sites/default/files/documents/Homeless_Response_Team_-_Opportunities_Exist_to_Strengthen_Procedures_and_Better_Track_Outcomes.pdf']]},
+    psh:{t:'PSH / the county queue',e:'PSH = Permanent Supportive Housing — housing plus services, no time limit',b:'Per the city’s 2024 Gap Analysis: 280-day average wait after referral, fewer than a quarter housed within a year, and new PSH beds in Berkeley “are not guaranteed to go to people experiencing homelessness in the city.” That analysis was never repeated.',l:[['Gap Analysis, Item 16, 7/9/2024 (PDF)',B+'/sites/default/files/documents/2024-07-09%20Item%2016%20Referral%20Response%20%20Gap%20Analysis%20of%20Berkeley%E2%80%99s%20Homelessness.pdf']]},
+    street:{t:'The street & encampments',e:'Where the cohort starts',b:'Over 60% of people counted countywide in 2026 were unsheltered; the Auditor found more than twice as many people unsheltered on a night in Berkeley as there are beds. The PIT count also misses people doubled-up or paying for motels themselves.',l:[['Home Together 2030 draft plan','https://weblink.alamedacountyca.gov/ACHHS/DocView.aspx?id=2336&dbid=0&repo=ACH-DocumentLibrary&cr=1'],['HRT audit (PDF)',B+'/sites/default/files/documents/Homeless_Response_Team_-_Opportunities_Exist_to_Strengthen_Procedures_and_Better_Track_Outcomes.pdf']]},
+    hh:{t:'County H&H + CoC',e:'H&H = Alameda County Health’s Housing & Homelessness Services · CoC = Oakland–Berkeley–Alameda County Continuum of Care',b:'Authors of Home Together 2030; EveryOne Home is the CoC planning body. County + cities reported $352.8M in homelessness funding in 2025 (43% state, 28% federal, 29% local).',l:[['County Measure W / Home Together Fund','https://health.alamedacountyca.gov/measure-w-home-together-fund/'],['EveryOne Home','https://everyonehome.org/']]},
+    ces:{t:'CES',e:'Coordinated Entry System — the countywide queue',b:'Assesses and prioritizes people for housing countywide. Controls referrals to 264 of Berkeley’s 320 beds; Berkeley’s HRT couldn’t even perform CES assessments for about a year (2023–24).',l:[['County Coordinated Entry page','https://health.alamedacountyca.gov/unit/coordinated-entry/']]},
+    ht2030:{t:'Home Together 2030',e:'Alameda County’s draft five-year homelessness plan reviewed for this snapshot',b:'Two numeric goals — reduce overall homelessness ⅓, unsheltered 50% — with five tracked indicators. The catch: achieving them requires $510M/yr in operations vs a $242M baseline plus ~$1.97B capital, with no funding source identified. City obligations are deferred to an unpublished “Jurisdictional Roles Framework,” and the DRC settlement is never mentioned.',l:[['Draft plan (county document library)','https://weblink.alamedacountyca.gov/ACHHS/DocView.aspx?id=2336&dbid=0&repo=ACH-DocumentLibrary&cr=1']]},
+    acbh:{t:'ACBH — mobile crisis',e:'ACBH = Alameda County Behavioral Health · DRC = Disability Rights California',b:'The DRC v. Alameda County settlement (effective 11/7/2023, after a DOJ investigation found people needlessly sent to Santa Rita Jail and John George) obligates countywide mobile crisis capacity — but never specifies what’s owed inside city health jurisdictions like Berkeley.',l:[['Alameda County Health','https://health.alamedacountyca.gov/'],['Disability Rights California','https://www.disabilityrightsca.org/']]},
+    cmw:{t:'County Measure W',e:'Half-cent countywide sales tax (2020) — the Home Together Fund',b:'Berkeley’s share so far: $8.1M for People’s Park and $7M for 1708 Harmon (March 2026). The Sather site was not selected.',l:[['Home Together Fund page','https://health.alamedacountyca.gov/measure-w-home-together-fund/']]},
+    drcm:{t:'DRC monitor / courts',e:'The court monitor for the DRC v. Alameda County settlement',b:'Oversees county compliance. The DRC attorneys and the monitor have each been brought to Berkeley’s HSPE. It is up to Berkeley to push the county on what coverage means inside the city.',l:[['Disability Rights California','https://www.disabilityrightsca.org/']]},
+  };
+  const info = document.getElementById('info');
+  let selRect = null;
+  function showInfo(id){
+    const d = INFO[id]; if (!d) return;
+    document.getElementById('info-t').textContent = d.t;
+    document.getElementById('info-e').textContent = d.e;
+    document.getElementById('info-b').textContent = d.b;
+    const L = document.getElementById('info-l');
+    L.innerHTML = '';
+    d.l.forEach(([txt,url]) => { const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = txt; L.appendChild(a); });
+    info.classList.add('on');
+    drawer.classList.add('open');
+    if (selRect) selRect.classList.remove('sel');
+    selRect = document.querySelector('rect[data-i="'+id+'"]');
+    if (selRect) selRect.classList.add('sel');
+    setTimeout(fit, 30);
+  }
+  function hideInfo(){
+    info.classList.remove('on');
+    if (selRect) { selRect.classList.remove('sel'); selRect = null; }
+    if (active === null) drawer.classList.remove('open');
+    setTimeout(fit, 30);
+  }
+  info.querySelector('.x').addEventListener('click', hideInfo);
+  document.querySelectorAll('rect[data-i]').forEach(node => {
+    const id = node.dataset.i;
+    if (!INFO[id]) return;
+    node.setAttribute('tabindex', '0');
+    node.setAttribute('role', 'button');
+    node.setAttribute('aria-label', INFO[id].t);
+    node.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      showInfo(id);
+    });
+  });
+  // click-vs-drag: open info only if the pointer barely moved
+  let pdTarget = null, pdX = 0, pdY = 0;
+  stage.addEventListener('pointerdown', (e) => { pdTarget = e.target; pdX = e.clientX; pdY = e.clientY; });
+  stage.addEventListener('pointerup', (e) => {
+    if (Math.hypot(e.clientX - pdX, e.clientY - pdY) < 6 && pdTarget && pdTarget.dataset && pdTarget.dataset.i) showInfo(pdTarget.dataset.i);
+  });
+})();
+</script>
+</body></html>
