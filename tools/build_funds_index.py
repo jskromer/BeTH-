@@ -101,7 +101,7 @@ def main(data_dir, out_path):
   </div>
   <div class="tw"><table id="tbl"><thead><tr><th data-k="name">Fund</th><th data-k="type">Type</th><th data-k="rev" data-num>Revenue</th><th data-k="exp" data-num>Spending</th><th data-k="res" data-num>Result</th><th data-k="ti" data-num>Transfers in</th><th data-k="bal" data-num>Balance, June 30, 2025</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
   <p class="cap">Governmental funds: total revenues, total expenditures (including capital outlay and debt service), fund balance. Enterprise and internal service funds: operating revenues, operating expenses (including depreciation), total net position. Transfers in are shown separately; they are not revenue. Figures read by <code>tools/acfr_funds.py</code> from the FY2025 ACFR statement pages named on each fund page; row and column sums were checked against the statements' own totals. "Ledger" marks funds whose dated flow events have been read from Council documents.</p>
-  <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer, candidate for Berkeley City Council District 1.</footer>
+  <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer.</footer>
 </main>
 <script>
 (function(){{

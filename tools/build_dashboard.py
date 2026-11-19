@@ -738,7 +738,7 @@ def render(model):
   {"".join(render_year(model, fy) for fy in reversed(years))}
   {render_static(model)}
   <p class="cap" style="margin-top:28px">Built by <code>tools/build_dashboard.py</code> from <code>data/funds/*.json</code>, control totals in <code>data/dashboard/statement-totals.json</code>, documented line-item gaps in <code>data/dashboard/known-gaps.json</code> and the fiduciary roster in <code>data/dashboard/fiduciary-funds.json</code>. The fund browser with every fund on one sortable page is <a href="funds.html">here</a>; how the funds relate is on the <a href="berkeley-fund-map.html">Fund Map</a>.</p>
-  <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer, candidate for Berkeley City Council District 1.</footer>
+  <footer><div class="bar"></div>Learn About Berkeley &middot; built from public documents &middot; residents decide. Maintained by Steve Kromer.</footer>
 </main>
 <script>{JS}</script>
 </body>
