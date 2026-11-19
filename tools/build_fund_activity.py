@@ -28,6 +28,20 @@ def m(n, cents=False):
     return f"−${s}" if n < 0 else f"${s}"
 
 
+def family_of(num):
+    """Fund family by AAO number range, for fund numbers not in data/fund_numbers.json."""
+    try:
+        n = int(num)
+    except ValueError:
+        return "General Fund"
+    for lo, hi, f in [(0, 99, "General Fund"), (100, 199, "Special revenue"), (300, 399, "Grants"), (500, 550, "Capital projects"),
+                      (551, 599, "Debt service"), (600, 669, "Enterprise"), (670, 699, "Internal service"),
+                      (700, 769, "Trust & successor agency"), (770, 799, "Agency (pass-through)"), (800, 899, "Rent Board (separate agency)")]:
+        if lo <= n <= hi:
+            return f
+    return "General Fund"
+
+
 def acfr_page(aid):
     return "fund-608-marina.html" if aid == "608" else f"fund-{aid}.html"
 
@@ -58,7 +72,7 @@ def main():
         touched = {f: set() for f in FAMILIES}
         for a in mt["actions"]:
             b = funds.get(a["fund"], {})
-            fam = b.get("family", "General Fund")
+            fam = b.get("family") or family_of(a["fund"])
             tot[fam][a["kind"]] += a["amount"]
             touched[fam].add(a["fund"])
             by_fund.setdefault(a["fund"], []).append((mt, a))
@@ -71,7 +85,7 @@ def main():
                 f'<td><a href="{esc(a["src"])}">{esc(a["title"])}</a>{"<div class=nt>" + esc(a["note"]) + "</div>" if a.get("note") else ""}</td>'
                 f'<td><span class="k k-{a["kind"]}">{KIND[a["kind"]]}</span></td>'
                 f'<td class="n {"neg" if a["amount"] < 0 else ""}">{m(a["amount"], True)}</td>'
-                f'<td class="n">{m(ap) if ap else "—"}</td><td class="n">{share}</td><td class="cf cf-{a["confidence"][0]}">{esc(a["confidence"])}</td></tr>')
+                f'<td class="n">{m(ap) if ap else "—"}</td><td class="n">{share}</td><td class="cf cf-{a["confidence"][0]}">{esc(a["confidence"])}{"<div class=nt>" + esc(a["status"]) + "</div>" if a.get("status") else ""}</td></tr>')
         fam_rows = []
         for f in FAMILIES:
             if not fam_size.get(f) and not touched[f]:
@@ -99,13 +113,13 @@ def main():
 
     fund_blocks = []
     for num in sorted(by_fund):
-        b = funds.get(num, {"name": "?", "family": "?", "acfr": []})
+        b = funds.get(num, {"name": "Not in FY2026–27 fund list", "family": family_of(num), "acfr": []})
         tot = {k: 0 for k in COLS}
         lis = []
         for mt, a in by_fund[num]:
             tot[a["kind"]] += a["amount"]
             lis.append(f'<tr><td><a href="#m-{esc(mt["date"])}">{esc(mt["date"])}</a></td><td class="c">{esc(a["item"])}</td><td>{esc(a["title"])}</td>'
-                       f'<td><span class="k k-{a["kind"]}">{KIND[a["kind"]]}</span></td><td class="n {"neg" if a["amount"] < 0 else ""}">{m(a["amount"], True)}</td><td>{esc(mt["status"])}</td></tr>')
+                       f'<td><span class="k k-{a["kind"]}">{KIND[a["kind"]]}</span></td><td class="n {"neg" if a["amount"] < 0 else ""}">{m(a["amount"], True)}</td><td>{esc(a.get("status") or mt["status"])}</td></tr>')
         sums = " · ".join(f'{KIND[k]} {m(v)}' for k, v in tot.items() if v)
         link = f' · <a href="{acfr_page(b["acfr"][0])}">FY2025 audit page</a>' if b.get("acfr") else ""
         extra = f' · {esc(b["note"])}' if b.get("note") else ""

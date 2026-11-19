@@ -12,7 +12,7 @@
    "local": "sources/2026/aao/2025-07-08 Ordinance 7977 FY2026 AAO.pdf"
   }
  },
- "family_ranges": "AAO Section 1: General 001–099; Special 100–199; Grants 300–399; Capital 500–550; Debt service 551–599; Enterprise 600–669; Internal service 146, 670–699; Trust 701–759; Successor Agency 760–769; Agency 771–799.",
+ "family_ranges": "AAO Section 1: General 001–099; Special 100–199; Grants 300–399; Capital 500–550; Debt service 551–599; Enterprise 600–669; Internal service 146, 670–699; Trust 701–759; Successor Agency 760–769; Agency 771–799. Note: the text says 146 is internal service, but the subtotals count 146 as a special fund; see fund notes for 146 and 148.",
  "acfr_to_budget": {
   "011": {
    "numbers": [
@@ -988,12 +988,13 @@
   {
    "number": "146",
    "name": "Employee Training",
-   "family": "Internal service",
+   "family": "Special revenue",
    "fy2026_adopted": 822177,
    "fy2027_adopted": 832239,
    "acfr": [
     "ACFR-employee-training"
-   ]
+   ],
+   "note": "AAO Section 1 text lists 146 with Internal Service, but its FY2026 and FY2027 subtotals count 146 as a Special Fund (the ACFR also treats it as special revenue)."
   },
   {
    "number": "147",
@@ -1011,7 +1012,8 @@
    "family": "Special revenue",
    "fy2026_adopted": null,
    "fy2027_adopted": 186830,
-   "acfr": []
+   "acfr": [],
+   "note": "FY2027 AAO subtotals count 148 in Internal Service (Special Funds subtotal is $186,829 lower than funds 100–199 summed); the ordinance text does not say so. Treated here as Special revenue."
   },
   {
    "number": "149",
