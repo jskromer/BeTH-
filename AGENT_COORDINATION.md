@@ -34,6 +34,8 @@ One owner per branch. Two writers never edit the same file on different branches
 | `tools/build_funds_index.py` | Renders `docs/funds.html`, the fund browser. |
 | `docs/` | The website (GitHub Pages serves it; Vercel project `berkeley-transparency-hub` mirrors it when Steve deploys). Generated HTML is committed. |
 | `plans/fund-dashboard-and-agents-plan-2026-10-22.md` | The six-deliverable plan. Deliverables 1–4 shipped; 5 (agents) and 6 (dashboard) open. |
+| `plans/phase2-capital-choices-vision-2050-plan-2026-10-22.md` | Phase 2 research plan: capital portfolio, PCI, payroll, delivery costs, Vision 2050. |
+| `plans/phase2-grounded-qa-architecture.md` | Phase 2 data-architecture requirement: stable ids, provenance and basis fields, compiled facts table, retrieval layer, answer contract, staged path to a grounded question-answering interface. Constrains how Phase 2 datasets are shaped; builds no chatbot. |
 | `plans/handoff-fy2025-extraction.md` | Technical handoff for the FY2025 pipeline (read this before touching extraction). |
 
 ## Data conventions
