@@ -298,6 +298,32 @@
     }
    ]
   },
+  "berkeley-liability-clock.html": {
+   "checked": "2026-11-24",
+   "review_every_days": 90,
+   "triggers": [
+    {
+     "date": "2027-01-31",
+     "event": "FY2026 ACFR published; refresh pension and OPEB balances, discount rates and contributions"
+    },
+    {
+     "date": "2027-03-31",
+     "event": "First semi-annual report on the Sept 29 asset-management referral; may publish condition data that unblocks the deterioration accrual"
+    },
+    {
+     "date": "2027-06-30",
+     "event": "FY2028 budget and CIP adopted; refresh the backlog basis, class figures and paving funding"
+    },
+    {
+     "date": null,
+     "event": "City publishes StreetSaver pavement targets (what holds PCI 56, what reaches PCI 70); fills the four not-published cards"
+    },
+    {
+     "date": null,
+     "event": "Measure U allocation across asset classes adopted; update the funding streams"
+    }
+   ]
+  },
   "berkeley-measure-u-oversight.html": {
    "checked": "2026-11-16",
    "review_every_days": 60,

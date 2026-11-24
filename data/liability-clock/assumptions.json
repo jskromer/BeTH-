@@ -1,0 +1,166 @@
+{
+  "dataset": "berkeley-liability-clock-assumptions",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "note": "Every modelling choice that is not a sourced observation lives here, so a reader can change one number and re-run.",
+  "basis_date": "2026-06-30",
+  "basis_date_rationale": "End of FY2026. The backlog figures are book values as of the close of that fiscal year; the clock accrues forward from there.",
+  "escalation": {
+    "default_rate": 0.04,
+    "unit": "per year",
+    "source_ids": [
+      "S12"
+    ],
+    "rationale": "ENR Construction Cost Index, rounded. Applied to backlog scope held constant, so this component measures only the rising cost of the same work.",
+    "confidence": "moderate",
+    "sensitivity": {
+      "low": 0.03,
+      "high": 0.055
+    }
+  },
+  "backlog_basis": {
+    "selected": "citywide_estimate",
+    "citywide_estimate": {
+      "point": 1800000000,
+      "low": 1650000000,
+      "high": 2500000000,
+      "source_ids": [
+        "S2",
+        "S11"
+      ],
+      "confidence": "moderate"
+    },
+    "cip_headline": {
+      "point": 2100000000,
+      "source_ids": [
+        "S10"
+      ],
+      "confidence": "moderate",
+      "status": "conflicting"
+    },
+    "identified_by_class": {
+      "point": 941100000,
+      "source_ids": [
+        "S1"
+      ],
+      "confidence": "high",
+      "note": "Sum of the asset classes that carry a published unfunded dollar figure. Six of eleven classes do."
+    },
+    "conflict_note": "Eight figures for the same quantity appear in Berkeley's own documents between 2020 and 2026, ranging from $882M to $2.1B. They are not all measuring the same scope, and no published document reconciles them. This page runs on the $1.8B Auditor-derived point estimate, shows the $1.65-2.5B band around it, and lists the other seven rather than choosing silently.",
+    "unattributed": 858900000,
+    "unattributed_note": "citywide_estimate.point minus identified_by_class.point. Roughly 48% of the headline backlog is not publicly broken out by asset class. This is a finding, not a data error on our side.",
+    "task_force_estimate": {
+      "point": 2000000000,
+      "as_written": "$2+ billion / approximately $2 billion",
+      "source_ids": [
+        "S15"
+      ],
+      "confidence": "moderate",
+      "status": "conflicting"
+    },
+    "published_estimates": [
+      {
+        "value": 882000000,
+        "as_written": "$882M unfunded liabilities",
+        "source": "Vision 2050 Framework",
+        "date": "2020",
+        "source_ids": [
+          "S17"
+        ]
+      },
+      {
+        "value": 1802000000,
+        "as_written": "$1.802B of needs in 2022 dollars",
+        "source": "Vision 2050 Program Plan",
+        "date": "2022-07-26",
+        "source_ids": [
+          "S17"
+        ]
+      },
+      {
+        "value": 1650000000,
+        "as_written": "$1.65B",
+        "source": "UC Berkeley CIP studio, from the FY2025-29 CIP",
+        "date": "2026-02",
+        "source_ids": [
+          "S17"
+        ]
+      },
+      {
+        "value": 1800000000,
+        "as_written": "~$1.8B (range $1.65-2.5B)",
+        "source": "City Auditor financial-condition reporting, as compiled by BeTH",
+        "date": "2026",
+        "source_ids": [
+          "S2",
+          "S11"
+        ],
+        "selected": true
+      },
+      {
+        "value": 2100000000,
+        "as_written": "~$2.1B",
+        "source": "FY27-31 CIP budget presentation",
+        "date": "2026-06",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "value": 2000000000,
+        "as_written": "approximately $2 billion",
+        "source": "Mayor's Realize Vision 2050 Task Force",
+        "date": "2025-10",
+        "source_ids": [
+          "S15"
+        ]
+      },
+      {
+        "value": 1500000000,
+        "as_written": "approximately $1.5 billion",
+        "source": "Council asset-management referral, Item 26",
+        "date": "2026-09-29",
+        "source_ids": [
+          "S17"
+        ]
+      },
+      {
+        "value": 941100000,
+        "as_written": "$941.1M",
+        "source": "Sum of the asset classes that publish a dollar figure",
+        "date": "2026-06",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "comparability_warning": "Scope, base year and dollar basis differ across these figures, and several are not dated to a fiscal year. Treat the spread as a measure of how unsettled the number is, not as a trend."
+  },
+  "clock_display": {
+    "live_components": [
+      "escalation",
+      "actuarial"
+    ],
+    "pending_components": [
+      "deterioration",
+      "underinvestment_gap"
+    ],
+    "rule": "A component enters the live rate only when every input it needs carries a source id and a confidence flag. Pending components render as PENDING with the missing input named. Never fold an estimated component into the headline number.",
+    "seconds_per_year": 31557600,
+    "seconds_per_year_note": "365.25 * 86400, Julian year, so the rate does not drift across leap years."
+  },
+  "separation_rule": "Pension/OPEB and deferred capital are rendered as two adjacent tickers and are never summed into a single headline by default. They are different kinds of obligation: one is a legal debt to people, the other a physical debt to assets that can be deferred at a price. A combine toggle exists and states what combining means. As of 2026-08-27 both tickers carry a live rate, and they move in opposite directions - which is the clearest possible argument for not merging them.",
+  "bond_debt_service": {
+    "principal": 300000000,
+    "rate": 0.05,
+    "term_years": 30,
+    "source_ids": [
+      "S1"
+    ],
+    "confidence": "low",
+    "note": "Rate and term are illustrative pending actual bond terms. Used in the overlay to show that a bond is a financing choice, not a funding source."
+  },
+  "actuarial_basis_date": "2025-06-30",
+  "actuarial_basis_rationale": "The balance-sheet date the pension and OPEB net liabilities are carried at. Differs from the capital basis date (2026-06-30) because the two come from different documents; each ticker accrues from its own basis rather than forcing a common one.",
+  "_updated": "2026-11-24: published-estimate series extended from the Vision 2050 comparison page; Measure U passed."
+}

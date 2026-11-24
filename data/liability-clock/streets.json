@@ -1,0 +1,178 @@
+{
+  "dataset": "berkeley-liability-clock-streets",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "class_id": "streets",
+  "note": "Detail for the first fully-built drill-down. Structure is meant to be cloned for the other classes; nothing here is class-specific except the values.",
+  "network": {
+    "centerline_miles": 214,
+    "lane_miles": 449.6,
+    "replacement_value": 790000000,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "confidence": "high"
+  },
+  "condition": {
+    "metric": "PCI",
+    "value": 56,
+    "as_of": "2024",
+    "scale_min": 0,
+    "scale_max": 100,
+    "methodology": "MTC StreetSaver pavement management system",
+    "source_ids": [
+      "S4"
+    ],
+    "confidence": "high",
+    "tiers": [
+      {
+        "key": "failed",
+        "label": "Failed",
+        "low": 0,
+        "high": 24
+      },
+      {
+        "key": "poor",
+        "label": "Poor",
+        "low": 25,
+        "high": 49
+      },
+      {
+        "key": "at_risk",
+        "label": "At Risk",
+        "low": 50,
+        "high": 59
+      },
+      {
+        "key": "fair",
+        "label": "Fair",
+        "low": 60,
+        "high": 69
+      },
+      {
+        "key": "good",
+        "label": "Good",
+        "low": 70,
+        "high": 100
+      }
+    ],
+    "peer_comparison": {
+      "status": "unavailable",
+      "note": "Peer-city PCI figures are not included on this page. The Metropolitan Transportation Commission publishes them for Bay Area jurisdictions."
+    }
+  },
+  "backlog": {
+    "unfunded_need": 250000000,
+    "escalation_rate": 0.04,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "confidence": "high",
+    "scope_note": "The published unfunded need for the existing pavement network. It does not include pavement that is currently adequate but will deteriorate - that is the deterioration accrual, and it is blocked on PR1."
+  },
+  "funding": {
+    "annual_total": 18000000,
+    "source_ids": [
+      "S3",
+      "S14"
+    ],
+    "streams": [
+      {
+        "name": "Measure FF (SAFE STREETS)",
+        "annual": 6750000,
+        "detail": "45% of a ~$15M/yr special parcel tax; 15% goes to sidewalks, 30% to safety, 10% other",
+        "sunset": null,
+        "confidence": "high"
+      },
+      {
+        "name": "CIP and General Fund",
+        "annual": 5920000,
+        "detail": "Residual to reach the adopted plan's annual total; not a dedicated stream and competes with every other General Fund claim",
+        "sunset": null,
+        "confidence": "moderate"
+      },
+      {
+        "name": "Measure BB (Alameda County)",
+        "annual": 2980000,
+        "detail": "County transportation sales tax, 30-year plan",
+        "sunset": "2045",
+        "confidence": "high"
+      },
+      {
+        "name": "SB1 / RMRA / gas tax / Measure F VRF",
+        "annual": 2350000,
+        "detail": "State formula funds; SB1/RMRA ~$1.7M, gas tax ~$0.5M",
+        "sunset": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  "governing_plan": {
+    "name": "Street Rehabilitation 5-Year Plan FY2024-FY2028",
+    "resolution": "Reso 71,120-N.S.",
+    "adopted": "2023-11-28",
+    "period_ends": "FY2028",
+    "successor_status": "No FY2026-FY2030 plan adopted",
+    "self_assessment": "The adopted plan states that its funding level does not reach the 'good' PCI tier.",
+    "source_ids": [
+      "S3"
+    ],
+    "confidence": "high"
+  },
+  "related_programs": [
+    {
+      "name": "Vision Zero Action Plan",
+      "adopted": "2018",
+      "total_need": 124000000,
+      "note": "Cross-cuts streets and sidewalks. Held separate here to avoid double counting against the $250M pavement backlog.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "targets": {
+    "status": "pending",
+    "blocking": "PR1",
+    "source_ids": [
+      "S3",
+      "S4"
+    ],
+    "note": "Berkeley has adopted a PCI target of more than 70 but has never published what it costs or when it would be reached. These are the figures that would settle it, and none can be derived from anything in this project's data. They come out of the City's own StreetSaver pavement model.",
+    "fields": {
+      "hold_pci_56_annual": null,
+      "reach_pci_70_annual": null,
+      "reach_pci_70_years": null,
+      "deferral_curve_by_pci_band": null
+    },
+    "what_each_unblocks": {
+      "hold_pci_56_annual": "Whether the adopted $18M a year is above or below the level that holds condition steady. Without it, the published record says only that the plan does not reach the good tier.",
+      "reach_pci_70_annual": "The annual cost of the PCI target Berkeley adopted in 2022.",
+      "reach_pci_70_years": "How long the target takes at a given funding level. The adopted plan sets no target year.",
+      "deferral_curve_by_pci_band": "Cost per lane-mile by condition band. This is what the deterioration accrual needs, and it is the figure that shows what deferral costs."
+    },
+    "published_target": {
+      "metric": "PCI",
+      "value": "more than 70",
+      "target_year": null,
+      "source": "Vision 2050 Program Plan, adopted 2022-07-26",
+      "source_ids": [
+        "S17"
+      ],
+      "confidence": "high",
+      "note": "The goal is adopted policy. What it costs and by when are the parts that have never been published. The adopted 2024-2028 paving plan separately states its own funding level does not reach the good tier."
+    }
+  },
+  "clearance_model": {
+    "method": "Continuous escalation on a fixed scope. B(t) = S/e + (B0 - S/e)e^(et), where B0 is the published backlog, S is annual spend and e the escalation rate.",
+    "assumption_warning": "This answers how long to clear the backlog as published, not how long to reach \"good\". Pavement that is adequate today and slips into the repair queue tomorrow is not counted in the starting balance. The real horizon is longer, by an amount only the City's pavement model can settle.",
+    "scenario_years": [
+      5,
+      10,
+      15,
+      20,
+      30
+    ]
+  }
+}

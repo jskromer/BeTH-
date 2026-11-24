@@ -1,0 +1,157 @@
+{
+  "dataset": "berkeley-liability-clock-sources",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "note": "One id per citation. Every number in assets.json and liabilities.json carries source_ids pointing here. locator=null means the page/table reference has not been verified yet and must be filled before publication.",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Berkeley Asset & Service Knowledge Base",
+      "author": "Berkeley Transparency Hub (BeTH)",
+      "date": "2026-06-17",
+      "kind": "derived-compilation",
+      "locator": "Asset Inventory / Infrastructure Plans / Funding Measures tabs",
+      "note": "Compilation of primary sources below; not itself primary. Every row it carries should resolve to S2-S13."
+    },
+    {
+      "id": "S2",
+      "title": "Berkeley's Financial Condition (FY2016-FY2025): Structural Deficit Poses Risk to Financial Sustainability",
+      "author": "City of Berkeley, Office of the City Auditor",
+      "date": "2026-04",
+      "kind": "audit",
+      "locator": null
+    },
+    {
+      "id": "S3",
+      "title": "Street Rehabilitation 5-Year Plan FY2024-FY2028",
+      "author": "City of Berkeley Public Works",
+      "date": "2023-11-28",
+      "kind": "adopted-plan",
+      "locator": "Resolution 71,120-N.S.",
+      "note": "Plan states on its face that the funded level does not reach the 'good' PCI tier."
+    },
+    {
+      "id": "S4",
+      "title": "Pavement condition (PCI) reporting, Bay Area jurisdictions",
+      "author": "Metropolitan Transportation Commission",
+      "date": "2024",
+      "kind": "regional-dataset",
+      "locator": null,
+      "note": "Berkeley PCI 56. MTC tiers: Good 70-100, Fair 60-69, At Risk 50-59, Poor 25-49, Failed 0-24."
+    },
+    {
+      "id": "S5",
+      "title": "Watershed Management Plan",
+      "author": "City of Berkeley",
+      "date": "2012-10-30",
+      "kind": "adopted-plan",
+      "locator": null
+    },
+    {
+      "id": "S6",
+      "title": "Sanitary Sewer Consent Decree",
+      "author": "US EPA / US DOJ / State Water Board v. City of Berkeley",
+      "date": "2014-09-22",
+      "kind": "enforceable-order",
+      "locator": null,
+      "note": "Effective date. Compliance obligation of 4.2 mi/yr main replacement."
+    },
+    {
+      "id": "S7",
+      "title": "Marina Fund Update",
+      "author": "City of Berkeley Parks, Recreation & Waterfront",
+      "date": "2025-05-22",
+      "kind": "council-report",
+      "locator": null
+    },
+    {
+      "id": "S8",
+      "title": "FY2027 & FY2028 Proposed Biennial Budget, Summary of Expenditures by Department - All Funds",
+      "author": "City of Berkeley",
+      "date": "2026-06-23",
+      "kind": "adopted-budget",
+      "locator": "Council adoption agenda packet p.136",
+      "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-06-23%20Revised%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf"
+    },
+    {
+      "id": "S9",
+      "title": "ADA Transition Plan 2019-2023",
+      "author": "City of Berkeley",
+      "date": "2019",
+      "kind": "adopted-plan",
+      "locator": null
+    },
+    {
+      "id": "S10",
+      "title": "Proposed FY27-FY31 Capital Improvement Program Budget Presentation, Item 02",
+      "author": "City of Berkeley",
+      "date": "2026",
+      "kind": "council-presentation",
+      "locator": null,
+      "note": "Carries a citywide unfunded capital headline of ~$2.1B, which conflicts with the ~$1.8B figure in S2/S11. See assumptions.json:backlog_basis."
+    },
+    {
+      "id": "S11",
+      "title": "Deficit Tenure Ledger",
+      "author": "Berkeley Transparency Hub (BeTH)",
+      "date": "2026",
+      "kind": "derived-compilation",
+      "locator": null,
+      "note": "Pension/OPEB series and capital backlog series, both inflation-adjusted, compiled from S2."
+    },
+    {
+      "id": "S12",
+      "title": "Construction Cost Index",
+      "author": "Engineering News-Record",
+      "date": "2026",
+      "kind": "index",
+      "locator": null,
+      "note": "Used as the escalation rate assumption. See assumptions.json:escalation."
+    },
+    {
+      "id": "S13",
+      "title": "Annual Comprehensive Financial Report FY2025",
+      "author": "City of Berkeley",
+      "date": "2025",
+      "kind": "acfr",
+      "locator": "Pension notes pp.145-148 (printed 111-114); OPEB notes pp.155-168 (printed 121-134)",
+      "note": "Pension and OPEB notes. Discount rates, plan-level balances, normal cost and contributions extracted 2026-08-27; closes PR2."
+    },
+    {
+      "id": "S14",
+      "title": "Measure FF (SAFE STREETS), Measure Y, Measure T1, Measure BB, SB1/RMRA",
+      "author": "City of Berkeley / Alameda County / State of California",
+      "date": "2016-2024",
+      "kind": "voter-measures",
+      "locator": "Funding Measures tab of S1",
+      "note": "Rates, yields and allocation percentages."
+    },
+    {
+      "id": "S15",
+      "title": "Realize Vision 2050: An Update to Vision 2050 and Recommendations to Address Berkeley's Infrastructure",
+      "author": "Mayor's Realize Vision 2050 Task Force (co-chairs Ray Yep, Margo Schueler)",
+      "date": "2025-10-23",
+      "kind": "task-force-report",
+      "locator": "Transmitted to Council 2025-12-02 as Special Item 01; 43pp + appendices",
+      "note": "Held at sources/vision2050/v2050-final-report-2025.pdf. Ingested 2026-08-27."
+    },
+    {
+      "id": "S16",
+      "title": "Measure R, Vision 2050 Advisory Measure",
+      "author": "City of Berkeley voters",
+      "date": "2018-11",
+      "kind": "ballot-measure",
+      "locator": null,
+      "note": "Advisory; approved with roughly 83%. Percentage from secondary reporting, not yet verified against the Registrar's canvass."
+    },
+    {
+      "id": "S17",
+      "title": "The CIP Studio and the Dashboard Referral, Compared with Vision 2050",
+      "author": "Learn About Berkeley",
+      "date": "2026-10-22",
+      "kind": "derived-compilation",
+      "locator": "docs/berkeley-cip-hub-vs-vision-2050.html, section B",
+      "note": "Companion page on this site. Quotations and figures there are read from the primary Vision 2050 documents, the February 2026 UC Berkeley studio and the September 29, 2026 Council referral."
+    }
+  ]
+}

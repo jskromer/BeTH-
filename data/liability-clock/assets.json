@@ -1,0 +1,747 @@
+{
+  "dataset": "berkeley-liability-clock-assets",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "basis_date": "2026-06-30",
+  "note": "Derived from Berkeley_Asset_Service_KnowledgeBase.xlsx (S1) with accrual parameters added. unfunded_need=null means no published dollar figure exists for that class, not that the need is zero.",
+  "mandate_tiers": [
+    {
+      "tier": 1,
+      "key": "enforceable_order",
+      "label": "Enforceable order",
+      "discretion": "none",
+      "note": "A court or regulator can compel spending."
+    },
+    {
+      "tier": 2,
+      "key": "regulatory_permit",
+      "label": "Regulatory permit",
+      "discretion": "none",
+      "note": "Operating permit conditions the City must meet."
+    },
+    {
+      "tier": 3,
+      "key": "federal_statute",
+      "label": "Federal statute",
+      "discretion": "low",
+      "note": "ADA and similar. Obligation is real; pace is partly negotiable."
+    },
+    {
+      "tier": 4,
+      "key": "life_safety",
+      "label": "Life safety",
+      "discretion": "low",
+      "note": "Not legally compelled on a schedule, but failure is catastrophic."
+    },
+    {
+      "tier": 5,
+      "key": "operational_continuity",
+      "label": "Operational continuity",
+      "discretion": "medium",
+      "note": "Service stops if it fails."
+    },
+    {
+      "tier": 6,
+      "key": "discretionary",
+      "label": "Discretionary",
+      "discretion": "high",
+      "note": "Council chooses the level of service. This is where the budget argument actually lives."
+    }
+  ],
+  "classes": [
+    {
+      "id": "streets",
+      "name": "Streets / pavement",
+      "department": "Public Works",
+      "scope": "214 centerline mi / 449.6 lane-mi",
+      "condition": {
+        "metric": "PCI",
+        "value": 56,
+        "tier": "At Risk",
+        "tier_range": "50-59",
+        "as_of": "2024",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      "replacement_value": 790000000,
+      "unfunded_need": {
+        "point": 250000000,
+        "low": null,
+        "high": null,
+        "confidence": "high",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      "funding": {
+        "annual_total": 18000000,
+        "source_ids": [
+          "S3",
+          "S14"
+        ],
+        "streams": [
+          {
+            "name": "Measure FF (SAFE STREETS), 45% share",
+            "annual": 6750000,
+            "sunset": null
+          },
+          {
+            "name": "Measure BB (Alameda County)",
+            "annual": 2980000,
+            "sunset": "2045"
+          },
+          {
+            "name": "SB1 / RMRA / gas tax / Measure F VRF",
+            "annual": 2350000,
+            "sunset": null
+          },
+          {
+            "name": "CIP and General Fund (residual to plan total)",
+            "annual": 5920000,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 6,
+      "mandate_instrument": "Council policy (Vision Zero); no external compulsion",
+      "governing_plan": {
+        "name": "Street Rehabilitation 5-Year Plan FY2024-FY2028",
+        "adopted": "2023-11-28",
+        "currency": "current through FY2028; no FY2026-2030 plan adopted",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      "key_finding": "The adopted 2024-2028 paving plan states that its funding level does not reach the 'good' PCI tier. Berkeley has separately adopted a target of PCI above 70, in the 2022 Vision 2050 Program Plan, with no target year.",
+      "confidence": "high",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "pending_inputs": [
+        "hold_pci_56_annual",
+        "reach_pci_70_annual",
+        "deferral_curve"
+      ]
+    },
+    {
+      "id": "parks",
+      "name": "Parks & camps",
+      "department": "Parks, Recreation & Waterfront",
+      "scope": "56 parks, 250 acres, 3 camps, 2 pools",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "Aging; backlog",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": null,
+      "unfunded_need": {
+        "point": 281500000,
+        "low": null,
+        "high": null,
+        "confidence": "moderate",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "funding": {
+        "annual_total": 3250000,
+        "source_ids": [
+          "S14"
+        ],
+        "streams": [
+          {
+            "name": "Measure Y capital (capped)",
+            "annual": 2750000,
+            "sunset": null
+          },
+          {
+            "name": "Measure Y maintenance",
+            "annual": 500000,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 6,
+      "mandate_instrument": null,
+      "governing_plan": {
+        "name": "CIP FY27-31 (PRW)",
+        "adopted": "2026",
+        "currency": "current",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      "key_finding": "Measure Y capital funding is capped at $2.75M a year. The published unfunded figure for this class is $281.5M.",
+      "confidence": "moderate",
+      "confidence_note": "PRW total may include Marina; risk of double count with the marina class.",
+      "source_ids": [
+        "S1"
+      ],
+      "pending_inputs": [
+        "marina_overlap_resolution"
+      ]
+    },
+    {
+      "id": "stormwater",
+      "name": "Storm drains / watershed",
+      "department": "Public Works",
+      "scope": "10 watersheds",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "Aging; fee unchanged ~30 yrs",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": 208000000,
+      "unfunded_need": {
+        "point": 208000000,
+        "low": null,
+        "high": null,
+        "confidence": "high",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      "funding": {
+        "annual_total": 2300000,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "Clean Stormwater Fund",
+            "annual": 2300000,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 2,
+      "mandate_instrument": "Municipal Regional Permit (MRP)",
+      "governing_plan": {
+        "name": "Watershed Management Plan 2012 / Stormwater Master Plan",
+        "adopted": "2012-10-30",
+        "currency": "stale - 14 years old",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      "key_finding": "A $208M published need against about $2.3M a year, from a fee the City reports has not been raised since the early 1990s, under a regional permit.",
+      "confidence": "high",
+      "source_ids": [
+        "S1",
+        "S5"
+      ],
+      "pending_inputs": [
+        "prop218_fee_scenario"
+      ]
+    },
+    {
+      "id": "marina",
+      "name": "Marina / Waterfront",
+      "department": "Parks, Recreation & Waterfront",
+      "scope": "Docks, pilings, parking, buildings",
+      "condition": {
+        "metric": "occupancy",
+        "value": 0.78,
+        "tier": "Failing docks/pilings",
+        "as_of": "2025",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      "replacement_value": 131000000,
+      "unfunded_need": {
+        "point": 131000000,
+        "low": null,
+        "high": null,
+        "confidence": "high",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      "funding": {
+        "annual_total": 0,
+        "source_ids": [
+          "S7"
+        ],
+        "streams": [
+          {
+            "name": "Marina Fund (in structural deficit) plus General Fund bailouts",
+            "annual": 0,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 6,
+      "mandate_instrument": "Enterprise fund; self-supporting in principle",
+      "governing_plan": {
+        "name": "Marina Fund Update 2025",
+        "adopted": "2025-05-22",
+        "currency": "current",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      "key_finding": "$131M unfunded with no capital reserves, in an enterprise fund the City reports has run a structural deficit, with one tenant holding 52% of leases.",
+      "confidence": "high",
+      "source_ids": [
+        "S1",
+        "S7"
+      ],
+      "pending_inputs": []
+    },
+    {
+      "id": "sidewalks",
+      "name": "Sidewalks",
+      "department": "Public Works",
+      "scope": "Citywide",
+      "condition": {
+        "metric": "hazard_backlog_locations",
+        "value": 1400,
+        "tier": "Hazard backlog",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ],
+        "confidence": "low",
+        "note": "Backlog count varies by source. Must be reconciled before publication."
+      },
+      "replacement_value": 50000000,
+      "unfunded_need": {
+        "point": 48000000,
+        "low": null,
+        "high": null,
+        "confidence": "moderate",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "funding": {
+        "annual_total": 2250000,
+        "source_ids": [
+          "S14"
+        ],
+        "streams": [
+          {
+            "name": "Measure FF (SAFE STREETS), 15% share",
+            "annual": 2250000,
+            "sunset": null
+          },
+          {
+            "name": "Measure T1 and 50/50 program",
+            "annual": null,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 3,
+      "mandate_instrument": "Americans with Disabilities Act (accessibility portion)",
+      "governing_plan": {
+        "name": "50/50 Program + ADA Transition Plan",
+        "adopted": "2019",
+        "currency": "expired - plan period ended 2023",
+        "source_ids": [
+          "S9"
+        ]
+      },
+      "key_finding": "Partly a federal obligation under the ADA. The governing ADA Transition Plan covered 2019-2023 and has not been replaced.",
+      "confidence": "moderate",
+      "source_ids": [
+        "S1",
+        "S9"
+      ],
+      "pending_inputs": [
+        "backlog_count_reconciliation"
+      ]
+    },
+    {
+      "id": "it",
+      "name": "IT systems",
+      "department": "Information Technology",
+      "scope": "Mission-critical systems (Fire HQ, 311, Accela)",
+      "condition": {
+        "metric": "deferred_dollars",
+        "value": 7200000,
+        "tier": "At risk",
+        "as_of": "2026",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      "replacement_value": null,
+      "unfunded_need": {
+        "point": 22600000,
+        "low": null,
+        "high": null,
+        "confidence": "high",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      "funding": {
+        "annual_total": null,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "IT Cost Allocation Fund 680",
+            "annual": null,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.03,
+      "escalation_note": "Technology refresh, not construction. ENR does not apply.",
+      "mandate_tier": 5,
+      "mandate_instrument": null,
+      "governing_plan": {
+        "name": "CIP FY27-31 (IT)",
+        "adopted": "2026",
+        "currency": "current",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      "key_finding": "$7.2M of IT projects are recorded as already deferred, including systems the City identifies as mission-critical.",
+      "confidence": "high",
+      "source_ids": [
+        "S1",
+        "S10"
+      ],
+      "pending_inputs": [
+        "annual_funding"
+      ]
+    },
+    {
+      "id": "facilities",
+      "name": "Municipal buildings / facilities",
+      "department": "Public Works / City Manager",
+      "scope": "City buildings + Civic Center",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "Deferred maintenance; seismic deficiency",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": 50000000,
+      "unfunded_need": {
+        "point": null,
+        "low": null,
+        "high": null,
+        "confidence": "low",
+        "source_ids": [
+          "S1"
+        ],
+        "note": "Civic Center seismic is put at ~$50M. No comprehensive facilities condition assessment exists, so a citywide facilities need cannot be stated."
+      },
+      "funding": {
+        "annual_total": null,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "Measure T1",
+            "annual": null,
+            "sunset": null
+          },
+          {
+            "name": "Measure U, $300M GO bond",
+            "annual": null,
+            "sunset": null,
+            "detail": "Approved by voters November 2026. Allocation across asset classes not yet adopted."
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 4,
+      "mandate_instrument": "Seismic life-safety",
+      "governing_plan": {
+        "name": "Civic Center Vision Plan",
+        "adopted": null,
+        "currency": "unknown",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "key_finding": "The City has no comprehensive facilities condition assessment, so no citywide facilities figure can be stated. The $50M shown is the Civic Center seismic estimate only.",
+      "confidence": "low",
+      "source_ids": [
+        "S1"
+      ],
+      "pending_inputs": [
+        "facilities_condition_assessment"
+      ]
+    },
+    {
+      "id": "sewer",
+      "name": "Sanitary sewer",
+      "department": "Public Works",
+      "scope": "254 mi mains + 130 mi laterals + 7 pump stations",
+      "condition": {
+        "metric": "mains_replaced_pct",
+        "value": 0.93,
+        "tier": "In compliance",
+        "as_of": "2026",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      "replacement_value": null,
+      "unfunded_need": {
+        "point": null,
+        "low": null,
+        "high": null,
+        "confidence": "low",
+        "source_ids": [
+          "S6"
+        ],
+        "note": "Berkeley-specific total unfunded need is not published. The class is funded by fees and is meeting its decree obligation."
+      },
+      "funding": {
+        "annual_total": 19900000,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "Sewer Fund 611 (ratepayer fees)",
+            "annual": 19900000,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 1,
+      "mandate_instrument": "Federal consent decree (US EPA / DOJ / State Water Board), effective 2014-09-22, 4.2 mi/yr",
+      "governing_plan": {
+        "name": "Sewer Master Plan + Consent Decree",
+        "adopted": "2014-09-22",
+        "currency": "current",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      "key_finding": "The largest continuously funded capital program in the City, at $19.9M a year, is the one under a federal consent decree.",
+      "confidence": "high",
+      "source_ids": [
+        "S1",
+        "S6"
+      ],
+      "pending_inputs": []
+    },
+    {
+      "id": "fleet",
+      "name": "Fleet / vehicles",
+      "department": "Public Works",
+      "scope": "City fleet",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "On replacement schedule",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": 16340146,
+      "unfunded_need": {
+        "point": null,
+        "low": null,
+        "high": null,
+        "confidence": "low",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "funding": {
+        "annual_total": null,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "Fleet Equipment Replacement Fund",
+            "annual": null,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 5,
+      "mandate_instrument": null,
+      "governing_plan": {
+        "name": "CIP FY27-31",
+        "adopted": "2026",
+        "currency": "current",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      "key_finding": "One of the few classes with a dedicated replacement fund.",
+      "confidence": "high",
+      "source_ids": [
+        "S1"
+      ],
+      "pending_inputs": []
+    },
+    {
+      "id": "urban_forest",
+      "name": "Urban forest / trees",
+      "department": "Parks, Recreation & Waterfront",
+      "scope": "30,779 street trees + 5,706 park trees",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "Backlog",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": null,
+      "unfunded_need": {
+        "point": null,
+        "low": null,
+        "high": null,
+        "confidence": "low",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "funding": {
+        "annual_total": 600000,
+        "source_ids": [
+          "S14"
+        ],
+        "streams": [
+          {
+            "name": "Measure Y tree unit",
+            "annual": 600000,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 6,
+      "mandate_instrument": null,
+      "governing_plan": {
+        "name": "Urban Forestry",
+        "adopted": null,
+        "currency": "unknown",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "key_finding": null,
+      "confidence": "low",
+      "source_ids": [
+        "S1"
+      ],
+      "pending_inputs": [
+        "unfunded_need"
+      ]
+    },
+    {
+      "id": "streetlights",
+      "name": "Streetlights",
+      "department": "Public Works",
+      "scope": "Citywide, LED-converted",
+      "condition": {
+        "metric": "narrative",
+        "value": null,
+        "tier": "Modernized",
+        "as_of": "2026",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "replacement_value": null,
+      "unfunded_need": {
+        "point": null,
+        "low": null,
+        "high": null,
+        "confidence": "low",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "funding": {
+        "annual_total": null,
+        "source_ids": [
+          "S1"
+        ],
+        "streams": [
+          {
+            "name": "Street Lighting Assessments",
+            "annual": null,
+            "sunset": null
+          }
+        ]
+      },
+      "annual_need_steady_state": null,
+      "escalation_rate": 0.04,
+      "mandate_tier": 6,
+      "mandate_instrument": null,
+      "governing_plan": {
+        "name": "LED conversion program",
+        "adopted": null,
+        "currency": "complete",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      "key_finding": "Reported as modernized following LED conversion. Included so the table shows classes in good condition as well as classes in poor condition.",
+      "confidence": "low",
+      "source_ids": [
+        "S1"
+      ],
+      "pending_inputs": []
+    }
+  ],
+  "programs": [
+    {
+      "id": "vision_zero",
+      "name": "Vision Zero Action Plan",
+      "adopted": "2018",
+      "total_need": 124000000,
+      "note": "Cross-cuts streets and sidewalks. Held separate to avoid double counting against those classes.",
+      "mandate_tier": 6,
+      "confidence": "high",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "_updated": "2026-11-24: Measure U (the $300M infrastructure GO bond) passed in November 2026; funding stream relabelled from \"proposed\"."
+}

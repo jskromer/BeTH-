@@ -1,0 +1,93 @@
+{
+  "dataset": "berkeley-liability-clock-liabilities",
+  "version": "0.2.0",
+  "generated": "2026-08-27",
+  "note": "Pension and retiree health (OPEB). Held strictly separate from the capital backlog: different kind of obligation, different remedy, different politics. Current balances and accrual parameters extracted from the FY2025 ACFR (S13) on 2026-08-27.",
+
+  "current_valuation": {
+    "as_reported": "2025-06-30",
+    "source_ids": ["S13"],
+    "confidence": "high",
+    "measurement_date_note": "GASB permits a one-year-lagged measurement date for pensions. Pension figures are measured at 2024-06-30 (valuation 2023-06-30); OPEB is measured at 2025-06-30. Both are as carried on the 2025-06-30 Statement of Net Position, which is how the City reports them.",
+
+    "pension": {
+      "label": "Net pension liability (CalPERS)",
+      "measurement_date": "2024-06-30",
+      "valuation_date": "2023-06-30",
+      "discount_rate": 0.069,
+      "inflation": 0.023,
+      "actuarial_cost_method": "Entry-Age Normal",
+      "locator": "ACFR pp.145-147 (printed 111-113)",
+      "plans": [
+        {"name": "Miscellaneous", "total_liability": 1305475999, "fiduciary_net_position": 961030674, "net_liability": 344445325, "service_cost": 24536537, "interest_on_total": 85743650, "employer_contribution": 36233751, "employee_contribution": 15225611},
+        {"name": "Public Safety - Fire", "total_liability": 347233954, "fiduciary_net_position": 249950465, "net_liability": 97283489, "service_cost": 6800389, "interest_on_total": 22779415, "employer_contribution": 10675536, "employee_contribution": 2285146},
+        {"name": "Public Safety - Police", "total_liability": 537526152, "fiduciary_net_position": 338191948, "net_liability": 199334204, "service_cost": 8397945, "interest_on_total": 35357845, "employer_contribution": 20107255, "employee_contribution": 3091762}
+      ],
+      "net_liability_total": 641063018,
+      "observed_net_change": -26712656,
+      "observed_change_note": "The net pension liability fell $26.7M over the measurement period, but that includes net investment income of $138.1M against roughly $107M expected at the 6.90% assumption. A strong market year is not a trend."
+    },
+
+    "opeb": {
+      "label": "Net OPEB liability (retiree health)",
+      "measurement_date": "2025-06-30",
+      "valuation_date": "2024-07-01",
+      "discount_rate": 0.052,
+      "discount_rate_basis": "AA municipal bond rate, Bond Buyer 20 Index; crossover test failed so the bond rate applies",
+      "expected_return": 0.0275,
+      "healthcare_trend": "7.90% decreasing to 3.45%",
+      "locator": "ACFR pp.155, 159, 162, 163, 168 (printed 121, 125, 128, 129, 134)",
+      "plans": [
+        {"name": "Fire Employees Retiree Health", "total_liability": 26142568, "fiduciary_net_position": 14834748, "net_liability": 11307820, "service_cost": 1426866, "interest_on_total": 1455298, "employer_contribution": 1051229, "employee_contribution": 0},
+        {"name": "Miscellaneous Retiree Health Premium Assistance", "total_liability": 53555610, "fiduciary_net_position": 39434156, "net_liability": 14121454, "service_cost": 3038353, "interest_on_total": 2523179, "employer_contribution": 2929882, "employee_contribution": 0},
+        {"name": "Police Retiree Health Premium Assistance", "total_liability": 19745722, "fiduciary_net_position": 1786107, "net_liability": 17959615, "service_cost": 1751827, "interest_on_total": 1495406, "employer_contribution": 400136, "employee_contribution": 96972}
+      ],
+      "net_liability_total": 43388889,
+      "observed_net_change": -40100075,
+      "observed_change_note": "The net OPEB liability fell sharply, but the fall is dominated by one-time items: assumption changes across all three plans and a $14.6M change in benefit terms in the Police plan, plus $6.6M in the Fire plan. Those do not repeat."
+    },
+
+    "combined_unfunded": 684451907,
+    "combined_note": "Net pension liability plus net OPEB liability as carried on the 2025-06-30 Statement of Net Position."
+  },
+
+  "actuarial_params": {
+    "status": "resolved",
+    "resolved_on": "2026-08-27",
+    "resolved_from": "S13",
+    "method": "Structural accrual on the unfunded balance: interest at the plan discount rate, less the amortization payment (employer contributions above the employer share of normal cost). Excludes investment performance and one-time assumption or benefit-term changes, so it measures the funding policy rather than the market.",
+    "note": "Formerly PR2. Closed 2026-08-27."
+  },
+
+  "historical_series": {
+    "label": "Pension + retiree health (OPEB), combined unfunded liability",
+    "basis": "inflation-adjusted",
+    "source_ids": ["S2", "S11"],
+    "confidence": "high",
+    "series": [
+      {"fy": 2012, "value": 567400000},
+      {"fy": 2013, "value": 666200000},
+      {"fy": 2014, "value": 723900000},
+      {"fy": 2015, "value": 623400000},
+      {"fy": 2016, "value": 685800000},
+      {"fy": 2017, "value": 723000000},
+      {"fy": 2018, "value": 743600000},
+      {"fy": 2019, "value": 721600000},
+      {"fy": 2020, "value": 787200000, "note": "peak"},
+      {"fy": 2021, "value": 773100000}
+    ],
+    "comparability_warning": "This series is inflation-adjusted and ends at FY2021. The current_valuation figures above are nominal and current. Do not splice them into one line without restating one basis onto the other.",
+    "caveat": "CalPERS contribution rates and discount-rate changes are partly outside the City's control. The Auditor says so explicitly. This series is context, not an accountability claim."
+  },
+
+  "capital_backlog_series": {
+    "label": "Unfunded capital / deferred maintenance",
+    "source_ids": ["S2", "S11"],
+    "series": [
+      {"fy": 2017, "value": 524000000, "confidence": "high"},
+      {"fy": 2021, "value": 1200000000, "confidence": "high"},
+      {"fy": 2026, "value": 1800000000, "low": 1650000000, "high": 2500000000, "confidence": "moderate"}
+    ],
+    "note": "More than doubled FY2017 to FY2021. The FY2026 point is an estimate within a wide published band; see assumptions.json:backlog_basis."
+  }
+}

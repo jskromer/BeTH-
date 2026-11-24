@@ -1,0 +1,109 @@
+{
+  "dataset": "berkeley-liability-clock-pending-requests",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "note": "Outstanding data the model needs. Each entry names who holds it, what it unblocks, and what the model does in the meantime. Nothing here is estimated and published. PR2 resolved 2026-08-27.",
+  "requests": [
+    {
+      "id": "PR1",
+      "item": "Pavement funding targets from the City's pavement management model",
+      "detail": "Annual expenditure required to (a) hold PCI at 56, and (b) reach PCI 70 ('good'). Berkeley uses StreetSaver / MTC methodology.",
+      "holder": "City of Berkeley Public Works, Engineering - author of the 5-Year Street Rehabilitation Plan (Reso 71,120-N.S.)",
+      "escalation": "Public Records Act request if informal ask stalls",
+      "unblocks": [
+        "deterioration accrual",
+        "streets drill-down target lines",
+        "underinvestment gap for streets"
+      ],
+      "status": "placeholder",
+      "placeholder_behavior": "Targets render as PENDING in the UI with this request id shown. No estimated value substitutes for them.",
+      "fields": {
+        "hold_pci_56_annual": null,
+        "reach_pci_70_annual": null,
+        "deferral_curve_by_pci_band": null
+      }
+    },
+    {
+      "id": "PR2",
+      "item": "CalPERS and OPEB valuation parameters",
+      "detail": "Discount rate, plan balances, normal cost and contributions for all three CalPERS plans and all three OPEB plans. Extracted from the FY2025 ACFR on 2026-08-27.",
+      "holder": "Annual Comprehensive Financial Report FY2025 - extracted",
+      "escalation": "none needed; extraction task",
+      "unblocks": [
+        "actuarial accrual",
+        "current-year pension ticker"
+      ],
+      "status": "resolved",
+      "placeholder_behavior": "Resolved. The actuarial component is live. The FY2012-FY2021 inflation-adjusted series is retained as history and is explicitly not spliced to the current nominal figures.",
+      "resolved_on": "2026-08-27",
+      "findings": [
+        "Combined unfunded pension + OPEB is $684.5M as carried at 2025-06-30, not the $773.1M FY2021 inflation-adjusted figure the ledger uses.",
+        "Structural accrual is +$344,207/yr - effectively flat, and 0.5% of the capital side's $71.8M/yr.",
+        "Pension amortization exceeds interest by only $3.65M/yr on a $641M balance: 0.57% principal reduction, ~176 years at that pace.",
+        "OPEB employer contributions cover 71.6% of employer normal cost, so the OPEB unfunded balance grows structurally."
+      ]
+    },
+    {
+      "id": "PR3",
+      "item": "Reconciliation of the citywide backlog headline",
+      "detail": "Three published totals disagree: ~$1.8B (Auditor-derived), ~$2.1B (CIP presentation), $941.1M (sum of published class figures). Establish which is comparable to which.",
+      "holder": "City Auditor and Public Works CIP staff",
+      "escalation": "none; analytic reconciliation",
+      "unblocks": [
+        "confidence in the headline number"
+      ],
+      "status": "open",
+      "placeholder_behavior": "Clock runs on $1.8B, displays the $1.65-2.5B band, and shows the $858.9M not attributed to any class."
+    },
+    {
+      "id": "PR4",
+      "item": "Comprehensive facilities condition assessment",
+      "detail": "None exists. Only the ~$50M Civic Center seismic figure is published.",
+      "holder": "City of Berkeley Public Works / City Manager",
+      "escalation": "note as a finding; the absence is itself the story",
+      "unblocks": [
+        "facilities unfunded need"
+      ],
+      "status": "does-not-exist",
+      "placeholder_behavior": "Facilities carries no unfunded figure and is flagged low-confidence in the UI."
+    },
+    {
+      "id": "PR5",
+      "item": "Sidewalk hazard backlog count",
+      "detail": "The ~1,400-location figure varies by source and needs one authoritative number.",
+      "holder": "City of Berkeley Public Works",
+      "escalation": "records request",
+      "unblocks": [
+        "sidewalk drill-down"
+      ],
+      "status": "open",
+      "placeholder_behavior": "Count shown with a low-confidence flag."
+    },
+    {
+      "id": "PR6",
+      "item": "Measure U and V ballot argument documents",
+      "detail": "Eight PDFs: argument in favor, argument against, and both rebuttals, for each measure.",
+      "holder": "Candidate (local files) or Alameda County Registrar of Voters",
+      "escalation": "county sample ballot is public",
+      "unblocks": [
+        "Card B: pathos coding"
+      ],
+      "status": "retired",
+      "placeholder_behavior": "Card B specified but uncoded. Phase 4 work; not blocking Phases 0-3.",
+      "retired_on": "2026-11-24",
+      "note": "Related to pre-election analysis of the November 2026 ballot arguments. The election has passed and this is not part of the published page."
+    },
+    {
+      "id": "PR7",
+      "item": "Marina / parks double-count resolution",
+      "detail": "The $281.5M parks figure may already include the $131M marina figure. Summing both may overstate by up to $131M.",
+      "holder": "PRW CIP staff",
+      "escalation": "analytic",
+      "unblocks": [
+        "safe aggregation of the class table"
+      ],
+      "status": "open",
+      "placeholder_behavior": "Both shown; aggregate carries an overlap warning."
+    }
+  ]
+}

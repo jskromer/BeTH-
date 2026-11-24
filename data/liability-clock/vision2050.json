@@ -1,0 +1,98 @@
+{
+  "dataset": "berkeley-liability-clock-vision2050",
+  "version": "0.1.0",
+  "generated": "2026-08-27",
+  "as_of": "2026-08-27",
+  "note": "Commitments extracted verbatim from Realize Vision 2050 (Mayor's Task Force, Oct 23 2025; transmitted to Council Dec 2 2025). STATUS IS NOT ASSERTED. Each row records the commitment, its stated due date, and whether a public record of completion has been located. 'no_public_record' means exactly that and nothing more - not that the work did not happen.",
+
+  "source": {
+    "id": "S15",
+    "title": "Realize Vision 2050: An Update to Vision 2050 and Recommendations to Address Berkeley's Infrastructure",
+    "author": "Mayor's Realize Vision 2050 Task Force; co-chairs Ray Yep and Margo Schueler",
+    "report_date": "2025-10-23",
+    "transmitted": "2025-12-02",
+    "transmittal": "Council Action Calendar, Special Item 01, from Mayor Adena Ishii",
+    "pages": 43,
+    "locator_scheme": "PDF page numbers of the 44-page transmittal packet",
+    "held_at": "sources/vision2050/v2050-final-report-2025.pdf"
+  },
+
+  "lineage": {
+    "measure_r": {"date": "2018-11", "note": "Advisory measure, ~83% yes: asks the Mayor to develop a 30-year infrastructure plan", "confidence": "moderate", "source_ids": ["S16"]},
+    "vision_2050_adopted": {"date": "2020-09-29", "note": "Vision 2050, a 30-year plan, adopted by City Council", "confidence": "high", "locator": "p.3"},
+    "task_force_reconvened": {"date": "2025-02", "note": "Mayor Ishii reconvenes the Task Force, joined by Councilmembers Tregub and Taplin", "confidence": "high", "locator": "p.1"},
+    "unfunded_need_stated": {"value": 2000000000, "as_written": "$2+ billion / approximately $2 billion", "confidence": "high", "locator": "pp.4, 11"}
+  },
+
+  "updated_vision_statement": {
+    "locator": "pp.3, 6",
+    "text": "Our City is an eco-city. Our streets are significant contributors to our resilience, which should incorporate technologies such as sustainable, permeable surfaces that work with nature. All City departments and partner agencies coordinate seamlessly to manage infrastructure as one interconnected system. Greenery, native flora, and urban wildlife are fully and rightfully integrated into the city's design, making Berkeley a living ecosystem where infrastructure and nature thrive together. The City maintains systems that enable continuous adaptation of infrastructure to evolving fire safety, traffic safety and climate resilience needs, ensuring a safe and sustainable future for all."
+  },
+
+  "top_five_actions": [
+    {"key": "A", "title": "Have a Unified Approach Across City Departments and Other Agencies", "locator": "p.3"},
+    {"key": "B", "title": "Prepare an Infrastructure Program Plan", "detail": "by Spring 2026, with an updated CIP and the next budget; prioritization using Envision criteria, to address the $2+ billion of infrastructure needs", "locator": "pp.3-4"},
+    {"key": "C", "title": "Implement an Asset Management Program (AMP)", "detail": "life cycle maintenance management; condition assessment started and NexGen asset management software fully implemented", "locator": "p.4"},
+    {"key": "D", "title": "Gain Support for New Funding", "detail": "Council should discuss polling and funding options for a measure in 2026 or 2028", "locator": "p.4"},
+    {"key": "E", "title": "Promote Urgency in Addressing Infrastructure", "locator": "p.4"}
+  ],
+
+  "commitments": [
+    {"id": "C01", "goal": 1, "goal_title": "Improve infrastructure planning", "text": "Prepare a master schedule for preparing and updating planning studies", "due": "2026-07-31", "due_as_written": "July 2026", "precision": "month", "locator": "p.10", "status": "no_public_record"},
+    {"id": "C02", "goal": 1, "goal_title": "Improve infrastructure planning", "text": "Prepare a new policy for post-disaster reconstruction complying with the City's climate action goals", "due": "2026-07-31", "due_as_written": "July 2026", "precision": "month", "locator": "p.10", "status": "no_public_record"},
+    {"id": "C03", "goal": 1, "goal_title": "Improve infrastructure planning", "text": "Department heads to coordinate planning during annual budget reviews", "due": null, "due_as_written": "recurring, annual budget reviews", "precision": "recurring", "locator": "p.10", "status": "no_public_record"},
+
+    {"id": "C04", "goal": 2, "goal_title": "Create a technology hub", "text": "Establish collaboration with U.C. Berkeley and U.C. Davis", "due": "2026-04-30", "due_as_written": "April 2026", "precision": "month", "locator": "p.10", "status": "no_public_record"},
+    {"id": "C05", "goal": 2, "goal_title": "Create a technology hub", "text": "Prepare a plan to incorporate new technologies, emphasis on green infrastructure, in the implementation of Measure FF", "due": "2026-04-30", "due_as_written": "April 2026", "precision": "month", "locator": "p.10", "status": "no_public_record"},
+
+    {"id": "C06", "goal": 3, "goal_title": "Implement a life cycle maintenance management program", "text": "Establish an AMP steering committee, including the Mayor's office, City Manager's office, the FITES Policy Committee and subject matter experts", "due": "2026-07-31", "due_as_written": "July 2026", "precision": "month", "locator": "p.11", "status": "no_public_record"},
+    {"id": "C07", "goal": 3, "goal_title": "Implement a life cycle maintenance management program", "text": "Begin condition assessment of infrastructure systems", "due": "2026-07-31", "due_as_written": "July 2026", "precision": "month", "locator": "p.11", "status": "no_public_record", "note": "The report states condition assessment work has started and NexGen software is fully implemented, so this may be partly met; no public milestone record located."},
+    {"id": "C08", "goal": 3, "goal_title": "Implement a life cycle maintenance management program", "text": "Implement an AMP for facilities, street paving, sidewalks and sewers", "due": "2027-07-31", "due_as_written": "July 2027", "precision": "month", "locator": "p.11", "status": "not_yet_due"},
+    {"id": "C09", "goal": 3, "goal_title": "Implement a life cycle maintenance management program", "text": "Prepare an annual maintenance plan by Q1 of each fiscal year, and a report of maintenance work completed by the following Q1", "due": null, "due_as_written": "recurring, Q1 each fiscal year", "precision": "recurring", "locator": "p.11", "status": "no_public_record"},
+
+    {"id": "C10", "goal": 4, "goal_title": "Invest in our future", "text": "City Council to conduct polling to evaluate public support for funding infrastructure improvements", "due": "2026-03-31", "due_as_written": "early 2026", "precision": "vague", "locator": "p.11", "status": "no_public_record"},
+    {"id": "C11", "goal": 4, "goal_title": "Invest in our future", "text": "City staff to develop a long-term strategy for the City's bonding capacity and the scheduling of issuing bonds", "due": "2026-06-30", "due_as_written": "Spring 2026", "precision": "vague", "locator": "p.11", "status": "no_public_record"},
+    {"id": "C12", "goal": 4, "goal_title": "Invest in our future", "text": "Complete an Infrastructure Program Plan, to prioritize funding needs and consider organizational requirements", "due": "2026-06-30", "due_as_written": "Spring 2026", "precision": "vague", "locator": "p.11", "status": "no_public_record", "note": "Named as top-five action B. The Mar 19 2026 memo from task force members states the Program Plan was not implemented as of that date."},
+    {"id": "C13", "goal": 4, "goal_title": "Invest in our future", "text": "City Council to discuss a funding measure in 2026 or 2028", "due": "2026-12-31", "due_as_written": "2026 or 2028", "precision": "range", "locator": "p.11", "status": "apparently_met", "note": "A $300M infrastructure GO bond was placed on the November 2026 ballot, which satisfies the discussion commitment. Whether it followed the prioritization the same report calls critical is the open question."},
+
+    {"id": "C14", "goal": 5, "goal_title": "Engage the public", "text": "Initiate public tours of infrastructure projects, and hold a tour once a quarter", "due": "2026-04-30", "due_as_written": "April 2026, quarterly thereafter", "precision": "month", "locator": "p.11", "status": "no_public_record"},
+    {"id": "C15", "goal": 5, "goal_title": "Engage the public", "text": "Hold a public kickoff meeting for Measure FF", "due": "2026-03-31", "due_as_written": "2026 Q1", "precision": "quarter", "locator": "p.12", "status": "no_public_record"},
+    {"id": "C16", "goal": 5, "goal_title": "Engage the public", "text": "Develop a strategy to utilize social media more effectively", "due": "2026-06-30", "due_as_written": "Spring 2026", "precision": "vague", "locator": "p.12", "status": "no_public_record"},
+    {"id": "C17", "goal": 5, "goal_title": "Engage the public", "text": "Initiate an annual report to the public of public works success stories", "due": null, "due_as_written": "recurring, annual", "precision": "recurring", "locator": "p.12", "status": "no_public_record"}
+  ],
+
+  "recommended_next_actions": [
+    {"n": 1, "text": "Inform Council of the Realize Vision 2050 Implementation Plan", "lead": "Mayor Ishii", "locator": "p.12", "status": "met", "note": "Transmitted to Council 2025-12-02."},
+    {"n": 2, "text": "Communicate with applicable commissions and Council Policy Committees (FITES, HLEECS, and seven named commissions)", "lead": "Mayor's office", "locator": "p.12", "status": "no_public_record"},
+    {"n": 3, "text": "Consider a ballot funding measure in 2026 or 2028", "lead": "Mayor Ishii, with City Council and City Manager", "locator": "p.12", "status": "apparently_met"},
+    {"n": 4, "text": "Form a core team led by the Public Works Director to implement the recommended actions; progress reports to Council and commissions annually or as needed", "lead": "Public Works Department", "locator": "p.12", "status": "no_public_record", "note": "This is the commitment that would have produced a status record for every other row on this page. No such progress report has been located."},
+    {"n": 5, "text": "Successfully implement Measure FF", "lead": "Public Works Department", "locator": "p.12", "status": "in_progress"}
+  ],
+
+  "the_dream_in_their_words": {
+    "locator": "pp.18-19",
+    "framing": "Picture yourself standing on a street corner in Berkeley in 2050. What will our city look like? Will our infrastructure adapt to make our lives safer, more productive and enjoyable?",
+    "narrator": "Maria",
+    "elements": [
+      "protected, pothole-free bike lanes wide enough for first-responder access",
+      "a safe streets initiative (Vision Zero) that changed bike and pedestrian safety",
+      "an accessible electrified shuttle, in its 20th year of operation",
+      "restored wetlands buffering the waterfront against sea-level rise and storm surge",
+      "a bustling ferry terminal at the Marina",
+      "solar and wind producing a significant portion of city power",
+      "citywide secure Wi-Fi",
+      "Fire Department conducting neighborhood defensible-space inspections ahead of Diablo winds"
+    ],
+    "closing": "over the past 30 years, the city started implementing long-term changes that make such a positive impact to our quality of life",
+    "usage_note": "This is the City's own dream scenario, written by its own task force. Ways Forward should quote it rather than compose one. A campaign that writes the utopia owns the pathos; a campaign that quotes the City's utopia and sets it beside the City's own calendar is doing logos with the City's own material."
+  },
+
+  "status_legend": {
+    "met": "A public record of completion exists.",
+    "apparently_met": "A public event satisfies the commitment on its face.",
+    "in_progress": "Underway per a public record.",
+    "not_yet_due": "Due date has not passed.",
+    "no_public_record": "The due date has passed and no public record of completion has been located. This is a statement about the public record, not about the work.",
+    "_warning": "Statuses here are researched from public sources, not confirmed with the City. Every 'no_public_record' row should be put to the City before publication, and the reply published alongside it."
+  }
+}
