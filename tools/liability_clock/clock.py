@@ -322,6 +322,7 @@ def build():
                         "Figures are the City's own, recompiled; they have not "
                         "been through external review."),
         },
+        "page_updated": assumptions["page_updated"],
         "basis_date": assumptions["basis_date"],
         "basis_epoch_ms": basis_epoch_ms(assumptions["basis_date"]),
         "seconds_per_year": spy,

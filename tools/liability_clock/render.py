@@ -9,6 +9,8 @@ import io, json, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, os.pardir, os.pardir))
 MODEL = os.path.join(REPO, "data", "liability-clock", "_model.json")
+PAGES = os.path.join(REPO, "docs", "data", "pages.json")
+PAGE_ID = "berkeley-liability-clock.html"
 OUT = os.path.join(REPO, "docs", "berkeley-liability-clock.html")
 
 E = lambda s: (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
@@ -29,7 +31,23 @@ def pill(conf):
     return '<span class="pill c-%s">%s</span>' % (c, c)
 
 
-def render(m):
+def longdate(iso):
+    y, mth, dy = (int(x) for x in iso.split("-"))
+    names = ["January", "February", "March", "April", "May", "June", "July",
+             "August", "September", "October", "November", "December"]
+    return "%s %d, %d" % (names[mth - 1], dy, y)
+
+
+def checked_date():
+    """The last-reviewed date from the site's freshness registry, if this page is in it."""
+    try:
+        with io.open(PAGES, encoding="utf-8") as fh:
+            return json.load(fh)["pages"][PAGE_ID]["checked"]
+    except Exception:
+        return None
+
+
+def render(m, checked=None):
     cap, po = m["capital"], m["pension_opeb"]
     st = m["drilldowns"]["streets"]
     sa, scond = st["arithmetic"], st["condition"]
@@ -109,6 +127,12 @@ ul.tight { margin:6px 0 0 18px; padding:0; } ul.tight li { margin-bottom:4px; }
       '<a href="berkeley-cip-hub-vs-vision-2050.html">the dashboard referral vs. Vision 2050</a> · '
       '<a href="berkeley-measure-u-oversight.html">who watches the $300 million</a> · '
       '<a href="berkeley-cip-hub-data-review.html">the studio data review</a></p>')
+
+    upd = 'Last updated %s' % longdate(m["page_updated"])
+    if checked and checked != m["page_updated"]:
+        upd += '; sources last checked %s' % longdate(checked)
+    A('  <p class="side" id="updated">%s \u00b7 capital figures as of %s, pension and retiree health as carried %s</p>'
+      % (upd, m["basis_date"], m["pension_opeb"]["as_reported"]))
 
     A('  <div class="disc"><strong>Acronyms used on this page.</strong> ACFR = Annual Comprehensive Financial Report · '
       'AMP = Asset Management Program · CIP = Capital Improvement Program · ENR = Engineering News-Record '
@@ -342,10 +366,15 @@ ul.tight { margin:6px 0 0 18px; padding:0; } ul.tight li { margin-bottom:4px; }
           % (E(s["id"]), E(s["title"]), loc, E(s["author"]), E(s["date"])))
     A('  </table></div>')
 
-    A('\n  <p class="foot">Learn About Berkeley · Capital backlog basis %s; pension and retiree health as carried %s. '
+    checked_bit = ('; sources last checked %s' % longdate(checked)) if checked and checked != m["page_updated"] else ''
+    A('\n  <p class="foot">Learn About Berkeley · Page last updated %s%s. '
+      '<span class="pill c-High">High</span> = read directly from the cited document · '
+      '<span class="pill c-Moderate">Moderate</span> = inference, a single check, or an absence in the public record · '
+      '<span class="pill c-Low">Low</span> = unverified. '
+      'Capital backlog basis %s; pension and retiree health as carried %s. '
       'Figures are the City of Berkeley’s own, recompiled and cited. Where the City’s documents disagree, this page '
       'shows the disagreement rather than choosing. Model version %s.</p>'
-      % (m["basis_date"], po["as_reported"], m["_meta"]["version"]))
+      % (longdate(m["page_updated"]), checked_bit, m["basis_date"], po["as_reported"], m["_meta"]["version"]))
 
     A('</div>')
     A('<script>')
@@ -363,7 +392,7 @@ ul.tight { margin:6px 0 0 18px; padding:0; } ul.tight li { margin-bottom:4px; }
 if __name__ == "__main__":
     with io.open(MODEL, encoding="utf-8") as fh:
         m = json.load(fh)
-    html = render(m)
+    html = render(m, checked_date())
     with io.open(OUT, "w", encoding="utf-8") as fh:
         fh.write(html)
     print("wrote %s (%d bytes)" % (os.path.relpath(OUT, REPO), len(html)))

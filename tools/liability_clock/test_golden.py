@@ -147,6 +147,15 @@ def main():
     check("streets drill-down is the only one built",
           m["drilldowns"]["_built"] == ["streets"])
 
+    import datetime
+    pu = m["page_updated"]
+    check("the page carries an updated date",
+          bool(pu) and len(pu) == 10)
+    check("the updated date is not in the future",
+          datetime.date.fromisoformat(pu) <= datetime.date.today(), pu)
+    check("the updated date is not before the figures it describes",
+          datetime.date.fromisoformat(pu) >= datetime.date.fromisoformat(m["basis_date"]))
+
     print("\nHONESTY GUARDS")
     check("the three conflicting backlog totals are all retained",
           m["capital"]["backlog"]["point"] == 1_800_000_000

@@ -162,5 +162,7 @@
   },
   "actuarial_basis_date": "2025-06-30",
   "actuarial_basis_rationale": "The balance-sheet date the pension and OPEB net liabilities are carried at. Differs from the capital basis date (2026-06-30) because the two come from different documents; each ticker accrues from its own basis rather than forcing a common one.",
-  "_updated": "2026-11-24: published-estimate series extended from the Vision 2050 comparison page; Measure U passed."
+  "_updated": "2026-11-24: published-estimate series extended from the Vision 2050 comparison page; Measure U passed.",
+  "page_updated": "2026-11-25",
+  "page_updated_note": "Date the page content last changed. The \"checked\" date comes from docs/data/pages.json, which tools/staleness_check.py maintains."
 }
