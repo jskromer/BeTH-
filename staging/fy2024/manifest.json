@@ -504,8 +504,8 @@
     },
     "data/funds/ACFR-lillie-b-wall-memorial.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "bf7eadf4956fce1363cb0549935fdd8091630c953b4f675901068d9550bc33af",
-      "size_bytes": 1624
+      "sha256": "f773b9a847e0e503a82cf3ad15afb476479540c1716131a5997b253646c4083a",
+      "size_bytes": 1622
     },
     "data/funds/ACFR-measure-b-bike-and-pedestrian.json": {
       "role": "existing ledger comparison and preservation evidence",
@@ -604,8 +604,8 @@
     },
     "data/funds/ACFR-opt-public-safety.json": {
       "role": "existing ledger comparison and preservation evidence",
-      "sha256": "04dca05e207be6c9f832d909e95b81ff686e8f0ac62b3dcc57b541e923ba74f1",
-      "size_bytes": 1817
+      "sha256": "3cf7083bd4436c186c7107a2975b8c1759f6aaa2a84baea1efba8ea01af63834",
+      "size_bytes": 1815
     },
     "data/funds/ACFR-other-special-deposits.json": {
       "role": "existing ledger comparison and preservation evidence",
