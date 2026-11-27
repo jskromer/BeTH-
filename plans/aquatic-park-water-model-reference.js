@@ -28,7 +28,7 @@
     weirLen: 15,            // ft, from field notes (unverified)
     storm: "none",
     stormStartDay: 3,
-    tideAmp: 1.0,           // 1.0 = mean tides; 1.25 ~ king tide
+    tideAmp: 1.0,           // 1.0 = mean tides; 1.25 = spring; 1.45 = king tide (~7.4 ft MLLW, NOAA 9414816, Nov 25 2026)
     potterStormFrac: 0.25,  // share of Potter runoff that reaches the lagoons (WMP: up to ~29% in a 10-yr storm)
     baySalinity: 28,        // ppt, assumption for central Bay off Berkeley
     initSalinity: 24,

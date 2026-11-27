@@ -23,7 +23,7 @@ Draw a stylized plan view, north up, roughly 900 × 520 units:
 3. **The main lagoon**, about 1 mile long and 58.3 acres, a long blue shape east of the freeway. The **Model Yacht Basin** is a small basin at the south end, joined to the main lagoon by two small culverts.
 4. **The railroad** as a dashed line east of the lagoon; West Berkeley and "the rest of the City" to the right.
 5. **Five tide tubes** drawn as five short parallel lines through the freeway band at mid-lagoon. These are two-way: Bay water flows in on a rising tide and out on a falling tide. Their state (clean, clogged, collapsed) is the single most important control.
-6. **The Strawberry Creek storm drain** entering from the right at the north end and running under University Avenue to a Bay outfall. On it, at 2nd Street, a small red square: **the weir**, a concrete crest with a 12-inch board on top, and a dashed red overflow pipe from the weir to the lagoon's north end at Addison Street. The overflow runs only when the water in the storm drain stands higher than the board. With the board gone, the crest is a foot lower and high tides also spill over it into the lagoon.
+6. **The Strawberry Creek storm drain** entering from the right at the north end and running under University Avenue to a Bay outfall. On it, at 2nd Street, a small red square: **the weir**, a concrete crest with a 12-inch board on top, and a dashed red overflow pipe from the weir to the lagoon's north end at Addison Street. The overflow runs only when the water in the storm drain stands higher than the board. Even with the board in, the year's highest king tides top it: on November 24, 2026, at a predicted 7.34 ft MLLW, observers saw Bay water entering the lagoon here with the board judged in place. With the board gone, the crest is a foot lower and ordinary higher-high tides spill too.
 7. **The Potter Street storm drain** entering from the right at the south end, tidal, connected to the Model Yacht Basin by two culverts set about three feet above the pipe floor; large storms and high tides push water from it into the basin and on into the main lagoon.
 8. **East-side street drains** (Grayson, Carleton, Parker, Dwight, Channing, Bancroft, Heinz) as short brown arrows from the City straight into the lagoon.
 9. A **tide gauge** in the Bay band and a **lagoon gauge** beside the lagoon, each a vertical bar with the current level and a thin trace of the last 48 hours.
@@ -52,7 +52,9 @@ All elevations in feet above MLLW (the Bay tide datum). Confidence: **High** = r
 | East-side direct drainage to the lagoon | 231 acres (sub-basins 15–21) | APIP 2008 Table 16 | High |
 | Share of Potter runoff reaching the lagoons | up to about 29% in a 10-year storm (68 acre-feet) | Watershed Management Plan 2012, Appendix D | Moderate |
 | Bay salinity off Berkeley | 28 ppt | Assumption (central Bay, dry season) | Assumption |
-| Mean tide level; semidiurnal and diurnal amplitudes | 3.2 ft; 1.9 ft (M2); 1.0 ft (K1+O1) | Assumption consistent with Berkeley tide tables (MHHW ≈ 6.0, MLLW = 0) | Assumption |
+| Mean tide level; semidiurnal and diurnal amplitudes | 3.2 ft; 1.9 ft (M2); 1.0 ft (K1+O1) | Assumption fitted to NOAA Berkeley station 9414816 (MHHW 6.10 ft above MLLW) | Assumption |
+| King tide, November 2026 | Predicted highs 7.12–7.40 ft MLLW, Nov 23–26, 2026 | NOAA CO-OPS 9414816 predictions | High |
+| Weir overtopped at king tide with board in | Observed Nov 24, 2026, at ~7.3 ft | Stakeholder field observation (Moderate) | Moderate |
 
 **Design storms at the park, from APIP 2008 Table 16** (24-hour events; peak flow in cfs, runoff volume in acre-feet):
 
@@ -70,7 +72,7 @@ All elevations in feet above MLLW (the Bay tide datum). Confidence: **High** = r
 
 Time step 1 hour. State variables: lagoon level `h` (ft MLLW), lagoon salinity `S` (ppt), storm-water tracer volume `F` (ft³). Lagoon area `A` is constant (prismatic lagoon). Lagoon volume `V = A × (depth + (h − 3.2))`.
 
-**Tide.** `h_bay(t) = 3.2 + a × (1.9 sin(2πt/12.4206) + 1.0 sin(2πt/23.9345 + 1.1))`, `t` in hours, `a` the tide-amplitude slider (1.0 mean tides, 1.25 king tide).
+**Tide.** `h_bay(t) = 3.2 + a × (1.9 sin(2πt/12.4206) + 1.0 sin(2πt/23.9345 + 1.1))`, `t` in hours, `a` the tide-amplitude slider (1.0 mean tides, 1.25 spring tides, 1.45 king tide; 1.45 peaks at about 7.4 ft, matching NOAA's November 25, 2026 prediction).
 
 **Tide tubes (two-way).** `Q_tube = e × K × sign(Δh) × √|Δh|` with `Δh = h_bay − h`, `e` the tube-efficiency slider (0–1), `K = 110 cfs/√ft`. K is calibrated so that `e = 0.6` at mean tides gives about 22 acre-feet of inflow per flood tide, the APIP's existing-condition figure. The Alternative 4B preset multiplies K by 3.1 to reach about 115 acre-feet per cycle.
 
@@ -78,7 +80,7 @@ Time step 1 hour. State variables: lagoon level `h` (ft MLLW), lagoon salinity `
 
 **Strawberry storm flow.** A triangular hydrograph with the table's peak `Qp` and volume `Vs`: base `T = 2 Vs / Qp` hours, rising limb `T/3`, starting at the chosen storm hour. Depth in the 90-inch pipe: `y = 7.5 × (Q/420)^0.55` for `Q ≤ 420 cfs` (an assumed full-pipe capacity), and surcharged above that: `y = 7.5 + 2.5 × (Q − 420)/420`. Water level at the weir `= max(0.5 + y, h_bay)`; the 0.5 ft is the assumed pipe invert, and the max term is tidal backwater from the outfall.
 
-**The weir.** Crest with board `= 7.0 ft MLLW`; without board `= 6.0` (which equals invert + 5.5 ft, the APIP overflow threshold, and is about MHHW, so without the board the higher high tides spill). `Q_weir = 3.0 × L × (level − crest)^1.5` when positive, `L = 15 ft`. If the storm flow is below 5 cfs and the Bay is above the crest, the spill is tagged as Bay water (salty); otherwise as storm water (fresh). The spill is capped at what is actually in the pipe.
+**The weir.** Crest with board `= 7.0 ft MLLW` (the November 24, 2026 observation puts the top of the board below about 7.3 ft); without board `= 6.0` (which equals invert + 5.5 ft, the APIP overflow threshold, and is about MHHW, so without the board the higher high tides spill). `Q_weir = 3.0 × L × (level − crest)^1.5` when positive, `L = 15 ft`. If the storm flow is below 5 cfs and the Bay is above the crest, the spill is tagged as Bay water (salty); otherwise as storm water (fresh). The spill is capped at what is actually in the pipe.
 
 **Potter storm inflow.** The Potter hydrograph times the Potter-share slider (default 0.25).
 
@@ -98,9 +100,10 @@ A working reference implementation of exactly this model, in 120 lines of plain 
 |---|---|---|---|---|---|---|
 | 2007: the APIP baseline | 0.60 | in | mean | none | 3.0 | "Five tubes at 60%: about 22 acre-feet in and out each tide." |
 | Summer 2019: tubes clogged | 0.08 | in | mean | none | 3.0 | "Under 10% efficiency: the lagoon barely breathes." |
-| Fall 2019: the board is gone | 0.08 | out | king (1.25) | none | 3.0 | "With the redwood board missing, high tides pour over the crest into the lagoon." |
+| Fall 2019: the board is gone | 0.08 | out | king (1.45) | none | 3.0 | "With the redwood board missing, high tides pour over the crest into the lagoon." |
 | December 2019: metal weir, tubes still clogged | 0.08 | in | mean | first flush | 3.0 | "The first rains bring the first-flush load into a lagoon that cannot flush it." |
 | 2022: tubes repaired | 1.00 | in | mean | none | 3.0 | "Repair roughly doubles the exchange." |
+| November 24, 2026: king tide, board in | 1.00 | in | king (1.45) | none | 3.0 | "Even with the board in place, the highest tides of the year spill a little Bay water over the weir, as observers saw this morning." |
 | January 2023: atmospheric river | 1.00 | in | mean | 100-year | 3.0 | "Salinity crashes under 10 ppt; the sharks and rays die." |
 | APIP Alternative 4B (never built) | 1.00 ×3.1 | removed | mean | 100-year | 3.0 | "115 acre-feet per cycle: storm water is gone in days, not weeks." |
 | Custom | sliders free | | | | | |
@@ -139,8 +142,9 @@ Run each check with the reference parameters; a build is acceptable within about
 |---|---|---|
 | Baseline exchange | tubes 0.60, mean tide, no storm, 14 days | ~23 acre-feet per flood tide; ~70 acre-feet/day in; no weir flow |
 | Clogged tubes | tubes 0.08 | ~3 acre-feet per flood tide |
-| Board missing, king tide | tubes 0.08, board out, tide 1.25 | tidal spill over the weir of ~30 acre-feet in 14 days; peak spill ~30 cfs |
-| Board in, king tide | tubes 0.08, board in, tide 1.25 | zero spill |
+| Board missing, king tide | tubes 0.08, board out, tide 1.45 | tidal spill over the weir of ~100 acre-feet in 14 days; peak spill ~75 cfs |
+| Board in, king tide | tubes 0.08 or 1.00, board in, tide 1.45 | a small tidal spill, ~4 acre-feet in 14 days, peak ~10 cfs (matches the Nov 24, 2026 observation) |
+| Board in, spring tide | tubes 1.00, board in, tide 1.25 | zero spill |
 | Repaired tubes | tubes 1.00 | ~40 acre-feet per flood tide |
 | 5-year storm, repaired | tubes 1.00, storm 5-yr, 60 days | weir storm spill ~80 acre-feet, peak ~290 cfs; east side ~60 acre-feet; salinity minimum ~11 ppt; flush ~2–3 days |
 | 5-year storm, 2019 tubes | tubes 0.08, storm 5-yr, 60 days | same inflows; flush ~12 days |
@@ -162,6 +166,9 @@ This is a lumped water balance, not a hydraulic model. It treats the lagoon as o
 - City of Berkeley Watershed Management Plan (2011 Version 1.0, adopted October 30, 2012) and Appendix D (Balance Hydrologics). https://berkeleyca.gov/sites/default/files/2022-03/WatershedMgtPlan_2011October_Version1.0.pdf
 - City Manager, Update on Aquatic Park, February 15, 2023. https://berkeleyca.gov/sites/default/files/documents/2023-02-15-PRW-aquatic%20park.pdf
 - Council Item 37, June 25, 2024 (EPA grant; lagoon depth statement). https://berkeleyca.gov/sites/default/files/documents/2024-06-25%20Item%2037%20Accepting%20Grant%20Funds%20from%20the%20U.S.%20Environmental.pdf
+- NOAA CO-OPS station 9414816 (Berkeley), tide predictions and datums. https://tidesandcurrents.noaa.gov/stationhome.html?id=9414816
+- Field observations at Aquatic Park, November 24, 2026, reported in stakeholder correspondence (Jim McGrath; Susan Schwartz, Friends of Five Creeks), held by Steve Kromer.
+- aquaticpark.org, curated by Susan Schwartz for Friends of Five Creeks. https://aquaticpark.org/
 - Learn About Berkeley, "Aquatic Park: The Lagoon, the Weir and the Tide Tubes," November 2026. https://jskromer.github.io/BeTH-/berkeley-aquatic-park.html
 
 ## 11. Deliverables from the builder
